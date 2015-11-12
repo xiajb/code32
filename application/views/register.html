@@ -1,0 +1,408 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>注册技成帐号免费下载高清视频教程_技成自动化培训网</title>
+    <meta name="description" content="技成培训网提供PLC视频教程、数控冲床、电工基础知识、数控编程等高清视频教程,打造自动化在线远程教育第一品牌.(PLC|西门子|三菱|欧姆龙|变频器|触摸屏|数控|电工)" />
+    <link type="text/css" href="<?php echo base_url('application/views/style/jc.v2.css'); ?>"
+        rel="stylesheet" media="all" />
+    <link type="text/css" href="<?php echo base_url('application/views/style/register.v2.css'); ?>"
+        rel="stylesheet" media="all" />
+    <link type="text/css" href="<?php echo base_url('application/views/style/autoMail.css'); ?>" rel="stylesheet"
+        media="all" />
+    <style type="text/css">
+        .login_forms .tips {
+    height: 25px;
+    line-height: 25px;
+    text-indent: 85px;
+}
+    </style>
+</head>
+<body>
+    
+    <!-- header start -->
+    <header>
+    <section class="global_nav">
+        <nav>
+            <div class="nav clearfix">
+                <h2 class="logo"><a href="http://www.jcpeixun.com" title="技成自动化培训网">技成自动化培训网</a></h2>
+                <div class="links"><strong class="links1">客服热线：400-111-4100</strong> <strong class="links2 dn" >客服在线</strong></div>
+            </div>
+        </nav>
+    </section>
+</header>
+    <!-- header end -->
+    <!-- container start -->
+    <div id="container" class="w960 mc">
+        <div class="clearfix">
+            <div class="l b f20 h25 lh25 cblue-2">
+                注册新学员</div>
+            <div class="r h25 lh25 pr10">
+                我已经注册，现在就<a href="<?php echo base_url('/login'); ?>">登录</a></div>
+        </div>
+        <div class="main clearfix main2">
+            <div style="margin: 0px auto; float: none; position: relative;" id="reg_form" class="login_forms">
+                <!-- <form id="regForm" method="post" action="<?php  ?>" enctype="multipart/form-data"> -->
+                <?php echo validation_errors(); ?>
+                <?php echo form_open('register/do_register'); ?>
+                <fieldset>
+                    <ol>
+                        <li>用户名&nbsp;&nbsp;&nbsp;：<input type="text" id="utrueName" name="username" class="reg_txt txt_gray3-260-30"
+                            title="您的姓名" placeholder="让老师更好的为你辅导学习" maxlength="10" /></li>
+                        <li class="tips"><label for="utrueName" id="utrueName_tips"></label></li>
+
+                        <li>Q Q邮箱：<input type="text" id="uEmail" name="email" class="reg_txt txt_gray3-260-30"
+                            title="建议使用QQ邮箱" placeholder="建议使用QQ邮箱" /></li>
+                        <li class="tips">
+                            <label for="uEmail" id="e_tips">
+                                &nbsp;</label></li>
+                        <li>密&nbsp;码&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;：<input type="password" id="uPwd" name="password" class="reg_txt txt_gray3-260-30" />
+                            
+                        </li>
+                        <li class="ti3" style="text-indent: 85px;">
+                            <label for="uPwd" id="p_tips">
+                                &nbsp;</label></li>
+                        <li>重复密码：<input type="password" id="uPwd" name="repassword" class="reg_txt txt_gray3-260-30" />
+                            
+                        </li>
+                        <li class="tips">
+                            <label for="uEmail" id="e_tips">
+                                &nbsp;</label></li>
+
+                        <li>滑动验证：<script type="text/javascript" src="http://api.geetest.com/get.php?gt=1d87ac5c370eeb8036e0b7e392e96012"></script>
+                            
+                        </li>
+                        <style type="text/css">
+                            .gt_holder{
+                                    float: right;
+                                    margin-right: 64px;
+                            }
+                        </style>
+                        <li class="ti3" style="text-indent: 85px;">
+                            <label for="uPwd" id="p_tips">
+                                &nbsp;</label></li>
+                            <li>
+                            课程阶段：
+                            <select class="reg_txt txt_gray3-260-30 CourseIndustry" id="CourseIndustry" name="CourseIndustry" style="width:250px; height:30px;">
+                            <option value="小学">小学</option>
+                            <option value="初中">初中</option>
+                            <option value="高中">高中</option>
+                        </select>
+                             </li>
+                        <li style="font-size: 12px; display:none;" >感兴趣的课程:
+                            <input id="cbxPLC" name="cbxCI" type="checkbox" value="PLC">
+                            <label for="cbxPLC">
+                                PLC</label>
+                            <input id="cbxBPQ" name="cbxCI" type="checkbox" value="变频器">
+                            <label for="cbxBPQ">
+                                变频器</label>
+                            <input id="cbxZT" name="cbxCI" type="checkbox" value="组态">
+                            <label for="cbxZT">
+                                组态</label>
+                            <input id="cbxSF" name="cbxCI" type="checkbox" value="伺服">
+                            <label for="cbxSF">
+                                伺服</label>
+                            <input id="cbxCMP" name="cbxCI" type="checkbox" value="触摸屏">
+                            <label for="cbxCMP">
+                                触摸屏</label>
+                            <input id="cbxQT" name="cbxCI" type="checkbox" value="其他">
+                            <label for="cbxQT" id="lblQT">
+                                其他</label>
+                        </li>
+                        
+                        
+                        <li class="ti3">
+                            <input type="checkbox" id="agree" checked="checked" />
+                            <label for="agree">
+                                我已认真阅读并同意</label>
+                            <a href="http://www.jcpeixun.com/service.aspx" class="f14" target="_blank">用户条款</a>
+                            <a href="http://www.jcpeixun.com/help/yinSiTiaokuan.shtml" class="f14" target="_blank">
+                                隐私条款</a> </li>
+                       <!--  <li class="btns" id="btns"><span class="pubtn"><i class="btn_l1"></i><a class="pubtn_in"
+                            href="javascript:" id="register"><span class="pubtn_bg" style="padding: 0.1em 1em;
+                                font-size: 18px;">立即注册</span></a> <i class="btn_l2"></i></span></li>
+                        <li class="btns2" id="btns2" style="display: none;">正在注册，请稍候<b>...</b></li> -->
+                        <input type="submit" value="button"/>
+                    </ol>
+                </fieldset>
+                <input type="hidden" name="learnerId_recommend" id="learnerId_recommend" value="0" />
+                   <input type="hidden" name="gettype" id="gettype" value="getpassword" />
+                </form>  
+            </div>
+            <div class="login_ad" style="float: right; display: none;">
+                <div class="login_ad_contents">
+                    <ul>
+                        <li class="cred1 f20 b pl20">学工控技术，拿10万年薪</li>
+                        <li class="cred1 b pt20">PLC、变频器、触摸屏、组态、电工远程培训</li>
+                        <li class="cgray1">视频教程+在线辅导+实操设备送到家</li>
+                        <li class="cgray1">马上注册，免费学习超过100课时视频教程，免费下载海量学习资料</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- container end -->
+    <!-- footer start -->
+    <footer>
+    <div class="constrain">
+        <p><a class="links1" href="http://www.jcpeixun.com/AboutUs.aspx" target="_blank">关于我们</a> | <a class="links1" href="http://www.jcpeixun.com/contact.aspx" target="_blank">联系我们</a> | <a class="links1" href="http://www.jcpeixun.com/zhaopin.aspx" target="_blank">人才招聘</a> | <a class="links1" href="http://www.jcpeixun.com/links.aspx" target="_blank">友情链接</a> | <a class="links1" href="http://www.jcpeixun.com/help/index.aspx" target="_blank">帮助中心</a></p>
+        <p>全国免费咨询电话：400 111 4100 (工作日9:00-20:30) 邮件：<a class="links2" href="mailto:kefu@jcpeixun.com" target="_blank">kefu@jcpeixun.com </a>版权所有 深圳市技成科技 粤ICP备1106943号</p>
+    </div>
+</footer>
+    <!-- footer end -->
+    <script type="text/javascript" src="http://www.jcpeixun.com/include/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="http://www.jcpeixun.com/include/autoMail.js"></script>
+  
+    <script type="text/javascript">
+        $(function () {
+            function Radom4() {
+                var charactors = "abcd2ef3gh4ij5k6mn7pq8rst9uvwxyz";
+                var value = '', i;
+                for (j = 1; j <= 4; j++) {
+                    i = parseInt(35 * Math.random());
+                    value = value + charactors.charAt(i);
+                }
+                return value;
+            }
+
+            function gotoEmailHost(email, away) {
+                var url = email.split('@')[1];
+                if (away == 1) {
+                    window.location.href = hash[url];
+                } else if (away == 2) {
+                    window.open(hash[url], '_blank');
+                }
+            }
+
+            function CountDown(id1, id2, timer) {
+                $("#" + id2).hide();
+                var $id1 = $("#" + id1);
+                var i = timer;
+                var fn = function () {
+                    $id1.html("还有" + i + "秒");
+                    !i && $id1.hide() && $("#" + id2).show() && clearInterval(timer);
+                    i--;
+                };
+                timer = setInterval(fn, 1000);
+                fn();
+                $id1.show();
+            }
+
+            var hash = {
+                'qq.com': 'http://mail.qq.com',
+                'vip.qq.com': 'http://mail.vip.qq.com',
+                'gmail.com': 'http://mail.google.com',
+                'sina.com': 'http://mail.sina.com.cn',
+                '163.com': 'http://mail.163.com',
+                '126.com': 'http://mail.126.com',
+                'yeah.net': 'http://www.yeah.net/',
+                'sohu.com': 'http://mail.sohu.com/',
+                'tom.com': 'http://mail.tom.com/',
+                'sogou.com': 'http://mail.sogou.com/',
+                '139.com': 'http://mail.10086.cn/',
+                'hotmail.com': 'http://www.hotmail.com',
+                'live.com': 'http://login.live.com/',
+                'live.cn': 'http://login.live.cn/',
+                'live.com.cn': 'http://login.live.com.cn',
+                '189.com': 'http://webmail16.189.cn/webmail/',
+                'yahoo.com.cn': 'http://mail.cn.yahoo.com/',
+                'yahoo.cn': 'http://mail.cn.yahoo.com/',
+                'eyou.com': 'http://www.eyou.com/',
+                '21cn.com': 'http://mail.21cn.com/',
+                '188.com': 'http://www.188.com/',
+                'foxmail.coom': 'http://www.foxmail.com',
+                'simmtech-xian.com': ''
+            };
+
+            $('#uEmail').autoMail({
+                emails: ['qq.com', '163.com', '126.com', 'sina.com', 'sohu.com', 'yahoo.cn', 'gmail.com', 'hotmail.com', 'live.cn']
+            });
+
+            var vUemail = /^\w+([-+.]\w+)*@\w+([-+.]\w+)*\.\w+([-+.]\w+)*$/;
+
+
+            function $trim(arg) {
+                return $.trim(arg);
+            }
+
+            $("#uEmail").focus(function () {
+                var sEmail = $("#uEmail").val();
+                if ($trim(sEmail) == "建议使用QQ邮箱") {
+                    $("#uEmail").val("");
+                }
+                $("#e_tips").attr("class", "cgray5").html("请输入常用邮箱");
+                $(this).attr("class", "txt_blue2-260-30");
+            });
+
+            $("#utrueName").focus(function () {
+                $("#utrueName_tips").html(""); $(this).attr("class", "reg_txt txt_gray3-260-30");
+            });
+
+            $("#uPwd").focus(function () {
+                $("#e_tips").attr("class", "cgray5").html("");
+                var sEmail = $("#uEmail").val();
+                if (!vUemail.test($trim(sEmail))) {
+                    $("#e_tips").attr("class", "cred").html("请输入常用邮箱");
+                    $("#uEmail").attr("class", "txt_red2-260-30");
+                } else {
+                    var t_sEmail = $trim(sEmail);
+                    var i_sEmail = t_sEmail.substring(t_sEmail.indexOf("@") + 1);
+                    if (!hash[i_sEmail]) {
+                        $("#e_tips").attr("class", "cred").html("为了确保您能及时收到邮件，建议使用QQ邮箱");
+                        $("#uEmail").attr("class", "txt_red2-260-30");
+                    } else {
+                        /*验证邮箱是否已经注册*/
+                        $.post("/emailregister/emailIsregister.aspx", $("#regForm").serialize()).done(function (d) {
+                            if (d != "0") {
+                                /*邮箱已经注册*/
+                                $("#e_tips").attr("class", "cred").html("该邮箱已被注册,请更换邮箱，或直接<a href=\"newlogin.aspx\">登录</a>");
+                                $("#uEmail").attr("class", "txt_red2-260-30");
+                                return false;
+                            }
+                        });
+
+                    }
+
+                }
+
+                var sPwd = $(this).val();
+                $("#p_tips").attr("class", "cgray5").html("6-20字符，可使用字母、数字或符号的组合");
+                $(this).attr("class", "txt_blue2-260-30");
+            });
+            /* 发送验证码 */
+            $("#sendCode").click(function () {
+                var umobile = $("#umobile").val();
+                if (!(/^(13[0-9]|15[0-9]|17[0-9]|18[0-9])\d{8}$/).test(umobile)) {
+                    alert("请输入正确的手机号码");
+                } else {
+
+
+                    $.get("http://www.jcpeixun.com/emailregister/Exsists_Mobile.aspx", { mobile: umobile }).done(function (d) {
+
+                        if (d == "1") {
+                            alert("您输入的手机号已经存在！请更换其它手机");
+                            return false;
+                        } else {
+
+                            var jn_d = $.parseJSON($("#cur_user").val());
+                            umobile = $.trim($("#umobile").val());
+                            var radomnumber = Radom4();
+                            $.post("http://www.jcpeixun.com/ashx/api/sendMCodenew.aspx", { 'mobile': umobile, 'content': "您的验证码为：" + radomnumber, 'code': radomnumber }).done(function (d) {
+
+                                if (d == "1") {
+                                    alert("验证码发送成功，请注意查收");
+                                    CountDown("cdown_tips", "sendCode", 90);
+                                } else if (d == "-4") {
+                                    alert("不能频繁发验证码，请3分钟后再试");
+                                } else {
+                                    alert("发送失败");
+                                }
+
+                            });
+                        }
+                    });
+
+
+                }
+            });
+
+
+
+
+
+            $("#reg_form").delegate("#register", "click", function () {
+
+                var umobile = $("#umobile").val();
+                var sEmail = $("#uEmail").val();
+                var sPwd = $("#uPwd").val();
+                var validateCode = $("#validateCode").val();
+                var utrueName = $("#utrueName").val();
+
+                if (!(/^(13[0-9]|15[0-9]|17[0-9]|18[0-9])\d{8}$/).test(umobile)) {
+
+                    $("#m_tips").attr("class", "cred").html("请输入正确的手机号码.");
+                    $("#umobile").attr("class", "txt_red2-260-30");
+                    return false;
+                }
+                if (utrueName == "") {
+                    $("#utrueName_tips").attr("class", "cred").html("还未输入姓名！");
+                    $("#utrueName").attr("class", "txt_red2-260-30");
+                    return false;
+
+                }
+                //if (!vUemail.test($trim(sEmail))) {
+                var t_sEmail = $trim(sEmail);
+                var i_sEmail = t_sEmail.substring(t_sEmail.indexOf("@") + 1);
+                if (!hash[i_sEmail]) {
+                    $("#e_tips").attr("class", "cred").html("请输入常用邮箱");
+                    $("#uEmail").attr("class", "txt_red2-260-30");
+                    return false;
+                }
+
+                if ($trim(sPwd).length < 6 || $trim(sPwd).length > 20) {
+                    $("#p_tips").attr("class", "cred").html("请输入正确的密码");
+                    $("#uPwd").attr("class", "txt_red2-260-30");
+                    return false;
+                }
+
+                if ($("#agree").prop("checked") == false) {
+                    alert("请认证阅读 用户条款 和 隐私条款");
+                    return false;
+                }
+
+                if (validateCode == "") {
+                    alert("请输入验证码");
+                    return false;
+
+                }
+
+                //  $("#regForm").serialize()
+
+                if (hash[i_sEmail] && ($trim(sPwd).length > 5 && $trim(sPwd).length < 21 && $("#agree").prop("checked") == true)) {
+                    $("#btns").hide();
+                    $("#btns2").show();
+                    var radomnumber = Radom4();
+                    $.post("http://www.jcpeixun.com/ashx/api/checkMCode.aspx", { mobile: umobile, code: validateCode }).done(function (d) {
+
+                        if (d == "1") {
+                            $.post("emailregdatanew.aspx", $("#regForm").serialize()).done(function (d) {
+
+                                if (d == "1") {
+                                    //location.href = "emailregister/reg_success2.aspx";
+                                    alert("注册成功！");
+                                    location.href = " http://my.jcpeixun.com/study/MyLesson.aspx";
+                                }
+                                else {
+                                    if (d.indexOf("http") > -1) {
+                                        location.href = d;
+                                    }
+
+                                    else {
+                                        $("#btns").show();
+                                        $("#btns2").hide();
+                                        alert(d);
+                                        return false;
+                                    }
+
+                                }
+                            });
+
+                        } else if (d == "0") {
+                            alert("验证码输入错误");
+                        }
+
+                    });
+                }
+            });
+
+
+
+        })
+    </script>
+    <!--<script type="text/javascript" src="http://www.jcpeixun.com/include/couplet.js"></script>-->
+    <script type="text/javascript" src="http://www.jcpeixun.com/include/tongji.js?a=20130514001"></script>
+    <script language="JavaScript" src="http://tj.jcpeixun.com/tj.js" type="text/JavaScript"></script>
+</body>
+</html>
