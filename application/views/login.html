@@ -55,7 +55,7 @@
             </div>
         </div>
         <div class="login_forms" style="width: 425px; padding-top: 53px; border-top: solid 1px #ddd;">
-            <form id="loginForm" method="post" action="">
+            <form id="loginForm" method="post" action="<?php echo site_url().'/Login/checklogin'?>">
             <fieldset>
                 <ol>
                     <li>帐号：
@@ -88,6 +88,7 @@
                                 <span class="pubtn_bg">登 录</span></a><i class="btn_l2"></i></span><a href="http://www.jcpeixun.com/userreg.aspx"
                                     class="ml35 f14" target="_blank">注册新账号</a></li>
                     <li class="btns2" id="btns2" style="display: none;">正在登录，请稍候<b>...</b></li>
+                    <button type="submit">登录</button>
                 </ol>
             </fieldset>
             </form>
