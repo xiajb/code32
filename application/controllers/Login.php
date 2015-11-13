@@ -31,7 +31,7 @@ class Login extends CI_Controller {
 			echo '登录成功';
 			$this->session->set_userdata('user',$user_name);
 			//echo $_SESSION['user'];
-			$this->load->view('test');
+			$this->load->view('index.html');
 
 		}
 		else{
