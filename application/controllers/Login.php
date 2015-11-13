@@ -26,7 +26,7 @@ class Login extends CI_Controller {
 		$user_pwd=$this->input->post('uPwd');
 		//调用登录方法
 		$a=$this->user_model->checklogin($user_name,$user_pwd);
-		if($a==true){
+		if($a){
 
 			echo '登录成功';
 			$this->session->set_userdata('user',$user_name);

@@ -15,13 +15,17 @@ class User_model extends CI_Model{
 
 	}
 
-	function  checklogin($username,$userpwd){
+	function  checklogin($user_name,$user_pwd){
 		//返回值
 		$a=false;
 		$this->load->database();
 		//查询数据库
-		$sql='select * from ci_user where user_name= "'.$username.'"and user_pwd= "'.$userpwd.'"'; 
-		$query=$this->db->query($sql);
+		//$sql='select * from ci_user where user_name= "'.$username.'"and user_pwd= "'.$userpwd.'"'; 
+		//$query=$this->db->query($sql);
+		$this->db->select('user_name','user_pwd');
+		$this->db->where('user_name',$user_name);
+		$this->db->where('user_pwd',$user_pwd);
+		$query=$this->db->get('ci_user');
 		//返回行数
 		$row=$query->num_rows();
 		//echo $row;
@@ -33,8 +37,6 @@ class User_model extends CI_Model{
 
 			return $a;
 		}
-
-
 
 	}
 }
