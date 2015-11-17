@@ -3,7 +3,7 @@
 .global_nav{;}
 .nav{width:960px;margin:20px auto;}
 .nav h2.logo{ float:left; width:210px}
-.nav h2.logo a{ display:block;width:230px;height:55px;background:url(http://images.jcpeixun.com/logo.png) no-repeat scroll 0 0 transparent;text-indent:-1000px; overflow:hidden;}
+.nav h2.logo a{ display:block;width:230px;height:55px;background:url(http://logo.png) no-repeat scroll 0 0 transparent;text-indent:-1000px; overflow:hidden;}
 .nav .links{ float:right; height:55px; line-height:55px;}
 .nav .links1{color:#ff6600;}
 .nav .links2{background:url(/emailregister/images/bg.20130415001.jpg) no-repeat scroll 0 0 transparent; margin: 0 15px;padding: 0 20px;color:#666;}
@@ -12,9 +12,9 @@
 #container{}
 #container .main{border-bottom: 1px solid #eee;border-top: 5px solid #0099CC;padding: 40px 0;width: 100%;margin-bottom:20px;}
 
-#container .main2{background:url(http://images.jcpeixun.com/bg_20130107002.png?a=20140107002) no-repeat scroll 222px 34px transparent}
+#container .main2{background:url(http://images.rfgxy.com/bg_20130107002.png?a=20140107002) no-repeat scroll 222px 34px transparent}
 
-.login_ad{float:left;width:405px; height:300px; background-color:#fff;border:solid 1px #ddd;/*background-image: url(http://images.jcpeixun.com/tit_20140904_2.png);*/position:relative;}
+.login_ad{float:left;width:405px; height:300px; background-color:#fff;border:solid 1px #ddd;/*background-image: url(http://images.rfgxy.com/tit_20140904_2.png);*/position:relative;}
 .login_ad_contents{position:absolute;top:60px;left:30px;}
 .login_ad_contents li{height:25px;line-height:25px;font-family:'微软雅黑';}
 
@@ -29,7 +29,7 @@
 .login_forms .tips{height:25px; line-height:25px;text-indent:60px;}
 .login_forms .tips2{text-indent:60px;}
 .login_forms .btns{height:50px;padding-left:60px;font-size:16px;}
-.login_forms .btns2{height:50px;line-height:50px;background:url(http://images.jcpeixun.com/loading2.gif) no-repeat scroll 40px center #F3F3F3;padding-left:80px;font-size:14px;}
+.login_forms .btns2{height:50px;line-height:50px;background:url(http://images.rfgxy.com/loading2.gif) no-repeat scroll 40px center #F3F3F3;padding-left:80px;font-size:14px;}
 
 .login_forms .reg_txt:hover{
     -moz-box-shadow:inset 1px 1px 3px rgba(0,0,0,.1); /* For Firefox3.6+ */
@@ -59,7 +59,7 @@
 .suc_gifts .gift1,.suc_gifts .gift2{float:left;width:360px; height:110px;border:dashed 1px #ddd;padding:10px;margin-right:15px;}
 .suc_gifts .gift1{background: url(../images/bg.20130528001.jpg?a=20130522002) no-repeat scroll 10px 10px #F3F3F3;}
 .suc_gifts .gift2{background: url(../images/bg.20130415003.jpg) no-repeat scroll 210px 15px #F3F3F3;}
-.suc_gifts .gift3{background: url(http://images.jcpeixun.com/bg_20130710002.jpg) no-repeat scroll 10px 10px #F3F3F3; border:none;}
+.suc_gifts .gift3{background: url(http://images.rfgxy.com/bg_20130710002.jpg) no-repeat scroll 10px 10px #F3F3F3; border:none;}
 .gift1 .gift_title1,.gift2 .gift_title2{display:block;width:60px;height:25px; line-height:25px; background-color:#ff0000;color:#fff;font-size:14px; text-align:center;}
 .gift1 dd,.gift2 dd{width:125px;height:35px; line-height:35px;padding-left:5px;}
 .gift1 .c1,.gift2 .c1{color:#0C85DE;font-size:16px;font-weight:700;}
@@ -77,7 +77,7 @@
 .v_ps_content dd{line-height:20px;}
 
 
-#email_send .send_suc{background:url(http://images.jcpeixun.com/gou.jpg) no-repeat scroll 35px -2px transparent}
+#email_send .send_suc{background:url(http://images.rfgxy.com/gou.jpg) no-repeat scroll 35px -2px transparent}
 
 
 .pubtn,.pibtn,.pubtn_in,.pibtn_in{display:inline-block;text-indent:0}

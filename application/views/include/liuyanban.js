@@ -8,14 +8,14 @@ $(document).ready(function () {
 
     $("body").append("<div class='liuyanbantop'>"
 				   + "    <ul>                 "
-				   + "        <li id='sc' style='text-align:right;'><img id='showliuyan' src='http://images.jcpeixun.com/leaveplay_01.gif' style='cursor:pointer;' /></li>"
+				   + "        <li id='sc' style='text-align:right;'><img id='showliuyan' src='http://images.rfgxy.com/leaveplay_01.gif' style='cursor:pointer;' /></li>"
 				   + "        <li>&nbsp;</li><li>留言内容：</li><li><textarea id='lycontent' style='width:200px; height:70px;overflow:hidden;border:solid 1px #aaaaaa;' ></textarea></li>"
 				   + "        <li>&nbsp;</li><li>手机号码：</li><li><input id='lyphone' type='text' style='width:200px;'/></li><li>&nbsp;</li>"
-				   + "        <li>请点击发送提交留言&nbsp;<img id='fasong' src='http://images.jcpeixun.com/leavesend.gif' style='cursor:pointer; vertical-align:middle;border:solid 1px #aaaaaa;'/></li>"
+				   + "        <li>请点击发送提交留言&nbsp;<img id='fasong' src='http://images.rfgxy.com/leavesend.gif' style='cursor:pointer; vertical-align:middle;border:solid 1px #aaaaaa;'/></li>"
 				   + "        <li>&nbsp;</li>"
 				   + "     </ul>"
                    + "  </div>"
-                   + "<div class='liuyanbantop2'><img id='showliuyan' src='http://images.jcpeixun.com/leave_small.gif' style='cursor:pointer;' /></div><div class='liuyanbantop3'></div>");
+                   + "<div class='liuyanbantop2'><img id='showliuyan' src='http://images.rfgxy.com/leave_small.gif' style='cursor:pointer;' /></div><div class='liuyanbantop3'></div>");
 
     $(".liuyanbantop2").click(function () {
         $(this).hide();
@@ -50,7 +50,7 @@ $(document).ready(function () {
                     success: function (msg) {
                         //                       if(msg==95){
                         //                           $(".liuyanbantop").hide();
-                        //                           $(".liuyanbantop3").html("<ul><li>留言重复!如紧急,请拨免费咨询:400-111-4100</li></ul>").slideDown();
+                        //                           $(".liuyanbantop3").html("<ul><li>留言重复!如紧急,请拨免费咨询:110-110-110</li></ul>").slideDown();
                         //                           $(".liuyanbantop2").show();
                         //                           $("#lycontent").val("");
                         //                           $("#lyphone").val("");
@@ -58,7 +58,7 @@ $(document).ready(function () {
                         //                           _count();
                         //                       }else if (msg>0) {
                         $(".liuyanbantop").hide();
-                        $(".liuyanbantop3").html("<ul><li>留言成功!如紧急,请拨免费咨询:400-111-4100</li></ul>").slideDown();
+                        $(".liuyanbantop3").html("<ul><li>留言成功!如紧急,请拨免费咨询:110-110-110</li></ul>").slideDown();
                         $(".liuyanbantop2").show();
                         $("#lycontent").val("");
                         $("#lyphone").val("");
@@ -66,7 +66,7 @@ $(document).ready(function () {
                         _count();
                         //                        } else {
                         //                            $(".liuyanbantop").hide();
-                        //                            $(".liuyanbantop3").html("<ul><li>留言失败,如紧急,请拨免费咨询:400-111-4100</li><li>&nbsp;</li></ul>").slideDown();
+                        //                            $(".liuyanbantop3").html("<ul><li>留言失败,如紧急,请拨免费咨询:110-110-110</li><li>&nbsp;</li></ul>").slideDown();
                         //                            $(".liuyanbantop2").show();
                         //                            $("#lycontent").val("");
                         //                            $("#lyphone").val("");

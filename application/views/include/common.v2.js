@@ -50,7 +50,7 @@ function CheckLoginemail() {
 //            width: 450,height: 400,
 //            postClose: function () { }
 //        });
-        window.location.href = "http://www.jcpeixun.com/newlogin.aspx?callback=" + escape(document.URL);
+        window.location.href = "http://www.rfgxy.com/newlogin.aspx?callback=" + escape(document.URL);
         return false;
     }
     else {
@@ -142,9 +142,9 @@ function IntoDY(time) {
 }
 /*进入YY公开课 2013-08-15*/
 function IntoDY1(time,coursename) {
-    $.post("http://www.jcpeixun.com/ashx/lesson/EnterNewYY.aspx", { 'time': escape(time), 'name': coursename }).done(function (d) {
+    $.post("http://www.rfgxy.com/ashx/lesson/EnterNewYY.aspx", { 'time': escape(time), 'name': coursename }).done(function (d) {
         if ($.parseJSON(d).message == "1") {
-            //window.parent.location.href = "http://bbs.jcpeixun.com/thread-36046-1-1.html";
+            //window.parent.location.href = "http://bbs.rfgxy.com/thread-36046-1-1.html";
 			window.parent.location.href = "yy://join:room_id=81114100";
         }
         else {
@@ -245,13 +245,13 @@ $(function () {
             if (data == "no") {
                 //未登录
 
-                var login_line_html = "欢迎来到技成培训！ [<a class=\"topLeft2Load\" title=\"请登录\" target=\"_top\" href=\"http://www.jcpeixun.com/newlogin.aspx\">请登录</a>]  [<a class=\"topLeft2Reg\" title=\"免费注册\" target=\"_top\" href=\"http://www.jcpeixun.com/userreg.aspx\">免费注册</a>]";
+                var login_line_html = "欢迎来到技成培训！ [<a class=\"topLeft2Load\" title=\"请登录\" target=\"_top\" href=\"http://www.rfgxy.com/newlogin.aspx\">请登录</a>]  [<a class=\"topLeft2Reg\" title=\"免费注册\" target=\"_top\" href=\"http://www.rfgxy.com/userreg.aspx\">免费注册</a>]";
                 $("#login_top_line").html(login_line_html);
                 $("#login_top_table_islogin").hide();
                 $("#login_top_table").show();
             }
             else if (data == "no1") {
-                window.parent.location.href = "http://www.jcpeixun.com/newlogin.aspx?callback=" + GetQueryString('geturlvaluenew');
+                window.parent.location.href = "http://www.rfgxy.com/newlogin.aspx?callback=" + GetQueryString('geturlvaluenew');
             } else {
                 //已登录
                 json = $.parseJSON(data);
@@ -260,11 +260,11 @@ $(function () {
 				var vipExpireTime = json.vipExpireTime;
 				//alert(vipExpireTime);
 
-				var login_line_html = "你好，<b>" + learnername_str + "</b>&nbsp;&nbsp;<a href=\"http://www.jcpeixun.com/logout.aspx?callback=" + escape(window.location.href) + "\">[退出]</a>";
+				var login_line_html = "你好，<b>" + learnername_str + "</b>&nbsp;&nbsp;<a href=\"http://www.rfgxy.com/logout.aspx?callback=" + escape(window.location.href) + "\">[退出]</a>";
                 //var login_line_html = " " + learnername_str + "，欢迎来到技成培训！<a href='http://192.168.0.192:8081/member.php?mod=logging&amp;action=logout&amp;formhash=1639d97f'>[退出]</a>";
                 $("#login_top_line").html(login_line_html);
 
-                //$("#login_top_table_info").html(learnername_str + "<a href='http://my.jcpeixun.com/index.aspx?url=user/Grade.aspx' class='f2'>[" + learnergrade_str + "]</a>" + "<a href=\"http://www.jcpeixun.com/userreg.aspx?u=20130925003\" target=\"_blank\" id=\"nav_xuefei\" onclick=\"_hmt.push(['_trackEvent', 'nav', 'click', 'nav_xuefei','1'])\" style=\"background: url(http://images.jcpeixun.com/bg_20130926001.gif) no-repeat scroll 46px -3px rgb(255, 255, 255)\">赚学费</a>");
+                //$("#login_top_table_info").html(learnername_str + "<a href='http://my.rfgxy.com/index.aspx?url=user/Grade.aspx' class='f2'>[" + learnergrade_str + "]</a>" + "<a href=\"http://www.rfgxy.com/userreg.aspx?u=20130925003\" target=\"_blank\" id=\"nav_xuefei\" onclick=\"_hmt.push(['_trackEvent', 'nav', 'click', 'nav_xuefei','1'])\" style=\"background: url(http://images.rfgxy.com/bg_20130926001.gif) no-repeat scroll 46px -3px rgb(255, 255, 255)\">赚学费</a>");
 
                 //$("#login_top_table_islogin").show();
                 //$("#login_top_table").hide();
@@ -274,9 +274,9 @@ $(function () {
 
                 /*修改20140121*/
 				if(learnergrade_str == "普通学员")
-					$("#logined_20140121").html("您好，<a href=\"http://my.jcpeixun.com/\">" + learnername_str + "</a> [" + learnergrade_str + "], <a href=\"http://www.jcpeixun.com/logout.aspx?callback=" + escape(window.top.location.href) + "\">退出</a>").show();
+					$("#logined_20140121").html("您好，<a href=\"http://my.rfgxy.com/\">" + learnername_str + "</a> [" + learnergrade_str + "], <a href=\"http://www.rfgxy.com/logout.aspx?callback=" + escape(window.top.location.href) + "\">退出</a>").show();
                 else
-					$("#logined_20140121").html("您好，<a href=\"http://my.jcpeixun.com/\">" + learnername_str + "</a> [" + learnergrade_str + "," + vipExpireTime + "到期], <a href=\"http://www.jcpeixun.com/logout.aspx?callback=" + escape(window.top.location.href) + "\">退出</a>").show();
+					$("#logined_20140121").html("您好，<a href=\"http://my.rfgxy.com/\">" + learnername_str + "</a> [" + learnergrade_str + "," + vipExpireTime + "到期], <a href=\"http://www.rfgxy.com/logout.aspx?callback=" + escape(window.top.location.href) + "\">退出</a>").show();
                 
 				$("#logino_20140121").hide();
 
@@ -286,7 +286,7 @@ $(function () {
         /*   直播课程表   */
         $.ajax({
             type:"get",
-            url:"http://u.jcpeixun.com/class/api/YYcourseDate2.ashx?type=1",
+            url:"http://u.rfgxy.com/class/api/YYcourseDate2.ashx?type=1",
             dataType:"jsonp",
             jsonp:"jsoncallback"
         }).done(function(d){
@@ -295,7 +295,7 @@ $(function () {
 				//var d = $.parseJSON(d);
 				var temp_str2="", link="", time1="", time2="", _minutes1="", b = 1;
 				for (var i = 0; i < d.length; i++) {
-					link = d[i].url.length<=0?"http://u.jcpeixun.com/class/"+d[i].id:d[i].url; 
+					link = d[i].url.length<=0?"http://u.rfgxy.com/class/"+d[i].id:d[i].url; 
 					time1 = formatDate(d[i].startime);
 					_minutes1 = time1.getMinutes()=="0"?"00":time1.getMinutes();
 					time2 = time1.getHours()+":"+_minutes1;
@@ -325,23 +325,23 @@ $(function () {
     $.doTimeout(5000, function () {
 
         /* 图片懒加载 */
-        $("img.lazy").lazyload({ placeholder: "http://images.jcpeixun.com/equipment/logo_lazy.gif?a=20131019001", failurelimit: 4, threshold: 200, effect: "fadeIn" });
+        $("img.lazy").lazyload({ placeholder: "http://images.rfgxy.com/equipment/logo_lazy.gif?a=20131019001", failurelimit: 4, threshold: 200, effect: "fadeIn" });
 
         /* 加载不同的logo,链接 */
         var cur_location = window.location.href;
-        if (!cur_location.indexOf("http://www.jcpeixun.com/xiazai/")) {
-            $("#btn_logo").attr({"href":"http://www.jcpeixun.com/xiazai/","title":"技成库——自动化资料下载中心"})
-            $("#img_logo").attr({"src":"http://images.jcpeixun.com/xiazai_logo.png","title":"技成库——自动化资料下载中心","alt":"技成库——自动化资料下载中心"});
-            //str = "<a href=\"http://www.jcpeixun.com/xiazai/\" title=\"技成库——自动化资料下载中心\" id=\"btn_logo\"><img src=\"http://images.jcpeixun.com/xiazai_logo.png\" width=\"230\" height=\"55\" alt=\"技成库——自动化资料下载中心\" title=\"技成库——自动化资料下载中心\" id=\"img_logo\" /></a>";
+        if (!cur_location.indexOf("http://www.rfgxy.com/xiazai/")) {
+            $("#btn_logo").attr({"href":"http://www.rfgxy.com/xiazai/","title":"技成库——自动化资料下载中心"})
+            $("#img_logo").attr({"src":"http://images.rfgxy.com/xiazai_logo.png","title":"技成库——自动化资料下载中心","alt":"技成库——自动化资料下载中心"});
+            //str = "<a href=\"http://www.rfgxy.com/xiazai/\" title=\"技成库——自动化资料下载中心\" id=\"btn_logo\"><img src=\"http://images.rfgxy.com/xiazai_logo.png\" width=\"230\" height=\"55\" alt=\"技成库——自动化资料下载中心\" title=\"技成库——自动化资料下载中心\" id=\"img_logo\" /></a>";
         }else{
-            //str = "<a href=\"http://www.jcpeixun.com/\" title=\"技成（自动化）培训\" id=\"btn_logo\"><img src=\"http://images.jcpeixun.com/logo.png\" width=\"230\" height=\"55\" alt=\"技成（自动化）培训\" title=\"技成（自动化）培训\" id=\"img_logo\" /></a>";
+            //str = "<a href=\"http://www.rfgxy.com/\" title=\"儒风国学院\" id=\"btn_logo\"><img src=\"http://logo.png\" width=\"230\" height=\"55\" alt=\"儒风国学院\" title=\"儒风国学院\" id=\"img_logo\" /></a>";
         };
         //$("#headLeft1").html(str);
 
         /*   搜索   */
         function appendArgs(_arg, _id) {
-            var _href = location.href.indexOf("lessonSearch") > 0 ? location.href : "http://www.jcpeixun.com/lesson/lessonSearch";
-            //var _href = "http://www.jcpeixun.com/lesson/lessonSearch";
+            var _href = location.href.indexOf("lessonSearch") > 0 ? location.href : "http://www.rfgxy.com/lesson/lessonSearch";
+            //var _href = "http://www.rfgxy.com/lesson/lessonSearch";
             var _url = _href.substring(0, _href.indexOf("?")) || _href;
             var $id_html = escape($(_id).html());
             if (_href.indexOf("?") > 0) {
@@ -352,7 +352,7 @@ $(function () {
 
         function appendArgs2(_arg, _id) {
             //var _href = location.href;
-            var _href = "http://www.jcpeixun.com/lesson/lessonSearch";
+            var _href = "http://www.rfgxy.com/lesson/lessonSearch";
             var _url = _href.substring(0, _href.indexOf("?")) || _href;
             if (_href.indexOf("?") > 0) {
                 _url = _href;
@@ -375,7 +375,7 @@ $(function () {
         */
 
         $("#lessonTypeUl li a").click(function () {
-            var _url = "http://www.jcpeixun.com/lesson/lessonSearch" ,
+            var _url = "http://www.rfgxy.com/lesson/lessonSearch" ,
                 $this = $(this) ,
                 $this_html = $this.html() ,
                 $this_parent = $this.parent("li");
@@ -464,20 +464,20 @@ $(function () {
         var s = "17323522629653896619";
         var search_types = {
             "all": function (arg1) {
-                //return "http://baidu.jcpeixun.com/cse/search?q=" + arg1 + "&s=" + s;
+                //return "http://baidu.rfgxy.com/cse/search?q=" + arg1 + "&s=" + s;
 				return "http://zhannei.baidu.com/cse/search?q=" + arg1 + "&s=" + s;
             },
             "course": function (arg1) {
-                return "http://www.jcpeixun.com/lesson/lessonSearch?q=" + escape(arg1);
+                return "http://www.rfgxy.com/lesson/lessonSearch?q=" + escape(arg1);
             },
             "video_course": function (arg1) {
-                return "http://www.jcpeixun.com/lesson/lessonSearch?q=" + escape(arg1);
+                return "http://www.rfgxy.com/lesson/lessonSearch?q=" + escape(arg1);
             },
             "case_course": function (arg1) {
-                return "http://www.jcpeixun.com/lesson/lessonSearch?q=" + escape(arg1) + "&course=%u6848%u4F8B%u8BFE%u7A0B";
+                return "http://www.rfgxy.com/lesson/lessonSearch?q=" + escape(arg1) + "&course=%u6848%u4F8B%u8BFE%u7A0B";
             },
             "down": function(arg1){
-                //return "http://baidu.jcpeixun.com/cse/search?q="+ arg1 +"&s="+s+"&nsid=2";
+                //return "http://baidu.rfgxy.com/cse/search?q="+ arg1 +"&s="+s+"&nsid=2";
 				return "http://zhannei.baidu.com/cse/search?q="+ arg1 +"&s="+s+"&nsid=2";
             }
         }
@@ -495,7 +495,7 @@ $(function () {
                         search_text = $("#searchText").val()
                     ;
                     var cur_location = window.location.href;
-                    if (!cur_location.indexOf("http://www.jcpeixun.com/xiazai/")) {
+                    if (!cur_location.indexOf("http://www.rfgxy.com/xiazai/")) {
                         search_type_on = "down";
                     };
                     window.location.href = search_types[search_type_on](search_text);
@@ -545,7 +545,7 @@ $(function () {
 
 
     /* 加载对联
-    $.get("http://www.jcpeixun.com/ashx/ad-couplet.aspx?id=17").done(function(d){
+    $.get("http://www.rfgxy.com/ashx/ad-couplet.aspx?id=17").done(function(d){
     $(document.body).append(d)
     .delegate("#left_close,#right_close","click",function(){
     $("#ad_left,#ad_right,#left_close,#right_close").hide();
@@ -573,14 +573,14 @@ $(function () {
         /* 留言板 */
         $("body").append("<div class='liuyanbantop'>"
                        + "    <ul>                 "
-                       + "        <li id='sc' style='text-align:right;'><img id='showliuyan' src='http://images.jcpeixun.com/leaveplay_01.gif' style='cursor:pointer;' /></li>"
+                       + "        <li id='sc' style='text-align:right;'><img id='showliuyan' src='http://images.rfgxy.com/leaveplay_01.gif' style='cursor:pointer;' /></li>"
                        + "        <li>&nbsp;</li><li>留言内容：</li><li><textarea id='lycontent' style='width:200px; height:70px;overflow:hidden;border:solid 1px #aaaaaa;' ></textarea></li>"
                        + "        <li>&nbsp;</li><li>手机号码：</li><li><input id='lyphone' type='text' style='width:200px;'/></li><li>&nbsp;</li>"
-                       + "        <li>请点击发送提交留言&nbsp;<img id='fasong' src='http://images.jcpeixun.com/leavesend.gif' style='cursor:pointer; vertical-align:middle;border:solid 1px #aaaaaa;'/></li>"
+                       + "        <li>请点击发送提交留言&nbsp;<img id='fasong' src='http://images.rfgxy.com/leavesend.gif' style='cursor:pointer; vertical-align:middle;border:solid 1px #aaaaaa;'/></li>"
                        + "        <li>&nbsp;</li>"
                        + "     </ul>"
                        + "  </div>"
-                       + "<div class='liuyanbantop2'><img id='showliuyan' src='http://images.jcpeixun.com/leave_small.gif' style='cursor:pointer;' /></div><div class='liuyanbantop3'></div>");
+                       + "<div class='liuyanbantop2'><img id='showliuyan' src='http://images.rfgxy.com/leave_small.gif' style='cursor:pointer;' /></div><div class='liuyanbantop3'></div>");
 
         $(".liuyanbantop2").click(function () {
             $(this).hide();
@@ -626,7 +626,7 @@ $(function () {
                             }
                             else {
                                 $(".liuyanbantop").hide();
-                                $(".liuyanbantop3").html("<ul><li>留言成功!如紧急,请拨免费咨询:400-111-4100</li></ul>").slideDown();
+                                $(".liuyanbantop3").html("<ul><li>留言成功!如紧急,请拨免费咨询:110-110-110</li></ul>").slideDown();
                                 $(".liuyanbantop2").show();
                                 $("#lycontent").val("");
                                 $("#lyphone").val("");
@@ -660,7 +660,7 @@ $(function () {
         /*  获取最新站内信  */
         $.ajax({
             type: "get",
-            url: "http://my.jcpeixun.com/ashx/messager/list-handle.aspx?action=new&learnerId=" + $.cookie("learnerId"),
+            url: "http://my.rfgxy.com/ashx/messager/list-handle.aspx?action=new&learnerId=" + $.cookie("learnerId"),
             dataType: "jsonp",
             jsonp: "jsoncallback",
             success: function (d) {
@@ -694,7 +694,7 @@ $(function () {
         function pop_message_fun(action, base_send_id) {
             $.ajax({
                 type: "get",
-                url: "http://my.jcpeixun.com/ashx/messager/list-handle.aspx?action=" + action + "&base_send_id=" + base_send_id, //+ "&learnerId=" + l,
+                url: "http://my.rfgxy.com/ashx/messager/list-handle.aspx?action=" + action + "&base_send_id=" + base_send_id, //+ "&learnerId=" + l,
                 dataType: "jsonp",
                 jsonp: "jsoncallback",
                 success: function () { }
@@ -709,7 +709,7 @@ $(function () {
 
             setTimeout(function () {
                 try {
-                    $.get("http://www.jcpeixun.com/ashx/lesson/YYcourseDate.aspx", { "state": "3", "a": new Date().getMilliseconds() }).done(function (d) {
+                    $.get("http://www.rfgxy.com/ashx/lesson/YYcourseDate.aspx", { "state": "3", "a": new Date().getMilliseconds() }).done(function (d) {
                         try{
                             d = $.parseJSON(d), d = d[0];
                         }catch(ex){
@@ -721,13 +721,13 @@ $(function () {
                             var _hour = startime.getHours(), _minutes = startime.getMinutes(), img_url = d.Imageurl;
                             _startime = formatDate(startime.getFullYear() + "-" + parseInt(startime.getMonth() + 1) + "-" + startime.getDate() + " " + parseInt(startime.getHours() - 2) + ":" + startime.getMinutes() + ":" + startime.getSeconds());
 
-                            $.get("http://www.jcpeixun.com/ashx/api/GetSystemDate.aspx").done(function (d) {
+                            $.get("http://www.rfgxy.com/ashx/api/GetSystemDate.aspx").done(function (d) {
 
-                                var cur_date = formatDate(d), cur_date2 = formatDate(d), link1 = "http://www.jcpeixun.com/topic/act/20130724/", ad_pic = "http://images.jcpeixun.com" + img_url;
+                                var cur_date = formatDate(d), cur_date2 = formatDate(d), link1 = "http://www.rfgxy.com/topic/act/20130724/", ad_pic = "http://images.rfgxy.com" + img_url;
 
                                 if (cur_date >= _startime && cur_date < endtime) {
 
-                                    $("#popup_ad").quickAd({ html: "<a href=\"" + link1 + "\"><img id='img1' src='" + ad_pic + "' width='580' height='300' /></a>", closelink: "http://www.jcpeixun.com/topic/act/20130724/" });
+                                    $("#popup_ad").quickAd({ html: "<a href=\"" + link1 + "\"><img id='img1' src='" + ad_pic + "' width='580' height='300' /></a>", closelink: "http://www.rfgxy.com/topic/act/20130724/" });
                                     $.cookie("popup_ad_ed", "true");
                                     var _year = cur_date2.getFullYear(), _month = cur_date2.getMonth() + 1, _date = cur_date2.getDate();
                                     if ($("#countdown_dashboard_main").length) {
@@ -743,7 +743,7 @@ $(function () {
                                     /*
                                     var tan = $.cookie("tan");
                                     if($.cookie("tan")!="true"){
-                                    $("#popup_ad").quickAd({html:"<a href='http://www.jcpeixun.com/topic/act/20131016/'><img id='img2' src='http://images.jcpeixun.com/topic/tit_20131019001.png' width='580' height='300' /></a>",closelink:"http://www.jcpeixun.com/topic/act/20131016/"});
+                                    $("#popup_ad").quickAd({html:"<a href='http://www.rfgxy.com/topic/act/20131016/'><img id='img2' src='http://images.rfgxy.com/topic/tit_20131019001.png' width='580' height='300' /></a>",closelink:"http://www.rfgxy.com/topic/act/20131016/"});
                                     $("#countdown_dashboard_main").html("<div class=\"h30\">&nbsp;</div>");
                                     $.cookie("tan", "true", {expires: 1});
                                     $.cookie("popup_ad_ed",null);
@@ -755,7 +755,7 @@ $(function () {
                         } else {
                             /*
                             if($.cookie("tan")!="true"){
-                            $("#popup_ad").quickAd({html:"<a href='http://www.jcpeixun.com/topic/act/20131016/'><img id='img2' src='http://images.jcpeixun.com/topic/tit_20131019001.png' width='580' height='300' /></a>",closelink:"http://www.jcpeixun.com/topic/act/20131016/"});
+                            $("#popup_ad").quickAd({html:"<a href='http://www.rfgxy.com/topic/act/20131016/'><img id='img2' src='http://images.rfgxy.com/topic/tit_20131019001.png' width='580' height='300' /></a>",closelink:"http://www.rfgxy.com/topic/act/20131016/"});
                             $("#countdown_dashboard_main").html("<div class=\"h30\">&nbsp;</div>");
                             $.cookie("tan", "true", {expires: 1});
                             $.cookie("popup_ad_ed",null);
@@ -791,10 +791,10 @@ $(function () {
 
         if ($.cookie("zhaopin_pop_ad_img")!="1") {
             
-            var _url = "http://zhaopin.jcpeixun.com/api/CheckResumeStatus.aspx";
+            var _url = "http://zhaopin.rfgxy.com/api/CheckResumeStatus.aspx";
             var currentUrl = location.href;
             //console.log(currentUrl);
-            //if(currentUrl!="http://www.jcpeixun.com/")
+            //if(currentUrl!="http://www.rfgxy.com/")
                 //return;
             setTimeout(function () {
                 $.ajax({
@@ -808,8 +808,8 @@ $(function () {
 							cookietime.setTime(cookietime.getTime() + (2 * 60 * 60 * 1000));//coockie保存2小时
                             $.cookie('zhaopin_pop_ad_img', '1', {expires: cookietime, path: '/'});
 
-                            var ad_pic = "http://images.jcpeixun.com/zhaopin/zhaopin_pop_ad.png";
-                            var link1 = "http://zhaopin.jcpeixun.com/api/adclick/?source=adbottompop&callback=http://zhaopin.jcpeixun.com/topic/resume201405/uset";
+                            var ad_pic = "http://images.rfgxy.com/zhaopin/zhaopin_pop_ad.png";
+                            var link1 = "http://zhaopin.rfgxy.com/api/adclick/?source=adbottompop&callback=http://zhaopin.rfgxy.com/topic/resume201405/uset";
                             $("body").append("<style type=\"text/css\">#countdown_dashboard_main{ display:none;}</style>");
                             $("#popup_ad").quickAd({ html: "<a href=\"" + link1 + "\"><img id='img1' src='" + ad_pic + "' width='580' height='300' /></a>", closelink: "#" });
                         }
@@ -834,7 +834,7 @@ function _ad(_id, doc, _width, _height) {
 
         try{
 
-			$.post("http://www.jcpeixun.com/ashx/ad.aspx", { id: _id, width: _width, height: _height }, function (msg) {
+			$.post("http://www.rfgxy.com/ashx/ad.aspx", { id: _id, width: _width, height: _height }, function (msg) {
 				$("#" + doc).html(msg);
 			});   
 	
@@ -850,7 +850,7 @@ function _ad(_id, doc, _width, _height) {
 function _ad2(_id,_course_id, doc, _width, _height) {
 
             try{
-				$.post("http://www.jcpeixun.com/ashx/ad.aspx", { "id": _id, "course_id": _course_id, "width": _width, "height": _height }, function (msg) {
+				$.post("http://www.rfgxy.com/ashx/ad.aspx", { "id": _id, "course_id": _course_id, "width": _width, "height": _height }, function (msg) {
 					$("#" + doc).html(msg);
 				});
     		}catch(ex){
@@ -861,7 +861,7 @@ function _ad2(_id,_course_id, doc, _width, _height) {
 /* 广告3 */
 function _ad3(_id, doc, _width, _height, _isshowtime) {
             try{
-				$.post("http://www.jcpeixun.com/ashx/ad.aspx", { id: _id, width: _width, height: _height ,isshowtime: _isshowtime }, function (msg) {
+				$.post("http://www.rfgxy.com/ashx/ad.aspx", { id: _id, width: _width, height: _height ,isshowtime: _isshowtime }, function (msg) {
 					$("#" + doc).html(msg);
 				});
     		}catch(ex){
