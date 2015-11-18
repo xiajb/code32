@@ -245,7 +245,7 @@ $(function () {
             if (data == "no") {
                 //未登录
 
-                var login_line_html = "欢迎来到技成培训！ [<a class=\"topLeft2Load\" title=\"请登录\" target=\"_top\" href=\"http://www.rfgxy.com/newlogin.aspx\">请登录</a>]  [<a class=\"topLeft2Reg\" title=\"免费注册\" target=\"_top\" href=\"http://www.rfgxy.com/userreg.aspx\">免费注册</a>]";
+                var login_line_html = "欢迎来到儒风国学院！ [<a class=\"topLeft2Load\" title=\"请登录\" target=\"_top\" href=\"http://www.rfgxy.com/newlogin.aspx\">请登录</a>]  [<a class=\"topLeft2Reg\" title=\"免费注册\" target=\"_top\" href=\"http://www.rfgxy.com/userreg.aspx\">免费注册</a>]";
                 $("#login_top_line").html(login_line_html);
                 $("#login_top_table_islogin").hide();
                 $("#login_top_table").show();
@@ -261,7 +261,7 @@ $(function () {
 				//alert(vipExpireTime);
 
 				var login_line_html = "你好，<b>" + learnername_str + "</b>&nbsp;&nbsp;<a href=\"http://www.rfgxy.com/logout.aspx?callback=" + escape(window.location.href) + "\">[退出]</a>";
-                //var login_line_html = " " + learnername_str + "，欢迎来到技成培训！<a href='http://192.168.0.192:8081/member.php?mod=logging&amp;action=logout&amp;formhash=1639d97f'>[退出]</a>";
+                //var login_line_html = " " + learnername_str + "，欢迎来到儒风国学院！<a href='http://192.168.0.192:8081/member.php?mod=logging&amp;action=logout&amp;formhash=1639d97f'>[退出]</a>";
                 $("#login_top_line").html(login_line_html);
 
                 //$("#login_top_table_info").html(learnername_str + "<a href='http://my.rfgxy.com/index.aspx?url=user/Grade.aspx' class='f2'>[" + learnergrade_str + "]</a>" + "<a href=\"http://www.rfgxy.com/userreg.aspx?u=20130925003\" target=\"_blank\" id=\"nav_xuefei\" onclick=\"_hmt.push(['_trackEvent', 'nav', 'click', 'nav_xuefei','1'])\" style=\"background: url(http://images.rfgxy.com/bg_20130926001.gif) no-repeat scroll 46px -3px rgb(255, 255, 255)\">赚学费</a>");
