@@ -8,7 +8,7 @@
 <ul>
 <?php foreach ($upload_success as $key => $value) :?>
 
-<li><?php  echo $key?>:<?php echo $value?></li>
+<li><?php  echo $key?>:<?php echo $value ?></li>
 <?php endforeach;?>
 <?php echo anchor('upload','继续上传'); ?>
 </ul>
