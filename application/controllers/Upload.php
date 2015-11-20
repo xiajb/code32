@@ -19,6 +19,8 @@ class Upload extends CI_Controller
 		$this->load->view('upload_form',array('error' =>''));
 	}
 	function do_upload(){
+			$name=$this->input->post('usefile');
+			print_r($name);
 			$config=array(
 				'upload_path' => './uploads/',
 				'allowed_types'=>'gif|jpg|png',
