@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Blog extends CI_Controller {
+class Login extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -20,7 +20,7 @@ class Blog extends CI_Controller {
 	public function index()
 	{
 
-		echo "123qwe";
+		$this->load->view('admin.html');
 	}
 }
 

@@ -47,12 +47,25 @@
                 <?php echo form_open('register/do_register'); ?>
                 <fieldset>
                     <ol>
+                        <li>手机号码：<input type="text" id="umobile" name="umobile" class="reg_txt txt_gray3-260-30" title="手机号码" placeholder="手机号码" onkeyup="value=value.replace(/[^\d]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"></li>
+                        <li class="tips">
+                            <label for="umobile" id="m_tips">
+                                &nbsp;</label></li>
+                        <li style="padding-left: 90px;">
+                            <input type="text" name="validateCode" id="validateCode" class="reg_txt txt_gray3-260-30" style="width: 170px;" placeholder="请输入手机验证码">
+                            <input type="hidden" name="va" value="1">
+                          <a href="javascript:;" id="sendCode" data_tips="获取验证码" class="mt5" style="border-color: #2495c7;
+                                color: #2495c7;">获取验证码</a> <strong id="cdown_tips" class="cdown_tips" style="display: none;">
+                                    90秒后才能再发送</strong> </li>
+                        <li class="tips">
+                            <label for="umobile" id="m_tips">
+                                &nbsp;</label></li>
                         <li>用户名&nbsp;&nbsp;&nbsp;：<input type="text" id="utrueName" name="username" class="reg_txt txt_gray3-260-30"
                             title="您的姓名" placeholder="让老师更好的为你辅导学习" maxlength="10" /></li>
                         <li class="tips"><label for="utrueName" id="utrueName_tips"></label></li>
 
-                        <li>Q Q邮箱：<input type="text" id="uEmail" name="email" class="reg_txt txt_gray3-260-30"
-                            title="建议使用QQ邮箱" placeholder="建议使用QQ邮箱" /></li>
+                        <li>用户邮箱：<input type="text" id="uEmail" name="email" class="reg_txt txt_gray3-260-30"
+                            title="建议使用QQ邮箱" placeholder="" /></li>
                         <li class="tips">
                             <label for="uEmail" id="e_tips">
                                 &nbsp;</label></li>

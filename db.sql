@@ -87,7 +87,7 @@ CREATE TABLE  `ci_comment` (
  `tid` mediumint(7) unsigned NOT NULL auto_increment default '0',
  `sid` int(10) unsigned NOT NULL default '0' COMMENT '课小节id,
  `uid` int(10) unsigned NOT NULL default '0' COMMENT '用户id,
- `username` int(10) unsigned NOT NULL default '0' COMMENT '用户名,
+ `nickname` int(10) unsigned NOT NULL default '0' COMMENT '用户名',
  `comment` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '内容',
  `reg_time` DATE NOT NULL DEFAULT  '0000-00-00',
 PRIMARY KEY (  `gid` )
