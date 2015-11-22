@@ -1,0 +1,49 @@
+/* CSS Document */
+
+.liuyanbantop {
+    width:220px;
+	height:224px\9;/*ie7 ie8*/
+	border:1px solid #cccccc;
+	background-image:url(http://images.rfgxy.com/leavebg.gif);
+	background-repeat:no-repeat;
+	z-index:2;
+	position:fixed;
+	right:10px;
+	bottom:20px;
+	display:none;
+}
+.liuyanbantop ul{
+    list-style:none;
+	font-size:13px;
+	margin:5px\9;/* ie7 ie8*/
+	padding:3px\9;/* ie7 ie8*/
+	_margin:0px;/* ie6 */
+	_padding:0px;/* ie6 */
+}
+.liuyanbantop li{
+    line-height:13px\9; /* ie7 ie8*/
+    _padding-left:8px; /* ie6 */
+}
+.liuyanbantop2{
+    width:27px;
+	height:96px\9;/*ie7 ie8*/
+	border:1px solid #cccccc;
+    position:fixed;
+	right:10px;
+	bottom:140px;
+	display:block;
+	z-index:3;
+}
+
+.liuyanbantop3{
+    width:160px;
+	height:25px;
+	font-family:'Î¢ÈíÑÅºÚ';
+	color:green;
+    position:fixed;
+	right:0;
+	bottom:10px;
+	display:none;
+	z-index:3;
+}
+.liuyanbantop3 ul{list-style:none;}
