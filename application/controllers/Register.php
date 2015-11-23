@@ -1,5 +1,8 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-require_once('geetestlib.php');
+<?php
+ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+// require_once('geetestlib.php');
+require_once dirname(dirname(__FILE__)) . '/geetest/geetest.class.php';
+require_once dirname(dirname(__FILE__)) . '/geetest/geetestmsg.class.php';
 class Register extends CI_Controller {
 
 	/**
@@ -44,6 +47,56 @@ class Register extends CI_Controller {
 				}
 			}
 	        	}
+	}
+
+	public function check_challenge(){
+		$GtSdk = new GeetestLib();
+		// session_start();
+		$return = $GtSdk->register();
+		if ($return) {
+			// $this->session
+		    $_SESSION['gtserver'] = 1;
+		    $result = array(
+		            'success' => 1,
+		            'gt' => CAPTCHA_ID,
+		            'challenge' => $GtSdk->challenge
+		        );
+		    echo json_encode($result);
+		}else{
+		    $_SESSION['gtserver'] = 0;
+		    $rnd1 = md5(rand(0,100));
+		    $rnd2 = md5(rand(0,100));
+		    $challenge = $rnd1 . substr($rnd2,0,2);
+		    $result = array(
+		            'success' => 0,
+		            'gt' => CAPTCHA_ID,
+		            'challenge' => $challenge
+		        );
+		    $_SESSION['challenge'] = $result['challenge'];
+		    echo json_encode($result);
+		}
+	}
+
+	public function check_phone(){
+		// $GtMsgSdk = $_SESSION['gtmsgsdk'];
+		file_put_contents("/home/tanu/www/data.txt", $this->input->post('value'));
+		// $data = json_decode($this->input->post('value'),true);
+		// echo $data;
+		// $data = json_decode($_POST['value'],true);
+		// if ($data['geetest_validate'] == md5(PRIVATE_KEY . 'geetest' . $data['geetest_challenge'])) {
+		//     $codedata = array(
+		//             "seccode" => $data['geetest_seccode'],
+		//             "sdk" => "php_2.15.4.1.1",
+		//             "phone" =>$data['phone'],
+		//             "msg_id" => CAPTCHA_ID
+		//         );
+		//     $action = "send";
+		//     $result = $GtMsgSdk->send_msg_request($action,$codedata);
+		//     echo $result;
+		// }else{
+		//     echo "-11";
+		// }
+
 	}
 }
 

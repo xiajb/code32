@@ -78,12 +78,14 @@
                         <li>重复密码：<input type="password" id="uPwd" name="repassword" class="reg_txt txt_gray3-260-30" />
                             
                         </li>
+                        <div class="box" id="div_geetest_lib">
+               
                         <li class="tips">
                             <label for="uEmail" id="e_tips">
                                 &nbsp;</label></li>
 
-                        <li>滑动验证：<script type="text/javascript" src="http://api.geetest.com/get.php?gt=1d87ac5c370eeb8036e0b7e392e96012"></script>
-                            
+                        <li>滑动验证： <div id="div_id_embed"></div>
+
                         </li>
                         <style type="text/css">
                             .gt_holder{
@@ -165,7 +167,144 @@
     <!-- footer end -->
     <script type="text/javascript" src="<?php echo base_url('index/include/jquery-1.8.2.min.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo base_url('index/include/autoMail.js'); ?>"></script>
-  
+                <script type="text/javascript">
+                
+                    var gtFailbackFrontInitial = function(result) {
+                        var s = document.createElement('script');
+                        s.id = 'gt_lib';
+                        s.src = 'http://static.geetest.com/static/js/geetest.0.0.0.js';
+                        s.charset = 'UTF-8';
+                        s.type = 'text/javascript';
+                        document.getElementsByTagName('head')[0].appendChild(s);
+                        var loaded = false;
+                        s.onload = s.onreadystatechange = function() {
+                            if (!loaded && (!this.readyState|| this.readyState === 'loaded' || this.readyState === 'complete')) {
+                                loadGeetest(result);
+                                loaded = true;
+                            }
+                        };
+                    }
+                    //get  geetest server status, use the failback solution
+
+
+                    var loadGeetest = function(config) {
+
+                        //1. use geetest capthca
+                        window.gt_captcha_obj = new window.Geetest({
+                            gt : config.gt,
+                            challenge : config.challenge,
+                            product : 'float',
+                            offline : !config.success
+                        });
+
+                        gt_captcha_obj.appendTo("#div_id_embed");
+                    }
+
+                    s = document.createElement('script');
+                    s.src = 'http://api.geetest.com/get.php?callback=gtcallback';
+                    $("#div_geetest_lib").append(s);
+                    
+                    var gtcallback =( function() {
+                        var status = 0, result, apiFail;
+                        return function(r) {
+                            status += 1;
+                            if (r) {
+                                result = r;
+                                setTimeout(function() {
+                                    if (!window.Geetest) {
+                                        apiFail = true;
+                                        gtFailbackFrontInitial(result)
+                                    }
+                                }, 1000)
+                            }
+                            else if(apiFail) {
+                                return
+                            }
+                            if (status == 2) {
+                                loadGeetest(result);
+                            }
+                        }
+                    })()
+                    
+                                // ../StartCaptchaServlet.php?rand="+Math.round(Math.random()*100),
+                    $.ajax({
+                                url : "../index.php/register/check_challenge",
+                                type : "get",
+                                dataType : 'JSON',
+                                success : function(result) {
+                                    console.log(result);
+                                    gtcallback(result)
+                                }
+                            })
+                </script>
+                <script type="text/javascript">
+                $(function() {
+                    $("#sendCode").click(function(){
+                        value = gt_captcha_obj.getValidate();
+                        value.phone = $("#umobile").val();
+                        result = JSON.stringify(value);
+                        console.log(result);
+                        $.ajax({
+                            type:'POST',
+                            url : "../index.php/register/check_phone",
+                            data:"value="+result,
+                            success:function(result){
+                                console.log(result);
+                                if(result==1){
+                                    alert('短信验证发送成功');
+                                    // $(".reminder").html('短信验证发送成功');
+                                    // $(".reminder").css('color',"#31C552");
+                                }else if(result==-6){
+                                    alert('滑动验证未通过');
+                                    // $(".reminder").html('滑动验证未通过');
+                                }else{
+                                    alert('短信验证发送失败');
+                                    // $(".reminder").html('短信验证发送失败');
+                                }
+                            }
+                        })
+                    })
+                })
+
+
+            /* 发送验证码 */
+
+            /* 发送验证码 */
+            // $("#sendCode").click(function () {
+            //     var value = gt_captcha_obj.getValidate();
+            //     var phone = $("#umobile").val();
+            //     // var umobile = $("#umobile").val();
+            //     if (!(/^(13[0-9]|15[0-9]|17[0-9]|18[0-9])\d{8}$/).test(phone)) {
+            //         alert("请输入正确的手机号码");
+            //     } else {
+            //     //     value.phone = phone;
+            //     // results = JSON.stringify(value);
+            //             $.ajax({
+            //                 type:'POST',
+            //                 url : "../index.php/register/check_phone",
+            //                 data:"value="+phone,
+            //                 success:function(){
+            //                     // console.log(result);
+            //                     // if(result==1){
+            //                     //     alert('短信验证发送成功');
+            //                     //     // $(".reminder").html('短信验证发送成功');
+            //                     //     // $(".reminder").css('color',"#31C552");
+            //                     // }else if(result==-6){
+            //                     //     alert('滑动验证未通过');
+            //                     //     // $(".reminder").html('滑动验证未通过');
+            //                     // }else{
+            //                         alert('短信验证发送失败');
+            //                         // $(".reminder").html('短信验证发送失败');
+            //                     // }
+            //                 }
+            //             })
+
+            //     // }
+            //     //     });
+            //     }
+            // });
+
+            </script>
     <script type="text/javascript">
         $(function () {
             function Radom4() {
@@ -282,42 +421,7 @@
                 $("#p_tips").attr("class", "cgray5").html("6-20字符，可使用字母、数字或符号的组合");
                 $(this).attr("class", "txt_blue2-260-30");
             });
-            /* 发送验证码 */
-            $("#sendCode").click(function () {
-                var umobile = $("#umobile").val();
-                if (!(/^(13[0-9]|15[0-9]|17[0-9]|18[0-9])\d{8}$/).test(umobile)) {
-                    alert("请输入正确的手机号码");
-                } else {
 
-
-                    $.get("http://www.rfgxy.com/emailregister/Exsists_Mobile.aspx", { mobile: umobile }).done(function (d) {
-
-                        if (d == "1") {
-                            alert("您输入的手机号已经存在！请更换其它手机");
-                            return false;
-                        } else {
-
-                            var jn_d = $.parseJSON($("#cur_user").val());
-                            umobile = $.trim($("#umobile").val());
-                            var radomnumber = Radom4();
-                            $.post("http://www.rfgxy.com/ashx/api/sendMCodenew.aspx", { 'mobile': umobile, 'content': "您的验证码为：" + radomnumber, 'code': radomnumber }).done(function (d) {
-
-                                if (d == "1") {
-                                    alert("验证码发送成功，请注意查收");
-                                    CountDown("cdown_tips", "sendCode", 90);
-                                } else if (d == "-4") {
-                                    alert("不能频繁发验证码，请3分钟后再试");
-                                } else {
-                                    alert("发送失败");
-                                }
-
-                            });
-                        }
-                    });
-
-
-                }
-            });
 
 
 
@@ -413,7 +517,7 @@
         })
     </script>
     <!--<script type="text/javascript" src="http://www.rfgxy.com/include/couplet.js"></script>-->
-    <script type="text/javascript" src="http://www.rfgxy.com/include/tongji.js?a=20130514001"></script>
+<!--     // <script type="text/javascript" src="http://www.rfgxy.com/include/tongji.js?a=20130514001"></script> -->
      <!-- <script language="JavaScript" src="http://tj.rfgxy.com/tj.js" type="text/JavaScript"></script> -->
 </body>
 </html>
