@@ -3,7 +3,7 @@ CREATE TABLE  `ci_user` (
  `nickname` VARCHAR( 16 ) NOT NULL,
  `phone` VARCHAR( 11 ) NOT NULL,
  `password` VARCHAR( 50 ) NOT NULL,
- `email` VARCHAR( 50 ) NOT NULL DEFAULT  '',
+ `email` VARCHAR( 50 ) NOT NULL,
  `blance` DECIMAL( 10,2 ) NOT NULL DEFAULT '0.00' COMMENT '金额',
  `sex` TINYINT( 1 ) NOT NULL DEFAULT  '0',
  `pic` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '头像路径',

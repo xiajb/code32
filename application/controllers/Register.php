@@ -102,17 +102,18 @@ class Register extends CI_Controller {
 		    echo "-11";
 		    
 		}
-			
-
 	}
 
 	public function check_email(){
-		$data['email'] = $this->input->post('value');
-		$data = $this->user_model->check_email($data['email']);
-file_put_contents("/home/tanu/www/data.txt",$data,FILE_APPEND);
-		// if ($this->user_model->sql_check_email($email) >= 1) {
-		// 	echo "-10";
-		// }
+
+		// $GtMsgSdk = $_SESSION['gtmsgsdk'];
+		$data = json_decode($this->input->post('value'),true);
+
+			if ($this->user_model->sql_check_email($data) >= 1) {
+				echo "-10";
+			}else{
+				echo "1";
+			}
 
 	}
 }

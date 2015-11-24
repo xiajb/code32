@@ -1,10 +1,10 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class User_model extends CI_Model{
+	const TBL_USER='ci_user';	
 	function __construct(){
 		parent::__construct();
 
 	}
-	const TBL_USER='ci_user';
 	public function get_user($username,$password){
 		$condition['username'] = $username;
 		$condition['password'] = md5($password);
@@ -16,13 +16,19 @@ class User_model extends CI_Model{
 	}
 
 	public function sql_check_phone($phone){
-		$query = $this->db->where($phone)->get(self::TBL_USER);
-		return $query->row_array();
+		$this->db->where('phone',$phone);
+		$query=$this->db->get('ci_user');
+		//返回行数
+		return $query->num_rows();
 	}
 
 	public function sql_check_email($email){
-		$query = $this->db->where($email)->get(self::TBL_USER);
-		return $query->row_array();
+		// $query = $this->db->where($email)->get(self::TBL_USER);
+		// return $query->row_array();
+		$this->db->where('email',$email);
+		$query=$this->db->get('ci_user');
+		//返回行数
+		return $query->num_rows();
 
 	}
 

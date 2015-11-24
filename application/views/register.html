@@ -406,7 +406,7 @@
                         data: "value=" + $('#uEmail').val(),
      
                             success: function(result) {
-                                console.log(result);
+                                // console.log(result);
                                 if (result == "-10") {
                                     $("#e_tips").attr("class", "cred").html("该邮箱已被注册,请更换邮箱，或直接<a href=\"newlogin.aspx\">登录</a>");
                                     $("#uEmail").attr("class", "txt_red2-260-30");
