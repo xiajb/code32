@@ -399,11 +399,12 @@
                         //     }
                         // });
 // console.log($('#uEmail').val());
-                        $.ajax({
-                            url: "../index.php/register/check_email",
-                            type: "post",
-                            // dataType: 'JSON',
-                            data: "value=" + $('#uEmail').val(),
+                   $.ajax({
+                        type: 'POST',
+                        url: "../index.php/register/check_email",
+                        // data: "value=" + result,
+                        data: "value=" + $('#uEmail').val(),
+     
                             success: function(result) {
                                 console.log(result);
                                 if (result == "-10") {
