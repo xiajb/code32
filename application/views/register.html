@@ -1,36 +1,34 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>注册技成帐号免费下载高清视频教程_儒风国学院</title>
     <meta name="description" content="儒风国学院网提供PLC视频教程、数控冲床、电工基础知识、数控编程等高清视频教程,打造自动化在线远程教育第一品牌.(PLC|西门子|三菱|欧姆龙|变频器|触摸屏|数控|电工)" />
-    <link type="text/css" href="<?php echo base_url('index/style/jc.v2.css'); ?>"
-        rel="stylesheet" media="all" />
-    <link type="text/css" href="<?php echo base_url('index/style/register.v2.css'); ?>"
-        rel="stylesheet" media="all" />
-    <link type="text/css" href="<?php echo base_url('index/style/autoMail.css'); ?>" rel="stylesheet"
-        media="all" />
+    <link type="text/css" href="<?php echo base_url('index/style/jc.v2.css'); ?>" rel="stylesheet" media="all" />
+    <link type="text/css" href="<?php echo base_url('index/style/register.v2.css'); ?>" rel="stylesheet" media="all" />
+    <link type="text/css" href="<?php echo base_url('index/style/autoMail.css'); ?>" rel="stylesheet" media="all" />
     <style type="text/css">
-        .login_forms .tips {
-    height: 25px;
-    line-height: 25px;
-    text-indent: 85px;
-}
+    .login_forms .tips {
+        height: 25px;
+        line-height: 25px;
+        text-indent: 85px;
+    }
     </style>
 </head>
+
 <body>
-    
     <!-- header start -->
     <header>
-    <section class="global_nav">
-        <nav>
-            <div class="nav clearfix">
-                <h2 class="logo"><a href="http://www.rfgxy.com" title="儒风国学院">儒风国学院</a></h2>
-                <div class="links"><strong class="links1">客服热线：110-110-110</strong> <strong class="links2 dn" >客服在线</strong></div>
-            </div>
-        </nav>
-    </section>
-</header>
+        <section class="global_nav">
+            <nav>
+                <div class="nav clearfix">
+                    <h2 class="logo"><a href="http://www.rfgxy.com" title="儒风国学院">儒风国学院</a></h2>
+                    <div class="links"><strong class="links1">客服热线：110-110-110</strong> <strong class="links2 dn">客服在线</strong></div>
+                </div>
+            </nav>
+        </section>
+    </header>
     <!-- header end -->
     <!-- container start -->
     <div id="container" class="w960 mc">
@@ -44,272 +42,259 @@
             <div style="margin: 0px auto; float: none; position: relative;" id="reg_form" class="login_forms">
                 <!-- <form id="regForm" method="post" action="<?php  ?>" enctype="multipart/form-data"> -->
                 <?php echo validation_errors(); ?>
-                <?php echo form_open('register/do_register'); ?>
-                <fieldset>
-                    <ol>
-                        <li>手机号码：<input type="text" id="umobile" name="umobile" class="reg_txt txt_gray3-260-30" title="手机号码" placeholder="手机号码" onkeyup="value=value.replace(/[^\d]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"></li>
-                        <li class="tips">
-                            <label for="umobile" id="m_tips">
-                                &nbsp;</label></li>
-                        <li style="padding-left: 90px;">
-                            <input type="text" name="validateCode" id="validateCode" class="reg_txt txt_gray3-260-30" style="width: 170px;" placeholder="请输入手机验证码">
-                            <input type="hidden" name="va" value="1">
-                          <a href="javascript:;" id="sendCode" data_tips="获取验证码" class="mt5" style="border-color: #2495c7;
+                    <?php echo form_open('register/do_register'); ?>
+                        <fieldset>
+                            <ol>
+                                <li>手机号码：
+                                    <input type="text" id="umobile" name="umobile" class="reg_txt txt_gray3-260-30" title="手机号码" placeholder="手机号码" onkeyup="value=value.replace(/[^\d]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
+                                </li>
+                                <li class="tips">
+                                    <label for="umobile" id="m_tips">
+                                        &nbsp;</label>
+                                </li>
+
+                                <li>用户名&nbsp;&nbsp;&nbsp;：
+                                    <input type="text" id="utrueName" name="username" class="reg_txt txt_gray3-260-30" title="您的姓名" placeholder="让老师更好的为你辅导学习" maxlength="10" />
+                                </li>
+                                <li class="tips">
+                                    <label for="utrueName" id="utrueName_tips"></label>
+                                </li>
+                                <li>用户邮箱：
+                                    <input type="text" id="uEmail" name="email" class="reg_txt txt_gray3-260-30" title="建议使用QQ邮箱" placeholder="" />
+                                </li>
+                                <li class="tips">
+                                    <label for="uEmail" id="e_tips">
+                                        &nbsp;</label>
+                                </li>
+                                <li>密&nbsp;码&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;：
+                                    <input type="password" id="uPwd" name="password" class="reg_txt txt_gray3-260-30" />
+                                </li>
+                                <li class="ti3" style="text-indent: 85px;">
+                                    <label for="uPwd" id="p_tips">
+                                        &nbsp;</label>
+                                </li>
+                                <li>重复密码：
+                                    <input type="password" id="uPwd" name="repassword" class="reg_txt txt_gray3-260-30" />
+                                </li>
+                                <div class="box" id="div_geetest_lib">
+                                    <li class="tips">
+                                        <label for="uEmail" id="e_tips">
+                                            &nbsp;</label>
+                                    </li>
+                                    <li>滑动验证：
+                                        <div id="div_id_embed"></div>
+                                    </li>
+                                    <style type="text/css">
+                                    #div_id_embed{
+                                        float: right;
+                                        width: 351px;
+                                        height: 30px;
+                                    }
+                                    .gt_holder {
+                                        float: right;
+                                        /*margin-right: 64px;*/
+                                    }
+                                    </style>
+                                <li style="padding-left: 90px;">
+                                    <input type="text" name="validateCode" id="validateCode" class="reg_txt txt_gray3-260-30" style="width: 170px;" placeholder="请输入手机验证码">
+                                    <input type="hidden" name="va" value="1">
+                                    <a href="javascript:;" id="sendCode" data_tips="获取验证码" class="mt5" style="border-color: #2495c7;
                                 color: #2495c7;">获取验证码</a> <strong id="cdown_tips" class="cdown_tips" style="display: none;">
                                     90秒后才能再发送</strong> </li>
-                        <li class="tips">
-                            <label for="umobile" id="m_tips">
-                                &nbsp;</label></li>
-                        <li>用户名&nbsp;&nbsp;&nbsp;：<input type="text" id="utrueName" name="username" class="reg_txt txt_gray3-260-30"
-                            title="您的姓名" placeholder="让老师更好的为你辅导学习" maxlength="10" /></li>
-                        <li class="tips"><label for="utrueName" id="utrueName_tips"></label></li>
-
-                        <li>用户邮箱：<input type="text" id="uEmail" name="email" class="reg_txt txt_gray3-260-30"
-                            title="建议使用QQ邮箱" placeholder="" /></li>
-                        <li class="tips">
-                            <label for="uEmail" id="e_tips">
-                                &nbsp;</label></li>
-                        <li>密&nbsp;码&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;：<input type="password" id="uPwd" name="password" class="reg_txt txt_gray3-260-30" />
-                            
-                        </li>
-                        <li class="ti3" style="text-indent: 85px;">
-                            <label for="uPwd" id="p_tips">
-                                &nbsp;</label></li>
-                        <li>重复密码：<input type="password" id="uPwd" name="repassword" class="reg_txt txt_gray3-260-30" />
-                            
-                        </li>
-                        <div class="box" id="div_geetest_lib">
-               
-                        <li class="tips">
-                            <label for="uEmail" id="e_tips">
-                                &nbsp;</label></li>
-
-                        <li>滑动验证： <div id="div_id_embed"></div>
-
-                        </li>
-                        <style type="text/css">
-                            .gt_holder{
-                                    float: right;
-                                    margin-right: 64px;
-                            }
-                        </style>
-                        <li class="ti3" style="text-indent: 85px;">
-                            <label for="uPwd" id="p_tips">
-                                &nbsp;</label></li>
-                            <li>
-                            课程阶段：
-                            <select class="reg_txt txt_gray3-260-30 CourseIndustry" id="CourseIndustry" name="CourseIndustry" style="width:250px; height:30px;">
-                            <option value="小学">小学</option>
-                            <option value="初中">初中</option>
-                            <option value="高中">高中</option>
-                        </select>
-                             </li>
-                        <li style="font-size: 12px; display:none;" >感兴趣的课程:
-                            <input id="cbxPLC" name="cbxCI" type="checkbox" value="PLC">
-                            <label for="cbxPLC">
-                                PLC</label>
-                            <input id="cbxBPQ" name="cbxCI" type="checkbox" value="变频器">
-                            <label for="cbxBPQ">
-                                变频器</label>
-                            <input id="cbxZT" name="cbxCI" type="checkbox" value="组态">
-                            <label for="cbxZT">
-                                组态</label>
-                            <input id="cbxSF" name="cbxCI" type="checkbox" value="伺服">
-                            <label for="cbxSF">
-                                伺服</label>
-                            <input id="cbxCMP" name="cbxCI" type="checkbox" value="触摸屏">
-                            <label for="cbxCMP">
-                                触摸屏</label>
-                            <input id="cbxQT" name="cbxCI" type="checkbox" value="其他">
-                            <label for="cbxQT" id="lblQT">
-                                其他</label>
-                        </li>
-                        
-                        
-                        <li class="ti3">
-                            <input type="checkbox" id="agree" checked="checked" />
-                            <label for="agree">
-                                我已认真阅读并同意</label>
-                            <a href="http://www.rfgxy.com/service.aspx" class="f14" target="_blank">用户条款</a>
-                            <a href="http://www.rfgxy.com/help/yinSiTiaokuan.shtml" class="f14" target="_blank">
+                                <li class="tips">
+                                    <label for="umobile" id="m_tips">
+                                        &nbsp;</label>
+                                </li>                                    <li class="ti3" style="text-indent: 85px;">
+                                        <label for="uPwd" id="p_tips">
+                                            &nbsp;</label>
+                                    </li>
+                                    <li>
+                                        课程阶段：
+                                        <select class="reg_txt txt_gray3-260-30 CourseIndustry" id="CourseIndustry" name="CourseIndustry" style="width:250px; height:30px;">
+                                            <option value="小学">小学</option>
+                                            <option value="初中">初中</option>
+                                            <option value="高中">高中</option>
+                                        </select>
+                                    </li>
+                                    <li style="font-size: 12px; display:none;">感兴趣的课程:
+                                        <input id="cbxPLC" name="cbxCI" type="checkbox" value="PLC">
+                                        <label for="cbxPLC">
+                                            PLC</label>
+                                        <input id="cbxBPQ" name="cbxCI" type="checkbox" value="变频器">
+                                        <label for="cbxBPQ">
+                                            变频器</label>
+                                        <input id="cbxZT" name="cbxCI" type="checkbox" value="组态">
+                                        <label for="cbxZT">
+                                            组态</label>
+                                        <input id="cbxSF" name="cbxCI" type="checkbox" value="伺服">
+                                        <label for="cbxSF">
+                                            伺服</label>
+                                        <input id="cbxCMP" name="cbxCI" type="checkbox" value="触摸屏">
+                                        <label for="cbxCMP">
+                                            触摸屏</label>
+                                        <input id="cbxQT" name="cbxCI" type="checkbox" value="其他">
+                                        <label for="cbxQT" id="lblQT">
+                                            其他</label>
+                                    </li>
+                                    <li class="ti3">
+                                        <input type="checkbox" id="agree" checked="checked" />
+                                        <label for="agree">
+                                            我已认真阅读并同意</label>
+                                        <a href="http://www.rfgxy.com/service.aspx" class="f14" target="_blank">用户条款</a>
+                                        <a href="http://www.rfgxy.com/help/yinSiTiaokuan.shtml" class="f14" target="_blank">
                                 隐私条款</a> </li>
-                        <li class="btns" id="btns"><span class="pubtn"><i class="btn_l1"></i><a class="pubtn_in"
+                                    <li class="btns" id="btns"><span class="pubtn"><i class="btn_l1"></i><a class="pubtn_in"
                             href="javascript:" id="register"><span class="pubtn_bg" style="padding: 0.1em 1em;
-                                font-size: 18px;">立即注册</span></a> <i class="btn_l2"></i></span></li>
-                        <!-- <li class="btns2" id="btns2" style="display: none;">正在注册，请稍候<b>...</b></li> -->
-                        <!-- <input type="submit" value="button"/> -->
-                    </ol>
-                </fieldset>
-                <input type="hidden" name="learnerId_recommend" id="learnerId_recommend" value="0" />
-                   <input type="hidden" name="gettype" id="gettype" value="getpassword" />
-                </form>  
-            </div>
-            <div class="login_ad" style="float: right; display: none;">
-                <div class="login_ad_contents">
-                    <ul>
-                        <li class="cred1 f20 b pl20">学工控技术，拿10万年薪</li>
-                        <li class="cred1 b pt20">PLC、变频器、触摸屏、组态、电工远程培训</li>
-                        <li class="cgray1">视频教程+在线辅导+实操设备送到家</li>
-                        <li class="cgray1">马上注册，免费学习超过100课时视频教程，免费下载海量学习资料</li>
-                    </ul>
-                </div>
+                                font-size: 18px;">立即注册</span></a> <i class="btn_l2"></i></span>
+                                    </li>
+                                    <!-- <li class="btns2" id="btns2" style="display: none;">正在注册，请稍候<b>...</b></li> -->
+                                    <!-- <input type="submit" value="button"/> -->
+                            </ol>
+                        </fieldset>
+                        <input type="hidden" name="learnerId_recommend" id="learnerId_recommend" value="0" />
+                        <input type="hidden" name="gettype" id="gettype" value="getpassword" />
+                        </form>
+                        </div>
+                        <div class="login_ad" style="float: right; display: none;">
+                            <div class="login_ad_contents">
+                                <ul>
+                                    <li class="cred1 f20 b pl20">学工控技术，拿10万年薪</li>
+                                    <li class="cred1 b pt20">PLC、变频器、触摸屏、组态、电工远程培训</li>
+                                    <li class="cgray1">视频教程+在线辅导+实操设备送到家</li>
+                                    <li class="cgray1">马上注册，免费学习超过100课时视频教程，免费下载海量学习资料</li>
+                                </ul>
+                            </div>
+                        </div>
             </div>
         </div>
-    </div>
-    <!-- container end -->
-    <!-- footer start -->
-    <footer>
-    <div class="constrain">
-        <p><a class="links1" href="http://www.rfgxy.com/AboutUs.aspx" target="_blank">关于我们</a> | <a class="links1" href="http://www.rfgxy.com/contact.aspx" target="_blank">联系我们</a> | <a class="links1" href="http://www.rfgxy.com/zhaopin.aspx" target="_blank">人才招聘</a> | <a class="links1" href="http://www.rfgxy.com/links.aspx" target="_blank">友情链接</a> | <a class="links1" href="http://www.rfgxy.com/help/index.aspx" target="_blank">帮助中心</a></p>
-        <p>全国免费咨询电话：110110110 (工作日9:00-20:30) 邮件：<a class="links2" href="mailto:kefu@rfgxy.com" target="_blank">kefu@rfgxy.com </a>版权所有 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
-    </div>
-</footer>
-    <!-- footer end -->
-    <script type="text/javascript" src="<?php echo base_url('index/include/jquery-1.8.2.min.js'); ?>"></script>
-    <script type="text/javascript" src="<?php echo base_url('index/include/autoMail.js'); ?>"></script>
-                <script type="text/javascript">
-                
-                    var gtFailbackFrontInitial = function(result) {
-                        var s = document.createElement('script');
-                        s.id = 'gt_lib';
-                        s.src = 'http://static.geetest.com/static/js/geetest.0.0.0.js';
-                        s.charset = 'UTF-8';
-                        s.type = 'text/javascript';
-                        document.getElementsByTagName('head')[0].appendChild(s);
-                        var loaded = false;
-                        s.onload = s.onreadystatechange = function() {
-                            if (!loaded && (!this.readyState|| this.readyState === 'loaded' || this.readyState === 'complete')) {
-                                loadGeetest(result);
-                                loaded = true;
-                            }
-                        };
+        <!-- container end -->
+        <!-- footer start -->
+        <footer>
+            <div class="constrain">
+                <p><a class="links1" href="http://www.rfgxy.com/AboutUs.aspx" target="_blank">关于我们</a> | <a class="links1" href="http://www.rfgxy.com/contact.aspx" target="_blank">联系我们</a> | <a class="links1" href="http://www.rfgxy.com/zhaopin.aspx" target="_blank">人才招聘</a> | <a class="links1" href="http://www.rfgxy.com/links.aspx" target="_blank">友情链接</a> | <a class="links1" href="http://www.rfgxy.com/help/index.aspx" target="_blank">帮助中心</a></p>
+                <p>全国免费咨询电话：110110110 (工作日9:00-20:30) 邮件：<a class="links2" href="mailto:kefu@rfgxy.com" target="_blank">kefu@rfgxy.com </a>版权所有 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
+            </div>
+        </footer>
+        <!-- footer end -->
+        <script type="text/javascript" src="<?php echo base_url('index/include/jquery-1.8.2.min.js'); ?>"></script>
+        <script type="text/javascript" src="<?php echo base_url('index/include/autoMail.js'); ?>"></script>
+        <script type="text/javascript">
+        var gtFailbackFrontInitial = function(result) {
+                var s = document.createElement('script');
+                s.id = 'gt_lib';
+                s.src = 'http://static.geetest.com/static/js/geetest.0.0.0.js';
+                s.charset = 'UTF-8';
+                s.type = 'text/javascript';
+                document.getElementsByTagName('head')[0].appendChild(s);
+                var loaded = false;
+                s.onload = s.onreadystatechange = function() {
+                    if (!loaded && (!this.readyState || this.readyState === 'loaded' || this.readyState === 'complete')) {
+                        loadGeetest(result);
+                        loaded = true;
                     }
-                    //get  geetest server status, use the failback solution
+                };
+            }
+            //get  geetest server status, use the failback solution
 
 
-                    var loadGeetest = function(config) {
+        var loadGeetest = function(config) {
 
-                        //1. use geetest capthca
-                        window.gt_captcha_obj = new window.Geetest({
-                            gt : config.gt,
-                            challenge : config.challenge,
-                            product : 'float',
-                            offline : !config.success
-                        });
+            //1. use geetest capthca
+            window.gt_captcha_obj = new window.Geetest({
+                gt: config.gt,
+                challenge: config.challenge,
+                product: 'float',
+                offline: !config.success
+            });
 
-                        gt_captcha_obj.appendTo("#div_id_embed");
-                    }
+            gt_captcha_obj.appendTo("#div_id_embed");
+        }
 
-                    s = document.createElement('script');
-                    s.src = 'http://api.geetest.com/get.php?callback=gtcallback';
-                    $("#div_geetest_lib").append(s);
-                    
-                    var gtcallback =( function() {
-                        var status = 0, result, apiFail;
-                        return function(r) {
-                            status += 1;
-                            if (r) {
-                                result = r;
-                                setTimeout(function() {
-                                    if (!window.Geetest) {
-                                        apiFail = true;
-                                        gtFailbackFrontInitial(result)
-                                    }
-                                }, 1000)
-                            }
-                            else if(apiFail) {
-                                return
-                            }
-                            if (status == 2) {
-                                loadGeetest(result);
+        s = document.createElement('script');
+        s.src = 'http://api.geetest.com/get.php?callback=gtcallback';
+        $("#div_geetest_lib").append(s);
+
+        var gtcallback = (function() {
+            var status = 0,
+                result, apiFail;
+            return function(r) {
+                status += 1;
+                if (r) {
+                    result = r;
+                    setTimeout(function() {
+                        if (!window.Geetest) {
+                            apiFail = true;
+                            gtFailbackFrontInitial(result)
+                        }
+                    }, 1000)
+                } else if (apiFail) {
+                    return
+                }
+                if (status == 2) {
+                    loadGeetest(result);
+                }
+            }
+        })()
+
+        // ../StartCaptchaServlet.php?rand="+Math.round(Math.random()*100),
+        $.ajax({
+            url: "../index.php/register/check_challenge",
+            type: "get",
+            dataType: 'JSON',
+            success: function(result) {
+                console.log(result);
+                gtcallback(result)
+            }
+        })
+        </script>
+        <script type="text/javascript">
+        $(function() {
+            $("#sendCode").click(function() {
+                value = gt_captcha_obj.getValidate();
+                phone = $("#umobile").val();
+                value.phone = phone;
+                result = JSON.stringify(value);
+                if (!(/^(13[0-9]|15[0-9]|17[0-9]|18[0-9])\d{8}$/).test(phone)) {
+                    alert("请输入正确的手机号码");
+                }else if(result == "false"){
+                    alert('滑动验证未通过');
+                }else {
+
+                    console.log(result);
+                    $.ajax({
+                        type: 'POST',
+                        url: "../index.php/register/check_phone",
+                        data: "value=" + result,
+                        success: function(result) {
+                            console.log(result);
+                            if (result == 1) {
+                                alert('短信验证发送成功');
+                                // $(".reminder").html('短信验证发送成功');
+                                // $(".reminder").css('color',"#31C552");
+                            } else if (result == -6) {
+                                alert('滑动验证未通过');
+                                // $(".reminder").html('滑动验证未通过');
+
+                            } else if (result == -10) {
+                                alert('手机号已经存在');
+                                // $(".reminder").html('滑动验证未通过');
+                            } else {
+                                alert('短信验证发送失败');
+                                // $(".reminder").html('短信验证发送失败');
                             }
                         }
-                    })()
-                    
-                                // ../StartCaptchaServlet.php?rand="+Math.round(Math.random()*100),
-                    $.ajax({
-                                url : "../index.php/register/check_challenge",
-                                type : "get",
-                                dataType : 'JSON',
-                                success : function(result) {
-                                    console.log(result);
-                                    gtcallback(result)
-                                }
-                            })
-                </script>
-                <script type="text/javascript">
-                $(function() {
-                    $("#sendCode").click(function(){
-                        value = gt_captcha_obj.getValidate();
-                        value.phone = $("#umobile").val();
-                        result = JSON.stringify(value);
-                        console.log(result);
-                        $.ajax({
-                            type:'POST',
-                            url : "../index.php/register/check_phone",
-                            data:"value="+result,
-                            success:function(result){
-                                console.log(result);
-                                if(result==1){
-                                    alert('短信验证发送成功');
-                                    // $(".reminder").html('短信验证发送成功');
-                                    // $(".reminder").css('color',"#31C552");
-                                }else if(result==-6){
-                                    alert('滑动验证未通过');
-                                    // $(".reminder").html('滑动验证未通过');
-                                }else{
-                                    alert('短信验证发送失败');
-                                    // $(".reminder").html('短信验证发送失败');
-                                }
-                            }
-                        })
                     })
-                })
+                }
+            })
+        })
 
-
-            /* 发送验证码 */
-
-            /* 发送验证码 */
-            // $("#sendCode").click(function () {
-            //     var value = gt_captcha_obj.getValidate();
-            //     var phone = $("#umobile").val();
-            //     // var umobile = $("#umobile").val();
-            //     if (!(/^(13[0-9]|15[0-9]|17[0-9]|18[0-9])\d{8}$/).test(phone)) {
-            //         alert("请输入正确的手机号码");
-            //     } else {
-            //     //     value.phone = phone;
-            //     // results = JSON.stringify(value);
-            //             $.ajax({
-            //                 type:'POST',
-            //                 url : "../index.php/register/check_phone",
-            //                 data:"value="+phone,
-            //                 success:function(){
-            //                     // console.log(result);
-            //                     // if(result==1){
-            //                     //     alert('短信验证发送成功');
-            //                     //     // $(".reminder").html('短信验证发送成功');
-            //                     //     // $(".reminder").css('color',"#31C552");
-            //                     // }else if(result==-6){
-            //                     //     alert('滑动验证未通过');
-            //                     //     // $(".reminder").html('滑动验证未通过');
-            //                     // }else{
-            //                         alert('短信验证发送失败');
-            //                         // $(".reminder").html('短信验证发送失败');
-            //                     // }
-            //                 }
-            //             })
-
-            //     // }
-            //     //     });
-            //     }
-            // });
-
-            </script>
-    <script type="text/javascript">
-        $(function () {
+        </script>
+        <script type="text/javascript">
+        $(function() {
             function Radom4() {
                 var charactors = "abcd2ef3gh4ij5k6mn7pq8rst9uvwxyz";
-                var value = '', i;
+                var value = '',
+                    i;
                 for (j = 1; j <= 4; j++) {
                     i = parseInt(35 * Math.random());
                     value = value + charactors.charAt(i);
@@ -330,7 +315,7 @@
                 $("#" + id2).hide();
                 var $id1 = $("#" + id1);
                 var i = timer;
-                var fn = function () {
+                var fn = function() {
                     $id1.html("还有" + i + "秒");
                     !i && $id1.hide() && $("#" + id2).show() && clearInterval(timer);
                     i--;
@@ -377,7 +362,7 @@
                 return $.trim(arg);
             }
 
-            $("#uEmail").focus(function () {
+            $("#uEmail").focus(function() {
                 var sEmail = $("#uEmail").val();
                 if ($trim(sEmail) == "建议使用QQ邮箱") {
                     $("#uEmail").val("");
@@ -386,11 +371,12 @@
                 $(this).attr("class", "txt_blue2-260-30");
             });
 
-            $("#utrueName").focus(function () {
-                $("#utrueName_tips").html(""); $(this).attr("class", "reg_txt txt_gray3-260-30");
+            $("#utrueName").focus(function() {
+                $("#utrueName_tips").html("");
+                $(this).attr("class", "reg_txt txt_gray3-260-30");
             });
 
-            $("#uPwd").focus(function () {
+            $("#uPwd").focus(function() {
                 $("#e_tips").attr("class", "cgray5").html("");
                 var sEmail = $("#uEmail").val();
                 if (!vUemail.test($trim(sEmail))) {
@@ -404,14 +390,29 @@
                         $("#uEmail").attr("class", "txt_red2-260-30");
                     } else {
                         /*验证邮箱是否已经注册*/
-                        $.post("/emailregister/emailIsregister.aspx", $("#regForm").serialize()).done(function (d) {
-                            if (d != "0") {
-                                /*邮箱已经注册*/
-                                $("#e_tips").attr("class", "cred").html("该邮箱已被注册,请更换邮箱，或直接<a href=\"newlogin.aspx\">登录</a>");
-                                $("#uEmail").attr("class", "txt_red2-260-30");
-                                return false;
+                        // $.post("/emailregister/emailIsregister.aspx", $("#regForm").serialize()).done(function(d) {
+                        //     if (d != "0") {
+                        //         /*邮箱已经注册*/
+                        //         $("#e_tips").attr("class", "cred").html("该邮箱已被注册,请更换邮箱，或直接<a href=\"newlogin.aspx\">登录</a>");
+                        //         $("#uEmail").attr("class", "txt_red2-260-30");
+                        //         return false;
+                        //     }
+                        // });
+// console.log($('#uEmail').val());
+                        $.ajax({
+                            url: "../index.php/register/check_email",
+                            type: "post",
+                            // dataType: 'JSON',
+                            data: "value=" + $('#uEmail').val(),
+                            success: function(result) {
+                                console.log(result);
+                                if (result == "-10") {
+                                    $("#e_tips").attr("class", "cred").html("该邮箱已被注册,请更换邮箱，或直接<a href=\"newlogin.aspx\">登录</a>");
+                                    $("#uEmail").attr("class", "txt_red2-260-30");
+                                    // return false;
+                                }
                             }
-                        });
+                        })
 
                     }
 
@@ -427,7 +428,7 @@
 
 
 
-            $("#reg_form").delegate("#register", "click", function () {
+            $("#reg_form").delegate("#register", "click", function() {
 
                 var umobile = $("#umobile").val();
                 var sEmail = $("#uEmail").val();
@@ -467,11 +468,11 @@
                     return false;
                 }
 
-                if (validateCode == "") {
-                    alert("请输入验证码");
-                    return false;
+                // if (validateCode == "") {
+                //     alert("请输入验证码");
+                //     return false;
 
-                }
+                // }
 
                 //  $("#regForm").serialize()
 
@@ -479,45 +480,47 @@
                     $("#btns").hide();
                     $("#btns2").show();
                     var radomnumber = Radom4();
-                    $.post("http://www.rfgxy.com/ashx/api/checkMCode.aspx", { mobile: umobile, code: validateCode }).done(function (d) {
 
-                        if (d == "1") {
-                            $.post("emailregdatanew.aspx", $("#regForm").serialize()).done(function (d) {
+                    // $.post("http://www.rfgxy.com/ashx/api/checkMCode.aspx", {
+                    //     mobile: umobile,
+                    //     code: validateCode
+                    // }).done(function(d) {
 
-                                if (d == "1") {
-                                    //location.href = "emailregister/reg_success2.aspx";
-                                    alert("注册成功！");
-                                    location.href = " http://my.rfgxy.com/study/MyLesson.aspx";
-                                }
-                                else {
-                                    if (d.indexOf("http") > -1) {
-                                        location.href = d;
-                                    }
+                    //     if (d == "1") {
+                    //         $.post("emailregdatanew.aspx", $("#regForm").serialize()).done(function(d) {
 
-                                    else {
-                                        $("#btns").show();
-                                        $("#btns2").hide();
-                                        alert(d);
-                                        return false;
-                                    }
+                    //             if (d == "1") {
+                    //                 //location.href = "emailregister/reg_success2.aspx";
+                    //                 alert("注册成功！");
+                    //                 location.href = " http://my.rfgxy.com/study/MyLesson.aspx";
+                    //             } else {
+                    //                 if (d.indexOf("http") > -1) {
+                    //                     location.href = d;
+                    //                 } else {
+                    //                     $("#btns").show();
+                    //                     $("#btns2").hide();
+                    //                     alert(d);
+                    //                     return false;
+                    //                 }
 
-                                }
-                            });
+                    //             }
+                    //         });
 
-                        } else if (d == "0") {
-                            alert("验证码输入错误");
-                        }
+                    //     } else if (d == "0") {
+                    //         alert("验证码输入错误");
+                    //     }
 
-                    });
+                    // });
                 }
             });
 
 
 
         })
-    </script>
-    <!--<script type="text/javascript" src="http://www.rfgxy.com/include/couplet.js"></script>-->
-<!--     // <script type="text/javascript" src="http://www.rfgxy.com/include/tongji.js?a=20130514001"></script> -->
-     <!-- <script language="JavaScript" src="http://tj.rfgxy.com/tj.js" type="text/JavaScript"></script> -->
+        </script>
+        <!--<script type="text/javascript" src="http://www.rfgxy.com/include/couplet.js"></script>-->
+        <!--     // <script type="text/javascript" src="http://www.rfgxy.com/include/tongji.js?a=20130514001"></script> -->
+        <!-- <script language="JavaScript" src="http://tj.rfgxy.com/tj.js" type="text/JavaScript"></script> -->
 </body>
+
 </html>

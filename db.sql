@@ -10,7 +10,7 @@ CREATE TABLE  `ci_user` (
  `vip` VARCHAR( 50 ) NOT NULL DEFAULT  '',
  `other2` VARCHAR( 50 ) NOT NULL DEFAULT  '',
  `other3` VARCHAR( 50 ) NOT NULL DEFAULT  '',
- `reg_time` DATE NOT NULL DEFAULT  '0000-00-00' COMMENT '注册时间',--用datetime比较好
+ `reg_time` DATE NOT NULL DEFAULT  '0000-00-00' COMMENT '注册时间',
 PRIMARY KEY (  `uid` )
 ) ENGINE = MYISAM CHARSET = utf8;
 

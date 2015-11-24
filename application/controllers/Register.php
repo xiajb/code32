@@ -78,23 +78,40 @@ class Register extends CI_Controller {
 	}
 
 	public function check_phone(){
+		$GtMsgSdk = new MsgGeetestLib();
 		// $GtMsgSdk = $_SESSION['gtmsgsdk'];
-		file_put_contents("/home/tanu/www/data.txt", $this->input->post('value'));
-		// $data = json_decode($this->input->post('value'),true);
-		// echo $data;
-		// $data = json_decode($_POST['value'],true);
-		// if ($data['geetest_validate'] == md5(PRIVATE_KEY . 'geetest' . $data['geetest_challenge'])) {
-		//     $codedata = array(
-		//             "seccode" => $data['geetest_seccode'],
-		//             "sdk" => "php_2.15.4.1.1",
-		//             "phone" =>$data['phone'],
-		//             "msg_id" => CAPTCHA_ID
-		//         );
-		//     $action = "send";
-		//     $result = $GtMsgSdk->send_msg_request($action,$codedata);
-		//     echo $result;
-		// }else{
-		//     echo "-11";
+		$data = json_decode($this->input->post('value'),true);
+		// file_put_contents("/home/tanu/www/data.txt", $this->input->post('value').'---------'.print_r($data,true),FILE_APPEND );
+		if ($data['geetest_validate'] == md5(PRIVATE_KEY . 'geetest' . $data['geetest_challenge'])) {
+		    $codedata = array(
+		            "seccode" => $data['geetest_seccode'],
+		            "sdk" => "php_2.15.4.1.1",
+		            "phone" =>$data['phone'],
+		            "msg_id" => CAPTCHA_ID
+		        );
+		    $action = "send";
+		    $result = $GtMsgSdk->send_msg_request($action,$codedata);
+		    if ($result == 1) {
+			if ($this->user_model->sql_check_phone($data['phone']) >= 1) {
+				echo "-10";
+			}
+		    }else{
+			    echo $result;
+		    }
+		}else{
+		    echo "-11";
+		    
+		}
+			
+
+	}
+
+	public function check_email(){
+		$data['email'] = $this->input->post('value');
+		$data = $this->user_model->check_email($data['email']);
+file_put_contents("/home/tanu/www/data.txt",$data,FILE_APPEND);
+		// if ($this->user_model->sql_check_email($email) >= 1) {
+		// 	echo "-10";
 		// }
 
 	}
