@@ -238,7 +238,7 @@
 
         // ../StartCaptchaServlet.php?rand="+Math.round(Math.random()*100),
         $.ajax({
-            url: "../index.php/register/check_challenge",
+            url: "../register/check_challenge",
             type: "get",
             dataType: 'JSON',
             success: function(result) {
@@ -263,7 +263,7 @@
                     console.log(result);
                     $.ajax({
                         type: 'POST',
-                        url: "../index.php/register/check_phone",
+                        url: "../register/check_phone",
                         data: "value=" + result,
                         success: function(result) {
                             console.log(result);
@@ -401,13 +401,15 @@
 // console.log($('#uEmail').val());
                    $.ajax({
                         type: 'POST',
-                        url: "../index.php/register/check_email",
+                        url: "../register/check_email",
                         // data: "value=" + result,
                         data: "value=" + $('#uEmail').val(),
-     
+
                             success: function(result) {
                                 // console.log(result);
+                                alert(result);
                                 if (result == "-10") {
+
                                     $("#e_tips").attr("class", "cred").html("该邮箱已被注册,请更换邮箱，或直接<a href=\"newlogin.aspx\">登录</a>");
                                     $("#uEmail").attr("class", "txt_red2-260-30");
                                     // return false;

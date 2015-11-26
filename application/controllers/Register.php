@@ -73,7 +73,10 @@ class Register extends CI_Controller {
 		            'challenge' => $challenge
 		        );
 		    $_SESSION['challenge'] = $result['challenge'];
-		    echo json_encode($result);
+		    $result1= json_encode($result);
+		    $row=urldecode($result1);
+			echo $row;
+
 		}
 	}
 
