@@ -25,9 +25,11 @@ class User_model extends CI_Model{
 	public function sql_check_email($email){
 		// $query = $this->db->where($email)->get(self::TBL_USER);
 		// return $query->row_array();
-		$this->db->where('email',$email);
-		$query=$this->db->get('ci_user');
+		// $this->db->where('email',$email);
+		// $query=$this->db->get('ci_user');
 		//返回行数
+		$sql = 'select * from ci_user where email= "'.$email.'"';
+		$query=$this->db->query($sql);
 		return $query->num_rows();
 
 	}

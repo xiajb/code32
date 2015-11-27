@@ -74,7 +74,7 @@
                                         &nbsp;</label>
                                 </li>
                                 <li>重复密码：
-                                    <input type="password" id="uPwd" name="repassword" class="reg_txt txt_gray3-260-30" />
+                                    <input type="password" id="uPwd" name="repassword" class="reg_txt txt_gray3-260-30 rePwd" />
                                 </li>
                                 <div class="box" id="div_geetest_lib">
                                     <li class="tips">
@@ -84,16 +84,16 @@
                                     <li>滑动验证：
                                         <div id="div_id_embed"></div>
                                     </li>
+                               <li class="ti3" style="text-indent: 85px;">
+                                        <label for="uPwd" id="p_tips">
+                                            &nbsp;</label>
+                                    </li>
                                     <style type="text/css">
                                     #div_id_embed{
-                                        float: right;
-                                        width: 351px;
-                                        height: 30px;
+                                        height: 22px;
+                                        display: inline-block;
                                     }
-                                    .gt_holder {
-                                        float: right;
-                                        /*margin-right: 64px;*/
-                                    }
+                                   
                                     </style>
                                 <li style="padding-left: 90px;">
                                     <input type="text" name="validateCode" id="validateCode" class="reg_txt txt_gray3-260-30" style="width: 170px;" placeholder="请输入手机验证码">
@@ -104,10 +104,7 @@
                                 <li class="tips">
                                     <label for="umobile" id="m_tips">
                                         &nbsp;</label>
-                                </li>                                    <li class="ti3" style="text-indent: 85px;">
-                                        <label for="uPwd" id="p_tips">
-                                            &nbsp;</label>
-                                    </li>
+                                </li> 
                                     <li>
                                         课程阶段：
                                         <select class="reg_txt txt_gray3-260-30 CourseIndustry" id="CourseIndustry" name="CourseIndustry" style="width:250px; height:30px;">
@@ -238,7 +235,7 @@
 
         // ../StartCaptchaServlet.php?rand="+Math.round(Math.random()*100),
         $.ajax({
-            url: "../register/check_challenge",
+            url: "../index.php/register/check_challenge",
             type: "get",
             dataType: 'JSON',
             success: function(result) {
@@ -260,13 +257,13 @@
                     alert('滑动验证未通过');
                 }else {
 
-                    console.log(result);
+                    // console.log(result);
                     $.ajax({
                         type: 'POST',
-                        url: "../register/check_phone",
+                        url: "../index.php/register/check_phone",
                         data: "value=" + result,
                         success: function(result) {
-                            console.log(result);
+                            // console.log(result);
                             if (result == 1) {
                                 alert('短信验证发送成功');
                                 // $(".reminder").html('短信验证发送成功');
@@ -401,15 +398,15 @@
 // console.log($('#uEmail').val());
                    $.ajax({
                         type: 'POST',
-                        url: "../register/check_email",
+                        url: "../index.php/register/check_email",
                         // data: "value=" + result,
                         data: "value=" + $('#uEmail').val(),
 
                             success: function(result) {
-                                // console.log(result);
-                                alert(result);
-                                if (result == "-10") {
-
+                                console.log(result);
+                                // alert(result);
+                                if (result == -10) {
+                                    // alert('该邮箱已被注册,请更换邮箱');
                                     $("#e_tips").attr("class", "cred").html("该邮箱已被注册,请更换邮箱，或直接<a href=\"newlogin.aspx\">登录</a>");
                                     $("#uEmail").attr("class", "txt_red2-260-30");
                                     // return false;
@@ -431,14 +428,15 @@
 
 
 
-            $("#reg_form").delegate("#register", "click", function() {
-
-                var umobile = $("#umobile").val();
+            // $("#reg_form").delegate("#register", "click", function() {
+                $("#register").click(function(){
+                                   var umobile = $("#umobile").val();
                 var sEmail = $("#uEmail").val();
                 var sPwd = $("#uPwd").val();
+                var rePwd = $(".rePwd").val();
                 var validateCode = $("#validateCode").val();
                 var utrueName = $("#utrueName").val();
-
+                
                 if (!(/^(13[0-9]|15[0-9]|17[0-9]|18[0-9])\d{8}$/).test(umobile)) {
 
                     $("#m_tips").attr("class", "cred").html("请输入正确的手机号码.");
@@ -466,24 +464,45 @@
                     return false;
                 }
 
+                if ($trim(sPwd) != $trim(rePwd)) {
+                    $("#p_tips").attr("class", "cred").html("两次密码输入不一致");
+                    return false;
+                }
+
                 if ($("#agree").prop("checked") == false) {
                     alert("请认证阅读 用户条款 和 隐私条款");
                     return false;
                 }
-
-                // if (validateCode == "") {
-                //     alert("请输入验证码");
-                //     return false;
-
-                // }
-
-                //  $("#regForm").serialize()
+ 
 
                 if (hash[i_sEmail] && ($trim(sPwd).length > 5 && $trim(sPwd).length < 21 && $("#agree").prop("checked") == true)) {
-                    $("#btns").hide();
-                    $("#btns2").show();
-                    var radomnumber = Radom4();
+                    // $("#btns").hide();
+                    // $("#btns2").show();
+                    // var radomnumber = Radom4();
+                    var data = {"email":sEmail,"phone":umobile,"password":sPwd,"nickname":utrueName}
 
+                    console.log(data);
+                    $.ajax({
+                        type: 'POST',
+                        url: "../index.php/register/do_register",
+                        // data: "value=" + result,
+                        data:'data='+JSON.stringify(data),
+
+                            success: function(result) {
+                                console.log(result);
+                                // alert(result);
+                                if (result == 1) {
+                                    // alert('该邮箱已被注册,请更换邮箱');
+                                    // $("#e_tips").attr("class", "cred").html("该邮箱已被注册,请更换邮箱，或直接<a href=\"newlogin.aspx\">登录</a>");
+                                    // $("#uEmail").attr("class", "txt_red2-260-30");
+                                    // return false;
+                                    alert("注册成功！");
+                                    location.href = "http://127.0.0.1/code32/index.php/center";
+                                }
+                            }
+                        })
+                }
+            })
                     // $.post("http://www.rfgxy.com/ashx/api/checkMCode.aspx", {
                     //     mobile: umobile,
                     //     code: validateCode
@@ -514,8 +533,8 @@
                     //     }
 
                     // });
-                }
-            });
+                // }
+            // });
 
 
 
