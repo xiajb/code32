@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>注册技成帐号免费下载高清视频教程_儒风国学院</title>
+    <title>注册_儒风国学院_帐号</title>
     <meta name="description" content="儒风国学院网提供PLC视频教程、数控冲床、电工基础知识、数控编程等高清视频教程,打造自动化在线远程教育第一品牌.(PLC|西门子|三菱|欧姆龙|变频器|触摸屏|数控|电工)" />
     <link type="text/css" href="<?php echo base_url('index/style/jc.v2.css'); ?>" rel="stylesheet" media="all" />
     <link type="text/css" href="<?php echo base_url('index/style/register.v2.css'); ?>" rel="stylesheet" media="all" />
@@ -45,20 +45,20 @@
                     <?php echo form_open('register/do_register'); ?>
                         <fieldset>
                             <ol>
+                                                                <li>用&nbsp;户&nbsp; 名&nbsp;：
+                                    <input type="text" id="utrueName" name="username" class="reg_txt txt_gray3-260-30" title="您的姓名" placeholder="" maxlength="10" />
+                                </li>
+                                <li class="tips">
+                                    <label for="utrueName" id="utrueName_tips"></label>
+                                </li>
                                 <li>手机号码：
-                                    <input type="text" id="umobile" name="umobile" class="reg_txt txt_gray3-260-30" title="手机号码" placeholder="手机号码" onkeyup="value=value.replace(/[^\d]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
+                                    <input type="text" id="umobile" name="umobile" class="reg_txt txt_gray3-260-30" title="手机号码" placeholder="" onkeyup="value=value.replace(/[^\d]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
                                 </li>
                                 <li class="tips">
                                     <label for="umobile" id="m_tips">
                                         &nbsp;</label>
                                 </li>
 
-                                <li>用户名&nbsp;&nbsp;&nbsp;：
-                                    <input type="text" id="utrueName" name="username" class="reg_txt txt_gray3-260-30" title="您的姓名" placeholder="让老师更好的为你辅导学习" maxlength="10" />
-                                </li>
-                                <li class="tips">
-                                    <label for="utrueName" id="utrueName_tips"></label>
-                                </li>
                                 <li>用户邮箱：
                                     <input type="text" id="uEmail" name="email" class="reg_txt txt_gray3-260-30" title="建议使用QQ邮箱" placeholder="" />
                                 </li>
@@ -74,7 +74,7 @@
                                         &nbsp;</label>
                                 </li>
                                 <li>重复密码：
-                                    <input type="password" id="uPwd" name="repassword" class="reg_txt txt_gray3-260-30 rePwd" />
+                                    <input type="password" id="reuPwd" name="repassword" class="reg_txt txt_gray3-260-30" />
                                 </li>
                                 <div class="box" id="div_geetest_lib">
                                     <li class="tips">
@@ -84,54 +84,25 @@
                                     <li>滑动验证：
                                         <div id="div_id_embed"></div>
                                     </li>
-                               <li class="ti3" style="text-indent: 85px;">
+                                    <li class="ti3" style="text-indent: 85px;">
                                         <label for="uPwd" id="p_tips">
                                             &nbsp;</label>
                                     </li>
                                     <style type="text/css">
-                                    #div_id_embed{
+                                    #div_id_embed {
                                         height: 22px;
                                         display: inline-block;
                                     }
-                                   
                                     </style>
-                                <li style="padding-left: 90px;">
-                                    <input type="text" name="validateCode" id="validateCode" class="reg_txt txt_gray3-260-30" style="width: 170px;" placeholder="请输入手机验证码">
-                                    <input type="hidden" name="va" value="1">
-                                    <a href="javascript:;" id="sendCode" data_tips="获取验证码" class="mt5" style="border-color: #2495c7;
+                                    <li style="padding-left: 90px;">
+                                        <input type="text" name="validateCode" id="validateCode" class="reg_txt txt_gray3-260-30" style="width: 170px;" placeholder="请输入手机验证码">
+                                        <input type="hidden" name="va" value="1">
+                                        <a href="javascript:;" id="sendCode" data_tips="获取验证码" class="mt5" style="border-color: #2495c7;
                                 color: #2495c7;">获取验证码</a> <strong id="cdown_tips" class="cdown_tips" style="display: none;">
                                     90秒后才能再发送</strong> </li>
-                                <li class="tips">
-                                    <label for="umobile" id="m_tips">
-                                        &nbsp;</label>
-                                </li> 
-                                    <li>
-                                        课程阶段：
-                                        <select class="reg_txt txt_gray3-260-30 CourseIndustry" id="CourseIndustry" name="CourseIndustry" style="width:250px; height:30px;">
-                                            <option value="小学">小学</option>
-                                            <option value="初中">初中</option>
-                                            <option value="高中">高中</option>
-                                        </select>
-                                    </li>
-                                    <li style="font-size: 12px; display:none;">感兴趣的课程:
-                                        <input id="cbxPLC" name="cbxCI" type="checkbox" value="PLC">
-                                        <label for="cbxPLC">
-                                            PLC</label>
-                                        <input id="cbxBPQ" name="cbxCI" type="checkbox" value="变频器">
-                                        <label for="cbxBPQ">
-                                            变频器</label>
-                                        <input id="cbxZT" name="cbxCI" type="checkbox" value="组态">
-                                        <label for="cbxZT">
-                                            组态</label>
-                                        <input id="cbxSF" name="cbxCI" type="checkbox" value="伺服">
-                                        <label for="cbxSF">
-                                            伺服</label>
-                                        <input id="cbxCMP" name="cbxCI" type="checkbox" value="触摸屏">
-                                        <label for="cbxCMP">
-                                            触摸屏</label>
-                                        <input id="cbxQT" name="cbxCI" type="checkbox" value="其他">
-                                        <label for="cbxQT" id="lblQT">
-                                            其他</label>
+                                    <li class="tips">
+                                        <label for="umobile" id="m_tips">
+                                            &nbsp;</label>
                                     </li>
                                     <li class="ti3">
                                         <input type="checkbox" id="agree" checked="checked" />
@@ -143,6 +114,7 @@
                                     <li class="btns" id="btns"><span class="pubtn"><i class="btn_l1"></i><a class="pubtn_in"
                             href="javascript:" id="register"><span class="pubtn_bg" style="padding: 0.1em 1em;
                                 font-size: 18px;">立即注册</span></a> <i class="btn_l2"></i></span>
+                                        <!-- <div id="register" style="width:30px;height:30px">立即注册</div> -->
                                     </li>
                                     <!-- <li class="btns2" id="btns2" style="display: none;">正在注册，请稍候<b>...</b></li> -->
                                     <!-- <input type="submit" value="button"/> -->
@@ -235,7 +207,7 @@
 
         // ../StartCaptchaServlet.php?rand="+Math.round(Math.random()*100),
         $.ajax({
-            url: "../index.php/register/check_challenge",
+            url: "../index.php/register/check_challenge?rand="+Math.round(Math.random()*100),
             type: "get",
             dataType: 'JSON',
             success: function(result) {
@@ -253,9 +225,9 @@
                 result = JSON.stringify(value);
                 if (!(/^(13[0-9]|15[0-9]|17[0-9]|18[0-9])\d{8}$/).test(phone)) {
                     alert("请输入正确的手机号码");
-                }else if(result == "false"){
+                } else if (result == "false") {
                     alert('滑动验证未通过');
-                }else {
+                } else {
 
                     // console.log(result);
                     $.ajax({
@@ -263,28 +235,21 @@
                         url: "../index.php/register/check_phone",
                         data: "value=" + result,
                         success: function(result) {
-                            // console.log(result);
+                            console.log(result);
                             if (result == 1) {
                                 alert('短信验证发送成功');
-                                // $(".reminder").html('短信验证发送成功');
-                                // $(".reminder").css('color',"#31C552");
                             } else if (result == -6) {
                                 alert('滑动验证未通过');
-                                // $(".reminder").html('滑动验证未通过');
-
                             } else if (result == -10) {
                                 alert('手机号已经存在');
-                                // $(".reminder").html('滑动验证未通过');
                             } else {
                                 alert('短信验证发送失败');
-                                // $(".reminder").html('短信验证发送失败');
                             }
                         }
                     })
                 }
             })
         })
-
         </script>
         <script type="text/javascript">
         $(function() {
@@ -358,7 +323,27 @@
             function $trim(arg) {
                 return $.trim(arg);
             }
+            $("#utrueName").focus(function() {
+                $("#utrueName_tips").html("");
+                // $(this).attr("class", "reg_txt txt_gray3-260-30");
+                $(this).attr("class", "txt_blue2-260-30");
+            });
 
+            $("#umobile").focus(function() {
+                $("#umobile").attr("class", "txt_blue2-260-30");
+                $.ajax({
+                        type: 'POST',
+                        url: "../index.php/register/check_username",
+                        data: "username=" + $("#utrueName").val(),
+                        success: function(result) {
+                            // console.log(result);
+                            if (result == -10) {
+                                 $("#utrueName_tips").attr("class", "cred").html("用户名已存在！");
+                                return false;
+                            }
+                        }
+                    });
+            });
             $("#uEmail").focus(function() {
                 var sEmail = $("#uEmail").val();
                 if ($trim(sEmail) == "建议使用QQ邮箱") {
@@ -368,10 +353,8 @@
                 $(this).attr("class", "txt_blue2-260-30");
             });
 
-            $("#utrueName").focus(function() {
-                $("#utrueName_tips").html("");
-                $(this).attr("class", "reg_txt txt_gray3-260-30");
-            });
+
+
 
             $("#uPwd").focus(function() {
                 $("#e_tips").attr("class", "cgray5").html("");
@@ -386,21 +369,12 @@
                         $("#e_tips").attr("class", "cred").html("为了确保您能及时收到邮件，建议使用QQ邮箱");
                         $("#uEmail").attr("class", "txt_red2-260-30");
                     } else {
-                        /*验证邮箱是否已经注册*/
-                        // $.post("/emailregister/emailIsregister.aspx", $("#regForm").serialize()).done(function(d) {
-                        //     if (d != "0") {
-                        //         /*邮箱已经注册*/
-                        //         $("#e_tips").attr("class", "cred").html("该邮箱已被注册,请更换邮箱，或直接<a href=\"newlogin.aspx\">登录</a>");
-                        //         $("#uEmail").attr("class", "txt_red2-260-30");
-                        //         return false;
-                        //     }
-                        // });
-// console.log($('#uEmail').val());
-                   $.ajax({
-                        type: 'POST',
-                        url: "../index.php/register/check_email",
-                        // data: "value=" + result,
-                        data: "value=" + $('#uEmail').val(),
+                      
+                        $.ajax({
+                            type: 'POST',
+                            url: "../index.php/register/check_email",
+                            // data: "value=" + result,
+                            data: "value=" + $('#uEmail').val(),
 
                             success: function(result) {
                                 console.log(result);
@@ -417,127 +391,110 @@
                     }
 
                 }
-
                 var sPwd = $(this).val();
+                var rePwd = $("#reuPwd").val();
                 $("#p_tips").attr("class", "cgray5").html("6-20字符，可使用字母、数字或符号的组合");
                 $(this).attr("class", "txt_blue2-260-30");
+
+            });
+
+            $("#reuPwd").focus(function() {
+                $("#reuPwd").attr("class", "txt_blue2-260-30");
+            });
+
+            $("#validateCode").focus(function() {
+                $("#validateCode").attr("class", "txt_blue2-260-30");
+            });
+            $("#reuPwd").blur(function() {
+                if ($trim($('#uPwd').val()) != $trim($('#reuPwd').val())) {
+                    $("#p_tips").attr("class", "cred").html("两次密码输入不一致");
+                    // return false;
+                }
             });
 
 
 
 
 
-
             // $("#reg_form").delegate("#register", "click", function() {
-                $("#register").click(function(){
-                                   var umobile = $("#umobile").val();
-                var sEmail = $("#uEmail").val();
-                var sPwd = $("#uPwd").val();
-                var rePwd = $(".rePwd").val();
-                var validateCode = $("#validateCode").val();
-                var utrueName = $("#utrueName").val();
-                
-                if (!(/^(13[0-9]|15[0-9]|17[0-9]|18[0-9])\d{8}$/).test(umobile)) {
+            $("#register").click(function() {
+                    var umobile = $("#umobile").val();
+                    var sEmail = $("#uEmail").val();
+                    var sPwd = $("#uPwd").val();
+                    var rePwd = $("#reuPwd").val();
+                    var validateCode = $("#validateCode").val();
+                    var utrueName = $("#utrueName").val();
 
-                    $("#m_tips").attr("class", "cred").html("请输入正确的手机号码.");
-                    $("#umobile").attr("class", "txt_red2-260-30");
-                    return false;
-                }
-                if (utrueName == "") {
-                    $("#utrueName_tips").attr("class", "cred").html("还未输入姓名！");
-                    $("#utrueName").attr("class", "txt_red2-260-30");
-                    return false;
+                    if (!(/^(13[0-9]|15[0-9]|17[0-9]|18[0-9])\d{8}$/).test(umobile)) {
 
-                }
-                //if (!vUemail.test($trim(sEmail))) {
-                var t_sEmail = $trim(sEmail);
-                var i_sEmail = t_sEmail.substring(t_sEmail.indexOf("@") + 1);
-                if (!hash[i_sEmail]) {
-                    $("#e_tips").attr("class", "cred").html("请输入常用邮箱");
-                    $("#uEmail").attr("class", "txt_red2-260-30");
-                    return false;
-                }
+                        $("#m_tips").attr("class", "cred").html("请输入正确的手机号码.");
+                        $("#umobile").attr("class", "txt_red2-260-30");
+                        return false;
+                    }
+                    if (utrueName == "") {
+                        $("#utrueName_tips").attr("class", "cred").html("还未输入姓名！");
+                        $("#utrueName").attr("class", "txt_red2-260-30");
+                        return false;
 
-                if ($trim(sPwd).length < 6 || $trim(sPwd).length > 20) {
-                    $("#p_tips").attr("class", "cred").html("请输入正确的密码");
-                    $("#uPwd").attr("class", "txt_red2-260-30");
-                    return false;
-                }
+                    }
+                    //if (!vUemail.test($trim(sEmail))) {
+                    var t_sEmail = $trim(sEmail);
+                    var i_sEmail = t_sEmail.substring(t_sEmail.indexOf("@") + 1);
+                    if (!hash[i_sEmail]) {
+                        $("#e_tips").attr("class", "cred").html("请输入常用邮箱");
+                        $("#uEmail").attr("class", "txt_red2-260-30");
+                        return false;
+                    }
 
-                if ($trim(sPwd) != $trim(rePwd)) {
-                    $("#p_tips").attr("class", "cred").html("两次密码输入不一致");
-                    return false;
-                }
+                    if ($trim(sPwd).length < 6 || $trim(sPwd).length > 20) {
+                        $("#p_tips").attr("class", "cred").html("请输入正确的密码");
+                        $("#uPwd").attr("class", "txt_red2-260-30");
+                        return false;
+                    }
 
-                if ($("#agree").prop("checked") == false) {
-                    alert("请认证阅读 用户条款 和 隐私条款");
-                    return false;
-                }
- 
+                    if ($trim(sPwd) != $trim(rePwd)) {
+                        $("#p_tips").attr("class", "cred").html("两次密码输入不一致");
+                        return false;
+                    }
 
-                if (hash[i_sEmail] && ($trim(sPwd).length > 5 && $trim(sPwd).length < 21 && $("#agree").prop("checked") == true)) {
-                    // $("#btns").hide();
-                    // $("#btns2").show();
-                    // var radomnumber = Radom4();
-                    var data = {"email":sEmail,"phone":umobile,"password":sPwd,"nickname":utrueName,"validatecode":validateCode}
+                    if ($("#agree").prop("checked") == false) {
+                        alert("请认证阅读 用户条款 和 隐私条款");
+                        return false;
+                    }
 
-                    
-                    $.ajax({
-                        type: 'POST',
-                        url: "../index.php/register/do_register",
-                        // data: "value=" + result,
-                        data:'data='+JSON.stringify(data),
+
+                    if (hash[i_sEmail] && ($trim(sPwd).length > 5 && $trim(sPwd).length < 21 && $("#agree").prop("checked") == true)) {
+                        // $("#btns").hide();
+                        // $("#btns2").show();
+                        // var radomnumber = Radom4();
+                        var data = {
+                            "email": sEmail,
+                            "phone": umobile,
+                            "password": sPwd,
+                            "username": utrueName,
+                            "validatecode": validateCode
+                        }
+
+
+                        $.ajax({
+                            type: 'POST',
+                            url: "../index.php/register/do_register",
+                            data: 'data=' + JSON.stringify(data),
 
                             success: function(result) {
                                 console.log(result);
-                                // alert(result);
                                 if (result == 1) {
-                                    // alert('该邮箱已被注册,请更换邮箱');
-                                    // $("#e_tips").attr("class", "cred").html("该邮箱已被注册,请更换邮箱，或直接<a href=\"newlogin.aspx\">登录</a>");
-                                    // $("#uEmail").attr("class", "txt_red2-260-30");
-                                    // return false;
                                     alert("注册成功！");
                                     location.href = "http://127.0.0.1/code32/index.php/center";
+                                } else if (result < 0) {
+                                    alert("验证码输入错误");
+                                }else if(result == "error"){
+                                    alert("非法提交请重试");
                                 }
                             }
                         })
-                }
-            })
-                    // $.post("http://www.rfgxy.com/ashx/api/checkMCode.aspx", {
-                    //     mobile: umobile,
-                    //     code: validateCode
-                    // }).done(function(d) {
-
-                    //     if (d == "1") {
-                    //         $.post("emailregdatanew.aspx", $("#regForm").serialize()).done(function(d) {
-
-                    //             if (d == "1") {
-                    //                 //location.href = "emailregister/reg_success2.aspx";
-                    //                 alert("注册成功！");
-                    //                 location.href = " http://my.rfgxy.com/study/MyLesson.aspx";
-                    //             } else {
-                    //                 if (d.indexOf("http") > -1) {
-                    //                     location.href = d;
-                    //                 } else {
-                    //                     $("#btns").show();
-                    //                     $("#btns2").hide();
-                    //                     alert(d);
-                    //                     return false;
-                    //                 }
-
-                    //             }
-                    //         });
-
-                    //     } else if (d == "0") {
-                    //         alert("验证码输入错误");
-                    //     }
-
-                    // });
-                // }
-            // });
-
-
-
+                    }
+                })
         })
         </script>
         <!--<script type="text/javascript" src="http://www.rfgxy.com/include/couplet.js"></script>-->

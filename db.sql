@@ -1,6 +1,6 @@
 CREATE TABLE  `ci_user` (
  `uid` int(10) unsigned NOT NULL auto_increment COMMENT 'primary key,autoincrement',
- `nickname` VARCHAR( 16 ) NOT NULL,
+ `username` VARCHAR( 16 ) NOT NULL,
  `phone` VARCHAR( 11 ) NOT NULL,
  `password` VARCHAR( 50 ) NOT NULL,
  `email` VARCHAR( 50 ) NOT NULL,

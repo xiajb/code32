@@ -6,9 +6,9 @@ class User_model extends CI_Model{
 
 	}
 	public function get_user($username,$password){
-		$condition['username'] = $username;
-		$condition['password'] = md5($password);
-		$query = $this->db->where($condition)->get(self::TBL_USER);
+		$password = md5($password);
+		$sql='select * from ci_user where username= "'.$username.'"and password= "'.$password.'"'; 
+		// $query = $this->db->where($condition)->get(self::TBL_USER);
 		return $query->row_array();
 	}
 	public function add_user($data){
@@ -16,12 +16,16 @@ class User_model extends CI_Model{
 	}
 
 	public function sql_check_phone($phone){
-		$this->db->where('phone',$phone);
-		$query=$this->db->get('ci_user');
+		$sql = 'select * from ci_user where phone= "'.$phone.'"';
+		$query=$this->db->query($sql);
 		//返回行数
 		return $query->num_rows();
 	}
-
+	public function sql_check_username($username){
+		$sql = 'select * from ci_user where username= "'.$username.'"';
+		$query=$this->db->query($sql);
+		return $query->num_rows();
+	}
 	public function sql_check_email($email){
 		// $query = $this->db->where($email)->get(self::TBL_USER);
 		// return $query->row_array();

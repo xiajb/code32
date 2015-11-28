@@ -95,8 +95,10 @@ class Register extends CI_Controller {
 		    $action = "send";
 		    $result = $GtMsgSdk->send_msg_request($action,$codedata);
 		    if ($result == 1) {
-			if ($this->user_model->sql_check_phone($data['phone']) >= 1) {
+			if ($this->user_model->sql_check_phone($data['phone']) > 0 ) {
 				echo "-10";
+			}else{
+				echo "1";
 			}
 		    }else{
 			    echo $result;
@@ -114,12 +116,19 @@ class Register extends CI_Controller {
 
 		if ($this->user_model->sql_check_email($data) > 0) {
 			echo "-10";
-		}else{
-			echo "1";
+			exit;
 		}
 
 	}
 
+	public function check_username(){
+		$username = $this->input->post('username');
+		if ($this->user_model->sql_check_username($username) > 0) {
+			echo "-10";
+			exit;
+		}
+
+	}
 	public function do_register(){
 		$value = json_decode($this->input->post('data'),true);
 		// unset($data["validatecode"]);
@@ -140,8 +149,8 @@ class Register extends CI_Controller {
 		        );
 		    $result = $GtMsgSdk->send_msg_request($action,$data);
 		    if ($result == 1) {
-		    	unset($data["validatecode"]);
-		    	if ($this->user_model->add_user($data)) {
+		    	unset($value["validatecode"]);
+		    	if ($this->user_model->add_user($value)) {
 		    		echo '1';
 		    	}else{
 		    		echo 'error';
