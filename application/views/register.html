@@ -479,9 +479,9 @@
                     // $("#btns").hide();
                     // $("#btns2").show();
                     // var radomnumber = Radom4();
-                    var data = {"email":sEmail,"phone":umobile,"password":sPwd,"nickname":utrueName}
+                    var data = {"email":sEmail,"phone":umobile,"password":sPwd,"nickname":utrueName,"validatecode":validateCode}
 
-                    console.log(data);
+                    
                     $.ajax({
                         type: 'POST',
                         url: "../index.php/register/do_register",

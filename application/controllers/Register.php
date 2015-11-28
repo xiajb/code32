@@ -121,17 +121,37 @@ class Register extends CI_Controller {
 	}
 
 	public function do_register(){
-		$data = json_decode($this->input->post('data'),true);
-		// unset($data[$validatecode]);
-		file_put_contents("/home/tanxu/www/data.txt",print_r($data,true),FILE_APPEND );
-		if ($this->user_model->add_user($data)) {
-			// redirect('http://127.0.0.1/code32/index.php/login');
-			echo '1';
-		}else{
-			echo 'error';
-		}
-		// echo "1";
+		$value = json_decode($this->input->post('data'),true);
+		// unset($data["validatecode"]);
+		// file_put_contents("/home/tanxu/www/data.txt",print_r($data,true),FILE_APPEND );
+		// session_start();
 
+
+		$GtMsgSdk = new MsgGeetestLib();
+		if ($_SESSION['gtserver'] == 1) {
+		 
+		    $action = "validate";
+		    $code = $value['validatecode'];
+		    $phone = $value['phone'];
+		    $data = array(
+		            'phone' => $phone,
+		            'msg_id' => CAPTCHA_ID,
+		            'code' => $code
+		        );
+		    $result = $GtMsgSdk->send_msg_request($action,$data);
+		    if ($result == 1) {
+		    	unset($data["validatecode"]);
+		    	if ($this->user_model->add_user($data)) {
+		    		echo '1';
+		    	}else{
+		    		echo 'error';
+		    	}
+		    }else{
+		    	echo $result;
+		    }
+		// }else{
+		//     echo "use your own captcha result";
+		}
 	}
 }
 
