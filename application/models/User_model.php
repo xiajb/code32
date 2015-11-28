@@ -8,8 +8,9 @@ class User_model extends CI_Model{
 	public function get_user($username,$password){
 		$password = md5($password);
 		$sql='select * from ci_user where username= "'.$username.'"and password= "'.$password.'"'; 
+		$query=$this->db->query($sql);
 		// $query = $this->db->where($condition)->get(self::TBL_USER);
-		return $query->row_array();
+		return $query->num_rows();
 	}
 	public function add_user($data){
 		return $this->db->insert(self::TBL_USER,$data);
@@ -36,6 +37,12 @@ class User_model extends CI_Model{
 		$query=$this->db->query($sql);
 		return $query->num_rows();
 
+	}
+
+	public function query_all(){
+		$sql = 'select * from ci_user';
+		$query = $this->db->query($sql);
+		return $query->result();
 	}
 
 	// function  checklogin($user_name,$user_pwd){

@@ -1,12 +1,19 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Main extends CI_Controller {
+	public function __construct(){
+		parent::__construct();
+		$this->load->model('user_model');
+		$this->load->library('session');
 
-	/**
+	}	/**
 	*
 	 */
 	public function index()
 	{
+		// $this->user_model->query_all();
+		file_put_contents("/home/tanxu/www/data.txt", print_r($this->user_model->query_all(),true),FILE_APPEND );
+
 		$this->load->view('admin/admin_header.html');
 		$this->load->view('admin/admin_user.html');
 		$this->load->view('admin/admin_footer.html');

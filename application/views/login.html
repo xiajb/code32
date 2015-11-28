@@ -1,7 +1,6 @@
-    
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>欢迎来到登录页_儒风国学院</title>
@@ -105,9 +104,32 @@
         <p>全国免费咨询电话：110110110 (工作日9:00-20:30) 邮件：<a class="links2" href="mailto:kefu@rfgxy.com" target="_blank">kefu@rfgxy.com </a>版权所有 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
     </div>
 </footer>
+        <script type="text/javascript" src="<?php echo base_url('index/include/jquery-1.8.2.min.js'); ?>"></script>
+<script type="text/javascript">
+    $("#login").click(function(){
+                    var data = {
+                        "username":$("#uName").val(),
+                        "password":$("#uPwd").val()
+                    }
+                    
+                    $.ajax({
+                            type: 'POST',
+                            url: "../index.php/login/checklogin",
+                            data: 'data=' + JSON.stringify(data),
+
+                            success: function(result) {
+                                console.log(result);
+                                if (result == -1) {
+                                    alert("用户名或密码错误！");
+                                }
+                            }
+                        });
+
+    });
+</script>
     <!-- footer end -->
-    <script type="text/javascript" src="http://www.rfgxy.com/include/jquery-1.8.2.min.js"></script>
-    <script type="text/javascript" src="/emailregister/include/login.v3.js"></script>
-    <script type="text/javascript" src="http://www.rfgxy.com/include/tongji.js?a=20130514001"></script>
+        <script type="text/javascript" src="<?php echo base_url('index/include/jquery-1.8.2.min.js'); ?>"></script>
+<!--     // <script type="text/javascript" src="/emailregister/include/login.v3.js"></script> -->
+    <!-- // <script type="text/javascript" src="http://www.rfgxy.com/include/tongji.js?a=20130514001"></script> -->
 </body>
 </html>

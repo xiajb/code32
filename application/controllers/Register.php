@@ -20,34 +20,7 @@ class Register extends CI_Controller {
 		$this->load->library('form_validation');
 		$this->load->view("register.html");
 	}
-	// public function do_register(){
-	// 	$this->load->helper(array('form', 'url'));
-	// 	//表单验证
-	// 	$this->form_validation->set_rules('username','用户名','required');
-	// 	$this->form_validation->set_rules('password','密码','required|min_length[6]|max_length[16]|md5');
-	// 	// $this->form_validation->set_rules('repassword','重复密码','required|matches[password]');
-	// 	$this->form_validation->set_rules('email','电子邮箱','required|valid_email');
-	// 	if ($this->form_validation->run() == FALSE){
-	//             		$this->load->view('register.html');
-	//         	}
-	//         	else{
-	// 		$data['username']=$this->input->post('username',true);
-	// 		$data['password'] = $this->input->post('password',true);
-	// 		$data['email'] = $this->input->post('email',true);
-	// 		$data['reg_time']=time();
-	// 		//geetest验证码判断
-	// 		if (!$validate_response = geetest_validate(@$_POST['geetest_challenge'], @$_POST['geetest_validate'], @$_POST['geetest_seccode']) ){
-	// 			echo "验证码错误";
-	// 		}else{
-	// 			//注册插入数据库成功
-	// 			if ($this->user_model->add_user($data)) {
-	// 				redirect('http://127.0.0.1/code32/index.php/login');
-	// 			}else{
-	// 				echo 'error';
-	// 			}
-	// 		}
-	//         	}
-	// }
+
 
 	public function check_challenge(){
 		$GtSdk = new GeetestLib();
@@ -63,7 +36,7 @@ class Register extends CI_Controller {
 		        );
 		    echo json_encode($result);
 		}else{
-		    $_SESSION['gtserver'] = 0;
+ 		   $_SESSION['gtserver'] = 0;
 		    $rnd1 = md5(rand(0,100));
 		    $rnd2 = md5(rand(0,100));
 		    $challenge = $rnd1 . substr($rnd2,0,2);
@@ -73,9 +46,7 @@ class Register extends CI_Controller {
 		            'challenge' => $challenge
 		        );
 		    $_SESSION['challenge'] = $result['challenge'];
-		    $result1= json_encode($result);
-		    $row=urldecode($result1);
-			echo $row;
+		    echo json_encode($result);
 
 		}
 	}
@@ -85,33 +56,30 @@ class Register extends CI_Controller {
 		// $GtMsgSdk = $_SESSION['gtmsgsdk'];
 		$data = json_decode($this->input->post('value'),true);
 		// file_put_contents("/home/tanu/www/data.txt", $this->input->post('value').'---------'.print_r($data,true),FILE_APPEND );
-		if ($data['geetest_validate'] == md5(PRIVATE_KEY . 'geetest' . $data['geetest_challenge'])) {
-		    $codedata = array(
-		            "seccode" => $data['geetest_seccode'],
-		            "sdk" => "php_2.15.4.1.1",
-		            "phone" =>$data['phone'],
-		            "msg_id" => CAPTCHA_ID
-		        );
-		    $action = "send";
-		    $result = $GtMsgSdk->send_msg_request($action,$codedata);
-		    if ($result == 1) {
-			if ($this->user_model->sql_check_phone($data['phone']) > 0 ) {
-				echo "-10";
-			}else{
+		if ($this->user_model->sql_check_phone($data['phone'])>0) {
+			echo "-10";
+		}elseif ($data['geetest_validate'] == md5(PRIVATE_KEY . 'geetest' . $data['geetest_challenge']) ){
+			$codedata = array(
+			            "seccode" => $data['geetest_seccode'],
+			            "sdk" => "php_2.15.4.1.1",
+			            "phone" =>$data['phone'],
+			            "msg_id" => CAPTCHA_ID
+			        );
+			$action = "send";
+			$result = $GtMsgSdk->send_msg_request($action,$codedata);
+			if ($result == 1) {
 				echo "1";
+			}else{
+				echo $result;
 			}
-		    }else{
-			    echo $result;
-		    }
 		}else{
 		    echo "-11";
 		    
 		}
+		
 	}
 
 	public function check_email(){
-
-		// $GtMsgSdk = $_SESSION['gtmsgsdk'];
 		$data = $this->input->post('value');
 
 		if ($this->user_model->sql_check_email($data) > 0) {
@@ -131,11 +99,6 @@ class Register extends CI_Controller {
 	}
 	public function do_register(){
 		$value = json_decode($this->input->post('data'),true);
-		// unset($data["validatecode"]);
-		// file_put_contents("/home/tanxu/www/data.txt",print_r($data,true),FILE_APPEND );
-		// session_start();
-
-
 		$GtMsgSdk = new MsgGeetestLib();
 		if ($_SESSION['gtserver'] == 1) {
 		 
@@ -150,7 +113,9 @@ class Register extends CI_Controller {
 		    $result = $GtMsgSdk->send_msg_request($action,$data);
 		    if ($result == 1) {
 		    	unset($value["validatecode"]);
+		    	$value["password"] = md5($value["password"]);
 		    	if ($this->user_model->add_user($value)) {
+		    		$_SESSION["username"] = $value["username"];
 		    		echo '1';
 		    	}else{
 		    		echo 'error';

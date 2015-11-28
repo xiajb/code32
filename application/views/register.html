@@ -273,19 +273,19 @@
                 }
             }
 
-            function CountDown(id1, id2, timer) {
-                $("#" + id2).hide();
-                var $id1 = $("#" + id1);
-                var i = timer;
-                var fn = function() {
-                    $id1.html("还有" + i + "秒");
-                    !i && $id1.hide() && $("#" + id2).show() && clearInterval(timer);
-                    i--;
-                };
-                timer = setInterval(fn, 1000);
-                fn();
-                $id1.show();
-            }
+            // function CountDown(id1, id2, timer) {
+            //     $("#" + id2).hide();
+            //     var $id1 = $("#" + id1);
+            //     var i = timer;
+            //     var fn = function() {
+            //         $id1.html("还有" + i + "秒");
+            //         !i && $id1.hide() && $("#" + id2).show() && clearInterval(timer);
+            //         i--;
+            //     };
+            //     timer = setInterval(fn, 1000);
+            //     fn();
+            //     $id1.show();
+            // }
 
             var hash = {
                 'qq.com': 'http://mail.qq.com',
