@@ -1,3 +1,5 @@
+<script src="<?php echo base_url('index/js/plupload.full.min.js'); ?>" type="text/javascript"></script>
+
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
     <!-- <h1 class="page-header">Dashboard</h1> -->
     <div class="row placeholders">
@@ -26,66 +28,68 @@
     <div class="table-responsive" style="width: 70%;margin: 0 auto;">
         <form class="form-horizontal" style="width: 674px;">
             <div class="form-group">
-                <label for="inputEmail3" class="col-sm-2 control-label">阶段</label>
+                <label for="inputEmail3" class="col-sm-2 control-label" name="stage">阶段</label>
                 <div class="col-sm-6">
                     <select class="form-control">
-                        <option value="">小学</option>
-                        <option value="">初中</option>
-                        <option value="">高中</option>
+                        <option value="small">小学</option>
+                        <option value="middle">初中</option>
+                        <option value="high">高中</option>
                     </select>
                 </div>
             </div>
             <div class="form-group">
-                <label for="inputEmail3" class="col-sm-2 control-label">年级</label>
+                <label for="inputEmail3" class="col-sm-2 control-label" name="grade">年级</label>
                 <div class="col-sm-6">
                     <select class="form-control">
-                        <option value="">一年级</option>
-                        <option value="">二年级</option>
-                        <option value="">三年级</option>
-                        <option value="">四年级</option>
-                        <option value="">五年级</option>
-                        <option value="">六年级</option>
-                        <option value="">初一</option>
-                        <option value="">初二</option>
-                        <option value="">初三</option>
-                        <option value="">高一</option>
-                        <option value="">高二</option>
-                        <option value="">高三</option>
+                        <option value="1">一年级</option>
+                        <option value="2">二年级</option>
+                        <option value="3">三年级</option>
+                        <option value="4">四年级</option>
+                        <option value="5">五年级</option>
+                        <option value="6">六年级</option>
+                        <option value="7">初一</option>
+                        <option value="8">初二</option>
+                        <option value="9">初三</option>
+                        <option value="10">高一</option>
+                        <option value="11">高二</option>
+                        <option value="12">高三</option>
                     </select>
                 </div>
             </div>
             <div class="form-group">
-                <label for="inputEmail3" class="col-sm-2 control-label">科目</label>
+                <label for="inputEmail3" class="col-sm-2 control-label" name="subject">科目</label>
                 <div class="col-sm-6">
                     <select class="form-control">
-                        <option value="">语文</option>
-                        <option value="">数学</option>
-                        <option value="">英语</option>
-                        <option value="">化学</option>
-                        <option value="">生物</option>
-                        <option value="">物理</option>
-                        <option value="">政治</option>
-                        <option value="">历史</option>
-                        <option value="">地理</option>
+                        <option value="chinese">语文</option>
+                        <option value="math">数学</option>
+                        <option value="english">英语</option>
+                        <option value="chemistry">化学</option>
+                        <option value="biology">生物</option>
+                        <option value="physics">物理</option>
+                        <option value="political">政治</option>
+                        <option value="history">历史</option>
+                        <option value="geography">地理</option>
                     </select>
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputPassword3" class="col-sm-2 control-label">标题</label>
                 <div class="col-sm-6">
-                    <input type="password" class="form-control" id="inputPassword3" placeholder="标题">
+                    <input type="text" class="form-control" id="inputPassword3" placeholder="标题" name="">
                 </div>
             </div>
             <div class="form-group">
-                <label for="inputPassword3" class="col-sm-2 control-label">文本框</label>
+                <label for="inputPassword3" class="col-sm-2 control-label">课程简介</label>
                 <div class="col-sm-6">
-                    <textarea class="form-control" rows="3"></textarea>
+                    <textarea class="form-control" rows="3" name="note"></textarea>
                 </div>
             </div>
             <div class="form-group">
-                <label for="inputPassword3" class="col-sm-2 control-label">课程封面</label>
+                <label for="inputPassword3" class="col-sm-2 control-label" name="pic">课程封面</label>
                 <div class="col-sm-6">
-                    <input type="file" id="inputPassword3" placeholder="Password">
+                    <a class="btn" id="btn">上传图片</a> 最大500KB，支持jpg，gif，png格式。 
+                    <ul id="ul_pics" class="ul_pics clearfix"></ul>
+                    <input type="file" id="inputPassword3" placeholder="">
                 </div>
             </div>
            
@@ -99,3 +103,57 @@
 </div>
 </div>
 </div>
+<script type="text/javascript">
+var uploader = new plupload.Uploader({ //创建实例的构造方法 
+    runtimes: 'html5,flash,silverlight,html4', 
+    //上传插件初始化选用那种方式的优先级顺序 
+    browse_button: 'btn', 
+    // 上传按钮 
+    url: "../upload_pic", 
+    //远程上传地址 
+    flash_swf_url: 'plupload/Moxie.swf', 
+    //flash文件地址 
+    silverlight_xap_url: 'plupload/Moxie.xap', 
+    //silverlight文件地址 
+    filters: { 
+        max_file_size: '500kb', 
+        //最大上传文件大小（格式100b, 10kb, 10mb, 1gb） 
+        mime_types: [ //允许文件上传类型 
+        { 
+            title: "files", 
+            extensions: "jpg,png,gif" 
+        }] 
+    }, 
+    multi_selection: true, 
+    //true:ctrl多文件上传, false 单文件上传 
+    init: { 
+        FilesAdded: function(up, files) { //文件上传前 
+            if ($("#ul_pics").children("li").length > 30) { 
+                alert("您上传的图片太多了！"); 
+                uploader.destroy(); 
+            } else { 
+                var li = ''; 
+                plupload.each(files, 
+                function(file) { //遍历文件 
+                    li += "<li id='" + file['id'] + "'><div class='progress'><span class='bar'></span><span class='percent'>0%</span></div></li>"; 
+                }); 
+                $("#ul_pics").append(li); 
+                uploader.start(); 
+            } 
+        }, 
+        UploadProgress: function(up, file) { //上传中，显示进度条 
+            $("#" + file.id).find('.bar').css({ 
+                "width": file.percent + "%" 
+            }).find(".percent").text(file.percent + "%"); 
+        }, 
+        FileUploaded: function(up, file, info) { //文件上传成功的时候触发 
+            var data = JSON.parse(info.response); 
+            $("#" + file.id).html("<div class='img'><img src='" + data.pic + "'/></div><p>" + data.name + "</p>"); 
+        }, 
+        Error: function(up, err) { //上传出错的时候触发 
+            alert(err.message); 
+        } 
+    } 
+}); 
+uploader.init();
+</script>
