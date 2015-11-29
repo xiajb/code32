@@ -42,7 +42,7 @@ class User_model extends CI_Model{
 	public function query_all(){
 		$sql = 'select * from ci_user';
 		$query = $this->db->query($sql);
-		return $query->result();
+		return $query->result_array();
 	}
 
 	// function  checklogin($user_name,$user_pwd){

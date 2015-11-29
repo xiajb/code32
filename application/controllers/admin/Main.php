@@ -12,10 +12,10 @@ class Main extends CI_Controller {
 	public function index()
 	{
 		// $this->user_model->query_all();
-		file_put_contents("/home/tanxu/www/data.txt", print_r($this->user_model->query_all(),true),FILE_APPEND );
-
+		// file_put_contents("/home/tanxu/www/data.txt", print_r($this->user_model->query_all(),true),FILE_APPEND );
 		$this->load->view('admin/admin_header.html');
-		$this->load->view('admin/admin_user.html');
+		$data['result'] = $this->user_model->query_all();
+		$this->load->view('admin/admin_user.html',$data);
 		$this->load->view('admin/admin_footer.html');
 	}
 	public function teacher()
