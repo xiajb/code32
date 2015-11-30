@@ -53,5 +53,12 @@ class Course extends CI_Controller {
 		    } 
 		}
 	}
+
+	public function c_course(){
+		$value = json_decode($this->input->post('data'),true);
+		file_put_contents("/home/tanxu/www/data.txt", print_r($value,true),FILE_APPEND );
+		echo "1";
+
+	}
 }
 

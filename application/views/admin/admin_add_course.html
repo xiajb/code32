@@ -26,11 +26,11 @@
     </div>
     <h2 class="sub-header"> 课程添加</h2>
     <div class="table-responsive" style="width: 70%;margin: 0 auto;">
-        <form class="form-horizontal" style="width: 674px;">
+        <form class="form-horizontal" style="width: 674px;" action="">
             <div class="form-group">
-                <label for="inputEmail3" class="col-sm-2 control-label" name="stage">阶段</label>
+                <label for="inputEmail3" class="col-sm-2 control-label" name="stage" id="stage">阶段</label>
                 <div class="col-sm-6">
-                    <select class="form-control">
+                    <select class="form-control" name="stage" id="stage">
                         <option value="small">小学</option>
                         <option value="middle">初中</option>
                         <option value="high">高中</option>
@@ -38,9 +38,9 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="inputEmail3" class="col-sm-2 control-label" name="grade">年级</label>
+                <label for="inputEmail3" class="col-sm-2 control-label" >年级</label>
                 <div class="col-sm-6">
-                    <select class="form-control">
+                    <select class="form-control" name="grade" id="grade">
                         <option value="1">一年级</option>
                         <option value="2">二年级</option>
                         <option value="3">三年级</option>
@@ -57,9 +57,9 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="inputEmail3" class="col-sm-2 control-label" name="subject">科目</label>
+                <label for="inputEmail3" class="col-sm-2 control-label" >科目</label>
                 <div class="col-sm-6">
-                    <select class="form-control">
+                    <select class="form-control" name="subject" id="subject">
                         <option value="chinese">语文</option>
                         <option value="math">数学</option>
                         <option value="english">英语</option>
@@ -75,13 +75,13 @@
             <div class="form-group">
                 <label for="inputPassword3" class="col-sm-2 control-label">标题</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" id="inputPassword3" placeholder="标题" name="">
+                    <input type="text" class="form-control" id="title" placeholder="标题" name="title">
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputPassword3" class="col-sm-2 control-label">课程简介</label>
                 <div class="col-sm-6">
-                    <textarea class="form-control" rows="3" name="note"></textarea>
+                    <textarea class="form-control" rows="3" name="note" id="note"></textarea>
                 </div>
             </div>
             <div class="form-group">
@@ -92,12 +92,13 @@
                     <input type="file" id="inputPassword3" placeholder="">
                 </div>
             </div>
-           
-            <div class="form-group">
+                               <button type="button" class="" id="button">Sign in</button>
+
+  <!--           <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-6">
-                    <button type="submit" class="btn btn-default">Sign in</button>
+                    <button type="submit" class="" id="btn">Sign in</button>
                 </div>
-            </div>
+            </div> -->
         </form>
     </div>
 </div>
@@ -148,12 +149,42 @@ var uploader = new plupload.Uploader({ //创建实例的构造方法
         }, 
         FileUploaded: function(up, file, info) { //文件上传成功的时候触发 
             var data = JSON.parse(info.response); 
-            $("#" + file.id).html("<div class='img'><img src='" + data.pic + "'/></div><p>" + data.name + "</p>"); 
+            $("#" + file.id).html("<div class='img' ><img src='../../../" + data.pic + "'/></div><p id='picname'>" + data.name + "</p>"); 
         }, 
         Error: function(up, err) { //上传出错的时候触发 
             alert(err.message); 
         } 
     } 
 }); 
+
 uploader.init();
-</script>
+    $("#button").click(function(){
+console.log($("#picname").html());
+                        var value = {
+                            "stage": $("#stage").val(),
+                            "grade": $("#grade").val(),
+                            "subject": $("#subject").val(),
+                            "title": $("#title").val(),
+                            "note": $("#note").val(),
+                            "img":$("#picname").html()
+                        }
+console.log(value);
+                        $.ajax({
+                            type: 'POST',
+                            url: "<?php echo base_url('index.php/admin/course/c_course'); ?>",
+                            data: 'data=' + JSON.stringify(value),
+
+                            success: function(result) {
+                                console.log(result);
+                                // if (result == 1) {
+                                //     alert("注册成功！");
+                                //     location.href = "http://127.0.0.1/code32/index.php/center";
+                                // } else if (result < 0) {
+                                //     alert("验证码输入错误");
+                                // }else if(result == "error"){
+                                //     alert("非法提交请重试");
+                                // }
+                            }
+                        });
+    });
+            </script>
