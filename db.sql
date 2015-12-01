@@ -41,13 +41,14 @@ PRIMARY KEY (  `mid` )
 
 -- //课程
 CREATE TABLE  `ci_course` (
- `kid` mediumint(7) unsigned NOT NULL auto_increment default '0',
- `sid` int(10) unsigned NOT NULL default '0',
+ `kid` int(10) unsigned NOT NULL auto_increment COMMENT 'primary key,autoincrement',
+ `stage` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '阶段',
+ `grade` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '年级',
+ `subject` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '科目',
  `title` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '标题',
  `detail` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '介绍',
  `teacher` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '老师',
- `grade` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '年级',
- `subject` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '科目',
+ `img` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '图片',
  `difficulty` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '难度',
 PRIMARY KEY (  `kid` )
 ) ENGINE = MYISAM CHARSET = utf8;

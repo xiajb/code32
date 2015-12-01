@@ -35,13 +35,19 @@
                 </tr>
               </thead>
               <tbody>
+            <?php foreach($result as $row) : ?>
                 <tr>
-                  <td>1,001</td>
-                  <td>Lorem</td>
-                  <td>ipsum</td>
-                  <td>dolor</td>
-                  <td>sit</td>
-                </tr>	
+                    <td><?php echo $row['kid']; ?></td>
+                    <td><?php echo $row['stage']; ?></td>
+                    <td><?php echo $row['grade']; ?></td>
+                    <td><?php echo $row['subject'];?></td>
+                    <td><?php echo $row['title'];?></td>
+                    <td><?php echo $row['detail'];?></td>
+                    <td><?php echo $row['teacher'];?></td>
+                    <td><?php echo $row['img'];?></td>
+                    <td><?php echo $row['difficulty'];?></td>
+                </tr>
+            <?php endforeach;?>   	
               </tbody>
             </table>
           </div>

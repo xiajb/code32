@@ -3,19 +3,21 @@
 class Course extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
-		$this->load->model('user_model');
+		$this->load->model('course_model');
 		$this->load->library('session');
 
 	}
 	
 	public function index()
 	{
+		$data['result'] = $this->course_model->query_all();
 		$this->load->view('admin/admin_header.html');
-		$this->load->view('admin/admin_course.html');
+		$this->load->view('admin/admin_course.html',$data);
 		$this->load->view('admin/admin_footer.html');
 	}
 
 	public function add_course(){
+
 		$this->load->view('admin/admin_header.html');
 		$this->load->view('admin/admin_add_course.html');
 		$this->load->view('admin/admin_footer.html');
@@ -56,9 +58,12 @@ class Course extends CI_Controller {
 
 	public function c_course(){
 		$value = json_decode($this->input->post('data'),true);
-		file_put_contents("/home/tanxu/www/data.txt", print_r($value,true),FILE_APPEND );
-		echo "1";
-
+		// file_put_contents("/home/tanxu/www/data.txt", print_r($value,true),FILE_APPEND );
+		if ($this->course_model->add_course($value)) {
+	    		echo '1';
+	    	}else{
+	    		echo 'error';
+	    	}
 	}
 }
 
