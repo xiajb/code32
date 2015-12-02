@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Teacher extends CI_Controller {
+class Video extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('user_model');
@@ -11,13 +11,7 @@ class Teacher extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('admin/admin_header.html');
-		$this->load->view('admin/admin_teacher.html');
-		$this->load->view('admin/admin_footer.html');
-	}
-	public function add_teacher()
-	{
-		$this->load->view('admin/admin_header.html');
-		$this->load->view('admin/admin_add_teacher.html');
+		$this->load->view('admin/admin_add_video.html');
 		$this->load->view('admin/admin_footer.html');
 	}
 }

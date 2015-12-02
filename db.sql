@@ -70,16 +70,16 @@ PRIMARY KEY (  `sid` )
 
 -- //老师表
 CREATE TABLE  `ci_teacher` (
- `tid` mediumint(7) unsigned NOT NULL auto_increment default '0',
- `user` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '名字',
- `name` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '姓名',
+ `tid` int(10) unsigned NOT NULL auto_increment COMMENT 'primary key,autoincrement',
+ `name` VARCHAR( 50 ) NOT NULL,
  `password` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '密码',
  `pic` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '头像路径',
  `phone` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '电话',
  `email` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '邮箱',
+ `intro` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '简介',
  `check` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '审核',
  `reg_time` DATE NOT NULL DEFAULT  '0000-00-00' COMMENT '注册时间',
-PRIMARY KEY (  `gid` )
+PRIMARY KEY (  `tid` )
 ) ENGINE = MYISAM CHARSET = utf8;
 
 
