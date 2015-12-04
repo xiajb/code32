@@ -7,7 +7,7 @@ class Login extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('admin/admin.html');
+		$this->load->view('admin/admin_header.html');
 	}
 }
 

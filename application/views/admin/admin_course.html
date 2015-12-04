@@ -1,59 +1,196 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+    <title>Your Admin Panel</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- jQuery AND jQueryUI -->
+    <script type="text/javascript" src="<?php echo base_url('back/js/libs/jquery/1.6/jquery.min.js'); ?>"></script>
+    <script type="text/javascript" src="<?php echo base_url('back/js/libs/jqueryui/1.8.13/jquery-ui.min.js'); ?>"></script>
+    <!-- Compressed Version
+        <link type="text/css" rel="stylesheet" href="min/b=CoreAdmin&f=css/reset.css,css/style.css,css/jqueryui/jqueryui.css,js/jwysiwyg/jquery.wysiwyg.old-school.css,js/zoombox/zoombox.css" />
+        <script type="text/javascript" src="min/b=CoreAdmin/js&f=cookie/jquery.cookie.js,jwysiwyg/jquery.wysiwyg.js,tooltipsy.min.js,iphone-style-checkboxes.js,excanvas.js,zoombox/zoombox.js,visualize.jQuery.js,jquery.uniform.min.js,main.js"></script>
+        -->
+    <link rel="stylesheet" href="<?php echo base_url('back/css/min.css'); ?>" />
+    <script type="text/javascript" src="<?php echo base_url('back/js/min.js'); ?>"></script>
+</head>
 
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <!-- <h1 class="page-header">Dashboard</h1> -->
-          <h2 class="sub-header"> 课程管理</h2>
-
-          <div class="row placeholders">
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <!-- <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail"> -->
-              <h4>小学课程</h4>
-              <span class="text-muted">Something else</span>
+<body>
+    <script type="text/javascript" src="<?php echo base_url('back/content/settings/main.js'); ?>"></script>
+    <link rel="stylesheet" href="<?php echo base_url('back/content/settings/style.css'); ?>" />
+    <div class="settings" id="settings">
+        <div class="wrapper">
+            <div class="grid3">
+                <div class="titre">Backgrounds</div>
+                <a href="<?php echo base_url('back/css/img/bg.html'); ?>" class="backgroundChanger active" title="White"></a>
+                <a href="<?php echo base_url('back/css/img/dark-bg.html'); ?>" class="backgroundChanger dark" title="Dark"></a>
+                <a href="<?php echo base_url('back/css/img/wood.html'); ?>" class="backgroundChanger dark" title="Wood"></a>
+                <a href="<?php echo base_url('back/css/img/altbg/smoothwall.html'); ?>" class="backgroundChanger" title="Smoothwall"></a>
+                <a href="<?php echo base_url('back/css/img/altbg/black_denim.html'); ?>" class="backgroundChanger dark" title="black_denim"></a>
+                <a href="<?php echo base_url('back/css/img/altbg/carbon.html'); ?>" class="backgroundChanger dark" title="Carbon"></a>
+                <a href="<?php echo base_url('back/css/img/altbg/double_lined.html'); ?>" class="backgroundChanger" title="Double lined"></a>
+                <div class="clear"></div>
             </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <!-- <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail"> -->
-              <h4>初中课程</h4>
-              <span class="text-muted">Something else</span>
+            <div class="grid3">
+                <div class="titre">Bloc style</div>
+                <a href="black.html" class="blocChanger" title="Black" style="background:<?php echo base_url('back/css/img/bloctitle.png'); ?>;"></a>
+                <a href="white.html" class="blocChanger active" title="White" style="background:<?php echo base_url('back/css/img/white-title.png'); ?>;"></a>
+                <a href="wood.html" class="blocChanger" title="Wood" style="background:<?php echo base_url('back/css/img/wood-title.jpg'); ?>;"></a>
+                <div class="clear"></div>
             </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <!-- <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail"> -->
-              <h4>高中课程</h4>
-              <span class="text-muted">Something else</span>
+            <div class="grid3">
+                <div class="titre">Sidebar style</div>
+                <a href="grey.html" class="sidebarChanger active" title="Grey" style="background:#494949"></a>
+                <a href="black.html" class="sidebarChanger" title="Black" style="background:#262626"></a>
+                <a href="white.html" class="sidebarChanger" title="White" style="background:#EEEEEE"></a>
+                <div class="clear"></div>
             </div>
-          </div>
-
-          <div class="table-responsive">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>kid</th>
-                  <th>年级</th>
-                  <th>科目</th>
-                  <th>标题</th>
-                  <th>老师</th>
-                  <th>状态</th>
-                </tr>
-              </thead>
-              <tbody>
-            <?php foreach($result as $row) : ?>
-                <tr>
-                    <td><?php echo $row['kid']; ?></td>
-                    <td><?php echo $row['stage']; ?></td>
-                    <td><?php echo $row['grade']; ?></td>
-                    <td><?php echo $row['subject'];?></td>
-                    <td><?php echo $row['title'];?></td>
-                    <td><?php echo $row['detail'];?></td>
-                    <td><?php echo $row['teacher'];?></td>
-                    <td><?php echo $row['img'];?></td>
-                    <td><?php echo $row['difficulty'];?></td>
-                </tr>
-            <?php endforeach;?>   	
-              </tbody>
-            </table>
-          </div>
+            <div class="clear"></div>
         </div>
-      </div>
+        <a class="settingbutton" href="#">
+        </a>
     </div>
+    <!--              
+                HEAD
+                        -->
+    <div id="head">
+        <div class="left">
+            <a href="#" class="button profile"><img src="<?php echo base_url('back/img/icons/top/huser.png'); ?>" alt="" /></a> Hi,
+            <a href="#">John Doe</a> |
+            <a href="#">Logout</a>
+        </div>
+        <div class="right">
+            <form action="#" id="search" class="search placeholder">
+                <label>Looking for something ?</label>
+                <input type="text" value="" name="q" class="text" />
+                <input type="submit" value="rechercher" class="submit" />
+            </form>
+        </div>
+    </div>
+    <!--            
+                SIDEBAR
+                         -->
+    <div id="sidebar">
+        <ul>
+            <li>
+                <a href="index.html">
+                        <img src="<?php echo base_url('back/img/icons/menu/inbox.png'); ?>" alt="" />
+                        数据后台
+                    </a>
+            </li>
+            <li class="current"><a href="#"><img src="<?php echo base_url('back/img/icons/menu/layout.png'); ?>" alt="" />数据管理</a>
+                <ul>
+                    <li><a href="<?php echo base_url('index.php/admin/user')?>">用户数据</a></li>
+                    <li><a href="<?php echo base_url('index.php/admin/teacher')?>">老师数据</a></li>
+                    <li class="current"><a href="<?php echo base_url('index.php/admin/course')?>">课程管理</a></li>
+                </ul>
+            </li>
+            <li><a href="#"><img src="<?php echo base_url('back/img/icons/menu/brush.png'); ?>" alt="" />数据添加</a>
+                <ul>
+                    <li><a href="<?php echo base_url('index.php/admin/course/add_course')?>">课程添加</a></li>
+                    <li><a href="<?php echo base_url('index.php/admin/video/add_video')?>">视屏上传</a></li>
+                    <li><a href="<?php echo base_url('index.php/admin/teacher/add_teacher')?>">添加老师</a></li>
+                    <li><a href="<?php echo base_url('index.php/admin/add_admin')?>">添加管理员</a></li>
+                </ul>
+            </li>
+            <li><a href="#"><img src="<?php echo base_url('back/img/icons/menu/brush.png'); ?>" alt="" />数据审核</a>
+                <ul>
+                    <li><a href="<?php echo base_url('index.php/admin/main/check_course')?>">课程审核</a></li>
+                    <li><a href="<?php echo base_url('index.php/admin/main/check_video')?>">视屏审核</a></li>
+                    <li><a href="<?php echo base_url('index.php/admin/main/check_teacher')?>">老师审核</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div id="content" class="white">
+        <h1><img src="img/icons/posts.png" alt="" /> Table</h1>
+        <div class="bloc">
+            <div class="title">
+                Last comments
+            </div>
+            <div class="content">
+                <table class="noalt">
+                    <tbody>
+                        <tr>
+                            <td class="picture" style="width:80px;"><img src="img/anonymous.png" alt="" /></td>
+                            <td>
+                                <p>
+                                    <strong><a href="#">John Doe</a></strong>
+                                    <br/>
+                                    <em>December 24, at 22:13 - <a href="#">Reply</a></em>
+                                    <br/> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non nulla sapien, quis luctus felis. Fusce sodales tempus tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non nulla sapien, quis luctus felis. Fusce sodales tempus tincidunt.
+                                </p>
+                            </td>
+                            <td class="actions">
+                                <a href="#" title="Edit this content"><img src="img/icons/actions/edit.png" alt="" /></a>
+                                <a href="#" title="Delete this content"><img src="img/icons/actions/delete.png" alt="" /></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="picture" style="width:80px;"><img src="img/anonymous.png" alt="" /></td>
+                            <td>
+                                <p>
+                                    <strong><a href="#">John Doe</a></strong>
+                                    <br/>
+                                    <em>December 24, at 22:13 - <a href="#">Reply</a></em>
+                                    <br/> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non nulla sapien, quis luctus felis. Fusce sodales tempus tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non nulla sapien, quis luctus felis. Fusce sodales tempus tincidunt.
+                                </p>
+                            </td>
+                            <td class="actions">
+                                <a href="#" title="Edit this content"><img src="img/icons/actions/edit.png" alt="" /></a>
+                                <a href="#" title="Delete this content"><img src="img/icons/actions/delete.png" alt="" /></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="picture" style="width:80px;"><img src="img/anonymous.png" alt="" /></td>
+                            <td>
+                                <p>
+                                    <strong><a href="#">John Doe</a></strong>
+                                    <br/>
+                                    <em>December 24, at 22:13 - <a href="#">Reply</a></em>
+                                    <br/> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non nulla sapien, quis luctus felis. Fusce sodales tempus tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non nulla sapien, quis luctus felis. Fusce sodales tempus tincidunt.
+                                </p>
+                            </td>
+                            <td class="actions">
+                                <a href="#" title="Edit this content"><img src="img/icons/actions/edit.png" alt="" /></a>
+                                <a href="#" title="Delete this content"><img src="img/icons/actions/delete.png" alt="" /></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="picture" style="width:80px;"><img src="img/anonymous.png" alt="" /></td>
+                            <td>
+                                <p>
+                                    <strong><a href="#">John Doe</a></strong>
+                                    <br/>
+                                    <em>December 24, at 22:13 - <a href="#">Reply</a></em>
+                                    <br/> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non nulla sapien, quis luctus felis. Fusce sodales tempus tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non nulla sapien, quis luctus felis. Fusce sodales tempus tincidunt.
+                                </p>
+                            </td>
+                            <td class="actions">
+                                <a href="#" title="Edit this content"><img src="img/icons/actions/edit.png" alt="" /></a>
+                                <a href="#" title="Delete this content"><img src="img/icons/actions/delete.png" alt="" /></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="picture" style="width:80px;"><img src="img/anonymous.png" alt="" /></td>
+                            <td>
+                                <p>
+                                    <strong><a href="#">John Doe</a></strong>
+                                    <br/>
+                                    <em>December 24, at 22:13 - <a href="#">Reply</a></em>
+                                    <br/> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non nulla sapien, quis luctus felis. Fusce sodales tempus tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non nulla sapien, quis luctus felis. Fusce sodales tempus tincidunt.
+                                </p>
+                            </td>
+                            <td class="actions">
+                                <a href="#" title="Edit this content"><img src="img/icons/actions/edit.png" alt="" /></a>
+                                <a href="#" title="Delete this content"><img src="img/icons/actions/delete.png" alt="" /></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
 
-
-
+</html>

@@ -1,53 +1,155 @@
-<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-    <!-- <h1 class="page-header">Dashboard</h1> -->
-    <div class="row placeholders">
-        <!--             <div class="col-xs-6 col-sm-3 placeholder">
-              <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Your Admin Panel</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- jQuery AND jQueryUI -->
+    <script type="text/javascript" src="<?php echo base_url('back/js/libs/jquery/1.6/jquery.min.js'); ?>"></script>
+    <script type="text/javascript" src="<?php echo base_url('back/js/libs/jqueryui/1.8.13/jquery-ui.min.js'); ?>"></script>
+    <!-- Compressed Version
+        <link type="text/css" rel="stylesheet" href="min/b=CoreAdmin&f=css/reset.css,css/style.css,css/jqueryui/jqueryui.css,js/jwysiwyg/jquery.wysiwyg.old-school.css,js/zoombox/zoombox.css" />
+        <script type="text/javascript" src="min/b=CoreAdmin/js&f=cookie/jquery.cookie.js,jwysiwyg/jquery.wysiwyg.js,tooltipsy.min.js,iphone-style-checkboxes.js,excanvas.js,zoombox/zoombox.js,visualize.jQuery.js,jquery.uniform.min.js,main.js"></script>
+        -->
+    <link rel="stylesheet" href="<?php echo base_url('back/css/min.css'); ?>" />
+    <script type="text/javascript" src="<?php echo base_url('back/js/min.js'); ?>"></script>
+</head>
+
+<body>
+    <script type="text/javascript" src="<?php echo base_url('back/content/settings/main.js'); ?>"></script>
+    <link rel="stylesheet" href="<?php echo base_url('back/content/settings/style.css'); ?>" />
+    <div class="settings" id="settings">
+        <div class="wrapper">
+            <div class="grid3">
+                <div class="titre">Backgrounds</div>
+                <a href="<?php echo base_url('back/css/img/bg.html'); ?>" class="backgroundChanger active" title="White"></a>
+                <a href="<?php echo base_url('back/css/img/dark-bg.html'); ?>" class="backgroundChanger dark" title="Dark"></a>
+                <a href="<?php echo base_url('back/css/img/wood.html'); ?>" class="backgroundChanger dark" title="Wood"></a>
+                <a href="<?php echo base_url('back/css/img/altbg/smoothwall.html'); ?>" class="backgroundChanger" title="Smoothwall"></a>
+                <a href="<?php echo base_url('back/css/img/altbg/black_denim.html'); ?>" class="backgroundChanger dark" title="black_denim"></a>
+                <a href="<?php echo base_url('back/css/img/altbg/carbon.html'); ?>" class="backgroundChanger dark" title="Carbon"></a>
+                <a href="<?php echo base_url('back/css/img/altbg/double_lined.html'); ?>" class="backgroundChanger" title="Double lined"></a>
+                <div class="clear"></div>
             </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
+            <div class="grid3">
+                <div class="titre">Bloc style</div>
+                <a href="black.html" class="blocChanger" title="Black" style="background:<?php echo base_url('back/css/img/bloctitle.png'); ?>;"></a>
+                <a href="white.html" class="blocChanger active" title="White" style="background:<?php echo base_url('back/css/img/white-title.png'); ?>;"></a>
+                <a href="wood.html" class="blocChanger" title="Wood" style="background:<?php echo base_url('back/css/img/wood-title.jpg'); ?>;"></a>
+                <div class="clear"></div>
             </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
+            <div class="grid3">
+                <div class="titre">Sidebar style</div>
+                <a href="grey.html" class="sidebarChanger active" title="Grey" style="background:#494949"></a>
+                <a href="black.html" class="sidebarChanger" title="Black" style="background:#262626"></a>
+                <a href="white.html" class="sidebarChanger" title="White" style="background:#EEEEEE"></a>
+                <div class="clear"></div>
             </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div> -->
+            <div class="clear"></div>
+        </div>
+        <a class="settingbutton" href="#">
+        </a>
     </div>
-    <h2 class="sub-header"> 用户信息</h2>
-    <div class="table-responsive">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>uid</th>
-                    <th>用户名</th>
-                    <th>邮箱</th>
-                    <th>手机号</th>
-                    <th>余额</th>
-                    <th>状态</th>
-                </tr>
-            </thead>
-            <tbody>
-            <?php foreach($result as $row) : ?>
-                <tr>
-                    <td><?php echo $row['uid']; ?></td>
-                    <td><?php echo $row['username']; ?></td>
-                    <td><?php echo $row['email']; ?></td>
-                    <td><?php echo $row['phone'];?></td>
-                    <td><?php echo $row['blance'];?></td>
-                </tr>
-            <?php endforeach;?>   
-            </tbody>
-        </table>
+    <!--              
+                HEAD
+                        -->
+    <div id="head">
+        <div class="left">
+            <a href="#" class="button profile"><img src="<?php echo base_url('back/img/icons/top/huser.png'); ?>" alt="" /></a> Hi,
+            <a href="#">John Doe</a> |
+            <a href="#">Logout</a>
+        </div>
+        <div class="right">
+            <form action="#" id="search" class="search placeholder">
+                <label>Looking for something ?</label>
+                <input type="text" value="" name="q" class="text" />
+                <input type="submit" value="rechercher" class="submit" />
+            </form>
+        </div>
     </div>
-</div>
-</div>
-</div>
+    <!--            
+                SIDEBAR
+                         -->
+    <div id="sidebar">
+        <ul>
+            <li>
+                <a href="index.html">
+                        <img src="<?php echo base_url('back/img/icons/menu/inbox.png'); ?>" alt="" />
+                        数据后台
+                    </a>
+            </li>
+            <li class="current"><a href="#"><img src="<?php echo base_url('back/img/icons/menu/layout.png'); ?>" alt="" />数据管理</a>
+                <ul>
+                    <li class="current"><a href="<?php echo base_url('index.php/admin/user')?>">用户数据</a></li>
+                    <li><a href="<?php echo base_url('index.php/admin/teacher')?>">老师数据</a></li>
+                    <li><a href="<?php echo base_url('index.php/admin/course')?>">课程管理</a></li>
+                </ul>
+            </li>
+            <li><a href="#"><img src="<?php echo base_url('back/img/icons/menu/brush.png'); ?>" alt="" />数据添加</a>
+                <ul>
+                    <li><a href="<?php echo base_url('index.php/admin/course/add_course')?>">课程添加</a></li>
+                    <li><a href="<?php echo base_url('index.php/admin/video/add_video')?>">视屏上传</a></li>
+                    <li><a href="<?php echo base_url('index.php/admin/teacher/add_teacher')?>">添加老师</a></li>
+                    <li><a href="<?php echo base_url('index.php/admin/add_admin')?>">添加管理员</a></li>
+                </ul>
+            </li>
+            <li><a href="#"><img src="<?php echo base_url('back/img/icons/menu/brush.png'); ?>" alt="" />数据审核</a>
+                <ul>
+                    <li><a href="<?php echo base_url('index.php/admin/main/check_course')?>">课程审核</a></li>
+                    <li><a href="<?php echo base_url('index.php/admin/main/check_video')?>">视屏审核</a></li>
+                    <li><a href="<?php echo base_url('index.php/admin/main/check_teacher')?>">老师审核</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div id="content" class="white">
+        <h1><img src="<?php echo base_url('back/img/icons/posts.png'); ?>" alt="" /> Table</h1>
+        <div class="bloc">
+            <div class="title">
+                Table Content
+            </div>
+            <div class="content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Uid</th>
+                            <th>用户名</th>
+                            <th>邮箱</th>
+                            <th>手机号</th>
+                            <th>注册时间</th>
+
+                            <th><img src="<?php echo base_url('back/img/th-comment.png'); ?>" alt="" /></th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><a href="#">Lorem ipsum</a></td>
+                            <td><a href="#">Grafikart</a></td>
+                            <td><a href="#">Dolor</a> </td>
+                            <td><a href="#">Consecte</a> </td>
+                            <td><a href="#">Consecte</a> </td>
+                            <td>35</td>
+                            <td class="actions">
+                                <a href="#" title="Edit this content"><img src="<?php echo base_url('back/img/icons/actions/edit.png'); ?>" alt="" /></a>
+                                <a href="#" title="Delete this content"><img src="<?php echo base_url('back/img/icons/actions/delete.png'); ?>" alt="" /></a>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+ 
+                <div class="pagination">
+                    <a href="#" class="prev">«</a>
+                    <a href="#">1</a>
+                    <a href="#" class="current">2</a> ...
+                    <a href="#">21</a>
+                    <a href="#">22</a>
+                    <a href="#" class="next">»</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

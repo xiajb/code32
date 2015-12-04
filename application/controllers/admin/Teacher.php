@@ -10,15 +10,11 @@ class Teacher extends CI_Controller {
 	
 	public function index()
 	{
-		$this->load->view('admin/admin_header.html');
 		$this->load->view('admin/admin_teacher.html');
-		$this->load->view('admin/admin_footer.html');
 	}
 	public function add_teacher()
 	{
-		$this->load->view('admin/admin_header.html');
 		$this->load->view('admin/admin_add_teacher.html');
-		$this->load->view('admin/admin_footer.html');
 	}
 }
 
