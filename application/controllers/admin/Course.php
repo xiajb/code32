@@ -25,7 +25,7 @@ class Course extends CI_Controller {
 
 	public function upload_pic(){
 		$typeArr = array("jpg", "png", "gif");//允许上传文件格式 
-		$path = "./uploads/";//上传路径 
+		$path = "./uploads/course/";//上传路径 
 		 
 		if (isset($_POST)) { 
 		    $name = $_FILES['file']['name']; 
