@@ -56,7 +56,7 @@
     <div id="head">
         <div class="left">
             <a href="#" class="button profile"><img src="<?php echo base_url('back/img/icons/top/huser.png'); ?>" alt="" /></a> Hi,
-            <a href="#">John Doe</a> |
+            <a href="#"><?php echo $_SESSION['username'] ?></a> |
             <a href="#">Logout</a>
         </div>
         <div class="right">
@@ -90,7 +90,7 @@
                     <li><a href="<?php echo base_url('index.php/admin/course/add_course')?>">课程添加</a></li>
                     <li><a href="<?php echo base_url('index.php/admin/video/add_video')?>">视屏上传</a></li>
                     <li><a href="<?php echo base_url('index.php/admin/teacher/add_teacher')?>">添加老师</a></li>
-                    <li><a href="<?php echo base_url('index.php/admin/add_admin')?>">添加管理员</a></li>
+                    <li><a href="<?php echo base_url('index.php/admin/admin/add_admin')?>">添加管理员</a></li>
                 </ul>
             </li>
             <li><a href="#"><img src="<?php echo base_url('back/img/icons/menu/brush.png'); ?>" alt="" />数据审核</a>
@@ -117,28 +117,37 @@
                             <th>邮箱</th>
                             <th>手机号</th>
                             <th>注册时间</th>
-
                             <th><img src="<?php echo base_url('back/img/th-comment.png'); ?>" alt="" /></th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><a href="#">Lorem ipsum</a></td>
-                            <td><a href="#">Grafikart</a></td>
-                            <td><a href="#">Dolor</a> </td>
-                            <td><a href="#">Consecte</a> </td>
-                            <td><a href="#">Consecte</a> </td>
-                            <td>35</td>
-                            <td class="actions">
-                                <a href="#" title="Edit this content"><img src="<?php echo base_url('back/img/icons/actions/edit.png'); ?>" alt="" /></a>
-                                <a href="#" title="Delete this content"><img src="<?php echo base_url('back/img/icons/actions/delete.png'); ?>" alt="" /></a>
-                            </td>
-                        </tr>
-
+                        <?php foreach($result as $row) : ?>
+                            <tr>
+                                <td>
+                                    <?php echo $row['uid']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $row['username']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $row['email']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $row['phone'];?>
+                                </td>
+                                <td>
+                                    <?php echo $row['blance'];?>
+                                </td>
+                                <td>35</td>
+                                <td class="actions">
+                                    <a href="#" title="Edit this content"><img src="<?php echo base_url('back/img/icons/actions/edit.png'); ?>" alt="" /></a>
+                                    <a href="#" title="Delete this content"><img src="<?php echo base_url('back/img/icons/actions/delete.png'); ?>" alt="" /></a>
+                                </td>
+                            </tr>
+                            <?php endforeach;?>
                     </tbody>
                 </table>
- 
                 <div class="pagination">
                     <a href="#" class="prev">«</a>
                     <a href="#">1</a>

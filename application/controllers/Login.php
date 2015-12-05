@@ -40,26 +40,6 @@ class Login extends CI_Controller {
 			echo '-1';
 
 		}
-		//switch ($type) {
-		///	case '1':
-				
-			//	break;
-			
-		//	default:
-				
-				//break;
-		}
-		
 
-
-
-
-
-
-
-
-
+	}
 }
-
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */

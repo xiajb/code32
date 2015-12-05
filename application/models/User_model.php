@@ -45,6 +45,13 @@ class User_model extends CI_Model{
 		return $query->result_array();
 	}
 
+	public function get_user_admin($username,$password,$level){
+		$password = md5($password);
+		$sql='select * from ci_user where username="'.$username.'"and password="'.$password.'" and level='.$level; 
+		$query=$this->db->query($sql);
+		return $query->num_rows();
+	}
+
 	// function  checklogin($user_name,$user_pwd){
 	// 	//返回值
 	// 	$a=false;

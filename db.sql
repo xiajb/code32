@@ -1,3 +1,6 @@
+
+
+
 CREATE TABLE  `ci_user` (
  `uid` int(10) unsigned NOT NULL auto_increment COMMENT 'primary key,autoincrement',
  `username` VARCHAR( 16 ) NOT NULL,
@@ -7,9 +10,9 @@ CREATE TABLE  `ci_user` (
  `blance` DECIMAL( 10,2 ) NOT NULL DEFAULT '0.00' COMMENT '金额',
  `sex` TINYINT( 1 ) NOT NULL DEFAULT  '0',
  `pic` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '头像路径',
- `vip` VARCHAR( 50 ) NOT NULL DEFAULT  '',
- `other2` VARCHAR( 50 ) NOT NULL DEFAULT  '',
- `other3` VARCHAR( 50 ) NOT NULL DEFAULT  '',
+ `vip` int(10) NOT NULL DEFAULT  '0',
+ `level` int(10) NOT NULL DEFAULT  '0',
+ `other` VARCHAR( 50 ) NOT NULL DEFAULT  '',
  `reg_time` DATE NOT NULL DEFAULT  '0000-00-00' COMMENT '注册时间',
 PRIMARY KEY (  `uid` )
 ) ENGINE = MYISAM CHARSET = utf8;

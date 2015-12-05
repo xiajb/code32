@@ -90,7 +90,7 @@
                     <li><a href="<?php echo base_url('index.php/admin/course/add_course')?>">课程添加</a></li>
                     <li><a href="<?php echo base_url('index.php/admin/video/add_video')?>">视屏上传</a></li>
                     <li><a href="<?php echo base_url('index.php/admin/teacher/add_teacher')?>">添加老师</a></li>
-                    <li><a href="<?php echo base_url('index.php/admin/add_admin')?>">添加管理员</a></li>
+                    <li><a href="<?php echo base_url('index.php/admin/admin/add_admin')?>">添加管理员</a></li>
                 </ul>
             </li>
             <li><a href="#"><img src="<?php echo base_url('back/img/icons/menu/brush.png'); ?>" alt="" />数据审核</a>
@@ -103,80 +103,21 @@
         </ul>
     </div>
     <div id="content" class="white">
-        <h1><img src="img/icons/posts.png" alt="" /> Table</h1>
+        <h1><img src="<?php echo base_url('back/img/icons/posts.png');?>" alt="" /> Teacher Data</h1>
         <div class="bloc">
             <div class="title">
                 <div class="tabs" id="tabs1" style="left:-1px">
-                    <a href="#tab11" class="active">全部数据</a>
-                    <a href="#tab12">已审核</a>
-                    <a href="#tab13">未审核</a>
+                    <a href="#tab1">全部数据</a>
+                    <a href="#tab2">未审核</a>
+                    <a href="#tab3">未通过</a>
+                    <a href="#tab4">管理员添加</a>
                 </div>
             </div>
             <div class="content">
-                <div id="tab11">
+                <div id="tab1">
                     <div class="content">
                         <table class="noalt">
                             <tbody>
-                                <tr>
-                                    <td class="picture" style="width:80px;"><img src="img/anonymous.png" alt="" /></td>
-                                    <td>
-                                        <p>
-                                            <strong><a href="#">John Doe</a></strong>
-                                            <br/>
-                                            <em>December 24, at 22:13 - <a href="#">Reply</a></em>
-                                            <br/> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non nulla sapien, quis luctus felis. Fusce sodales tempus tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non nulla sapien, quis luctus felis. Fusce sodales tempus tincidunt.
-                                        </p>
-                                    </td>
-                                    <td class="actions">
-                                        <a href="#" title="Edit this content"><img src="img/icons/actions/edit.png" alt="" /></a>
-                                        <a href="#" title="Delete this content"><img src="img/icons/actions/delete.png" alt="" /></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="picture" style="width:80px;"><img src="img/anonymous.png" alt="" /></td>
-                                    <td>
-                                        <p>
-                                            <strong><a href="#">John Doe</a></strong>
-                                            <br/>
-                                            <em>December 24, at 22:13 - <a href="#">Reply</a></em>
-                                            <br/> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non nulla sapien, quis luctus felis. Fusce sodales tempus tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non nulla sapien, quis luctus felis. Fusce sodales tempus tincidunt.
-                                        </p>
-                                    </td>
-                                    <td class="actions">
-                                        <a href="#" title="Edit this content"><img src="img/icons/actions/edit.png" alt="" /></a>
-                                        <a href="#" title="Delete this content"><img src="img/icons/actions/delete.png" alt="" /></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="picture" style="width:80px;"><img src="img/anonymous.png" alt="" /></td>
-                                    <td>
-                                        <p>
-                                            <strong><a href="#">John Doe</a></strong>
-                                            <br/>
-                                            <em>December 24, at 22:13 - <a href="#">Reply</a></em>
-                                            <br/> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non nulla sapien, quis luctus felis. Fusce sodales tempus tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non nulla sapien, quis luctus felis. Fusce sodales tempus tincidunt.
-                                        </p>
-                                    </td>
-                                    <td class="actions">
-                                        <a href="#" title="Edit this content"><img src="img/icons/actions/edit.png" alt="" /></a>
-                                        <a href="#" title="Delete this content"><img src="img/icons/actions/delete.png" alt="" /></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="picture" style="width:80px;"><img src="img/anonymous.png" alt="" /></td>
-                                    <td>
-                                        <p>
-                                            <strong><a href="#">John Doe</a></strong>
-                                            <br/>
-                                            <em>December 24, at 22:13 - <a href="#">Reply</a></em>
-                                            <br/> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non nulla sapien, quis luctus felis. Fusce sodales tempus tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non nulla sapien, quis luctus felis. Fusce sodales tempus tincidunt.
-                                        </p>
-                                    </td>
-                                    <td class="actions">
-                                        <a href="#" title="Edit this content"><img src="img/icons/actions/edit.png" alt="" /></a>
-                                        <a href="#" title="Delete this content"><img src="img/icons/actions/delete.png" alt="" /></a>
-                                    </td>
-                                </tr>
                                 <tr>
                                     <td class="picture" style="width:80px;"><img src="img/anonymous.png" alt="" /></td>
                                     <td>
@@ -196,7 +137,7 @@
                         </table>
                     </div>
                 </div>
-                <div id="tab12" style="display: none;">
+                <div id="tab2">
                     <ol>
                         <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
                         <li>Cras nec lectus egestas purus vehicula faucibus sit amet sit amet nunc.</li>
@@ -208,12 +149,38 @@
                         <a href="#" class="button white">a.button.white</a>
                     </p>
                 </div>
-                <div id="tab13" style="display: none;">
+                <div id="tab3">
                     <ol>
                         <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
                         <li>Cras nec lectus egestas purus vehicula faucibus sit amet sit amet nunc.</li>
                         <li>Cras vel elit nec eros ullamcorper pretium in vel libero.</li>
                     </ol>
+                </div>
+                <div id="tab4">
+                    <div class="content">
+                        <table class="noalt">
+                            <tbody>
+                                <?php foreach($result as $row) : ?>
+                                    <tr>
+                                        <td class="picture" style="width:80px;"><img style="width:80px;" src="<?php echo base_url($row['pic']);?>" alt="" /></td>
+                                        <td>
+                                            <p>
+                                                <strong><a href="#"><?php echo $row['name']; ?></a></strong>
+                                                <br/>
+                                                <em><?php echo $row['reg_time'];?> <a href="#">Reply</a></em>
+                                                <br/>
+                                                <?php echo $row['intro'];?>
+                                            </p>
+                                        </td>
+                                        <td class="actions">
+                                            <a href="#" title="Edit this content"><img src="<?php echo base_url('back/img/icons/actions/edit.png');?>" alt="" /></a>
+                                            <a href="#" title="Delete this content"><img src="<?php echo base_url('back/img/icons/actions/delete.png');?>" alt="" /></a>
+                                        </td>
+                                    </tr>
+                                    <?php endforeach;?>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

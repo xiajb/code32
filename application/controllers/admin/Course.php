@@ -10,13 +10,17 @@ class Course extends CI_Controller {
 	
 	public function index()
 	{
-		// $data['result'] = $this->course_model->query_all();
-		$this->load->view('admin/admin_course.html');
+		$data['result'] = $this->course_model->query_all();
+		$this->load->view('admin/admin_course.html',$data);
 	}
 
 	public function add_course(){
+		if (isset($_SESSION['username'])) {
+			$this->load->view('admin/admin_add_course.html');
+		}else{
+			redirect('http://127.0.0.1/code32/index.php/admin/login');
 
-		$this->load->view('admin/admin_add_course.html');
+		}
 	}
 
 	public function upload_pic(){
