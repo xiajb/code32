@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>儒风国学院后台登陆</title>
+
+<link rel="stylesheet" href="<?php echo base_url('back/css/loginstyle.css'); ?>" />
+
+<body>
+
+<div class="login-container">
+	<h1>儒风国学院后台登陆</h1>
+	
+
+	
+	<form action="" method="post" id="loginForm">
+		<div>
+			<input type="text" name="username" id="username" placeholder="用户名" autocomplete="off"/>
+		</div>
+		<div>
+			<input type="password" name="password" id="password" placeholder="密码" oncontextmenu="return false" onpaste="return false" />
+		</div>
+		<button id="button" type="button">登 陆</button>
+	</form>
+
+<!-- 	<a href="register.html">
+		<button type="button" class="register-tis">还有没有账号？</button>
+	</a> -->
+
+</div>
+
+<script src="<?php echo base_url('back/js/jquery.min.js'); ?>"></script>
+<script src="<?php echo base_url('back/js/common.js'); ?>"></script>
+<!--背景图片自动更换-->
+<script src="<?php echo base_url('back/js/supersized.3.2.7.min.js'); ?>"></script>
+<script src="<?php echo base_url('back/js/supersized-init.js'); ?>"></script>
+<!--表单验证-->
+<script src="<?php echo base_url('back/js/jquery.validate.min.js?var1.14.0'); ?>"></script>
+<script type="text/javascript">
+
+$('#button').click(function(){
+
+ var value = {
+ 	"username":$("#username").val(),
+ 	"password":$("#password").val()
+ }
+                        $.ajax({
+                            type: 'POST',
+                            url: "../admin/login/check_login",
+                            data: "value=" + JSON.stringify(value),
+
+                            success: function(result) {
+                                console.log(result);
+                                if (result == -10) {
+                                    alert('用户名或密码错误！');
+                                   
+                                }
+                            }
+                        })
+});
+</script>
+</body>
+</html>
