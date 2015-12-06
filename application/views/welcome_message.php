@@ -83,6 +83,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>
 
 	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
+	<<img src="http://code32.b0.upaiyun.com//2015//12//02//upload_Chrysanthemum.jpg" alt="">	
 </div>
 
 </body>
