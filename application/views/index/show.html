@@ -9,6 +9,7 @@
 <script type="text/javascript" charset="utf-8" async="" src="<?php echo base_url().'index/show/contains.js'?>"></script>
 <script type="text/javascript" charset="utf-8" async="" src="<?php echo base_url().'index/show/localStorage.js'?>"></script>
 <script type="text/javascript" charset="utf-8" async="" src="<?php echo base_url().'index/show/Panel.js'?>"></script>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
     <title>视频播放</title>
@@ -28,6 +29,24 @@
 
     <script src="<?php echo base_url().'index/show/swfobject.js'?>" type="text/javascript"></script>
     <script src="<?php echo base_url().'index/show/pagesou_ajax.js'?>" type="text/javascript"></script>
+    <script type="text/javascript"> 
+    $(function (){
+        $("dt").click(function () {
+           // if($(this).next("dd").is(":hidden")){
+                // $(this).next("dd").show();
+            //}else{
+               //  $(this).next("dd").hide();
+           
+          //  }
+          if($(this).nextUntil('dt').is(":hidden")){
+            $(this).nextUntil('dt').show();
+          }else{
+            $(this).nextUntil('dt').hide();
+          }
+           
+            }) 
+    })
+</script>
     <script type="text/javascript">
         $(function () {
             $(".collapse>.collapse-aside>.collapse-menu").click(function () {
@@ -354,14 +373,59 @@
                                         <p class="pl10 h30 lh30 gray6 f14 pt5">
                                             西门子S7-200PLC模拟量应用篇</p>
                                         <dl class="dl-list1 link-gray" style="overflow-y: scroll; overflow-x: hidden;">
-                                            
+
+                                            <?php 
+                                            $chapter=$arr[0];
+                                            $section=$arr[1];
+                                       $lenth=count($chapter);
+                                        $lenth2=count($section);
+                                        for($i=0;$i<$lenth;$i++){?>
+                            <dt style="background-position: 84px 10px; background-image: none;" 
+                            title=" <?php echo $chapter[$i]['chapter_name'];?>">
+                            <span class="w50 l tr pr10 dn">章节</span> 
+                            <span class="w30 l tc">
+                            <em class="circle1">1</em>
+                            </span> 
+                            <span class=" l ellipsis pl10">
+                            <?php echo $chapter[$i]['chapter_name'];?>
+                            </span> 
+                            </dt>
+                            <?php for ($t=0; $t<$lenth2; $t++) { 
+                                if ($chapter[$i]['chapter_name']==$section[$t]['chapter_name']){?>
+                                <dd>
+                                    <a href="<?php echo $section[$t]['section_path'];?>" 
+                                    title="<?php echo $section[$t]['section_name'];?>"
+                                      class="<?php 
+                                        if($section[$t]['section_name']=='HTML5特性简介'){
+                                            $str='hover';
+                                            echo $str;
+                                        };
+                                        ?>"
+                                   >
+                                     <span class="w60  l tr "></span> 
+                                        <span class="w30 l tc"><em class="circle2"></em></span>
+                                        <span class=" l ellipsis pl10">
+                                        <?php echo $section[$t]['section_name'];?>
+                                        </span> </a>
+                                        </dd>
+                                                    
+                                                    <?php
+                                                }
+               
+            
+
+                                            }
+            
+            
+                                        }
+                                             ?>
                                             <dt style="background-position: 84px 10px; background-image: none;" title="模拟量模块的说明">
                                                 <span class="w50 l tr pr10 dn">章节</span> <span class="w30 l tc"><em class="circle1">
                                                     1</em></span> <span class=" l ellipsis pl10">
                                                         模拟量模块的说明</span> </dt>
-                                            
+
                                             <dd>
-                                                <a href="#" title="001.s7-200扩展模块-模拟量模块" class="hover"><span class="w60  l tr ">
+                                                <a href="#" title="001.s7-200扩展模块-模拟量模块" ><span class="w60  l tr ">
                                                     </span> <span class="w30 l tc"><em class="circle2">
                                                     </em></span><span class=" l ellipsis pl10">
                                                         001.s7-200扩展模块-...</span> </a>
