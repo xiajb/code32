@@ -21,9 +21,9 @@ class Login extends CI_Controller {
 		$result=$this->user_model->get_user_admin($value['username'],$value['password'],1);
 		if($result){
 
-			echo '登录成功';
 			$this->session->set_userdata('username',$value['username']);
-			redirect('http://127.0.0.1/code32/index.php/admin/user');
+			echo '1';
+			// redirect('http://127.0.0.1/code32/index.php/admin/user');
 		}
 		else{
 			echo '-1';
