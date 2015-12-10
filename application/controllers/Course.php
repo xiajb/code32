@@ -7,14 +7,18 @@ class Course extends CI_Controller {
 	 */
 	function __construct(){
 		parent::__construct();
+		$this->load->model('show_model');
+			$this->load->model('course_model');
 		$this->load->library('session');
 	}
 	//
-	public function index()
+	public function showcourse($course_id)
 	{
 		$this->load->helper('url');
-		$this->load->view("course_temp.html");
+		$course=$this->course_model->getcoursebyid($course_id);
+		$data['section']=$this->show_model->showsectionbyid($course_id);
+		$this->session->set_userdata('course_id',$course_id);
+		$this->load->view("course_temp.html",$data);
 
 	}
 }
-

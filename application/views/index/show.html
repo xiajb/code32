@@ -393,7 +393,7 @@
                               <?php for ($t=0; $t<$lenth2; $t++) {
                                   if ($chapter[$i]['chapter_name']==$section[$t]['chapter_name']){?>
                                   <dd>
-                                      <a href="<?php echo site_url().'/showtv/showbyid/'. $section[$t]['section_id']?>"
+                                      <a href="<?php echo site_url().'/showtv/showbyid/'. $section[$t]['section_id']?><?php echo '/'.$arr[2][0]['course_id']?>"
                                       title="<?php echo $section[$t]['section_name'];?>"
                                         class="<?php
                                                  $ss= $_SESSION['section_id'];
