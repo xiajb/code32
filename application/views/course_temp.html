@@ -530,6 +530,12 @@
                         </div>
                         <div>
                             <ul class="listview4">
+                              <li class="list-collapse">
+                                    <div class="collapse-head" >
+                                        <span class="hand colblue r f14 toggle-outline">
+                                            收起</span>
+                                            <label><input type="checkbox" class="form-checkbox dn" />模拟量模块的说明</label></div>
+                                <div class="collapse-cont" rel="0" >
                                  <ul class="listview5">
                                    <?php foreach($section as $sec):?>
                                    <li><span class="w550 l">
@@ -556,8 +562,12 @@
                                        <a class="icon-btn r" href="<?php echo site_url().'/showtv/showbyid/'.$sec['section_id']?><?php echo '/'.$_SESSION['course_id'] ?>">
                                            <i class="iconfont">&#xe612;</i> <span class="txt">马上学习</span></a> </li>
                                          <?php endforeach?>
-                                </ul>
-                            </ul>
+
+                                                   </ul>
+                                               </div>
+                                           </li>
+
+                                       </ul>
                         </div>
                          <br />
                         <div class="h60 lh60 pl20 f16">

@@ -16,9 +16,11 @@ class Course extends CI_Controller {
 	{
 		$this->load->helper('url');
 		$course=$this->course_model->getcoursebyid($course_id);
-		$data['section']=$this->show_model->showsectionbyid($course_id);
+		$chapter=$this->show_model->showchapterbyid($course_id);
+		$section=$this->show_model->showsectionbyid($course_id);
+		$data['arr']=array($chapter,$section,$course);
 		$this->session->set_userdata('course_id',$course_id);
-		$this->load->view("course_temp.html",$data);
+		$this->load->view("index/course.html",$data);
 
 	}
 }
