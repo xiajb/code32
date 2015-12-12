@@ -53,6 +53,9 @@ class User_model extends CI_Model{
 		return $query->num_rows();
 	}
 
+	public function delete_user($id){
+		$this->db->delete(self::TBL_USER, array('uid' => $id));
+	}
 	// function  checklogin($user_name,$user_pwd){
 	// 	//返回值
 	// 	$a=false;

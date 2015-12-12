@@ -39,7 +39,7 @@
                                 <td>35</td>
                                 <td class="actions">
                                     <a href="#" title="Edit this content"><img src="<?php echo base_url('back/img/icons/actions/edit.png'); ?>" alt="" /></a>
-                                    <a href="#" title="Delete this content"><img src="<?php echo base_url('back/img/icons/actions/delete.png'); ?>" alt="" /></a>
+                                    <a data-id="<?php echo $row['uid']; ?>" href="#" title="Delete this content" class="delete_button"><img src="<?php echo base_url('back/img/icons/actions/delete.png'); ?>" alt="" /></a>
                                 </td>
                             </tr>
                             <?php endforeach;?>
@@ -56,6 +56,180 @@
             </div>
         </div>
     </div>
+    <div id="zoombox" class="zoombox"> 
+    <div class="mask" style="display: none; opacity: 0.8;"></div>
+    <!-- <div class="cd-popup" role="alert"> -->
+    <div class="cd-popup-container" style="display:none;">
+        <p style="height:22px">你确定你要删除这个元素吗?</p>
+        <ul class="cd-buttons">
+            <li id="delete_yes"><a href="#">是</a></li>
+            <li id="delete_no"><a href="#">否</a></li>
+        </ul>
+        <a href="#" class="cd-popup-close img-replace">关闭</a>
+    </div> <!-- cd-popup-container -->
+</div> <!-- cd-popup -->
+<style type="text/css">
+
+a {
+  color: #35a785;
+  text-decoration: none;
+}
+
+.img-replace {
+  /* replace text with an image */
+  display: inline-block;
+  overflow: hidden;
+  text-indent: 100%;
+  color: transparent;
+  white-space: nowrap;
+}
+
+.cd-popup-trigger {
+  display: block;
+  width: 170px;
+  height: 50px;
+  line-height: 50px;
+  margin: 3em auto;
+  text-align: center;
+  color: #FFF;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 50em;
+  background: #35a785;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.07);
+}
+
+.cd-popup.is-visible {
+  opacity: 1;
+  visibility: visible;
+
+}
+
+.cd-popup-container {
+        width: 300px;
+    margin: 10px auto;
+    text-align: center;
+    background-color: #fff;
+    z-index: 9999;
+    position: relative;
+  border-radius: .25em .25em .4em .4em;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  background: #FFF;
+
+}
+.cd-popup-container p {
+  padding: 3em 1em;
+}
+.cd-popup-container .cd-buttons:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.cd-popup-container .cd-buttons li {
+  float: left;
+  width: 50%;
+}
+.cd-popup-container .cd-buttons a {
+  display: block;
+  height: 56px;
+  line-height: 60px;
+  text-transform: uppercase;
+  color: #FFF;
+
+}
+.cd-popup-container .cd-buttons li:first-child a {
+  background: #fc7169;
+  border-radius: 0 0 0 .25em;
+}
+.no-touch .cd-popup-container .cd-buttons li:first-child a:hover {
+  background-color: #fc8982;
+}
+.cd-popup-container .cd-buttons li:last-child a {
+  background: #b6bece;
+  border-radius: 0 0 .25em 0;
+}
+.no-touch .cd-popup-container .cd-buttons li:last-child a:hover {
+  background-color: #c5ccd8;
+}
+.cd-popup-container .cd-popup-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+}
+.cd-popup-container .cd-popup-close::before, .cd-popup-container .cd-popup-close::after {
+  content: '';
+  position: absolute;
+  top: 12px;
+  width: 14px;
+  height: 3px;
+  background-color: #8f9cb5;
+}
+.mask{
+    opacity: 0.5!important;
+}
+
+.img-replace {
+    display: inline-block;
+    overflow: hidden;
+    text-indent: 100%;
+    color: transparent;
+    white-space: nowrap;
+}
+.cd-popup-container .cd-popup-close::before {
+
+
+  left: 8px;
+}
+.cd-popup-container .cd-popup-close::after {
+
+  right: 8px;
+}
+
+
+}
+</style>
+<script type="text/javascript">
+    
+
+        $('.delete_button').click(function(){
+            id = $(this).data('id');
+            // console.log(id);
+            // console.log($(this));
+            $('.mask').show();
+            $('.cd-popup-container').show();
+            // $('.mask').css('display':'block');
+            // $('.cd-popup-container').css('display':'block');
+        });
+        $('.mask').click(function(){
+            $('.cd-popup-container').hide();
+            $('.mask').hide();
+        });
+        $('.cd-popup-close').click(function(){
+            $('.cd-popup-container').hide();
+            $('.mask').hide();
+        });
+        $('#delete_no').click(function(){
+            $('.cd-popup-container').hide();
+            $('.mask').hide();
+        });
+        $('#delete_yes').click(function(){
+            $.ajax({
+                url:"../admin/user/delete_user/",
+                type:"POST",
+                data:"value="+id,
+                success:function(result){
+                    console.log(result);
+                }
+            })
+        });
+
+</script>
+
 </body>
 
 </html>

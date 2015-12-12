@@ -29,6 +29,12 @@ class User extends CI_Controller {
 		$this->load->view('admin/admin_header.html',$data);
 		$this->load->view('admin/admin_user.html');
 	}
+
+	public function delete_user(){
+		$id = $_POST['value'];
+		$value = $this->user_model->delete_user($id);
+		echo $value;
+	}
 }
 
 /* End of file welcome.php */
