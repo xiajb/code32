@@ -17,7 +17,29 @@ CREATE TABLE  `ci_user` (
 PRIMARY KEY (  `uid` )
 ) ENGINE = MYISAM CHARSET = utf8;
 
+--国学类
+CREATE TABLE  `ci_guoxue` (
+ `gxid` mediumint(7) unsigned NOT NULL auto_increment default '0',
+ `name` int(10) unsigned NOT NULL default '0' COMMENT '名字',
+ `status` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '状态',
+PRIMARY KEY (  `gxid` )
+) ENGINE = MYISAM CHARSET = utf8;
 
+--技能类
+CREATE TABLE  `ci_jineng` (
+ `jnid` mediumint(7) unsigned NOT NULL auto_increment default '0',
+ `name` int(10) unsigned NOT NULL default '0' COMMENT '名字',
+ `status` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '状态',
+PRIMARY KEY (  `jnid` )
+) ENGINE = MYISAM CHARSET = utf8;
+
+-- --技能类
+-- CREATE TABLE  `ci_guoxue` (
+--  `jnid` mediumint(7) unsigned NOT NULL auto_increment default '0',
+--  `name` int(10) unsigned NOT NULL default '0' COMMENT '名字',
+--  `status` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '状态',
+-- PRIMARY KEY (  `gxid` )
+-- ) ENGINE = MYISAM CHARSET = utf8;
 
 -- 订单表
 CREATE TABLE  `ci_indent` (

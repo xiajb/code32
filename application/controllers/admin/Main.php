@@ -6,9 +6,8 @@ class Main extends CI_Controller {
 		$this->load->model('user_model');
 		$this->load->library('session');
 
-	}	/**
-	*
-	 */
+	}	
+	
 	public function index()
 	{
 		// $this->user_model->query_all();

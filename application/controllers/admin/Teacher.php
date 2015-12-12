@@ -12,10 +12,43 @@ class Teacher extends CI_Controller {
 	public function index()
 	{
 		$data['result'] = $this->teacher_model->query_all();
-		$this->load->view('admin/admin_teacher.html',$data);
+		$data['current'] = array('data_back'=>'',
+			'data_manage'=>'current',
+			'user_data' =>'' ,
+			'teacher_data'=>'current',
+			'course_data'=>'',
+			'data_add'=>'',
+			'course_add'=>'',
+			'video_add'=>'',
+			'teacher_add'=>'',
+			'admin_add'=>'',
+			'data_check'=>'',
+			'course_check'=>'',
+			'video_check'=>'',
+			'teacher_check'=>'',
+			 );
+		$this->load->view('admin/admin_header.html',$data);
+		$this->load->view('admin/admin_teacher.html');
 	}
+	
 	public function add_teacher()
 	{
+		$data['current'] = array('data_back'=>'',
+			'data_manage'=>'',
+			'user_data' =>'' ,
+			'teacher_data'=>'',
+			'course_data'=>'',
+			'data_add'=>'current',
+			'course_add'=>'',
+			'video_add'=>'',
+			'teacher_add'=>'current',
+			'admin_add'=>'',
+			'data_check'=>'',
+			'course_check'=>'',
+			'video_check'=>'',
+			'teacher_check'=>'',
+			 );
+		$this->load->view('admin/admin_header.html',$data);
 		$this->load->view('admin/admin_add_teacher.html');
 	}
 

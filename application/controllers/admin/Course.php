@@ -11,11 +11,43 @@ class Course extends CI_Controller {
 	public function index()
 	{
 		$data['result'] = $this->course_model->query_all();
-		$this->load->view('admin/admin_course.html',$data);
+		$data['current'] = array('data_back'=>'',
+			'data_manage'=>'current',
+			'user_data' =>'' ,
+			'teacher_data'=>'',
+			'course_data'=>'current',
+			'data_add'=>'',
+			'course_add'=>'',
+			'video_add'=>'',
+			'teacher_add'=>'',
+			'admin_add'=>'',
+			'data_check'=>'',
+			'course_check'=>'',
+			'video_check'=>'',
+			'teacher_check'=>'',
+			 );
+		$this->load->view('admin/admin_header.html',$data);
+		$this->load->view('admin/admin_course.html');
 	}
 
 	public function add_course(){
+		$data['current'] = array('data_back'=>'',
+			'data_manage'=>'',
+			'user_data' =>'' ,
+			'teacher_data'=>'',
+			'course_data'=>'',
+			'data_add'=>'current',
+			'course_add'=>'current',
+			'video_add'=>'',
+			'teacher_add'=>'',
+			'admin_add'=>'',
+			'data_check'=>'',
+			'course_check'=>'',
+			'video_check'=>'',
+			'teacher_check'=>'',
+			 );
 		if (isset($_SESSION['username'])) {
+			$this->load->view('admin/admin_header.html',$data);
 			$this->load->view('admin/admin_add_course.html');
 		}else{
 			redirect('http://127.0.0.1/code32/index.php/admin/login');
