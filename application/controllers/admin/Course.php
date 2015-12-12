@@ -20,7 +20,6 @@ class Course extends CI_Controller {
 			'course_add'=>'',
 			'video_add'=>'',
 			'teacher_add'=>'',
-			'admin_add'=>'',
 			'data_check'=>'',
 			'course_check'=>'',
 			'video_check'=>'',
@@ -40,19 +39,13 @@ class Course extends CI_Controller {
 			'course_add'=>'current',
 			'video_add'=>'',
 			'teacher_add'=>'',
-			'admin_add'=>'',
 			'data_check'=>'',
 			'course_check'=>'',
 			'video_check'=>'',
 			'teacher_check'=>'',
 			 );
-		if (isset($_SESSION['username'])) {
-			$this->load->view('admin/admin_header.html',$data);
-			$this->load->view('admin/admin_add_course.html');
-		}else{
-			redirect('http://127.0.0.1/code32/index.php/admin/login');
-
-		}
+		$this->load->view('admin/admin_header.html',$data);
+		$this->load->view('admin/admin_add_course.html');
 	}
 
 	public function upload_pic(){

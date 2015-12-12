@@ -11,7 +11,14 @@ class Login extends CI_Controller {
 	//加载登陆界面
 	public function index()
 	{
-		$this->load->view('admin/admin_login.html');
+		
+		$username = $this->session->userdata('username');
+		$res = $this->user_model->get_user_session($username,1);
+		if ($res) {
+		 	redirect('http://127.0.0.1/code32/index.php/admin/user');           	
+		}else{
+			$this->load->view('admin/admin_login.html');
+		}       
 	}
 
 	//登陆

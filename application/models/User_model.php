@@ -28,11 +28,6 @@ class User_model extends CI_Model{
 		return $query->num_rows();
 	}
 	public function sql_check_email($email){
-		// $query = $this->db->where($email)->get(self::TBL_USER);
-		// return $query->row_array();
-		// $this->db->where('email',$email);
-		// $query=$this->db->get('ci_user');
-		//返回行数
 		$sql = 'select * from ci_user where email= "'.$email.'"';
 		$query=$this->db->query($sql);
 		return $query->num_rows();
@@ -48,6 +43,12 @@ class User_model extends CI_Model{
 	public function get_user_admin($username,$password,$level){
 		$password = md5($password);
 		$sql='select * from ci_user where username="'.$username.'"and password="'.$password.'" and level='.$level; 
+		$query=$this->db->query($sql);
+		return $query->num_rows();
+	}
+
+	public function get_user_session($username,$level){
+		$sql='select * from ci_user where username="'.$username.'"and level='.$level;
 		$query=$this->db->query($sql);
 		return $query->num_rows();
 	}
