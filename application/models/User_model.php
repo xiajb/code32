@@ -56,6 +56,18 @@ class User_model extends CI_Model{
 	public function delete_user($id){
 		$this->db->delete(self::TBL_USER, array('uid' => $id));
 	}
+
+	public function change_level($uid,$level){
+		if ($uid != "" && $level != "") {
+			$data = array('level' => $level);
+			$this->db->where('uid', $uid);
+			$this->db->update(self::TBL_USER, $data);
+			echo "1";
+		}else{
+			echo "-1";
+		}
+
+	}
 	// function  checklogin($user_name,$user_pwd){
 	// 	//返回值
 	// 	$a=false;

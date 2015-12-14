@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class User extends CI_Controller {
+class Tnote extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('user_model');
@@ -27,20 +27,10 @@ class User extends CI_Controller {
 			 );
 		$data['result'] = $this->user_model->query_all();
 		$this->load->view('admin/admin_header.html',$data);
-		$this->load->view('admin/admin_user.html');
+		$this->load->view('admin/admin_teacher_course.html');
 	}
 
-	public function delete_user(){
-		$id = $_POST['value'];
-		$value = $this->user_model->delete_user($id);
-		echo $value;
-	}
 
-	public function change_level(){
-		$value = json_decode($this->input->post('value'),true);
-		$this->user_model->change_level($value['uid'],$value['level']);
-		
-	}
 }
 
 /* End of file welcome.php */

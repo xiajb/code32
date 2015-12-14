@@ -1,4 +1,4 @@
-
+<link rel="stylesheet" href="<?php echo base_url('back/css/backmask.css'); ?>" />
     <div id="content" class="white">
         <h1><img src="<?php echo base_url('back/img/icons/posts.png'); ?>" alt="" /> Table</h1>
         <div class="bloc">
@@ -14,35 +14,51 @@
                             <th>邮箱</th>
                             <th>手机号</th>
                             <th>注册时间</th>
+                            <th>blance</th>
                             <th><img src="<?php echo base_url('back/img/th-comment.png'); ?>" alt="" /></th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach($result as $row) : ?>
+                    <input  type="hidden" id="len" value="<?php echo count($result); ?>" />
+                    <?php  for($i=0;$i<count($result);$i++){ ?>
+
+
+                       
                             <tr>
                                 <td>
-                                    <?php echo $row['uid']; ?>
+                                    <?php echo $result[$i]['uid']; ?>
                                 </td>
                                 <td>
-                                    <?php echo $row['username']; ?>
+                                    <?php echo $result[$i]['username']; ?>
                                 </td>
                                 <td>
-                                    <?php echo $row['email']; ?>
+                                    <?php echo $result[$i]['email']; ?>
                                 </td>
                                 <td>
-                                    <?php echo $row['phone'];?>
+                                    <?php echo $result[$i]['phone']; ?>
+                                </td>
+                                 <td>
+                                    <?php echo $result[$i]['blance']; ?>
                                 </td>
                                 <td>
-                                    <?php echo $row['blance'];?>
+                                    <?php echo $result[$i]['blance'];?>
                                 </td>
-                                <td>35</td>
+                                 <td><div class="selector" id="uniform-tableaction">
+                        <select name="action" class="a<?php echo $i;?>" style="opacity: 0;" data-uid="<?php echo $result[$i]['uid']; ?>">
+                            <option value="<?php echo $result[$i]['level'];?>" selected="selected" ><?php echo $result[$i]['level'];?></option>
+                            <option value="1">admin</option>
+                            <option value="2">guest</option>
+                            <option value="0">employee</option>
+                        </select></div>
+                    </td>
                                 <td class="actions">
                                     <a href="#" title="Edit this content"><img src="<?php echo base_url('back/img/icons/actions/edit.png'); ?>" alt="" /></a>
-                                    <a data-id="<?php echo $row['uid']; ?>" href="#" title="Delete this content" class="delete_button"><img src="<?php echo base_url('back/img/icons/actions/delete.png'); ?>" alt="" /></a>
+                                    <a data-id="<?php echo $result[$i]['uid']; ?>" href="#" title="Delete this content" class="delete_button"><img src="<?php echo base_url('back/img/icons/actions/delete.png'); ?>" alt="" /></a>
                                 </td>
                             </tr>
-                            <?php endforeach;?>
+                    <?php } ?>
+                            
                     </tbody>
                 </table>
                 <div class="pagination">
@@ -58,7 +74,7 @@
     </div>
     <div id="zoombox" class="zoombox"> 
     <div class="mask" style="display: none; opacity: 0.8;"></div>
-    <!-- <div class="cd-popup" role="alert"> -->
+    <!-- <div class="cd-popup" level="alert"> -->
     <div class="cd-popup-container" style="display:none;">
         <p style="height:22px">你确定你要删除这个元素吗?</p>
         <ul class="cd-buttons">
@@ -70,128 +86,7 @@
 </div> <!-- cd-popup -->
 <style type="text/css">
 
-a {
-  color: #35a785;
-  text-decoration: none;
-}
 
-.img-replace {
-  /* replace text with an image */
-  display: inline-block;
-  overflow: hidden;
-  text-indent: 100%;
-  color: transparent;
-  white-space: nowrap;
-}
-
-.cd-popup-trigger {
-  display: block;
-  width: 170px;
-  height: 50px;
-  line-height: 50px;
-  margin: 3em auto;
-  text-align: center;
-  color: #FFF;
-  font-size: 14px;
-  font-size: 0.875rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  border-radius: 50em;
-  background: #35a785;
-  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.07);
-}
-
-.cd-popup.is-visible {
-  opacity: 1;
-  visibility: visible;
-
-}
-
-.cd-popup-container {
-        width: 300px;
-    margin: 10px auto;
-    text-align: center;
-    background-color: #fff;
-    z-index: 9999;
-    position: relative;
-  border-radius: .25em .25em .4em .4em;
-  text-align: center;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  background: #FFF;
-
-}
-.cd-popup-container p {
-  padding: 3em 1em;
-}
-.cd-popup-container .cd-buttons:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-.cd-popup-container .cd-buttons li {
-  float: left;
-  width: 50%;
-}
-.cd-popup-container .cd-buttons a {
-  display: block;
-  height: 56px;
-  line-height: 60px;
-  text-transform: uppercase;
-  color: #FFF;
-
-}
-.cd-popup-container .cd-buttons li:first-child a {
-  background: #fc7169;
-  border-radius: 0 0 0 .25em;
-}
-.no-touch .cd-popup-container .cd-buttons li:first-child a:hover {
-  background-color: #fc8982;
-}
-.cd-popup-container .cd-buttons li:last-child a {
-  background: #b6bece;
-  border-radius: 0 0 .25em 0;
-}
-.no-touch .cd-popup-container .cd-buttons li:last-child a:hover {
-  background-color: #c5ccd8;
-}
-.cd-popup-container .cd-popup-close {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 30px;
-  height: 30px;
-}
-.cd-popup-container .cd-popup-close::before, .cd-popup-container .cd-popup-close::after {
-  content: '';
-  position: absolute;
-  top: 12px;
-  width: 14px;
-  height: 3px;
-  background-color: #8f9cb5;
-}
-.mask{
-    opacity: 0.5!important;
-}
-
-.img-replace {
-    display: inline-block;
-    overflow: hidden;
-    text-indent: 100%;
-    color: transparent;
-    white-space: nowrap;
-}
-.cd-popup-container .cd-popup-close::before {
-
-
-  left: 8px;
-}
-.cd-popup-container .cd-popup-close::after {
-
-  right: 8px;
-}
-
-
-}
 </style>
 <script type="text/javascript">
     
@@ -229,7 +124,40 @@ a {
         });
 
 </script>
+        <script type="text/javascript">
+            $(document).ready(function(){   
+                var a = $("#len").val();
+                for (var i = 0; i < a; i++) {
+                 (function (i) {
+                        $(".a"+i).change(function(){
+                           
+                              
+                              var value={
+                                "level":$(".a" + i).val(),
+                                "uid":$(".a" + i).data('uid'),
+                              }
+                            
+                            $.ajax({
+                                url : "./user/change_level",
+                                type : "post",
+                                data:"value=" + JSON.stringify(value),
+                                success : function(result) {
+                                    console.log(result);
+                                    if (result == 1) {
+                                        alert("success");
+                                    }else{
+                                        alert("fail");
+                                    }
+                                    
+                                }
+                            })                            
+                        });
+                    })(i);
+                    
+                };
+            });
 
+        </script>
 </body>
 
 </html>
