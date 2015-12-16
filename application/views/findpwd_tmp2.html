@@ -1,0 +1,94 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第二步:验证身份找回密码_技成自动化培训网</title>
+    <link type="text/css" href="<?php echo base_url('index/style/jc.v2.css')?>" rel="stylesheet" media="all" />
+    <link type="text/css" href="<?php echo base_url('index/style/register.v2.css')?>" rel="stylesheet" media="all" />
+    <link type="text/css" href="<?php echo base_url('index/style/findpwd.css')?>" rel="stylesheet" media="all" />
+</head>
+
+<body>
+<!-- header start -->
+<header>
+    <section class="global_nav">
+        <nav>
+            <div class="nav clearfix">
+                <h2 class="logo"><a href="http://www.jcpeixun.com/" target="_blank" title="技成自动化培训网">技成自动化培训网</a></h2>
+                <div class="links"><strong class="links1">客服热线：400-111-4100</strong> <strong class="links2">客服在线</strong></div>
+            </div>
+        </nav>
+    </section>
+</header>
+<!-- header end --> 
+
+<!-- container start -->
+<div id="container" class="w960 mc container">
+    <div class="main" style="padding:0 0 40px;">
+    	<div class="fpwd_title">
+        	<h2 class="title">重置密码</h2>
+            <div class="ad"></div>
+        </div>
+        <div class="fpwd_nav">
+        	<ul class="clearfix">
+            	<li class="step2_1">1.填写账户名</li>
+                <li class="step2_2">2.验证身份</li>
+                <li class="step2_3">3.重置密码</li>
+                <li class="step2_4">4.密码修改成功</li>
+            </ul>
+        </div>
+       
+        <div class="fpwd_content2" >
+        	<div class="fpwd_form2">
+            	<form id="findPwdForm2" name="findPwdForm2" method="post" action="">
+                	<fieldset>
+                    	<ol id="validate_aways">
+                        	<li>&nbsp;</li>
+                        	<li id="v_aways"><label class="f14">请选择验证身份方式：</label><input type="radio" id="email" name="shenfen" checked="checked"/><label for="email" class="f14 mr15" id="emailtitle">邮箱</label> <input value="mobile" name="shenfen" type="radio" id="mobile" /><label id="mobiletitle" for="mobile">手机号</label></li>
+                         </ol>
+                        <ol id="ol_mobile" style="display:none;">
+                        	<li class="clearfix" style="padding-left:110px;"><label class="f14 l">手机：</label> <strong id="mobilevalue" class="corange l mr15 b">156*****1196</strong> <a href="javascript:;" class="btn_orange1-100-25 l mt4" id="sendCode">获取短信验证码</a> <strong id="cdown_tips" class="cdown_tips" style="display: none;">60秒后才能再发送</strong><!--<strong class="cgray5 ml15" id="m_tips">验证码已发送，请查收短信</strong>--></li>
+                            <li style="padding-left:110px;"><label class="f14">短信验证码：</label><input type="text" id="vcode" name="vcode" class=" txt_gray1-140-25" value="" /></li>
+                            <li style="padding-left:275px;"><strong class="cred" id="c_tips">&nbsp;</strong></li>
+                            <li style="line-height:25px;padding-left:280px;"><span class="pubtn"><i class="btn_l1"></i><a class="pubtn_in" href="javascript:;" id="fp_btn_next2"><span class="pubtn_bg">下一步</span></a><i class="btn_l2"></i></span></li>
+                        </ol>
+                        <ol id="ol_email">
+                         	<li style="padding-left:140px;"><label class="f14">邮箱地址：</label><strong id="emailvalue" class="corange b">8770*****4@qq.com</strong></li>
+                            <li style="padding:25px 0 0 271px;"><a href="javascript:;" class="btn_orange1-100-25" id="send_email">发送验证邮件</a></li>                           
+                        </ol>
+                        <ol id="email_send" style="margin: 20px 0px;display:none;">
+                        	<li class="f18 send_suc" style="padding-left:100px;margin-bottom:15px;">验证邮件已发送，请您<a href="javascript:;" id="look_email">登录</a>邮箱完成验证</li>
+                            <li style="padding: 0px; margin-left: 0px;">
+                                <dl>
+                                    <dt class="f14 b">三分钟内没有收到邮件，怎么办？</dt>
+                                    <dd>1.看看是否在邮箱的回收站中、垃圾邮件中</dd>
+                                    <dd>2.确认没有收到，<a href="javascript:;" id="again_send2">点此重发一封</a> <strong style="display: none;" class="cdown_tips" id="cdown_tips2">60秒后才能再发送</strong></dd>
+                                </dl>
+                            </li>
+                        </ol>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="fpwd_right_ad"></div>
+        </div>
+        
+    </div>
+</div>
+<!-- container end -->
+
+<!-- footer start -->
+<footer>
+    <div class="constrain">
+        <input name="iptmobile" type="hidden" id="iptmobile" value="15607101196" /><input name="iptemail" type="hidden" id="iptemail" value="877077145@qq.com" /><input name="ipturl" type="hidden" id="ipturl" value="http://www.jcpeixun.com/forgotpw/find_pwd3.aspx?modifytype=email&amp;learner_id=1621374" /><input name="iptlearnerid" type="hidden" id="iptlearnerid" value="1621374" />
+        <p><a class="links1" href="http://www.jcpeixun.com/AboutUs.aspx" target="_blank">关于我们</a> | <a class="links1" href="http://www.jcpeixun.com/contact.aspx" target="_blank">联系我们</a> | <a class="links1" href="http://www.jcpeixun.com/zhaopin.aspx" target="_blank">人才招聘</a> | <a class="links1" href="http://www.jcpeixun.com/links.aspx" target="_blank">友情链接</a> | <a class="links1" href="http://www.jcpeixun.com/help/index.aspx" target="_blank">帮助中心</a></p>
+        <p>全国免费咨询电话：400 111 4100 (工作日9:00-20:30) 邮件：<a class="links2" href="mailto:kefu@jcpeixun.com" target="_blank">kefu@jcpeixun.com </a>版权所有 深圳市技成科技 粤ICP备1106943号</p>
+    </div>
+</footer>
+<!-- footer end -->
+<script type="text/javascript" src="<?php echo base_url('index/include/jquery-1.8.2.min.js')?>"></script>
+<script type="text/javascript" src="<?php echo base_url('index/include/findpwd.js')?>"></script>
+<!-- <script type="text/javascript" src="http://www.jcpeixun.com/include/tongji.js?a=20130514001"></script> -->
+</body>
+</html>
