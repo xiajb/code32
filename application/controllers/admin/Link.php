@@ -1,61 +1,42 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Video extends CI_Controller {
+class User extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('user_model');
 		$this->load->library('session');
 
 	}
-
 	
 	public function index()
 	{
 		$data['current'] = array('data_back'=>'',
-			'user_manage'=>'',
-			'user_data' =>'' ,
+			'user_manage'=>'current',
+			'user_data' =>'current' ,
 			'teacher_data'=>'',
 			'add_teacher'=>'',
 			'course_manage'=>'',
 			'required_course'=>'',
 			'elective_course'=>'',
 			'skill_course'=>'',
-			'video_manage'=>'current',
-			'all_video'=>'current',
+			'video_manage'=>'',
+			'all_video'=>'',
 			'upload_video'=>'',
 			'order_manage'=>'',
 			'all_order'=>'',
 			'account_data'=>'',
 			'comment_manage'=>'',
 			'all_comment'=>'',
-			'link_manage'=>'',
-			'all_link'=>'',
+			'link_manage'=>'current',
+			'all_link'=>'current',
 			'add_link'=>'',
 			 );
 		$this->load->view('admin/admin_header.html',$data);
-		$this->load->view('admin/admin_add_video.html');
+		$this->load->view('admin/admin_link.html');
 	}
+
 	
-	// public function index()
-	// {
-	// 	$data['current'] = array('data_back'=>'',
-	// 		'data_manage'=>'current',
-	// 		'user_data' =>'' ,
-	// 		'teacher_data'=>'',
-	// 		'course_data'=>'',
-	// 		'data_add'=>'',
-	// 		'course_add'=>'',
-	// 		'video_add'=>'',
-	// 		'teacher_add'=>'',
-	// 		'data_check'=>'',
-	// 		'course_check'=>'',
-	// 		'video_check'=>'',
-	// 		'teacher_check'=>'',
-	// 		 );
-	// 	$this->load->view('admin/admin_header.html',$data);
-	// 	$this->load->view('admin/admin_video.html');
-	// }
-	public function add_video()
+	public function add_link()
 	{
 		$data['current'] = array('data_back'=>'',
 			'user_manage'=>'',
@@ -66,22 +47,21 @@ class Video extends CI_Controller {
 			'required_course'=>'',
 			'elective_course'=>'',
 			'skill_course'=>'',
-			'video_manage'=>'current',
+			'video_manage'=>'',
 			'all_video'=>'',
-			'upload_video'=>'current',
+			'upload_video'=>'',
 			'order_manage'=>'',
 			'all_order'=>'',
 			'account_data'=>'',
 			'comment_manage'=>'',
 			'all_comment'=>'',
-			'link_manage'=>'',
+			'link_manage'=>'current',
 			'all_link'=>'',
-			'add_link'=>'',
+			'add_link'=>'current',
 			 );
 		$this->load->view('admin/admin_header.html',$data);
-		$this->load->view('admin/admin_add_video.html');
+		$this->load->view('admin/admin_add_link.html');
 	}
-
 
 }
 

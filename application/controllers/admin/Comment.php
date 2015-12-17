@@ -1,9 +1,8 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class User extends CI_Controller {
+class Order extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
-		$this->load->model('user_model');
 		$this->load->library('session');
 
 	}
@@ -11,8 +10,8 @@ class User extends CI_Controller {
 	public function index()
 	{
 		$data['current'] = array('data_back'=>'',
-			'user_manage'=>'current',
-			'user_data' =>'current' ,
+			'user_manage'=>'',
+			'user_data' =>'' ,
 			'teacher_data'=>'',
 			'add_teacher'=>'',
 			'course_manage'=>'',
@@ -25,28 +24,17 @@ class User extends CI_Controller {
 			'order_manage'=>'',
 			'all_order'=>'',
 			'account_data'=>'',
-			'comment_manage'=>'',
-			'all_comment'=>'',
+			'comment_manage'=>'current',
+			'all_comment'=>'current',
 			'link_manage'=>'',
 			'all_link'=>'',
 			'add_link'=>'',
 			 );
-		$data['result'] = $this->user_model->query_all();
 		$this->load->view('admin/admin_header.html',$data);
-		$this->load->view('admin/admin_user.html');
+		$this->load->view('admin/admin_comment.html');
 	}
 
-	public function delete_user(){
-		$id = $_POST['value'];
-		$value = $this->user_model->delete_user($id);
-		echo $value;
-	}
 
-	public function change_level(){
-		$value = json_decode($this->input->post('value'),true);
-		$this->user_model->change_level($value['uid'],$value['level']);
-
-	}
 }
 
 /* End of file welcome.php */

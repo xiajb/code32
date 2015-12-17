@@ -1,13 +1,12 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Video extends CI_Controller {
+class Order extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('user_model');
 		$this->load->library('session');
 
 	}
-
 	
 	public function index()
 	{
@@ -20,11 +19,11 @@ class Video extends CI_Controller {
 			'required_course'=>'',
 			'elective_course'=>'',
 			'skill_course'=>'',
-			'video_manage'=>'current',
-			'all_video'=>'current',
+			'video_manage'=>'',
+			'all_video'=>'',
 			'upload_video'=>'',
-			'order_manage'=>'',
-			'all_order'=>'',
+			'order_manage'=>'current',
+			'all_order'=>'current',
 			'account_data'=>'',
 			'comment_manage'=>'',
 			'all_comment'=>'',
@@ -33,29 +32,10 @@ class Video extends CI_Controller {
 			'add_link'=>'',
 			 );
 		$this->load->view('admin/admin_header.html',$data);
-		$this->load->view('admin/admin_add_video.html');
+		$this->load->view('admin/admin_order.html');
 	}
-	
-	// public function index()
-	// {
-	// 	$data['current'] = array('data_back'=>'',
-	// 		'data_manage'=>'current',
-	// 		'user_data' =>'' ,
-	// 		'teacher_data'=>'',
-	// 		'course_data'=>'',
-	// 		'data_add'=>'',
-	// 		'course_add'=>'',
-	// 		'video_add'=>'',
-	// 		'teacher_add'=>'',
-	// 		'data_check'=>'',
-	// 		'course_check'=>'',
-	// 		'video_check'=>'',
-	// 		'teacher_check'=>'',
-	// 		 );
-	// 	$this->load->view('admin/admin_header.html',$data);
-	// 	$this->load->view('admin/admin_video.html');
-	// }
-	public function add_video()
+
+	public function account()
 	{
 		$data['current'] = array('data_back'=>'',
 			'user_manage'=>'',
@@ -66,23 +46,22 @@ class Video extends CI_Controller {
 			'required_course'=>'',
 			'elective_course'=>'',
 			'skill_course'=>'',
-			'video_manage'=>'current',
+			'video_manage'=>'',
 			'all_video'=>'',
-			'upload_video'=>'current',
-			'order_manage'=>'',
+			'upload_video'=>'',
+			'order_manage'=>'current',
 			'all_order'=>'',
-			'account_data'=>'',
+			'account_data'=>'current',
 			'comment_manage'=>'',
 			'all_comment'=>'',
 			'link_manage'=>'',
 			'all_link'=>'',
 			'add_link'=>'',
 			 );
+		$data['result'] = $this->user_model->query_all();
 		$this->load->view('admin/admin_header.html',$data);
-		$this->load->view('admin/admin_add_video.html');
+		$this->load->view('admin/admin_account.html');
 	}
-
-
 }
 
 /* End of file welcome.php */
