@@ -87,29 +87,53 @@ $(function () {
 
     $("#fp_next").delegate("#fp_btn_next1", "click", function () {
         var sUname = $("#uName").val();
-        var sVcode = $("#vcode").val();
-        if (!(vUname.test(sUname) || vUemail.test(sUname) || vUmobile.test(sUname))) {
+        // var sVcode = $("#vcode").val();
+                    var value = gt_captcha_obj.getValidate();
+                // phone = $("#umobile").val();
+                value.username = sUname;
+                result = JSON.stringify(value);
+
+        if (!(vUemail.test(sUname) || vUmobile.test(sUname))) {
             $("#uName").attr("class", "txt_red1-240-30");
             $("#n_tips").attr("class", "cred").html("帐号不存在，请输入正确账号");
-        } else if (sVcode.length < 4) {
-            $("#c_tips").attr("class", "cred").html("验证码不正确，请重新输入");
+        // } else if (sVcode.length < 4) {
+        //     $("#c_tips").attr("class", "cred").html("验证码不正确，请重新输入");
         } else {
+                        $.ajax({
+                            type: 'POST',
+                            url: "../index.php/register/check_email",
+                            data: "value=" + result,
+
+                            success: function(result) {
+                                console.log(result);
+                                // alert(result);
+                                if (result.success == -10) {
+
+                                    alert('滑动验证未通过');
+                                    return false;
+                                }else if(result.success == -1){
+                                    alert('电话或邮箱不存在')
+                                }else if(result.success == 1){
+                                    location.href = "forget/step1?learner_id=" + result.token;
+                                }
+                            }
+                        })
             /* 判断验证码是否正确 */
-            $.get("http://www.jcpeixun.com/ashx/api/Ischeckcode.aspx", { "code": sVcode }).done(function (d) {
-                if (d == "0") {/*如果返回值等于0，则提示，验证码不正确，请重新输入*/
-                    $("#c_tips").attr("class", "cred").html("验证码不正确，请重新输入");
-                } else {
-                    /* 判断帐号是否存在 */
-                    $.post("http://www.jcpeixun.com/forgotpw/IsExistUser.aspx", { 'uName': sUname }).done(function (d) {
-                        if (d != "0") {
-                            location.href = "find_pwd2.aspx?learner_id=" + d;
-                        }
-                        else {
-                            alert("您好，您输入的账号不存在");
-                        }
-                    });
-                }
-            });
+            // $.get("http://www.jcpeixun.com/ashx/api/Ischeckcode.aspx", { "code": sVcode }).done(function (d) {
+            //     if (d == "0") {/*如果返回值等于0，则提示，验证码不正确，请重新输入*/
+            //         $("#c_tips").attr("class", "cred").html("验证码不正确，请重新输入");
+            //     } else {
+            //         /* 判断帐号是否存在 */
+            //         $.post("http://www.jcpeixun.com/forgotpw/IsExistUser.aspx", { 'uName': sUname }).done(function (d) {
+            //             if (d != "0") {
+            //                 location.href = "find_pwd2.aspx?learner_id=" + d;
+            //             }
+            //             else {
+            //                 alert("您好，您输入的账号不存在");
+            //             }
+            //         });
+            //     }
+            // });
         }
     });
 

@@ -82,41 +82,41 @@
                 <ul>
                     <li class="<?php echo $current['user_data'] ?>"><a href="<?php echo base_url('index.php/admin/user')?>">用户数据</a></li>
                     <li class="<?php echo $current['teacher_data'] ?>"><a href="<?php echo base_url('index.php/admin/teacher')?>">老师数据</a></li>
-                    <li class="<?php echo $current['add_teacher'] ?>"><a href="<?php echo base_url('index.php/admin/teacher')?>">老师数据</a></li>
+                    <li class="<?php echo $current['add_teacher'] ?>"><a href="<?php echo base_url('index.php/admin/teacher/add_teacher')?>">老师数据</a></li>
 
                 </ul>
             </li>
             <li class="<?php echo $current['course_manage'] ?>"><a href="#"><img src="<?php echo base_url('back/img/icons/menu/brush.png'); ?>" alt="" />课程管理</a>
                 <ul>
 
-                    <li class="<?php echo $current['required_course'] ?>"><a href="<?php echo base_url('index.php/admin/video/add_video')?>">必修课程</a></li>
-                    <li class="<?php echo $current['elective_course'] ?>"><a href="<?php echo base_url('index.php/admin/teacher/add_teacher')?>">选修课程</a></li>
-                    <li class="<?php echo $current['skill_course'] ?>"><a href="<?php echo base_url('index.php/admin/video/add_video')?>">技能课程</a></li>
+                    <li class="<?php echo $current['required_course'] ?>"><a href="<?php echo base_url('index.php/admin/required_course/add')?>">必修课程</a></li>
+                    <li class="<?php echo $current['elective_course'] ?>"><a href="<?php echo base_url('index.php/admin/elective_course/add')?>">选修课程</a></li>
+                    <li class="<?php echo $current['skill_course'] ?>"><a href="<?php echo base_url('index.php/admin/skill_course/add')?>">技能课程</a></li>
                 </ul>
             </li>
             <li class="<?php echo $current['video_manage'] ?>"><a href="#"><img src="<?php echo base_url('back/img/icons/menu/brush.png'); ?>" alt="" />视屏管理</a>
                 <ul>
-                    <li class="<?php echo $current['all_video'] ?>"><a href="<?php echo base_url('index.php/admin/main/check_course')?>">所有视屏</a></li>
-                    <li class="<?php echo $current['upload_video'] ?>"><a href="<?php echo base_url('index.php/admin/main/check_video')?>">上传视屏</a></li>
+                    <li class="<?php echo $current['all_video'] ?>"><a href="<?php echo base_url('index.php/admin/video/all')?>">所有视屏</a></li>
+                    <li class="<?php echo $current['upload_video'] ?>"><a href="<?php echo base_url('index.php/admin/video/add')?>">上传视屏</a></li>
                    
                 </ul>
             </li>
             <li class="<?php echo $current['order_manage'] ?>"><a href="#"><img src="<?php echo base_url('back/img/icons/menu/brush.png'); ?>" alt="" />订单管理</a>
                 <ul>
-                    <li class="<?php echo $current['all_order'] ?>"><a href="<?php echo base_url('index.php/admin/course/add_course')?>">所有订单</a></li>
-                    <li class="<?php echo $current['account_data'] ?>"><a href="#">流水数据</a></li>
+                    <li class="<?php echo $current['all_order'] ?>"><a href="<?php echo base_url('index.php/admin/order/all')?>">所有订单</a></li>
+                    <li class="<?php echo $current['account_data'] ?>"><a href="<?php echo base_url('index.php/admin/account/all')?>">流水数据</a></li>
                                     
                 </ul>
             </li> 
             <li class="<?php echo $current['comment_manage'] ?>"><a href="#"><img src="<?php echo base_url('back/img/icons/menu/brush.png'); ?>" alt="" />评论管理</a>
                 <ul>
-                    <li class="<?php echo $current['all_comment'] ?>"><a href="<?php echo base_url('index.php/admin/course/add_course')?>">所有评论</a></li>
+                    <li class="<?php echo $current['all_comment'] ?>"><a href="<?php echo base_url('index.php/admin/comment')?>">所有评论</a></li>
                 </ul>
             </li> 
             <li class="<?php echo $current['link_manage'] ?>"><a href="#"><img src="<?php echo base_url('back/img/icons/menu/brush.png'); ?>" alt="" />友链管理</a>
                 <ul>
-                    <li class="<?php echo $current['all_link'] ?>"><a href="<?php echo base_url('index.php/admin/course/add_course')?>">所有友链</a></li>
-                    <li class="<?php echo $current['add_link'] ?>"><a href="<?php echo base_url('index.php/admin/course/add_course')?>">添加友链</a></li>
+                    <li class="<?php echo $current['all_link'] ?>"><a href="<?php echo base_url('index.php/admin/link/all')?>">所有友链</a></li>
+                    <li class="<?php echo $current['add_link'] ?>"><a href="<?php echo base_url('index.php/admin/link/add')?>">添加友链</a></li>
                 </ul>
             </li>            
        </ul>

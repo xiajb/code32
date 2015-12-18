@@ -9,11 +9,16 @@ class Forget extends CI_Controller {
 
 	public function step1()
 	{
-
-		$this->load->view("findpwd_tmp1.html");
+		if ($this->session->userdata('username')) {
+			redirect('http://127.0.0.1/code32/index.php/index');
+		}else{
+			$this->load->view("findpwd_tmp1.html");
+		}
 	}
 	public function step2()
 	{
+
+		$value = json_decode($this->input->post('data'),true);
 
 		$this->load->view("findpwd_tmp2.html");
 	}
