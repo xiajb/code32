@@ -4,12 +4,12 @@ class Helper extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		// $this->load->model('user_model');
-		// $this->load->library('session');
+		$this->load->library('session');
 		$this->load->library('email');
 
 	}
 
-	public function send_email(){
+	public function send_email($to_emali){
 		$config['protocol']='smtp';
 		$config['smtp_host'] = 'smtp.163.com';
 		$config['smtp_port']='25';
@@ -23,7 +23,7 @@ class Helper extends CI_Controller {
 		$this->email->initialize($config);
 
 		$this->email->from('tanxu1993@163.com', 'Tanxu');
-		$this->email->to('773184719@qq.com');
+		$this->email->to($to_emali);
 
 		$this->email->subject('title');
 		$this->email->message('message');

@@ -49,13 +49,13 @@
                         	<li id="v_aways"><label class="f14">请选择验证身份方式：</label><input type="radio" id="email" name="shenfen" checked="checked"/><label for="email" class="f14 mr15" id="emailtitle">邮箱</label> <input value="mobile" name="shenfen" type="radio" id="mobile" /><label id="mobiletitle" for="mobile">手机号</label></li>
                          </ol>
                         <ol id="ol_mobile" style="display:none;">
-                        	<li class="clearfix" style="padding-left:110px;"><label class="f14 l">手机：</label> <strong id="mobilevalue" class="corange l mr15 b">156*****1196</strong> <a href="javascript:;" class="btn_orange1-100-25 l mt4" id="sendCode">获取短信验证码</a> <strong id="cdown_tips" class="cdown_tips" style="display: none;">60秒后才能再发送</strong><!--<strong class="cgray5 ml15" id="m_tips">验证码已发送，请查收短信</strong>--></li>
+                        	<li class="clearfix" style="padding-left:110px;"><label class="f14 l">手机：</label> <strong id="mobilevalue" class="corange l mr15 b"><?php echo $phone; ?></strong> <a href="javascript:;" class="btn_orange1-100-25 l mt4" id="sendCode">获取短信验证码</a> <strong id="cdown_tips" class="cdown_tips" style="display: none;">60秒后才能再发送</strong><!--<strong class="cgray5 ml15" id="m_tips">验证码已发送，请查收短信</strong>--></li>
                             <li style="padding-left:110px;"><label class="f14">短信验证码：</label><input type="text" id="vcode" name="vcode" class=" txt_gray1-140-25" value="" /></li>
                             <li style="padding-left:275px;"><strong class="cred" id="c_tips">&nbsp;</strong></li>
                             <li style="line-height:25px;padding-left:280px;"><span class="pubtn"><i class="btn_l1"></i><a class="pubtn_in" href="javascript:;" id="fp_btn_next2"><span class="pubtn_bg">下一步</span></a><i class="btn_l2"></i></span></li>
                         </ol>
                         <ol id="ol_email">
-                         	<li style="padding-left:140px;"><label class="f14">邮箱地址：</label><strong id="emailvalue" class="corange b">8770*****4@qq.com</strong></li>
+                         	<li style="padding-left:140px;"><label class="f14">邮箱地址：</label><strong id="emailvalue" class="corange b"><?php echo $email; ?></strong></li>
                             <li style="padding:25px 0 0 271px;"><a href="javascript:;" class="btn_orange1-100-25" id="send_email">发送验证邮件</a></li>                           
                         </ol>
                         <ol id="email_send" style="margin: 20px 0px;display:none;">

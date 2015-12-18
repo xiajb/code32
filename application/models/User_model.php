@@ -5,6 +5,7 @@ class User_model extends CI_Model{
 		parent::__construct();
 
 	}
+	#登陆
 	public function get_user($username,$password){
 		$password = md5($password);
 		$sql='select * from ci_user where username= "'.$username.'"and password= "'.$password.'"'; 
@@ -12,51 +13,54 @@ class User_model extends CI_Model{
 		// $query = $this->db->where($condition)->get(self::TBL_USER);
 		return $query->num_rows();
 	}
+	#注册
 	public function add_user($data){
 		return $this->db->insert(self::TBL_USER,$data);
 	}
-
+	#注册检查手机是否存在
 	public function sql_check_phone($phone){
 		$sql = 'select * from ci_user where phone= "'.$phone.'"';
 		$query=$this->db->query($sql);
 		//返回行数
 		return $query->num_rows();
 	}
+	#注册检查用户名是否存在
 	public function sql_check_username($username){
 		$sql = 'select * from ci_user where username= "'.$username.'"';
 		$query=$this->db->query($sql);
 		return $query->num_rows();
 	}
+	#注册检查邮箱是否存在
 	public function sql_check_email($email){
 		$sql = 'select * from ci_user where email= "'.$email.'"';
 		$query=$this->db->query($sql);
 		return $query->num_rows();
 
 	}
-
+	#后台获取全部用户数据
 	public function query_all(){
 		$sql = 'select * from ci_user';
 		$query = $this->db->query($sql);
 		return $query->result_array();
 	}
-
+	#后台取用户是否是管理员
 	public function get_user_admin($username,$password,$level){
 		$password = md5($password);
 		$sql='select * from ci_user where username="'.$username.'"and password="'.$password.'" and level='.$level; 
 		$query=$this->db->query($sql);
 		return $query->num_rows();
 	}
-
+	#后台取有session的用户是否是管理员
 	public function get_user_session($username,$level){
 		$sql='select * from ci_user where username="'.$username.'"and level='.$level;
 		$query=$this->db->query($sql);
 		return $query->num_rows();
 	}
-
+	#后台删除用户
 	public function delete_user($id){
 		$this->db->delete(self::TBL_USER, array('uid' => $id));
 	}
-
+	#改变用户的级别
 	public function change_level($uid,$level){
 		if ($uid != "" && $level != "") {
 			$data = array('level' => $level);
@@ -67,6 +71,35 @@ class User_model extends CI_Model{
 			echo "-1";
 		}
 
+	}
+
+	#找回密码step1 穿进来邮箱是否存在
+	public function check_email_is($email){
+		$sql = 'select * from ci_user where email= "'.$email.'"';
+		$query = $this->db->query($sql);
+		$row = $query->row_array();
+
+		if (isset($row))
+		{
+			return $row;
+		}else{
+			return false;
+		}
+	}
+
+
+	#找回密码step1 穿进来电话是否存在
+	public function check_phone_is($phone){
+		$sql = 'select * from ci_user where phone= "'.$phone.'"';
+		$query = $this->db->query($sql);
+		$row = $query->row_array();
+
+		if (isset($row))
+		{
+			return $row;
+		}else{
+			return false;
+		}
 	}
 	// function  checklogin($user_name,$user_pwd){
 	// 	//返回值

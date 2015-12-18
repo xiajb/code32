@@ -81,9 +81,9 @@ $(function () {
         $("#n_tips").attr("class", "cgray5").html("支持用户名/邮箱/手机号");
     });
 
-    $("#changeCode").click(function () {
-        $("#imgYzm").attr("src", "http://www.jcpeixun.com/validatecode.aspx?id=" + Math.random());
-    });
+    // $("#changeCode").click(function () {
+    //     $("#imgYzm").attr("src", "http://www.jcpeixun.com/validatecode.aspx?id=" + Math.random());
+    // });
 
     $("#fp_next").delegate("#fp_btn_next1", "click", function () {
         var sUname = $("#uName").val();
@@ -99,22 +99,22 @@ $(function () {
         // } else if (sVcode.length < 4) {
         //     $("#c_tips").attr("class", "cred").html("验证码不正确，请重新输入");
         } else {
+            console.log(result);
                         $.ajax({
                             type: 'POST',
-                            url: "../index.php/register/check_email",
+                            url: "../forget/check_user",
                             data: "value=" + result,
 
                             success: function(result) {
-                                console.log(result);
-                                // alert(result);
-                                if (result.success == -10) {
+                                if (result == -10) {
 
                                     alert('滑动验证未通过');
                                     return false;
-                                }else if(result.success == -1){
-                                    alert('电话或邮箱不存在')
-                                }else if(result.success == 1){
-                                    location.href = "forget/step1?learner_id=" + result.token;
+                                }else if(result == -1){
+                                    alert('电话或邮箱不存在');
+                                    return false;
+                                }else{
+                                    location.href = "./step2?token=" + result;
                                 }
                             }
                         })
@@ -139,17 +139,18 @@ $(function () {
 
 
     /* 2 */
-    $("#send_email").click(function () {
-        $.post("/emailregister/sendemail.aspx", { 'email': $("#iptemail").val(), 'url': $("#ipturl").val(), 'emailTemplate': 'findpassword' }).done(function (d) {
-            if (d == "1") {
-                $("#validate_aways,#ol_email").hide();
-                $("#email_send").show();
-            }
-            else {
-                alert("邮件发送失败");
-            }
-        });
-    });
+    // $("#send_email").click(function () {
+    //     $.post("/emailregister/sendemail.aspx", { 'email': $("#iptemail").val(), 'url': $("#ipturl").val(), 'emailTemplate': 'findpassword' }).done(function (d) {
+    //         if (d == "1") {
+    //             $("#validate_aways,#ol_email").hide();
+    //             $("#email_send").show();
+    //         }
+    //         else {
+    //             alert("邮件发送失败");
+    //         }
+    //     });
+    // });
+
 
     $("#v_aways").delegate("input[type='radio']", "click", function () {
         var $id = $(this).attr("id");
