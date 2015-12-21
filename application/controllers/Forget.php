@@ -97,8 +97,19 @@ class Forget extends CI_Controller {
 
 	public function step3()
 	{
+		$token = $_GET['token'];
+		if ($token == $_SESSION['token']) {
+			$this->load->view("findpwd_tmp3.html");
+		}else{
+			echo "no token";
+		}
+	}
 
-		$this->load->view("findpwd_tmp3.html");
+	public function modify_pwd(){
+		$value = json_decode($this->input->post('data'),true);
+		if ($value['token'] == $_SESSION['token']) {
+			$_SESSION['phone']
+		}
 	}
 
 	public function step4()
