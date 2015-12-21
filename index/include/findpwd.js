@@ -41,31 +41,61 @@ $(function () {
     }
 
     $("#look_email").click(function () {
-        gotoEmailHost("820998919@qq.com");
+        gotoEmailHost($("#iptemail").val());
     });
 
-    $("#again_send2").click(function () {
-        $.post("/emailregister/sendemail.aspx", { 'email': $("#iptemail").val(), 'url': $("#ipturl").val(), 'emailTemplate': 'findpassword' }).done(function (d) {
-            if (d == "1") {
-                alert("验证邮件已重发，成功！");
-                /* 180秒后才能再获取 */
-                $("#again_send2").hide();
-                var $cdown_tips = $("#cdown_tips2");
-                var i = 60;
-                var fn = function () {
-                    $cdown_tips.html(i + "秒后才能再次发送");
-                    !i && $cdown_tips.hide() && $("#again_send2").show() && clearInterval(timer);
-                    i--;
-                };
-                timer = setInterval(fn, 1000);
-                fn();
-                $cdown_tips.show();
-            }
-            else {
-                alert("邮件发送失败");
-            }
-        });
-    });
+    // $("#again_send2").click(function () {
+    //     $.post("/emailregister/sendemail.aspx", { 'email': $("#iptemail").val(), 'url': $("#ipturl").val(), 'emailTemplate': 'findpassword' }).done(function (d) {
+    //         if (d == "1") {
+    //             alert("验证邮件已重发，成功！");
+    //             /* 180秒后才能再获取 */
+    //             $("#again_send2").hide();
+    //             var $cdown_tips = $("#cdown_tips2");
+    //             var i = 60;
+    //             var fn = function () {
+    //                 $cdown_tips.html(i + "秒后才能再次发送");
+    //                 !i && $cdown_tips.hide() && $("#again_send2").show() && clearInterval(timer);
+    //                 i--;
+    //             };
+    //             timer = setInterval(fn, 1000);
+    //             fn();
+    //             $cdown_tips.show();
+    //         }
+    //         else {
+    //             alert("邮件发送失败");
+    //         }
+    //     });
+    // });
+
+                $("#again_send2").click(function () {
+                        $.ajax({
+                            type: 'POST',
+                            url: "../helper/send_email",
+                            data: "email=" + $("#iptemail").val(),
+
+                            success: function(result) {
+                                console.log(result);
+                            if (result == "1") {
+                                alert("验证邮件已重发，成功！");
+                                /* 180秒后才能再获取 */
+                                $("#again_send2").hide();
+                                var $cdown_tips = $("#cdown_tips2");
+                                var i = 60;
+                                var fn = function() {
+                                    $cdown_tips.html(i + "秒后才能再次发送");
+                                    !i && $cdown_tips.hide() && $("#again_send2").show() && clearInterval(timer);
+                                    i--;
+                                };
+                                timer = setInterval(fn, 1000);
+                                fn();
+                                $cdown_tips.show();
+                            } else {
+                                alert("邮件发送失败");
+                            }
+
+                            }
+                        });
+                    });
 
     var vUname = /^([a-z0-9_-]){5,15}$/i;
     var vUemail = /^\w+([-+.]\w+)*@\w+([-+.]\w+)*\.\w+([-+.]\w+)*$/;
@@ -117,7 +147,7 @@ $(function () {
                                     location.href = "./step2?token=" + result;
                                 }
                             }
-                        })
+                        });
             /* 判断验证码是否正确 */
             // $.get("http://www.jcpeixun.com/ashx/api/Ischeckcode.aspx", { "code": sVcode }).done(function (d) {
             //     if (d == "0") {/*如果返回值等于0，则提示，验证码不正确，请重新输入*/
@@ -150,7 +180,23 @@ $(function () {
     //         }
     //     });
     // });
+                $("#send_email").click(function () {
+                        $.ajax({
+                            type: 'POST',
+                            url: "../helper/send_email",
+                            data: "email=" + $("#iptemail").val(),
 
+                            success: function(result) {
+                                console.log(result);
+                                if (result == 1) {
+                                    $("#validate_aways,#ol_email").hide();
+                                    $("#email_send").show();
+                                }else{
+                                    alert("邮件发送失败");
+                                }
+                            }
+                        });
+                    });
 
     $("#v_aways").delegate("input[type='radio']", "click", function () {
         var $id = $(this).attr("id");

@@ -9,7 +9,8 @@ class Helper extends CI_Controller {
 
 	}
 
-	public function send_email($to_emali){
+	public function send_email(){
+		$to_emali = $_POST['email'];
 		$config['protocol']='smtp';
 		$config['smtp_host'] = 'smtp.163.com';
 		$config['smtp_port']='25';
@@ -27,8 +28,14 @@ class Helper extends CI_Controller {
 
 		$this->email->subject('title');
 		$this->email->message('message');
-
-		$this->email->send();
+		if ($this->email->send()) {
+			echo "1";
+			exit();
+		}else{
+			echo "-1";
+			exit();
+		}
+		// $this->email->send();
 // echo $this->email->print_debugger();
 	}
 
