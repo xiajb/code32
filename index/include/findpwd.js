@@ -307,7 +307,7 @@ $(function() {
             $.ajax({
                 type: 'POST',
                 url: "../forget/modify_pwd",
-                data: "data=" +  JSON.stringify(data);
+                data: "data=" + JSON.stringify(data),
 
                 success: function(result) {
                     console.log(result);

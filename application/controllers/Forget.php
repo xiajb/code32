@@ -60,6 +60,8 @@ class Forget extends CI_Controller {
 						'phone'=>$row['phone'],
 						'email'=>$row['email']
 						);
+					$this->session->set_userdata('uid',$row['uid']);
+
 					$this->session->set_userdata('token',$this->token);
 					$this->session->set_userdata('phone',$row['phone']);
 					$this->session->set_userdata('email',$row['email']);
@@ -88,6 +90,7 @@ class Forget extends CI_Controller {
 		if ($token == $_SESSION['token']) {
 			$data['email'] = $_SESSION['email'];
 			$data['phone'] = $_SESSION['phone'];
+			$data['token'] = $token;
 			$this->load->view("findpwd_tmp2.html",$data);
 		}else{
 			echo "no token";
@@ -99,16 +102,22 @@ class Forget extends CI_Controller {
 	{
 		$token = $_GET['token'];
 		if ($token == $_SESSION['token']) {
-			$this->load->view("findpwd_tmp3.html");
+			$data['token'] = $token;
+			$this->load->view("findpwd_tmp3.html",$data);
 		}else{
 			echo "no token";
 		}
 	}
 
+	//更改完密码，删除token
 	public function modify_pwd(){
 		$value = json_decode($this->input->post('data'),true);
 		if ($value['token'] == $_SESSION['token']) {
-			$_SESSION['phone']
+			$this->user_model->change_pwd($_SESSION['uid'],$value['pwd']);
+			unset($_SESSION['token']);
+			echo '1';
+		}else{
+			echo "no token";
 		}
 	}
 
