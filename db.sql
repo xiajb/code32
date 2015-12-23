@@ -53,6 +53,16 @@ PRIMARY KEY (  `gid` )
 ) ENGINE = MYISAM CHARSET = utf8;
 
 
+-- link
+CREATE TABLE  `ci_link` (
+ `link` int(10) unsigned NOT NULL auto_increment COMMENT 'primary key,autoincrement',
+ `name` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '网站名',
+ `url` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT 'url',
+ `add_time` VARCHAR( 50 ) NOT NULL DEFAULT '0000-00-00' COMMENT '添加时间',
+PRIMARY KEY (  `link` )
+) ENGINE = MYISAM CHARSET = utf8;
+
+
 -- //流水细明
 CREATE TABLE  `ci_blance` (
  `mid` mediumint(7) unsigned NOT NULL auto_increment default '0',

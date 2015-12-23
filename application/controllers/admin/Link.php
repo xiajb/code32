@@ -1,18 +1,18 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class User extends CI_Controller {
+class Link extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('user_model');
 		$this->load->library('session');
-
+		$this->load->model('link_model');
 	}
 	
 	public function index()
 	{
 		$data['current'] = array('data_back'=>'',
-			'user_manage'=>'current',
-			'user_data' =>'current' ,
+			'user_manage'=>'',
+			'user_data' =>'' ,
 			'teacher_data'=>'',
 			'add_teacher'=>'',
 			'course_manage'=>'',
@@ -31,12 +31,27 @@ class User extends CI_Controller {
 			'all_link'=>'current',
 			'add_link'=>'',
 			 );
+		$data['result'] = $this->link_model->query_all();
 		$this->load->view('admin/admin_header.html',$data);
 		$this->load->view('admin/admin_link.html');
 	}
 
+	public function link_insert(){
+		$value = json_decode($this->input->post('data'),true);
+		$value['add_time'] = date("Y-m-d H:i",time());
+		$res = $this->link_model->add_link($value);
+		if ($res) {
+			echo '1';
+		}else{
+			echo '-1';
+		}
+
+
+
+	}
+
 	
-	public function add_link()
+	public function add()
 	{
 		$data['current'] = array('data_back'=>'',
 			'user_manage'=>'',
