@@ -56,6 +56,13 @@
                     <input type="text"  id="title" placeholder="标题" name="title" /> Some informations on how to use this field
                 </div>
                 <div class="input">
+                    <label for="select">老师</label>
+                    <select name="subject" id="subject">
+                        <option value="<?php echo $result['tid'] ?>"><?php echo $result['name'] ?></option>
+                    </select>
+                    Some informations on how to use this field
+                </div>
+                <div class="input">
                     <label for="file">课程封面</label>
                     <input type="text"  style="display: inline;"/>
                     <div id="btn">上传图片</div> 最大500KB，支持jpg，gif，png格式。

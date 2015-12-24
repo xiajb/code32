@@ -1,0 +1,191 @@
+<div id="content" class="white">
+    <h1><img src="<?php echo base_url('back/img/icons/posts.png');?>" alt="" /> Course Data</h1>
+    <div class="bloc">
+        <div class="title">
+            <div class="tabs" id="tabs1" style="left:-1px">
+                <a href="#tab1">全部数据</a>
+                <a href="#tab2">未审核</a>
+                <a href="#tab3">未通过</a>
+                <a href="#tab4">管理员添加</a>
+                <a href="#tab5">添加课程</a>
+            </div>
+        </div>
+        <div class="content">
+            <div id="tab1">
+                <div class="content">
+                    <table class="noalt">
+                        <tbody>
+                            <tr>
+                                <td class="picture" style="width:80px;"><img src="img/anonymous.png" alt="" /></td>
+                                <td>
+                                    <p>
+                                        <strong><a href="#">John Doe</a></strong>
+                                        <br/>
+                                        <em>December 24, at 22:13 - <a href="#">Reply</a></em>
+                                        <br/> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non nulla sapien, quis luctus felis. Fusce sodales tempus tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non nulla sapien, quis luctus felis. Fusce sodales tempus tincidunt.
+                                    </p>
+                                </td>
+                                <td class="actions">
+                                    <a href="#" title="Edit this content"><img src="<?php echo base_url('back/img/icons/actions/edit.png');?>" alt="" /></a>
+                                    <a href="#" title="Delete this content"><img src="<?php echo base_url('back/img/icons/actions/delete.png');?>" alt="" /></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="tab2">
+                <ol>
+                    <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                    <li>Cras nec lectus egestas purus vehicula faucibus sit amet sit amet nunc.</li>
+                    <li>Cras vel elit nec eros ullamcorper pretium in vel libero.</li>
+                </ol>
+                <p>
+                    <a href="#" class="button">a.button</a>
+                    <a href="#" class="button black">a.button.black</a>
+                    <a href="#" class="button white">a.button.white</a>
+                </p>
+            </div>
+            <div id="tab3">
+                <ol>
+                    <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                    <li>Cras nec lectus egestas purus vehicula faucibus sit amet sit amet nunc.</li>
+                    <li>Cras vel elit nec eros ullamcorper pretium in vel libero.</li>
+                </ol>
+            </div>
+            <div id="tab4">
+                <div class="content">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>阶段</th>
+                                <th>年级</th>
+                                <th>科目</th>
+                                <th>标题</th>
+                                <th>老师</th>
+                                <th>开课时间</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach($result as $row) : ?>
+                                <tr>
+                                    <td>
+                                        <?php echo $row['stage']; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $row['grade']; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $row['subject']; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $row['title'];?>
+                                    </td>
+                                    <td>
+                                        <?php echo $row['teacher'];?>
+                                    </td>
+                                    <td>35</td>
+                                    <td class="actions">
+                                        <a href="#" title="Edit this content"><img src="<?php echo base_url('back/img/icons/actions/edit.png'); ?>" alt="" /></a>
+                                        <a href="#" title="Delete this content"><img src="<?php echo base_url('back/img/icons/actions/delete.png'); ?>" alt="" /></a>
+                                    </td>
+                                </tr>
+                                <?php endforeach;?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="tab5">
+                <div class="content">
+                    <div class="input">
+                        <label for="select">阶段</label>
+                        <select name="stage" id="stage">
+                            <option value="小学">小学</option>
+                            <option value="初中">初中</option>
+                            <option value="高中">高中</option>
+                        </select>
+                        Some informations on how to use this field
+                    </div>
+                    <div class="input">
+                        <label for="select">年级</label>
+                        <select name="grade" id="grade">
+                            <option value="一年级">一年级</option>
+                            <option value="二年级">二年级</option>
+                            <option value="三年级">三年级</option>
+                            <option value="四年级">四年级</option>
+                            <option value="五年级">五年级</option>
+                            <option value="六年级">六年级</option>
+                            <option value="初一">初一</option>
+                            <option value="初二">初二</option>
+                            <option value="初三">初三</option>
+                            <option value="高一">高一</option>
+                            <option value="高二">高二</option>
+                            <option value="高三">高三</option>
+                        </select>
+                        Some informations on how to use this field
+                    </div>
+                    <div class="input">
+                        <label for="select">科目</label>
+                        <select name="subject" id="subject">
+                            <option value="语文">语文</option>
+                            <option value="数学">数学</option>
+                            <option value="英语">英语</option>
+                            <option value="化学">化学</option>
+                            <option value="生物">生物</option>
+                            <option value="物理">物理</option>
+                            <option value="政治">政治</option>
+                            <option value="历史">历史</option>
+                            <option value="地理">地理</option>
+                        </select>
+                        Some informations on how to use this field
+                    </div>
+                    <div class="input">
+                        <label for="input1">标题</label>
+                        <input type="text" id="title" placeholder="标题" name="title" /> Some informations on how to use this field
+                    </div>
+                    <div class="input">
+                        <label for="select">老师</label>
+                        <select name="subject" id="subject">
+                            <?php foreach($result as $teacher) : ?>
+                                <option value="<?php echo $result['tid'] ?>">
+                                    <?php echo $result['name'] ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                        Some informations on how to use this field
+                    </div>
+                    <div class="input">
+                        <label for="file">课程封面</label>
+                        <input type="text" style="display: inline;" />
+                        <div id="btn">上传图片</div> 最大500KB，支持jpg，gif，png格式。
+                        <ul id="ul_pics" class="ul_pics clearfix"></ul>
+                        <style type="text/css">
+                        #btn {
+                            background-color: #00b7f1;
+                            color: #fff !important;
+                            padding: 0 8px;
+                            height: 24px;
+                            line-height: 24px;
+                            position: relative;
+                            display: inline-block;
+                            cursor: pointer;
+                            border-radius: 5px;
+                        }
+                        </style>
+                    </div>
+                    <div class="input textarea" style="width:500px">
+                        <label for="textarea1">课程简介</label>
+                        <textarea name="text" id="detail" rows="7" cols="4"></textarea>
+                    </div>
+                    <div class="submit">
+                        <input type="button" id="button" value="submit" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

@@ -17,20 +17,53 @@ CREATE TABLE  `ci_user` (
 PRIMARY KEY (  `uid` )
 ) ENGINE = MYISAM CHARSET = utf8;
 
---国学类
-CREATE TABLE  `ci_guoxue` (
- `gxid` mediumint(7) unsigned NOT NULL auto_increment default '0',
- `name` int(10) unsigned NOT NULL default '0' COMMENT '名字',
+
+--required
+CREATE TABLE  `ci_required` (
+ `required_id` int(10) unsigned NOT NULL auto_increment COMMENT 'primary key,autoincrement',
+ `stage` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '阶段',
+ `grade` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '年级',
+ `subject` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '科目',
+ `title` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '标题',
+ `detail` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '介绍',
+ `teacher` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '老师',
+ `img` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '图片',
  `status` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '状态',
-PRIMARY KEY (  `gxid` )
+ `difficulty` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '难度',
+ `blance` DECIMAL( 10,2 ) NOT NULL DEFAULT '0.00' COMMENT '金额',
+ `add_time` DATE NOT NULL DEFAULT  '0000-00-00' COMMENT '添加时间',
+PRIMARY KEY (  `required_id` )
+) ENGINE = MYISAM CHARSET = utf8;
+
+--国学类
+--required
+CREATE TABLE  `ci_elective` (
+ `elective_id` int(10) unsigned NOT NULL auto_increment COMMENT 'primary key,autoincrement',
+ `name` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '课程名',
+ `title` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '标题',
+ `detail` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '介绍',
+ `teacher` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '老师',
+ `img` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '图片',
+ `difficulty` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '难度',
+ `status` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '状态',
+ `blance` DECIMAL( 10,2 ) NOT NULL DEFAULT '0.00' COMMENT '金额',
+ `add_time` DATE NOT NULL DEFAULT  '0000-00-00' COMMENT '添加时间',
+PRIMARY KEY (  `elective_id` )
 ) ENGINE = MYISAM CHARSET = utf8;
 
 --技能类
-CREATE TABLE  `ci_jineng` (
- `jnid` mediumint(7) unsigned NOT NULL auto_increment default '0',
- `name` int(10) unsigned NOT NULL default '0' COMMENT '名字',
+CREATE TABLE  `ci_skill` (
+ `skill_id` int(10) unsigned NOT NULL auto_increment COMMENT 'primary key,autoincrement',
+ `name` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '课程名',
+ `title` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '标题',
+ `detail` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '介绍',
+ `teacher` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '老师',
+ `img` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '图片',
+ `difficulty` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '难度',
  `status` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '状态',
-PRIMARY KEY (  `jnid` )
+ `blance` DECIMAL( 10,2 ) NOT NULL DEFAULT '0.00' COMMENT '金额',
+ `add_time` DATE NOT NULL DEFAULT  '0000-00-00' COMMENT '添加时间',
+PRIMARY KEY (  `skill_id` )
 ) ENGINE = MYISAM CHARSET = utf8;
 
 -- --技能类
