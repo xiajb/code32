@@ -26,6 +26,8 @@ class Forget extends CI_Controller {
 		$GtSdk = new GeetestLib();
 		$result = $GtSdk->validate($value['geetest_challenge'], $value['geetest_validate'], $value['geetest_seccode']);
 		if ($result == TRUE) {
+			$this->session->set_userdata('geetest_seccode',$value['geetest_seccode']);
+
 			if (preg_match("/^1[34578]\d{9}$/", $value['username'])) {
 				# 判断是否是电话，若是则按电话号码查询
 				$this->phone = $value['username'];
@@ -84,6 +86,11 @@ class Forget extends CI_Controller {
 		}
 		
 	}
+
+	// public function phone_findpwd(){
+	// 	$token = 
+	// }
+
 	public function step2()
 	{
 		$token = $_GET['token'];

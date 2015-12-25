@@ -1,4 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+require_once dirname(dirname(__FILE__)) . '/geetest/geetest.class.php';
+require_once dirname(dirname(__FILE__)) . '/geetest/geetestmsg.class.php';
 
 class Helper extends CI_Controller {
 	public function __construct(){
@@ -63,6 +65,24 @@ class Helper extends CI_Controller {
 		}
 		// $this->email->send();
 // echo $this->email->print_debugger();
+	}
+
+
+	public function send_code(){
+		$value = json_decode($this->input->post('data'),true);
+		if ($_SESSION['token'] == $value['token']) {
+			$GtMsgSdk = new MsgGeetestLib();
+			$data = array(
+				'phone' => $value['phone'],
+				'seccode'=>$_SESSION['geetest_seccode'],
+			            	'msg_id' => CAPTCHA_ID
+			 );
+			$action = "send";
+			$result = $GtMsgSdk->send_msg_request($action,$data);
+			echo $result;
+		}else{
+			echo "notoken";
+		}
 	}
 
 

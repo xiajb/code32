@@ -208,28 +208,54 @@ $(function() {
     $("#sendCode").click(function() {
         $("#sendCode").hide();
         var $cdown_tips = $("#cdown_tips");
-        umobile = $.trim($("#iptmobile").val());
-        var radomnumber = Radom4();
-        $.post("http://www.jcpeixun.com/ashx/api/sendMCode.aspx", {
-            mobile: umobile,
-            content: "您的验证码为：" + radomnumber,
-            code: radomnumber,
-            gettype: 'getpassword'
-        }).done(function(d) {
-            if (d == "1") {
-                var i = 60;
-                var fn = function() {
-                    $cdown_tips.html(i + "秒后才能再次发送");
-                    !i && $cdown_tips.hide() && $("#sendCode").show() && clearInterval(timer);
-                    i--;
-                };
-                timer = setInterval(fn, 1000);
-                fn();
-                $cdown_tips.show();
-            } else if (d == "-4") {
-                alert("不能频繁发验证码，请3分钟后再试");
+        var umobile = $.trim($("#iptmobile").val());
+        // var radomnumber = Radom4();
+        var data = {
+            phone:umobile,
+            token:$('#iptlearnerid').val(),
+        }
+        $.ajax({
+            type: 'POST',
+            url: "../helper/send_code",
+            data: "data=" + JSON.stringify(data),
+
+            success: function(result) {
+                console.log(result);
+                if (result == 1) {
+                    var i = 60;
+                    var fn = function() {
+                        $cdown_tips.html(i + "秒后才能再次发送");
+                        !i && $cdown_tips.hide() && $("#sendCode").show() && clearInterval(timer);
+                        i--;
+                    };
+                    timer = setInterval(fn, 1000);
+                    fn();
+                    $cdown_tips.show();
+                } else {
+                    alert("不能频繁发验证码，请3分钟后再试");
+                }
             }
         });
+        // $.post("../", {
+            // mobile: umobile,
+            // content: "您的验证码为：" + radomnumber,
+            // code: radomnumber,
+            // gettype: 'getpassword'
+        // }).done(function(d) {
+        //     if (d == "1") {
+        //         var i = 60;
+        //         var fn = function() {
+        //             $cdown_tips.html(i + "秒后才能再次发送");
+        //             !i && $cdown_tips.hide() && $("#sendCode").show() && clearInterval(timer);
+        //             i--;
+        //         };
+        //         timer = setInterval(fn, 1000);
+        //         fn();
+        //         $cdown_tips.show();
+        //     } else if (d == "-4") {
+        //         alert("不能频繁发验证码，请3分钟后再试");
+        //     }
+        // });
     });
     //手机验证
     $("#findPwdForm2").delegate("#fp_btn_next2", "click", function() {
