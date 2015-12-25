@@ -15,10 +15,31 @@ class Required_model extends CI_Model{
 		$query = $this->db->query($sql);
 		return $query->result_array();
 	}
-	public function query_by_approve(){
-		$sql = 'select * from ci_required where phone= "'.$phone.'"';
+	public function query_by_pass(){
+		$sql = 'select * from ci_required where status=1';
+		$query = $this->db->query($sql);
+		return $query->result_array();
 	}
-	// public function getrequiredbyid($id){
+
+	public function query_by_admin(){
+		$sql = 'select * from ci_required where status=2';
+		$query = $this->db->query($sql);
+		return $query->result_array();
+	}
+	public function query_by_nopass(){
+		$sql = 'select * from ci_required where status=-1';
+		$query = $this->db->query($sql);
+		return $query->result_array();
+	}
+
+	public function query_by_check(){
+		$sql = 'select * from ci_required where status=0';
+		$query = $this->db->query($sql);
+		return $query->result_array();
+	}
+
+
+			// public function getrequiredbyid($id){
 	// 	$this->db->where('required_id',$id);
 	// 	$query = $this->db->get('ci_required');
 	// 	return $query->result_array();

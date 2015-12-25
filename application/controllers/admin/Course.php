@@ -14,6 +14,10 @@ class Course extends CI_Controller {
 	public function required()
 	{
 		$data['result'] = $this->required_model->query_all();
+		$data['nopass'] = $this->required_model->query_by_nopass();
+		$data['check'] = $this->required_model->query_by_check();
+		$data['admin'] = $this->required_model->query_by_admin();
+
 		$data['teacher'] = $this->teacher_model->query_admin_add();
 		$data['current'] = array('data_back'=>'',
 			'user_manage'=>'',
@@ -38,6 +42,15 @@ class Course extends CI_Controller {
 			 );
 		$this->load->view('admin/admin_header.html',$data);
 		$this->load->view('admin/admin_required.html');
+	}
+
+	public function required_add(){
+		$value = json_decode($this->input->post('data'),true);
+		$value['add_time'] = date("Y-m-d H:i:s",time());
+		$this->required_model->add_required($value);
+		echo '1';
+
+
 	}
 
 	public function elective()

@@ -28,7 +28,7 @@ CREATE TABLE  `ci_required` (
  `detail` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '介绍',
  `teacher` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '老师',
  `img` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '图片',
- `status` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '状态',
+ `status` int( 10 ) NOT NULL DEFAULT '0' COMMENT '状态',
  `difficulty` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '难度',
  `blance` DECIMAL( 10,2 ) NOT NULL DEFAULT '0.00' COMMENT '金额',
  `add_time` DATE NOT NULL DEFAULT  '0000-00-00' COMMENT '添加时间',
@@ -145,7 +145,7 @@ CREATE TABLE  `ci_teacher` (
  `phone` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '电话',
  `email` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '邮箱',
  `intro` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '简介',
- `check` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '审核',
+ `check` int( 10 ) NOT NULL DEFAULT '0' COMMENT '审核',
  `reg_time` DATE NOT NULL DEFAULT  '0000-00-00' COMMENT '注册时间',
 PRIMARY KEY (  `tid` )
 ) ENGINE = MYISAM CHARSET = utf8;

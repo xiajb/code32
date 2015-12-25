@@ -3,7 +3,7 @@
 class Required extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
-		$this->load->model('course_model');
+		$this->load->model('required_model');
 		$this->load->library('session');
 
 	}
@@ -38,7 +38,7 @@ class Required extends CI_Controller {
 
 	public function elective_course()
 	{
-		$data['result'] = $this->course_model->query_all();
+		$data['result'] = $this->required_model->query_all();
 		$data['current'] = array('data_back'=>'',
 			'user_manage'=>'',
 			'user_data' =>'' ,
@@ -61,13 +61,13 @@ class Required extends CI_Controller {
 			'add_link'=>'',
 			 );
 		$this->load->view('admin/admin_header.html',$data);
-		$this->load->view('admin/admin_course.html');
+		// $this->load->view('admin/admin_course.html');
 	}
 
 
 	public function skill_course()
 	{
-		$data['result'] = $this->course_model->query_all();
+		$data['result'] = $this->required_model->query_all();
 		$data['current'] = array('data_back'=>'',
 			'user_manage'=>'',
 			'user_data' =>'' ,
@@ -90,7 +90,7 @@ class Required extends CI_Controller {
 			'add_link'=>'',
 			 );
 		$this->load->view('admin/admin_header.html',$data);
-		$this->load->view('admin/admin_course.html');
+		// $this->load->view('admin/admin_course.html');
 	}
 
 
