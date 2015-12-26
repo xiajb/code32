@@ -5,8 +5,8 @@ class Course extends CI_Controller {
 		parent::__construct();
 		$this->load->model('required_model');
 		$this->load->model('teacher_model');
-		// $this->load->model('elective_model');
-		// $this->load->model('skill_model');
+		$this->load->model('elective_model');
+		$this->load->model('skill_model');
 		$this->load->library('session');
 
 	}
@@ -88,7 +88,7 @@ class Course extends CI_Controller {
 	public function elective_add(){
 		$value = json_decode($this->input->post('data'),true);
 		$value['add_time'] = date("Y-m-d H:i:s",time());
-		$this->required_model->add_elective($value);
+		$this->elective_model->add_elective($value);
 		echo '1';
 	}
 
@@ -129,7 +129,7 @@ class Course extends CI_Controller {
 	public function skill_add(){
 		$value = json_decode($this->input->post('data'),true);
 		$value['add_time'] = date("Y-m-d H:i:s",time());
-		$this->required_model->add_skill($value);
+		$this->skill_model->add_skill($value);
 		echo '1';
 	}
 

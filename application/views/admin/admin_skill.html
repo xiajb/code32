@@ -1,0 +1,293 @@
+    <script src="<?php echo base_url('index/js/plupload.full.min.js'); ?>" type="text/javascript"></script>
+<div id="content" class="white">
+    <h1><img src="<?php echo base_url('back/img/icons/posts.png');?>" alt="" /> Course Data</h1>
+    <div class="bloc">
+        <div class="title">
+            <div class="tabs" id="tabs1" style="left:-1px">
+                <a href="#tab1">全部数据</a>
+                <a href="#tab2">未审核</a>
+                <a href="#tab3">未通过</a>
+                <a href="#tab4">管理员添加</a>
+                <a href="#tab5">添加课程</a>
+            </div>
+        </div>
+        <div class="content">
+            <div id="tab1">
+                <div class="content">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>课程名</th>
+                                <th>标题</th>
+                                <th>老师</th>
+                                <th>开课时间</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach($result as $row) : ?>
+                                <tr>
+                                    <td>
+                                        <?php echo $row['name']; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $row['title'];?>
+                                    </td>
+                                    <td>
+                                        <?php echo $row['teacher'];?>
+                                    </td>
+                                    <td>
+                                    <?php echo $row['add_time'];?>
+                                    </td>
+                                    <td class="actions">
+                                        <a href="#" title="Edit this content"><img src="<?php echo base_url('back/img/icons/actions/edit.png'); ?>" alt="" /></a>
+                                        <a href="#" title="Delete this content"><img src="<?php echo base_url('back/img/icons/actions/delete.png'); ?>" alt="" /></a>
+                                    </td>
+                                </tr>
+                                <?php endforeach;?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="tab2">
+                <div class="content">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>课程名</th>
+                                <th>标题</th>
+                                <th>老师</th>
+                                <th>开课时间</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach($check as $row) : ?>
+                                <tr>
+                                    <td>
+                                        <?php echo $row['name']; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $row['title'];?>
+                                    </td>
+                                    <td>
+                                        <?php echo $row['teacher'];?>
+                                    </td>
+                                    <td>
+                                    <?php echo $row['add_time'];?>
+                                    </td>
+                                    <td class="actions">
+                                        <a href="#" title="Edit this content"><img src="<?php echo base_url('back/img/icons/actions/edit.png'); ?>" alt="" /></a>
+                                        <a href="#" title="Delete this content"><img src="<?php echo base_url('back/img/icons/actions/delete.png'); ?>" alt="" /></a>
+                                    </td>
+                                </tr>
+                                <?php endforeach;?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="tab3">
+                <div class="content">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>课程名</th>
+                                <th>标题</th>
+                                <th>老师</th>
+                                <th>开课时间</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach($nopass as $row) : ?>
+                                <tr>
+                                    <td>
+                                        <?php echo $row['name']; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $row['title'];?>
+                                    </td>
+                                    <td>
+                                        <?php echo $row['teacher'];?>
+                                    </td>
+                                    <td>
+                                    <?php echo $row['add_time'];?>
+                                    </td>
+                                    <td class="actions">
+                                        <a href="#" title="Edit this content"><img src="<?php echo base_url('back/img/icons/actions/edit.png'); ?>" alt="" /></a>
+                                        <a href="#" title="Delete this content"><img src="<?php echo base_url('back/img/icons/actions/delete.png'); ?>" alt="" /></a>
+                                    </td>
+                                </tr>
+                                <?php endforeach;?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="tab4">
+                <div class="content">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>课程名</th>
+                                <th>标题</th>
+                                <th>老师</th>
+                                <th>开课时间</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach($admin as $row) : ?>
+                                <tr>
+                                    <td>
+                                        <?php echo $row['name']; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $row['title'];?>
+                                    </td>
+                                    <td>
+                                        <?php echo $row['teacher'];?>
+                                    </td>
+                                    <td>
+                                    <?php echo $row['add_time'];?>
+                                    </td>
+                                    <td class="actions">
+                                        <a href="#" title="Edit this content"><img src="<?php echo base_url('back/img/icons/actions/edit.png'); ?>" alt="" /></a>
+                                        <a href="#" title="Delete this content"><img src="<?php echo base_url('back/img/icons/actions/delete.png'); ?>" alt="" /></a>
+                                    </td>
+                                </tr>
+                                <?php endforeach;?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="tab5">
+                <div class="content">
+                    <div class="input">
+                        <label for="input1">课程名</label>
+                        <input type="text" id="name" placeholder="课程名" name="name" /> Some informations on how to use this field
+                    </div>
+                    <div class="input">
+                        <label for="input1">标题</label>
+                        <input type="text" id="title" placeholder="标题" name="title" /> Some informations on how to use this field
+                    </div>
+                    <div class="input">
+                        <label for="select">老师</label>
+                        <select name="teacher" id="teacher">
+                            <?php foreach($teacher as $res) : ?>
+                                <option value="<?php echo $res['tid'] ?>">
+                                    <?php echo $res['name'] ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                        Some informations on how to use this field
+                    </div>
+                    <div class="input">
+                        <label for="file">课程封面</label>
+                        <input type="text" style="display: inline;" />
+                        <div id="btn">上传图片</div> 最大500KB，支持jpg，gif，png格式。
+                        <ul id="ul_pics" class="ul_pics clearfix"></ul>
+                        <style type="text/css">
+                        #btn {
+                            background-color: #00b7f1;
+                            color: #fff !important;
+                            padding: 0 8px;
+                            height: 24px;
+                            line-height: 24px;
+                            position: relative;
+                            display: inline-block;
+                            cursor: pointer;
+                            border-radius: 5px;
+                        }
+                        </style>
+                    </div>
+                    <div class="input textarea" style="width:500px">
+                        <label for="textarea1">课程简介</label>
+                        <textarea name="text" id="detail" rows="7" cols="4"></textarea>
+                    </div>
+                    <div class="submit">
+                        <input type="button" id="button" value="submit" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        <script type="text/javascript">
+var uploader = new plupload.Uploader({ //创建实例的构造方法 
+    runtimes: 'html5,flash,silverlight,html4',
+    //上传插件初始化选用那种方式的优先级顺序 
+    browse_button: 'btn',
+    // 上传按钮 
+    url: "../upload_pic",
+    //远程上传地址 
+    flash_swf_url: 'plupload/Moxie.swf',
+    //flash文件地址 
+    silverlight_xap_url: 'plupload/Moxie.xap',
+    //silverlight文件地址 
+    filters: {
+        max_file_size: '500kb',
+        //最大上传文件大小（格式100b, 10kb, 10mb, 1gb） 
+        mime_types: [ //允许文件上传类型 
+            {
+                title: "files",
+                extensions: "jpg,png,gif"
+            }
+        ]
+    },
+    multi_selection: true,
+    //true:ctrl多文件上传, false 单文件上传 
+    init: {
+        FilesAdded: function(up, files) { //文件上传前 
+            if ($("#ul_pics").children("li").length > 30) {
+                alert("您上传的图片太多了！");
+                uploader.destroy();
+            } else {
+                var li = '';
+                plupload.each(files,
+                    function(file) { //遍历文件 
+                        li += "<li id='" + file['id'] + "'><div class='progress'><span class='bar'></span><span class='percent'>0%</span></div></li>";
+                    });
+                $("#ul_pics").append(li);
+                uploader.start();
+            }
+        },
+        UploadProgress: function(up, file) { //上传中，显示进度条 
+            $("#" + file.id).find('.bar').css({
+                "width": file.percent + "%"
+            }).find(".percent").text(file.percent + "%");
+        },
+        FileUploaded: function(up, file, info) { //文件上传成功的时候触发 
+            var data = JSON.parse(info.response);
+            $("#" + file.id).html("<div class='img' ><img  style='width:220px;' src='../../../" + data.pic + "'/></div><p style='display:none;' id='picname'>" + data.pic + "</p>");
+        },
+        Error: function(up, err) { //上传出错的时候触发 
+            alert(err.message);
+        }
+    }
+});
+
+uploader.init();
+$("#button").click(function() {
+    console.log($("#picname").html());
+    var value = {
+        "name": $("#name").val(),
+        "title": $("#title").val(),
+        "detail": $("#detail").val(),
+        "teacher": $("#teacher").val(),
+        "img": $("#picname").html()
+    }
+    console.log(value);
+    $.ajax({
+        type: 'POST',
+        url: "<?php echo base_url('index.php/admin/course/skill_add'); ?>",
+        data: 'data=' + JSON.stringify(value),
+
+        success: function(result) {
+            console.log(result);
+        }
+    });
+});
+</script>
+</body>
+
+</html>

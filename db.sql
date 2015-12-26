@@ -45,7 +45,7 @@ CREATE TABLE  `ci_elective` (
  `teacher` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '老师',
  `img` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '图片',
  `difficulty` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '难度',
- `status` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '状态',
+ `status` int( 10 ) NOT NULL DEFAULT '0' COMMENT '状态',
  `blance` DECIMAL( 10,2 ) NOT NULL DEFAULT '0.00' COMMENT '金额',
  `add_time` DATE NOT NULL DEFAULT  '0000-00-00' COMMENT '添加时间',
 PRIMARY KEY (  `elective_id` )
@@ -60,7 +60,7 @@ CREATE TABLE  `ci_skill` (
  `teacher` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '老师',
  `img` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '图片',
  `difficulty` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '难度',
- `status` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '状态',
+ `status` int( 10 ) NOT NULL DEFAULT '0' COMMENT '状态',
  `blance` DECIMAL( 10,2 ) NOT NULL DEFAULT '0.00' COMMENT '金额',
  `add_time` DATE NOT NULL DEFAULT  '0000-00-00' COMMENT '添加时间',
 PRIMARY KEY (  `skill_id` )
