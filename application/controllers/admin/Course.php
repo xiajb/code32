@@ -49,13 +49,16 @@ class Course extends CI_Controller {
 		$value['add_time'] = date("Y-m-d H:i:s",time());
 		$this->required_model->add_required($value);
 		echo '1';
-
-
 	}
 
 	public function elective()
 	{
-		// $data['result'] = $this->elective_model->query_all();
+		$data['result'] = $this->elective_model->query_all();
+		$data['nopass'] = $this->elective_model->query_by_nopass();
+		$data['check'] = $this->elective_model->query_by_check();
+		$data['admin'] = $this->elective_model->query_by_admin();
+
+		$data['teacher'] = $this->teacher_model->query_admin_add();
 		$data['current'] = array('data_back'=>'',
 			'user_manage'=>'',
 			'user_data' =>'' ,
@@ -78,13 +81,26 @@ class Course extends CI_Controller {
 			'add_link'=>'',
 			 );
 		$this->load->view('admin/admin_header.html',$data);
-		$this->load->view('admin/admin_course.html');
+		$this->load->view('admin/admin_elective.html');
+	}
+
+
+	public function elective_add(){
+		$value = json_decode($this->input->post('data'),true);
+		$value['add_time'] = date("Y-m-d H:i:s",time());
+		$this->required_model->add_elective($value);
+		echo '1';
 	}
 
 
 	public function skill()
 	{
-		$data['result'] = $this->course_model->query_all();
+		$data['result'] = $this->skill_model->query_all();
+		$data['nopass'] = $this->skill_model->query_by_nopass();
+		$data['check'] = $this->skill_model->query_by_check();
+		$data['admin'] = $this->skill_model->query_by_admin();
+
+		$data['teacher'] = $this->teacher_model->query_admin_add();
 		$data['current'] = array('data_back'=>'',
 			'user_manage'=>'',
 			'user_data' =>'' ,
@@ -107,35 +123,18 @@ class Course extends CI_Controller {
 			'add_link'=>'',
 			 );
 		$this->load->view('admin/admin_header.html',$data);
-		$this->load->view('admin/admin_course.html');
+		$this->load->view('admin/admin_skill.html');
+	}
+
+	public function skill_add(){
+		$value = json_decode($this->input->post('data'),true);
+		$value['add_time'] = date("Y-m-d H:i:s",time());
+		$this->required_model->add_skill($value);
+		echo '1';
 	}
 
 
-	public function add_course(){
-		$data['current'] = array('data_back'=>'',
-			'user_manage'=>'',
-			'user_data' =>'' ,
-			'teacher_data'=>'',
-			'add_teacher'=>'',
-			'course_manage'=>'current',
-			'required_course'=>'',
-			'elective_course'=>'',
-			'skill_course'=>'current',
-			'video_manage'=>'',
-			'all_video'=>'',
-			'upload_video'=>'',
-			'order_manage'=>'',
-			'all_order'=>'',
-			'account_data'=>'',
-			'comment_manage'=>'',
-			'all_comment'=>'',
-			'link_manage'=>'',
-			'all_link'=>'',
-			'add_link'=>'',
-			 );
-		$this->load->view('admin/admin_header.html',$data);
-		$this->load->view('admin/admin_add_course.html');
-	}
+
 
 	public function upload_pic(){
 		$typeArr = array("jpg", "png", "gif");//允许上传文件格式 
