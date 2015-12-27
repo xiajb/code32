@@ -102,6 +102,19 @@ class User_model extends CI_Model{
 		}
 	}
 
+	public function check_username_is($username){
+		$sql = 'select * from ci_user where username= "'.$username.'"';
+		$query = $this->db->query($sql);
+		$row = $query->row_array();
+
+		if (isset($row))
+		{
+			return $row;
+		}else{
+			return false;
+		}
+	}
+
 	//更改密码
 	public function change_pwd($uid,$pwd){
 		// if ($uid != "" && $pwd != "") {

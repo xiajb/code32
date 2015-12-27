@@ -14,31 +14,60 @@ class Login extends CI_Controller {
 	}
 	public function index()
 	{
-		 $this->load->helper('url');
-		$this->load->view("login.html");
+		if (isset($_SESSION['username'])) {
+			redirect('http://www.rfgxy.com');
+		}else{
+
+			$this->load->helper('url');
+			$this->load->view("login.html");
+		}
 
 	}
 	//登录方法
 
 	function  checklogin(){
 		//获得表单的用户名和密码
-		// $user_name=$this->input->post('uName');
-		// $user_pwd=$this->input->post('uPwd');
 		$value = json_decode($this->input->post('data'),true);
-		//调用登录方法
-		$result=$this->user_model->get_user($value['username'],$value['password']);
-		// file_put_contents("/home/tanxu/www/data.txt", $result,FILE_APPEND );
-		if($result){
-
-			echo '登录成功';
-			$this->session->set_userdata('username',$value['username']);
-			redirect('http://127.0.0.1/code32/index.php/index');
-			// $this->load->view('index.html');
-
-		}
-		else{
-			echo '-1';
-
+		if (preg_match("/^1[34578]\d{9}$/", $value['username'])) {
+			# 判断是否是电话，若是则按电话号码查询
+			$row = $this->user_model->check_phone_is($value['username']);
+			if ($row != false) {
+				if ($row['password'] == md5($value['password'])) {
+					$this->session->set_userdata('username',$value['username']);
+					echo '1';
+				}else{
+					echo '-1';
+				}
+			}else{
+				echo '0';
+			}
+			// echo json_encode($data);
+		}else if (filter_var($value['username'], FILTER_VALIDATE_EMAIL)) {
+			#判断是否是邮箱，若是则按邮箱查询
+			$row = $this->user_model->check_email_is($value['username']);
+			if ($row != false) {
+				if ($row['password'] == md5($value['password'])) {
+					$this->session->set_userdata('username',$value['username']);
+					echo '1';
+				}else{
+					echo '-1';
+				}
+			}else{
+				echo '0';
+			}
+		}else{
+			#传过来的既不是邮箱又不是电话
+			$row = $this->user_model->check_username_is($value['username']);
+			if ($row != false) {
+				if ($row['password'] == md5($value['password'])) {
+					$this->session->set_userdata('username',$value['username']);
+					echo '1';
+				}else{
+					echo '-1';
+				}
+			}else{
+				echo '0';
+			}
 		}
 
 	}

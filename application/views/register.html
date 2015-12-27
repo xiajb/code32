@@ -207,7 +207,7 @@
 
         // ../StartCaptchaServlet.php?rand="+Math.round(Math.random()*100),
         $.ajax({
-            url: "../index.php/register/check_challenge?rand="+Math.round(Math.random()*100),
+            url: "../register/check_challenge?rand="+Math.round(Math.random()*100),
             type: "get",
             dataType: 'JSON',
             success: function(result) {
@@ -232,7 +232,7 @@
                     // console.log(result);
                     $.ajax({
                         type: 'POST',
-                        url: "../index.php/register/check_phone",
+                        url: "../register/check_phone",
                         data: "value=" + result,
                         success: function(result) {
                             console.log(result);
@@ -333,7 +333,7 @@
                 $("#umobile").attr("class", "txt_blue2-260-30");
                 $.ajax({
                         type: 'POST',
-                        url: "../index.php/register/check_username",
+                        url: "../register/check_username",
                         data: "username=" + $("#utrueName").val(),
                         success: function(result) {
                             // console.log(result);
@@ -372,7 +372,7 @@
                       
                         $.ajax({
                             type: 'POST',
-                            url: "../index.php/register/check_email",
+                            url: "../register/check_email",
                             // data: "value=" + result,
                             data: "value=" + $('#uEmail').val(),
 
@@ -478,14 +478,14 @@
 
                         $.ajax({
                             type: 'POST',
-                            url: "../index.php/register/do_register",
+                            url: "../register/do_register",
                             data: 'data=' + JSON.stringify(data),
 
                             success: function(result) {
-                                console.log(result);
+                                // console.log(result);
                                 if (result == 1) {
                                     alert("注册成功！");
-                                    location.href = "http://127.0.0.1/code32/index.php/center";
+                                    location.href = "http://www.rfgxy.com/center";
                                 } else if (result < 0) {
                                     alert("验证码输入错误");
                                 }else if(result == "error"){

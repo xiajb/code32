@@ -12,10 +12,10 @@
     <link rel="dns-prefetch" href="http://tj.rfgxy.com/" />
     <link rel="dns-prefetch" href="http://u.rfgxy.com/" />
     <link rel="dns-prefetch" href="http://zhaopin.rfgxy.com/" />
-    <title>儒风国学院网-自动化专业在线培训的首选工控网平台-视频教程下载</title>
-    <meta name="keywords" content="儒风国学院,自动化培训,工控技术,自动化技术,PLC培训,PLC编程培训,PLC培训班,在线PLC培训,视频PLC培训, 远程PLC培训,西门子PLC培训,三菱PCL,欧姆龙PLC,工业以太网,组态WINCC, PLC教程,PLC教程视频,电工技术,电工视频,电工基础知识,PLC编程软件,PLC编程手册,远程在线服务" />
+    <title>儒风国学院网</title>
+    <!--     <meta name="keywords" content="儒风国学院,自动化培训,工控技术,自动化技术,PLC培训,PLC编程培训,PLC培训班,在线PLC培训,视频PLC培训, 远程PLC培训,西门子PLC培训,三菱PCL,欧姆龙PLC,工业以太网,组态WINCC, PLC教程,PLC教程视频,电工技术,电工视频,电工基础知识,PLC编程软件,PLC编程手册,远程在线服务" />
     <meta name="description" content="儒风国学院网提供PLC视频教程、数控冲床、电工基础知识、数控编程等高清视频教程,打造自动化在线远程教育第一品牌.(PLC|西门子|三菱|欧姆龙|变频器|触摸屏|数控|电工)" />
-    <meta name="copyright" content="自动化_工控_儒风国学院-让你成为自动化专家|在线辅导，在线答疑|自动化远程培训网 http://www.rfgxy.com" />
+    <meta name="copyright" content="自动化_工控_儒风国学院-让你成为自动化专家|在线辅导，在线答疑|自动化远程培训网 http://www.rfgxy.com" /> -->
     <link rel="shortcut icon" href="http://images.rfgxy.com/favicon.ico?20141124001" />
     <!---->
     <link href="http://images.rfgxy.com/favicon.ico?20140922001" rel="shortcut icon" />
@@ -67,14 +67,16 @@
     
     .two_links a.aa_1 {
         left: 0;
-        top: 0
+        top: 0;
     }
     
     .two_links a.aa_2 {
         right: 0;
-        top: 0
+        top: 0;
     }
-    
+    .dn{
+        display: block;
+    }
     .two_links:hover img {
         -webkit-transition: -webkit-transform 0.4s ease;
         -moz-transition: -moz-transform 0.4s ease;
@@ -87,7 +89,6 @@
 </head>
 
 <body id="index20150101" style="background:#fff;">
- 欢迎您<?php  echo $_SESSION['username'];?> 
     <div class="alert alert-danger alert-dismissible dn" role="alert">
         <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
         <strong>温馨提示：</strong> 您的浏览器版本过低，为保证最佳学习体验，建议您升级为<a href="http://www.google.cn/chrome/" target="_blank">Chrome浏览器</a> 或 <a href="http://www.firefox.com.cn/" target="_blank">FireFox浏览器</a>
@@ -99,38 +100,45 @@
                     <div class="header-top clearfix">
                         <div class="header-top-left">
                             <a href="javascript:;" id="btn-addToFav" class="btn-link btn-link6">收藏技成</a>
-                            <a href="http://www.rfgxy.com/v4/" class="btn-link btn-link6 ml15">回到旧版</a>
+                            <!-- <a href="http://www.rfgxy.com/v4/" class="btn-link btn-link6 ml15">回到旧版</a> -->
                         </div>
                         <div class="header-top-right clearfix">
-                            <ul class="dn l m0" id="login_top_logined">
-                                <li></li>
-                            </ul>
                             <!DOCTYPE html>
-                            <ul class="l m0" id="login_top_nologin">
-                                <li>
-                                    <div><a href="http://www.rfgxy.com/newlogin.aspx" class="btn-link btn-link6">[请登录]</a></div>
-                                </li>
-                                <li>
-                                    <div><a href="http://www.rfgxy.com/userreg.aspx" class="btn-link btn-link6">[免费注册]</a></div>
-                                </li>
-                            </ul>
-                            <ul class="l m0">
-                                <!--
-								<li><div><a href="http://my.rfgxy.com/" target="_blank" class="btn-link btn-link6">学员中心</a></div></li>
+                            <?php if (empty($_SESSION['username'])): ?>
+                                    <ul class="l m0" id="login_top_nologin">
+                                        <li>
+                                            <div><a href="http://www.rfgxy.com/login" class="btn-link btn-link6">[请登录]</a></div>
+                                        </li>
+                                        <li>
+                                            <div><a href="http://www.rfgxy.com/register" class="btn-link btn-link6">[免费注册]</a></div>
+                                        </li>
+                                    </ul>
+                                <?php else : ?> 
+                                <ul class="dn l m0" id="login_top_logined">
+                                    <li>
+                                        <b class="cgray6"><?php echo $_SESSION['username']; ?></b>
+                                        <span class="fw" style="color:#188eee">[普通会员]</span>，
+                                        <span class="cgray6">欢迎来技成培训！</span><a href="http://www.jcpeixun.com/logout.aspx?callback=http%3A//www.jcpeixun.com/" class="btn-link btn-link9">[退出]</a>
+                                    </li>
+                                </ul>
+                                 <?php endif; ?>
+                                        <ul class="l m0">
+                                            <!--
+                                <li><div><a href="http://my.rfgxy.com/" target="_blank" class="btn-link btn-link6">学员中心</a></div></li>
                                 -->
-                                <li>
-                                    <div><a href="http://my.rfgxy.com/orderLesson/order.aspx" target="_blank" class="btn-link btn-link6">我的订单</a></div>
-                                </li>
-                                <li>
-                                    <div><a href="http://www.rfgxy.com/player_page/play_show.html?adfrom=old" target="_blank" class="btn-link btn-link6">技成播放器</a></div>
-                                </li>
-                                <li>
-                                    <div><a href="http://www.rfgxy.com/lesson1/guide.aspx" target="_blank" class="btn-link btn-link6" style="color:Red;">新手攻略</a></div>
-                                </li>
-                                <li>
-                                    <div><a href="http://www.rfgxy.com/sitemap.aspx" target="_blank" class="btn-link btn-link6">网站导航</a></div>
-                                </li>
-                            </ul>
+                                            <li>
+                                                <div><a href="http://my.rfgxy.com/orderLesson/order.aspx" target="_blank" class="btn-link btn-link6">我的订单</a></div>
+                                            </li>
+                                            <li>
+                                                <div><a href="http://www.rfgxy.com/player_page/play_show.html?adfrom=old" target="_blank" class="btn-link btn-link6">技成播放器</a></div>
+                                            </li>
+                                            <li>
+                                                <div><a href="http://www.rfgxy.com/lesson1/guide.aspx" target="_blank" class="btn-link btn-link6" style="color:Red;">新手攻略</a></div>
+                                            </li>
+                                            <li>
+                                                <div><a href="http://www.rfgxy.com/sitemap.aspx" target="_blank" class="btn-link btn-link6">网站导航</a></div>
+                                            </li>
+                                        </ul>
                         </div>
                     </div>
                 </div>
@@ -143,7 +151,7 @@
             <div class="col-xs-24 mb10">
                 <div class="js_ads_banner_top" id="js_ads_banner_top">
                     <!--
-	               <script type="text/javascript">	       _ad(1, "js_ads_banner_top", "998", "80"); </script>
+                   <script type="text/javascript">         _ad(1, "js_ads_banner_top", "998", "80"); </script>
                    -->
                 </div>
                 <div class="js_ads_banner_top_slide" id="js_ads_banner_top_slide">
@@ -569,8 +577,8 @@
                                                     <div class="l">
                                                         <dl class="clearfix" style="border-bottom: 1px dotted #ccc;padding-bottom: 5px;">
                                                             <!--
-										                                        <dt class="l w70"><em style="color:#188EEE">[变频器]</em></dt>
-										                                        -->
+                                                                                <dt class="l w70"><em style="color:#188EEE">[变频器]</em></dt>
+                                                                                -->
                                                             <dd class="l w550">
                                                                 <div class="bb2">
                                                                     <a href="http://www.rfgxy.com/lesson/1512/" class="btn-link btn-link6" target="_blank">变频器功能应用从入门到精通</a><em class="ml10 mr10 cgray5">|</em>
@@ -596,8 +604,8 @@
                                                     <div class="l">
                                                         <dl class="clearfix" style="border-bottom: 1px dotted #ccc;padding-bottom: 5px;">
                                                             <!--
-										                                        <dt class="l w70"><em style="color:#188EEE">[伺服]</em></dt>
-										                                       -->
+                                                                                <dt class="l w70"><em style="color:#188EEE">[伺服]</em></dt>
+                                                                               -->
                                                             <dd class="l w550">
                                                                 <div class="bb2">
                                                                     <a href="http://www.rfgxy.com/lesson/2149/" class="btn-link btn-link6" target="_blank">伺服驱动器功能参数设置与实操训练</a><em class="ml10 mr10 cgray9">|</em>
@@ -614,8 +622,8 @@
                                                     <div class="l">
                                                         <dl class="clearfix" style="border-bottom: 1px dotted #ccc;padding-bottom: 5px;">
                                                             <!-- 
-										                                        <dt class="l w70"><em style="color:#188EEE">[定位]</em></dt>
-										                                       -->
+                                                                                <dt class="l w70"><em style="color:#188EEE">[定位]</em></dt>
+                                                                               -->
                                                             <dd class="l w550">
                                                                 <div class="bb2">
                                                                     <a href="http://www.rfgxy.com/lesson/1663/" class="btn-link btn-link6" target="_blank">异步电动机基础原理</a><em class="ml10 mr10 cgray9">|</em>
@@ -767,176 +775,176 @@
                                     </div>
                                 </li>
                                 <!--
-							                        <li>
-							                        	<div class="sidebar_nav_content">
-								                            <div class="sidebar_nav_content_title"> 
-								                            	<div class="">
-									                            	<a href="http://zhaopin.rfgxy.com/jobs/" class="btn_link1 btn_link" target="_blank">职位 </a> 
-									                            	<i></i> 
-								                            	</div>
-								                            	<div class="clearfix">
-								                            		<ul>
-								                            			<li class="pull-left mr15">
-								                            				<div><a href="http://zhaopin.rfgxy.com/jobs/?q=&i=&job=1&b=&city=&sa=&ed=&ex=&date=" target="_blank" class="btn-link9">技术技工</a></div>
-								                            			</li>
-								                            			<li class="pull-left mr15">
-								                            				<div><a href="http://zhaopin.rfgxy.com/jobs/?q=&i=&job=2&b=&city=&sa=&ed=&ex=&date=" target="_blank" class="btn-link9">工程师</a></div>
-								                            			</li>
-								                            			<li class="pull-left mr15">
-								                            				<div><a href="http://zhaopin.rfgxy.com/jobs/?q=&i=&job=3&b=&city=&sa=&ed=&ex=&date=" target="_blank" class="btn-link9">维护/维修</a></div>
-								                            			</li>
-								                            			
-								                            		</ul>
-								                            	</div>
-								                            </div>
-								                            <div class="sidebar_nav_content_lists list9 clearfix">
-								                            	<div style="width: 5px;height: 65px;background-color: #fff;position: absolute;top: 258px;left: -3px;"></div>
-								                                <div class="l pd10 pt15">
-								                                    <div class="clearfix ml10 mr10 mb10">
-								                                		
-								                                		<div class="l">
-									                                    	<dl class="clearfix" style="border-bottom: 1px dotted #ccc;padding-bottom: 5px;">
-										                                       
-										                                        <dt class="l w80"><em style="color:#188EEE">[技术技工]</em></dt>
-										                                       
-										                                        <dd class="l w550">
-											                                        <div class="bb2">
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=9" class="btn-link btn-link6" target="_blank">电工</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=10" class="btn-link btn-link6" target="_blank">电气装配工</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=11" class="btn-link btn-link6" target="_blank">接线工</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=12" class="btn-link btn-link6" target="_blank">锅炉工</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=13" class="btn-link btn-link6" target="_blank">操作工</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=14" class="btn-link btn-link6" target="_blank">机修工</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=15" class="btn-link btn-link6" target="_blank">线切割工</a><em class="ml10 mr10 cgray9">|</em>
-											                                        </div>
-											                                        <div class="bb2">
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=16" class="btn-link btn-link6" target="_blank">车/铣/刨/磨/镗工</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=17" class="btn-link btn-link6" target="_blank">钻/冲工</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=18" class="btn-link btn-link6" target="_blank">钣金工</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=19" class="btn-link btn-link6" target="_blank">焊工/铆工</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=20" class="btn-link btn-link6" target="_blank">模具工</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=21" class="btn-link btn-link6" target="_blank">其他>></a>
-											                                        </div>
-										                                        </dd>
-									                                    	</dl>
-									                                    	<dl class="clearfix" style="border-bottom: 1px dotted #ccc;padding-bottom: 5px;">
-										                                        <dt class="l w80"><em style="color:#188EEE">[工程师]</em></dt>
-										                                        <dd class="l w550">
-											                                        <div class="bb2">
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=22" class="btn-link btn-link6" target="_blank">电气工程师</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=23" class="btn-link btn-link6" target="_blank">测试/调试工程师</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=24" class="btn-link btn-link6" target="_blank">电气自动化技术助理</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=25" class="btn-link btn-link6" target="_blank">电子工程师</a><em class="ml10 mr10 cgray9">|</em>
-											                                        </div>
-											                                        <div class="bb2">
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=26" class="btn-link btn-link6" target="_blank">自动化工程师</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=27" class="btn-link btn-link6" target="_blank">电气技术员</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=28" class="btn-link btn-link6" target="_blank">硬件工程师</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=29" class="btn-link btn-link6" target="_blank">仪表工程师</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=30" class="btn-link btn-link6" target="_blank">自动化技术员</a><em class="ml10 mr10 cgray9">|</em>
-											                                        </div>
-											                                        <div class="bb2">
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=31" class="btn-link btn-link6" target="_blank">注册电气工程师</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=32" class="btn-link btn-link6" target="_blank">软件工程师</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=33" class="btn-link btn-link6" target="_blank">机电工程师</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=34" class="btn-link btn-link6" target="_blank">设备工程师</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=35" class="btn-link btn-link6" target="_blank">单片机工程师</a><em class="ml10 mr10 cgray9">|</em>
-											                                        </div>
-											                                        <div class="bb2">
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=36" class="btn-link btn-link6" target="_blank">机械工程师</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=37" class="btn-link btn-link6" target="_blank">PLC工程师</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=38" class="btn-link btn-link6" target="_blank">系统工程师</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=39" class="btn-link btn-link6" target="_blank">其他>></a>
-											                                        </div>
-											                                        
-										                                        </dd>
-									                                    	</dl>
-								                                		</div>
-								                                	</div>
-								                                	<div class="clearfix ml10 mr10 mb10">
-								                                		<div class="l">
-									                                    	<dl class="clearfix" style="border-bottom: 1px dotted #ccc;padding-bottom: 5px;">
-										                                        <dt class="l w80"><em style="color:#188EEE">[维护/维修]</em></dt>
-										                                        <dd class="l w550">
-										                                        	
-											                                        <div class="bb2">
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=40" class="btn-link btn-link6" target="_blank">维修主管</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=41" class="btn-link btn-link6" target="_blank">维修工程师</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=42" class="btn-link btn-link6" target="_blank">维修技术员</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=43" class="btn-link btn-link6" target="_blank">维修工</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=44" class="btn-link btn-link6" target="_blank">设备维护员</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=45" class="btn-link btn-link6" target="_blank">其他>></a>
-											                                        </div>
-										                                        </dd>
-									                                    	</dl>
-									                                    	<dl class="clearfix" style="border-bottom: 1px dotted #ccc;padding-bottom: 5px;">
-										                                        <dt class="l w80"><em style="color:#188EEE">[服务/支持]</em></dt>
-										                                        <dd class="l w550">
-										                                        	
-											                                        <div class="bb2">
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=46" class="btn-link btn-link6" target="_blank">客服经理/主管</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=47" class="btn-link btn-link6" target="_blank">客服专员/助理</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=48" class="btn-link btn-link6" target="_blank">技术支持经理/主管</a><em class="ml10 mr10 cgray9">|</em>
-											                                        </div>
-											                                        <div class="bb2">
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=49" class="btn-link btn-link6" target="_blank">产品技术支持/技术服务/产品经理</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=50" class="btn-link btn-link6" target="_blank">售后服务</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=51" class="btn-link btn-link6" target="_blank">其他>></a>
-											                                        </div>
-										                                        </dd>
-									                                    	</dl>
-									                                    	
-								                                		</div>
-								                                	</div>
-								                                	<div class="clearfix ml10 mr10 mb10">
-								                                		<div class="l">
-								                                			<dl class="clearfix" style="border-bottom: 1px dotted #ccc;padding-bottom: 5px;">
-										                                        <dt class="l w80"><em style="color:#188EEE">[研发设计]</em></dt>
-										                                        <dd class="l w550">
-											                                        <div class="bb2">
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=52" class="btn-link btn-link6" target="_blank">研发部经理/技术主管</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=53" class="btn-link btn-link6" target="_blank">研发工程师</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=54" class="btn-link btn-link6" target="_blank">研发技术员</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=55" class="btn-link btn-link6" target="_blank">设计工程师</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=56" class="btn-link btn-link6" target="_blank">绘图员</a>
-											                                        </div>
-											                                        
-										                                        </dd>
-									                                    	</dl>
-									                                    	<dl class="clearfix" style="border-bottom: 1px dotted #ccc;padding-bottom: 5px;">
-										                                        <dt class="l w80"><em style="color:#188EEE">[技术管理]</em></dt>
-										                                        <dd class="l w550">
-											                                        <div class="bb2">
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=58" class="btn-link btn-link6" target="_blank">总/副总工程师</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=59" class="btn-link btn-link6" target="_blank">技术主管</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=60" class="btn-link btn-link6" target="_blank">生产主管</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=61" class="btn-link btn-link6" target="_blank">生产经理</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=62" class="btn-link btn-link6" target="_blank">生产厂长</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=63" class="btn-link btn-link6" target="_blank">项目总监</a><em class="ml10 mr10 cgray9">|</em>
-											                                        </div>
-											                                        <div class="bb2">
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=64" class="btn-link btn-link6" target="_blank">项目经理</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=65" class="btn-link btn-link6" target="_blank">项目主管</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=66" class="btn-link btn-link6" target="_blank">项目工程师</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=67" class="btn-link btn-link6" target="_blank">项目专员/助理</a><em class="ml10 mr10 cgray9">|</em>
-											                                        	<a href="http://zhaopin.rfgxy.com/jobs/?job=68" class="btn-link btn-link6" target="_blank">其他</a><em class="ml10 mr10 cgray9">|</em>
-											                                        </div>
-											                                        
-										                                        </dd>
-									                                    	</dl>
-								                                		</div>
-								                                	</div>
-								                                	
-								                                	
-								                                    <dl class="clearfix ml10 mr10">
-								                                        <dt class="l w70">&nbsp;</dt>
-								                                        <dd class="l w550 tr"><a href="http://zhaopin.rfgxy.com/jobs/?more" target="_blank" class="btn-link btn-link9">更多&gt;&gt;</a></dd>
-								                                    </dl>
-								                                </div>
-							                                    
-								                            </div>
-							                            </div>
-							                        </li>
+                                                    <li>
+                                                        <div class="sidebar_nav_content">
+                                                            <div class="sidebar_nav_content_title"> 
+                                                                <div class="">
+                                                                    <a href="http://zhaopin.rfgxy.com/jobs/" class="btn_link1 btn_link" target="_blank">职位 </a> 
+                                                                    <i></i> 
+                                                                </div>
+                                                                <div class="clearfix">
+                                                                    <ul>
+                                                                        <li class="pull-left mr15">
+                                                                            <div><a href="http://zhaopin.rfgxy.com/jobs/?q=&i=&job=1&b=&city=&sa=&ed=&ex=&date=" target="_blank" class="btn-link9">技术技工</a></div>
+                                                                        </li>
+                                                                        <li class="pull-left mr15">
+                                                                            <div><a href="http://zhaopin.rfgxy.com/jobs/?q=&i=&job=2&b=&city=&sa=&ed=&ex=&date=" target="_blank" class="btn-link9">工程师</a></div>
+                                                                        </li>
+                                                                        <li class="pull-left mr15">
+                                                                            <div><a href="http://zhaopin.rfgxy.com/jobs/?q=&i=&job=3&b=&city=&sa=&ed=&ex=&date=" target="_blank" class="btn-link9">维护/维修</a></div>
+                                                                        </li>
+                                                                        
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                            <div class="sidebar_nav_content_lists list9 clearfix">
+                                                                <div style="width: 5px;height: 65px;background-color: #fff;position: absolute;top: 258px;left: -3px;"></div>
+                                                                <div class="l pd10 pt15">
+                                                                    <div class="clearfix ml10 mr10 mb10">
+                                                                        
+                                                                        <div class="l">
+                                                                            <dl class="clearfix" style="border-bottom: 1px dotted #ccc;padding-bottom: 5px;">
+                                                                               
+                                                                                <dt class="l w80"><em style="color:#188EEE">[技术技工]</em></dt>
+                                                                               
+                                                                                <dd class="l w550">
+                                                                                    <div class="bb2">
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=9" class="btn-link btn-link6" target="_blank">电工</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=10" class="btn-link btn-link6" target="_blank">电气装配工</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=11" class="btn-link btn-link6" target="_blank">接线工</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=12" class="btn-link btn-link6" target="_blank">锅炉工</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=13" class="btn-link btn-link6" target="_blank">操作工</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=14" class="btn-link btn-link6" target="_blank">机修工</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=15" class="btn-link btn-link6" target="_blank">线切割工</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                    </div>
+                                                                                    <div class="bb2">
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=16" class="btn-link btn-link6" target="_blank">车/铣/刨/磨/镗工</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=17" class="btn-link btn-link6" target="_blank">钻/冲工</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=18" class="btn-link btn-link6" target="_blank">钣金工</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=19" class="btn-link btn-link6" target="_blank">焊工/铆工</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=20" class="btn-link btn-link6" target="_blank">模具工</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=21" class="btn-link btn-link6" target="_blank">其他>></a>
+                                                                                    </div>
+                                                                                </dd>
+                                                                            </dl>
+                                                                            <dl class="clearfix" style="border-bottom: 1px dotted #ccc;padding-bottom: 5px;">
+                                                                                <dt class="l w80"><em style="color:#188EEE">[工程师]</em></dt>
+                                                                                <dd class="l w550">
+                                                                                    <div class="bb2">
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=22" class="btn-link btn-link6" target="_blank">电气工程师</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=23" class="btn-link btn-link6" target="_blank">测试/调试工程师</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=24" class="btn-link btn-link6" target="_blank">电气自动化技术助理</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=25" class="btn-link btn-link6" target="_blank">电子工程师</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                    </div>
+                                                                                    <div class="bb2">
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=26" class="btn-link btn-link6" target="_blank">自动化工程师</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=27" class="btn-link btn-link6" target="_blank">电气技术员</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=28" class="btn-link btn-link6" target="_blank">硬件工程师</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=29" class="btn-link btn-link6" target="_blank">仪表工程师</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=30" class="btn-link btn-link6" target="_blank">自动化技术员</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                    </div>
+                                                                                    <div class="bb2">
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=31" class="btn-link btn-link6" target="_blank">注册电气工程师</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=32" class="btn-link btn-link6" target="_blank">软件工程师</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=33" class="btn-link btn-link6" target="_blank">机电工程师</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=34" class="btn-link btn-link6" target="_blank">设备工程师</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=35" class="btn-link btn-link6" target="_blank">单片机工程师</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                    </div>
+                                                                                    <div class="bb2">
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=36" class="btn-link btn-link6" target="_blank">机械工程师</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=37" class="btn-link btn-link6" target="_blank">PLC工程师</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=38" class="btn-link btn-link6" target="_blank">系统工程师</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=39" class="btn-link btn-link6" target="_blank">其他>></a>
+                                                                                    </div>
+                                                                                    
+                                                                                </dd>
+                                                                            </dl>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="clearfix ml10 mr10 mb10">
+                                                                        <div class="l">
+                                                                            <dl class="clearfix" style="border-bottom: 1px dotted #ccc;padding-bottom: 5px;">
+                                                                                <dt class="l w80"><em style="color:#188EEE">[维护/维修]</em></dt>
+                                                                                <dd class="l w550">
+                                                                                    
+                                                                                    <div class="bb2">
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=40" class="btn-link btn-link6" target="_blank">维修主管</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=41" class="btn-link btn-link6" target="_blank">维修工程师</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=42" class="btn-link btn-link6" target="_blank">维修技术员</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=43" class="btn-link btn-link6" target="_blank">维修工</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=44" class="btn-link btn-link6" target="_blank">设备维护员</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=45" class="btn-link btn-link6" target="_blank">其他>></a>
+                                                                                    </div>
+                                                                                </dd>
+                                                                            </dl>
+                                                                            <dl class="clearfix" style="border-bottom: 1px dotted #ccc;padding-bottom: 5px;">
+                                                                                <dt class="l w80"><em style="color:#188EEE">[服务/支持]</em></dt>
+                                                                                <dd class="l w550">
+                                                                                    
+                                                                                    <div class="bb2">
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=46" class="btn-link btn-link6" target="_blank">客服经理/主管</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=47" class="btn-link btn-link6" target="_blank">客服专员/助理</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=48" class="btn-link btn-link6" target="_blank">技术支持经理/主管</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                    </div>
+                                                                                    <div class="bb2">
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=49" class="btn-link btn-link6" target="_blank">产品技术支持/技术服务/产品经理</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=50" class="btn-link btn-link6" target="_blank">售后服务</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=51" class="btn-link btn-link6" target="_blank">其他>></a>
+                                                                                    </div>
+                                                                                </dd>
+                                                                            </dl>
+                                                                            
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="clearfix ml10 mr10 mb10">
+                                                                        <div class="l">
+                                                                            <dl class="clearfix" style="border-bottom: 1px dotted #ccc;padding-bottom: 5px;">
+                                                                                <dt class="l w80"><em style="color:#188EEE">[研发设计]</em></dt>
+                                                                                <dd class="l w550">
+                                                                                    <div class="bb2">
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=52" class="btn-link btn-link6" target="_blank">研发部经理/技术主管</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=53" class="btn-link btn-link6" target="_blank">研发工程师</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=54" class="btn-link btn-link6" target="_blank">研发技术员</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=55" class="btn-link btn-link6" target="_blank">设计工程师</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=56" class="btn-link btn-link6" target="_blank">绘图员</a>
+                                                                                    </div>
+                                                                                    
+                                                                                </dd>
+                                                                            </dl>
+                                                                            <dl class="clearfix" style="border-bottom: 1px dotted #ccc;padding-bottom: 5px;">
+                                                                                <dt class="l w80"><em style="color:#188EEE">[技术管理]</em></dt>
+                                                                                <dd class="l w550">
+                                                                                    <div class="bb2">
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=58" class="btn-link btn-link6" target="_blank">总/副总工程师</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=59" class="btn-link btn-link6" target="_blank">技术主管</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=60" class="btn-link btn-link6" target="_blank">生产主管</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=61" class="btn-link btn-link6" target="_blank">生产经理</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=62" class="btn-link btn-link6" target="_blank">生产厂长</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=63" class="btn-link btn-link6" target="_blank">项目总监</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                    </div>
+                                                                                    <div class="bb2">
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=64" class="btn-link btn-link6" target="_blank">项目经理</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=65" class="btn-link btn-link6" target="_blank">项目主管</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=66" class="btn-link btn-link6" target="_blank">项目工程师</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=67" class="btn-link btn-link6" target="_blank">项目专员/助理</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                        <a href="http://zhaopin.rfgxy.com/jobs/?job=68" class="btn-link btn-link6" target="_blank">其他</a><em class="ml10 mr10 cgray9">|</em>
+                                                                                    </div>
+                                                                                    
+                                                                                </dd>
+                                                                            </dl>
+                                                                        </div>
+                                                                    </div>
+                                                                    
+                                                                    
+                                                                    <dl class="clearfix ml10 mr10">
+                                                                        <dt class="l w70">&nbsp;</dt>
+                                                                        <dd class="l w550 tr"><a href="http://zhaopin.rfgxy.com/jobs/?more" target="_blank" class="btn-link btn-link9">更多&gt;&gt;</a></dd>
+                                                                    </dl>
+                                                                </div>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </li>
                                                     -->
                                 <li>
                                     <div class="sidebar_nav_content">
@@ -1138,8 +1146,8 @@
                     <div class="row">
                         <div class="col-xs-16">
                             <!--
-								<div style="width: 100%;height: 275px;background-color: #E6E9ED;"></div>
-								-->
+                                <div style="width: 100%;height: 275px;background-color: #E6E9ED;"></div>
+                                -->
                             <div class="focusBox" style="margin:0 auto">
                                 <ul style="position: relative;" class="pic m0">
                                     <li class="item" style="background:url('http://images.rfgxy.com/banner_20151027_01.png') scroll no-repeat center top transparent;">
@@ -1149,8 +1157,8 @@
                                         <a href="http://www.rfgxy.com/topic/act/20141205/?indexscroll" target="_blank" style="display:block;height:275px;"></a>
                                     </li>
                                     <!--<li class="item" style="background:url('http://images.rfgxy.com/tit_2014122600107.png') scroll no-repeat center top transparent;">
-						                    <a href="http://u.rfgxy.com/topic/act/20140418/?indexscroll" target="_blank" style="display:block;height:275px;"></a>
-						                </li>-->
+                                            <a href="http://u.rfgxy.com/topic/act/20140418/?indexscroll" target="_blank" style="display:block;height:275px;"></a>
+                                        </li>-->
                                     <li class="item" style="background:url('http://images.rfgxy.com/tit_2014122600108.png') scroll no-repeat center top transparent;">
                                         <a href="http://exam.rfgxy.com/jcexam/ChooseRoom.aspx" target="_blank" style="display:block;height:275px;"></a>
                                     </li>
@@ -10634,8 +10642,8 @@
     <!--/尾部-->
     <!--
     <div class="online-kefu" id="online-kefu">
-	    <div id="BDBridgeFixedWrap"></div>
-	    <a class="btn-close" href="javascript:;" title="关闭" onclick="javascript:$('#online-kefu').hide();">X</a>
+        <div id="BDBridgeFixedWrap"></div>
+        <a class="btn-close" href="javascript:;" title="关闭" onclick="javascript:$('#online-kefu').hide();">X</a>
     </div>
     -->
     <div id="online-kefu" style="position:fixed;right:0;bottom:0;z-index:10000; ">
@@ -10650,7 +10658,7 @@
     <script src="<?php echo base_url('index/js/tools.v1.js'); ?>" type="text/javascript"></script>
     <script type="text/javascript">
     $(function() {
-        /*	栏目选项卡效果	*/
+        /*  栏目选项卡效果 */
         $(".m-title-content li").on("mouseover", function() {
             var
                 $this = $(this),
@@ -10659,12 +10667,12 @@
             $("#" + $dataid).removeClass("dn").siblings("div[id^='c']").addClass("dn");
         });
 
-        /*	收藏技成	 */
+        /*  收藏技成     */
         $("#btn-addToFav").on("click", function() {
             addToFavorite('技成(自动化)培训', 'http://www.rfgxy.com/');
         });
 
-        /*	搜索    */
+        /*  搜索    */
         var
             $searchArea = $(".search-area"),
             $txtSearch = $("#txtSearch"),
@@ -10746,7 +10754,7 @@
             delay: 150
         });
 
-        /*	首屏图片滚动	*/
+        /*  首屏图片滚动  */
         jQuery(".focusBox").hover(function() {
             jQuery(this).find(".prev,.next").stop(true, true).fadeTo("show", 0.2)
         }, function() {
@@ -10824,21 +10832,21 @@
 
 
         //            <div class="message-expand">
-        //		        <h3 class="message-title">欢迎给我们留言</h3>
-        //		        <div class="message-form">
-        //			        <form role="form" method="post" action="">
-        //				        <div class="form-group">
-        //					        <textarea class="form-control" rows="3" id="txtMgs" name="txtMgs" placeholder="骚年，哪有不爽，来喷吧！"></textarea>
-        //				        </div>
-        //				        <div class="form-group">
-        //					        <input type="password" class="form-control" id="txtMobile" name="txtMobile" placeholder="求手机号码，产品经理给您跪了！" />
-        //				        </div>
-        //				        <div class="form-group">
-        //					        <a href="javascript:;" role="button" class="btn-message mc" id="btn-message">确定留言</a>
-        //				        </div>
-        //			        </form>
-        //		        </div>
-        //		        <a href="javascript:;" class="message-close">X</a>
+        //              <h3 class="message-title">欢迎给我们留言</h3>
+        //              <div class="message-form">
+        //                  <form role="form" method="post" action="">
+        //                      <div class="form-group">
+        //                          <textarea class="form-control" rows="3" id="txtMgs" name="txtMgs" placeholder="骚年，哪有不爽，来喷吧！"></textarea>
+        //                      </div>
+        //                      <div class="form-group">
+        //                          <input type="password" class="form-control" id="txtMobile" name="txtMobile" placeholder="求手机号码，产品经理给您跪了！" />
+        //                      </div>
+        //                      <div class="form-group">
+        //                          <a href="javascript:;" role="button" class="btn-message mc" id="btn-message">确定留言</a>
+        //                      </div>
+        //                  </form>
+        //              </div>
+        //              <a href="javascript:;" class="message-close">X</a>
         //            </div>
         //            <div class="message-pre">
         //                <a href="javascript:;" id="btn-pre-message" class="btn-pre-message">我要<br />留言</a>
@@ -10939,7 +10947,7 @@
     </script>
     <!---->
     <script src="./js/tongji.js?a=20151012_01" type="text/javascript"></script>
-    <!--	2013-11-19	13:00:00	-->
+    <!--    2013-11-19  13:00:00    -->
     <script type="text/javascript" src="./js/tj.js"></script>
 </body>
 
