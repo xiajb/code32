@@ -65,9 +65,7 @@
             <ul>
                 <li class="l w220 h30">
                     <!--topLeft2 start-->
-                    <div class="l topLeft2 tc" id="login_top_line">
-                        欢迎来到儒风国学院！ [<a href="http://www.rfgxy.com/newlogin.aspx" target="_top" title="请登录" class="topLeft2Load">请登录</a>]  [<a href="http://www.rfgxy.com/userreg.aspx" target="_top" title="免费注册" class="topLeft2Reg">免费注册</a>]
-                    </div>
+<div class="l topLeft2 tc" id="login_top_line">你好，<b><?php echo $_SESSION['username']; ?></b>&nbsp;&nbsp;<a href="http://www.rfgxy.com/logout">[退出]</a></div>
                     <!--topLeft2 end-->
                 </li>
                 <li class="l w130 h30">
@@ -121,26 +119,15 @@
                 <img src="http://logo.png" width="230" height="55" alt="儒风国学院" title="儒风国学院" id="img_logo" />
             </a>
         </div>
-        <!--headLeft1 end-->
-        <!--headLeft2 start-->
-        <div class="l headLeft2" id="headAD">
-            <!--<script type="text/javascript">_ad(13, "headAD", "450px", "60px"); </script>-->
-            <!--
-            <div class="search_types clearfix" id="search_types">
-                <ul>
-                    <li class="on" data-type="all">全部</li>
-                    <li data-type="video_course">视频课程</li>
-                    <li data-type="case_course">案例课程</li>
-                </ul>
-            </div>
-            -->
+<!--         <div class="l headLeft2" id="headAD">
+
             <div class="search_area">
             	<div class="h40 lh40 clearfix" style="background-color:#126ABF">
 	                <input type="text" class="searchText2 l" value="请输入要搜索的内容" placeholder="请输入要搜索的内容" class="l" id="searchText" name="txt_search">
 	                <a onfocus="this.blur();" id="searchBtn" class="r searchBtn2" href="javascript:;">&nbsp;</a>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!--headLeft2 end-->
         <!--headRight start-->
         <div class="r headRight mt15" style="background:none;border:none;">
@@ -1267,17 +1254,7 @@ $(function(){
 	<a style="position: absolute; color: #333; height: 15px; line-height: 15px; width: 33px; top: 0; left: 125px;text-decoration: underline;" href="javascript:;" onclick="javascript:$('#on4').hide();">关闭</a>
 </div>
 
-<div class="online_service online_service-3" id="online_service-3" onclick="_hmt.push(['_trackEvent', 'kefu', 'click', 'yy','1']);">
-	<ul>
-		<li style="position:relative;">
-			<img width="120" height="140" alt="" src="http://images.rfgxy.com/tit_20140107001.png" />
-			<a style="position: absolute; color: #333; height: 15px; line-height: 15px; width: 33px; bottom: -20px; left: -3px;text-decoration: underline;" href="javascript:;" onclick="javascript:$('#online_service-3').hide();">关闭</a>
-		</li>
-		
-		<li><!--<a href="http://bbs.rfgxy.com/thread-36046-1-1.html" target="_blank"><img src="http://images.rfgxy.com/tit_20131217001.png?20140225002" width="95" height="130" alt="" /></a>--></li>
-		
-     </ul>
-</div>
+
 <script src="<?php echo base_url('index/include/order.js'); ?>" type="text/javascript"></script>
 <script src="<?php echo base_url('index/include/home.v2.js'); ?>" type="text/javascript"></script>
 

@@ -33,7 +33,7 @@ class Login extends CI_Controller {
 			$row = $this->user_model->check_phone_is($value['username']);
 			if ($row != false) {
 				if ($row['password'] == md5($value['password'])) {
-					$this->session->set_userdata('username',$value['username']);
+					$this->session->set_userdata('username',$row['username']);
 					echo '1';
 				}else{
 					echo '-1';
@@ -47,7 +47,7 @@ class Login extends CI_Controller {
 			$row = $this->user_model->check_email_is($value['username']);
 			if ($row != false) {
 				if ($row['password'] == md5($value['password'])) {
-					$this->session->set_userdata('username',$value['username']);
+					$this->session->set_userdata('username',$row['username']);
 					echo '1';
 				}else{
 					echo '-1';
@@ -60,7 +60,7 @@ class Login extends CI_Controller {
 			$row = $this->user_model->check_username_is($value['username']);
 			if ($row != false) {
 				if ($row['password'] == md5($value['password'])) {
-					$this->session->set_userdata('username',$value['username']);
+					$this->session->set_userdata('username',$row['username']);
 					echo '1';
 				}else{
 					echo '-1';

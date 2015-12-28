@@ -15,7 +15,7 @@ class Login extends CI_Controller {
 		$username = $this->session->userdata('username');
 		$res = $this->user_model->get_user_session($username,1);
 		if ($res) {
-		 	redirect('http://127.0.0.1/code32/index.php/admin/user');           	
+		 	redirect('http://www.rfgxy.com/admin/user');           	
 		}else{
 			$this->load->view('admin/admin_login.html');
 		}       
@@ -38,7 +38,7 @@ class Login extends CI_Controller {
 	public function logout(){
 		$this->session->unset_userdata('username');
 		$this->session->sess_destroy();
-		redirect('http://127.0.0.1/code32/index.php/admin/login');
+		redirect('http://www.rfgxy.com/admin/login');
 	}
 
 }
