@@ -19,6 +19,7 @@ class Center extends CI_Controller {
 	}
 	function test ($course_id){
 	$this->session->set_userdata('course_id',$course_id);
+	
 	$this->load->view("index.html");
 
 	}
