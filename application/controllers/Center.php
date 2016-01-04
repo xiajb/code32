@@ -12,8 +12,14 @@ class Center extends CI_Controller {
 	//个人中心
 	public function index()
 	{
+
 		$this->load->helper('url');
 		$this->load->view("center.html");
+
+	}
+	function test ($course_id){
+	$this->session->set_userdata('course_id',$course_id);
+	$this->load->view("index.html");
 
 	}
 }

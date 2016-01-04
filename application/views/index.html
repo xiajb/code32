@@ -37,7 +37,7 @@ body{
 }
 .container {
     width: 1200px!important;
-    margin-right: auto;
+    margin-right: auto;/showtv/showbyid/4/1
     margin-left: auto;
     padding-left: 5px;
     padding-right: 5px;
@@ -90,7 +90,8 @@ body{
         //幻灯片轮换
         jQuery(".fullSlide").slide({ titCell: ".hd ul", mainCell: ".bd ul", effect: "fade", autoPlay: true, autoPage: true, trigger: "click" });
 
-        var f1 = '0';
+        var f1 = <?php echo $_SESSION['course_id']?>;
+      
         var f2 = '0';
         var f3 = '0';
         var psort = '1';
@@ -469,10 +470,10 @@ body{
                     <dl class="condition clearfix">
                         <dt>类别：</dt>
                         <dd class="condition-cont clearfix f1-condition">
-                            <a id="f1-全部" class="" href="?f1=">全部</a>
-                            <a id="f1-北京" href="?f1=北京">特色课程</a>
-                            <a id="f1-上海" href="?f1=上海">培训课程</a>
-                            <a id="f1-广州" href="?f1=广州">技能课程</a>
+                            <a id="f1-0" class="" href="<?php  echo site_url().'/center/test/0'?>">全部</a>
+                            <a id="f1-1" href="<?php  echo site_url().'/center/test/1'?>">特色课程</a>
+                            <a id="f1-2" href="<?php  echo site_url().'/center/test/2'?>">培训课程</a>
+                            <a id="f1-3" href="<?php  echo site_url().'/center/test/3'?>">技能课程</a>
 <!--                             <a id="f1-深圳" href="?f1=深圳">深圳</a>
                           
                             <a id="f1-东莞" href="?f1=东莞">东莞 </a>
@@ -490,9 +491,10 @@ body{
                     </div> -->
                     <dl class="condition clearfix">
                         <dt>课程名：</dt>
+
                         <dd class="condition-cont clearfix f2-condition">
-                            <a class="" href="?f1=0&f2=">全部</a>
-                            <a id="f2-PLC" href="?f1=0&f2=plc">中庸</a>
+                          
+                            <a class="" id="f2-PLC" href="?f1=0&f2=plc">中庸</a>
                             <a id="f2-变频器" href="?f1=0&f2=变频器">大学</a>
                             <a id="f2-触摸屏" href="?f1=0&f2=触摸屏">论语</a>
                             <a id="f2-组态" href="?f1=0&f2=组态">孟子</a>
