@@ -17,12 +17,11 @@ class Center extends CI_Controller {
 		$this->load->view("center.html");
 
 	}
-	//zailaiyici 
+//这里是新的注释
 	function test ($course_id){
 	$this->session->set_userdata('course_id',$course_id);
-	
+
 	$this->load->view("index.html");
 
 	}
 }
-
