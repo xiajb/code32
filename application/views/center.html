@@ -1,1264 +1,1099 @@
+<!doctype html>
+<html>
 
-
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>全部授权课程</title>
-    <link rel="shortcut icon" href="http://www.rfgxy.com/favicon.ico" />
-<link href="<?php echo base_url('index/style/jc.v2.css'); ?>" rel="stylesheet" type="text/css" media="all" />
-<link href="<?php echo base_url('index/style/index.v2.css'); ?>" rel="stylesheet" type="text/css" media="all" />
-<!--
-<link href="./styles/jquery.boxen.css" rel="stylesheet" type="text/css" media="all" />
-<link href="./styles/slider.v2.css" rel="stylesheet" type="text/css" media="all" />
--->
-<script src="<?php echo base_url('index/include/jquery-1.8.2.min.js'); ?>" type="text/javascript"></script>
-<script src="<?php echo base_url('index/./include/tools.v1.js'); ?>" type="text/javascript"></script>
-<!--
-<script src="./include/loginState_top.v2.js?v=1" type="text/javascript"></script>
--->
-<script src="<?php echo base_url('index/include/common.v2.js'); ?>" type="text/javascript"></script>
-
-<link href="<?php echo base_url('index/style/home.v2.css'); ?>" type="text/css" rel="stylesheet" />
-<!--
-<link href="./styles/pagesou.css" type="text/css" rel="Stylesheet" />
--->
-<link href="<?php echo base_url('index/style/button.v2.css'); ?>" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" type="text/css" href="<?php echo base_url('index/include/artDialog/skins/simple.css'); ?>" />
-<script type="text/javascript" src="<?php echo base_url('index/include/artDialog/artDialog.source.js'); ?>"></script>
-<script type="text/javascript" src="<?php echo base_url('index/include/artDialog/plugins/iframeTools.source.js'); ?>"></script>
-<script type="text/javascript" src="<?php echo base_url('index/include/pagesou.js'); ?>"></script>
-<!--
-<script src="./include/jc.pop.js?a=20130423001" type="text/javascript"></script>
--->
-<script type="text/javascript" src="<?php echo base_url('index/include/tongji.head.js'); ?>"></script>
-    <script type="text/javascript">
-        $(function () {
-            $.cookie("mylesson_slted_id") != null ? $("#" + $.cookie("mylesson_slted_id")).attr("class", "on").siblings("a").attr("class", "") : "";
-            $(".showlist a").click(function () {
-                $(this).attr("class", "on").siblings("a").attr("class", "");
-                $.cookie('mylesson_slted_id', $(this).attr("id"));
-            });
-        });
-    </script>
+    <meta charset="utf-8">
+    <title>现场培训-技成培训网-自动化专业在线培训的首选工控网平台-视频教程下载</title>
+    <meta name="description" content="技成自动化培训网课程中心，提供最新最全的专业自动化课程培训视频，提供长期在线答疑辅导服务,确保技成学员学以致用。" />
+    <meta name="keywords" content="西门子S7-200,S7-300,三菱PLC视频,变频器视频 欧姆龙视频教程,工控教程,PLC培训，plc教程视频" />
+    <link rel="stylesheet" href="<?php echo base_url('index/lesson1/css/reset.css') ?>">
+    <link rel="stylesheet" href="<?php echo base_url('index/lesson1/css/font/iconfont.css') ?>">
+    <link rel="stylesheet" href="<?php echo base_url('index/lesson1/css/basic.css') ?>">
+    <link rel="stylesheet" href="<?php echo base_url('index/lesson1/css/style.css') ?>">
+    <style type="text/css">
+    /* -------------------------------------------------
+ * pages
+ * -------------------------------------------------
+*/
+    
+    .pages li {
+        display: inline;
+    }
+    
+    .pages .active a {
+        border-color: #188EEE;
+        background-color: #188EEE;
+        color: #FFF;
+    }
+    
+    body {
+        background-color: white;
+    }
+    
+    .header {
+        border-bottom: 1px solid white;
+        box-shadow: none;
+    }
+    
+    .tabs1 .tabs-cont {
+        border: 1px solid #DDD;
+    }
+    
+    .con-wrap1 {
+        background-color: #f3f3f3;
+        margin-bottom: 0;
+    }
+    
+    .container {
+        width: 1200px!important;
+        margin-right: auto;
+        margin-left: auto;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    
+    .row {
+        margin-left: -5px;
+        margin-right: -5px;
+    }
+    
+    .col-xs-24 {
+        width: 100%;
+    }
+    
+    .header-top {
+        height: 40px;
+        line-height: 40px;
+    }
+    
+    .header-top-left {
+        float: left;
+    }
+    
+    .header-top-right {
+        float: right;
+    }
+    
+    .clearfix {
+        zoom: 1;
+    }
+    
+    .l {
+        float: left;
+    }
+    
+    .m0 {
+        margin: 0;
+    }
+    
+    .header-top-right li {
+        float: left;
+        height: 40px;
+        line-height: 40px;
+        margin-left: 15px;
+    }
+    
+    .guide-nav {
+        margin-left: 50px;
+    }
+    </style>
+    <!--日常特效插件-->
+    <!--日常特效插件-->
 </head>
+
 <body>
-    <!-- top.aspx start-->
-    
-<input type="hidden" id="setaccess" value="0" />
-
-<input type="hidden" id="setsession" value="0" />
-
-
-
-<div class="top">
-    <div class="topCont clearfix">
-        <!--topLeft1 start-->
-        <div class="l pl20 topLeft1 " style="display:inline;width: 160px;">
-            <a href="javascript:addToFavorite('技成(自动化)培训','http://www.rfgxy.com/');">收藏儒风国学院.</a>
-	    <a href="http://www.rfgxy.com/" class="btn-link btn-link6 ml15">返回新版</a>
-        </div>
-        <!--topLeft1 end-->
-
-        <div class="r w490 h30 clearfix" style="display:inline;">
-            <ul>
-                <li class="l w220 h30">
-                    <!--topLeft2 start-->
-<div class="l topLeft2 tc" id="login_top_line">你好，<b><?php echo $_SESSION['username']; ?></b>&nbsp;&nbsp;<a href="http://www.rfgxy.com/logout">[退出]</a></div>
-                    <!--topLeft2 end-->
-                </li>
-                <li class="l w130 h30">
-                    <!--topRight2 start-->
-                    <div class="l topRight2">
-                        <a href="http://my.rfgxy.com/orderLesson/order.aspx" class="cart">我的订单</a>|<a href="http://www.rfgxy.com/help/" target="_top" title="帮助中心">帮助中心</a></div>
-                    <!--topRight2 end-->
-                </li>
-                <li class="l w130 h30 lh30">
-                    <!--topRight1 start-->
-                    <div class="l pl25 topRight1"><img src="/images/1px.gif" alt="☏">110-110-110</div>
-                    <!--topRight1 end-->
-                </li>
-            </ul>
-        </div>
-
-        <!--
-        <div class="l pl25 topLeft2" id="login_top_line">
-            欢迎来到儒风国学院！ [<a href="http://www.rfgxy.com/newlogin.aspx" target="_top" title="请登录" class="topLeft2Load">请登录</a>]， 新用户？[<a href="http://www.rfgxy.com/userreg.aspx" target="_top" title="免费注册" class="topLeft2Reg">免费注册</a>]
-        </div>
-
-        <div class="r pl25 topRight1">
-            <img src="/images/1px.gif" alt="☏" />110-110-110
-        </div>
-
-        <div class="r pl20 topRight2">
-            <a href="http://my.rfgxy.com/orderLesson/shoppingCart.aspx" class="cart">我的购物车</a><a href="http://my.rfgxy.com/index.aspx" target="_top" title="我的技成">我的技成</a>|<a href="http://www.rfgxy.com/help/index.aspx" target="_top" title="帮助中心">帮助中心</a>|
-        </div>
-        -->
-
-    </div>
-</div>
-<!-- /top -->
-
-<div class="headCont">
-    
-
-    <p style="    padding: 3px 2px;    background-color: #f2dede;  border-color: #eed3d7;    margin: 10px 0;display:none;">
-    公告：由于大促期间大家热情高涨，目前会员续费5000个名额已抢完，应广大学员要求，抢购学习机和小班课程活动持续到周五，尽请周知！ 祝您学习愉快！ </p>
-    <!--head start-->
-	<div class="js_ads_banner_top" id="js_ads_banner_top">
-	   <script type="text/javascript">_ad(1, "js_ads_banner_top", "998", "80"); </script>
-	</div>
-    <div class="js_ads_banner_top_slide" id="js_ads_banner_top_slide">
-        <script type="text/javascript">_ad(21, "js_ads_banner_top_slide", "998", "500"); </script>
-    </div>
-    <div class="head clearfix">
-        <!--headLeft1 start-->
-        <div class="l headLeft1" id="headLeft1">
-            <a href="http://www.rfgxy.com/" title="儒风国学院" id="btn_logo">
-                <img src="http://logo.png" width="230" height="55" alt="儒风国学院" title="儒风国学院" id="img_logo" />
-            </a>
-        </div>
-<!--         <div class="l headLeft2" id="headAD">
-
-            <div class="search_area">
-            	<div class="h40 lh40 clearfix" style="background-color:#126ABF">
-	                <input type="text" class="searchText2 l" value="请输入要搜索的内容" placeholder="请输入要搜索的内容" class="l" id="searchText" name="txt_search">
-	                <a onfocus="this.blur();" id="searchBtn" class="r searchBtn2" href="javascript:;">&nbsp;</a>
+    <div class="wrap">
+        <!--header-->
+        <script>
+        window.enable_ad_stat_ord = true; //表示本页面启用订单来源统计
+        </script>
+        <div class="con-wrap con-wrap1">
+            <div class="container con1">
+                <div class="row">
+                    <div class="col-xs-24">
+                        <div class="header-top clearfix">
+                            <div class="header-top-left">
+                                <a href="javascript:;" id="btn-addToFav" class="btn-link btn-link6">收藏技成</a>
+                                <!-- <a href="http://www.rfgxy.com/v4/" class="btn-link btn-link6 ml15">回到旧版</a> -->
+                            </div>
+                            <div class="header-top-right clearfix">
+                                <!DOCTYPE html>
+                                <?php if (empty($_SESSION['username'])): ?>
+                                    <ul class="l m0" id="login_top_nologin">
+                                        <li>
+                                            <div><a href="http://www.rfgxy.com/login" class="btn-link btn-link6">[请登录]</a></div>
+                                        </li>
+                                        <li>
+                                            <div><a href="http://www.rfgxy.com/register" class="btn-link btn-link6">[免费注册]</a></div>
+                                        </li>
+                                    </ul>
+                                    <?php else : ?>
+                                        <ul class="l m0" id="login_top_logined">
+                                            <li>
+                                                <b class="cgray6"><?php echo $_SESSION['username']; ?></b>
+                                                <span class="fw" style="color:#188eee">[普通会员]</span>，
+                                                <span class="cgray6">欢迎来技成培训！</span><a href="http://www.rfgxy.com/logout" class="btn-link btn-link9">[退出]</a>
+                                            </li>
+                                            <li>
+                                                <div><a href="http://my.rfgxy.com/orderLesson/order.aspx" target="_blank" class="btn-link btn-link6">我的订单</a></div>
+                                            </li>
+                                        </ul>
+                                        <?php endif; ?>
+                                            <ul class="l m0">
+                                                <!--
+                                <li><div><a href="http://my.rfgxy.com/" target="_blank" class="btn-link btn-link6">学员中心</a></div></li>
+                                -->
+                                                <li>
+                                                    <div><a href="http://www.rfgxy.com/player_page/play_show.html?adfrom=old" target="_blank" class="btn-link btn-link6">技成播放器</a></div>
+                                                </li>
+                                                <li>
+                                                    <div><a href="http://www.rfgxy.com/lesson1/guide.aspx" target="_blank" class="btn-link btn-link6" style="color:Red;">新手攻略</a></div>
+                                                </li>
+                                                <li>
+                                                    <div><a href="http://www.rfgxy.com/sitemap.aspx" target="_blank" class="btn-link btn-link6">网站导航</a></div>
+                                                </li>
+                                            </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
+        </div>
+        <div class="header">
+            <div class="inner clearfix">
+                <a class="logo mr20" href="/"><img src="/lesson1/img/logo.png" width="250" height="66" alt="技成培训"></a>
+                <!--位置导航-->
+                <div class="guide-nav mr20">
+                    <li>
+                        <a class="nav-link" href="/lesson1/jinpin.aspx">首页</a>
+                    </li>
+                    <li>
+                        <span class="fs pr10 pl10">&gt;</span>
+                        <strong class="gray3">选课中心</strong>
+                    </li>
+                </div>
+                <!--位置导航-->
+                <!--搜索框-->
+                <div class="h-search mr20">
+                    <div class="search-input search-area">
+                        <input type="text" name="txtSearch" class="txt-search1" id="txtSearch" placeholder="搜索课程" />
+                    </div>
+                    <a href="javascript:;" class="search-btn searchsubmit btn-search1" id="btn-search1" onfocus="this.blur();">
+                        <i class="iconfont f20"></i></a>
+                </div>
+                <!--搜索框-->
+                <script type="text/javascript">
+                /*  搜索    */
+                var
+                    $searchArea = $(".search-area"),
+                    $txtSearch = $("#txtSearch"),
+                    $btnSsearch1 = $("#btn-search1"),
+
+                    s = "17323522629653896619",
+                    searchTypes = {
+                        "all": function(arg1) {
+                            return "http://zhannei.baidu.com/cse/search?q=" + arg1 + "&s=" + s;
+                        },
+                        "course": function(arg1) {
+                            return "http://www.jcpeixun.com/lesson/lessonSearch?q=" + escape(arg1);
+                        },
+                        "video_course": function(arg1) {
+                            return "http://www.jcpeixun.com/lesson/lessonSearch?q=" + escape(arg1);
+                        },
+                        "case_course": function(arg1) {
+                            return "http://www.jcpeixun.com/lesson/lessonSearch?q=" + escape(arg1) + "&course=%u6848%u4F8B%u8BFE%u7A0B";
+                        },
+                        "down": function(arg1) {
+                            return "http://zhannei.baidu.com/cse/search?q=" + arg1 + "&s=" + s + "&nsid=2";
+                        }
+                    },
+                    searchValidate = function() {
+                        var
+                            txtSearch = $txtSearch.val();
+                        if (!txtSearch) {
+                            $txtSearch.val("请输入课程").focus();
+                        } else if (!$.trim(txtSearch).indexOf("请输入课程")) {
+                            $txtSearch.val("请输入课程").focus();
+                        } else {
+                            var
+                                search_type_on = "all",
+                                search_text = $txtSearch.val(),
+                                cur_location = window.location.href;
+                            if (!cur_location.indexOf("http://www.jcpeixun.com/xiazai/")) {
+                                search_type_on = "down";
+                            };
+                            window.location.href = searchTypes[search_type_on](search_text);
+                        }
+                    };
+                $searchArea.on({
+                    "mouseover": function() {
+                        var
+                            txtSearch = $txtSearch.val();
+                        if ($.trim(txtSearch) == "请输入课程") {
+                            $txtSearch.val("");
+                        }
+                        $txtSearch.focus();
+                    }
+                });
+                $txtSearch.on({
+                    "keydown": function(event) {
+                        if (event.which == 13) {
+                            searchValidate();
+                        }
+                    }
+                });
+                $btnSsearch1.on({
+                    "click": function() {
+                        searchValidate();
+                    }
+                });
+                </script>
+                <div class="h-user">
+                    <!--已登录-->
+                    <div class="user-center">
+                        <!--用户菜单-->
+                        <!--                <div class="user-wrap" data-role="collapsible">
+                    <div class="user-head">
+                        <a class="user-head-inner" href="http://my.jcpeixun.com/">
+                            <img src="/lesson1/_temp/stu.jpg" width="32" height="32"></a>
+                        <i class="caret"></i>
+                    </div>
+                    <div class="user-cont">
+                        <div class="user-info">
+                            普通会员<span class="gray9 f12">(0001-01-01到期)</span> <a class="f12" href="http://u.jcpeixun.com/member/">
+                                续费</a></div>
+                        <div class="user-menu">
+                            <a href="http://my.jcpeixun.com/">学员中心</a> <a href="http://my.jcpeixun.com/messager/list.aspx">
+                                我的消息<span></span></a> <a href="http://my.jcpeixun.com/study/FreeLesson.aspx" target="_blank">
+                                    我的课程</a> <a href="http://my.jcpeixun.com/orderLesson/order.aspx" target="_blank">我的订单</a>
+                            <a href="http://my.jcpeixun.com/study/favorite.aspx" target="_blank">我的收藏</a> <a
+                                href="http://my.jcpeixun.com/study/NewLesson.aspx" target="_blank">新课上架</a>
+                            <a href="http://www.jcpeixun.com/userreg.aspx?u=20130925003" class="btn-link btn-link9"
+                                target="_blank">赚学费</a> <a href="http://my.jcpeixun.com/orderLesson/coupon.aspx"
+                                    class="btn-link btn-link9" target="_blank">优惠券</a> 
+                                      <a href="/lesson1/person_xufei.aspx"
+                                        class="fw" style="background: url(http://images.jcpeixun.com/bg_20130926001.gif) no-repeat scroll 60px 0px transparent;">会员续费</a> 
+                                          <a href="http://u.jcpeixun.com/member/"
+                                        class="fw" style="background: url(http://images.jcpeixun.com/bg_20130926001.gif) no-repeat scroll 60px 0px transparent;">购买会员</a>
+                                    <a href="http://www.jcpeixun.com/logout.aspx?callback=http://www.jcpeixun.com/lesson1/scene.aspx"
+                                        class="fw">退出</a>
+                        </div>
+                    </div>
+                </div> -->
+                        <!--用户菜单-->
+                        <!--购物车-->
+                        <!--                 <div class="user-shop" data-role="collapsible">
+                    <a class="shop-btn" href="http://www.jcpeixun.com/emailregister.aspx">用户注册</a>
+              
+            </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--header-->
+        <!--slide-->
+        <!--# include file="inc/slide.aspx" -->
+        <!--slide-->
+        <!--container-->
+        <style type="text/css">
+        div {}
+        
+        .ucenter-block {
+            height: auto;
+            background: url(http://s1.jikexueyuan.com/member/images/ucenter/ucenter_bg_1005500.jpg) repeat-y;
+            border-bottom: 1px solid #eaeaea;
+            box-sizing: border-box;
+        }
+        
+        .mar-t30 {
+            margin-top: 30px!important;
+        }
+        
+        .w-1000 {
+            width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .ucenter-left {
+            float: left;
+            width: 180px;
+            height: 100%;
+            display: inline-block;
+            border-top: 1px solid #eaeaea;
+            box-sizing: border-box;
+        }
+        
+        .ucenter-right {
+            float: left;
+            width: 820px;
+            height: 100%;
+            min-height: 620px;
+            display: inline-block;
+            border-top: 1px solid #eaeaea;
+            border-right: 1px solid #eaeaea;
+            box-sizing: border-box;
+        }
+        
+        .cf {
+            zoom: 1;
+        }
+        
+        .ucneter-l-head .ulhead-headicon {
+            margin: 16px 0 0 16px;
+            float: left;
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        .ucneter-l-head .ulhead-headicon img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        
+        .ulhead-info {
+            max-width: 96px;
+            margin: 28px 0 10px 15px;
+            float: left;
+            text-align: left;
+        }
+        
+        .ulhead-info .ulhead-info-uname {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 90px;
+            white-space: nowrap;
+            color: #333;
+            font-size: 12px;
+        }
+        
+        .ulhead-info .ulhead-info-vip {
+            margin-top: 3px;
+        }
+        
+        .icon-vip-year {
+            width: 40px;
+            height: 15px;
+            background-image: url(http://s1.jikexueyuan.com/member/images/vip-year_3ecca1f.png);
+            background-size: 40px 15px;
+        }
+        
+        .ulhead-info .ulhead-info-tool {
+            margin-top: 8px;
+        }
+        
+        .ucenter-l-list {
+            width: 180px;
+            padding-top: 14px;
+            border-top: 1px solid #eaeaea;
+        }
+        
+        .ucenter-l-list .ullist-ul {
+            margin-bottom: 16px;
+        }
+        
+        .ucenter-l-list .ullist-ul li {
+            cursor: pointer;
+            margin-top: 4px;
+        }
+        
+        .ullist-ul li a {
+            padding-left: 16px;
+            width: 100%;
+            line-height: 34px;
+            color: #666;
+            font-size: 12px;
+            display: inline-block;
+        }
+        
+        .lesson-list ul {
+            width: 790px;
+            margin-top: 25px;
+        }
+        
+        .ullist-ul li.active {
+            background: #35b558 url(http://s1.jikexueyuan.com/member/images/arrow_r_fff_c4dda92.png) center right 16px no-repeat;
+        }
+        
+  /*      .ullist-ul li.active a,
+        .ullist-ul li.active i,
+        .ullist-ul li:hover a,
+        .ullist-ul li:hover i {
+            color: #fff;
+        }*/
+        .ullist-ul li.active:hover a{
+            color:#666!important;
+        }
+        a {
+            text-decoration: none;
+        }
+        
+/*        ol,
+        ul {
+            list-style: none;
+        }*/
+        
+        .mycourse-block {
+            margin: 17px;
+            box-sizing: border-box;
+        }
+        
+        .mycourse-block .mycourse-tab-tit {
+            margin-top: 18px;
+            height: 39px;
+            /*box-sizing: border-box;*/
+        }
+        
+        .mycourse-tab-tit .mycourse-tab-ul {
+            width: 100%;
+            border-bottom: 1px solid #f3f3f3;
+            /*box-sizing: border-box;*/
+        }
+        
+        .mycourse-tab-tit .mycourse-tab-ul li.active,
+        .mycourse-tab-tit .mycourse-tab-ul li:hover {
+            border-bottom: 1px solid #35b558;
+            /*box-sizing: border-box;*/
+        }
+        
+        .mycourse-tab-tit .mycourse-tab-ul li {
+            float: left;
+            padding: 0 15px;
+            line-height: 36px;
+            text-align: center;
+            cursor: pointer;
+            /*box-sizing: border-box;*/
+        }
+        
+        .mycourse-tab-tit .mycourse-tab-ul li a {
+            font-size: 12px;
+            color: #333;
+            /*box-sizing: border-box;*/
+        }
+        
+        .mycourse-block .mycourse-tab-body {
+            margin-left: 7px;
+            /*box-sizing: border-box;*/
+        }
+        
+        .lesson-list ul {
+            width: 790px;
+            margin-top: 25px;
+            /*box-sizing: border-box;*/
+        }
+        
+        .lesson-list ul li {
+            width: 240px;
+            height: 220px;
+            float: left;
+            margin-right: 20px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+        
+        .lesson-list .lessonimg-box {
+            width: 240px;
+            height: 130px;
+            position: relative;
+            border: 1px solid #e4e4e4;
+            border-bottom: 0;
+            box-sizing: border-box;
+        }
+        
+        .lesson-list .lesson-infor {
+            padding: 10px;
+            position: relative;
+            z-index: 200;
+            height: 88px;
+            overflow: hidden;
+            background: #fff;
+            border: 1px solid #e4e4e4;
+            border-top: 0;
+            box-sizing: border-box;
+            /*height: 88px;*/
+        }
+        
+        .lesson-list .lesson-infor .lesson-info-h2,
+        .lesson-list .lesson-infor h5 {
+            font-size: 14px;
+            color: #333;
+            line-height: 18px;
+            margin-bottom: 12px;
+            height: 36px;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+        #page-nav {
+    text-align: center;
+}
+#page-nav {
+    /*text-align: right;*/
+        position: absolute;
+    top: 700px;
+    margin-top: 45px;
+    height: 28px;
+}
+ul.pages {
+    display: block;
+    border: 0;
+    text-transform: uppercase;
+    font-size: 12px;
+    margin: 10px 10px 50px;
+    padding: 0;
+}
+.lesson-list ul {
+    width: 790px!important;
+    margin-top: 25px;
+     box-sizing: border-box!important; 
+}
+ul.pages li.pgNext {
+    width: 50px;
+}
+ul.pages li.pgEmpty {
+    border: 1px solid #f0f0f0;
+    color: #d9d6c3;
+    /*width: 50px;*/
+    cursor: default;
+}
+ul.pages li {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    border: 0;
+    margin-left: 3px!important;
+    margin-right: 5px!important;
+    margin-bottom: 10px!important;
+    line-height: 30px;
+    border: 1px solid #e4e4e4;
+    text-align: center;
+    font-size: 12px;
+    background: #fff;
+    color: #333;
+}
+.lesson-list ul li:nth-child(3n+3) {
+    margin-right: 0!important;
+}
+ul.pages li.pgCurrent {
+    background: #35b558;
+    color: #fff;
+    border: 1px solid #35B558;
+}
+ul.pages li {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    border: 0;
+    margin-left: 3px!important;
+    margin-right: 5px!important;
+    margin-bottom: 10px!important;
+    line-height: 30px;
+    border: 1px solid #e4e4e4;
+    text-align: center;
+    font-size: 12px;
+    background: #fff;
+    color: #333;
+}
+.lesson-list ul li:nth-child(3n+3) {
+    margin-right: 0!important;
+}
+ul.pages li.pagetotal {
+    width: 70px;
+}
+ul.pages li.thpoint {
+    border: 0;
+    cursor: auto;
+    color: #000;
+    background-color: #fff;
+    margin-top: 3px;
+}
+ul.pages li.pagenow {
+    width: 100px;
+}
+ul.pages li.thpoint {
+    border: 0;
+    cursor: auto;
+    color: #000;
+    background-color: #fff;
+    margin-top: 3px;
+}
+ul.pages li.go {
+    width: 32px;
+    height: 22px;
+    line-height: 22px;
+    margin-top: 6px;
+}
+li:hover a, .ullist-ul li:hover i {
+    color: #35B559!important;
+}
+        </style>
+        <div id="pager">
+            <div class="w-1000 mar-t30 cf ucenter-block">
+                <div class="ucenter-left account-left-border">
+                    <div class="ucneter-l-head cf">
+                        <div class="ulhead-headicon">
+                            <img src="http://assets.jikexueyuan.com/user/avtar/default.gif" id="avatar_img" width="50px" height="50px" alt="心似已灰之木">
+                        </div>
+                        <div class="ulhead-info">
+                            <p class="ulhead-info-uname">心似已灰之木</p>
+                            <p class="ulhead-info-vip"><i class="icon icon-vip-year"></i>
+                            </p>
+                            <div class="ulhead-info-tool">
+                                <a class="ulhead-icon icon-lock ucenter-mail " href="http://www.jikexueyuan.com/member/setting.html" title="修改密码" jktag="&amp;posGP=115005&amp;posOper=56002&amp;posArea=0001">
+                                    <div class="ucenter-mail-tip">修改密码</div>
+                                </a>
+                                <a href="http://www.jikexueyuan.com/member/setting.html" class="ulhead-icon icon-setting ucenter-mail" title="设置个人信息" jktag="&amp;posGP=115005&amp;posOper=56005&amp;posArea=0001"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ucenter-l-list">
+                        <ul class="ullist-ul">
+                            <li class=""><a href="http://www.jikexueyuan.com/member/" jktag="&amp;posGP=115001&amp;posOper=56006&amp;posArea=0002">个人中心</a>
+                            </li>
+                            <li class=""><a href="http://www.jikexueyuan.com/member/notifications/" jktag="&amp;posGP=115007&amp;posOper=56007&amp;posArea=0002">我的消息</a>
+                            </li>
+                            <li class="active"><a href="http://www.jikexueyuan.com/member/mycourse/" jktag="&amp;posGP=115007&amp;posOper=56007&amp;posArea=0002">我的课程</a>
+                            </li>
+                            <li class=""><a href="http://www.jikexueyuan.com/member/freevip.html" jktag="&amp;posGP=115002&amp;posOper=56008&amp;posArea=0002">免费VIP</a>
+                            </li>
+                            <li class=""><a href="http://www.jikexueyuan.com/member/mycode.html" jktag="&amp;posGP=115003&amp;posOper=56009&amp;posArea=0002">我的F码</a>
+                            </li>
+                            <li class=""><a href="http://www.jikexueyuan.com/member/setting.html" jktag="&amp;posGP=115005&amp;posOper=56010&amp;posArea=0002">账号设置</a>
+                            </li>
+                            <li class=""><a href="http://www.jikexueyuan.com/member/connect.html" jktag="&amp;posGP=115006&amp;posOper=56011&amp;posArea=0002">一键绑定</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="ucenter-right cf">
+                    <div class="mycourse-block">
+                        <div class="mycourse-tab-tit">
+                            <ul class="cf mycourse-tab-ul">
+                                <li class="active"><a href="http://www.jikexueyuan.com/member/mycourse/xuexi.html" jktag="&amp;posOper=62012&amp;posArea=0003">正在学习</a></li>
+                                <li class=""><a href="http://www.jikexueyuan.com/member/mycourse/shoucang.html" jktag="&amp;posOper=62012&amp;posArea=0003">我的收藏</a></li>
+                                <li class=""><a href="http://www.jikexueyuan.com/member/mycourse/yixue.html" jktag="&amp;posOper=62012&amp;posArea=0003">已经学完</a></li>
+                                <li class=""><a href="http://www.jikexueyuan.com/member/mycourse/jilu.html" jktag="&amp;posOper=62012&amp;posArea=0003">最近浏览</a></li>
+                            </ul>
+                        </div>
+                        <div class="mycourse-tab-body lesson-list" id="changeid">
+                            <ul class="cf" id="home_my_fav">
+                                <li id="657" test="0" deg="360" stop="1">
+                                    <div class="lessonimg-box">
+                                        <i class="user-action lesson-shoucang " style="display: none;" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64013&amp;aCId=657&amp;posColumn=657.1"></i>
+                                        <i class="free-icon"></i>
+                                        <a href="http://www.jikexueyuan.com/course/657.html" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=657&amp;posColumn=657.1">
+                                            <img src="http://a1.jikexueyuan.com/home/201504/01/0639/551b45781e665.jpg" class="lessonimg" title="ThinkPHP 概述及配置" alt="ThinkPHP 概述及配置">
+                                            <div class="lessonplay" style="opacity: 0;">
+                                                <div class="cricle">
+                                                    <div class="mask" style="display: none;"></div>
+                                                    <div class="left" style="transform: rotate(360deg);">
+                                                        <div class="bg"></div>
+                                                    </div>
+                                                    <div class="cright" style="display: block;">
+                                                        <div class="bg"></div>
+                                                    </div>
+                                                    <div class="text">100%</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="jd-line" style="display: block;">
+                                            <div class="green-line" style="width:238px"></div>
+                                        </div>
+                                    </div>
+                                    <div class="lesson-infor" style="height: 88px;">
+                                        <h2 class="lesson-info-h2"><a href="http://www.jikexueyuan.com/course/657.html" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=657&amp;posColumn=657.1">ThinkPHP 概述及配置</a></h2>
+                                        <p style="height: 0px; opacity: 0; display: none;">
+                                            通过本课程的学习，对 PHP 框架和 ThinkPHP 框架有基本的认识，了解 ThinkPHP 应用的程序结构和 MVC 分层架构，熟悉 ThinkPHP 框架的配置。
+                                        </p>
+                                        <div class="timeandicon">
+                                            <div class="cf">
+                                                <dl>
+                                                    <dd class="mar-b8"><i class="time-icon"></i><em>3课时
+                            21分钟</em>
+                                                    </dd>
+                                                    <dd class="zhongji" style="display: none;">
+                                                        <i class="xinhao-icon2"></i><em>中级</em>
+                                                    </dd>
+                                                </dl>
+                                                <em class="learn-number" style="display: none;">16803人学习</em>
+                                            </div>
+                                            <div class="cf">
+                                                <div class="lessonicon-box" style="bottom: 4px;">
+                                                    <a href="http://www.jikexueyuan.com/course/thinkphp/">
+                                                        <img width="16" src="http://a1.jikexueyuan.com/home/201502/04/d12f/54d1c99185f23.png" alt="thinkphp" title="ThinkPHP" jktag="&amp;posGP=101001&amp;posArea=0003&amp;posOper=64015&amp;aCId=657&amp;posColumn=657.1&amp;aCCate=thinkphp">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li id="376" test="0" deg="360" stop="1">
+                                    <div class="lessonimg-box">
+                                        <i class="user-action lesson-shoucang " style="display: none;" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64013&amp;aCId=376&amp;posColumn=376.2"></i>
+                                        <i class="free-icon"></i>
+                                        <a href="http://www.jikexueyuan.com/course/376.html" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=376&amp;posColumn=376.2">
+                                            <img src="http://a1.jikexueyuan.com/home/201411/27/631c/54768947c592a.jpg" class="lessonimg" title="PHP 基本介绍" alt="PHP 基本介绍">
+                                            <div class="lessonplay" style="opacity: 0;">
+                                                <div class="cricle">
+                                                    <div class="mask" style="display: none;"></div>
+                                                    <div class="left" style="transform: rotate(360deg);">
+                                                        <div class="bg"></div>
+                                                    </div>
+                                                    <div class="cright" style="display: block;">
+                                                        <div class="bg"></div>
+                                                    </div>
+                                                    <div class="text">100%</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="jd-line" style="display: block;">
+                                            <div class="green-line" style="width:238px"></div>
+                                        </div>
+                                    </div>
+                                    <div class="lesson-infor" style="height: 88px;">
+                                        <h2 class="lesson-info-h2"><a href="http://www.jikexueyuan.com/course/376.html" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=376&amp;posColumn=376.2">PHP 基本介绍</a></h2>
+                                        <p style="height: 0px; opacity: 0; display: none;">
+                                            PHP 语法简单，开发效率高，是众多中小型甚至大型(如：Facebook)网站的首选开发语言，本套课程通过讲解 PHP 的历史、PHP 的优点、PHP 相关的名词解释来说明什么是 PHP。
+                                        </p>
+                                        <div class="timeandicon">
+                                            <div class="cf">
+                                                <dl>
+                                                    <dd class="mar-b8"><i class="time-icon"></i><em>3课时
+                            13分钟</em>
+                                                    </dd>
+                                                    <dd class="zhongji" style="display: none;">
+                                                        <i class="xinhao-icon"></i><em>初级</em>
+                                                    </dd>
+                                                </dl>
+                                                <em class="learn-number" style="display: none;">36857人学习</em>
+                                            </div>
+                                            <div class="cf">
+                                                <div class="lessonicon-box" style="bottom: 4px;">
+                                                    <a href="http://www.jikexueyuan.com/course/phpbase/">
+                                                        <img width="16" src="http://a1.jikexueyuan.com/home/201502/04/d12f/54d1c99185f23.png" alt="phpbase" title="PHP 基础" jktag="&amp;posGP=101001&amp;posArea=0003&amp;posOper=64015&amp;aCId=376&amp;posColumn=376.1&amp;aCCate=phpbase">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li id="127" test="0" deg="360" stop="1">
+                                    <div class="lessonimg-box">
+                                        <i class="user-action lesson-shoucang " style="display: none;" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64013&amp;aCId=127&amp;posColumn=127.3"></i>
+                                        <i class="free-icon"></i>
+                                        <a href="http://www.jikexueyuan.com/course/127.html" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=127&amp;posColumn=127.3">
+                                            <img src="http://a1.jikexueyuan.com/home/201407/10/c6e4/53bdf15c29478.jpg" class="lessonimg" title="HTML5特性简介" alt="HTML5特性简介">
+                                            <div class="lessonplay" style="opacity: 0;">
+                                                <div class="cricle">
+                                                    <div class="mask" style="display: none;"></div>
+                                                    <div class="left" style="transform: rotate(360deg);">
+                                                        <div class="bg"></div>
+                                                    </div>
+                                                    <div class="cright" style="display: block;">
+                                                        <div class="bg"></div>
+                                                    </div>
+                                                    <div class="text">100%</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="jd-line" style="display: block;">
+                                            <div class="green-line" style="width:238px"></div>
+                                        </div>
+                                    </div>
+                                    <div class="lesson-infor" style="height: 88px;">
+                                        <h2 class="lesson-info-h2"><a href="http://www.jikexueyuan.com/course/127.html" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=127&amp;posColumn=127.3">HTML5特性简介</a></h2>
+                                        <p style="height: 0px; opacity: 0; display: none;">
+                                            本套课程主要来了解HTML5，包含，简介、集成开发环境的搭建和HTML基础。
+                                        </p>
+                                        <div class="timeandicon">
+                                            <div class="cf">
+                                                <dl>
+                                                    <dd class="mar-b8"><i class="time-icon"></i><em>3课时
+                            19分钟</em>
+                                                    </dd>
+                                                    <dd class="zhongji" style="display: none;">
+                                                        <i class="xinhao-icon"></i><em>初级</em>
+                                                    </dd>
+                                                </dl>
+                                                <em class="learn-number" style="display: none;">100511人学习</em>
+                                            </div>
+                                            <div class="cf">
+                                                <div class="lessonicon-box" style="bottom: 4px;">
+                                                    <a href="http://www.jikexueyuan.com/course/html5/">
+                                                        <img width="16" src="http://a1.jikexueyuan.com/home/201411/03/171a/54578ddd8e62a.png" alt="html5" title="HTML5" jktag="&amp;posGP=101001&amp;posArea=0003&amp;posOper=64015&amp;aCId=127&amp;posColumn=127.1&amp;aCCate=html5">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li id="181" test="0" deg="360" stop="1">
+                                    <div class="lessonimg-box">
+                                        <i class="user-action lesson-shoucang " style="display: none;" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64013&amp;aCId=181&amp;posColumn=181.4"></i>
+                                        <a href="http://www.jikexueyuan.com/course/181.html" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=181&amp;posColumn=181.4">
+                                            <img src="http://a1.jikexueyuan.com/home/201408/10/09cf/53e70d45e8506.jpg" class="lessonimg" title="HTML5开发前准备" alt="HTML5开发前准备">
+                                            <div class="lessonplay" style="opacity: 0;">
+                                                <div class="cricle">
+                                                    <div class="mask" style="display: none;"></div>
+                                                    <div class="left" style="transform: rotate(360deg);">
+                                                        <div class="bg"></div>
+                                                    </div>
+                                                    <div class="cright" style="display: block;">
+                                                        <div class="bg"></div>
+                                                    </div>
+                                                    <div class="text">100%</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="jd-line" style="display: block;">
+                                            <div class="green-line" style="width:238px"></div>
+                                        </div>
+                                    </div>
+                                    <div class="lesson-infor" style="height: 88px;">
+                                        <h2 class="lesson-info-h2"><a href="http://www.jikexueyuan.com/course/181.html" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=181&amp;posColumn=181.4">HTML5开发前准备</a></h2>
+                                        <p style="height: 0px; opacity: 0; display: none;">
+                                            本套课程介绍 HTML5 以及开发前需要准备的环境和继承开发环境的搭建，包含集成开发环境的快捷键的修改及使用。
+                                        </p>
+                                        <div class="timeandicon">
+                                            <div class="cf">
+                                                <dl>
+                                                    <dd class="mar-b8"><i class="time-icon"></i><em>2课时
+                            12分钟</em>
+                                                    </dd>
+                                                    <dd class="zhongji" style="display: none;">
+                                                        <i class="xinhao-icon"></i><em>初级</em>
+                                                    </dd>
+                                                </dl>
+                                                <em class="learn-number" style="display: none;">137294人学习</em>
+                                            </div>
+                                            <div class="cf">
+                                                <div class="lessonicon-box" style="bottom: 4px;">
+                                                    <a href="http://www.jikexueyuan.com/course/html5/">
+                                                        <img width="16" src="http://a1.jikexueyuan.com/home/201411/03/171a/54578ddd8e62a.png" alt="html5" title="HTML5" jktag="&amp;posGP=101001&amp;posArea=0003&amp;posOper=64015&amp;aCId=181&amp;posColumn=181.1&amp;aCCate=html5">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div id="page-nav">
+                                <ul class="pages">
+                                    <li class="pgNext pgEmpty">首页</li>
+                                    <li class="pgNext pgEmpty">上一页</li>
+                                    <li class="page-number pgCurrent">1</li>
+                                    <li class="pgNext pgEmpty">下一页</li>
+                                    <li class="pgNext pgEmpty">末页</li>
+                                    <li class="thpoint pagetotal" style="margin-top:3px;">共 1 页</li>
+                                    <li class="thpoint pagenow">当前
+                                        <input type="text" value="1" maxlength="6" id="gotoval" style="width:20px; height:16px;margin-top:-3px;padding-top:2px;padding-left:10px;">页</li>
+                                    <li class="pgNext go">确定</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mycourse-page">
+                            <div id="page-nav"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--footer-->
+        <div class="footer mt20">
+            <!--footer-guide-->
+            <!--        <div class="foot-guide inner clearfix">
+            <dl class="fg-item2">
+                <dt class="h30 lh30 b f14">精品课程</dt>
+                <dd class="clearfix">
+                    <a class="w140" href="/lesson1/search-list.aspx?keyword=三菱">三菱视频教程</a>
+                    <a class="w80"  href="/lesson1/search-list.aspx?keyword=电工">电工</a>
+                    <a class="w140" href="/lesson1/search-list.aspx?keyword=案例课程">案例课程</a>
+                    <a class="w140" href="/lesson1/search-list.aspx?keyword=西门子">西门子视频教程</a>
+                    <a class="w80"  href="/lesson1/search-list.aspx?keyword=数控">数控</a>
+                    <a class="w140" href="/lesson1/search-list.aspx?keyword=西门子S7-200">西门子S7-200</a>
+                    <a class="w140" href="/lesson1/search-list.aspx?keyword=指令详解">指令详解</a>
+                    <a class="w80"  href="/lesson1/search-list.aspx?keyword=组态王">组态王</a>
+                    <a class="w140" href="/lesson1/search-list.aspx?keyword=西门子S7-300">西门子S7-300</a>
+                    <a class="w140" href="/lesson1/search-list.aspx?keyword=变频器">变频器</a>
+                    <a class="w80"  href="/lesson1/search-list.aspx?keyword=PID">PID</a>
+                    <a class="w140" href="/lesson1/search-list.aspx?keyword=伺服">伺服</a>
+
+
+
+                </dd>
+            </dl>
+            <dl class="fg-item">
+                <dt class="h30 lh30 b f14">学习咨询</dt>
+                <dd><a href="/lesson1/jinpin.aspx">选课中心</a></dd>
+                <dd><a href="/lesson1/jihua.aspx">学习计划</a></dd>
+                <dd><a href="/knowledge/">文章中心</a></dd>
+                <dd><a href="http://www.jcpeixun.com/xiazai/">技成下载库</a></dd>
+                  <dd style="width:100px;"><a href="http://www.jcpeixun.com/lesson1/tear_user.aspx">助教老师邀请通道</a> </dd>
+            </dl>
+            <dl class="fg-item">
+                <dt class="h30 lh30 b f14">帮助中心</dt>
+                
+                <dd><a href="http://www.jcpeixun.com/lesson1/guide.aspx">新手上路</a></dd>
+              
+                <dd><a href="http://www.jcpeixun.com/help/help36.aspx">积分获取、规则</a></dd>
+                <dd><a href="http://www.jcpeixun.com/help/help12.aspx" target="_blank">升级与购买</a></dd>
+                <dd><a href="http://www.jcpeixun.com/help/help25.aspx" target="_blank">购买白金学员</a></dd>
+                <dd><a href="http://www.jcpeixun.com/help/help22.aspx" target="_blank">购买金牌学员</a></dd>
+               
+            </dl>
+            <dl class="fg-item">
+                <dt class="h30 lh30 b f14">关于技成</dt>
+                <dd><a href="http://www.jcpeixun.com/AboutUs.aspx">了解技成</a></dd>
+                <dd><a href="http://www.jcpeixun.com/contact.aspx">联系我们</a></dd>
+                <dd><a href="http://www.jcpeixun.com/zhaopin.aspx">加入我们</a></dd>
+                 <dd><a href="http://www.jcpeixun.com/lesson1/tear_info.aspx">助教老师</a></dd>
+                 <dd><a href="http://exam.jcpeixun.com/jcexam/certificateprofile.aspx">证书查询</a></dd>
+            </dl>
+            <dl class="fg-item">
+                <dt class="h30 lh30 b f14">客户端</dt>
+                <dd><a href="http://www.jcpeixun.com/player_page/play_show.html?adfrom=old">技成播放器</a></dd>
+                <dd><a href="http://www.jcpeixun.com/appDownload/app_page.html">技成手机APP</a></dd>
+                <dd><a href="http://weibo.com/jcpx">新浪微博</a></dd>
+                <dd><a href="http://bbs.jcpeixun.com/thread-39246-1-1.html">官方微信</a></dd>
+            </dl>
+            <dl class="fg-item" style="border-right:0; padding-right:0;">
+                <dt class="h30 lh30 f14">合作服务</dt>
+                <dd><a href="http://www.jcpeixun.com/help/help21.aspx">个人服务</a></dd>
+                <dd><a href="/lesson1/weipei.aspx">企业服务</a></dd>
+                <dd><a href="/lesson1/weipei.aspx">院校服务</a></dd>
+            </dl>
+        </div> -->
+            <!--footer-guide-->
+            <!--copyright-->
+            <!--         <div class="copyright">
+            <div class="inner">
+                <div class="w250 r tr mt15">
+                    <a class="mr10" href="http://www.anquan.org/" target="_blank"><img src="/lesson1/img/copyright/aqlm.jpg" width="66" height="24" alt="安全联盟行业验证"></a>
+                    <a class="mr10" href="http://xinyu.baidu.com/" target="_blank"><img src="/lesson1/img/copyright/bdxy.jpg" width="66" height="24" alt="百度信誉放心访问"></a>
+                    <a class="mr10" href="http://kexin.knet.cn/column_1/column_1_2/" target="_blank"><img src="/lesson1/img/copyright/kxwz.jpg" width="66" height="24" alt="可信网站身份验证"></a>
+                </div>
+                <p class="gray9">©深圳市技成科技有限公司 - 课程内容版权均归技成培训网所有  粤ICP备11069432号</p>
+                <p class="">广东省 深圳市 专业技术人员继续教育网络学习平台<br>联合运营单位：深圳市工程师联合会</p>
             </div>
         </div> -->
-        <!--headLeft2 end-->
-        <!--headRight start-->
-        <div class="r headRight mt15" style="background:none;border:none;">
-            <form id="formlogin" autocomplete="off" method="post" action="">
-                <input type="hidden" name="callback" value="/study/MyLesson.aspx" />
-                <table width="240" cellspacing="0" cellpadding="0" border="0" id="loginno_top_table">
-                    <tbody>
-                        <tr>
-                            <td align="center" height="40">
-                                <a href="http://www.rfgxy.com/newlogin.aspx"><img width="92" height="35" src="http://images.rfgxy.com/btn_20130522002.jpg" alt=""></a>
-                            </td>
-                            <td align="center" height="40">
-                                <a href="http://www.rfgxy.com/userreg.aspx"><img width="92" height="35" src="http://images.rfgxy.com/btn_20130522001.jpg" alt=""></a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div id="logined_top_table" class="dn mt5">
-                    <div class="myjc l mr20" id="myjc">
-                        <dl class="myjc-dl">
-                            <dt>
-                                <i class="i1"></i><i class="i2"></i>
-                                <a href="http://my.rfgxy.com/" class="btn_myjc">学员中心</a>
-                                <s class="s1"></s>
-                            </dt>
-                            <dd>
-                                <div class="f1 f" id="logino_20140121">您好，请<a href="http://www.rfgxy.com/newlogin.aspx" class="f14">登录</a></div>
-                                <div class="f2 f" id="logined_20140121">您好，<a href="">test</a> [普通学员]</div>
-                                <div class="f3 clearfix">
-                                    <ul class="ul ul1">
-                                        <li><a href="http://my.rfgxy.com/study/FreeLesson.aspx">我的课程</a></li>
-                                        <li><a href="http://my.rfgxy.com/orderLesson/order.aspx">我的订单</a></li>
-                                        <li><a href="http://my.rfgxy.com/study/favorite.aspx">我的收藏</a></li>
-                                        <li><a href="http://my.rfgxy.com/study/NewLesson.aspx">新课上架</a></li>
-                                    </ul>
-                                    <ul class="ul ul2">
-                                        <li style="background:url(http://images.rfgxy.com/bg_20130926001.gif) no-repeat scroll 40px 0 transparent;"><a href="http://www.rfgxy.com/userreg.aspx?u=20130925003">赚学费 ></a></li>
-                                        <li><a href="http://my.rfgxy.com/messager/list.aspx">站内信 ></a></li>
-                                        <li><a href="http://my.rfgxy.com/orderLesson/coupon.aspx">优惠券 ></a></li>
-                                        <li><a href="http://my.rfgxy.com/Account/award_record.aspx#lstu_son">技成币 ></a></li>
-                                    </ul>
-                                </div>
-                            </dd>
-                        </dl>
-                    </div>
-
-                    <div class="myjc myjc2 l" id="myjc2">
-                        <dl class="myjc-dl">
-                            <dt style="background:url(http://images.rfgxy.com/bg_20130926001.gif) no-repeat scroll 75px 0 #F3F3F3">
-                                <i class="i3"></i>
-                                <a href="http://www.rfgxy.com/userreg.aspx?u=20130925003" class="btn_myjc">赚学费</a>
-                                <s class="s1"></s>
-                            </dt>
-                        </dl>
-                    </div>
-                </div>
-
-            </form>
+            <!--copyright-->
         </div>
-        <!--headRight end-->
-    </div>
-    <!--head end-->
-    <!--banner start-->
-    <div class="banner">
-        <!--bannerCont1 start-->
-        <div class="bannerCont1 clearfix">
-            <div class="sidebar_nav">
-                <div class="sidebar_nav_title">
-                    <em class="f16"><a href="http://www.rfgxy.com/lesson/" target="_blank" style="color:#fff;">学视频</a></em>
-                    <i class="i1"></i>
-                </div>
-                <style type="text/css">
-                div.db{display:block;}
-                </style>
-               
-
-                <div class="sidebar_nav_contents " id="sidebar_nav_contents">
-                    <ul>
-			<li>
-                        	<div class="sidebar_nav_content" style="background: url(http://images.rfgxy.com/bg_20141104_001.gif) no-repeat scroll 65px 3px transparent;">
-	                            <div class="sidebar_nav_content_title"> <a href="http://www.rfgxy.com/lesson/newer/" class="btn_link1 btn_link" target="_blank">新课上架</a> <i></i> </div>
-	                            <div class="sidebar_nav_content_lists list1 clearfix">
-	                                <div class="w70p l">
-	                                    <dl class="clearfix ml10 mr10">
-	                                        <dt class="l w70"><em style="color:#e43b3d">[2014-11-14]</em></dt>
-	                                        <dd class="l w300">
-							<div class="bb2">
-								<a href="/lesson/2150/" target="_blank">《ABB机器人实操与应用技巧》(已更新13个课时)</a>
-							</div>
-						</dd>
-	                                    </dl>
-	                                    <dl class="clearfix ml10 mr10">
-	                                        <dt class="l w70"><em style="color:#e43b3d">[2014-11-13]</em></dt>
-	                                        <dd class="l w300">
-							<div class="bb2">
-								<a href="/lesson/2146/" target="_blank">《三菱PLC定位控制技术》 (已更新35个课时)</a>
-							</div>
-						</dd>
-	                                    </dl>
-	                                    <dl class="clearfix ml10 mr10">
-	                                        <dt class="l w70"><em style="color:#e43b3d">[2014-11-12]</em></dt>
-	                                        <dd class="l w300">
-							<div class="bb2">
-								<a href="/lesson/2148/" target="_blank">《机械识图》 (已更新14个课时)</a>
-							</div>
-						</dd>
-	                                    </dl>
-
-	                                    <dl class="clearfix ml10 mr10">
-	                                        <dt class="l w70"><em style="color:#e43b3d">[2014-11-11]</em></dt>
-	                                        <dd class="l w300">
-							<div class="bb2">
-								<a href="/lesson/2149/" target="_blank" title="《伺服驱动器功能参数设置与实操训练》(已更新13个课时)">《伺服驱动器功能参数设置与实操...》(已更新13个课时)</a>
-							</div>
-						</dd>
-	                                    </dl>
-	                                    <dl class="clearfix ml10 mr10">
-	                                        <dt class="l w70"><em style="color:#e43b3d">[2014-11-10]</em></dt>
-	                                        <dd class="l w300">
-							<div class="bb2">
-								<a href="/lesson/2107/" target="_blank">《西门子触摸屏入门及应用》 (已更新63个课时)</a>
-							</div>
-						</dd>
-	                                    </dl>
-
-	                                    <dl class="clearfix ml10 mr10">
-	                                        <dt class="l w70">&nbsp;</dt>
-	                                        <dd class="l w300 tr"><a href="http://www.rfgxy.com/lesson/newer/" target="_blank" class="tdu1">更多新课>></a></dd>
-	                                    </dl>
-	                                </div>
-	                                <div class="w25p l mt15">
-	                                	<!--
-						<a href="http://www.rfgxy.com/topic/lesson/20120726/index.html" target="_blank"><img src="http://images.rfgxy.com/tit_20131010002.png" width="135" height="145" alt="" title="" /></a>
-						-->
-	                                </div>
-	                            </div>
-                            </div>
-                        </li>
-			<li>
-                        	<div class="sidebar_nav_content">
-	                            <div class="sidebar_nav_content_title"> <a href="http://www.rfgxy.com/lesson/lessonSearch?brand=%u897F%u95E8%u5B50&device=%u4E0D%u9650&course=%u6280%u672F%u8BFE%u7A0B" class="btn_link1 btn_link" target="_blank">西门子</a> <i></i> </div>
-	                            <div class="sidebar_nav_content_lists list1 clearfix">
-	                                <div class="w70p l">
-	                                    <dl class="clearfix ml10 mr10 bb1">
-	                                        <dt class="l w70"><em style="color:#e43b3d">[S7-200]</em></dt>
-	                                        <dd class="l w300"><a href="http://www.rfgxy.com/lesson/3/" target="_blank">西门子S7-200PLC从入门到精通</a></dd>
-	                                    </dl>
-	                                    <dl class="clearfix ml10 mr10 bb1">
-	                                        <dt class="l w70"><em style="color:#e43b3d">[S7-300]</em></dt>
-	                                        <dd class="l w300">
-		                                        <div class="bb2">
-		                                        	<a href="http://www.rfgxy.com/lesson/1510/" target="_blank">西门子S7-300PLC初级</a><em class="ml10 mr10 cgray5">|</em>
-		                                        	<a href="http://www.rfgxy.com/lesson/1976/" target="_blank">西门子S7-300使用指南</a>
-		                                        </div>
-		                                        <div class="bb2"><a href="http://www.rfgxy.com/lesson/1662/" target="_blank">西门子S7-300中高级应用技术</a></div>
-		                                        <div class="bb2"><a href="http://www.rfgxy.com/lesson/1823/" target="_blank">S7-300PLC以太网通信技术</a></div>
-		                                        <div class="bb2"><a href="http://www.rfgxy.com/lesson/1974/" target="_blank">模块化编程与多重背景应用</a></div>
-	                                        </dd>
-	                                    </dl>
-	                                    <dl class="clearfix ml10 mr10 bb1">
-	                                        <dt class="l w70"><em style="color:#e43b3d">[触摸屏]</em></dt>
-	                                        <dd class="l w300">
-                                                <div class="bb2">
-                                                    <a href="http://www.rfgxy.com/lesson/1511/" target="_blank">西门子触摸屏应用技术 </a>
-                                                </div>
-                                                <div class="bb2">
-                                                    <a href="http://www.rfgxy.com/lesson/2107/" target="_blank">西门子触摸屏入门及应用（梁智斌） </a>
-                                                </div>
-                                            </dd>
-	                                    </dl>
-	                                    <dl class="clearfix ml10 mr10 bb1">
-	                                        <dt class="l w70"><em style="color:#e43b3d">[WINCC]</em></dt>
-	                                        <dd class="l w300"><a href="http://www.rfgxy.com/lesson/1759/" target="_blank">WINCC 应用与提高</a></dd>
-	                                    </dl>
-	                                    <dl class="clearfix ml10 mr10">
-	                                        <dt class="l w70"><em style="color:#e43b3d">[变频器]</em></dt>
-	                                        <dd class="l w300"><a href="http://www.rfgxy.com/lesson/1990/" target="_blank">西门子变频器参数设置和实操训练</a></dd>
-	                                    </dl>
-                                        <dl class="clearfix ml10 mr10">
-                                            <dt class="l w70"><em style="color:#e43b3d">[LOGO!]</em></dt>
-                                            <dd class="l w300"><a href="http://www.rfgxy.com/lesson/1883/" target="_blank">西门子LOGO!基础及应用 </a></dd>
-                                        </dl>
-	                                    <dl class="clearfix ml10 mr10">
-	                                        <dt class="l w70">&nbsp;</dt>
-	                                        <dd class="l w300 tr"><a href="http://www.rfgxy.com/lesson/lessonSearch?brand=%u897F%u95E8%u5B50&device=%u4E0D%u9650&course=%u6280%u672F%u8BFE%u7A0B" target="_blank" class="tdu1">更多>></a></dd>
-	                                    </dl>
-	                                </div>
-                                    <!--
-                                    <div class="w25p l mt5">
-                                        <a href="http://www.rfgxy.com/topic/lesson/20111212/index2.aspx" target="_blank"><img src="http://images.rfgxy.com/tit_20131209001.png" width="160" height="145" alt="" title="" /></a>
-                                    </div>
-                                    -->
-	                                <div class="w25p l mt15">
-	                                	<a href="http://www.rfgxy.com/topic/lesson/20120726/index.html" target="_blank"><img src="http://images.rfgxy.com/tit_20131010002.png" width="135" height="145" alt="" title="" /></a>
-	                                </div>
-	                            </div>
-                            </div>
-                        </li>
-
-                        <li>
-                        	<div class="sidebar_nav_content">
-	                            <div class="sidebar_nav_content_title"> <a href="http://www.rfgxy.com/lesson/lessonSearch?brand=%u4E09%u83F1&device=%u4E0D%u9650&course=%u6280%u672F%u8BFE%u7A0B" class="btn_link1 btn_link" target="_blank">三菱</a> <i></i> </div>
-	                            <div class="sidebar_nav_content_lists list2 clearfix">
-	                                <div class="w70p l">
-	                                    <dl class="clearfix ml10 mr10 bb1">
-	                                        <dt class="l w70"><em style="color:#e43b3d">[FX2N]</em></dt>
-	                                        <dd class="l w300">
-	                                        	<div class="bb2">
-	                                        		<a href="http://www.rfgxy.com/lesson/1507/" target="_blank">FX PLC编程与应用入门 </a><em class="ml10 mr10 cgray5">|</em>
-	                                        		<a href="http://www.rfgxy.com/lesson/1508/" target="_blank">PLC通信基础及应用</a>
-	                                        	</div>
-	                                        	<div class="bb2">
-	                                        		<a href="http://www.rfgxy.com/lesson/1533/" target="_blank">PID控制规律及其应用</a><em class="ml10 mr10 cgray5">|</em>
-	                                        		<a href="http://www.rfgxy.com/lesson/1932/" target="_blank">PLC应用知识讲座</a>
-	                                        	</div>
-	                                        	<div class="bb2"><a href="http://www.rfgxy.com/lesson/1509/" target="_blank">FX系列模拟量及PID应用基础</a></div>
-												<div class="bb2"><a href="http://www.rfgxy.com/lesson/2134/" target="_blank">MODBUS通信协议及其应用</a></div>
-	                                        	<div class="bb2"><a href="http://www.rfgxy.com/lesson/1/" target="_blank">FX系列PLC顺序控制与功能指令详解</a></div>
-                                                <div class="bb2"><a href="http://www.rfgxy.com/lesson/2127/" target="_blank">GX软件在SFC里面的应用</a>
-												<em class="ml10 mr10 cgray5">|</em>
-	                                        		<a href="http://www.rfgxy.com/lesson/2146/" target="_blank">三菱PLC定位控制技术</a>
-	                                        	
-												</div>
-	                                        </dd>
-	                                    </dl>
-	                                    <dl class="clearfix ml10 mr10 bb1">
-	                                        <dt class="l w70"><em style="color:#e43b3d">[Q系列]</em></dt>
-	                                        <dd class="l w300"><a href="http://www.rfgxy.com/lesson/1824/" target="_blank">Q系列PLC基础</a></dd>
-	                                    </dl>
-	                                    <dl class="clearfix ml10 mr10 bb1">
-	                                        <dt class="l w70"><em style="color:#e43b3d">[变频器]</em></dt>
-	                                        <dd class="l w300"><a href="http://www.rfgxy.com/lesson/1771/" target="_blank">FR-D700型变频器参数设置和实操训练</a></dd>
-	                                    </dl>
-	                                    <dl class="clearfix ml10 mr10 bb1">
-	                                        <dt class="l w70"><em style="color:#e43b3d">[触摸屏]</em></dt>
-	                                        <dd class="l w300"><a href="http://www.rfgxy.com/lesson/1506/" target="_blank">触摸屏应用</a></dd>
-	                                    </dl>
-	                                    <dl class="clearfix ml10 mr10 bb1">
-	                                        <dt class="l w70"><em style="color:#e43b3d">[学习机]</em></dt>
-	                                        <dd class="l w300"><a href="http://www.rfgxy.com/lesson/1938/" target="_blank">技成学习机使用课程</a></dd>
-	                                    </dl>
-	                                    <dl class="clearfix ml10 mr10">
-	                                        <dt class="l w70">&nbsp;</dt>
-	                                        <dd class="l w300 tr"><a href="http://www.rfgxy.com/lesson/lessonSearch?brand=%u4E09%u83F1&device=%u4E0D%u9650&course=%u6280%u672F%u8BFE%u7A0B" target="_blank" class="tdu1">更多>></a></dd>
-	                                    </dl>
-	                                </div>
-	                                <div class="w25p l mt5">
-	                                	<a href="http://www.rfgxy.com/topic/lesson/20120726/index.html" target="_blank"><img src="http://images.rfgxy.com/tit_20131010002.png" width="135" height="145" alt="" title="" /></a>
-	                                </div>
-	                            </div>
-                            </div>
-                        </li>
-                        <li>
-                        	<div class="sidebar_nav_content">
-	                            <div class="sidebar_nav_content_title"> <a href="http://www.rfgxy.com/lesson/lessonSearch?brand=%u6B27%u59C6%u9F99&device=%u4E0D%u9650&course=%u6280%u672F%u8BFE%u7A0B" class="btn_link1 btn_link" target="_blank">欧姆龙</a> <i></i> </div>
-	                            <div class="sidebar_nav_content_lists list3 clearfix">
-	                                <div class="w70p l">
-	                                    <dl class="clearfix ml10 mr10">
-	                                        <dt class="l w70"><em style="color:#e43b3d">[PLC]</em></dt>
-	                                        <dd class="l w300">
-	                                        	<div class="bb2">
-	                                        		<a href="http://www.rfgxy.com/lesson/1505/" target="_blank">欧姆龙PLC编程与应用</a><em class="ml10 mr10 cgray5">|</em>
-	                                        		<a href="http://www.rfgxy.com/lesson/1665/" target="_blank">如何学习欧姆龙PLC</a>
-	                                        	</div>
-	                                        	<div class="bb2"><a href="http://www.rfgxy.com/lesson/1801/" target="_blank">欧姆龙PLC编程与应用-串行通信篇</a></div>
-	                                       		<div class="bb2"><a href="http://www.rfgxy.com/lesson/1949/" target="_blank">欧姆龙PLC编程与应用-定位篇用</a></div>
-	                                        </dd>
-	                                    </dl>
-	                                    <dl class="clearfix ml10 mr10">
-	                                        <dt class="l w70">&nbsp;</dt>
-	                                        <dd class="l w300 tr"><a href="http://www.rfgxy.com/lesson/lessonSearch?brand=%u6B27%u59C6%u9F99&device=%u4E0D%u9650&course=%u6280%u672F%u8BFE%u7A0B" target="_blank" class="tdu1">更多>></a></dd>
-	                                    </dl>
-	                                </div>
-	                                <div class="w25p l mt5">
-	                                	<a href="http://www.rfgxy.com/topic/lesson/20120726/index.html" target="_blank"><img src="http://images.rfgxy.com/tit_20131010002.png" width="135" height="145" alt="" title="" /></a>
-	                                </div>
-	                            </div>
-                            </div>
-                        </li>
-                        <li>
-                        	<div class="sidebar_nav_content">
-	                            <div class="sidebar_nav_content_title"> <a href="http://www.rfgxy.com/lesson/lessonSearch?brand=%u4E0D%u9650&device=%u7535%u5DE5&course=%u6280%u672F%u8BFE%u7A0B" class="btn_link1 btn_link" target="_blank">电工入门 </a> <i></i> </div>
-	                            <div class="sidebar_nav_content_lists list9 clearfix">
-	                                <div class="w70p l">
-	                                    <dl class="clearfix ml10 mr10">
-	                                        <dt class="l w70"><em style="color:#e43b3d">[电工入门]</em></dt>
-	                                        <dd class="l w300">
-	                                        	<div class="bb2">
-	                                        		<a href="http://www.rfgxy.com/lesson/1904/" target="_blank">工控技术应用数学</a><em class="ml10 mr10 cgray5">|</em>
-	                                        		<a href="http://www.rfgxy.com/lesson/1773/" target="_blank">电工基础</a>
-	                                        	</div>
-	                                        	<div class="bb2">
-	                                        		<a href="http://www.rfgxy.com/lesson/1774/" target="_blank">模拟电子技术基础</a><em class="ml10 mr10 cgray5">|</em>
-	                                        		<a href="http://www.rfgxy.com/lesson/1665/" target="_blank">如何学习欧姆龙PLC</a>
-	                                        	</div>
-	                                        	<div class="bb2">
-	                                        		<a href="http://www.rfgxy.com/lesson/1932/" target="_blank">PLC应用知识讲座</a><em class="ml10 mr10 cgray5">|</em>
-	                                        		<a href="http://www.rfgxy.com/lesson/1808/" target="_blank">PLC输入电路的连接</a>
-	                                        	</div>
-	                                        	<div class="bb2"><a href="http://www.rfgxy.com/lesson/1884/" target="_blank">单片机应用技术-基础篇</a></div>
-	                                        </dd>
-	                                    </dl>
-	                                    <dl class="clearfix ml10 mr10">
-	                                        <dt class="l w70">&nbsp;</dt>
-	                                        <dd class="l w300 tr"><a href="http://www.rfgxy.com/lesson/lessonSearch?brand=%u4E0D%u9650&device=%u7535%u5DE5&course=%u6280%u672F%u8BFE%u7A0B" target="_blank" class="tdu1">更多>></a></dd>
-	                                    </dl>
-	                                </div>
-                                    <!--<div class="w25p l mt5">
-                                        <a href="http://www.rfgxy.com/topic/act/20130916/" target="_blank"><img src="http://images.rfgxy.com/tit_20131028001.png" width="135" height="145" alt="" title="" /></a>
-                                    </div>-->
-	                            </div>
-                            </div>
-                        </li>
-                        <li>
-                        	<div class="sidebar_nav_content">
-	                            <div class="sidebar_nav_content_title"> <a href="http://www.rfgxy.com/lesson/lessonSearch?brand=%u4E0D%u9650&device=PLC&course=%u6280%u672F%u8BFE%u7A0B" class="btn_link1 btn_link" target="_blank">PLC</a> <i></i> </div>
-	                            <div class="sidebar_nav_content_lists list5 clearfix">
-	                                <div class="w70p l">
-	                                    <dl class="clearfix ml10 mr10 bb1">
-	                                        <dt class="l w70"><em style="color:#e43b3d">[PLC初级]</em></dt>
-	                                        <dd class="l w300">
-	                                        	<div class="bb2">
-	                                        		<a href="http://www.rfgxy.com/lesson/1665/" target="_blank">如何学习欧姆龙PLC通</a><em class="ml10 mr10 cgray5">|</em>
-	                                        		<a href="http://www.rfgxy.com/lesson/1938/" target="_blank">技成学习机使用课程</a>
-	                                        	</div>
-	                                        	<div class="bb2">
-	                                        		<a href="http://www.rfgxy.com/lesson/1505/" target="_blank">欧姆龙PLC编程与应用</a><em class="ml10 mr10 cgray5">|</em>
-	                                        		<a href="http://www.rfgxy.com/lesson/1932/" target="_blank">PLC应用知识讲座</a>
-	                                        	</div>
-	                                        	<div class="bb2"><a href="http://www.rfgxy.com/lesson/1507/" target="_blank">三菱FX PLC编程与应用入门</a></div>
-	                                        	<div class="bb2"><a href="http://www.rfgxy.com/lesson/3/" target="_blank">西门子S7-200PLC从入门到精通</a></div>
-                                                <div class="bb2"><a href="http://www.rfgxy.com/lesson/2127/" target="_blank">GX软件在SFC里面的应用</a></div>
-												 <div class="bb2"><a href="http://www.rfgxy.com/lesson/2134/" target="_blank">MODBUS通信协议及其应用</a></div>
-	                                        </dd>
-	                                    </dl>
-	                                    <dl class="clearfix ml10 mr10">
-	                                        <dt class="l w70"><em style="color:#e43b3d">[PLC中高级]</em></dt>
-	                                        <dd class="l w300">
-	                                        	<div class="bb2">
-	                                        		<a href="http://www.rfgxy.com/lesson/1508/" target="_blank">三菱PLC通信基础及应用</a><em class="ml10 mr10 cgray5">|</em>
-	                                        		<a href="http://www.rfgxy.com/lesson/1533/" target="_blank">PID控制规律及其应用</a>
-	                                        	</div>
-	                                        	<div class="bb2">
-	                                        		<a href="http://www.rfgxy.com/lesson/1510/" target="_blank">西门子S7-300PLC初级</a><em class="ml10 mr10 cgray5">|</em>
-	                                        		<a href="http://www.rfgxy.com/lesson/1976/" target="_blank">西门子S7-300使用指南</a>
-	                                        	</div>
-	                                        	<div class="bb2">
-	                                        		<a href="http://www.rfgxy.com/lesson/1759/" target="_blank">WINCC 应用与提高</a><em class="ml10 mr10 cgray5">|</em>
-	                                        		<a href="http://www.rfgxy.com/lesson/1823/" target="_blank">S7-300PLC以太网通信技术</a>
-	                                        	</div>
-	                                        	<div class="bb2"><a href="http://www.rfgxy.com/lesson/1949/" target="_blank">欧姆龙PLC编程与应用-定位篇</a></div>
-	                                        	<div class="bb2"><a href="http://www.rfgxy.com/lesson/1662/" target="_blank">西门子S7-300中高级应用技术</a></div>
-	                                        	<div class="bb2"><a href="http://www.rfgxy.com/lesson/1974/" target="_blank">模块化编程与多重背景应用</a>
-												<em class="ml10 mr10 cgray5">|</em>
-	                                        		<a href="http://www.rfgxy.com/lesson/2146/" target="_blank">三菱PLC定位控制技术</a>
-												</div>
-	                                        	<div class="bb2"><a href="http://www.rfgxy.com/lesson/1509/" target="_blank">三菱FX系列模拟量及PID应用基础</a></div>
-	                                        	<div class="bb2"><a href="http://www.rfgxy.com/lesson/1/" target="_blank">三菱FX系列PLC顺序控制与功能指令详解</a></div>
-	                                        </dd>
-	                                    </dl>
-	                                    <dl class="clearfix ml10 mr10">
-	                                        <dt class="l w70">&nbsp;</dt>
-	                                        <dd class="l w300 tr"><a href="http://www.rfgxy.com/lesson/lessonSearch?brand=%u4E0D%u9650&device=PLC&course=%u6280%u672F%u8BFE%u7A0B" target="_blank" class="tdu1">更多>></a></dd>
-	                                    </dl>
-	                                </div>
-                                    <!--
-                                    <div class="w25p l mt5">
-                                        <a href="http://www.rfgxy.com/topic/lesson/20111212/index2.aspx" target="_blank"><img src="http://images.rfgxy.com/tit_20131209001.png" width="160" height="145" alt="" title="" /></a>
-                                    </div>
-                                    -->
-	                            </div>
-                            </div>
-                        </li>
-                        <li>
-                        	<div class="sidebar_nav_content">
-	                            <div class="sidebar_nav_content_title"> <a href="http://www.rfgxy.com/lesson/lessonSearch?brand=%u4E0D%u9650&device=%u53D8%u9891%u5668&course=%u6280%u672F%u8BFE%u7A0B" class="btn_link1 btn_link" target="_blank">变频器及伺服</a> <i></i> </div>
-	                            <div class="sidebar_nav_content_lists list6 clearfix">
-	                                <div class="w70p l">
-	                                    <dl class="clearfix ml10 mr10">
-	                                        <dt class="l w70"><em style="color:#e43b3d">[伺服]</em></dt>
-	                                        <dd class="l w300"><a href="http://www.rfgxy.com/lesson/2149/" target="_blank">伺服驱动器功能参数设置与实操训练</a></dd>
-	                                    </dl>
-	                                    <dl class="clearfix ml10 mr10 bb1">
-	                                        <dt class="l w70"><em style="color:#e43b3d">[变频器]</em></dt>
-	                                        <dd class="l w300">
-	                                        	<div class="bb2">
-	                                        		<a href="http://www.rfgxy.com/lesson/1512/" target="_blank">变频器功能应用从入门到精通</a><em class="ml10 mr10 cgray5">|</em>
-	                                        		<a href="http://www.rfgxy.com/lesson/5/" target="_blank">变频调速应用技术</a>
-	                                        	</div>
-	                                        	<div class="bb2"><a href="http://www.rfgxy.com/lesson/1627/" target="_blank">变频器选型、日常维护和故障处理</a></div>
-												<div class="bb2"><a href="http://www.rfgxy.com/lesson/2146/" target="_blank">三菱PLC定位控制技术</a></div>
-	                                        	
-	                                        	<div class="bb2"><a href="http://www.rfgxy.com/lesson/1852/" target="_blank">汇川变频器功能设计及实操训练</a></div>
-                                                <div class="bb2"><a href="http://www.rfgxy.com/lesson/1771/" target="_blank">三菱FR-D700型变频器参数设置和实操训练</a></div>
-                                                <div class="bb2"><a href="http://www.rfgxy.com/lesson/1990/" target="_blank">西门子变频器参数设置和实操训练</a></div>
-	                                        </dd>
-	                                    </dl>
-	                                    <dl class="clearfix ml10 mr10">
-	                                        <dt class="l w70"><em style="color:#e43b3d">[电机]</em></dt>
-	                                        <dd class="l w300"><a href="http://www.rfgxy.com/lesson/1663/" target="_blank">异步电动机基础原理</a></dd>
-	                                    </dl>
-	                                    <dl class="clearfix ml10 mr10">
-	                                        <dt class="l w70">&nbsp;</dt>
-	                                        <dd class="l w300 tr"><a href="http://www.rfgxy.com/lesson/lessonSearch?brand=%u4E0D%u9650&device=%u53D8%u9891%u5668&course=%u6280%u672F%u8BFE%u7A0B" target="_blank" class="tdu1">更多>></a></dd>
-	                                    </dl>
-	                                </div>
-	                                <div class="w25p l mt5">
-	                                	<a href="http://www.rfgxy.com/topic/act/20121027/" target="_blank"><img src="http://images.rfgxy.com/tit_20131010001.png" width="135" height="145" alt="" title="" /></a>
-	                                </div>
-                                    <!--<div class="w25p l mt15 mb15">
-                                        <a href="http://www.rfgxy.com/topic/act/20130916/" target="_blank"><img src="http://images.rfgxy.com/tit_20131028001.png" width="135" height="145" alt="" title="" /></a>
-                                    </div>-->
-	                            </div>
-                            </div>
-                        </li>
-                        <li>
-                        	<div class="sidebar_nav_content">
-	                            <div class="sidebar_nav_content_title"> <a href="http://www.rfgxy.com/lesson/lessonSearch" class="btn_link1 btn_link" target="_blank">人机界面及组态 </a> <i></i> </div>
-	                            <div class="sidebar_nav_content_lists list7 clearfix">
-	                                <div class="w70p l">
-	                                    <dl class="clearfix ml10 mr10 bb1">
-	                                        <dt class="l w70"><em style="color:#e43b3d">[人机界面]</em></dt>
-	                                        <dd class="l w300">
-	                                        	<a href="http://www.rfgxy.com/lesson/1511/" target="_blank">西门子触摸屏应用技术</a><em class="ml10 mr10 cgray5">|</em>
-	                                        	<a href="http://www.rfgxy.com/lesson/1506/" target="_blank">三菱触摸屏应用</a>
-	                                        </dd>
-	                                    </dl>
-	                                    <dl class="clearfix ml10 mr10">
-	                                        <dt class="l w70"><em style="color:#e43b3d">[组态]</em></dt>
-	                                        <dd class="l w300">
-	                                        	<a href="http://www.rfgxy.com/lesson/1513/" target="_blank">组态王应用</a><em class="ml10 mr10 cgray5">|</em>
-	                                        	<a href="http://www.rfgxy.com/lesson/1759/" target="_blank">WINCC 应用与提高</a>
-	                                        </dd>
-	                                    </dl>
-	                                    <dl class="clearfix ml10 mr10">
-	                                        <dt class="l w70">&nbsp;</dt>
-	                                        <dd class="l w300 tr"><a href="http://www.rfgxy.com/lesson/lessonSearch" target="_blank" class="tdu1">更多>></a></dd>
-	                                    </dl>
-	                                </div>
-	                                <div class="w25p l"></div>
-	                            </div>
-                            </div>
-                        </li>
-                        <li>
-                        	<div class="sidebar_nav_content">
-	                            <div class="sidebar_nav_content_title"> <a href="http://www.rfgxy.com/lesson/lessonSearch?brand=%u4E0D%u9650&device=%u6570%u63A7&course=%u6280%u672F%u8BFE%u7A0B" class="btn_link1 btn_link" target="_blank">数控 </a> <i></i> </div>
-	                            <div class="sidebar_nav_content_lists list8 clearfix">
-	                                <div class="w70p l">
-	                                    <dl class="clearfix ml10 mr10">
-	                                        <dt class="l w70"><em style="color:#e43b3d">[数控]</em></dt>
-	                                        <dd class="l w300">
-	                                        	<a href="http://www.rfgxy.com/lesson/1626/" target="_blank">广州数控技术课程</a><em class="ml10 mr10 cgray5">|</em>
-	                                        	<a href="http://www.rfgxy.com/lesson/1865/" target="_blank">数控机床PMC编程入门 </a>
-	                                        </dd>
-	                                    </dl>
-	                                    <dl class="clearfix ml10 mr10">
-	                                        <dt class="l w70">&nbsp;</dt>
-	                                        <dd class="l w300 tr"><a href="http://www.rfgxy.com/lesson/lessonSearch?brand=%u4E0D%u9650&device=%u6570%u63A7&course=%u6280%u672F%u8BFE%u7A0B" target="_blank" class="tdu1">更多>></a></dd>
-	                                    </dl>
-	                                </div>
-	                                <div class="w25p l"></div>
-	                            </div>
-                            </div>
-                        </li>
-			<!--
-                        <li>
-                        	<div class="sidebar_nav_content">
-	                            <div class="sidebar_nav_content_title"> <a href="http://www.rfgxy.com/lesson/lessonSearch" class="btn_link1 btn_link" target="_blank">其他品牌</a> <i></i> </div>
-	                            <div class="sidebar_nav_content_lists list4 clearfix">
-	                                <div class="w70p l">
-	                                    <dl class="clearfix ml10 mr10 bb1">
-	                                        <dt class="l w70"><em style="color:#e43b3d">[汇川]</em></dt>
-	                                        <dd class="l w300"><a href="http://www.rfgxy.com/lesson/1852/" target="_blank">汇川变频器功能参数</a></dd>
-	                                    </dl>
-	                                    <dl class="clearfix ml10 mr10 bb1">
-	                                        <dt class="l w70"><em style="color:#e43b3d">[麦格米特]</em></dt>
-	                                        <dd class="l w300"><a href="http://www.rfgxy.com/lesson/1761/" target="_blank">麦格米特PLC操作使用及注意事项</a></dd>
-	                                    </dl>
-	                                    <dl class="clearfix ml10 mr10 bb1">
-	                                        <dt class="l w70"><em style="color:#e43b3d">[麦科电气]</em></dt>
-	                                        <dd class="l w300"><a href="http://www.rfgxy.com/lesson/1763/" target="_blank">麦科电气MX系列PLC硬件介绍</a></dd>
-	                                    </dl>
-	                                    <dl class="clearfix ml10 mr10 bb1">
-	                                        <dt class="l w120"><em style="color:#e43b3d">[亿维UN系列PLC]</em></dt>
-	                                        <dd class="l w250"><a href="http://www.rfgxy.com/lesson/1800/" target="_blank">亿维UN系列PLC功能详解</a></dd>
-	                                    </dl>
-	                                    <dl class="clearfix ml10 mr10 bb1">
-	                                        <dt class="l w120"><em style="color:#e43b3d">[显控SK系列触摸屏]</em></dt>
-	                                        <dd class="l w250"><a href="http://www.rfgxy.com/lesson/1876/" target="_blank"> 显控SK系列触摸屏详解</a></dd>
-	                                    </dl>
-	                                    <dl class="clearfix ml10 mr10 bb1">
-	                                        <dt class="l w120"><em style="color:#e43b3d">[富昌维控LX系列PL]</em></dt>
-	                                        <dd class="l w250"><a href="http://www.rfgxy.com/lesson/1877/" target="_blank">富昌维控LX系列PLC功能详解</a></dd>
-	                                    </dl>
-	                                    <dl class="clearfix ml10 mr10">
-	                                        <dt class="l w120"><em style="color:#e43b3d">[腾控T9系列PLC]</em></dt>
-	                                        <dd class="l w250"><a href="http://www.rfgxy.com/lesson/1830/" target="_blank"> 腾控T9系列PLC介绍</a></dd>
-	                                    </dl>
-	                                    <dl class="clearfix ml10 mr10">
-	                                        <dt class="l w70">&nbsp;</dt>
-	                                        <dd class="l w300 tr"><a href="http://www.rfgxy.com/lesson/lessonSearch" target="_blank" class="tdu1">更多>></a></dd>
-	                                    </dl>
-	                                </div>
-	                                <div class="w25p l"></div>
-	                            </div>
-                            </div>
-                        </li>
-			-->
-                        <li>
-                        	<div class="sidebar_nav_content">
-	                            <div class="sidebar_nav_content_title"> <a href="http://www.rfgxy.com/lesson/" class="btn_link1 btn_link" target="_blank">设备维护与技术员 </a> <i></i> </div>
-	                            <div class="sidebar_nav_content_lists list10 clearfix">
-	                                <div class="w70p l">
-	                                    <dl class="clearfix ml10 mr10">
-	                                        <dt class="l w120"><em style="color:#e43b3d">[设备维护与技术员]</em></dt>
-	                                        <dd class="l w250">
-	                                        	<div class="bb2"><a href="http://www.rfgxy.com/lesson/1976/" target="_blank">西门子S7-300使用指南</a></div>
-	                                        	<div class="bb2"><a href="http://www.rfgxy.com/lesson/1505/" target="_blank">欧姆龙PLC编程与应用</a></div>
-	                                        	<div class="bb2"><a href="http://www.rfgxy.com/lesson/3/" target="_blank">西门子S7-200PLC从入门到精通</a></div>
-	                                        	<div class="bb2"><a href="http://www.rfgxy.com/lesson/1512/" target="_blank">变频器功能应用从入门到精通</a></div>
-	                                        	<div class="bb2"><a href="http://www.rfgxy.com/lesson/1/" target="_blank">三菱FX系列PLC顺序控制与功能指令详解</a></div>
-	                                        </dd>
-	                                    </dl>
-	                                    <dl class="clearfix ml10 mr10">
-	                                        <dt class="l w70">&nbsp;</dt>
-	                                        <dd class="l w300 tr"><a href="http://www.rfgxy.com/lesson/" target="_blank" class="tdu1">更多>></a></dd>
-	                                    </dl>
-	                                </div>
-	                                <div class="w25p l"></div>
-	                            </div>
-                            </div>
-                        </li>
-                        <li>
-                        	<div class="sidebar_nav_content">
-	                            <div class="sidebar_nav_content_title"> <a href="http://www.rfgxy.com/lesson/" class="btn_link1 btn_link" target="_blank">控制工程师 </a> <i></i> </div>
-	                            <div class="sidebar_nav_content_lists list11 clearfix">
-	                                <div class="w70p l">
-	                                    <dl class="clearfix ml10 mr10">
-	                                        <dt class="l w90"><em style="color:#e43b3d">[控制工程师]</em></dt>
-	                                        <dd class="l w280">
-							<div class="bb2">
-								<a href="http://www.rfgxy.com/lesson/2150/" target="_blank">ABB机器人实操与应用技巧</a>
-							</div>
-	                                        	<div class="bb2">
-	                                        		<a href="http://www.rfgxy.com/lesson/6/" target="_blank">PLC伺服定位控制</a><em class="ml10 mr10 cgray5">|</em>
-	                                        		<a href="http://www.rfgxy.com/lesson/8/" target="_blank">组态王PLC模拟量控制</a>
-	                                        	</div>
-	                                        	<div class="bb2">
-	                                        		<a href="http://www.rfgxy.com/lesson/1533/" target="_blank">PID控制规律及其应用</a><em class="ml10 mr10 cgray5">|</em>
-	                                        		<a href="http://www.rfgxy.com/lesson/1759/" target="_blank">WINCC 应用与提高</a>
-	                                        	</div>
-	                                        	<div class="bb2"><a href="http://www.rfgxy.com/lesson/1508/" target="_blank">三菱PLC通信基础及应用 </a></div>
-	                                        	<div class="bb2"><a href="http://www.rfgxy.com/lesson/1509/" target="_blank">三菱FX系列模拟量及PID应用基础</a></div>
-	                                        	<div class="bb2"><a href="http://www.rfgxy.com/lesson/1801/" target="_blank">欧姆龙PLC编程与应用-串行通信篇</a></div>
-	                                        	<div class="bb2"><a href="http://www.rfgxy.com/lesson/1949/" target="_blank">欧姆龙PLC编程与应用-定位篇</a></div>
-	                                        	<div class="bb2"><a href="http://www.rfgxy.com/lesson/1662/" target="_blank">西门子S7-300中高级应用技术</a></div>
-	                                        	<div class="bb2"><a href="http://www.rfgxy.com/lesson/1823/" target="_blank">S7-300PLC以太网通信技术</a></div>
-	                                        	<div class="bb2"><a href="http://www.rfgxy.com/lesson/1974/" target="_blank">模块化编程与多重背景应用</a></div>
-	                                        	<div class="bb2"><a href="http://www.rfgxy.com/lesson/4/" target="_blank">实例设备电气控制系统讲解</a></div>
-	                                        	<div class="bb2"><a href="http://www.rfgxy.com/lesson/9/" target="_blank">几种电动机的变频调速应用</a></div>
-	                                        	<div class="bb2"><a href="http://www.rfgxy.com/lesson/1807/" target="_blank">基于组态王PLC的水处理系统案例</a></div>
-	                                        	<div class="bb2"><a href="http://www.rfgxy.com/lesson/7/" target="_blank">PLC变频器控制系统在钢锭连铸工艺中应用</a></div>
-	                                        </dd>
-	                                    </dl>
-	                                    <dl class="clearfix ml10 mr10">
-	                                        <dt class="l w70">&nbsp;</dt>
-	                                        <dd class="l w300 tr"><a href="http://www.rfgxy.com/lesson/" target="_blank" class="tdu1">更多>></a></dd>
-	                                    </dl>
-	                                </div>
-	                                <div class="w25p l"></div>
-	                            </div>
-                            </div>
-                        </li>
-                        <!--<li>
-                        	<div class="sidebar_nav_content"><a href="http://www.rfgxy.com/lesson/" class="btn_link1 btn_link" target="_blank">学习专题</a></div>
-                        </li>-->
-                    </ul>
-                </div>
-                <!-- /sidebar_nav_contents -->
-            </div>
-            <div class="l w650">
-                <ul class="bannerCont1Left clearfix" id="topNav">
-                    <li class="list2 list" sid="s1" style="display:none;">
-                        <a href="http://www.rfgxy.com" title="首页">首页</a>
-                    </li>
-                    <!--
-                    <li class="list4 list" sid="s1">
-                        <a href="http://www.rfgxy.com/lesson/" title="学视频">学视频</a>
-                    </li>
-                    -->
-                    <li class="list4 list" sid="s3" style="background: url(http://images.rfgxy.com/bg_20130926001.gif) no-repeat scroll 38px 0px transparent;">
-                        <a href="http://www.rfgxy.com/class/" title="上课" id="nav4" onclick="_hmt.push(['_trackEvent', 'my_btn_onlinext', 'click', 'ad_btn_my_ onlinext','1'])" target="_blank">上课</a>
-                    </li>
-                    <!--<li style="background: url(http://images.rfgxy.com/bg_20140504001.gif) no-repeat scroll 90px 0px transparent;" sid="s2" class="list5 list">
-                        <a title="电工人职场必备神器，你还不申请免费试用西门子LOGO!" href="http://www.rfgxy.com/topic/act/20130601/">西门子LOGO</a>
-                    </li>
-                    -->
-                    <li class="list5 list" sid="s2" >
-                        <a href="http://www.rfgxy.com/xiazai/?wwwnav" title="自动化资料权威下载中心">技成库</a>
-                    </li>
-                    
-                    <li class="list3 list" sid="s2">
-                        <a href="http://www.rfgxy.com/knowledge/" title="文章">文章</a>
-                    </li>
-                    <li style="background: url(http://images.rfgxy.com/bg_20130926001.gif) no-repeat scroll 65px 0px transparent;" sid="s3" class="list3 list h">
-                        <a title="现场培训" class="b" target="_blank" href="http://u.rfgxy.com/?wnav" style="color: #126ABF;">现场培训</a>
-                    </li>
-                    <li sid="s3" class="list5 list">
-                        <a title="找工作" class="b" target="_blank" href="http://zhaopin.rfgxy.com/" style="color: rgb(18, 106, 191);">找工作</a>
-                    </li>
-                    <!--
-                    <li class="list5 list" sid="s3">
-                        <a href="http://www.rfgxy.com/equipment/" title="租设备">租设备</a>
-                    </li>
-
-                    <li class="list3 list h" sid="s3" style="padding-left:25px;background:url(http://images.rfgxy.com/bg_20131224001.gif) no-repeat scroll 0 0 rgba(0, 0, 0, 0);">
-                        <a href="http://www.rfgxy.com/topic/act/20131224/" style="font-weight:700;" title="圣诞送惊喜" id="nav_baotuanxue" onclick="_hmt.push(['_trackEvent', 'nav', 'click', 'nav_baotuanxue','1'])">圣诞送惊喜</a>
-                    </li>
-                    -->
-                    <li class="list4 list" sid="s3">
-                        <a href="http://bbs.rfgxy.com/" title="学员论坛">学员论坛</a>
-                    </li>
-                    <li class="list4 list" sid="s3">
-                        <a href="http://www.rfgxy.com/topic/act/20140311/" title="新手上路" target="_blank" class="">新手上路</a>
-                    </li>
-                    <li class="list6 list" sid="s4" style="display:none;">
-			<!--
-                        <a href="javascript:;" id="btn_wenxin1"><img src="http://bbs.rfgxy.com/source/plugin/wsh_wx/img/wx_jqr.gif" width="84" height="23" alt="" style="vertical-align: middle;" /></a>
-			-->
-			<a href="http://www.rfgxy.com/topic/act/20140918/" target="_blank" id="btn_duihuan">兑换中心</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="w180 h38 lh38 r">
-                <!--<div><a href="http://www.rfgxy.com/home/sccard/card.aspx" class="btn_link2 btn_link" target="_blank">立即激活</a></div>-->
-                <div><a href="http://zhaopin.rfgxy.com/api/active-guide.aspx" class="btn_link2 btn_link" target="_blank">立即激活</a></div>
-            </div>
+        <div class="aside-bar fixed-top">
+            <ul class="aside-bar-inner">
+                <li class="aside-bar-item" data-role="collapsible">
+                    <a class="aside-bar-link">
+                        <p class="iconfont f30 n">
+                            &#xe633;</p>
+                        <p class="txt">
+                            公众账号</p>
+                    </a>
+                    <div class="aside-bar-cont">
+                        <p class="f13 gray6 tc">
+                            扫描二维码
+                            <br> 关注技成微信公众账号
+                        </p>
+                        <p>
+                            <img src="/lesson1/img/pic/qr.jpg" width="130" height="130" alt="技成微信公众账号"></p>
+                    </div>
+                </li>
+                <li class="aside-bar-item" data-role="collapsible">
+                    <a class="aside-bar-link">
+                        <p class="iconfont f30 n">
+                            &#xe630;</p>
+                        <p class="txt">
+                            学习交流</p>
+                    </a>
+                    <div class="aside-bar-cont">
+                        <p class="f14 gray6 tc">
+                            技成学员交流总群</p>
+                        <p class="f14">
+                            125群：154017892</p>
+                        <p class="link-blue">
+                            <a href="http://shang.qq.com/wpa/qunwpa?idkey=2eee53569300abbcfb8b8a6cab6f7374da37ddcbe5fc37e5015bdec61dbb30fe" target="_blank">进群交流</a></p>
+                    </div>
+                </li>
+                <li class="aside-bar-item" data-role="collapsible">
+                    <a class="aside-bar-link">
+                        <p class="iconfont f30 n">
+                            &#xe63f;</p>
+                        <p class="txt">
+                            留言反馈</p>
+                    </a>
+                    <div class="aside-bar-cont msg-board">
+                        <p class="f16 h40 lh40 gray6 tl">
+                            欢迎给我们留言</p>
+                        <form id="mesform" role="form" method="post" action="">
+                            <textarea class="form-area w220" rows="3" id="txtMgs" name="content" placeholder="您有什么问题？可以给我们留言，我们竭尽全力为您解决！"></textarea>
+                            <input type="text" class="form-txt h20 lh20 w220 mt10" id="txtMobile" name="phone" placeholder="请输入手机号码，方便为你答疑">
+                            <input type="submit" value="提交" href="javascript:;" id="btn-message" class="btn btn-blue1 btn-auto w130 mc h30 f16 mt10 btn-radius btn-message" style="line-height:30px;">
+                        </form>
+                    </div>
+                </li>
+                <li class="aside-bar-item" data-role="collapsible">
+                    <a class="aside-bar-link">
+                        <p class="iconfont f30 n">
+                            &#xe63c;</p>
+                        <p class="txt">
+                            APP下载</p>
+                    </a>
+                    <div class="aside-bar-cont">
+                        <p class="f13 gray6 tc">
+                            扫描二维码下载到手机</p>
+                        <p>
+                            <img src="/lesson1/img/pic/qr.png" width="130" height="130" alt="技成微信公众账号"></p>
+                    </div>
+                </li>
+                <li class="aside-bar-item">
+                    <a class="aside-bar-link" href="#top" target="_self">
+                        <p class="iconfont f30 n">
+                            &#xe625;</p>
+                        <p class="txt">
+                            返回顶部</p>
+                    </a>
+                </li>
+            </ul>
         </div>
-    </div>
-    <!--banner end-->
-</div>
+        <script type="text/jscript">
+        var txtMgs;
+        var txtMobile
+        $(".msg-board").on("click", "#btn-message", function() {
 
-<script type="text/javascript">
-    /*
-    $(function(){
-        $("#btn_wenxin1").click(function() {
-            $.Boxen.open(window, {
-                url: "http://www.rfgxy.com/wenxin1.html",
-                urlParams: { callback: document.URL},
-                width: 360,height: 460,
-                title:"欢迎关注我们的微信公众号"
-            });
-        });
-        var cur_href= window.location.href;
-        if (cur_href=="http://www.rfgxy.com/") {
-            $("#topNav li:first").hide();
-        }else{
-            $("#topNav li:first").show();
-        };
-    });
-    */
-</script>
-    <!-- top.aspx end-->
-    <div class="w1000 mc w">
-        <!-- left.aspx start-->
-        
-<p class="route h30 lh30"><a href="http://www.rfgxy.com/index.aspx">首页</a> &gt; <a href="http://my.rfgxy.com/index.aspx" id="dh2">学员中心</a></p>
-<div class="w220 l mr10 bdallblue1 pb10" id="lstu">
-    <div class="h125 pd5 bgblue-4">
-        <div class="w195 h115 bgwhite pl15 pt10 cblue1"><p class="l"><img src="/images/stu.jpg" width="80" height="80" alt="" /></p>
-            <div class="l lh25 tc f12 w115"><p class="w75 myname h30 lh30 mc">
-                jcWp2RJc</p>
-                
-                <p >
-                    普通学员</p>
-                
-                <p class="stuUp mc"><a href="http://u.rfgxy.com/member/?my" target="_blank" title="点击升级成为金/银牌会员">升级为金/银牌学员</a></p>
-                
-            </div>
-            <div class="cl"></div>
-            <p class="myStu"><a href="/messager/list.aspx">未读新消息</a><b class="corange1" style="font-family: arial;">(1)</b>&nbsp&nbsp&nbsp&nbsp<a href="/Account/every_task.aspx#lstu_son" style=" color:Red; font-size:14px">签到</a></p></div>
-    </div>
-    <div id="lstu_son">
-        
-        <dl class="mt8 tc stuColumn">
-             <dd class=""><a href="/study/Earn_money.aspx" data_href="/study/Earn_money.aspx" class="b" id="myEarnmoney">推荐学员赚学费</a></dd>
-             <dd class=""><a href="javascript:void(0);" data_href="/study/FreeLesson.aspx" id="myfreelesson">免费试看课程</a></dd> 
-             <dd class=""><a href="javascript:void(0);" data_href="/study/favorite.aspx" id="myfavoritelesson">我收藏的课程</a></dd>
-             <dd class=""><a href="javascript:void(0);" data_href="/study/MyLesson.aspx" id="mylesson">全部课程</a></dd> 
-             <dd class=""><a href="javascript:void(0);" data_href="/study/NewLesson.aspx" id="newlesson">新课上架</a></dd> 
-             <dd class=""><a href="javascript:void(0);" data_href="/orderLesson/payedLesson.aspx" id="payedLesson">已购买课程</a></dd> 
-             <dd class=""><a href="javascript:void(0);" data_href="/orderLesson/order.aspx" id="order">我的订单</a></dd>
-        </dl>
-        <dl class="mt8 tc stuColumn">
-            <dt class="cblue1">互动中心</dt>
-            <dd class=""><a href="javascript:void(0);" data_href="/pub/comments.aspx" id="comments">服务综评</a></dd> 
-            <dd class=""><a href="javascript:void(0);" data_href="/pub/lessonComment2.aspx" id="lessoncomment">课程评价</a></dd> 
-            <!--<dd class=""><a href="javascript:void(0);" data_href="/pub/faq.aspx" id="faq">学友求助</a></dd>--> 
-            <dd class="" style="display:none;"><a href="javascript:void(0);" data_href="/pub/msg.aspx" id="msg">我的消息</a></dd>
-            <!--<dd class=""><a href="javascript:void(0);" data_href="/Group/faqi_groupbuy.aspx" id="faqituangou">发起的团购</a></dd>
-            <dd class=""><a href="javascript:void(0);" data_href="/Group/canjia_groupbuy.aspx" id="canjiatuangou">参加的团购</a></dd>--> 
-        </dl>
-        <dl class="mt8 tc stuColumn">
-            <dt class="cblue1">服务中心</dt>
-            <!--<dd class=""><a href="javascript:void(0);" data_href="/service/elearning.aspx" id="elearning">在线辅导课</a></dd>--> <dd class=""><a href="javascript:void(0);" data_href="http://www.rfgxy.com/class/" id="myqlist" target="_blank">限时答疑</a></dd>
-            
-            <dd class=""><a href="http://bbs.rfgxy.com/" data_href="http://bbs.rfgxy.com" target="_blank">学员论坛</a></dd>
-        </dl>
-        <dl class="mt8 tc stuColumn">
-            <dt class="cblue1">账户中心</dt>
-            <dd class=""><a href="javascript:void(0);" data_href="/orderLesson/coupon.aspx" id="A1">我的优惠劵</a></dd> 
-            <dd class=""><a href="javascript:void(0);" data_href="/user/Grade.aspx" id="grade">我的级别</a></dd>
-             <dd class=""><a href="javascript:void(0);" data_href="/user/EditUserInfo.aspx" id="edituserinfo">我的设置</a></dd>
-             <dd><a href="javascript:void(0);" data_href="/emailregister/learnerRecommend/user_recommend1.aspx" id="A2">推荐有礼</a></dd>
-        </dl>
-        <dl class="mt8 tc stuColumn">
-            <dt class="cblue1">一元购</dt>
-            <dd class=""><a href="javascript:void(0);" data_href="/yiyuan/my_yiyuan.aspx" id="yiyuan">我的一元购</a></dd> 
-        </dl>
+            txtMgs = $("#txtMgs").val();
+            txtMobile = $("#txtMobile").val();
+            if (!(/^(13[0-9]|15[0-9]|17[0-9]|18[0-9])\d{8}$/).test(txtMobile)) {
+                alert("请输入正确的手机号码");
+                d.show(document.getElementById('txtMobile'));
+                $("#txtMobile").focus();
+            } else {
+                $.post("http://www.jcpeixun.com/ashx/studentsound/CreateMsg.ashx", $("#mesform").serialize())
+                    .done(function(d) {
+                        if (d == "留言内容过长") {
+                            alert("您的留言内容过长");
+                            d.show(document.getElementById('txtMgs'));
+                            $("#txtMgs").focus();
+                        } else {
 
-    </div>
-</div>
-<script type="text/javascript">
-    $(function () {
-        var lgrade = '0';
-        if (lgrade == "" || lgrade == "0") {
-            $("#myfreelesson").addClass("b");
-        } else if (lgrade == "26" || lgrade == "27") {
-            $("#mylesson").addClass("b");
-        }
-        $(".stuColumn dt").click(function () {
-            var _thdd = $(this).siblings("dd");
-            _thdd.css("display", _thdd.css("display") == "none" ? "block" : "none");
-        });
+                            alert("留言成功!如紧急,请拨免费咨询:400-111-4100");
+                            d.show(document.getElementById('btn-message'));
+                        }
 
-        $("#lstu_son a").bind({
-            "click": function () {
-                $.cookie("curpla", $(this).attr("id"), { path: '/' });
-                if (!$.cookie("curpla")) {
-                    $(this).trigger("click");
-                } else {
-                    /* $("#dh2").html($(this).html()).attr("href", $(this).attr("href")); */
-                    window.location.href = $(this).attr("data_href");
-                    return false;
-                }
+                    });
             }
         });
-
-        if ($.cookie("curpla")) {
-            $("#" + $.cookie("curpla")).css({ "font-weight": "bold" });
-            $("#" + $.cookie("curpla")).parent("dd").siblings("dd").children("a").css({ "font-weight": "normal" });
-            $("#" + $.cookie("curpla")).parent("dd").parent("dl").siblings("dl").children("dd").children("a").css({ "font-weight": "normal" });
-            $("#" + $.cookie("curpla")).parent("dd").siblings("dt").attr("class", "cred");
-            $("#" + $.cookie("curpla")).parent("dd").parent("dl").siblings("dl").children("dt").attr("class", "cblue1");
-        }
-
-
-    });
-</script>
-<!--<div class="user_center_right_navs" id="user_center_right_navs" style="display:none">
-    <a class="mr8 news_nav1 right_nav2" href="http://my.rfgxy.com/emailregister/learnerRecommend/user_recommend1.aspx" onclick="_hmt.push(['_trackEvent', 'my_btn_tuijian', 'click', 'ad_btn_my_tuijian','1']);">推荐有礼</a>
-    <a class="mr8" href="http://my.rfgxy.com/emailregister/learnerRecommend/user_recommend4.aspx" onclick="_hmt.push(['_trackEvent', 'my_btn_tuijian', 'click', 'ad_btn_my_jiangli','1']);">我的奖励</a>
-    <a href="http://my.rfgxy.com/study/FreeLesson.aspx" onclick="_hmt.push(['_trackEvent', 'my_btn_tuijian', 'click', 'ad_btn_my_FreeLesson','1']);">免费课程</a>
-</div>
-<script type="text/javascript">
-    $(function () {
-        $("#user_center_right_navs").delegate("a", "mouseover", function () {
-            $(this).addClass("right_nav2").siblings("a").removeClass("right_nav2");
-        });
-        var cur_href = window.location.href;
-        if(cur_href.indexOf("Account")>0){
-            $("#user_center_right_navs").hide();
-        }else{
-            $("#user_center_right_navs").show();
-        }
-    });
-</script>-->
-
-
-        <!-- left.aspx end-->
-
-<style type="text/css">
-.lessonType h2 {
-    background-color: #DDDDDD;
-    font-size: 16px;
-    font-weight: 700;
-    height: 30px;
-    line-height: 30px;
-    padding-left: 10px;
-}
-.lessonTypeUl {
-    padding: 5px;
-}
-.lessonTypeUl li {
-    height: 35px;
-    line-height: 35px;
-}
-.lessonTypeUl li span {
-    font-size: 14px;
-    font-weight: 700;
-    padding-left: 10px;
-}
-.lessonTypeUl li a {
-    color: #000000;
-    font-size: 12px;
-    padding: 0 3px;
-}
-.lessonTypeUl li a.chose {
-    background-color: #005EAB;
-    color: #FFFFFF;
-}
-</style>
-
-<div class="lessonType bGray w760 l mb10"><h2>课程详细分类</h2>
-                    <ul id="lessonTypeUl" class="lessonTypeUl">
-                        <li id="l1" class="bBGrayD"><span>设备品牌：</span> <a id="a1" class="chose" href="javascript:;">不限</a> <a id="a2" href="javascript:;">西门子</a> <a id="a3" href="javascript:;">三菱</a> <a id="a4" href="javascript:;">欧姆龙</a> <a id="a5" href="javascript:;">亚控</a> <a id="a6" href="javascript:;">广州数控</a>
-                        <li id="l2" class="bBGrayD"><span>设备类型：</span> <a id="b1" class="chose" href="javascript:;">不限</a> <a id="b2" href="javascript:;">PLC</a> <a id="b3" href="javascript:;">变频器</a> <a id="b4" href="javascript:;">触摸屏</a> <a id="b5" href="javascript:;">组态软件</a> <a id="b6" href="javascript:;">数控</a> <a id="b7" href="javascript:;">伺服</a> <a id="b8" href="javascript:;">电工</a> <a id="b9" href="javascript:;">其他</a>
-                        <li id="l3"><span>课程类型：</span> <a id="c1" class="chose" href="javascript:;">不限</a> <a id="c2" href="javascript:;">技术课程</a> <a id="c3" href="javascript:;">案例课程</a> <a id="c4" href="javascript:;">答疑录况</a>
-                    </ul>
-                </div>
-<script type="text/javascript">
-$(function(){
-	$("#lessonTypeUl").click(function(){
-		window.location.href = "http://www.rfgxy.com/lesson/lessonSearch?brand=%u4E0D%u9650&device=%u4E0D%u9650&course=%u6280%u672F%u8BFE%u7A0B";
-	});
-});
-</script>
-
-        <!-- right.ascx start-->
-        <div class="w760 l" style="border: 1px solid #e6e6e6;">
-            <div class="lesson_nav"><p class="showlist l">选择查看：<a id="all" class="on" href="MyLesson.aspx?categoryid=all">全部</a><a id="a40" class="" href="MyLesson.aspx?categoryid=40">技成公开课</a><a id="a41" class="" href="MyLesson.aspx?categoryid=41">自动化专业课</a><a id="a66" class="" href="MyLesson.aspx?categoryid=66">在线辅导课实况</a></p>
-                <div class="cl"></div>
-            </div>
-            <div class="lessonPage">
-                <div class="lessonLeft">
-                    <!--课程筛选结果显示-->
-                    <dl class="leftLesson_list">
-                        <dd>
-<h3 class="list_h3"><a target="_blank" href="/ashx/lesson/PageGo.ashx?courseid=4&categoryid=40">实例设备电气控制系统讲解</a></h3>
-<h4 class="list_h4"><span class="cblack">讲师：</span>唐倩   
-2011-12-31  更新至<label class="cred">3</label>
-已完结
-</h4>
-<div class="list_cont"></div>
-</dd>
-<dd>
-<h3 class="list_h3"><a target="_blank" href="/ashx/lesson/PageGo.ashx?courseid=6&categoryid=40">PLC伺服定位控制</a></h3>
-<h4 class="list_h4"><span class="cblack">讲师：</span>唐倩   
-2011-12-31  更新至<label class="cred">1</label>
-已完结
-</h4>
-<div class="list_cont"></div>
-</dd>
-<dd>
-<h3 class="list_h3"><a target="_blank" href="/ashx/lesson/PageGo.ashx?courseid=7&categoryid=40">PLC变频器控制系统在钢锭连铸工艺中应用</a></h3>
-<h4 class="list_h4"><span class="cblack">讲师：</span>丁先群   
-2011-12-31  更新至<label class="cred">1</label>
-已完结
-</h4>
-<div class="list_cont"></div>
-</dd>
-<dd>
-<h3 class="list_h3"><a target="_blank" href="/ashx/lesson/PageGo.ashx?courseid=8&categoryid=40">组态王PLC模拟量控制</a></h3>
-<h4 class="list_h4"><span class="cblack">讲师：</span>唐倩   
-2011-12-31  更新至<label class="cred">1</label>
-已完结
-</h4>
-<div class="list_cont"></div>
-</dd>
-<dd>
-<h3 class="list_h3"><a target="_blank" href="/ashx/lesson/PageGo.ashx?courseid=9&categoryid=40">几种电动机的变频调速应用</a></h3>
-<h4 class="list_h4"><span class="cblack">讲师：</span>丁先群   
-2014-9-22  更新至<label class="cred">1</label>
-已完结
-</h4>
-<div class="list_cont"></div>
-</dd>
-<dd>
-<h3 class="list_h3"><a target="_blank" href="/ashx/lesson/PageGo.ashx?courseid=1517&categoryid=40">特殊继电器M8029在伺服定位中的应用</a></h3>
-<h4 class="list_h4"><span class="cblack">讲师：</span>付明忠   
-2012-3-16  更新至<label class="cred">0</label>
-未完结
-</h4>
-<div class="list_cont"></div>
-</dd>
-<dd>
-<h3 class="list_h3"><a target="_blank" href="/ashx/lesson/PageGo.ashx?courseid=1547&categoryid=40">电动阀的控制及故障处理</a></h3>
-<h4 class="list_h4"><span class="cblack">讲师：</span>许晓琴   
-2012-3-16  更新至<label class="cred">1</label>
-已完结
-</h4>
-<div class="list_cont"></div>
-</dd>
-<dd>
-<h3 class="list_h3"><a target="_blank" href="/ashx/lesson/PageGo.ashx?courseid=1657&categoryid=40">特殊继电器M8029在伺服定位中的应用</a></h3>
-<h4 class="list_h4"><span class="cblack">讲师：</span>付明忠   
-2012-4-11  更新至<label class="cred">1</label>
-已完结
-</h4>
-<div class="list_cont"></div>
-</dd>
-
-                        <div class="cl"></div>
-                    </dl>
-                    <!--课程筛选结果显示-->
-                </div>
-                <div class="cl"></div>
-            </div>
-            <div class="cl"></div>
-            
-            <script type="text/javascript">
-                 /*初始化分页*/
-                 window.onload = function () {
-                       my_page = new open_pager("pageDiv");
-                       my_page.pageSize = 8; /*每页显示数*/
-                       my_page.pageClick = pageClick; //回调函数*/
-                       my_page.currentPage = 1; /*当前页*/
-                       my_page.totalRows = 31; /*总条数*/
-                       my_page.output();
-                    }
-                 /*调用*/
-                 function pageClick(pg) {
-                     var _newurl = this.createUrl(pg);
-                     self.location.href = _newurl;
-                 }       
-            </script>
-            <div class=" bggray-1 h35 lh35 pr15 tr">
-                <div id="pageDiv" class="cutPage"></div>
-            </div>
-            
-        </div>
-        <!-- right.ascx end-->
+        </script>
+        <script>
+        (function() {
+            var s = document.createElement('script');
+            s.type = 'text/javascript';
+            s.async = true;
+            s.src = 'http://images.jcpeixun.com/static/js/tongji.js?a=201601';
+            var x = document.getElementsByTagName('script')[0];
+            x.parentNode.insertBefore(s, x);
+        })();
+        </script>
+        <!-- WPA Button Begin -->
+        <!-- WPA Button End -->
+        <!--footer-->
     </div>
-    
-<div class="bottom">
-    <div class="cl">
-    </div>
-    <!-- jc_bottom_2 start -->
-    <div class="mt10 stuCont bGray">
-        			<div class="l mr20 stuContLeft1">200万学员共同信赖</div>
-            <ul class="l mr20 stuContUl" id="stuContUl">
-				                <li><a href="http://www.rfgxy.com/studentsound/index.aspx" target="_blank" title="浙江台州&nbsp;&nbsp;jcED1UT3——老师讲得很认真，很有责任感。
-">老师讲得很认真，很有责任感。 </a></li>                <li><a href="http://www.rfgxy.com/studentsound/index.aspx" target="_blank" title="遵义市  &nbsp;&nbsp;王亚飞 ——很好的基础课，赞一个 
-">很好的基础课，赞一个 </a></li>                <li><a href="http://www.rfgxy.com/studentsound/index.aspx" target="_blank" title="辽宁省大连市&nbsp;&nbsp;晁岳洪——新手，老师讲的很好。谢谢。
-">新手，老师讲的很好。谢谢。 </a></li>                <li><a href="http://www.rfgxy.com/studentsound/index.aspx" target="_blank" title="新疆哈密市&nbsp;&nbsp;梁财——我是90年毕业的专科生,从事机电工作20多年,一次偶然留意到儒风国学院网,成为一名技成学员.技成的各位老师的课讲的确实好.希望在网络通信方面有系统的课程
-">我是90年毕业的专科生,从事机电工作20多年,一次偶然留意到儒风国学院网,成为一名技成学员.技成的各位... </a></li>                <li><a href="http://www.rfgxy.com/studentsound/index.aspx" target="_blank" title="广东省东莞市&nbsp;&nbsp;黄道生——谢谢阳老师！谢谢技成！
-">谢谢阳老师！谢谢技成！ </a></li>                <li><a href="http://www.rfgxy.com/studentsound/index.aspx" target="_blank" title="广东省普宁市&nbsp;&nbsp;詹美斌——电工基础 嗯嗯不错哦！就连最简单的灯泡也拿出来讲真是详细！！很适合初学的我！！！
-">电工基础 嗯嗯不错哦！就连最简单的灯泡也拿出来讲真是详细！！很适合初学的我！！！ </a></li>                <li><a href="http://www.rfgxy.com/studentsound/index.aspx" target="_blank" title="辽宁沈阳市  &nbsp;&nbsp;游客学员——通过儒风国学院教学。我学到了很多以前不敢相信的知识。在这本人表示非常的感谢。希望贵校越办越好，能让更多的想学工控的学员早日成功。 
-">通过儒风国学院教学。我学到了很多以前不敢相信的知识。在这本人表示非常的感谢。希望贵校越办越好，能让更多... </a></li>                <li><a href="http://www.rfgxy.com/studentsound/index.aspx" target="_blank" title="上海&nbsp;&nbsp;郝泽华——儒风国学院是我学习的好朋友，李老师的课讲得通俗易懂，他把教书育人结合起来，我非常喜欢;梁老师讲得也很精彩。相信在技成我一定能得到丰厚的收获。">儒风国学院是我学习的好朋友，李老师的课讲得通俗易懂，他把教书育人结合起来，我非常喜欢;梁老师讲得也很精... </a></li>                <li><a href="http://www.rfgxy.com/studentsound/index.aspx" target="_blank" title=" 山东济宁&nbsp;&nbsp;孟涛——老师讲的太好了
-">老师讲的太好了 </a></li>                <li><a href="http://www.rfgxy.com/studentsound/index.aspx" target="_blank" title="江苏徐州&nbsp;&nbsp;盛凡——丁老师讲的课很棒 对于初学的朋友“你值得拥有”
-">丁老师讲的课很棒 对于初学的朋友“你值得拥有” </a></li>                <li><a href="http://www.rfgxy.com/studentsound/index.aspx" target="_blank" title="浙江省温州市&nbsp;&nbsp;张青伟——通过这段时间的学习，觉得唐老师的课讲得很好。
-">通过这段时间的学习，觉得唐老师的课讲得很好。 </a></li>                <li><a href="http://www.rfgxy.com/studentsound/index.aspx" target="_blank" title="内蒙古呼和浩特市&nbsp;&nbsp;张亮生——马老师讲的非常非常好
-">马老师讲的非常非常好 </a></li>                <li><a href="http://www.rfgxy.com/studentsound/index.aspx" target="_blank" title="山东潍坊&nbsp;&nbsp;马永泽——很喜欢李金城老师讲课，简单易懂实用，容易消化理解记得住，让我有了很大的进步！">很喜欢李金城老师讲课，简单易懂实用，容易消化理解记得住，让我有了很大的进步！ </a></li>                <li><a href="http://www.rfgxy.com/studentsound/index.aspx" target="_blank" title="深圳市  &nbsp;&nbsp;曾亚东 ——"听梁智斌老师讲课很舒服，耐心细致，深入浅出，象个老师，早遇到他我就不用去什么培训中心培训了，浪费钱 
-"
-">"听梁智斌老师讲课很舒服，耐心细致，深入浅出，象个老师，早遇到他我就不用去什么培训中心培训了，浪费钱... </a></li>                <li><a href="http://www.rfgxy.com/studentsound/index.aspx" target="_blank" title="山东淄博&nbsp;&nbsp;徐毅——梁老师讲课很精彩，谢谢！">梁老师讲课很精彩，谢谢！ </a></li>
-            </ul>
-            <a href="http://www.rfgxy.com/studentsound/index.aspx" title="更多学员心声" class="l mr10 stuContMore" target="_blank">更多</a>
-            <div class="l stuContRight"><p>关注技成官方微博</p><p>
-                <iframe src="http://follow.v.t.qq.com/index.php?c=follow&a=quick&name=szjcpx&style=5&t=1343874086367&f=0" frameborder="0" scrolling="auto" width="65" height="24" marginwidth="0" marginheight="0" allowtransparency="true"></iframe>
-                &nbsp;&nbsp;<iframe width="63" height="24" frameborder="0" allowtransparency="true" marginwidth="0" marginheight="0" scrolling="no" border="0" src="http://widget.weibo.com/relationship/followbutton.php?language=zh_cn&width=63&height=24&uid=2377177400&style=1&btn=light&dpc=1"></iframe>
-                <div class="cl"></div>
-            </p></div>
-            <div class="cl"></div>
-    </div>
-    <!-- jc_bottom_2 end -->
-    <!-- jc_bottom_3 start -->
-    <div class="mt10 helpList bGray">
-        <dl class="helpListDl1">
-    <dt>新手上路</dt>
-    <dd>
-        <a href="http://www.rfgxy.com/help/index.aspx" title="学习建议">学习建议</a>
-    </dd>
-    <dd>
-        <a href="http://www.rfgxy.com/help/help12.aspx" title="升级与购买">升级与购买</a>
-    </dd>
-    <dd>
-        <a href="http://www.rfgxy.com/help/help14.aspx" title="服务激活卡">服务激活卡</a>
-    </dd>
-    <dd>
-        <a href="http://www.rfgxy.com/help/help15.aspx" title="播放器安装与使用">播放器安装与使用</a>
-    </dd>
-    <dd>
-        <a href="http://www.rfgxy.com/help/help16.aspx" title="播放器故障与解决">播放器故障与解决</a>
-    </dd>
-</dl>
-<dl class="helpListDl2">
-    <dt>学员服务</dt>
-    <dd>
-        <a href="http://www.rfgxy.com/help/help21.aspx" title="学员服务体系">学员服务体系</a>
-    </dd>
-    <dd>
-        <a href="http://www.rfgxy.com/help/help11.aspx" title="注册学员帐号">注册学员帐号</a>
-    </dd>
-    <dd>
-        <a href="http://www.rfgxy.com/help/help25.aspx" title="购买白金学员">购买白金学员</a>
-    </dd>
-    <dd>
-        <a href="http://www.rfgxy.com/help/help22.aspx" title="购买金牌学员">购买金牌学员</a>
-    </dd>
-    <dd>
-        <a href="http://www.rfgxy.com/help/help23.aspx" title="购买银牌学员">购买银牌学员</a>
-    </dd>
-    <dd>
-        <a href="http://www.rfgxy.com/help/help24.aspx" title="注册学员权利">注册学员权利</a>
-    </dd>
-    <dd>
-        <a href="http://www.rfgxy.com/equipment/" title="租设备">租设备</a>
-    </dd>
-</dl>
-<dl class="helpListDl3">
-    <dt>课程学习</dt>
-    <dd>
-        <a href="http://www.rfgxy.com/help/help31.aspx" title="技成课程体系">技成课程体系</a>
-    </dd>
-    <dd>
-        <a href="http://www.rfgxy.com/help/help33.aspx" title="在线辅导课学习说明">在线辅导课学习说明</a>
-    </dd>
-    <dd>
-        <a href="http://www.rfgxy.com/help/help36.aspx" title="积分兑换课程">积分兑换课程</a>
-    </dd>
-    
-</dl>
-<dl class="helpListDl4">
-    <dt>特色服务</dt>
-    <dd>
-        <a href="http://www.rfgxy.com/help/help51.aspx" title="专属辅导员服务">专属辅导员服务</a>
-    </dd>
-    <dd>
-        <a href="http://www.rfgxy.com/help/help52.aspx" title="名师联线服务">名师联线服务</a>
-    </dd>
-    <dd>
-        <a href="http://www.rfgxy.com/help/help53.aspx" title="限时答疑服务">限时答疑服务</a>
-    </dd>
-    <dd>
-        <a href="http://www.rfgxy.com/topic/salon/jcsalon.aspx" title="学员沙龙服务">学员沙龙服务</a>
-    </dd>
-    <dd>
-        <a href="http://www.rfgxy.com/topic/mail/jcEDM.aspx" title="技成学报服务">技成学报服务</a>
-    </dd>
-    <!--<dd>
-        <a href="/emailregister.aspx" title="邮箱注册">邮箱注册</a>
-    </dd>
-    <dd>
-        <a href="/forgotpw/find_pwd1.aspx" title="邮箱注册找回密码">邮箱注册找回密码</a>
-    </dd>
-    <dd>
-        <a href="/newlogin.aspx" title="新登录入口">新登录入口</a>
-    </dd>-->
-</dl>
-<div class="cl"></div>
-
-    </div>
-    <!-- jc_bottom_3 end -->
-    <!-- jc_bottom_5 start -->
-    <div class="mt20 foot">
-        <p class="footMain1"><a href="/AboutUs.aspx" target="_blank">关于我们</a>丨 <a href="/contact.aspx" target="_blank">联系我们</a>丨 <a href="/zhaopin.aspx" target="_blank">人才招聘</a>丨 <a href="/links.aspx" target="_blank">友情链接</a>丨 <a href="/help/index.aspx" target="_blank">帮助中心</a> </p><p class="footMain2">服务热线:110110110-（上午9:00-12:00 / 下午13:30-18:00） - 邮件:<a href="mailto:kefu@rfgxy.com">kefu@rfgxy.com</a> - 版权所有 深圳技成科技 - 粤ICP备11069432号</p>
-        <p>
-        	<!--
-            <script id="ebsgovicon" src="https://cert.ebs.gov.cn/govicon.js?id=5624d72d-2ef8-4ee2-9e35-118fb494adbf&width=36&height=50" type="text/javascript" charset="utf-8"></script>
-            -->
-
-
-		<!--
-	    <span class="h50 lh50 mr15">联合运营单位：深圳市工程师联合会</span>
-	    <a target="_blank" href="https://cert.ebs.gov.cn/5624d72d-2ef8-4ee2-9e35-118fb494adbf"><img width="36" height="50" border="0" style="border-width:0px;border:hidden; border:none;" alt="深圳市市场监督管理局企业主体身份公示" title="深圳市市场监督管理局企业主体身份公示" src="http://images.rfgxy.com/govIcon.gif"></a>
-		-->
-
-
-		<div class="clearfix w380 mc mt15">
-			<div class="l cgray6">
-				<div class="h25 lh25 mr15">广东省 深圳市 专业技术人员继续教育网络学习平台</div>
-
-					<div class="h25 lh25 mr15">联合运营单位：深圳市工程师联合会</div>
-				</div>
-				<div class="r">
-					<a target="_blank" href="https://cert.ebs.gov.cn/5624d72d-2ef8-4ee2-9e35-118fb494adbf"><img width="36" height="50" border="0" style="border-width:0px;border:hidden; border:none;" alt="深圳市市场监督管理局企业主体身份公示" title="深圳市市场监督管理局企业主体身份公示" src="http://images.rfgxy.com/govIcon.gif"></a>
-				</div>
-		    </div>
-
-
-        </p>
-    </div>
-    <!-- jc_bottom_5 end -->
-    <div class="w998 h20 mc">
-    </div>
-</div>
-
-
-<a id="p-gotop" class="p-gotop" href="#" onclick="window.scrollTo(0, 0);return false" title="返回顶部"></a>
-<div id="popup_ad"></div>
-
-
-<!--	2013-11-19	13:00:00	-->
-<script type="text/javascript" src="<?php echo base_url('index/tj.js'); ?>"></script>
-
-
-
-<!--<script type="text/javascript" src="http://www.rfgxy.com/include/couplet.js"></script>
-<script type="text/javascript" src="http://www.rfgxy.com/include/liuyanban.js"></script>-->
-
-<script type="text/javascript" src="<?php echo base_url('index/include/tongji.js'); ?>"></script>
-
-
-
-<!-- Live800在线客服图标:深圳技成[浮动型] 开始
-<script language="javascript" src="http://chat.gd10010.cn/chat/chatClient/floatButton.js?companyID=10010&configID=64&codeType=custom"></script>-->
-<!-- Live800在线客服图标:深圳技成[浮动型] 结束-->
-
-<!-- Live800在线客服功能代码 开始
-<script language="javascript" src="http://chat.gd10010.cn/chat/chatClient/monitor.js?companyID=10010&configID=1&codeType=custom"></script>-->
-<!-- Live800在线客服功能代码 结束-->
-<!--
-<div class="online_service online_service-1" id="online_service" onclick="_hmt.push(['_trackEvent', 'kefu', 'click', 'kefu','1']);">
-	<ul>
-    	<li style="position:relative;"><a href="javascript:;" onclick="javascript:window.open('http://chat.gd10010.cn/chat/chatClient/chatbox.jsp?companyID=10010&cityCode=540&configID=64&enterurl=www.rfgxy.com','rfgxy','toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=1,width=778,height=520');"><img border="0" class="img1" src="http://images.rfgxy.com/tit_20131105001.jpg?a=20131105001" alt="" title="" /></a>
-    	<a style="position: absolute; color: #333; right: 0px; height: 15px; line-height: 15px; width: 33px; bottom: -20px;text-decoration: underline;" href="javascript:;" onclick="javascript:$('#online_service').hide();">关闭</a>
-    	</li>
-     </ul>
-</div>
--->
-<div id="on4" style="position:fixed;left:0;bottom:0;">
-	<div id="BDBridgeFixedWrap"></div>
-	<a style="position: absolute; color: #333; height: 15px; line-height: 15px; width: 33px; top: 0; left: 125px;text-decoration: underline;" href="javascript:;" onclick="javascript:$('#on4').hide();">关闭</a>
-</div>
-
-
-<script src="<?php echo base_url('index/include/order.js'); ?>" type="text/javascript"></script>
-<script src="<?php echo base_url('index/include/home.v2.js'); ?>" type="text/javascript"></script>
-
-<link rel="Stylesheet" type="text/css" href="<?php echo base_url('index/style/liuyanban.css'); ?>" />
-<script type="text/javascript" src="<?php echo base_url('index/include/liuyanban.js'); ?>"></script>
 </body>
+
 </html>
