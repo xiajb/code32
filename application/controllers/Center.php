@@ -17,7 +17,7 @@ class Center extends CI_Controller {
 		$this->load->view("center.html");
 
 	}
-//这里是新的注释
+//这里是新的注释11
 	function test ($course_id){
 	$this->session->set_userdata('course_id',$course_id);
 
