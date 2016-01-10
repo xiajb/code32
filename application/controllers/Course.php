@@ -23,4 +23,8 @@ class Course extends CI_Controller {
 		$this->load->view("index/course.html",$data);
 
 	}
+	function showinserttocourse(){
+		
+
+	}
 }

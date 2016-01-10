@@ -384,7 +384,7 @@
                               title=" <?php echo $chapter[$i]['chapter_name'];?>">
                               <span class="w50 l tr pr10 dn">章节</span>
                               <span class="w30 l tc">
-                              <em class="circle1"><?php echo $chapter[$i]['chapter_id']?></em>
+                              <em class="circle1"><?php echo $chapter[$i]['order_no']?></em>
                               </span>
                               <span class=" l ellipsis pl10">
                               <?php echo $chapter[$i]['chapter_name'];?>
@@ -396,7 +396,7 @@
                                       <a href="<?php echo site_url().'/showtv/showbyid/'. $section[$t]['section_id']?><?php echo '/'.$arr[2][0]['course_id']?>"
                                       title="<?php echo $section[$t]['section_name'];?>"
                                         class="<?php
-                                               
+
                                           if($section[$t]['section_id']==$_SESSION['section_id']){
                                               $str='hover';
                                               echo $str;
@@ -441,7 +441,7 @@
 
                           <div class="video" id="CuPlayer">
 
-                          <video src="<?php 
+                          <video src="<?php
                                 foreach ($arr[1] as $section) {
                                   if($section['section_id']==$_SESSION['section_id']){
                                     echo 'http://code32.b0.upaiyun.com/video/'.$section['section_name'].'.mp4';
