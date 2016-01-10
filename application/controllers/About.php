@@ -1,18 +1,21 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Test extends CI_Controller {
+class About extends CI_Controller {
 
+	/**
+	 * Index Page for this controller.
+	 */
 	function __construct(){
-
-
 		parent::__construct();
-		// $this->load->model('user_model');
 		$this->load->library('session');
 	}
-
+	//
 	public function index()
 	{
-		$this->load->view("new.html");
+
+		$this->load->helper('url');
+		$this->load->view("about.html");
+
 	}
 
 }
