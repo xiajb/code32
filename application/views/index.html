@@ -92,7 +92,7 @@ body{
 
         var f1 = <?php echo $_SESSION['direction_id']?>;
         var f2 = <?php echo $_SESSION['classify_id']?>;
-        var f3 = '0';
+      	var f3 = <?php echo $_SESSION['is_easy']?>;
         var psort = '1';
         if (f1 == '0') { $(".f1-condition a").eq(0).addClass("active"); }
         else { $(".f1-condition a[id='f1-" + f1 + "']").eq(0).addClass("active"); }
@@ -474,7 +474,7 @@ body{
 															$direction=$arr[0];
 															foreach ($direction as $key):
 														?>
-                            <a id="<?php echo 'f1-'.$key['direction_id']?>" href="<?php  echo site_url().'index/index2/'.$key['direction_id'].'/0'?>"><?php echo $key['direction_name']?></a>
+                            <a id="<?php echo 'f1-'.$key['direction_id']?>" href="<?php  echo site_url().'index/index2/'.$key['direction_id'].'/0/0'?>"><?php echo $key['direction_name']?></a>
 													<?php endforeach?>
                         </dd>
                     </dl>
@@ -487,12 +487,12 @@ body{
                         <dt>课程：</dt>
 
                         <dd class="condition-cont clearfix f2-condition">
-													<a class="" id="f2-0" href="<?php  echo site_url().'index/index2/'.$_SESSION['direction_id'].'/0'?>">全部</a>
+													<a class="" id="f2-0" href="<?php  echo site_url().'index/index2/'.$_SESSION['direction_id'].'/0/0'?>">全部</a>
 													<?php
 														$classify=$arr[1];
 														foreach ($classify as $key):
 													?>
-													<a id="<?php echo 'f2-'.$key['classify_id']?>" href="<?php  echo site_url().'index/index2/'.$key['direction_id'].'/'.$key['classify_id']?>"><?php echo $key['classify_name']?></a>
+													<a id="<?php echo 'f2-'.$key['classify_id']?>" href="<?php  echo site_url().'index/index2/'.$key['direction_id'].'/'.$key['classify_id'].'/0'?>"><?php echo $key['classify_name']?></a>
 												<?php endforeach?>
 
                         </dd>
@@ -500,11 +500,11 @@ body{
                     <dl class="condition clearfix">
                         <dt>难度：</dt>
                         <dd class="condition-cont clearfix f3-condition">
-                            <a class="" href="?f1=0&f2=0&f3=">全部</a>
-                            <a id="f3-西门子"  href="?f1=0&f2=0&f3=西门子">初级</a>
-                            <a id="f3-三菱" href="?f1=0&f2=0&f3=三菱">中级</a>
-                            <a id="f3-欧姆龙" href="?f1=0&f2=0&f3=欧姆龙">高级</a>
-                            <a id="f3-其他" href="?f1=0&f2=0&f3=其他">其他</a>
+                            <a class="" href="<?php  echo site_url().'index/index2/'.$_SESSION['direction_id'].'/'.$_SESSION['classify_id'].'/0'?>">全部</a>
+                            <a id="f3-1"  href="<?php  echo site_url().'index/index2/'.$_SESSION['direction_id'].'/'.$_SESSION['classify_id'].'/1'?>">初级</a>
+                            <a id="f3-2" href="<?php  echo site_url().'index/index2/'.$_SESSION['direction_id'].'/'.$_SESSION['classify_id'].'/2'?>">中级</a>
+                            <a id="f3-3" href="<?php  echo site_url().'index/index2/'.$_SESSION['direction_id'].'/'.$_SESSION['classify_id'].'/3'?>">高级</a>
+                            <a id="f3-4" href="<?php  echo site_url().'index/index2/'.$_SESSION['direction_id'].'/'.$_SESSION['classify_id'].'/4'?>">其他</a>
                         </dd>
                     </dl>
                 </div>
@@ -523,135 +523,26 @@ body{
             <div class="inner oh">
                 <ul class="listview13 clearfix" style="width:1220px;">
 
-                    <li>
+										<?php
+											$course=$arr[2];
+											foreach ($course as $key):
+										?>
+										<li>
                         <div class="li-wrap mb10">
-                            <a href="http://u.jcpeixun.com/course/course.aspx?courseid=23">
-                                <img src="http://u.jcpeixun.com//upload-jcuion/cover/20150421161351296.png" width="263" height="150" alt=""/>
+                            <a href="<?php echo site_url().'course/showcourse/'.$key['course_id'] ?>">
+                                <img src="<?php echo $key['img_path']?>" width="263" height="150" alt=""/>
                                 <div class="li-info">
-                                    <p class="h40 lh20 f16">西门子全科班【精】</p>
-                                    <p class="li-desc mt5">授课方式：    讲师授课、案例解析、现场实操、以60%实操 30% 理论相结合<br/>住宿情况：  到技成联盟提前预约，免费提供住宿（水电自理）</p>
+                                    <p class="h40 lh20 f16"><?php echo $key['course_name']?></p>
+                                    <p class="li-desc mt5"><?php echo $key['course_synopsis']?></p>
                                 </div>
                             </a>
                         </div>
                         <p class="lh20 gray6 dn"><i class="graya iconfont f14">&#xe63a;</i> 课程安排：8天×2小时</p>
                         <p class="lh20 gray6 dn"><i class="graya iconfont f14">&#xe610;</i> 开课时间：2014-1-19 14:55:17</p>
                         <p class="h30 lh30 f14 mt5"><span class="gray9"><i class="graya iconfont f14">&#xe606;</i> 357报名</span></p>
-                        <p class="pt1"><span class="btn btn-blue2 btn-small r">深圳,</span><span class="f14 gray9"><i class="graya iconfont f14">&#xe62d;</i> <em class="colblue">15541</em>关注</span></p>
+                        <p class="pt1"><span class="btn btn-blue2 btn-small r"><?php echo $key['course_level']?></span><span class="f14 gray9"><i class="graya iconfont f14">&#xe62d;</i> <em class="colblue">15541</em>关注</span></p>
                     </li>
-
-                    <li>
-                        <div class="li-wrap mb10">
-                            <a href="http://u.jcpeixun.com/course/course.aspx?courseid=24">
-                                <img src="http://u.jcpeixun.com//upload-jcuion/cover/20150422122900531.jpg" width="263" height="150" alt=""/>
-                                <div class="li-info">
-                                    <p class="h40 lh20 f16">西门子S7-300/400专家班</p>
-                                    <p class="li-desc mt5">报名所学课程：包会。一次不会，可以反复学习，直到学会为止。</p>
-                                </div>
-                            </a>
-                        </div>
-                        <p class="lh20 gray6 dn"><i class="graya iconfont f14">&#xe63a;</i> 课程安排：8天×2小时</p>
-                        <p class="lh20 gray6 dn"><i class="graya iconfont f14">&#xe610;</i> 开课时间：2014-1-19 14:56:26</p>
-                        <p class="h30 lh30 f14 mt5"><span class="gray9"><i class="graya iconfont f14">&#xe606;</i> 74报名</span></p>
-                        <p class="pt1"><span class="btn btn-blue2 btn-small r">深圳,</span><span class="f14 gray9"><i class="graya iconfont f14">&#xe62d;</i> <em class="colblue">3271</em>关注</span></p>
-                    </li>
-
-                    <li>
-                        <div class="li-wrap mb10">
-                            <a href="http://u.jcpeixun.com/course/course.aspx?courseid=25">
-                                <img src="http://u.jcpeixun.com//upload-jcuion/cover/20150422121326546.jpg" width="263" height="150" alt=""/>
-                                <div class="li-info">
-                                    <p class="h40 lh20 f16">西门子S7-200综合班</p>
-                                    <p class="li-desc mt5">轻松上手，小型自动化系统你所需要的都有了~！</p>
-                                </div>
-                            </a>
-                        </div>
-                        <p class="lh20 gray6 dn"><i class="graya iconfont f14">&#xe63a;</i> 课程安排：8天×2小时</p>
-                        <p class="lh20 gray6 dn"><i class="graya iconfont f14">&#xe610;</i> 开课时间：2014-1-19 14:57:00</p>
-                        <p class="h30 lh30 f14 mt5"><span class="gray9"><i class="graya iconfont f14">&#xe606;</i> 46报名</span></p>
-                        <p class="pt1"><span class="btn btn-blue2 btn-small r">深圳,</span><span class="f14 gray9"><i class="graya iconfont f14">&#xe62d;</i> <em class="colblue">2184</em>关注</span></p>
-                    </li>
-
-                    <li>
-                        <div class="li-wrap mb10">
-                            <a href="http://u.jcpeixun.com/course/course.aspx?courseid=26">
-                                <img src="http://u.jcpeixun.com//upload-jcuion/cover/20150421162945984.png" width="263" height="150" alt=""/>
-                                <div class="li-info">
-                                    <p class="h40 lh20 f16">WINCC组态班【全能】</p>
-                                    <p class="li-desc mt5">启程自动化培训中心推出的wincc课程介绍了西门子公司组态软件WinCC 。内容涉及实际工程中可能应用的各个方面，包括组态变量、传送和下载、安装与调试、用户管理、多语言组态、趋势和数据记录、报警组态、生成报表、脚本编程、远程访问和控制、全集成自动化应用等。</p>
-                                </div>
-                            </a>
-                        </div>
-                        <p class="lh20 gray6 dn"><i class="graya iconfont f14">&#xe63a;</i> 课程安排：8天×2小时</p>
-                        <p class="lh20 gray6 dn"><i class="graya iconfont f14">&#xe610;</i> 开课时间：2014-1-19 14:58:06</p>
-                        <p class="h30 lh30 f14 mt5"><span class="gray9"><i class="graya iconfont f14">&#xe606;</i> 10报名</span></p>
-                        <p class="pt1"><span class="btn btn-blue2 btn-small r">深圳,</span><span class="f14 gray9"><i class="graya iconfont f14">&#xe62d;</i> <em class="colblue">795</em>关注</span></p>
-                    </li>
-
-                    <li>
-                        <div class="li-wrap mb10">
-                            <a href="http://u.jcpeixun.com/course/course.aspx?courseid=27">
-                                <img src="http://u.jcpeixun.com//upload-jcuion/cover/20150422121841484.jpg" width="263" height="150" alt=""/>
-                                <div class="li-info">
-                                    <p class="h40 lh20 f16">EPLAN电气设计班【精英】</p>
-                                    <p class="li-desc mt5">EPLAN是德国威图公司研发的当代极具影响力的专业电气工程制图软件，作为电气行业从业者掌握这项专业技能可以帮助电气工程设计人员，工程师实现极富有竞争力的职业梦想。</p>
-                                </div>
-                            </a>
-                        </div>
-                        <p class="lh20 gray6 dn"><i class="graya iconfont f14">&#xe63a;</i> 课程安排：8天×2小时</p>
-                        <p class="lh20 gray6 dn"><i class="graya iconfont f14">&#xe610;</i> 开课时间：2014-1-19 14:59:10</p>
-                        <p class="h30 lh30 f14 mt5"><span class="gray9"><i class="graya iconfont f14">&#xe606;</i> 74报名</span></p>
-                        <p class="pt1"><span class="btn btn-blue2 btn-small r">深圳,</span><span class="f14 gray9"><i class="graya iconfont f14">&#xe62d;</i> <em class="colblue">1945</em>关注</span></p>
-                    </li>
-
-                    <li>
-                        <div class="li-wrap mb10">
-                            <a href="http://u.jcpeixun.com/course/course.aspx?courseid=28">
-                                <img src="http://u.jcpeixun.com//upload-jcuion/cover/20150422100348843.jpg" width="263" height="150" alt=""/>
-                                <div class="li-info">
-                                    <p class="h40 lh20 f16">西门子S7-1200综合班【实惠】</p>
-                                    <p class="li-desc mt5">本PLC培训课程将为您一步一步系统的讲述在使用西门子S7-1200 PLC做各种类型工程项目时的最优编程思想和组态方法</p>
-                                </div>
-                            </a>
-                        </div>
-                        <p class="lh20 gray6 dn"><i class="graya iconfont f14">&#xe63a;</i> 课程安排：8天×2小时</p>
-                        <p class="lh20 gray6 dn"><i class="graya iconfont f14">&#xe610;</i> 开课时间：2014-1-19 14:59:45</p>
-                        <p class="h30 lh30 f14 mt5"><span class="gray9"><i class="graya iconfont f14">&#xe606;</i> 8报名</span></p>
-                        <p class="pt1"><span class="btn btn-blue2 btn-small r">深圳,</span><span class="f14 gray9"><i class="graya iconfont f14">&#xe62d;</i> <em class="colblue">529</em>关注</span></p>
-                    </li>
-
-                    <li>
-                        <div class="li-wrap mb10">
-                            <a href="http://u.jcpeixun.com/course/course.aspx?courseid=29">
-                                <img src="http://u.jcpeixun.com//upload-jcuion/cover/20150422122405828.jpg" width="263" height="150" alt=""/>
-                                <div class="li-info">
-                                    <p class="h40 lh20 f16">西门子S7-200.300.400专家班</p>
-                                    <p class="li-desc mt5">培训目标：通过案例分析和动手操作，学员能够掌握S7-300/400 PLC通讯网络应用及编程方法</p>
-                                </div>
-                            </a>
-                        </div>
-                        <p class="lh20 gray6 dn"><i class="graya iconfont f14">&#xe63a;</i> 课程安排：8天×2小时</p>
-                        <p class="lh20 gray6 dn"><i class="graya iconfont f14">&#xe610;</i> 开课时间：2014-1-19 15:10:43</p>
-                        <p class="h30 lh30 f14 mt5"><span class="gray9"><i class="graya iconfont f14">&#xe606;</i> 127报名</span></p>
-                        <p class="pt1"><span class="btn btn-blue2 btn-small r">深圳,东莞,</span><span class="f14 gray9"><i class="graya iconfont f14">&#xe62d;</i> <em class="colblue">6949</em>关注</span></p>
-                    </li>
-
-                    <li>
-                        <div class="li-wrap mb10">
-                            <a href="http://u.jcpeixun.com/course/course.aspx?courseid=30">
-                                <img src="http://u.jcpeixun.com//upload-jcuion/cover/20150422121634406.png" width="263" height="150" alt=""/>
-                                <div class="li-info">
-                                    <p class="h40 lh20 f16">西门子S7-200综合班加三菱FX系列综合课程</p>
-                                    <p class="li-desc mt5">通过案例能让学员编写简单和复杂的程序和熟练综合自动化技术，能独立设计编写不同要求的系统程序</p>
-                                </div>
-                            </a>
-                        </div>
-                        <p class="lh20 gray6 dn"><i class="graya iconfont f14">&#xe63a;</i> 课程安排：8天×2小时</p>
-                        <p class="lh20 gray6 dn"><i class="graya iconfont f14">&#xe610;</i> 开课时间：2014-1-19 15:11:27</p>
-                        <p class="h30 lh30 f14 mt5"><span class="gray9"><i class="graya iconfont f14">&#xe606;</i> 38报名</span></p>
-                        <p class="pt1"><span class="btn btn-blue2 btn-small r">东莞,深圳,</span><span class="f14 gray9"><i class="graya iconfont f14">&#xe62d;</i> <em class="colblue">1294</em>关注</span></p>
-                    </li>
-
-
+											<?php endforeach?>
                 </ul>
             </div>
             <!--pages-->

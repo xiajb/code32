@@ -24,7 +24,8 @@ class Course extends CI_Controller {
 
 	}
 	function showinserttocourse(){
-		
+
 
 	}
+
 }

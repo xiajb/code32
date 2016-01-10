@@ -25,6 +25,33 @@ class Show_model extends Ci_Model
 		$row=$query->result_array();
 		return $row;
 	}
+	function showcoursebyclassifyid($direction_id,$classify_id,$is_easy){
+			$this->load->database();
+			if($classify_id>0){
+					$this->db->where('ci_classify.classify_id',$classify_id);
+			}
+			if($direction_id>0){
+					$this->db->where('ci_direction.direction_id',$direction_id);
+			}
+			if($is_easy>0){
+				if($is_easy==1){
+				$course_level='初级';
+			}else if($is_easy==2){
+				$course_level='中级';
+			}else{
+				$course_level='高级';
+			}
+				
+					$this->db->where('ci_course.course_level',$course_level);
+			}
+			$this->db->select('ci_course.*');
+			$this->db->join('ci_classify','ci_classify.classify_id=ci_course.classify_id');
+			$this->db->join('ci_direction','ci_classify.direction_id=ci_direction.direction_id');
+			 $query=$this->db->get('ci_course');
+			 $row=$query->result_array();
+	 		return $row;
+
+	}
 }
 
 

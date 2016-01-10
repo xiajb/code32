@@ -7,7 +7,7 @@ class Index extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->model('show_classify');
 		$this->load->model('show_direction');
-
+$this->load->model('show_model');
 	}	/**
 	 * Index Page for this controller.
 	 *
@@ -27,21 +27,26 @@ class Index extends CI_Controller {
 	{
 		$this->session->set_userdata('direction_id',0);
 		$this->session->set_userdata('classify_id',0);
+		$this->session->set_userdata('is_easy',0);
 		$direction=$this->show_direction->show_direction();
 		$classify=$this->show_classify->show_classify_byid(0);
-		$data['arr']=array($direction,$classify);
+		$course=$this->show_model->showcoursebyclassifyid(0,0,0);
+	$data['arr']=array($direction,$classify,$course);
 		$this->load->view("index.html",$data);
 	}
-	public function index2($direction_id,$classify_id){
+	public function index2($direction_id,$classify_id,$is_easy){
 		$direction=$this->show_direction->show_direction();
 		$classify=$this->show_classify->show_classify_byid($direction_id);
-
+		$course=$this->show_model->showcoursebyclassifyid($direction_id,$classify_id,$is_easy);
 		$this->session->set_userdata('direction_id',$direction_id);
 		$this->session->set_userdata('classify_id',$classify_id);
-		$data['arr']=array($direction,$classify);
+		$this->session->set_userdata('is_easy',$is_easy);
+		//print_r($course);
+		$data['arr']=array($direction,$classify,$course);
 		$this->load->view("index.html",$data);
 
 	}
+
 
 
 }

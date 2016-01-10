@@ -19,5 +19,4 @@ class Course_model extends CI_Model{
 		$query = $this->db->get('ci_course');
 		return $query->result_array();
 	}
-
 }
