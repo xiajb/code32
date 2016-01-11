@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="<?php echo base_url('index/lesson1/css/font/iconfont.css') ?>">
     <link rel="stylesheet" href="<?php echo base_url('index/lesson1/css/basic.css') ?>">
     <link rel="stylesheet" href="<?php echo base_url('index/lesson1/css/style.css') ?>">
+    <link rel="stylesheet" href="<?php echo base_url('index/css/center.css') ?>">
     <style type="text/css">
     /* -------------------------------------------------
  * pages
@@ -19,7 +20,17 @@
     .pages li {
         display: inline;
     }
-    
+    .h-search .search-btn {
+        width: 62px;
+    height: 43px;
+    }
+    .h-search .search-input {
+            height: 43px;
+    }
+
+    .foot-guide .fg-item {
+        width: auto;
+    }
     .pages .active a {
         border-color: #188EEE;
         background-color: #188EEE;
@@ -295,337 +306,7 @@
         <!--# include file="inc/slide.aspx" -->
         <!--slide-->
         <!--container-->
-        <style type="text/css">
-        div {}
-        
-        .ucenter-block {
-            height: auto;
-            background: url(http://s1.jikexueyuan.com/member/images/ucenter/ucenter_bg_1005500.jpg) repeat-y;
-            border-bottom: 1px solid #eaeaea;
-            box-sizing: border-box;
-        }
-        
-        .mar-t30 {
-            margin-top: 30px!important;
-        }
-        
-        .w-1000 {
-            width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .ucenter-left {
-            float: left;
-            width: 180px;
-            height: 100%;
-            display: inline-block;
-            border-top: 1px solid #eaeaea;
-            box-sizing: border-box;
-        }
-        
-        .ucenter-right {
-            float: left;
-            width: 820px;
-            height: 100%;
-            min-height: 620px;
-            display: inline-block;
-            border-top: 1px solid #eaeaea;
-            border-right: 1px solid #eaeaea;
-            box-sizing: border-box;
-        }
-        
-        .cf {
-            zoom: 1;
-        }
-        
-        .ucneter-l-head .ulhead-headicon {
-            margin: 16px 0 0 16px;
-            float: left;
-            padding: 0;
-            overflow: hidden;
-        }
-        
-        .ucneter-l-head .ulhead-headicon img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-        }
-        
-        .ulhead-info {
-            max-width: 96px;
-            margin: 28px 0 10px 15px;
-            float: left;
-            text-align: left;
-        }
-        
-        .ulhead-info .ulhead-info-uname {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            max-width: 90px;
-            white-space: nowrap;
-            color: #333;
-            font-size: 12px;
-        }
-        
-        .ulhead-info .ulhead-info-vip {
-            margin-top: 3px;
-        }
-        
-        .icon-vip-year {
-            width: 40px;
-            height: 15px;
-            background-image: url(http://s1.jikexueyuan.com/member/images/vip-year_3ecca1f.png);
-            background-size: 40px 15px;
-        }
-        
-        .ulhead-info .ulhead-info-tool {
-            margin-top: 8px;
-        }
-        
-        .ucenter-l-list {
-            width: 180px;
-            padding-top: 14px;
-            border-top: 1px solid #eaeaea;
-        }
-        
-        .ucenter-l-list .ullist-ul {
-            margin-bottom: 16px;
-        }
-        
-        .ucenter-l-list .ullist-ul li {
-            cursor: pointer;
-            margin-top: 4px;
-        }
-        
-        .ullist-ul li a {
-            padding-left: 16px;
-            width: 100%;
-            line-height: 34px;
-            color: #666;
-            font-size: 12px;
-            display: inline-block;
-        }
-        
-        .lesson-list ul {
-            width: 790px;
-            margin-top: 25px;
-        }
-        
-        .ullist-ul li.active {
-            background: #35b558 url(http://s1.jikexueyuan.com/member/images/arrow_r_fff_c4dda92.png) center right 16px no-repeat;
-        }
-        
-  /*      .ullist-ul li.active a,
-        .ullist-ul li.active i,
-        .ullist-ul li:hover a,
-        .ullist-ul li:hover i {
-            color: #fff;
-        }*/
-        .ullist-ul li.active:hover a{
-            color:#666!important;
-        }
-        a {
-            text-decoration: none;
-        }
-        
-/*        ol,
-        ul {
-            list-style: none;
-        }*/
-        
-        .mycourse-block {
-            margin: 17px;
-            box-sizing: border-box;
-        }
-        
-        .mycourse-block .mycourse-tab-tit {
-            margin-top: 18px;
-            height: 39px;
-            /*box-sizing: border-box;*/
-        }
-        
-        .mycourse-tab-tit .mycourse-tab-ul {
-            width: 100%;
-            border-bottom: 1px solid #f3f3f3;
-            /*box-sizing: border-box;*/
-        }
-        
-        .mycourse-tab-tit .mycourse-tab-ul li.active,
-        .mycourse-tab-tit .mycourse-tab-ul li:hover {
-            border-bottom: 1px solid #35b558;
-            /*box-sizing: border-box;*/
-        }
-        
-        .mycourse-tab-tit .mycourse-tab-ul li {
-            float: left;
-            padding: 0 15px;
-            line-height: 36px;
-            text-align: center;
-            cursor: pointer;
-            /*box-sizing: border-box;*/
-        }
-        
-        .mycourse-tab-tit .mycourse-tab-ul li a {
-            font-size: 12px;
-            color: #333;
-            /*box-sizing: border-box;*/
-        }
-        
-        .mycourse-block .mycourse-tab-body {
-            margin-left: 7px;
-            /*box-sizing: border-box;*/
-        }
-        
-        .lesson-list ul {
-            width: 790px;
-            margin-top: 25px;
-            /*box-sizing: border-box;*/
-        }
-        
-        .lesson-list ul li {
-            width: 240px;
-            height: 220px;
-            float: left;
-            margin-right: 20px;
-            margin-bottom: 20px;
-            box-sizing: border-box;
-        }
-        
-        .lesson-list .lessonimg-box {
-            width: 240px;
-            height: 130px;
-            position: relative;
-            border: 1px solid #e4e4e4;
-            border-bottom: 0;
-            box-sizing: border-box;
-        }
-        
-        .lesson-list .lesson-infor {
-            padding: 10px;
-            position: relative;
-            z-index: 200;
-            height: 88px;
-            overflow: hidden;
-            background: #fff;
-            border: 1px solid #e4e4e4;
-            border-top: 0;
-            box-sizing: border-box;
-            /*height: 88px;*/
-        }
-        
-        .lesson-list .lesson-infor .lesson-info-h2,
-        .lesson-list .lesson-infor h5 {
-            font-size: 14px;
-            color: #333;
-            line-height: 18px;
-            margin-bottom: 12px;
-            height: 36px;
-            overflow: hidden;
-            box-sizing: border-box;
-        }
-        #page-nav {
-    text-align: center;
-}
-#page-nav {
-    /*text-align: right;*/
-        position: absolute;
-    top: 700px;
-    margin-top: 45px;
-    height: 28px;
-}
-ul.pages {
-    display: block;
-    border: 0;
-    text-transform: uppercase;
-    font-size: 12px;
-    margin: 10px 10px 50px;
-    padding: 0;
-}
-.lesson-list ul {
-    width: 790px!important;
-    margin-top: 25px;
-     box-sizing: border-box!important; 
-}
-ul.pages li.pgNext {
-    width: 50px;
-}
-ul.pages li.pgEmpty {
-    border: 1px solid #f0f0f0;
-    color: #d9d6c3;
-    /*width: 50px;*/
-    cursor: default;
-}
-ul.pages li {
-    display: inline-block;
-    width: 32px;
-    height: 32px;
-    border: 0;
-    margin-left: 3px!important;
-    margin-right: 5px!important;
-    margin-bottom: 10px!important;
-    line-height: 30px;
-    border: 1px solid #e4e4e4;
-    text-align: center;
-    font-size: 12px;
-    background: #fff;
-    color: #333;
-}
-.lesson-list ul li:nth-child(3n+3) {
-    margin-right: 0!important;
-}
-ul.pages li.pgCurrent {
-    background: #35b558;
-    color: #fff;
-    border: 1px solid #35B558;
-}
-ul.pages li {
-    display: inline-block;
-    width: 32px;
-    height: 32px;
-    border: 0;
-    margin-left: 3px!important;
-    margin-right: 5px!important;
-    margin-bottom: 10px!important;
-    line-height: 30px;
-    border: 1px solid #e4e4e4;
-    text-align: center;
-    font-size: 12px;
-    background: #fff;
-    color: #333;
-}
-.lesson-list ul li:nth-child(3n+3) {
-    margin-right: 0!important;
-}
-ul.pages li.pagetotal {
-    width: 70px;
-}
-ul.pages li.thpoint {
-    border: 0;
-    cursor: auto;
-    color: #000;
-    background-color: #fff;
-    margin-top: 3px;
-}
-ul.pages li.pagenow {
-    width: 100px;
-}
-ul.pages li.thpoint {
-    border: 0;
-    cursor: auto;
-    color: #000;
-    background-color: #fff;
-    margin-top: 3px;
-}
-ul.pages li.go {
-    width: 32px;
-    height: 22px;
-    line-height: 22px;
-    margin-top: 6px;
-}
-li:hover a, .ullist-ul li:hover i {
-    color: #35B559!important;
-}
-        </style>
+
         <div id="pager">
             <div class="w-1000 mar-t30 cf ucenter-block">
                 <div class="ucenter-left account-left-border">
@@ -875,6 +556,153 @@ li:hover a, .ullist-ul li:hover i {
                                         </div>
                                     </div>
                                 </li>
+                                                                <li id="181" test="0" deg="360" stop="1">
+                                    <div class="lessonimg-box">
+                                        <i class="user-action lesson-shoucang " style="display: none;" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64013&amp;aCId=181&amp;posColumn=181.4"></i>
+                                        <a href="http://www.jikexueyuan.com/course/181.html" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=181&amp;posColumn=181.4">
+                                            <img src="http://a1.jikexueyuan.com/home/201408/10/09cf/53e70d45e8506.jpg" class="lessonimg" title="HTML5开发前准备" alt="HTML5开发前准备">
+                                            <div class="lessonplay" style="opacity: 0;">
+                                                <div class="cricle">
+                                                    <div class="mask" style="display: none;"></div>
+                                                    <div class="left" style="transform: rotate(360deg);">
+                                                        <div class="bg"></div>
+                                                    </div>
+                                                    <div class="cright" style="display: block;">
+                                                        <div class="bg"></div>
+                                                    </div>
+                                                    <div class="text">100%</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="jd-line" style="display: block;">
+                                            <div class="green-line" style="width:238px"></div>
+                                        </div>
+                                    </div>
+                                    <div class="lesson-infor" style="height: 88px;">
+                                        <h2 class="lesson-info-h2"><a href="http://www.jikexueyuan.com/course/181.html" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=181&amp;posColumn=181.4">HTML5开发前准备</a></h2>
+                                        <p style="height: 0px; opacity: 0; display: none;">
+                                            本套课程介绍 HTML5 以及开发前需要准备的环境和继承开发环境的搭建，包含集成开发环境的快捷键的修改及使用。
+                                        </p>
+                                        <div class="timeandicon">
+                                            <div class="cf">
+                                                <dl>
+                                                    <dd class="mar-b8"><i class="time-icon"></i><em>2课时
+                            12分钟</em>
+                                                    </dd>
+                                                    <dd class="zhongji" style="display: none;">
+                                                        <i class="xinhao-icon"></i><em>初级</em>
+                                                    </dd>
+                                                </dl>
+                                                <em class="learn-number" style="display: none;">137294人学习</em>
+                                            </div>
+                                            <div class="cf">
+                                                <div class="lessonicon-box" style="bottom: 4px;">
+                                                    <a href="http://www.jikexueyuan.com/course/html5/">
+                                                        <img width="16" src="http://a1.jikexueyuan.com/home/201411/03/171a/54578ddd8e62a.png" alt="html5" title="HTML5" jktag="&amp;posGP=101001&amp;posArea=0003&amp;posOper=64015&amp;aCId=181&amp;posColumn=181.1&amp;aCCate=html5">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                                                <li id="181" test="0" deg="360" stop="1">
+                                    <div class="lessonimg-box">
+                                        <i class="user-action lesson-shoucang " style="display: none;" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64013&amp;aCId=181&amp;posColumn=181.4"></i>
+                                        <a href="http://www.jikexueyuan.com/course/181.html" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=181&amp;posColumn=181.4">
+                                            <img src="http://a1.jikexueyuan.com/home/201408/10/09cf/53e70d45e8506.jpg" class="lessonimg" title="HTML5开发前准备" alt="HTML5开发前准备">
+                                            <div class="lessonplay" style="opacity: 0;">
+                                                <div class="cricle">
+                                                    <div class="mask" style="display: none;"></div>
+                                                    <div class="left" style="transform: rotate(360deg);">
+                                                        <div class="bg"></div>
+                                                    </div>
+                                                    <div class="cright" style="display: block;">
+                                                        <div class="bg"></div>
+                                                    </div>
+                                                    <div class="text">100%</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="jd-line" style="display: block;">
+                                            <div class="green-line" style="width:238px"></div>
+                                        </div>
+                                    </div>
+                                    <div class="lesson-infor" style="height: 88px;">
+                                        <h2 class="lesson-info-h2"><a href="http://www.jikexueyuan.com/course/181.html" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=181&amp;posColumn=181.4">HTML5开发前准备</a></h2>
+                                        <p style="height: 0px; opacity: 0; display: none;">
+                                            本套课程介绍 HTML5 以及开发前需要准备的环境和继承开发环境的搭建，包含集成开发环境的快捷键的修改及使用。
+                                        </p>
+                                        <div class="timeandicon">
+                                            <div class="cf">
+                                                <dl>
+                                                    <dd class="mar-b8"><i class="time-icon"></i><em>2课时
+                            12分钟</em>
+                                                    </dd>
+                                                    <dd class="zhongji" style="display: none;">
+                                                        <i class="xinhao-icon"></i><em>初级</em>
+                                                    </dd>
+                                                </dl>
+                                                <em class="learn-number" style="display: none;">137294人学习</em>
+                                            </div>
+                                            <div class="cf">
+                                                <div class="lessonicon-box" style="bottom: 4px;">
+                                                    <a href="http://www.jikexueyuan.com/course/html5/">
+                                                        <img width="16" src="http://a1.jikexueyuan.com/home/201411/03/171a/54578ddd8e62a.png" alt="html5" title="HTML5" jktag="&amp;posGP=101001&amp;posArea=0003&amp;posOper=64015&amp;aCId=181&amp;posColumn=181.1&amp;aCCate=html5">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                                                <li id="181" test="0" deg="360" stop="1">
+                                    <div class="lessonimg-box">
+                                        <i class="user-action lesson-shoucang " style="display: none;" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64013&amp;aCId=181&amp;posColumn=181.4"></i>
+                                        <a href="http://www.jikexueyuan.com/course/181.html" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=181&amp;posColumn=181.4">
+                                            <img src="http://a1.jikexueyuan.com/home/201408/10/09cf/53e70d45e8506.jpg" class="lessonimg" title="HTML5开发前准备" alt="HTML5开发前准备">
+                                            <div class="lessonplay" style="opacity: 0;">
+                                                <div class="cricle">
+                                                    <div class="mask" style="display: none;"></div>
+                                                    <div class="left" style="transform: rotate(360deg);">
+                                                        <div class="bg"></div>
+                                                    </div>
+                                                    <div class="cright" style="display: block;">
+                                                        <div class="bg"></div>
+                                                    </div>
+                                                    <div class="text">100%</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="jd-line" style="display: block;">
+                                            <div class="green-line" style="width:238px"></div>
+                                        </div>
+                                    </div>
+                                    <div class="lesson-infor" style="height: 88px;">
+                                        <h2 class="lesson-info-h2"><a href="http://www.jikexueyuan.com/course/181.html" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=181&amp;posColumn=181.4">HTML5开发前准备</a></h2>
+                                        <p style="height: 0px; opacity: 0; display: none;">
+                                            本套课程介绍 HTML5 以及开发前需要准备的环境和继承开发环境的搭建，包含集成开发环境的快捷键的修改及使用。
+                                        </p>
+                                        <div class="timeandicon">
+                                            <div class="cf">
+                                                <dl>
+                                                    <dd class="mar-b8"><i class="time-icon"></i><em>2课时
+                            12分钟</em>
+                                                    </dd>
+                                                    <dd class="zhongji" style="display: none;">
+                                                        <i class="xinhao-icon"></i><em>初级</em>
+                                                    </dd>
+                                                </dl>
+                                                <em class="learn-number" style="display: none;">137294人学习</em>
+                                            </div>
+                                            <div class="cf">
+                                                <div class="lessonicon-box" style="bottom: 4px;">
+                                                    <a href="http://www.jikexueyuan.com/course/html5/">
+                                                        <img width="16" src="http://a1.jikexueyuan.com/home/201411/03/171a/54578ddd8e62a.png" alt="html5" title="HTML5" jktag="&amp;posGP=101001&amp;posArea=0003&amp;posOper=64015&amp;aCId=181&amp;posColumn=181.1&amp;aCCate=html5">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
                             </ul>
                             <div id="page-nav">
                                 <ul class="pages">
@@ -900,7 +728,7 @@ li:hover a, .ullist-ul li:hover i {
         <!--footer-->
         <div class="footer mt20">
             <!--footer-guide-->
-            <!--        <div class="foot-guide inner clearfix">
+    <div class="foot-guide inner clearfix">
             <dl class="fg-item2">
                 <dt class="h30 lh30 b f14">精品课程</dt>
                 <dd class="clearfix">
@@ -974,7 +802,7 @@ li:hover a, .ullist-ul li:hover i {
                 <p class="gray9">©深圳市技成科技有限公司 - 课程内容版权均归技成培训网所有  粤ICP备11069432号</p>
                 <p class="">广东省 深圳市 专业技术人员继续教育网络学习平台<br>联合运营单位：深圳市工程师联合会</p>
             </div>
-        </div> -->
+        </div> 
             <!--copyright-->
         </div>
         <div class="aside-bar fixed-top">
