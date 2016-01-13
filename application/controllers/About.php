@@ -23,7 +23,7 @@ class About extends CI_Controller {
 			'feedback' => '',
 			'friendly' => ''
 		);
-		$this->load->view("about_header.html");
+		$this->load->view("about_header.html",$data);
 		$this->load->view("us.html");
 		$this->load->view("about_footer.html");
 	}
@@ -39,7 +39,7 @@ class About extends CI_Controller {
 			'feedback' => '',
 			'friendly' => ''
 		);
-		$this->load->view("about_header.html");
+		$this->load->view("about_header.html",$data);
 		$this->load->view("group.html");
 		$this->load->view("about_footer.html");
 	}
@@ -47,15 +47,15 @@ class About extends CI_Controller {
 	{
 		$data['selected'] = array(
 			'us' => '', 
-			'group'  => 'selected',
-			'job' => '',
+			'group'  => '',
+			'job' => 'selected',
 			'recruit' => '',
 			'contact' => '',
 			'faq' => '',
 			'feedback' => '',
 			'friendly' => ''
 		);
-		$this->load->view("about_header.html");
+		$this->load->view("about_header.html",$data);
 		$this->load->view("job.html");
 		$this->load->view("about_footer.html");
 	}
@@ -63,31 +63,64 @@ class About extends CI_Controller {
 	{
 		$data['selected'] = array(
 			'us' => '', 
-			'group'  => 'selected',
+			'group'  => '',
 			'job' => '',
-			'recruit' => '',
+			'recruit' => 'selected',
 			'contact' => '',
 			'faq' => '',
 			'feedback' => '',
 			'friendly' => ''
 		);
-		$this->load->view("about_header.html");
+		$this->load->view("about_header.html",$data);
 		$this->load->view("recruit.html");
 		$this->load->view("about_footer.html");
 	}
+	public function contact()
+	{
+		$data['selected'] = array(
+			'us' => '', 
+			'group'  => '',
+			'job' => '',
+			'recruit' => '',
+			'contact' => 'selected',
+			'faq' => '',
+			'feedback' => '',
+			'friendly' => ''
+		);
+		$this->load->view("about_header.html",$data);
+		$this->load->view("contact.html");
+		$this->load->view("about_footer.html");
+	}		
+
+	public function faq()
+	{
+		$data['selected'] = array(
+			'us' => '', 
+			'group'  => '',
+			'job' => '',
+			'recruit' => '',
+			'contact' => '',
+			'faq' => 'selected',
+			'feedback' => '',
+			'friendly' => ''
+		);
+		$this->load->view("about_header.html",$data);
+		$this->load->view("faq.html");
+		$this->load->view("about_footer.html");
+	}		
 	public function feedback()
 	{
 		$data['selected'] = array(
 			'us' => '', 
-			'group'  => 'selected',
+			'group'  => '',
 			'job' => '',
 			'recruit' => '',
 			'contact' => '',
 			'faq' => '',
-			'feedback' => '',
+			'feedback' => 'selected',
 			'friendly' => ''
 		);
-		$this->load->view("about_header.html");
+		$this->load->view("about_header.html",$data);
 		$this->load->view("feedback.html");
 		$this->load->view("about_footer.html");
 	}
@@ -95,50 +128,20 @@ class About extends CI_Controller {
 	{
 		$data['selected'] = array(
 			'us' => '', 
-			'group'  => 'selected',
+			'group'  => '',
 			'job' => '',
 			'recruit' => '',
 			'contact' => '',
 			'faq' => '',
 			'feedback' => '',
-			'friendly' => ''
+			'friendly' => 'selected'
 		);
-		$this->load->view("about_header.html");
+		$this->load->view("about_header.html",$data);
 		$this->load->view("friendly.html");
 		$this->load->view("about_footer.html");
 	}	
-	public function faq()
-	{
-		$data['selected'] = array(
-			'us' => '', 
-			'group'  => 'selected',
-			'job' => '',
-			'recruit' => '',
-			'contact' => '',
-			'faq' => '',
-			'feedback' => '',
-			'friendly' => ''
-		);
-		$this->load->view("about_header.html");
-		$this->load->view("faq.html");
-		$this->load->view("about_footer.html");
-	}	
-	public function contact()
-	{
-		$data['selected'] = array(
-			'us' => '', 
-			'group'  => 'selected',
-			'job' => '',
-			'recruit' => '',
-			'contact' => '',
-			'faq' => '',
-			'feedback' => '',
-			'friendly' => ''
-		);
-		$this->load->view("about_header.html");
-		$this->load->view("contact.html");
-		$this->load->view("about_footer.html");
-	}	
+
+
 
 
 }
