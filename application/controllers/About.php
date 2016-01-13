@@ -8,73 +8,137 @@ class About extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->library('session');
-	}
-	//
-	public function index()
-	{
-
 		$this->load->helper('url');
-		$this->load->view("about.html");
-
 	}
+
 	public function us()
 	{
-
-		$this->load->helper('url');
+		$data['selected'] = array(
+			'us' => 'selected', 
+			'group'  => '',
+			'job' => '',
+			'recruit' => '',
+			'contact' => '',
+			'faq' => '',
+			'feedback' => '',
+			'friendly' => ''
+		);
+		$this->load->view("about_header.html");
 		$this->load->view("us.html");
-
+		$this->load->view("about_footer.html");
 	}
 	public function group()
 	{
-
-		$this->load->helper('url');
+		$data['selected'] = array(
+			'us' => '', 
+			'group'  => 'selected',
+			'job' => '',
+			'recruit' => '',
+			'contact' => '',
+			'faq' => '',
+			'feedback' => '',
+			'friendly' => ''
+		);
+		$this->load->view("about_header.html");
 		$this->load->view("group.html");
-
+		$this->load->view("about_footer.html");
 	}
 	public function job()
 	{
-
-		$this->load->helper('url');
+		$data['selected'] = array(
+			'us' => '', 
+			'group'  => 'selected',
+			'job' => '',
+			'recruit' => '',
+			'contact' => '',
+			'faq' => '',
+			'feedback' => '',
+			'friendly' => ''
+		);
+		$this->load->view("about_header.html");
 		$this->load->view("job.html");
-
+		$this->load->view("about_footer.html");
 	}
-
+	public function recruit()
+	{
+		$data['selected'] = array(
+			'us' => '', 
+			'group'  => 'selected',
+			'job' => '',
+			'recruit' => '',
+			'contact' => '',
+			'faq' => '',
+			'feedback' => '',
+			'friendly' => ''
+		);
+		$this->load->view("about_header.html");
+		$this->load->view("recruit.html");
+		$this->load->view("about_footer.html");
+	}
 	public function feedback()
 	{
-
-		$this->load->helper('url');
+		$data['selected'] = array(
+			'us' => '', 
+			'group'  => 'selected',
+			'job' => '',
+			'recruit' => '',
+			'contact' => '',
+			'faq' => '',
+			'feedback' => '',
+			'friendly' => ''
+		);
+		$this->load->view("about_header.html");
 		$this->load->view("feedback.html");
-
+		$this->load->view("about_footer.html");
 	}
 	public function friendly()
 	{
-
-		$this->load->helper('url');
+		$data['selected'] = array(
+			'us' => '', 
+			'group'  => 'selected',
+			'job' => '',
+			'recruit' => '',
+			'contact' => '',
+			'faq' => '',
+			'feedback' => '',
+			'friendly' => ''
+		);
+		$this->load->view("about_header.html");
 		$this->load->view("friendly.html");
-
+		$this->load->view("about_footer.html");
 	}	
 	public function faq()
 	{
-
-		$this->load->helper('url');
+		$data['selected'] = array(
+			'us' => '', 
+			'group'  => 'selected',
+			'job' => '',
+			'recruit' => '',
+			'contact' => '',
+			'faq' => '',
+			'feedback' => '',
+			'friendly' => ''
+		);
+		$this->load->view("about_header.html");
 		$this->load->view("faq.html");
-
+		$this->load->view("about_footer.html");
 	}	
 	public function contact()
 	{
-
-		$this->load->helper('url');
+		$data['selected'] = array(
+			'us' => '', 
+			'group'  => 'selected',
+			'job' => '',
+			'recruit' => '',
+			'contact' => '',
+			'faq' => '',
+			'feedback' => '',
+			'friendly' => ''
+		);
+		$this->load->view("about_header.html");
 		$this->load->view("contact.html");
-
+		$this->load->view("about_footer.html");
 	}	
-	public function recruit()
-	{
-
-		$this->load->helper('url');
-		$this->load->view("recruit.html");
-
-	}
-
 
 
 }
