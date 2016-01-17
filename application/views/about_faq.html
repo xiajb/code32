@@ -2,7 +2,46 @@
         <div class="other-right-wrap">
           <div id="pjax-tiper" class="alert" style="display:none">正在加载...</div>
           <div id="pjax-container">
-            
+            <style type="text/css">
+ul, menu, dir {
+    display: block;
+    list-style-type: disc;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+}
+.faq li h3 {
+    font-size: 18px;
+    color: #f01400;
+    cursor: pointer;
+    background: url(../img/faq/icon_open.png) no-repeat right center;
+}
+.faq li.curr h3 {
+    color: #f01400;
+    background-image: url(../img/faq/icon_close.png);
+}
+
+              .faq li {
+    padding: 25px 0;
+    border-bottom: 1px solid #eceff0;
+}
+
+.faq li.curr .faq-info {
+    display: block;
+}
+.faq li .faq-info {
+    padding-top: 25px;
+}
+.faq li .faq-info h4 {
+    font-size: 16px;
+}
+.faq li .faq-info p {
+    margin: 10px 0 20px;
+    line-height: 200%;
+}
+            </style>
 <div class="others faq">
   <h1>常见问题</h1>
   

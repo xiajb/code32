@@ -1,80 +1,120 @@
 <div class="other-right ">
-        <div class="other-right-wrap">
-          <div id="pjax-tiper" class="alert" style="display:none">正在加载...</div>
-          <div id="pjax-container">
+    <div class="other-right-wrap">
+        <div id="pjax-tiper" class="alert" style="display:none">正在加载...</div>
+        <div id="pjax-container">
+            <style type="text/css">
+            .field-wrap {
+                float: left;
+                padding: 0 40px 0 20px;
+            }
             
-<div class="others clearfix">
-    <h1>意见反馈</h1>
-    <div class="feedback-wrap">
-        <div class="result-wrap">
-            <h2>提交成功</h2>
-            <p>感谢你的建议，我会努力让自己变得高大上！</p>
-        </div>
-        <div class="field-wrap">
-            <div>
-                <textarea name="info" id="info" class="phd" cols="30" rows="10" placeholder="骚年，哪有不爽，来喷吧！"></textarea>
-                <p class="rlf-tip-wrap"></p>
-            </div>
-            <div>
-                <input type="text" name="contact" id="contact" class="phd" placeholder="请留下真实联系方式（邮箱、QQ），方便我们答疑解惑！">
-                <p class="rlf-tip-wrap"></p>
-                <input type="hidden" name="locate" value="湖北省武汉市">
-                <input type="hidden" name="webserver" value="电信">
-            </div>
-            <div class="editinfo">
-                <div>
-                  <h5>相关页面地址：</h5>
-                  <input type="text" name="url" id="url" class="phd input" placeholder="页面地址">
-                </div>
-                <div class="myadres">
-                  <h5>您的位置及运营商：</h5>
-                  <div class="serverbox">
-                    <input type="text" name="locate" id="locate" class="phd input" maxlength="50" placeholder="您的地理位置" value="湖北省武汉市">
-                    <input type="text" name="webserver" id="webserver" maxlength="20" class="phd input" placeholder="网络运营商" value="电信">
-                    <a href="javascript:void(0);" class="editbtn  js-cancel-server">取消</a>  <a href="javascript:void(0);" class="editbtn js-save-server">保存</a>                    
-                  </div>
-                  <div class="servershow">
-                    <span class="js-locate">湖北省武汉市</span><span class="js-server">电信</span> 58.49.93.135
-                    <span class="edittip">如您发现判断错误，请<a href="javascript:void(0);" class="editbtn js-edit-server">立即修改</a></span>
-                  </div>
-                </div>
-            </div>
-            <div class="btn-wrap">
-                <button hidefocus="true" id="submit" class="r">提交</button>
-                <p id="feedback-error" class="rlf-tip-wrap rlf-tip-error" style="display:none"></p>
-            </div>
-        </div>
-      <div class="qqGroup-feed">
-        <ul>
-            <li>加入粉丝QQ群,直接喷！</li>
-            <li>群7: 416465236</li>
-            <li>Java群: 6200344</li>
-            <li>Php群: 42125527</li>
-            <li>web前端群3: 249860541</li>
-            <li>安卓群: 232465453</li>
-            <li>在校生群: 187845234</li>
-            <li>视频播放反馈群: 230569067</li>
-        </ul>
-      </div>
-      <div class="feedback-content">
-          <ul class="feedback-nav clearfix tip">
-                            <li class="selected">
-                  <a href="/user/feedback?type=1">我的反馈</a>
-              </li>
-                            <li>
-                  <a href="/user/feedback?type=0">其它反馈</a>
-              </li>
-
-          </ul>
-
-          <ul class="feedback-list" id="feedback-list">
-                            <li class="no-data">无反馈信息</li>
+            #info {
+                width: 586px;
+                height: 200px;
+                resize: none;
+                overflow: hidden;
+            }
+            
+            #info,
+            #contact,
+            #city,
+            #ct,
+            .input {
+                border: 1px solid #d0d6d9;
+                font-size: 14px;
+                transition: border-color 0.2s;
+                -webkit-transition: border-color 0.2s;
+                -moz-transition: border-color 0.2s;
+                -o-transition: border-color 0.2s;
+                padding: 7px;
+            }
+            
+            input,
+            textarea {
+                outline: none;
+            }
+            
+            .feedback-wrap .rlf-tip-wrap {
+                font-size: 12px;
+                height: 30px;
+                line-height: 30px;
+            }
+            
+            .feedback-wrap p {
+                margin: 0;
+            }
+            
+            #contact {
+                vertical-align: middle;
+                width: 586px;
+                height: 24px;
+                line-height: 24px;
+                font-size: 14px;
+                padding: 7px;
+                border: 1px solid #d0d6d9;
+            }
+            
+            .feedback-wrap button {
+                display: inline-block;
+                vertical-align: middle;
+                color: #fff;
+                font-size: 14px;
+                background-color: #188EEE;
+                height: 40px;
+                line-height: 40px;
+                width: 120px;
+                cursor: pointer;
+                text-align: center;
+                transition: background-color 0.2s;
+                -webkit-transition: background-color 0.2s;
+                -moz-transition: background-color 0.2s;
+                -o-transition: background-color 0.2s;
+                border: 1px solid #f9f9f9;
+            }
+            
+            .feedback-wrap .rlf-tip-error {
+                background: url("/static/images/rl-sprite.png") no-repeat -108px -933px;
+                padding-left: 15px;
+                color: #be3948;
+            }
+            </style>
+            <div class="others clearfix">
+                <h1>意见反馈</h1>
+                <div class="feedback-wrap">
+                    <div class="result-wrap">
+                        <h2>提交成功</h2>
+                        <p>感谢你的建议，我会努力让自己变得高大上！</p>
+                    </div>
+                    <div class="field-wrap">
+                        <div>
+                            <textarea name="info" id="info" class="phd" cols="30" rows="10" placeholder="骚年，哪有不爽，来喷吧！"></textarea>
+                            <p class="rlf-tip-wrap"></p>
+                        </div>
+                        <div>
+                            <input type="text" name="contact" id="contact" class="phd" placeholder="请留下真实联系方式（邮箱、QQ），方便我们答疑解惑！">
+                            <p class="rlf-tip-wrap"></p>
+                            <input type="hidden" name="locate" value="湖北省武汉市">
+                            <input type="hidden" name="webserver" value="电信">
+                        </div>
+                        <div class="btn-wrap">
+                            <button hidefocus="true" id="submit" class="r">提交</button>
+                            <p id="feedback-error" class="rlf-tip-wrap rlf-tip-error" style="display:none"></p>
+                        </div>
+                    </div>
+                    <div class="qqGroup-feed">
+                        <ul>
+                            <li>加入粉丝QQ群,直接喷！</li>
+                            <li>群7: 416465236</li>
+                            <li>Java群: 6200344</li>
+                            <li>Php群: 42125527</li>
+                            <li>web前端群3: 249860541</li>
+                            <li>安卓群: 232465453</li>
+                            <li>在校生群: 187845234</li>
+                            <li>视频播放反馈群: 230569067</li>
                         </ul>
-
+                    </div>
                 </div>
+            </div>
+        </div>
     </div>
 </div>
-
-          </div>
-        </div>
-    </div>
