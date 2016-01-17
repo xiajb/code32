@@ -10,7 +10,104 @@
     <link rel="stylesheet" href="<?php echo base_url('index/lesson1/css/font/iconfont.css') ?>">
     <link rel="stylesheet" href="<?php echo base_url('index/lesson1/css/basic.css') ?>">
     <link rel="stylesheet" href="<?php echo base_url('index/lesson1/css/style.css') ?>">
-    <link rel="stylesheet" href="<?php echo base_url('index/css/other.css') ?>">
+    <link rel="stylesheet" href="<?php echo base_url('index/css/center.css') ?>">
+    <style type="text/css">
+    /* -------------------------------------------------
+ * pages
+ * -------------------------------------------------
+*/
+    
+    .pages li {
+        display: inline;
+    }
+    .h-search .search-btn {
+        width: 62px;
+    height: 43px;
+    }
+    .h-search .search-input {
+            height: 43px;
+    }
+
+    .foot-guide .fg-item {
+        width: auto;
+    }
+    .pages .active a {
+        border-color: #188EEE;
+        background-color: #188EEE;
+        color: #FFF;
+    }
+    
+    body {
+        background-color: white;
+    }
+    
+    .header {
+        border-bottom: 1px solid white;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .tabs1 .tabs-cont {
+        border: 1px solid #DDD;
+    }
+    
+    .con-wrap1 {
+        background-color: #f3f3f3;
+        margin-bottom: 0;
+    }
+    
+    .container {
+        width: 1200px!important;
+        margin-right: auto;
+        margin-left: auto;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    
+    .row {
+        margin-left: -5px;
+        margin-right: -5px;
+    }
+    
+    .col-xs-24 {
+        width: 100%;
+    }
+    
+    .header-top {
+        height: 40px;
+        line-height: 40px;
+    }
+    
+    .header-top-left {
+        float: left;
+    }
+    
+    .header-top-right {
+        float: right;
+    }
+    
+    .clearfix {
+        zoom: 1;
+    }
+    
+    .l {
+        float: left;
+    }
+    
+    .m0 {
+        margin: 0;
+    }
+    
+    .header-top-right li {
+        float: left;
+        height: 40px;
+        line-height: 40px;
+        margin-left: 15px;
+    }
+    
+    .guide-nav {
+        margin-left: 50px;
+    }
+    </style>
     <!--日常特效插件-->
     <!--日常特效插件-->
 </head>
@@ -204,39 +301,3 @@
                 </div>
             </div>
         </div>
-        <!--header-->
-        <!--slide-->
-        <!--# include file="inc/slide.aspx" -->
-        <!--slide-->
-        <!--container-->
-        <style type="text/css">
-
-        </style>
-        <div id="main">
-            <div class="container clearfix">
-                <ul class="other-left l">
-                    <li class="<?php echo $selected['us'] ?>">
-                        <a href="/about/us"><span>关于我们</span></a>
-                    </li>
-                    <li class="<?php echo $selected['group'] ?>">
-                        <a href="/about/group"><span>团队介绍</span></a>
-                    </li>
-                    <li class="<?php echo $selected['job'] ?>">
-                        <a href="/about/job"><span>人才招聘</span></a>
-                    </li>
-                    <li class="<?php echo $selected['recruit'] ?>">
-                        <a href="/about/recruit"><span>讲师招募</span></a>
-                    </li>
-                    <li class="<?php echo $selected['contact'] ?>">
-                        <a href="/about/contact"><span>联系我们</span></a>
-                    </li>
-                    <li class="<?php echo $selected['faq'] ?>">
-                        <a no-pjajx="" href="/about/faq"><span>常见问题</span></a>
-                    </li>
-                    <li class="<?php echo $selected['feedback'] ?>">
-                        <a no-pjajx="" href="/about/feedback"><span>意见反馈</span></a>
-                    </li>
-                    <li class="<?php echo $selected['friendly'] ?>">
-                        <a no-pjajx="" href="/about/friendly"><span>友情链接</span></a>
-                    </li>
-                </ul>

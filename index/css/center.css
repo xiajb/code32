@@ -254,7 +254,7 @@ select {
 
 .h1-title {
     font-size: 24px;
-    color: #35b558;
+    color: #188EEE;
     line-height: 80px
 }
 
@@ -273,7 +273,7 @@ h2.h2-title {
     color: #fff;
     border-radius: 3px;
     font-size: 18px;
-    background: #35b558;
+    background: #188EEE;
     -webkit-transition-duration: .8s;
     transition-duration: .8s;
     -webkit-transition-property: background;
@@ -291,10 +291,10 @@ h2.h2-title {
 
 .greenbtn2 {
     display: inline-block;
-    color: #35b558;
+    color: #188EEE;
     font-size: 16px;
     background: #f3fff6;
-    border: 1px solid #35b558;
+    border: 1px solid #188EEE;
     -webkit-transition-duration: .8s;
     transition-duration: .8s;
     -webkit-transition-property: background;
@@ -306,9 +306,9 @@ h2.h2-title {
 .greenbtn2:active,
 .greenbtn2:focus,
 .greenbtn2:hover {
-    background: #35b558;
+    background: #188EEE;
     color: #fff;
-    border-color: #35b558
+    border-color: #188EEE
 }
 
 .greenbtn3 {
@@ -328,7 +328,7 @@ h2.h2-title {
 .greenbtn3:active,
 .greenbtn3:focus,
 .greenbtn3:hover {
-    background: #35b558;
+    background: #188EEE;
     color: #fff
 }
 
@@ -703,7 +703,7 @@ h2.h2-title {
 }
 
 .crumbs a:hover {
-    color: #35b558
+    color: #188EEE
 }
 
 .flex {
@@ -736,7 +736,7 @@ h2.h2-title {
 
 .h1-title {
     font-size: 24px;
-    color: #35b558;
+    color: #188EEE;
     line-height: 80px
 }
 
@@ -755,7 +755,7 @@ h2.h2-title {
     color: #fff;
     border-radius: 3px;
     font-size: 18px;
-    background: #35b558;
+    background: #188EEE;
     -webkit-transition-duration: .8s;
     transition-duration: .8s;
     -webkit-transition-property: background;
@@ -773,10 +773,10 @@ h2.h2-title {
 
 .greenbtn2 {
     display: inline-block;
-    color: #35b558;
+    color: #188EEE;
     font-size: 16px;
     background: #f3fff6;
-    border: 1px solid #35b558;
+    border: 1px solid #188EEE;
     -webkit-transition-duration: .8s;
     transition-duration: .8s;
     -webkit-transition-property: background;
@@ -788,9 +788,9 @@ h2.h2-title {
 .greenbtn2:active,
 .greenbtn2:focus,
 .greenbtn2:hover {
-    background: #35b558;
+    background: #188EEE;
     color: #fff;
-    border-color: #35b558
+    border-color: #188EEE
 }
 
 .greenbtn3 {
@@ -810,7 +810,7 @@ h2.h2-title {
 .greenbtn3:active,
 .greenbtn3:focus,
 .greenbtn3:hover {
-    background: #35b558;
+    background: #188EEE;
     color: #fff
 }
 
@@ -849,7 +849,7 @@ h2.h2-title {
     color: #000;
     font-size: 16px;
     background: #ff7600;
-    border: 1px solid #35b558;
+    border: 1px solid #188EEE;
     -webkit-transition-duration: .8s;
     transition-duration: .8s;
     -webkit-transition-property: background;
@@ -1085,12 +1085,12 @@ h2.h2-title {
     width: 0;
     height: 2px;
     overflow: hidden;
-    background: #35b558;
+    background: #188EEE;
     background: -webkit-gradient(linear, 10% 10%, 100% 100%, color-stop(0.14, #35b550), color-stop(0.5, #8aca8c), color-stop(1, #2d85ca))
 }
 
 .greencolor {
-    color: #35b558!important
+    color: #188EEE!important
 }
 
 #navbox {
@@ -1158,7 +1158,7 @@ h2.h2-title {
 }
 
 #navbox .learnav-content .hybox h4 span {
-    color: #35b558;
+    color: #188EEE;
     font-size: 22px
 }
 
@@ -1187,11 +1187,11 @@ h2.h2-title {
 }
 
 #navbox .learnav-content .content-one a:hover {
-    color: #35b558!important
+    color: #188EEE!important
 }
 
 #navbox .learnav-content .content-one .hybox a {
-    color: #35b558;
+    color: #188EEE;
     font-size: 14px
 }
 
@@ -1244,11 +1244,11 @@ h2.h2-title {
 }
 
 #navbox .nav a:hover {
-    color: #35b558
+    color: #188EEE
 }
 
 #navbox .nav a.current {
-    color: #35b558
+    color: #188EEE
 }
 
 #navbox .nav a:nth-child(1) {
@@ -1341,7 +1341,7 @@ h2.h2-title {
 }
 
 #footer .jkinfor a:hover {
-    color: #35b558
+    color: #188EEE
 }
 
 #footer .search-share {
@@ -1354,7 +1354,7 @@ h2.h2-title {
 
 #footer .search-share .jktxt {
     font-size: 15px;
-    color: #35b558;
+    color: #188EEE;
     display: block;
     margin-bottom: 15px;
     font-weight: 500
@@ -1366,7 +1366,7 @@ h2.h2-title {
 
 #footer .search-share .app-download a:hover p,
 #footer .search-share .app-download a:hover strong {
-    color: #35b558
+    color: #188EEE
 }
 
 #footer .search-share .app-download img {
@@ -1458,7 +1458,7 @@ h2.h2-title {
 }
 
 #footer .copyright a:hover {
-    color: #35B558
+    color: #188EEE
 }
 
 #footer .kefu-online {
@@ -1473,7 +1473,7 @@ h2.h2-title {
 
 #footer .kefu-online a:hover h5,
 #footer .kefu-online a:hover p {
-    color: #35b558
+    color: #188EEE
 }
 
 #footer .kefu-online .offline:hover h5 {
@@ -1718,7 +1718,7 @@ h2.h2-title {
 }
 
 #page-nav button:hover {
-    border-color: #35b558
+    border-color: #188EEE
 }
 
 #page-nav .gopage {
@@ -1729,14 +1729,14 @@ h2.h2-title {
 }
 
 #page-nav a.on {
-    background: #35b558;
+    background: #188EEE;
     color: #fff;
-    border: 1px solid #35B558
+    border: 1px solid #188EEE
 }
 
 #page-nav a:hover {
     line-height: 30px;
-    border: 1px solid #35B558
+    border: 1px solid #188EEE
 }
 
 .lesson-flex {
@@ -1972,7 +1972,7 @@ h2.h2-title {
 }
 
 .crumbs a:hover {
-    color: #35b558
+    color: #188EEE
 }
 
 .jkxy-form {
@@ -2169,7 +2169,7 @@ span.form-icon-error {
 }
 
 .web-tip-normal p a {
-    color: #35b558
+    color: #188EEE
 }
 
 .web-tip-normal>p>i.icon-close {
@@ -2189,7 +2189,7 @@ span.form-icon-error {
 }
 
 .waring-success {
-    background: #35b558
+    background: #188EEE
 }
 
 .waring-failure {
@@ -2223,7 +2223,7 @@ span.form-icon-error {
 
 .login-offline .login-offline-green {
     font-size: 18px;
-    color: #35b558
+    color: #188EEE
 }
 
 .login-offline .login-offline-relogin {
@@ -2261,7 +2261,7 @@ span.form-icon-error {
 }
 
 .free-vip {
-    background: #35b558;
+    background: #188EEE;
     height: 70px;
     width: 100%;
     color: #fff
@@ -2352,7 +2352,7 @@ span.form-icon-error {
 }
 
 .small-buyvipbtn-noclick {
-    background: #35b558;
+    background: #188EEE;
     color: #fff;
     cursor: default
 }
@@ -2414,11 +2414,11 @@ span.form-icon-error {
 
 .pay-dialog-fail>p.pay-fail-h1 {
     font-size: 18px;
-    color: #35b558
+    color: #188EEE
 }
 
 #login-user {
-    color: #35b558
+    color: #188EEE
 }
 
 #warningpop {
@@ -2480,7 +2480,7 @@ span.form-icon-error {
 }
 
 .jkxy-subask-nologin>a {
-    color: #35b558;
+    color: #188EEE;
     padding: 0 3px
 }
 
@@ -2639,7 +2639,7 @@ span.form-icon-error {
 }
 
 .lesson-tx .tx-nav li a:hover {
-    color: #35b558
+    color: #188EEE
 }
 
 .lesson-tx .tx-sj {
@@ -2704,13 +2704,13 @@ span.form-icon-error {
 }
 
 #browser .b-title {
-    color: #35b558;
+    color: #188EEE;
     font-size: 20px;
     text-align: center
 }
 
 #browser .b-title strong {
-    color: #35b558;
+    color: #188EEE;
     font-size: 24px;
     text-align: center
 }
@@ -2732,17 +2732,17 @@ span.form-icon-error {
 }
 
 ::selection {
-    background: #35b558;
+    background: #188EEE;
     color: #fff
 }
 
 ::-moz-selection {
-    background: #35b558;
+    background: #188EEE;
     color: #fff
 }
 
 ::-webkit-selection {
-    background: #35b558;
+    background: #188EEE;
     color: #fff
 }
 
@@ -2794,7 +2794,7 @@ span.form-icon-error {
     padding: 5px 20px;
     width: auto;
     height: auto;
-    background: #35b558;
+    background: #188EEE;
     color: #fff;
     text-align: center;
     border-bottom-left-radius: 3px;
@@ -2920,7 +2920,7 @@ span.form-icon-error {
 .green-line {
     width: 50%;
     height: 100%;
-    background: #35b558
+    background: #188EEE
 }
 
 .lesson-list .lesson-shoucang {
@@ -3017,8 +3017,8 @@ span.form-icon-error {
 
 .search-section .search-btn2,
 .search-section .search-btn:hover {
-    border: 1px solid #35b558;
-    background: #35b558 url(http://s1.jikexueyuan.com/common/images/topsearch-icon2_8c8d8b0.png) center center no-repeat!important
+    border: 1px solid #188EEE;
+    background: #188EEE url(http://s1.jikexueyuan.com/common/images/topsearch-icon2_8c8d8b0.png) center center no-repeat!important
 }
 
 .search-section .keyword-list {
@@ -3118,7 +3118,7 @@ span.form-icon-error {
 }
 
 #header .userMenu>a {
-    color: #35b558;
+    color: #188EEE;
     display: inline-block
 }
 
@@ -3148,7 +3148,7 @@ span.form-icon-error {
     line-height: 0!important;
     border: 5px solid transparent;
     border-bottom-width: 0;
-    border-top-color: #35b558;
+    border-top-color: #188EEE;
     content: " "
 }
 
@@ -3191,7 +3191,7 @@ span.form-icon-error {
 
 #header .userMenu-menu a:hover {
     background: #f3f3f3;
-    color: #35b558
+    color: #188EEE
 }
 
 #header .userMenu-menu>.arrow {
@@ -3244,7 +3244,7 @@ span.form-icon-error {
 }
 
 .sevenday a {
-    color: #35b558;
+    color: #188EEE;
     font-size: 12px;
     float: right
 }
@@ -3334,7 +3334,7 @@ span.form-icon-error {
 }
 
 .pwd-strong>span.active {
-    background: #35b558!important
+    background: #188EEE!important
 }
 
 .warning {
@@ -3468,7 +3468,7 @@ span.form-icon-error {
 }
 
 .sort .sortMode dd a:hover {
-    color: #35B558
+    color: #188EEE
 }
 
 .sort .sortMode>dl:hover {
@@ -3516,7 +3516,7 @@ span.form-icon-error {
 }
 
 #crumbs li a:hover {
-    color: #35b558
+    color: #188EEE
 }
 
 #crumbs li>i {
@@ -3580,7 +3580,7 @@ span.form-icon-error {
 .aside-allCategory {
     margin: 0 0 20px;
     border: 1px solid #e4e4e4;
-    border-top: 2px solid #35b558
+    border-top: 2px solid #188EEE
 }
 
 .aside-allCategory>.hd {
@@ -3625,7 +3625,7 @@ span.form-icon-error {
 
 .aside-cList dt a.curr,
 .aside-cList dt a:hover {
-    color: #35b558
+    color: #188EEE
 }
 
 .aside-cList dd {
@@ -3647,7 +3647,7 @@ span.form-icon-error {
 .aside-cList dd span a.curr,
 .aside-cList dd span a.hot:hover,
 .aside-cList dd span a:hover {
-    color: #35b558
+    color: #188EEE
 }
 
 .aside-cList dd span a.hot {
@@ -3758,7 +3758,7 @@ ul.pages li {
 
 ul.pages li:hover {
     line-height: 30px;
-    border: 1px solid #35B558
+    border: 1px solid #188EEE
 }
 
 ul.pages li.pgEmpty {
@@ -3796,9 +3796,9 @@ ul.pages li.go {
 }
 
 ul.pages li.pgCurrent {
-    background: #35b558;
+    background: #188EEE;
     color: #fff;
-    border: 1px solid #35B558
+    border: 1px solid #188EEE
 }
 
 #page-nav input {
@@ -4247,7 +4247,7 @@ ul.pages li.pgCurrent {
 }
 
 #footer .jkinfor a:hover {
-    color: #35b558
+    color: #188EEE
 }
 
 #footer .search-share {
@@ -4264,7 +4264,7 @@ ul.pages li.pgCurrent {
 
 #footer .search-share .app-download a:hover p,
 #footer .search-share .app-download a:hover strong {
-    color: #35b558
+    color: #188EEE
 }
 
 #footer .search-share .app-download img {
@@ -4350,7 +4350,7 @@ ul.pages li.pgCurrent {
 }
 
 #footer .copyright a:hover {
-    color: #35B558
+    color: #188EEE
 }
 
 .pewm2,
@@ -4479,7 +4479,7 @@ ul.pages li.pgCurrent {
 }
 
 #navbox .learnav-content .hybox h4 span {
-    color: #35b558;
+    color: #188EEE;
     font-size: 22px
 }
 
@@ -4508,11 +4508,11 @@ ul.pages li.pgCurrent {
 }
 
 #navbox .learnav-content .content-one a:hover {
-    color: #35b558!important
+    color: #188EEE!important
 }
 
 #navbox .learnav-content .content-one .hybox a {
-    color: #35b558;
+    color: #188EEE;
     font-size: 14px
 }
 
@@ -4568,11 +4568,11 @@ ul.pages li.pgCurrent {
 }
 
 #navbox .nav a:hover {
-    color: #35b558
+    color: #188EEE
 }
 
 #navbox .nav a.current {
-    color: #35b558
+    color: #188EEE
 }
 
 #navbox .nav a:nth-child(1) {
@@ -4686,7 +4686,7 @@ ul.pages li.pgCurrent {
 }
 
 #navbox .navbox .navpanel .panel-item .item-box li a:hover {
-    color: #35b558
+    color: #188EEE
 }
 
 #navbox .navbox .navpanel .panel-item:first-child {
@@ -4841,8 +4841,8 @@ ul.pages li.pgCurrent {
 
 .search-section .search-btn2,
 .search-section .search-btn:hover {
-    border: 1px solid #35b558;
-    background: #35b558 url(http://s1.jikexueyuan.com/common/images/topsearch-icon2_8c8d8b0.png) center center no-repeat!important
+    border: 1px solid #188EEE;
+    background: #188EEE url(http://s1.jikexueyuan.com/common/images/topsearch-icon2_8c8d8b0.png) center center no-repeat!important
 }
 
 .search-section .keyword-list {
@@ -4942,7 +4942,7 @@ ul.pages li.pgCurrent {
 }
 
 #header .userMenu>a {
-    color: #35b558;
+    color: #188EEE;
     display: inline-block
 }
 
@@ -4967,7 +4967,7 @@ ul.pages li.pgCurrent {
     line-height: 0!important;
     border: 5px solid transparent;
     border-bottom-width: 0;
-    border-top-color: #35b558;
+    border-top-color: #188EEE;
     content: " "
 }
 
@@ -5010,7 +5010,7 @@ ul.pages li.pgCurrent {
 
 #header .userMenu-menu a:hover {
     background: #f3f3f3;
-    color: #35b558
+    color: #188EEE
 }
 
 #header .userMenu-menu>.arrow {
@@ -5067,12 +5067,12 @@ ul.pages li.pgCurrent {
     width: 0;
     height: 2px;
     overflow: hidden;
-    background: #35b558;
+    background: #188EEE;
     background: -webkit-gradient(linear, 10% 10%, 100% 100%, color-stop(0.14, #35b550), color-stop(0.5, #8aca8c), color-stop(1, #2d85ca))
 }
 
 .greencolor {
-    color: #35b558!important
+    color: #188EEE!important
 }
 
 #header .loginbox span a,
@@ -5324,7 +5324,7 @@ ul.pages li.pgCurrent {
 }
 
 .ullist-ul li.active {
-    background: #35b558 url(http://s1.jikexueyuan.com/member/images/arrow_r_fff_c4dda92.png) center right 16px no-repeat
+    background: #188EEE url(http://s1.jikexueyuan.com/member/images/arrow_r_fff_c4dda92.png) center right 16px no-repeat
 }
 
 .ullist-ul li.active a,
@@ -5335,7 +5335,7 @@ ul.pages li.pgCurrent {
 }
 
 .ullist-ul li:hover a {
-    color: #35b558
+    color: #188EEE
 }
 
 .ullist-ul .active:hover a {
@@ -5526,7 +5526,7 @@ ul.pages li.pgCurrent {
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
     color: #fff;
-    background: #35b558
+    background: #188EEE
 }
 
 .fcode-table-block {
@@ -5564,7 +5564,7 @@ ul.pages li.pgCurrent {
 
 .fcode-table .fcode-active-ok {
     font-size: 12px;
-    color: #35b558
+    color: #188EEE
 }
 
 .fcode-table .fcode-active-no {
@@ -5677,7 +5677,7 @@ ul.pages li.pgCurrent {
 
 .freevip-form .freebtn-btn-green,
 .freevip-form .freevip-form-isget {
-    background: #35b558;
+    background: #188EEE;
     color: #fff
 }
 
@@ -5745,7 +5745,7 @@ ul.pages li.pgCurrent {
     margin-left: 5px;
     padding: 0;
     border: 0;
-    color: #35b558
+    color: #188EEE
 }
 
 .fcode .member-fcode-input .fcode-btn {
@@ -5754,7 +5754,7 @@ ul.pages li.pgCurrent {
     height: 39px;
     text-align: center;
     line-height: 38px;
-    background: #35b558;
+    background: #188EEE;
     z-index: -1
 }
 
@@ -5772,7 +5772,7 @@ ul.pages li.pgCurrent {
 }
 
 .fcode-green {
-    color: #35b558
+    color: #188EEE
 }
 
 .fcode-show {
@@ -6012,7 +6012,7 @@ ul.pages li.pgCurrent {
 }
 
 .pwd-strong>span.active {
-    background: #35b558
+    background: #188EEE
 }
 
 .ucenter-form {
@@ -6108,7 +6108,7 @@ ul.pages li.pgCurrent {
 
 .mycourse-tab-tit .mycourse-tab-ul li.active,
 .mycourse-tab-tit .mycourse-tab-ul li:hover {
-    border-bottom: 1px solid #35b558
+    border-bottom: 1px solid #188EEE
 }
 
 .mycourse-block .mycourse-tab-body {
@@ -6219,16 +6219,18 @@ span.btn:hover {
 .btn-primary,
 a.btn-primary,
 span.btn-primary {
-    background: #35b558;
-    -webkit-transition: background-color .8s;
+    background: #ccc;
+    font-size: 14px;
+/*    -webkit-transition: background-color .8s;
     -moz-transition: background-color .8s;
     transition: background-color .8s;
-    color: #fff
+*/    color: #fff
 }
 
 .btn-primary:active,
 .btn-primary:hover {
-    background: #66d178
+    background: #188EEE;
+    color: #fff;
 }
 
 .btn-bezelFree,
@@ -6355,7 +6357,7 @@ textarea {
 
 .tab-setting>.tabs li.curr,
 .tab-setting>.tabs li:hover {
-    background: #35b558;
+    background: #188EEE;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
@@ -6616,7 +6618,7 @@ textarea {
 .mod-safe.safe-lv3 li,
 .mod-safe.safe-lv3 li:nth-child(1),
 .mod-safe.safe-lv3 li:nth-child(2) {
-    background: #35b558
+    background: #188EEE
 }
 
 .popup .warning.right {
@@ -6777,7 +6779,7 @@ ul.pages li {
 }
 
 .passport-success-txt {
-    color: #35b558 !important;
+    color: #188EEE !important;
 }
 
 
@@ -6877,8 +6879,8 @@ div.passport-note {
 /* button theme */
 
 .passport-btn-def {
-    background: #35b558;
-    border-color: #35b558;
+    background: #188EEE;
+    border-color: #188EEE;
     color: #ffffff !important;
 }
 
@@ -6980,7 +6982,7 @@ div.passport-note {
 }
 
 .passport-txt:focus {
-    border-color: #35b558;
+    border-color: #188EEE;
     -webkit-box-shadow: 0 0 5px #51cc73;
     box-shadow: 0 0 5px #51cc73;
 }
@@ -7130,7 +7132,7 @@ div.passport-note {
 }
 
 .passport-popup a {
-    color: #35b558;
+    color: #188EEE;
     text-decoration: none;
 }
 
@@ -7285,7 +7287,7 @@ div.passport-note {
 }
 
 .waring-success {
-    background: #35b558;
+    background: #188EEE;
 }
 
 .waring-failure {
@@ -7356,7 +7358,7 @@ div.passport-note {
 .passport-step .now .strip,
 .passport-step .past .disc,
 .passport-step .past .strip {
-    background-color: #35b558;
+    background-color: #188EEE;
 }
 
 .passport-safely {
@@ -7386,7 +7388,7 @@ div.passport-note {
 }
 
 .passport-safely.safely-safe li {
-    background-color: #35b558;
+    background-color: #188EEE;
 }
 
 .clearfix:after,
@@ -7499,8 +7501,8 @@ div.passport-note {
 }
 
 .passport-sign .passport-tab .tabs li.active {
-    color: #35b558;
-    border-bottom: 2px solid #35b558;
+    color: #188EEE;
+    border-bottom: 2px solid #188EEE;
 }
 
 .passport-form .form-item {
@@ -7637,7 +7639,7 @@ div.passport-note {
 }
 
 .passport-form-sign .treaty:hover {
-    color: #35b558;
+    color: #188EEE;
 }
 
 .passport-form-sign .form-sevenday label {
@@ -7650,7 +7652,7 @@ div.passport-note {
 }
 
 .passport-form-sign .form-sevenday .forget-link:hover {
-    color: #35b558;
+    color: #188EEE;
 }
 
 .passport-forget {
@@ -7739,7 +7741,7 @@ div.passport-note {
 
 .passport-form-email .form-email em,
 .passport-form-phone .form-email em {
-    color: #35b558;
+    color: #188EEE;
 }
 
 .passport-form-phone .form-code-text {

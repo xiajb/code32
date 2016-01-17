@@ -1,0 +1,118 @@
+<!--header-->
+<!--slide-->
+<!--# include file="inc/slide.aspx" -->
+<!--slide-->
+<!--container-->
+<div id="pager">
+    <div class="w-1000 mar-t30 cf ucenter-block">
+        <div class="ucenter-left account-left-border">
+            <div class="ucneter-l-head cf">
+                <div class="ulhead-headicon">
+                    <img src="http://assets.jikexueyuan.com/user/avtar/default.gif" id="avatar_img" width="50px" height="50px" alt="心似已灰之木">
+                </div>
+                <div class="ulhead-info">
+                    <p class="ulhead-info-uname">心似已灰之木</p>
+                    <p class="ulhead-info-vip"><i class="icon icon-vip-year"></i>
+                    </p>
+                    <div class="ulhead-info-tool">
+                        <a class="ulhead-icon icon-lock ucenter-mail " href="./changepw" title="修改密码" jktag="&amp;posGP=115005&amp;posOper=56002&amp;posArea=0001">
+                            <div class="ucenter-mail-tip">修改密码</div>
+                        </a>
+                        <a href="./mydata" class="ulhead-icon icon-setting ucenter-mail" title="设置个人信息" jktag="&amp;posGP=115005&amp;posOper=56005&amp;posArea=0001"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="ucenter-l-list">
+                <ul class="ullist-ul">
+                    <li class="<?php echo  $active['mydata']?>"><a href="./mydata" jktag="&amp;posGP=115007&amp;posOper=56007&amp;posArea=0002">个人资料</a>
+                    </li>
+                    <li class="<?php echo  $active['mycourse']?>"><a href="./mycourse" jktag="&amp;posGP=115007&amp;posOper=56007&amp;posArea=0002">我的课程</a>
+                    </li>
+                    <li class="<?php echo  $active['myorder']?>"><a href="./myorder" jktag="&amp;posGP=115002&amp;posOper=56008&amp;posArea=0002">我的订单</a>
+                    </li>
+                    <li class="<?php echo  $active['changepw']?>"><a href="./changepw" jktag="&amp;posGP=115003&amp;posOper=56009&amp;posArea=0002">修改密码</a>
+                    </li>
+                    <li class="<?php echo  $active['comment']?>"><a href="./comment" jktag="&amp;posGP=115005&amp;posOper=56010&amp;posArea=0002">我的评论</a>
+                    </li>
+                    <li class="<?php echo  $active['feedback']?>"><a href="./feedback" jktag="&amp;posGP=115006&amp;posOper=56011&amp;posArea=0002">意见反馈</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="ucenter-right cf">
+
+
+            <div class="fl account-body mar-l20">
+                <p class="account-body-nav"><span>会员记录</span><span class="mar-r25 f_r">实际消费：<a>260元</a></span></p>
+                <div class="account-body-table">
+                    <volist name="viplogs" id="vo" mod="2"></volist>
+                    <volist name="viplogs" id="vo" mod="2"></volist>
+                    <table class="jkxy-table">
+                        <thead class="jkxy-table-thead">
+                            <tr class="jkxy-table-tr">
+                                <td><span>日期</span></td>
+                                <td><span>数量</span></td>
+                                <td><span>种类</span></td>
+                                <td><span>开始时间</span></td>
+                                <td><span>结束时间</span></td>
+                                <td width="150"><span>备注</span></td>
+                            </tr>
+                        </thead>
+                        <tbody class="jkxy-table-tbody">
+                            <tr class="jkxy-table-tr">
+                                <td>2015-10-14 13:12:09</td>
+                                <td>1</td>
+                                <td>
+                                    年会员
+                                </td>
+                                <td>2015-10-14 13:12:09</td>
+                                <td>2016-10-14 23:59:59</td>
+                                <td>购买获得年会员 </td>
+                            </tr>
+                            <tr class="jkxy-table-tr">
+                                <td>2015-02-27 15:52:50</td>
+                                <td>10</td>
+                                <td>
+                                    体验VIP
+                                </td>
+                                <td>2015-02-27 15:52:50</td>
+                                <td>2015-03-09 23:59:59</td>
+                                <td>赠送获得日会员,原因:手机验证</td>
+                            </tr>
+                            <tr class="jkxy-table-tr">
+                                <td>2014-12-26 11:15:19</td>
+                                <td>5</td>
+                                <td>
+                                    体验VIP
+                                </td>
+                                <td>2014-12-26 11:15:19</td>
+                                <td>2014-12-31 23:59:59</td>
+                                <td>赠送获得日会员,原因:圆盘抽奖5天VIP</td>
+                            </tr>
+                            <tr class="jkxy-table-tr">
+                                <td>2014-12-13 16:31:36</td>
+                                <td>1</td>
+                                <td>
+                                    体验VIP
+                                </td>
+                                <td>2014-12-14 23:59:59</td>
+                                <td>2014-12-15 23:59:59</td>
+                                <td>赠送获得日会员,原因:注册完善资料送1天体验VIP</td>
+                            </tr>
+                            <tr class="jkxy-table-tr">
+                                <td>2014-12-13 16:28:58</td>
+                                <td>1</td>
+                                <td>
+                                    体验VIP
+                                </td>
+                                <td>2014-12-13 16:28:58</td>
+                                <td>2014-12-14 23:59:59</td>
+                                <td>赠送获得日会员,原因:注册激活邮箱送1天体验VIP</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

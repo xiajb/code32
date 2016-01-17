@@ -54,7 +54,7 @@
     min-height: 750px;
 }
 .other-left li.selected a span {
-    color: #cc0000;
+    color: #188EEE;
 }
 .others {
     padding: 10px 40px 50px;
@@ -65,7 +65,7 @@
     top: 0;
     width: 2px;
     height: 60px;
-    background-color: #cc0000;
+    background-color: #188EEE;
     left: -21px;
 }
     .pages li {
@@ -84,7 +84,7 @@
     
     .header {
         border-bottom: 1px solid white;
-        box-shadow: none;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
     
     .tabs1 .tabs-cont {
@@ -148,3 +148,19 @@
     .guide-nav {
         margin-left: 50px;
     }
+
+.others {
+    padding: 10px 40px 50px;
+}
+.others h1 {
+    font-size: 16px;
+    line-height: 49px;
+    color: #363d40;
+    margin-bottom: 2.1em;
+    border-bottom: 1px solid #eceff0;
+}
+
+.space-side {
+    margin: 0 20px 20px;
+    color: #60686b;
+}

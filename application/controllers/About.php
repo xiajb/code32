@@ -24,7 +24,7 @@ class About extends CI_Controller {
 			'friendly' => ''
 		);
 		$this->load->view("about_header.html",$data);
-		$this->load->view("us.html");
+		$this->load->view("about_us.html");
 		$this->load->view("about_footer.html");
 	}
 	public function group()
@@ -40,7 +40,7 @@ class About extends CI_Controller {
 			'friendly' => ''
 		);
 		$this->load->view("about_header.html",$data);
-		$this->load->view("group.html");
+		$this->load->view("about_group.html");
 		$this->load->view("about_footer.html");
 	}
 	public function job()
@@ -56,7 +56,7 @@ class About extends CI_Controller {
 			'friendly' => ''
 		);
 		$this->load->view("about_header.html",$data);
-		$this->load->view("job.html");
+		$this->load->view("about_job.html");
 		$this->load->view("about_footer.html");
 	}
 	public function recruit()
@@ -72,7 +72,7 @@ class About extends CI_Controller {
 			'friendly' => ''
 		);
 		$this->load->view("about_header.html",$data);
-		$this->load->view("recruit.html");
+		$this->load->view("about_recruit.html");
 		$this->load->view("about_footer.html");
 	}
 	public function contact()
@@ -88,7 +88,7 @@ class About extends CI_Controller {
 			'friendly' => ''
 		);
 		$this->load->view("about_header.html",$data);
-		$this->load->view("contact.html");
+		$this->load->view("about_contact.html");
 		$this->load->view("about_footer.html");
 	}		
 
@@ -105,7 +105,7 @@ class About extends CI_Controller {
 			'friendly' => ''
 		);
 		$this->load->view("about_header.html",$data);
-		$this->load->view("faq.html");
+		$this->load->view("about_faq.html");
 		$this->load->view("about_footer.html");
 	}		
 	public function feedback()
@@ -121,7 +121,7 @@ class About extends CI_Controller {
 			'friendly' => ''
 		);
 		$this->load->view("about_header.html",$data);
-		$this->load->view("feedback.html");
+		$this->load->view("about_feedback.html");
 		$this->load->view("about_footer.html");
 	}
 	public function friendly()
@@ -137,7 +137,7 @@ class About extends CI_Controller {
 			'friendly' => 'selected'
 		);
 		$this->load->view("about_header.html",$data);
-		$this->load->view("friendly.html");
+		$this->load->view("about_friendly.html");
 		$this->load->view("about_footer.html");
 	}	
 
