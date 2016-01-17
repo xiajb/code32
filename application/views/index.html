@@ -96,6 +96,7 @@ body{
         var f1 = <?php echo $_SESSION['direction_id']?>;
         var f2 = <?php echo $_SESSION['classify_id']?>;
         var f3 = <?php echo $_SESSION['is_easy']?>;
+        var f4 = <?php echo $_SESSION['is_easy']?>;
         var psort = '1';
         if (f1 == '0') { $(".f1-condition a").eq(0).addClass("active"); }
         else { $(".f1-condition a[id='f1-" + f1 + "']").eq(0).addClass("active"); }
@@ -105,7 +106,8 @@ body{
 
         if (f3 == '0') { $(".f3-condition a").eq(0).addClass("active"); }
         else { $(".f3-condition a[id='f3-" + f3 + "']").eq(0).addClass("active"); }
-
+        if (f4 == '0') { $(".f3-condition a").eq(0).addClass("active"); }
+        else { $(".f4-condition a[id='f4-" + f4 + "']").eq(0).addClass("active"); }
         $("#Psort-" + psort + "").addClass("active");
     })
 </script>
@@ -472,7 +474,7 @@ body{
                     <dl class="condition clearfix">
                         <dt>类别：</dt>
                         <dd class="condition-cont clearfix f1-condition">
-                            <a id="f1-0" class="" href="<?php  echo site_url()?>">全部</a>
+                            <a id="f1-0" class="" href="<?php  echo site_url().'index/index2/0/0/0'?>">全部</a>
                                                         <?php
                                                             $direction=$arr[0];
                                                             foreach ($direction as $key):
@@ -517,7 +519,11 @@ body{
 
         <div class="inner mt20 oh">
             <div class="clearfix bd1 bds bdgrayd">
-                <span class="r gray6 f16 lh45 pr20">共61门课</span>
+
+
+                <span class="r gray6 f16 lh45 pr20"><?php echo $arr['total']?></span>
+                <span class="r gray6 f16 lh45 pr20"><?php echo $arr['page']?></span>
+
                 <div class="tabs-nav1 bd0" style="background-color:#FFF;">
                     <a id="Psort-1" class="" href="?f1=0&f2=0&psort=1">近期热门</a>
                     <a id="Psort-2" href="?f1=0&f2=0&psort=2">最新</a>
