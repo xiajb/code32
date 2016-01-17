@@ -7,7 +7,11 @@ class Index extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->model('show_classify');
 		$this->load->model('show_direction');
+$this->load->library('pagination');
 $this->load->model('show_model');
+$this->session->set_userdata('direction_id',0);
+$this->session->set_userdata('classify_id',0);
+$this->session->set_userdata('is_easy',0);
 	}	/**
 	 * Index Page for this controller.
 	 *
@@ -25,24 +29,61 @@ $this->load->model('show_model');
 	 */
 	public function index()
 	{
-		$this->session->set_userdata('direction_id',0);
-		$this->session->set_userdata('classify_id',0);
-		$this->session->set_userdata('is_easy',0);
+
+			$cur_page=1;
+			$config['use_page_numbers']   = TRUE;
+		$config['per_page'] =4;
+		$offset=($cur_page-1)*$config['per_page'];
 		$direction=$this->show_direction->show_direction();
 		$classify=$this->show_classify->show_classify_byid(0);
-		$course=$this->show_model->showcoursebyclassifyid(0,0,0);
-	$data['arr']=array($direction,$classify,$course);
+		$result=$this->show_model->showcoursebyclassifyid(0,0,0,$config['per_page'],$offset);
+		$course=$result[0];
+	$config['base_url'] ='http://www.rfgxy.com/index/index2/0/0/0';
+	$config['total_rows'] =$result[1];
+	$config['prev_link']    = '上一页';
+	$config['next_link']    = '下一页';
+	$this->pagination->initialize($config);
+	$page=$this->pagination->create_links();
+	$data['arr']=array(
+		$direction,
+	$classify,
+	$course,
+	'total'=>$result[1],
+	'cur_page'=>$cur_page,
+	'per_page'=>$config['per_page'],
+	'page'=>$page);
 		$this->load->view("index.html",$data);
 	}
-	public function index2($direction_id,$classify_id,$is_easy){
+
+	public function index2($direction_id=1,$classify_id=1,$is_easy=1,$cur_page=1){
+		if ($cur_page==null){
+			$cur_page=1;
+		}
+ 			$config['use_page_numbers']   = TRUE;
+		$config['per_page'] =4;
+		$offset=($cur_page-1)*$config['per_page'];
 		$direction=$this->show_direction->show_direction();
 		$classify=$this->show_classify->show_classify_byid($direction_id);
-		$course=$this->show_model->showcoursebyclassifyid($direction_id,$classify_id,$is_easy);
+		$result=$this->show_model->showcoursebyclassifyid($direction_id,$classify_id,$is_easy,$config['per_page'],$offset);
+		$course=$result[0];
+		$config['base_url'] ='http://www.rfgxy.com/index/index2/'.$direction_id.'/'.$classify_id.'/'.$is_easy.'/';
+		$config['total_rows'] =$result[1];
+		$config['prev_link']    = '上一页';
+		$config['next_link']    = '下一页';
+		$this->pagination->initialize($config);
+		$page=$this->pagination->create_links();
 		$this->session->set_userdata('direction_id',$direction_id);
 		$this->session->set_userdata('classify_id',$classify_id);
 		$this->session->set_userdata('is_easy',$is_easy);
-		//print_r($course);
-		$data['arr']=array($direction,$classify,$course);
+
+		$data['arr']=array(
+			$direction,
+		$classify,
+		$course,
+		'total'=>$result[1],
+		'cur_page'=>$cur_page,
+		'per_page'=>$config['per_page'],
+		'page'=>$page);
 		$this->load->view("index.html",$data);
 
 	}
