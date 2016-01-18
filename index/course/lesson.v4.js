@@ -39,7 +39,7 @@ $(function () {
                     window.parent.location.href = "/newlogin.aspx?callback=" + escape(document.URL);
                 } else if (away == "1") {
                     $.fancybox.open({
-                        href: 'http://www.jcpeixun.com/login/logins.html?callback= ' + escape(document.URL) + '',
+                        href: 'http://www.rfgxy.com/login/logins.html?callback= ' + escape(document.URL) + '',
                         type: 'iframe',
                         padding: 10,
                         width: '400',
@@ -73,7 +73,7 @@ $(function () {
         /*  下载  */
         _download: function (lessname, _lessonid) {
             if (courses.CheckLogin(1)) {
-                $.post("http://www.jcpeixun.com/ashx/loginstate.aspx").done(function (d) {
+                $.post("http://www.rfgxy.com/ashx/loginstate.aspx").done(function (d) {
                     d = $.parseJSON(d);
                     if (d.grade == "银牌学员" || d.grade == "金牌学员" || d.grade == "白金学员") {
                         $.Boxen.open(window, {
@@ -145,14 +145,14 @@ $(function () {
         //加入购物车1
         $("#add_cart-1").click(function (event) {
             //if (courses.CheckLogin(1)) {
-            document.getElementById("course_form").action = "http://www.jcpeixun.com/pay/cart.aspx";
+            document.getElementById("course_form").action = "http://www.rfgxy.com/pay/cart.aspx";
             document.getElementById("course_form").submit();
             //}
         });
         //立刻购买
         $("#quick_buy").click(function (event) {
             if (courses.CheckLogin(1)) {
-                document.getElementById("course_form").action = "http://www.jcpeixun.com/pay/order_course.aspx";
+                document.getElementById("course_form").action = "http://www.rfgxy.com/pay/order_course.aspx";
                 document.getElementById("course_form").submit();
             }
         });
@@ -230,10 +230,10 @@ $(function () {
             var login = $.cookie("learnerId");
             if (login == null) {
                 if (away == "0" || away == "") {
-                    window.parent.location.href = "http://www.jcpeixun.com/newlogin.aspx?callback=" + escape(document.URL);
+                    window.parent.location.href = "http://www.rfgxy.com/newlogin.aspx?callback=" + escape(document.URL);
                 } else if (away == "1") {
                     $.fancybox.open({
-                        href: 'http://www.jcpeixun.com/login/logins.html?callback= ' + escape(document.URL) + '',
+                        href: 'http://www.rfgxy.com/login/logins.html?callback= ' + escape(document.URL) + '',
                         type: 'iframe',
                         padding: 10,
                         width: '400',
@@ -256,7 +256,7 @@ $(function () {
             if (login == null) {
 
                 $.fancybox.open({
-                    href: 'http://www.jcpeixun.com/login/logins.html?callback=' + escape(document.URL) + '',
+                    href: 'http://www.rfgxy.com/login/logins.html?callback=' + escape(document.URL) + '',
                     type: 'iframe',
                     padding: 10,
                     width: '400',
@@ -269,7 +269,7 @@ $(function () {
 
 //                var d = dialog({
 //                    title: "登陆",
-//                    content: '<iframe id="test-iframe" width="100%" height="99%" frameborder="0" framespacing="0" src="http://www.jcpeixun.com/windows/login_register.aspx?callback=' + escape(document.URL) + '" scrolling="no"></iframe>',
+//                    content: '<iframe id="test-iframe" width="100%" height="99%" frameborder="0" framespacing="0" src="http://www.rfgxy.com/windows/login_register.aspx?callback=' + escape(document.URL) + '" scrolling="no"></iframe>',
 //                    align: 'left',
 //                    fixed: false,
 //                    zIndex: 87,
@@ -420,7 +420,7 @@ $(function () {
                 });
             });
             //if (courses.CheckLogin(1)) {
-            //                document.getElementById("lesson_form").action = "http://www.jcpeixun.com/pay/cart.aspx";
+            //                document.getElementById("lesson_form").action = "http://www.rfgxy.com/pay/cart.aspx";
             //                document.getElementById("lesson_form").submit();
             //}
         });
@@ -870,11 +870,11 @@ $(function () {
             var login = $.cookie("learnerId");
             if (login == null) {
                 if (away == "0" || away == "") {
-                    window.parent.location.href = "http://www.jcpeixun.com/newlogin.aspx?callback=" + escape(document.URL);
+                    window.parent.location.href = "http://www.rfgxy.com/newlogin.aspx?callback=" + escape(document.URL);
                 } else if (away == "1") {
 
                     $.fancybox.open({
-                        href: 'http://www.jcpeixun.com/login/logins.html?callback= '+ escape(document.URL)+'',
+                        href: 'http://www.rfgxy.com/login/logins.html?callback= '+ escape(document.URL)+'',
                         type: 'iframe',
                         padding: 10,
                         width: '400',
@@ -920,14 +920,14 @@ $(function () {
             document.getElementById("form1").action = "createOrder.aspx";
             document.getElementById("form1").submit();
 
-            $.Boxen.open(window, { url: "http://www.jcpeixun.com/pay/payTips1.html", urlParams: { "a": new Date().getMilliseconds(), "ordernumber": $("#ordernumber").val() }, width: 335, height: 210, title: "在线支付提示" });
+            $.Boxen.open(window, { url: "http://www.rfgxy.com/pay/payTips1.html", urlParams: { "a": new Date().getMilliseconds(), "ordernumber": $("#ordernumber").val() }, width: 335, height: 210, title: "在线支付提示" });
 
         });
 
         //网银支付
         $("#wangyin").click(function () {
             $("#paytype").val('2');
-            $.Boxen.open(window, { url: "http://www.jcpeixun.com/pay/wangyin.html",
+            $.Boxen.open(window, { url: "http://www.rfgxy.com/pay/wangyin.html",
                 urlParams: { "order_id": $("#iptorderid").val(), "itpcredittemp1": $("#itpcredittemp1").val(), "card_id": $("#card_id").val(), "paytype": $("#paytype").val(), "ordertype": $("#ordertype").val(), "ordernumber": $("#ordernumber").val(), "lesson_idlist": $("#lesson_idlist").val(), "product_idlist": $("#product_idlist").val() }, width: 760, height: 380, title: "网银支付"
             });
         });

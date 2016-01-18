@@ -47,14 +47,14 @@ class Helper extends CI_Controller {
 ----------------------------------------------------------------------</p>
 </p>
 您只需在提交请求后的三天内，通过点击下面的链接重置您的密码：<br />
-<a href="http://127.0.0.1/code32/index.php/forget/step3?token='.$token.'" target="_blank">http://127.0.0.1/code32/index.php/forget/step3?token='.$token.'</a>
+<a href="http://www.rfgxy.com/forget/step3?token='.$token.'" target="_blank">http://www.rfgxy.com/forget/step3?token='.$token.'</a>
 <br />
 (如果上面不是链接形式，请将该地址手工粘贴到浏览器地址栏再访问)</p>
 <p>在上面的链接所打开的页面中输入新的密码后提交，您即可使用新的密码登录网站了。您可以在用户控制面板中随时修改您的密码。</p>
 <p>
 此致<br />
 </p>
-<p>【rfgxy.com】 管理团队.http://127.0.0.1/code32/index.php</p>';
+<p>【rfgxy.com】 管理团队.www.rfgxy.com</p>';
 		$this->email->message($message);
 		if ($this->email->send()) {
 			echo "1";

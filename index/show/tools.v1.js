@@ -104,7 +104,7 @@ $.extend({
 			var d = dialog({
 					id: "windowLogin",
 					title: "您尚未登陆",
-					content: '<iframe id="test-iframe" width="100%" height="99%" frameborder="0" framespacing="0" src="http://www.jcpeixun.com/windows/login_register.aspx?callback=' + "norefresh" + '" scrolling="no"></iframe>',
+					content: '<iframe id="test-iframe" width="100%" height="99%" frameborder="0" framespacing="0" src="http://www.rfgxy.com/windows/login_register.aspx?callback=' + "norefresh" + '" scrolling="no"></iframe>',
 					align: 'left',
 					fixed: true,
 					zIndex: 1050,
@@ -125,7 +125,7 @@ $.extend({
 		 * 页面登录
 		 */
 		page: function(){
-			window.top.location.href = "http://www.jcpeixun.com/newlogin.aspx";
+			window.top.location.href = "http://www.rfgxy.com/newlogin.aspx";
 		}
 		
 	},
@@ -144,7 +144,7 @@ $.extend({
 						.attr({
 							"id": "cart-oneform",
 							"method": "post",
-							"action": "http://www.jcpeixun.com/pay/cart.aspx"
+							"action": "http://www.rfgxy.com/pay/cart.aspx"
 						})
 						,
 				$hdn1 = $("<input type='hidden'>")
@@ -185,7 +185,7 @@ $.extend({
                     */
                    
                     // 提交地址  
-                    var action = "http://www.jcpeixun.com/pay/order-product.aspx";
+                    var action = "http://www.rfgxy.com/pay/order-product.aspx";
                     // 创建Form  
                     var _form = $('<form style="display:none;"></form>');
                     _form.attr('action', action);
@@ -235,7 +235,7 @@ $.extend({
 						.attr({
 							"id":"order-oneform",
 							"method":"post",
-							"action":"http://www.jcpeixun.com/pay/order-product.aspx"
+							"action":"http://www.rfgxy.com/pay/order-product.aspx"
 						})
 						,
 				$hdn1 = $("<input type='hidden'>")
@@ -347,7 +347,7 @@ $.extend({
 					d.show(document.getElementById('txtMobile'));
 					$("#txtMobile").focus();
 				}else{
-					$.post("http://www.jcpeixun.com/ashx/studentsound/CreateMsg.ashx",$("#mesform").serialize())
+					$.post("http://www.rfgxy.com/ashx/studentsound/CreateMsg.ashx",$("#mesform").serialize())
 					 .done(function(d){
 							if (d == "留言内容过长") {
 								var d = dialog({
@@ -428,7 +428,7 @@ $.extend({
 	ad: {
 		loadAd: function(_id, doc, _width, _height){
 			if($("#"+doc).length){
-				$.post("http://www.jcpeixun.com/ashx/ad.aspx", { id: _id, width: _width, height: _height }, function (msg) {
+				$.post("http://www.rfgxy.com/ashx/ad.aspx", { id: _id, width: _width, height: _height }, function (msg) {
 					$("#" + doc).html(msg);
 				});
 			}
@@ -594,7 +594,7 @@ $.extend({
 
 	/*
 		收藏网站
-		demo:<a href="javascript:addToFavorite('技成(自动化)培训','http://www.jcpeixun.com/');">加入收藏</a>
+		demo:<a href="javascript:addToFavorite('技成(自动化)培训','http://www.rfgxy.com/');">加入收藏</a>
 	*/
 	addToFavorite: function(title,url) {
 		if (document.all) {
@@ -1248,7 +1248,7 @@ jQuery.fn.slider.autoscroll=function(obj,time){
 
 
 $(function () {
-    $(document.body).append("<div id=\"pop\" style=\"display:none;\"><div id=\"popHead\"><a onclick=\"_hmt.push(['_trackEvent', 'messager', 'click', 'messager_popClose','1']);\" id=\"popClose\" title=\"关闭\">关闭</a><h2>温馨提示</h2></div><div onclick=\"_hmt.push(['_trackEvent', 'messager', 'click', 'messager_popContent','1']);\" id=\"popContent\"><dl><dt id=\"popTitle\"><a href=\"http://yanue.info/\" target=\"_blank\">这里是参数</a></dt><dd id=\"popIntro\">这里是内容简介</dd></dl> <p id=\"popMore\"><a class=\"mr20\" id=\"btn_huifu\" href=\"javascript:;\">回复</a><a href=\"http://www.jcpeixun.com/\" target=\"_blank\" class=\"look\">查看 »</a></p></div></div>");
+    $(document.body).append("<div id=\"pop\" style=\"display:none;\"><div id=\"popHead\"><a onclick=\"_hmt.push(['_trackEvent', 'messager', 'click', 'messager_popClose','1']);\" id=\"popClose\" title=\"关闭\">关闭</a><h2>温馨提示</h2></div><div onclick=\"_hmt.push(['_trackEvent', 'messager', 'click', 'messager_popContent','1']);\" id=\"popContent\"><dl><dt id=\"popTitle\"><a href=\"http://yanue.info/\" target=\"_blank\">这里是参数</a></dt><dd id=\"popIntro\">这里是内容简介</dd></dl> <p id=\"popMore\"><a class=\"mr20\" id=\"btn_huifu\" href=\"javascript:;\">回复</a><a href=\"http://www.rfgxy.com/\" target=\"_blank\" class=\"look\">查看 »</a></p></div></div>");
 });
 /*
     jc.pop
@@ -1499,7 +1499,7 @@ function VerticalRoll(id){
 
 /*
 	收藏网站
-	demo:<a href="javascript:addToFavorite('技成(自动化)培训','http://www.jcpeixun.com/');">加入收藏</a>
+	demo:<a href="javascript:addToFavorite('技成(自动化)培训','http://www.rfgxy.com/');">加入收藏</a>
 */
 function addToFavorite(title,url) {
     if (document.all) {

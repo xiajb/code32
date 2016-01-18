@@ -5,25 +5,25 @@
 
 .fpwd_nav{overflow:hidden;}
 .fpwd_nav li{float:left;height:35px;line-height:35px; text-indent:25px;font-size:14px;color:#fff;}
-.fpwd_nav .step1_1{width:240px;background:url(/code32/index/show/bg.20130415006_1.png) no-repeat scroll 0 0 transparent;}
-.fpwd_nav .step1_2{width:240px;background:url(/code32/index/show/bg.20130415007_1.png) no-repeat scroll 0 0 transparent;color:#666;}
-.fpwd_nav .step1_3{width:240px;background:url(/code32/index/show/bg.20130415007_1.png) no-repeat scroll 0 0 transparent;color:#666;}
-.fpwd_nav .step1_4{width:240px;background:url(/code32/index/show/bg.20130415007_2.png) no-repeat scroll 0 0 transparent;color:#666;}
+.fpwd_nav .step1_1{width:240px;background:url(/index/show/bg.20130415006_1.png) no-repeat scroll 0 0 transparent;}
+.fpwd_nav .step1_2{width:240px;background:url(/index/show/bg.20130415007_1.png) no-repeat scroll 0 0 transparent;color:#666;}
+.fpwd_nav .step1_3{width:240px;background:url(/index/show/bg.20130415007_1.png) no-repeat scroll 0 0 transparent;color:#666;}
+.fpwd_nav .step1_4{width:240px;background:url(/index/show/bg.20130415007_2.png) no-repeat scroll 0 0 transparent;color:#666;}
 
-.fpwd_nav .step2_1{width:240px;background:url(/code32/index/show/bg.20130415005_1.png) no-repeat scroll 0 0 transparent;}
-.fpwd_nav .step2_2{width:240px;background:url(/code32/index/show/bg.20130415006_2.png) no-repeat scroll 0 0 transparent;color:#fff;}
-.fpwd_nav .step2_3{width:240px;background:url(/code32/index/show/bg.20130415007_1.png) no-repeat scroll 0 0 transparent;color:#666;}
-.fpwd_nav .step2_4{width:240px;background:url(/code32/index/show/bg.20130415007_2.png) no-repeat scroll 0 0 transparent;color:#666;}
+.fpwd_nav .step2_1{width:240px;background:url(/index/show/bg.20130415005_1.png) no-repeat scroll 0 0 transparent;}
+.fpwd_nav .step2_2{width:240px;background:url(/index/show/bg.20130415006_2.png) no-repeat scroll 0 0 transparent;color:#fff;}
+.fpwd_nav .step2_3{width:240px;background:url(/index/show/bg.20130415007_1.png) no-repeat scroll 0 0 transparent;color:#666;}
+.fpwd_nav .step2_4{width:240px;background:url(/index/show/bg.20130415007_2.png) no-repeat scroll 0 0 transparent;color:#666;}
 
-.fpwd_nav .step3_1{width:240px;background:url(/code32/index/show/bg.20130415005_1.png) no-repeat scroll 0 0 transparent;}
-.fpwd_nav .step3_2{width:240px;background:url(/code32/index/show/bg.20130415005_2.png) no-repeat scroll 0 0 transparent;color:#fff;}
-.fpwd_nav .step3_3{width:240px;background:url(/code32/index/show/bg.20130415006_2.png) no-repeat scroll 0 0 transparent;color:#fff;}
-.fpwd_nav .step3_4{width:240px;background:url(/code32/index/show/bg.20130415007_2.png) no-repeat scroll 0 0 transparent;color:#666;}
+.fpwd_nav .step3_1{width:240px;background:url(/index/show/bg.20130415005_1.png) no-repeat scroll 0 0 transparent;}
+.fpwd_nav .step3_2{width:240px;background:url(/index/show/bg.20130415005_2.png) no-repeat scroll 0 0 transparent;color:#fff;}
+.fpwd_nav .step3_3{width:240px;background:url(/index/show/bg.20130415006_2.png) no-repeat scroll 0 0 transparent;color:#fff;}
+.fpwd_nav .step3_4{width:240px;background:url(/index/show/bg.20130415007_2.png) no-repeat scroll 0 0 transparent;color:#666;}
 
-.fpwd_nav .step4_1{width:240px;background:url(/code32/index/show/bg.20130415005_1.png) no-repeat scroll 0 0 transparent;}
-.fpwd_nav .step4_2{width:240px;background:url(/code32/index/show/bg.20130415005_2.png) no-repeat scroll 0 0 transparent;}
-.fpwd_nav .step4_3{width:240px;background:url(/code32/index/show/bg.20130415005_2.png) no-repeat scroll 0 0 transparent;}
-.fpwd_nav .step4_4{width:240px;background:url(/code32/index/show/bg.20130415006_3.png) no-repeat scroll 0 0 transparent;}
+.fpwd_nav .step4_1{width:240px;background:url(/index/show/bg.20130415005_1.png) no-repeat scroll 0 0 transparent;}
+.fpwd_nav .step4_2{width:240px;background:url(/index/show/bg.20130415005_2.png) no-repeat scroll 0 0 transparent;}
+.fpwd_nav .step4_3{width:240px;background:url(/index/show/bg.20130415005_2.png) no-repeat scroll 0 0 transparent;}
+.fpwd_nav .step4_4{width:240px;background:url(/index/show/bg.20130415006_3.png) no-repeat scroll 0 0 transparent;}
 
 .fpwd_content1,.fpwd_content2{padding:20px;}
 .fpwd_content1{display:block;}

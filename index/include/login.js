@@ -77,20 +77,20 @@ $(function () {
 		                }
                             }
                         });
-            // $.post("http://www.jcpeixun.com/ashx/verificationLogin.aspx", $("#loginForm").serialize()).done(function (d) {
+            // $.post("http://www.rfgxy.com/ashx/verificationLogin.aspx", $("#loginForm").serialize()).done(function (d) {
             //     if (d == "0") {//如果帐号不存在,提示
             //         $("#p_tips").attr("class", "cred").html("您输入的账号不存在，请核对后重新输入");
             //     } else if (d == "2") {//如果密码不正确，提示
             //         $("#p_tips").attr("class", "cred").html("您输入的账号和密码不匹配，请重新输入");
             //     } else if (d == "1") {//如果输入正确
-            //         document.getElementById("loginForm").action = "http://www.jcpeixun.com/newloginOk.aspx";
+            //         document.getElementById("loginForm").action = "http://www.rfgxy.com/newloginOk.aspx";
             //         document.getElementById("loginForm").submit();
             //     } else if (d == "3") {//如果输入正确
-            //         //$("input[name='callback']").val('http://www.jcpeixun.com/topic/act/20130724/');
-            //         $("input[name='callback']").val('http://www.jcpeixun.com/');
+            //         //$("input[name='callback']").val('http://www.rfgxy.com/topic/act/20130724/');
+            //         $("input[name='callback']").val('http://www.rfgxy.com/');
             //         //alert($("input[name='callback']").val());
-            //         //                    $("input[name='callback']").val('http://www.jcpeixun.com/topic/act/20130724/');
-            //                             document.getElementById("loginForm").action = "http://www.jcpeixun.com/newloginOk.aspx";
+            //         //                    $("input[name='callback']").val('http://www.rfgxy.com/topic/act/20130724/');
+            //                             document.getElementById("loginForm").action = "http://www.rfgxy.com/newloginOk.aspx";
             //                             document.getElementById("loginForm").submit();
             //     }
             // });

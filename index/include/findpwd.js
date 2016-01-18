@@ -113,7 +113,7 @@ $(function() {
     });
 
     // $("#changeCode").click(function () {
-    //     $("#imgYzm").attr("src", "http://www.jcpeixun.com/validatecode.aspx?id=" + Math.random());
+    //     $("#imgYzm").attr("src", "http://www.rfgxy.com/validatecode.aspx?id=" + Math.random());
     // });
 
     $("#fp_next").delegate("#fp_btn_next1", "click", function() {
@@ -150,12 +150,12 @@ $(function() {
                 }
             });
             /* 判断验证码是否正确 */
-            // $.get("http://www.jcpeixun.com/ashx/api/Ischeckcode.aspx", { "code": sVcode }).done(function (d) {
+            // $.get("http://www.rfgxy.com/ashx/api/Ischeckcode.aspx", { "code": sVcode }).done(function (d) {
             //     if (d == "0") {/*如果返回值等于0，则提示，验证码不正确，请重新输入*/
             //         $("#c_tips").attr("class", "cred").html("验证码不正确，请重新输入");
             //     } else {
             //         /* 判断帐号是否存在 */
-            //         $.post("http://www.jcpeixun.com/forgotpw/IsExistUser.aspx", { 'uName': sUname }).done(function (d) {
+            //         $.post("http://www.rfgxy.com/forgotpw/IsExistUser.aspx", { 'uName': sUname }).done(function (d) {
             //             if (d != "0") {
             //                 location.href = "find_pwd2.aspx?learner_id=" + d;
             //             }
@@ -265,7 +265,7 @@ $(function() {
         if ($trim(sVcode).length < 1 || umobile.length < 1) {
             $("#c_tips").html("您的信息输入不完整，请核实");
         } else {
-            $.post("http://www.jcpeixun.com/ashx/api/checkMCode.aspx", {
+            $.post("http://www.rfgxy.com/ashx/api/checkMCode.aspx", {
                 mobile: umobile,
                 code: sVcode
             }).done(function(d) {

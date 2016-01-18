@@ -15,7 +15,7 @@ class Forget extends CI_Controller {
 	public function step1()
 	{
 		if ($this->session->userdata('username')) {
-			redirect('http://127.0.0.1/code32/index.php/index');
+			redirect('http://www.rfgxy.com');
 		}else{
 			$this->load->view("findpwd_tmp1.html");
 		}
