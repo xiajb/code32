@@ -10,10 +10,10 @@
                 <div class="ucenter-left account-left-border">
                     <div class="ucneter-l-head cf">
                         <div class="ulhead-headicon">
-                            <img src="http://assets.jikexueyuan.com/user/avtar/default.gif" id="avatar_img" width="50px" height="50px" alt="心似已灰之木">
+                            <img src="http://assets.jikexueyuan.com/user/avtar/default.gif" id="avatar_img" width="50px" height="50px" alt="<?php echo $_SESSION['username']; ?>">
                         </div>
                         <div class="ulhead-info">
-                            <p class="ulhead-info-uname">心似已灰之木</p>
+                            <p class="ulhead-info-uname"><?php echo $_SESSION['username']; ?></p>
                             <p class="ulhead-info-vip"><i class="icon icon-vip-year"></i>
                             </p>
                             <div class="ulhead-info-tool">
@@ -61,7 +61,7 @@
           <label>用户名：</label>
          </div>
          <div class="item-cont">
-          <span class="defInfo">心似已灰之木</span>
+          <span class="defInfo"><?php echo $_SESSION['username']; ?></span>
           
          </div>
         </div>

@@ -1,7 +1,7 @@
 <?php 
 
 /** * * 后台权限拦截钩子 * @link http://www.php-chongqing.com * @author bing.peng *  */
-class ManageAuth {
+class CenterAuth {
 	private $CI;            
 	public function __construct() {
 		$this->CI = &get_instance();
@@ -9,14 +9,14 @@ class ManageAuth {
 	/**     * 权限认证     */    
 	public function auth() {        
 		$this->CI->load->helper('url');
-		if ( preg_match("/admin.*/i", uri_string()) ) {
+		if ( preg_match("/center.*/i", uri_string()) ) {
 			// 需要进行权限检查的URL            
 			$this->CI->load->library('session');
-			$this->CI->load->model('user_model');
+			// $this->CI->load->model('user_model');
 			$username = $this->CI->session->userdata('username');
-			$res = $this->CI->user_model->get_user_session($username,1);
-			if (!$res) {
-			 	redirect('http://www.rfgxy.com');           	
+			
+			if (!$username) {
+			 	redirect('http://www.rfgxy.com/login');           	
 			}            
 		}            
 	}        
