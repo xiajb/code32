@@ -57,6 +57,7 @@
                                             <input type="password" class="txt sm my-pw">
                                             <span class="warning" style="width:0;height:0; padding: 0; overflow: hidden; display:block;"></span>
                                         </div>
+                                        <span class="pwd_error" id="former_pwd" style="display:none;">密码输入错误！</span>
                                     </div>
                                     <div class="form-item">
                                         <div class="item-label">
@@ -71,7 +72,9 @@
                                             </div>
                                             <span class="warning" style="width:0;height:0; padding: 0; overflow: hidden; display:block;"></span>
                                         </div>
+                                        <span class="pwd_error" id="former_equal" style="display:none;">不能和原密码一致！</span>
                                     </div>
+
                                     <div class="form-item">
                                         <div class="item-label">
                                             <label>确认密码</label>
@@ -79,10 +82,13 @@
                                         <div class="item-cont no-right">
                                             <input type="password" class="txt sm repeat-pw" maxlength="32">
                                             <span class="warning" style="width:0;height:0; padding: 0; overflow: hidden; display:block;"></span>
-                                            <div class="note errTxt " style="display: none">
+<!--                                             <div class="note errTxt " style="display: none">
                                                 密码不一致
                                             </div>
+ -->                                        
+
                                         </div>
+                                        <span class="pwd_error" id="pwd_discord" style="display:none;">两次密码不一致！</span>
                                     </div>
                                     <div class="form-item">
                                         <div class="item-cont">

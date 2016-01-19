@@ -267,6 +267,11 @@ h2.h2-title {
 .color-red {
     color: #ff5c00!important
 }
+.pwd_error{
+    margin-left: 88px;
+    color: red;
+    
+}
 
 .greenbtn {
     display: inline-block;
@@ -6503,7 +6508,7 @@ textarea {
 }
 
 .form-setting .form-item {
-    margin-bottom: 26px
+    margin-bottom: 7px
 }
 
 .form-setting .item-label {
@@ -6512,7 +6517,8 @@ textarea {
 
 .form-setting .item-cont {
     position: relative;
-    margin-left: 88px
+    margin-left: 88px;
+    margin-bottom: 7px;
 }
 
 .form-setting .defInfo {
