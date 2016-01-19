@@ -465,7 +465,7 @@
 
                     if (hash[i_sEmail] && ($trim(sPwd).length > 5 && $trim(sPwd).length < 21 && $("#agree").prop("checked") == true)) {
                         // $("#btns").hide();
-                        // $("#btns2").show();
+                        $("#btns2").show();
                         // var radomnumber = Radom4();
                         var data = {
                             "email": sEmail,
@@ -485,10 +485,12 @@
                                 // console.log(result);
                                 if (result == 1) {
                                     alert("注册成功！");
-                                    location.href = "http://www.rfgxy.com/center";
+                                    location.href = "http://www.rfgxy.com";
                                 } else if (result < 0) {
+                                    $("#btns2").hide();
                                     alert("验证码输入错误");
                                 }else if(result == "error"){
+                                    $("#btns2").hide();
                                     alert("非法提交请重试");
                                 }
                             }

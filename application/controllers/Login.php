@@ -34,11 +34,14 @@ class Login extends CI_Controller {
 			if ($row != false) {
 				if ($row['password'] == md5($value['password'])) {
 					$this->session->set_userdata('username',$row['username']);
+					ob_clean();
 					echo '1';
 				}else{
+					ob_clean();
 					echo '-1';
 				}
 			}else{
+				ob_clean();
 				echo '0';
 			}
 			// echo json_encode($data);

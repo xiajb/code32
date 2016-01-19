@@ -594,7 +594,7 @@ $.extend({
 
 	/*
 		收藏网站
-		demo:<a href="javascript:addToFavorite('技成(自动化)培训','http://www.rfgxy.com/');">加入收藏</a>
+		demo:<a href="javascript:addToFavorite('儒风国(自动化)培训','http://www.rfgxy.com/');">加入收藏</a>
 	*/
 	addToFavorite: function(title,url) {
 		if (document.all) {
@@ -1499,7 +1499,7 @@ function VerticalRoll(id){
 
 /*
 	收藏网站
-	demo:<a href="javascript:addToFavorite('技成(自动化)培训','http://www.rfgxy.com/');">加入收藏</a>
+	demo:<a href="javascript:addToFavorite('儒风国(自动化)培训','http://www.rfgxy.com/');">加入收藏</a>
 */
 function addToFavorite(title,url) {
     if (document.all) {

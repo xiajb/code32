@@ -160,13 +160,13 @@ $(function () {
     $("#cbxCoupons1").click(function () {
         var $cbxCoupons1 = $("#cbxCoupons1").prop("checked");
         if ($cbxCoupons1 == true) {
-            $("#leddd").html("消费技成币");
+            $("#leddd").html("消费儒风国币");
             $("#total_coupon").html($("#iptlearnercoin").val());
             $("#danwei").html("个");
             $("#total_pay").html("0");
         }
         else {
-            $("#leddd").html("消费技成币");
+            $("#leddd").html("消费儒风国币");
             $("#total_coupon").html("0");
             $("#danwei").html("个");
             $("#total_pay").html($("#iptlearnercoin").val());
@@ -177,20 +177,20 @@ $(function () {
         var $cbxCoupons2 = $("#cbxCoupons2").prop("checked");
         if ($cbxCoupons2 == true) {
             $("#itpcredittemp").val($("#iptlearnercoin").val());
-            $("#leddd").html("消费技成币");
+            $("#leddd").html("消费儒风国币");
             $("#total_coupon").html($("#iptlearnercoin").val());
             $("#danwei").html("个");
             $("#total_pay").html($("#payallmoney").val() - $("#iptlearnercoin").val());
         }
         else {
             $("#itpcredittemp").val(0);
-            $("#leddd").html("消费技成币");
+            $("#leddd").html("消费儒风国币");
             $("#total_coupon").html(0);
             $("#danwei").html("个");
             $("#total_pay").html($("#payallmoney").val());
         }
         //$("#itpcredittemp").val(1);
-        //        $("#leddd").html("消费技成币");
+        //        $("#leddd").html("消费儒风国币");
         //        $("#total_coupon").html($("#iptlearnercoin").val());
         //        $("#danwei").html("个");
         //        $("#total_pay").html("0");

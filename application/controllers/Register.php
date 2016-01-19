@@ -17,8 +17,13 @@ class Register extends CI_Controller {
 
 	}
 	public function index(){
-		$this->load->library('form_validation');
-		$this->load->view("register.html");
+		if (isset($_SESSION['username'])) {
+			redirect('http://www.rfgxy.com');
+		}else{
+
+			$this->load->library('form_validation');
+			$this->load->view("register.html");
+		}
 	}
 
 

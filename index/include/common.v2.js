@@ -330,9 +330,9 @@ $(function () {
         /* 加载不同的logo,链接 */
         var cur_location = window.location.href;
         if (!cur_location.indexOf("http://www.rfgxy.com/xiazai/")) {
-            $("#btn_logo").attr({"href":"http://www.rfgxy.com/xiazai/","title":"技成库——自动化资料下载中心"})
-            $("#img_logo").attr({"src":"http://images.rfgxy.com/xiazai_logo.png","title":"技成库——自动化资料下载中心","alt":"技成库——自动化资料下载中心"});
-            //str = "<a href=\"http://www.rfgxy.com/xiazai/\" title=\"技成库——自动化资料下载中心\" id=\"btn_logo\"><img src=\"http://images.rfgxy.com/xiazai_logo.png\" width=\"230\" height=\"55\" alt=\"技成库——自动化资料下载中心\" title=\"技成库——自动化资料下载中心\" id=\"img_logo\" /></a>";
+            $("#btn_logo").attr({"href":"http://www.rfgxy.com/xiazai/","title":"儒风国库——自动化资料下载中心"})
+            $("#img_logo").attr({"src":"http://images.rfgxy.com/xiazai_logo.png","title":"儒风国库——自动化资料下载中心","alt":"儒风国库——自动化资料下载中心"});
+            //str = "<a href=\"http://www.rfgxy.com/xiazai/\" title=\"儒风国库——自动化资料下载中心\" id=\"btn_logo\"><img src=\"http://images.rfgxy.com/xiazai_logo.png\" width=\"230\" height=\"55\" alt=\"儒风国库——自动化资料下载中心\" title=\"儒风国库——自动化资料下载中心\" id=\"img_logo\" /></a>";
         }else{
             //str = "<a href=\"http://www.rfgxy.com/\" title=\"儒风国学院\" id=\"btn_logo\"><img src=\"http://logo.png\" width=\"230\" height=\"55\" alt=\"儒风国学院\" title=\"儒风国学院\" id=\"img_logo\" /></a>";
         };
