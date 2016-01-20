@@ -7,6 +7,7 @@ class Center extends CI_Controller {
 	 */
 	function __construct(){
 		parent::__construct();
+		$this->load->model('user_model');
 		$this->load->library('session');
 		$this->load->helper('url');
 	}
@@ -81,6 +82,21 @@ class Center extends CI_Controller {
 		$this->load->view("center_header.html",$data);
 		$this->load->view("center_changepw.html");
 		$this->load->view("center_footer.html");
+
+	}
+	//ajax判断原密码是否正确
+	public function pwd_is_true(){
+		$value = json_decode($this->input->post('data'),true);
+		$row = $this->user_model->check_username_is($_SESSION['username']);
+		if ($row != false) {
+			if ($row['password'] == md5($value['password'])) {
+				echo '1';
+			}else{
+				echo '-1';
+			}
+		}else{
+			echo '0';
+		}
 
 	}
 
