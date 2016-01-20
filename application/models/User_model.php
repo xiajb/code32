@@ -126,6 +126,18 @@ class User_model extends CI_Model{
 		// 	echo "-1";
 		// }
 	}
+	//根据用户名 更改密码
+	public function for_username_change_pwd($username,$pwd){
+		// if ($uid != "" && $pwd != "") {
+			$data = array('password' => md5($pwd));
+			$this->db->where('username', $username);
+			$this->db->update(self::TBL_USER, $data);
+		// 	echo "1";
+		// }else{
+		// 	echo "-1";
+		// }
+	}
+
 	// function  checklogin($user_name,$user_pwd){
 	// 	//返回值
 	// 	$a=false;

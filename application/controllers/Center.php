@@ -100,6 +100,22 @@ class Center extends CI_Controller {
 
 	}
 
+	public function change_pw(){
+		$value = json_decode($this->input->post('data'),true);
+		$row = $this->user_model->check_username_is($_SESSION['username']);
+		if ($row != false) {
+			if ($row['password'] == md5($value['former_pwd'])) {
+				$this->user_model->for_username_change_pwd($_SESSION['username'],$value['password']);
+				
+				echo '1';
+			}else{
+				echo '-1';
+			}
+		}else{
+			echo '0';
+		}
+	}
+
 	public function comment()
 	{
 
