@@ -1,3 +1,4 @@
+<script type="text/javascript" src="<?php echo base_url('index/include/jquery-1.8.2.min.js'); ?>"></script>
 <div class="other-right ">
     <div class="other-right-wrap">
         <div id="pjax-tiper" class="alert" style="display:none">正在加载...</div>
@@ -38,6 +39,7 @@
                 font-size: 12px;
                 height: 30px;
                 line-height: 30px;
+                color: red;
             }
             
             .feedback-wrap p {
@@ -88,17 +90,15 @@
                     <div class="field-wrap">
                         <div>
                             <textarea name="info" id="info" class="phd" cols="30" rows="10" placeholder="骚年，哪有不爽，来喷吧！"></textarea>
-                            <p class="rlf-tip-wrap"></p>
+                            <p class="rlf-tip-wrap" id="info_error"></p>
                         </div>
                         <div>
                             <input type="text" name="contact" id="contact" class="phd" placeholder="请留下真实联系方式（邮箱、QQ），方便我们答疑解惑！">
-                            <p class="rlf-tip-wrap"></p>
-                            <input type="hidden" name="locate" value="湖北省武汉市">
-                            <input type="hidden" name="webserver" value="电信">
+                            <p class="rlf-tip-wrap" id="contact_error"></p>
                         </div>
                         <div class="btn-wrap">
                             <button hidefocus="true" id="submit" class="r">提交</button>
-                            <p id="feedback-error" class="rlf-tip-wrap rlf-tip-error" style="display:none"></p>
+                            <p id="feedback-error" class="rlf-tip-wrap rlf-tip-error"></p>
                         </div>
                     </div>
                     <div class="qqGroup-feed">
@@ -118,3 +118,40 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+$('#info').focus(function() {
+    $('#info_error').html('');
+});
+$('#contact').focus(function() {
+    $('#contact_error').html('');
+});
+$("#submit").click(function() {
+    if ($('#info').val() == '') {
+        $('#info_error').html('请填写反馈内容！');
+        return false;
+    }
+    if ($('#contact').val() == '') {
+        $('#contact_error').html('请留下联系方式！');
+        return false;
+    }
+    var data = {
+        "info": $('#info').val(),
+        "contact": $('#contact').val()
+    }
+    $.ajax({
+        type: 'POST',
+        url: "../about/feed_back",
+        data: 'data=' + JSON.stringify(data),
+        success: function(result) {
+            // console.log(result);
+            if (result == -1) {
+                $("#feedback-error").html("反馈失败！");
+                $("#feedback-error").hide(1000);
+                return false;
+            }else{
+                alert('提交成功，谢谢您的反馈！');
+            }
+        }
+    });
+});
+</script>

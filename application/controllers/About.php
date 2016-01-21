@@ -7,6 +7,7 @@ class About extends CI_Controller {
 	 */
 	function __construct(){
 		parent::__construct();
+		$this->load->model('feedback_model');
 		$this->load->library('session');
 		$this->load->helper('url');
 	}
@@ -141,7 +142,15 @@ class About extends CI_Controller {
 		$this->load->view("about_footer.html");
 	}	
 
-
+	public function feed_back(){
+		$value = json_decode($this->input->post('data'),true);
+		$value["feedback_time"] = time();
+		if ($this->feedback_model->add_feedback($value)) {
+			echo '1';
+		}else{
+			echo '-1';
+		}
+	}
 
 
 }

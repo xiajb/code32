@@ -54,12 +54,12 @@
                                         <label>反馈类型：</label>
                                     </div>
                                     <div class="item-cont">
-                                        <select class="select" id="job" name="job">
+                                        <select class="select" id="title" name="title">
                                             <option value="学生">
                                                 学生</option>
                                             <option value="教师">
                                                 教师</option>
-                                            <option value="程序员" selected="">
+                                            <option value="程序员">
                                                 程序员</option>
                                             <option value="创业者">
                                                 创业者</option>
@@ -77,12 +77,12 @@
                                         <label>反馈内容：</label>
                                     </div>
                                     <div class="item-cont">
-                                        <textarea class="resize-none" style="width: 690px;height:80px" name="remark">无</textarea>
+                                        <textarea class="resize-none" style="width: 690px;height:80px" name="info" id="info">无</textarea>
                                     </div>
                                 </div>
                                 <div class="form-item">
                                     <div class="item-cont">
-                                        <input type="button" id="jobButton" class="btn btn-primary infoBtn" value="提交反馈" jktag="&amp;posOper=60017&amp;posArea=0003">
+                                        <input type="button" id="FeedbackButton" class="btn btn-primary infoBtn" value="提交反馈" jktag="&amp;posOper=60017&amp;posArea=0003">
                                     </div>
                                 </div>
                             </fieldset>
@@ -106,3 +106,41 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    
+$('#info').focus(function() {
+    $('#info_error').html('');
+});
+// $('#contact').focus(function() {
+//     $('#contact_error').html('');
+// });
+$("#FeedbackButton").click(function() {
+    if ($('#info').val() == '') {
+        $('#info_error').html('请填写反馈内容！');
+        return false;
+    }
+    // if ($('#title').val() == '') {
+    //     $('#contact_error').html('请留下联系方式！');
+    //     return false;
+    // }
+    var data = {
+        "info": $('#info').val(),
+        "title": $('#title').val()
+    }
+    $.ajax({
+        type: 'POST',
+        url: "../center/feed_back",
+        data: 'data=' + JSON.stringify(data),
+        success: function(result) {
+            // console.log(result);
+            if (result == -1) {
+                $("#feedback-error").html("反馈失败！");
+                $("#feedback-error").hide(1000);
+                return false;
+            }else{
+                alert('提交成功，谢谢您的反馈！');
+            }
+        }
+    });
+});
+</script>

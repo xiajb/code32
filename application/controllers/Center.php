@@ -150,6 +150,17 @@ class Center extends CI_Controller {
 		$this->load->view("center_footer.html");
 
 	}	
+
+	public function feed_back(){
+		$value = json_decode($this->input->post('data'),true);
+		$value["feedback_time"] = time();
+		if ($this->feedback_model->add_feedback($value)) {
+			echo '1';
+		}else{
+			echo '-1';
+		}
+	}
+	
 	//再试一次
 	function test ($course_id){
 	$this->session->set_userdata('course_id',$course_id);
