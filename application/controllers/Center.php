@@ -8,6 +8,7 @@ class Center extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->model('user_model');
+		$this->load->model('feedback_model');
 		$this->load->library('session');
 		$this->load->helper('url');
 	}
@@ -153,14 +154,23 @@ class Center extends CI_Controller {
 
 	public function feed_back(){
 		$value = json_decode($this->input->post('data'),true);
-		$value["feedback_time"] = time();
-		if ($this->feedback_model->add_feedback($value)) {
-			echo '1';
+		$value["username"] = $_SESSION['username'];
+		$row = $this->user_model->check_username_is($value["username"]);
+		if ($row != false) {
+			$value['phone'] = $row['phone'];
+			$value['email'] = $row['email'];
+			$value['vip'] = $row['vip'];
+			$value["feedback_time"] = time();
+			if ($this->feedback_model->add_feedback($value)) {
+				echo '1';
+			}else{
+				echo '-1';
+			}
 		}else{
-			echo '-1';
+			echo '0';
 		}
 	}
-	
+
 	//再试一次
 	function test ($course_id){
 	$this->session->set_userdata('course_id',$course_id);

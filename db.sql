@@ -167,7 +167,10 @@ PRIMARY KEY (  `gid` )
 CREATE TABLE  `ci_feedback` (
 `feedback` int(10) unsigned NOT NULL auto_increment COMMENT 'primary key,autoincrement',
  `username` VARCHAR( 50 ) NOT NULL DEFAULT '' COMMENT '',
- `title` VARCHAR( 50 ) NOT NULL DEFAULT '' COMMENT '',
+ `email` VARCHAR( 50 ) NOT NULL DEFAULT '' COMMENT '',
+ `phone` VARCHAR( 50 ) NOT NULL DEFAULT '' COMMENT '',
+ `vip` VARCHAR( 50 ) NOT NULL DEFAULT '' COMMENT '',
+  `title` VARCHAR( 50 ) NOT NULL DEFAULT '' COMMENT '',
  `contact` VARCHAR( 50 ) NOT NULL default '' COMMENT '联系方式',
  `info` VARCHAR( 250 ) NOT NULL DEFAULT '0' COMMENT '反馈内容',
  `feedback_time` DATE NOT NULL DEFAULT  '0000-00-00',
