@@ -14,9 +14,7 @@ class Feedback_model extends CI_Model{
 		$query = $this->db->query($sql);
 		return $query->result_array();
 	}
-	// public function getcoursebyid($id){
-	// 	$this->db->where('course_id',$id);
-	// 	$query = $this->db->get('ci_course');
-	// 	return $query->result_array();
-	// }
+	public function delete($id){
+		$this->db->delete(self::TBL_USER, array('feedback' => $id));
+	}
 }

@@ -78,7 +78,8 @@
                                         <label>反馈内容：</label>
                                     </div>
                                     <div class="item-cont">
-                                        <textarea class="resize-none" style="width: 690px;height:80px" name="info" id="info">无</textarea>
+                                        <textarea class="resize-none" style="width: 690px;height:80px" name="info" id="info"></textarea>
+                                        <p style="font-size: 14px;color:red;" id="info_error"></p>
                                     </div>
                                 </div>
                                 <div class="form-item">
@@ -112,18 +113,11 @@
 $('#info').focus(function() {
     $('#info_error').html('');
 });
-// $('#contact').focus(function() {
-//     $('#contact_error').html('');
-// });
 $("#FeedbackButton").click(function() {
     if ($('#info').val() == '') {
         $('#info_error').html('请填写反馈内容！');
         return false;
     }
-    // if ($('#title').val() == '') {
-    //     $('#contact_error').html('请留下联系方式！');
-    //     return false;
-    // }
     var data = {
         "info": $('#info').val(),
         "title": $('#title').val()
@@ -134,12 +128,12 @@ $("#FeedbackButton").click(function() {
         data: 'data=' + JSON.stringify(data),
         success: function(result) {
             // console.log(result);
-            if (result == -1) {
-                $("#feedback-error").html("反馈失败！");
-                $("#feedback-error").hide(1000);
-                return false;
-            }else{
+            if (result == 1) {
                 alert('提交成功，谢谢您的反馈！');
+            }else{
+                $("#info_error").html("反馈失败！");
+                $("#info_error").hide(1000);
+                return false;
             }
         }
     });

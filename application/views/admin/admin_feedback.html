@@ -1,0 +1,118 @@
+<link rel="stylesheet" href="<?php echo base_url('back/css/backmask.css'); ?>" />
+    <div id="content" class="white">
+        <h1><img src="<?php echo base_url('back/img/icons/posts.png'); ?>" alt="" /> Table</h1>
+        <div class="bloc">
+            <div class="title">
+                Table Content
+            </div>
+            <div class="content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>网站名</th>
+                            <th>网站链接</th>
+                            <th>添加时间</th>
+                            <th>Actions</th>
+                            <th>添加时间</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <input  type="hidden" id="len" value="<?php echo count($feedback); ?>" />
+                    <?php  for($i=0;$i<count($feedback);$i++){ ?>
+
+
+                       
+                            <tr>
+                                <td>
+                                    <?php echo $feedback[$i]['username']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $feedback[$i]['email']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $feedback[$i]['phone']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $feedback[$i]['info']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $feedback[$i]['feedback_time']; ?>
+                                </td>
+                    </td>
+                                <td class="actions">
+                                    <a href="#" title="Edit this content"><img src="<?php echo base_url('back/img/icons/actions/edit.png'); ?>" alt="" /></a>
+                                    <a data-id="<?php echo $feedback[$i]['feedback']; ?>" href="#" title="Delete this content" class="delete_button"><img src="<?php echo base_url('back/img/icons/actions/delete.png'); ?>" alt="" /></a>
+                                </td>
+                            </tr>
+                    <?php } ?>
+                            
+                    </tbody>
+                </table>
+                <div class="pagination">
+                    <a href="#" class="prev">«</a>
+                    <a href="#">1</a>
+                    <a href="#" class="current">2</a> ...
+                    <a href="#">21</a>
+                    <a href="#">22</a>
+                    <a href="#" class="next">»</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="zoombox" class="zoombox"> 
+    <div class="mask" style="display: none; opacity: 0.8;"></div>
+    <!-- <div class="cd-popup" level="alert"> -->
+    <div class="cd-popup-container" style="display:none;">
+        <p style="height:22px">你确定你要删除这个元素吗?</p>
+        <ul class="cd-buttons">
+            <li id="delete_yes"><a href="#">是</a></li>
+            <li id="delete_no"><a href="#">否</a></li>
+        </ul>
+        <a href="#" class="cd-popup-close img-replace">关闭</a>
+    </div> <!-- cd-popup-container -->
+</div> <!-- cd-popup -->
+<style type="text/css">
+
+
+</style>
+<script type="text/javascript">
+    
+
+        $('.delete_button').click(function(){
+            id = $(this).data('id');
+            // console.log(id);
+            // console.log($(this));
+            $('.mask').show();
+            $('.cd-popup-container').show();
+            // $('.mask').css('display':'block');
+            // $('.cd-popup-container').css('display':'block');
+        });
+        $('.mask').click(function(){
+            $('.cd-popup-container').hide();
+            $('.mask').hide();
+        });
+        $('.cd-popup-close').click(function(){
+            $('.cd-popup-container').hide();
+            $('.mask').hide();
+        });
+        $('#delete_no').click(function(){
+            $('.cd-popup-container').hide();
+            $('.mask').hide();
+        });
+        $('#delete_yes').click(function(){
+            $.ajax({
+                url:"../admin/feedback/delete/",
+                type:"POST",
+                data:"value="+id,
+                success:function(result){
+                    console.log(result);
+                }
+            })
+        });
+
+</script>
+
+</body>
+
+</html>

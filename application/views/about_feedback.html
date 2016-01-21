@@ -144,12 +144,12 @@ $("#submit").click(function() {
         data: 'data=' + JSON.stringify(data),
         success: function(result) {
             // console.log(result);
-            if (result == -1) {
+            if (result == 1) {
+                alert('提交成功，谢谢您的反馈！');
+            }else{
                 $("#feedback-error").html("反馈失败！");
                 $("#feedback-error").hide(1000);
                 return false;
-            }else{
-                alert('提交成功，谢谢您的反馈！');
             }
         }
     });
