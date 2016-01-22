@@ -138,6 +138,11 @@ class User_model extends CI_Model{
 		// }
 	}
 
+	public function user_detail($username,$data){
+		$this->db->where('username',$username);
+		$this->db->update(self::TBL_USER,$data);
+	}
+
 	// function  checklogin($user_name,$user_pwd){
 	// 	//返回值
 	// 	$a=false;

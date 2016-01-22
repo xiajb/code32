@@ -2510,7 +2510,7 @@ textarea{
     line-height: 40px;
     width: 140px;
     color: #fff;
-    background: #39b94e;
+    background: #188EEE;
     cursor: pointer;
     font-size: 14px;
 }
@@ -2603,15 +2603,15 @@ td.textarea{
                                 <tbody>
                                     <tr>
                                         <td class="label"><span class="star">*&nbsp;</span>我的简介</td>
-                                        <td class="textarea warning">
+                                        <td class="textarea">
                                             <textarea class="apply-introduction" id="apply-introduction" placeholder="输入我的简介"></textarea>
                                             <p class="tip font-num">
                                                 <span class="left">不得少于50字</span>
                                                 <span class="right">剩余200字</span>
                                             </p>
                                             <div class="portrait">
-                                                <a href="/space/u/uid/279640"><img src="http://img.mukewang.com/user/53f5cda40001a39e01000100-100-100.jpg"></a>
-                                                <a class="nickname deepen-col" href="/space/u/uid/279640">BK不是BT</a>
+                                                <a href="/space/u/uid/279640"><img src="<?php echo $pic; ?>"></a>
+                                                <a class="nickname deepen-col" href="/space/u/uid/279640" style="font-size: 20px;line-height: 36px;color: #188EEE;"><?php echo $_SESSION['username']; ?></a>
                                             </div>
                                         </td>
                                     </tr>
@@ -2689,6 +2689,13 @@ td.textarea{
         <!--footer-->
         <div class="footer mt20">
             <!--footer-guide-->
+            <style type="text/css">
+                .foot-guide a{color:#C4C4C5!important;}
+                .foot-guide a:hover {
+                    color: #FFF!important;
+                    text-decoration: none;
+                }
+            </style>
                    <div class="foot-guide inner clearfix">
             <dl class="fg-item2">
                 <dt class="h30 lh30 b f14">精品课程</dt>

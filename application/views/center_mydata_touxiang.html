@@ -1,3 +1,6 @@
+<!--header-->
+<!--slide-->
+<!--# include file="inc/slide.aspx" -->
 <script type="text/javascript" src="<?php echo base_url('index/include/jquery-1.8.2.min.js')?>"></script>
 <script src="<?php echo base_url('index/js/plupload.full.min.js'); ?>" type="text/javascript"></script>
 <div id="pager">
@@ -8,9 +11,7 @@
                     <img src="http://assets.jikexueyuan.com/user/avtar/default.gif" id="avatar_img" width="50px" height="50px" alt="<?php echo $_SESSION['username']; ?>">
                 </div>
                 <div class="ulhead-info">
-                    <p class="ulhead-info-uname">
-                        <?php echo $_SESSION['username']; ?>
-                    </p>
+                    <p class="ulhead-info-uname"><?php echo $_SESSION['username']; ?></p>
                     <p class="ulhead-info-vip"><i class="icon icon-vip-year"></i>
                     </p>
                     <div class="ulhead-info-tool">
@@ -38,13 +39,26 @@
                 </ul>
             </div>
         </div>
+                    <style type="text/css">
+            #btn {
+                background-color: #00b7f1;
+                color: #fff !important;
+                padding: 0 8px;
+                height: 24px;
+                line-height: 24px;
+                position: relative;
+                display: inline-block;
+                cursor: pointer;
+                border-radius: 5px;
+            }
+            </style>
         <div class="ucenter-right cf">
             <div class="mycourse-block">
                 <div class="mycourse-tab-tit">
                     <ul class="cf mycourse-tab-ul">
                         <li class=""><a href="./mydata?label=jiben" jktag="&amp;posOper=62012&amp;posArea=0003">基本信息</a></li>
-                        <li class="active"><a href="./mydata?label=xiangxi" jktag="&amp;posOper=62012&amp;posArea=0003">详细信息</a></li>
-                        <li class=""><a href="./mydata?label=touxiang" jktag="&amp;posOper=62012&amp;posArea=0003">我的头像</a></li>
+                        <li class=""><a href="./mydata?label=xiangxi" jktag="&amp;posOper=62012&amp;posArea=0003">详细信息</a></li>
+                        <li class="active"><a href="./mydata?label=touxiang" jktag="&amp;posOper=62012&amp;posArea=0003">我的头像</a></li>
                     </ul>
                 </div>
                 <div class="mycourse-tab-body lesson-list" id="changeid">
@@ -90,19 +104,6 @@
                                     </fieldset>
                                 </form>
                             </div>
-                                                <style type="text/css">
-            #btn {
-                background-color: #00b7f1;
-                color: #fff !important;
-                padding: 0 8px;
-                height: 24px;
-                line-height: 24px;
-                position: relative;
-                display: inline-block;
-                cursor: pointer;
-                border-radius: 5px;
-            }
-            </style>
                             <!-- form baseinfo end -->
                             <!-- form personinfo -->
                             <div class="tabGroup" style="display: block;">
@@ -113,41 +114,12 @@
                                     <fieldset>
                                         <div class="form-item">
                                             <div class="item-label">
-                                                <label>真实姓名：</label>
-                                            </div>
-                                            <div class="item-cont">
-                                                <input type="text" id="name" name="truename" maxlength="100" value="冉子文" class="txt sm">
-                                            </div>
-                                        </div>
-                                        <div class="form-item">
-                                            <div class="item-label">
-                                                <label>用户性别：</label>
-                                            </div>
-                                            <div class="item-cont">
-                                                <select class="select w-xs" id="uesrSex" name="sex">
-                                                    <option value="1" selected="">
-                                                        纯爷们</option>
-                                                    <option value="2">
-                                                        萌妹子</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-item">
-                                            <div class="item-label">
                                                 <label>QQ：</label>
                                             </div>
                                             <div class="item-cont">
                                                 <input type="text" class="txt sm w-sm" name="qq" id="qq" value="84217621">
-                                            </div>
-                                        </div>
-                                        <div class="form-item">
-                                            <div class="item-label">
-                                                <label>我的头像：</label>
-                                            </div>
-                                            <div class="item-cont">
-                                                <input type="text" class="txt sm w-sm" name="" id="" value="84217621">
-                                                <div id="btn">上传图片</div> 最大500KB，支持jpg，gif，png格式。
-                                                <ul id="ul_pics" class="ul_pics clearfix"></ul>
+		                <div id="btn">上传图片</div> 最大500KB，支持jpg，gif，png格式。
+		                <ul id="ul_pics" class="ul_pics clearfix"></ul>
                                             </div>
                                         </div>
                                         <div class="form-item">
@@ -159,8 +131,10 @@
                                 </form>
                             </div>
                             <!-- form personinfo end -->
+
                         </div>
                     </ul>
+                    
                 </div>
                 <div class="mycourse-page">
                     <div id="page-nav"></div>
@@ -224,18 +198,17 @@ var uploader = new plupload.Uploader({ //创建实例的构造方法
 });
 
 uploader.init();
-$("#infoButton").click(function() {
+$("#button").click(function() {
     console.log($("#picname").html());
     var value = {
         "name": $("#name").val(),
-        "sex": $("#uesrSex").val(),
-        "qq":$("qq").val(),
+        "intro": $("#intro").val(),
         "pic": $("#picname").html()
     }
     console.log(value);
     $.ajax({
         type: 'POST',
-        url: "../center/user_detail",
+        url: "<?php echo base_url('index.php/admin/teacher/c_teacher'); ?>",
         data: 'data=' + JSON.stringify(value),
 
         success: function(result) {

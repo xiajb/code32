@@ -4,7 +4,9 @@
 CREATE TABLE  `ci_user` (
  `uid` int(10) unsigned NOT NULL auto_increment COMMENT 'primary key,autoincrement',
  `username` VARCHAR( 16 ) NOT NULL,
+ `name` VARCHAR( 16 ) NOT NULL,
  `phone` VARCHAR( 11 ) NOT NULL,
+ `qq` VARCHAR( 11 ) NOT NULL,
  `password` VARCHAR( 50 ) NOT NULL,
  `email` VARCHAR( 50 ) NOT NULL,
  `blance` DECIMAL( 10,2 ) NOT NULL DEFAULT '0.00' COMMENT '金额',

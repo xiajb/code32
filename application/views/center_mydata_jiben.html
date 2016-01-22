@@ -1,264 +1,159 @@
-
-        <!--header-->
-        <!--slide-->
-        <!--# include file="inc/slide.aspx" -->
-        <!--slide-->
-        <!--container-->
-
-        <div id="pager">
-            <div class="w-1000 mar-t30 cf ucenter-block">
-                <div class="ucenter-left account-left-border">
-                    <div class="ucneter-l-head cf">
-                        <div class="ulhead-headicon">
-                            <img src="http://assets.jikexueyuan.com/user/avtar/default.gif" id="avatar_img" width="50px" height="50px" alt="<?php echo $_SESSION['username']; ?>">
-                        </div>
-                        <div class="ulhead-info">
-                            <p class="ulhead-info-uname"><?php echo $_SESSION['username']; ?></p>
-                            <p class="ulhead-info-vip"><i class="icon icon-vip-year"></i>
-                            </p>
-                            <div class="ulhead-info-tool">
-                                <a class="ulhead-icon icon-lock ucenter-mail " href="./changepw" title="修改密码" jktag="&amp;posGP=115005&amp;posOper=56002&amp;posArea=0001">
-                                    <div class="ucenter-mail-tip">修改密码</div>
-                                </a>
-                                <a href="./mydata" class="ulhead-icon icon-setting ucenter-mail" title="设置个人信息" jktag="&amp;posGP=115005&amp;posOper=56005&amp;posArea=0001"></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ucenter-l-list">
-                        <ul class="ullist-ul">
-                            <li class="<?php echo  $active['mydata']?>"><a href="./mydata" jktag="&amp;posGP=115007&amp;posOper=56007&amp;posArea=0002">个人资料</a>
-                            </li>
-                            <li class="<?php echo  $active['mycourse']?>"><a href="./mycourse" jktag="&amp;posGP=115007&amp;posOper=56007&amp;posArea=0002">我的课程</a>
-                            </li>
-                            <li class="<?php echo  $active['myorder']?>"><a href="./myorder" jktag="&amp;posGP=115002&amp;posOper=56008&amp;posArea=0002">我的订单</a>
-                            </li>
-                            <li class="<?php echo  $active['changepw']?>"><a href="./changepw" jktag="&amp;posGP=115003&amp;posOper=56009&amp;posArea=0002">修改密码</a>
-                            </li>
-                            <li class="<?php echo  $active['comment']?>"><a href="./comment" jktag="&amp;posGP=115005&amp;posOper=56010&amp;posArea=0002">我的评论</a>
-                            </li>
-                            <li class="<?php echo  $active['feedback']?>"><a href="./feedback" jktag="&amp;posGP=115006&amp;posOper=56011&amp;posArea=0002">意见反馈</a>
-                            </li>
-                        </ul>
-                    </div>
+<!--header-->
+<!--slide-->
+<!--# include file="inc/slide.aspx" -->
+<!--slide-->
+<!--container-->
+<div id="pager">
+    <div class="w-1000 mar-t30 cf ucenter-block">
+        <div class="ucenter-left account-left-border">
+            <div class="ucneter-l-head cf">
+                <div class="ulhead-headicon">
+                    <img src="http://assets.jikexueyuan.com/user/avtar/default.gif" id="avatar_img" width="50px" height="50px" alt="<?php echo $_SESSION['username']; ?>">
                 </div>
-                <div class="ucenter-right cf">
-                    <div class="mycourse-block">
-                        <div class="mycourse-tab-tit">
-                            <ul class="cf mycourse-tab-ul">
-                                <li class="active"><a href="./mydata?label=jiben" jktag="&amp;posOper=62012&amp;posArea=0003">基本信息</a></li>
-                                <li class=""><a href="./mydata?label=xiangxi" jktag="&amp;posOper=62012&amp;posArea=0003">详细信息</a></li>
-                            </ul>
-                        </div>
-                        <div class="mycourse-tab-body lesson-list" id="changeid">
-                            <ul class="cf" id="home_my_fav">
-                                <div class="tabbed">
-     <!-- form baseinfo -->
-     <div class="tabGroup" style="display: block;">
-      <form class="form form-baseinfo">
-       <fieldset>
-        <div class="form-item">
-         <div class="item-label">
-          <label>用户名：</label>
-         </div>
-         <div class="item-cont">
-          <span class="defInfo"><?php echo $_SESSION['username']; ?></span>
-          
-         </div>
-        </div>
-        <div class="form-item">
-         <div class="item-label">
-          <label>密码：</label>
-         </div>
-         <div class="item-cont">
-         
-          <span class="defInfo">******</span>
-          <span class="setLink"><a href="http://www.rfgxy.com/center/changepw" id="changePw" jktag="&amp;posOper=60013&amp;posArea=0003">修改</a></span>
-         
-         </div>
-        </div>
-        <div class="form-item">
-         <div class="item-label">
-          <label>邮箱：</label>
-         </div>
-         <div class="item-cont">
-          <span class="defInfo" id="emailVal">84217621@qq.com</span>
-            
-         </div>
-        </div>
-        <div class="form-item">
-         <div class="item-label">
-          <label>手机号：</label>
-         </div>
-         <div class="item-cont">
-          <span class="defInfo">18571719429</span>
-          
-         </div>
-        </div>
-       </fieldset>
-      </form>
-     </div>
-     <!-- form baseinfo end -->
-     <!-- form personinfo -->
-     <div class="tabGroup" style="display: none;">
-      <form class="form form-personinfo" id="infoForm" action="/member/settingInfo" method="get">
-       <input type="hidden" id="act" name="act" value="base">
-       <input type="hidden" name="_csrf" value="aSBzKniayJfrSsF9Y6F+OY5Yip4BpbbjYOSqM=">
-       <input type="hidden" id="hiddenUid" name="uid" value="2533127">
-       <fieldset>
-        <div class="form-item">
-         <div class="item-label">
-          <label>真实姓名：</label>
-         </div>
-         <div class="item-cont">
-          <input type="text" id="truename" name="truename" maxlength="100" value="冉子文" class="txt sm">
-         </div>
-        </div>
-        <div class="form-item">
-         <div class="item-label">
-          <label>用户性别：</label>
-         </div>
-         <div class="item-cont">
-          <select class="select w-xs" id="uesrSex" name="sex"><option value="1" selected="">
-            纯爷们</option><option value="2">
-            萌妹子</option></select>
-         </div>
-        </div>
-        <div class="form-item">
-         <div class="item-label">
-          <label>生日：</label>
-         </div>
-         <div class="item-cont">
-          <input type="text" class="txt sm w-xs Wdate" id="birthday" name="birthday" value="1991-09-24" placeholder="">
-         </div>
-        </div>
-        <div class="form-item">
-         <div class="item-label">
-          <label>QQ：</label>
-         </div>
-         <div class="item-cont">
-          <input type="text" class="txt sm w-sm" name="qq" id="qq" value="84217621">
-         </div>
-        </div>
-        <div class="form-item">
-         <div class="item-cont">
-          <input type="button" id="infoButton" class="btn btn-primary infoBtn" value="保存资料" jktag="&amp;posOper=60016&amp;posArea=0003">
-         </div>
-        </div>
-       </fieldset>
-      </form>
-     </div>
-     <!-- form personinfo end -->
-     <!-- form job -->
-     <div class="tabGroup" style="display: none;">
-      <form class="form form-job" id="jobForm" action="/member/settingJob" method="get">
-       <input type="hidden" id="act" name="act" value="job">
-       <fieldset>
-        <div class="form-item">
-         <div class="item-label">
-          <label>你的职业：</label>
-         </div>
-         <div class="item-cont">
-          <select class="select" id="job" name="job"><option value="学生">
-          学生</option><option value="教师">
-          教师</option><option value="程序员" selected="">
-          程序员</option><option value="创业者">
-          创业者</option><option value="待业者">
-          待业者</option><option value="其他">
-          其他</option></select>
-         </div>
-        </div>
-        <div class="form-item">
-         <div class="item-label">
-          <label>公司名称：</label>
-         </div>
-         <div class="item-cont">
-          <input type="text" class="txt sm" name="company" value="考思科技" placeholder="目前就职公司">
-         </div>
-        </div>
-        <div class="form-item">
-         <div class="item-label">
-          <label>工作年限：</label>
-         </div>
-         <div class="item-cont">
-          <select class="select w-xs" id="" name="job_year">
-              <option value="1">
-              1年以下</option><option value="2" selected="">
-              1~2年</option><option value="4">
-              3年以上</option>
-          </select>
-         </div>
-        </div>
-        <div class="form-item">
-         <div class="item-label">
-          <label>技术方向：</label>
-         </div>
-         <div class="item-cont">
-            
-                
-            
-          <label><input type="checkbox" class="chk" name="info_json" value="Android开发入门">Android开发入门</label>
-          <label><input type="checkbox" class="chk" name="info_json" value="Android应用开发">Android应用开发</label>
-          <label><input type="checkbox" class="chk" name="info_json" value="Android游戏开发">Android游戏开发</label>
-          <label><input type="checkbox" class="chk" name="info_json" value="iOS开发入门">iOS开发入门</label>
-          <label><input type="checkbox" class="chk" name="info_json" value="iOS应用开发">iOS应用开发</label>
-          <label><input type="checkbox" class="chk" name="info_json" value="iOS游戏开发">iOS游戏开发</label>
-          <label><input type="checkbox" class="chk" name="info_json" value="HTML5开发相关">HTML5开发相关</label>
-          <label><input type="checkbox" class="chk" name="info_json" value="基础工具使用（如SVN，Git等）">基础工具使用（如SVN，Git等）</label>
-          <label><input type="checkbox" class="chk" name="info_json" value="职业生涯规划相关">职业生涯规划相关</label>
-
-         </div>
-        </div>
-        <div class="form-item">
-         <div class="item-label">
-          <label>开发经验：</label>
-         </div>
-         <div class="item-cont">
-          <textarea class="resize-none" style="width: 690px;height:80px" name="remark">无</textarea>
-         </div>
-        </div>
-        <div class="form-item">
-         <div class="item-cont">
-          <input type="button" id="jobButton" class="btn btn-primary infoBtn" value="保存资料" jktag="&amp;posOper=60017&amp;posArea=0003">
-         </div>
-        </div>
-       </fieldset>
-      </form>
-     </div>
-     <!-- form personinfo end -->
-
-     <!-- form pic -->
-     <div class="tabGroup" style="display: none;">
-     <input type="hidden" id="_csrf" value="aSBzKniayJfrSsF9Y6F+OY5Yip4BpbbjYOSqM=">
-     <input type="hidden" id="figureUploadPath" value="http://www.jikexueyuan.com/image/upload_avatar">
-     <input type="hidden" id="swfFlush" value="036f9tFS1G7tir94dFuRLfZufBT2acW0kNk0o5M4bPvffBSF6E8V8yCx0vVzD+0">
-     <input type="hidden" id="pic_src" value="">
-
-     <div id="altContent">
-     <h2>这里是flash内容，当前的浏览器没有安装或者FlashPlyaer版本不够高，请从<a href="http://www.adobe.com/go/getflashplayer">这里</a>下载安装最新的FlashPlyaer。</h2>
-     <h2>如果您正在使用IE9或IE9以下版本内核的浏览器，请使用更高版本的IE浏览器或谷歌览器重试。</h2>
-     </div>
-     </div>
-     <!-- form pic end -->
-    </div>
-                            </ul>
-                            <div id="page-nav">
-                                <ul class="pages">
-                                    <li class="pgNext pgEmpty">首页</li>
-                                    <li class="pgNext pgEmpty">上一页</li>
-                                    <li class="page-number pgCurrent">1</li>
-                                    <li class="pgNext pgEmpty">下一页</li>
-                                    <li class="pgNext pgEmpty">末页</li>
-                                    <li class="thpoint pagetotal" style="margin-top:3px;">共 1 页</li>
-                                    <li class="thpoint pagenow">当前
-                                        <input type="text" value="1" maxlength="6" id="gotoval" style="width:20px; height:16px;margin-top:-3px;padding-top:2px;padding-left:10px;">页</li>
-                                    <li class="pgNext go">确定</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="mycourse-page">
-                            <div id="page-nav"></div>
-                        </div>
+                <div class="ulhead-info">
+                    <p class="ulhead-info-uname">
+                        <?php echo $_SESSION['username']; ?>
+                    </p>
+                    <p class="ulhead-info-vip"><i class="icon icon-vip-year"></i>
+                    </p>
+                    <div class="ulhead-info-tool">
+                        <a class="ulhead-icon icon-lock ucenter-mail " href="./changepw" title="修改密码" jktag="&amp;posGP=115005&amp;posOper=56002&amp;posArea=0001">
+                            <div class="ucenter-mail-tip">修改密码</div>
+                        </a>
+                        <a href="./mydata" class="ulhead-icon icon-setting ucenter-mail" title="设置个人信息" jktag="&amp;posGP=115005&amp;posOper=56005&amp;posArea=0001"></a>
                     </div>
                 </div>
             </div>
+            <div class="ucenter-l-list">
+                <ul class="ullist-ul">
+                    <li class="<?php echo  $active['mydata']?>"><a href="./mydata" jktag="&amp;posGP=115007&amp;posOper=56007&amp;posArea=0002">个人资料</a>
+                    </li>
+                    <li class="<?php echo  $active['mycourse']?>"><a href="./mycourse" jktag="&amp;posGP=115007&amp;posOper=56007&amp;posArea=0002">我的课程</a>
+                    </li>
+                    <li class="<?php echo  $active['myorder']?>"><a href="./myorder" jktag="&amp;posGP=115002&amp;posOper=56008&amp;posArea=0002">我的订单</a>
+                    </li>
+                    <li class="<?php echo  $active['changepw']?>"><a href="./changepw" jktag="&amp;posGP=115003&amp;posOper=56009&amp;posArea=0002">修改密码</a>
+                    </li>
+                    <li class="<?php echo  $active['comment']?>"><a href="./comment" jktag="&amp;posGP=115005&amp;posOper=56010&amp;posArea=0002">我的评论</a>
+                    </li>
+                    <li class="<?php echo  $active['feedback']?>"><a href="./feedback" jktag="&amp;posGP=115006&amp;posOper=56011&amp;posArea=0002">意见反馈</a>
+                    </li>
+                </ul>
+            </div>
         </div>
+        <div class="ucenter-right cf">
+            <div class="mycourse-block">
+                <div class="mycourse-tab-tit">
+                    <ul class="cf mycourse-tab-ul">
+                        <li class="active"><a href="./mydata?label=jiben" jktag="&amp;posOper=62012&amp;posArea=0003">基本信息</a></li>
+                        <li class=""><a href="./mydata?label=xiangxi" jktag="&amp;posOper=62012&amp;posArea=0003">详细信息</a></li>
+                        <li class=""><a href="./mydata?label=touxiang" jktag="&amp;posOper=62012&amp;posArea=0003">我的头像</a></li>
+                    </ul>
+                </div>
+                <div class="mycourse-tab-body lesson-list" id="changeid">
+                    <ul class="cf" id="home_my_fav">
+                        <div class="tabbed">
+                            <!-- form baseinfo -->
+                            <div class="tabGroup" style="display: block;">
+                                <form class="form form-baseinfo">
+                                    <fieldset>
+                                        <div class="form-item">
+                                            <div class="item-label">
+                                                <label>用户名：</label>
+                                            </div>
+                                            <div class="item-cont">
+                                                <span class="defInfo"><?php echo $_SESSION['username']; ?></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-item">
+                                            <div class="item-label">
+                                                <label>密码：</label>
+                                            </div>
+                                            <div class="item-cont">
+                                                <span class="defInfo">******</span>
+                                                <span class="setLink"><a href="http://www.rfgxy.com/center/changepw" id="changePw" jktag="&amp;posOper=60013&amp;posArea=0003">修改</a></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-item">
+                                            <div class="item-label">
+                                                <label>邮箱：</label>
+                                            </div>
+                                            <div class="item-cont">
+                                                <span class="defInfo" id="emailVal">84217621@qq.com</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-item">
+                                            <div class="item-label">
+                                                <label>手机号：</label>
+                                            </div>
+                                            <div class="item-cont">
+                                                <span class="defInfo">18571719429</span>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <!-- form baseinfo end -->
+                            <!-- form personinfo -->
+                            <div class="tabGroup" style="display: none;">
+                                <form class="form form-personinfo" id="infoForm" action="/member/settingInfo" method="get">
+                                    <input type="hidden" id="act" name="act" value="base">
+                                    <input type="hidden" name="_csrf" value="aSBzKniayJfrSsF9Y6F+OY5Yip4BpbbjYOSqM=">
+                                    <input type="hidden" id="hiddenUid" name="uid" value="2533127">
+                                    <fieldset>
+                                        <div class="form-item">
+                                            <div class="item-label">
+                                                <label>真实姓名：</label>
+                                            </div>
+                                            <div class="item-cont">
+                                                <input type="text" id="truename" name="truename" maxlength="100" value="冉子文" class="txt sm">
+                                            </div>
+                                        </div>
+                                        <div class="form-item">
+                                            <div class="item-label">
+                                                <label>用户性别：</label>
+                                            </div>
+                                            <div class="item-cont">
+                                                <select class="select w-xs" id="uesrSex" name="sex">
+                                                    <option value="1" selected="">
+                                                        纯爷们</option>
+                                                    <option value="2">
+                                                        萌妹子</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-item">
+                                            <div class="item-label">
+                                                <label>生日：</label>
+                                            </div>
+                                            <div class="item-cont">
+                                                <input type="text" class="txt sm w-xs Wdate" id="birthday" name="birthday" value="1991-09-24" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-item">
+                                            <div class="item-label">
+                                                <label>QQ：</label>
+                                            </div>
+                                            <div class="item-cont">
+                                                <input type="text" class="txt sm w-sm" name="qq" id="qq" value="84217621">
+                                            </div>
+                                        </div>
+                                        <div class="form-item">
+                                            <div class="item-cont">
+                                                <input type="button" id="infoButton" class="btn btn-primary infoBtn" value="保存资料" jktag="&amp;posOper=60016&amp;posArea=0003">
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <!-- form personinfo end -->
+                        </div>
+                    </ul>
+                </div>
+                <div class="mycourse-page">
+                    <div id="page-nav"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
