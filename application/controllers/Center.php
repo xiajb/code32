@@ -41,8 +41,10 @@ class Center extends CI_Controller {
 
 	public function user_detail(){
 		$value = json_decode($this->input->post('data'),true);
-		$this->user_model->user_detail($_SESSION['username'],$value)
-		echo '1';	
+		$this->user_model->user_detail_updata($_SESSION['username'],$value);
+		echo '1';
+		
+			
 	}
 
 	public function mycourse()

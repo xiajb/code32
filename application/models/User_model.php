@@ -138,7 +138,7 @@ class User_model extends CI_Model{
 		// }
 	}
 
-	public function user_detail($username,$data){
+	public function user_detail_updata($username,$data){
 		$this->db->where('username',$username);
 		$this->db->update(self::TBL_USER,$data);
 	}

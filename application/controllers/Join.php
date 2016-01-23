@@ -8,6 +8,7 @@ class Join extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->model('user_model');
+		$this->load->model('teacher_model');
 		$this->load->library('session');
 		$this->load->helper('url');
 	}
@@ -34,6 +35,17 @@ class Join extends CI_Controller {
 
 	public function add_teacher(){
 		$value = json_decode($this->input->post('data'),true);
+		$row = $this->user_model->check_username_is($_SESSION('username'));
+		if ($row != false) {
+			$value['uid'] == $row['uid'];
+			$value['pic'] == $row['pic'];
+			$value['status'] == 2;
+			$value['reg_time'] == time();
+			$this->teacher_model->add_teacher($value);
+			echo '1';
+		}else{
+			echo '-1';
+		}
 		
 	}
 

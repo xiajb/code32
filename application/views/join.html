@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="<?php echo base_url('index/lesson1/css/font/iconfont.css') ?>">
     <link rel="stylesheet" href="<?php echo base_url('index/lesson1/css/basic.css') ?>">
     <link rel="stylesheet" href="<?php echo base_url('index/lesson1/css/style.css') ?>">
+                                                <script type="text/javascript" src="<?php echo base_url('index/include/jquery-1.8.2.min.js'); ?>"></script>
+
     <style type="text/css">
     /* -------------------------------------------------
  * pages
@@ -2619,14 +2621,14 @@ td.textarea{
                                         <td class="label"><span class="star">*&nbsp;</span>我的姓名</td>
                                         <td>
                                             <input id="apply-name" class="true-name" type="text" value="" placeholder="输入你的姓名">
-                                            <p class="tip">输入你的真实姓名</p>
+                                            <p class="tip" id="name_reminder">输入你的真实姓名</p>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="label"><span class="star">*&nbsp;</span>联系方式</td>
                                         <td>
                                             <input id="apply-phone" class="phone-num" type="text" value="" placeholder="输入手机号码">
-                                            <p class="tip">慕课网将通过此方式与你取得联系</p>
+                                            <p class="tip" id="phone_reminder">慕课网将通过此方式与你取得联系</p>
                                         </td>
                                     </tr>
                                     <tr>
@@ -2696,6 +2698,67 @@ td.textarea{
                     text-decoration: none;
                 }
             </style>
+
+            <script type="text/javascript">
+                  $("#apply-introduction").focus(function() {
+                $('.textarea').removeClass('warning');
+            });
+                  $("#apply-name").focus(function() {
+                $('#name_reminder').removeClass('warning');
+            });
+                                    $("#apply-phone").focus(function() {
+                $('#phone_reminder').removeClass('warning');
+            });
+
+            // $("#newpwd").blur(function() {
+
+            //     if ($.trim($('#former_pwd').val()) == $.trim($('#newpwd').val())) {
+            //         $('#former_equal').show();
+            //         $("#former_equal").html("不能和原密码一致！");
+            //         return false;
+            //     }
+            // });
+            $("#lecturer-submit").click(function() {
+
+                if ($('#apply-introduction').val() == '' || $('#apply-introduction').val().length < 50 ){
+                    $(".textarea").addClass('warning');
+                    return false;
+                }
+
+                if ($('#apply-name').val() == '' || $('#apply-name').val().length < 8){
+                    $("#name_reminder").addClass('warning');
+                    return false;
+                }
+                if (!(/^(13[0-9]|15[0-9]|17[0-9]|18[0-9])\d{8}$/).test($('#apply-phone').val())) {
+                    $("#phone_reminder").addClass('warning');
+                    return false;
+                }
+                
+                var data = {
+                    'name':$('#apply-name').val(),
+                    'phone': $('#apply-phone').val(),
+                    'intor':$('#apply-introduction').val(),
+                    'test_video':$("#apply-media").val()
+                }
+                $.ajax({
+                    type: 'POST',
+                    url: "../join/add_teacher",
+                    data: 'data=' + JSON.stringify(data),
+                    success: function(result) {
+                        // console.log(result);
+                        if (result == 1) {
+                            alert('密码更改成功！');
+                            location.href = "http://www.rfgxy.com/mydata?label=jiben";
+
+                        } else {
+                            alert('更改失败！');
+                        }
+                    }
+                });
+            });
+
+
+        </script>     
                    <div class="foot-guide inner clearfix">
             <dl class="fg-item2">
                 <dt class="h30 lh30 b f14">精品课程</dt>
