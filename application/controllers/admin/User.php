@@ -25,6 +25,8 @@ class User extends CI_Controller {
 			'order_manage'=>'',
 			'all_order'=>'',
 			'account_data'=>'',
+			'feedback_manage'=>'',
+			'all_feedback'=>'',
 			'comment_manage'=>'',
 			'all_comment'=>'',
 			'link_manage'=>'',

@@ -119,7 +119,7 @@ class Register extends CI_Controller {
 		    if ($result == 1) {
 		    	unset($value["validatecode"]);
 		    	$value["password"] = md5($value["password"]);
-		    	$value["reg_time"] = time();
+		    	$value["reg_time"] = date("Y-m-d H:i",time());
 		    	if ($this->user_model->add_user($value)) {
 		    		$_SESSION["username"] = $value["username"];
 		    		echo '1';

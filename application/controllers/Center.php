@@ -172,7 +172,7 @@ class Center extends CI_Controller {
 			$value['phone'] = $row['phone'];
 			$value['email'] = $row['email'];
 			$value['vip'] = $row['vip'];
-			$value["feedback_time"] = time();
+			$value["feedback_time"] = date("Y-m-d H:i",time());
 			if ($this->feedback_model->add_feedback($value)) {
 				echo '1';
 			}else{

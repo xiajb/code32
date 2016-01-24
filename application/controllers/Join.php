@@ -15,7 +15,7 @@ class Join extends CI_Controller {
 	
 	public function index()
 	{
-		if ($_SESSION['username'] == '') {
+		if ($_SESSION['username'] == '' || !isset($_SESSION['username'])) {
 			redirect("http://www.rfgxy.com/login");
 			return;
 		}else{
@@ -33,6 +33,27 @@ class Join extends CI_Controller {
 
 	}
 
+	public function apply(){
+		if (!isset($_SESSION['username']) || $_SESSION['username'] == '') {
+			echo "-1";
+			// redirect("http://www.rfgxy.com/login");
+			// return;
+		}else{
+			$row = $this->user_model->check_username_is($_SESSION['username']);
+			if ($row == false) {
+				redirect("http://www.rfgxy.com/login");
+			}elseif($row['name'] == '' || $row['pic']==""){
+				echo "222";
+				// redirect("http://www.rfgxy.com/center/mydata?label=xiangxi");
+			}else{
+				redirect("http://www.rfgxy.com/join");
+				// $data['pic'] = $row['pic'];
+				// $this->load->view("join.html",$data);
+			
+			}
+		}
+	}
+
 	public function add_teacher(){
 		$value = json_decode($this->input->post('data'),true);
 		$row = $this->user_model->check_username_is($_SESSION['username']);
@@ -41,7 +62,7 @@ class Join extends CI_Controller {
 			$value['uid'] = $row['uid'];
 			$value['pic'] = $row['pic'];
 			$value['check'] = 2;
-			$value['apply_time'] = time();
+			$value['apply_time'] = date("Y-m-d H:i",time());
 			$this->teacher_model->add_teacher($value);
 			echo '1';
 		}else{

@@ -25,6 +25,8 @@ class Order extends CI_Controller {
 			'order_manage'=>'current',
 			'all_order'=>'current',
 			'account_data'=>'',
+			'feedback_manage'=>'',
+			'all_feedback'=>'',
 			'comment_manage'=>'',
 			'all_comment'=>'',
 			'link_manage'=>'',

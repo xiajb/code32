@@ -1,3 +1,5 @@
+                                                <script type="text/javascript" src="<?php echo base_url('index/include/jquery-1.8.2.min.js'); ?>"></script>
+
 <div class="other-right ">
         <div class="other-right-wrap">
           <div id="pjax-tiper" class="alert" style="display:none">正在加载...</div>
@@ -62,19 +64,31 @@
             <li>-&nbsp;迅速增长的粉丝及业内知名度；</li>
           </ol>
 	      <br>
-                            <a href="../join" target="_blank" class="btn btn-green">立即加入</a>
-                  	<!-- <h2>快联系我们吧！</h2>
-          <ol>
-            <li>
-              <h3>邹童鞋</h3>
-              <p class="recruit-contact">
-                电话：<span>18911888156</span><br/>
-                QQ: <span>576264119</span> <br/>
-                Email: <span>daisy@imooc.com</span>
-              </p>
+                            <a target="_blank" class="btn btn-green" id="join_us">立即加入</a>
 
-            </li>
-          </ol>-->
+<script type="text/javascript">
+              $("#join_us").click(function() {
+                $.ajax({
+                    type: 'GET',
+                    url: "../join/apply",
+                    // data: 'data=' + JSON.stringify(data),
+                    success: function(result) {
+                        if (result == -1) {
+                            alert('请先登陆！');
+                            location.href = "http://www.rfgxy.com/login";
+
+                        } else if(result == -2) {
+                            alert('您已申请，请等待审核！');
+                             location.href = "http://www.rfgxy.com/center/mydata";
+
+                        }else if(result == -3){
+                          alert('请先填写您的详细资料！');
+                           location.href = "http://www.rfgxy.com/center/mydata?label=jiben";
+                        }
+                    }
+                });
+            });
+</script>
       </div>
     </div>
 </div>
