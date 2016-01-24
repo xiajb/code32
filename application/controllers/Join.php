@@ -35,12 +35,13 @@ class Join extends CI_Controller {
 
 	public function add_teacher(){
 		$value = json_decode($this->input->post('data'),true);
-		$row = $this->user_model->check_username_is($_SESSION('username'));
+		$row = $this->user_model->check_username_is($_SESSION['username']);
+		// print_r($value);
 		if ($row != false) {
-			$value['uid'] == $row['uid'];
-			$value['pic'] == $row['pic'];
-			$value['status'] == 2;
-			$value['reg_time'] == time();
+			$value['uid'] = $row['uid'];
+			$value['pic'] = $row['pic'];
+			$value['check'] = 2;
+			$value['apply_time'] = time();
 			$this->teacher_model->add_teacher($value);
 			echo '1';
 		}else{
