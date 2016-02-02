@@ -102,7 +102,7 @@
         });
         $('#delete_yes').click(function(){
             $.ajax({
-                url:"../admin/feedback/delete/",
+                url:"./admin/feedback/delete/",
                 type:"POST",
                 data:"value="+id,
                 success:function(result){

@@ -103,6 +103,7 @@ class Teacher extends CI_Controller {
 
 	public function c_teacher(){
 		$value = json_decode($this->input->post('data'),true);
+		$value = $this->security->xss_clean($value);
 		// file_put_contents("/home/tanxu/www/data.txt", print_r($value,true),FILE_APPEND );
 		if ($this->teacher_model->add_teacher($value)) {
 	    		echo '1';

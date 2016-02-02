@@ -98,7 +98,7 @@
         });
         $('#delete_yes').click(function(){
             $.ajax({
-                url:"../admin/user/delete_user/",
+                url:"./admin/user/delete_user/",
                 type:"POST",
                 data:"value="+id,
                 success:function(result){

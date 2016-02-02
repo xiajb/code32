@@ -41,6 +41,7 @@ class Center extends CI_Controller {
 
 	public function user_detail(){
 		$value = json_decode($this->input->post('data'),true);
+		$value = $this->security->xss_clean($value);
 		$this->user_model->user_detail_updata($_SESSION['username'],$value);
 		echo '1';
 		
@@ -100,6 +101,7 @@ class Center extends CI_Controller {
 	//ajax判断原密码是否正确
 	public function pwd_is_true(){
 		$value = json_decode($this->input->post('data'),true);
+		$value = $this->security->xss_clean($value);
 		$row = $this->user_model->check_username_is($_SESSION['username']);
 		if ($row != false) {
 			if ($row['password'] == md5($value['password'])) {
@@ -115,6 +117,8 @@ class Center extends CI_Controller {
 
 	public function change_pw(){
 		$value = json_decode($this->input->post('data'),true);
+		$value = $this->security->xss_clean($value);
+
 		$row = $this->user_model->check_username_is($_SESSION['username']);
 		if ($row != false) {
 			if ($row['password'] == md5($value['former_pwd'])) {
@@ -149,7 +153,10 @@ class Center extends CI_Controller {
 
 	public function feedback()
 	{
-
+$data['csrf'] = array(
+    'name' => $this->security->get_csrf_token_name(),
+    'hash' => $this->security->get_csrf_hash()
+);
 		$data['active'] = array(
 				'mydata'=>'',
 				'mycourse'=>'',
@@ -166,6 +173,7 @@ class Center extends CI_Controller {
 
 	public function feed_back(){
 		$value = json_decode($this->input->post('data'),true);
+		$value = $this->security->xss_clean($value);
 		$value["username"] = $_SESSION['username'];
 		$row = $this->user_model->check_username_is($value["username"]);
 		if ($row != false) {

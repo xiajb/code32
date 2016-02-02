@@ -48,6 +48,7 @@ class Course extends CI_Controller {
 
 	public function required_add(){
 		$value = json_decode($this->input->post('data'),true);
+		$value = $this->security->xss_clean($value);
 		$value['add_time'] = date("Y-m-d H:i:s",time());
 		$this->required_model->add_required($value);
 		echo '1';
@@ -91,6 +92,7 @@ class Course extends CI_Controller {
 
 	public function elective_add(){
 		$value = json_decode($this->input->post('data'),true);
+		$value = $this->security->xss_clean($value);
 		$value['add_time'] = date("Y-m-d H:i:s",time());
 		$this->elective_model->add_elective($value);
 		echo '1';
@@ -134,6 +136,7 @@ class Course extends CI_Controller {
 
 	public function skill_add(){
 		$value = json_decode($this->input->post('data'),true);
+		$value = $this->security->xss_clean($value);
 		$value['add_time'] = date("Y-m-d H:i:s",time());
 		$this->skill_model->add_skill($value);
 		echo '1';
@@ -177,6 +180,7 @@ class Course extends CI_Controller {
 
 	public function c_course(){
 		$value = json_decode($this->input->post('data'),true);
+		$value = $this->security->xss_clean($value);
 		// file_put_contents("/home/tanxu/www/data.txt", print_r($value,true),FILE_APPEND );
 		if ($this->course_model->add_course($value)) {
 	    		echo '1';

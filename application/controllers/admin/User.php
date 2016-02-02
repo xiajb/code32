@@ -46,6 +46,7 @@ class User extends CI_Controller {
 
 	public function change_level(){
 		$value = json_decode($this->input->post('value'),true);
+		$value = $this->security->xss_clean($value);
 		$this->user_model->change_level($value['uid'],$value['level']);
 
 	}

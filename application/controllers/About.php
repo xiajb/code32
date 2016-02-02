@@ -144,6 +144,7 @@ class About extends CI_Controller {
 
 	public function feed_back(){
 		$value = json_decode($this->input->post('data'),true);
+		$value = $this->security->xss_clean($value);
 		$value["feedback_time"] = date("Y-m-d H:i",time());
 		if ($this->feedback_model->add_feedback($value)) {
 			echo '1';

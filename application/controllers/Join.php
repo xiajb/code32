@@ -56,6 +56,7 @@ class Join extends CI_Controller {
 
 	public function add_teacher(){
 		$value = json_decode($this->input->post('data'),true);
+		$value = $this->security->xss_clean($value);
 		$row = $this->user_model->check_username_is($_SESSION['username']);
 		// print_r($value);
 		if ($row != false) {

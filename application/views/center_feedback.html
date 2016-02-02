@@ -72,7 +72,6 @@
                                     </div>
                                 </div>
 
-                               
                                 <div class="form-item">
                                     <div class="item-label">
                                         <label>反馈内容：</label>
@@ -119,17 +118,19 @@ $("#FeedbackButton").click(function() {
         return false;
     }
     var data = {
+        "<?php echo $this->security->get_csrf_token_name(); ?>":"<?php echo $this->security->get_csrf_hash(); ?>",
         "info": $('#info').val(),
-        "title": $('#title').val()
+        "title": $('#title').val(),
     }
     $.ajax({
         type: 'POST',
-        url: "../center/feed_back",
+        url: "http://www.rfgxy.com/center/feed_back",
         data: 'data=' + JSON.stringify(data),
         success: function(result) {
             // console.log(result);
             if (result == 1) {
                 alert('提交成功，谢谢您的反馈！');
+                location.href = "http://www.rfgxy.com/center/mydata?label=jiben";
             }else{
                 $("#info_error").html("反馈失败！");
                 $("#info_error").hide(1000);

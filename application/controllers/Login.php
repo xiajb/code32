@@ -28,6 +28,7 @@ class Login extends CI_Controller {
 	function  checklogin(){
 		//获得表单的用户名和密码
 		$value = json_decode($this->input->post('data'),true);
+		$value = $this->security->xss_clean($value);
 		if (preg_match("/^1[34578]\d{9}$/", $value['username'])) {
 			# 判断是否是电话，若是则按电话号码查询
 			$row = $this->user_model->check_phone_is($value['username']);

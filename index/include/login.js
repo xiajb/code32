@@ -60,7 +60,8 @@ $(function () {
             //	
                     var data = {
                         "username":sUname,
-                        "password":sUpwd
+                        "password":sUpwd,
+                            "<?php echo $this->security->get_csrf_token_name(); ?>":"<?php echo $this->security->get_csrf_hash(); ?>"
                     }
                         $.ajax({
                             type: 'POST',

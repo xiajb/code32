@@ -40,6 +40,7 @@ class Link extends CI_Controller {
 
 	public function link_insert(){
 		$value = json_decode($this->input->post('data'),true);
+		$value = $this->security->xss_clean($value);
 		$value['add_time'] = date("Y-m-d H:i",time());
 		$res = $this->link_model->add_link($value);
 		if ($res) {

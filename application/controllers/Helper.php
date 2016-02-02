@@ -70,6 +70,7 @@ class Helper extends CI_Controller {
 
 	public function send_code(){
 		$value = json_decode($this->input->post('data'),true);
+		$value = $this->security->xss_clean($value);
 		if ($_SESSION['token'] == $value['token']) {
 			$GtMsgSdk = new MsgGeetestLib();
 			$data = array(

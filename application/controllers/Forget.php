@@ -23,6 +23,7 @@ class Forget extends CI_Controller {
 
 	public function check_user(){
 		$value = json_decode($this->input->post('value'),true);
+		$value = $this->security->xss_clean($value);
 		$GtSdk = new GeetestLib();
 		$result = $GtSdk->validate($value['geetest_challenge'], $value['geetest_validate'], $value['geetest_seccode']);
 		if ($result == TRUE) {
@@ -119,6 +120,7 @@ class Forget extends CI_Controller {
 	//更改完密码，删除token
 	public function modify_pwd(){
 		$value = json_decode($this->input->post('data'),true);
+		$value = $this->security->xss_clean($value);
 		if ($value['token'] == $_SESSION['token']) {
 			$this->user_model->change_pwd($_SESSION['uid'],$value['pwd']);
 			unset($_SESSION['token']);

@@ -60,6 +60,7 @@ class Register extends CI_Controller {
 		$GtMsgSdk = new MsgGeetestLib();
 		// $GtMsgSdk = $_SESSION['gtmsgsdk'];
 		$data = json_decode($this->input->post('value'),true);
+		$data = $this->security->xss_clean($data);
 		// file_put_contents("/home/tanu/www/data.txt", $this->input->post('value').'---------'.print_r($data,true),FILE_APPEND );
 		if ($this->user_model->sql_check_phone($data['phone'])>0) {
 			echo "-10";
@@ -104,6 +105,7 @@ class Register extends CI_Controller {
 	}
 	public function do_register(){
 		$value = json_decode($this->input->post('data'),true);
+		$value = $this->security->xss_clean($value);
 		$GtMsgSdk = new MsgGeetestLib();
 		if ($_SESSION['gtserver'] == 1) {
 		 

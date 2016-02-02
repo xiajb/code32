@@ -159,7 +159,7 @@ $("#button").click(function() {
     console.log(value);
     $.ajax({
         type: 'POST',
-        url: "<?php echo base_url('index.php/admin/course/c_course'); ?>",
+        url: "<?php echo base_url('./admin/course/c_course'); ?>",
         data: 'data=' + JSON.stringify(value),
 
         success: function(result) {

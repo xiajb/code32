@@ -24,6 +24,7 @@ class Login extends CI_Controller {
 	//登陆
 	public function check_login(){
 		$value = json_decode($this->input->post('value'),true);
+		$value = $this->security->xss_clean($value);		
 		$result=$this->user_model->get_user_admin($value['username'],$value['password'],1);
 		if($result){
 			$this->session->set_userdata('username',$value['username']);
