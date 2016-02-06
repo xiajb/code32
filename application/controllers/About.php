@@ -7,6 +7,7 @@ class About extends CI_Controller {
 	 */
 	function __construct(){
 		parent::__construct();
+		$this->load->model('link_model');
 		$this->load->model('feedback_model');
 		$this->load->library('session');
 		$this->load->helper('url');
@@ -137,6 +138,7 @@ class About extends CI_Controller {
 			'feedback' => '',
 			'friendly' => 'selected'
 		);
+		$data['link'] = $this->link_model->query_all();
 		$this->load->view("about_header.html",$data);
 		$this->load->view("about_friendly.html");
 		$this->load->view("about_footer.html");
