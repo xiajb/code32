@@ -470,12 +470,12 @@ body{
                     <dl class="condition clearfix">
                         <dt>类别：</dt>
                         <dd class="condition-cont clearfix f1-condition">
-                            <a id="f1-0" class="" href="<?php  echo site_url().'index/index2/0/0/0'?>">全部</a>
+                            <a id="f1-0" class="" href="<?php  echo site_url().'index/0/0/0'?>">全部</a>
                                                         <?php
                                                             $direction=$arr[0];
                                                             foreach ($direction as $key):
                                                         ?>
-                            <a id="<?php echo 'f1-'.$key['direction_id']?>" href="<?php  echo site_url().'index/index2/'.$key['direction_id'].'/0/0'?>"><?php echo $key['direction_name']?></a>
+                            <a id="<?php echo 'f1-'.$key['direction_id']?>" href="<?php  echo site_url().'index/'.$key['direction_id'].'/0/0'?>"><?php echo $key['direction_name']?></a>
                                                     <?php endforeach?>
                         </dd>
                     </dl>
@@ -488,12 +488,12 @@ body{
                         <dt>课程：</dt>
 
                         <dd class="condition-cont clearfix f2-condition">
-                                                    <a class="" id="f2-0" href="<?php  echo site_url().'index/index2/'.$_SESSION['direction_id'].'/0/0'?>">全部</a>
+                                                    <a class="" id="f2-0" href="<?php  echo site_url().'index/'.$_SESSION['direction_id'].'/0/0'?>">全部</a>
                                                     <?php
                                                         $classify=$arr[1];
                                                         foreach ($classify as $key):
                                                     ?>
-                                                    <a id="<?php echo 'f2-'.$key['classify_id']?>" href="<?php  echo site_url().'index/index2/'.$key['direction_id'].'/'.$key['classify_id'].'/0'?>"><?php echo $key['classify_name']?></a>
+                                                    <a id="<?php echo 'f2-'.$key['classify_id']?>" href="<?php  echo site_url().'index/'.$key['direction_id'].'/'.$key['classify_id'].'/0'?>"><?php echo $key['classify_name']?></a>
                                                 <?php endforeach?>
 
                         </dd>
@@ -501,11 +501,11 @@ body{
                     <dl class="condition clearfix">
                         <dt>难度：</dt>
                         <dd class="condition-cont clearfix f3-condition">
-                            <a class="" href="<?php  echo site_url().'index/index2/'.$_SESSION['direction_id'].'/'.$_SESSION['classify_id'].'/0'?>">全部</a>
-                            <a id="f3-1"  href="<?php  echo site_url().'index/index2/'.$_SESSION['direction_id'].'/'.$_SESSION['classify_id'].'/1'?>">初级</a>
-                            <a id="f3-2" href="<?php  echo site_url().'index/index2/'.$_SESSION['direction_id'].'/'.$_SESSION['classify_id'].'/2'?>">中级</a>
-                            <a id="f3-3" href="<?php  echo site_url().'index/index2/'.$_SESSION['direction_id'].'/'.$_SESSION['classify_id'].'/3'?>">高级</a>
-                            <a id="f3-4" href="<?php  echo site_url().'index/index2/'.$_SESSION['direction_id'].'/'.$_SESSION['classify_id'].'/4'?>">其他</a>
+                            <a class="" href="<?php  echo site_url().'index/'.$_SESSION['direction_id'].'/'.$_SESSION['classify_id'].'/0'?>">全部</a>
+                            <a id="f3-1"  href="<?php  echo site_url().'index/'.$_SESSION['direction_id'].'/'.$_SESSION['classify_id'].'/1'?>">初级</a>
+                            <a id="f3-2" href="<?php  echo site_url().'index/'.$_SESSION['direction_id'].'/'.$_SESSION['classify_id'].'/2'?>">中级</a>
+                            <a id="f3-3" href="<?php  echo site_url().'index/'.$_SESSION['direction_id'].'/'.$_SESSION['classify_id'].'/3'?>">高级</a>
+                            <a id="f3-4" href="<?php  echo site_url().'index/'.$_SESSION['direction_id'].'/'.$_SESSION['classify_id'].'/4'?>">其他</a>
                         </dd>
                     </dl>
                 </div>
