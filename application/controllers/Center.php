@@ -23,19 +23,24 @@ class Center extends CI_Controller {
 				'comment'=>'',
 				'feedback'=>''
 			);
-		if ($_GET['label'] == "xiangxi") {
-			$this->load->view("center_header.html",$data);
-			$this->load->view("center_mydata_xiangxi.html");
-			$this->load->view("center_footer.html");
-		}elseif ($_GET['label'] == "jiben") {
-			$this->load->view("center_header.html",$data);
-			$this->load->view("center_mydata_jiben.html");
-			$this->load->view("center_footer.html");
-		}elseif ($_GET['label'] == "touxiang") {
-			$this->load->view("center_header.html",$data);
-			$this->load->view("center_mydata_touxiang.html");
-			$this->load->view("center_footer.html");			
+		switch ($_GET['label']) {
+			case 'jiben':
+				$this->load->view("center_header.html",$data);
+				$this->load->view("center_mydata_jiben.html");
+				$this->load->view("center_footer.html");
+				break;
+			case 'xiangxi':
+				$this->load->view("center_header.html",$data);
+				$this->load->view("center_mydata_xiangxi.html");
+				$this->load->view("center_footer.html");
+				break;
+			case '':
+				$this->load->view("center_header.html",$data);
+				$this->load->view("center_mydata_jiben.html");
+				$this->load->view("center_footer.html");
+				break;
 		}
+
 
 	}
 
