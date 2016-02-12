@@ -23,25 +23,10 @@ class Center extends CI_Controller {
 				'comment'=>'',
 				'feedback'=>''
 			);
-		switch ($_GET['label']) {
-			case 'jiben':
-				$this->load->view("center_header.html",$data);
-				$this->load->view("center_mydata_jiben.html");
-				$this->load->view("center_footer.html");
-				break;
-			case 'xiangxi':
-				$this->load->view("center_header.html",$data);
-				$this->load->view("center_mydata_xiangxi.html");
-				$this->load->view("center_footer.html");
-				break;
-			case '':
-				$this->load->view("center_header.html",$data);
-				$this->load->view("center_mydata_jiben.html");
-				$this->load->view("center_footer.html");
-				break;
-		}
-
-
+		$data['userdata'] = $this->user_model->check_username_is($_SESSION['username']);
+		$this->load->view("center_header.html",$data);
+		$this->load->view("center_mydata.html");
+		$this->load->view("center_footer.html");
 	}
 
 	public function user_detail(){

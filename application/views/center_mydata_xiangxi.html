@@ -44,7 +44,6 @@
                     <ul class="cf mycourse-tab-ul">
                         <li class=""><a href="./mydata?label=jiben" jktag="&amp;posOper=62012&amp;posArea=0003">基本信息</a></li>
                         <li class="active"><a href="./mydata?label=xiangxi" jktag="&amp;posOper=62012&amp;posArea=0003">详细信息</a></li>
-                        <li class=""><a href="./mydata?label=touxiang" jktag="&amp;posOper=62012&amp;posArea=0003">我的头像</a></li>
                     </ul>
                 </div>
                 <div class="mycourse-tab-body lesson-list" id="changeid">
@@ -90,19 +89,19 @@
                                     </fieldset>
                                 </form>
                             </div>
-                                                <style type="text/css">
-            #btn {
-                background-color: #00b7f1;
-                color: #fff !important;
-                padding: 0 8px;
-                height: 24px;
-                line-height: 24px;
-                position: relative;
-                display: inline-block;
-                cursor: pointer;
-                border-radius: 5px;
-            }
-            </style>
+                            <style type="text/css">
+                            #btn {
+                                background-color: #00b7f1;
+                                color: #fff !important;
+                                padding: 0 8px;
+                                height: 24px;
+                                line-height: 24px;
+                                position: relative;
+                                display: inline-block;
+                                cursor: pointer;
+                                border-radius: 5px;
+                            }
+                            </style>
                             <!-- form baseinfo end -->
                             <!-- form personinfo -->
                             <div class="tabGroup" style="display: block;">
@@ -229,7 +228,7 @@ $("#infoButton").click(function() {
     var value = {
         "name": $("#name").val(),
         "sex": $("#uesrSex").val(),
-        "qq":$("qq").val(),
+        "qq": $("#qq").val(),
         "pic": $("#picname").html()
     }
     console.log(value);

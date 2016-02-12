@@ -228,44 +228,8 @@
         </li>
     </ul>
 </div>
-<script type="text/jscript">
-var txtMgs;
-var txtMobile
-$(".msg-board").on("click", "#btn-message", function() {
 
-    txtMgs = $("#txtMgs").val();
-    txtMobile = $("#txtMobile").val();
-    if (!(/^(13[0-9]|15[0-9]|17[0-9]|18[0-9])\d{8}$/).test(txtMobile)) {
-        alert("请输入正确的手机号码");
-        d.show(document.getElementById('txtMobile'));
-        $("#txtMobile").focus();
-    } else {
-        $.post("http://www.rfgxy.com/ashx/studentsound/CreateMsg.ashx", $("#mesform").serialize())
-            .done(function(d) {
-                if (d == "留言内容过长") {
-                    alert("您的留言内容过长");
-                    d.show(document.getElementById('txtMgs'));
-                    $("#txtMgs").focus();
-                } else {
 
-                    alert("留言成功!如紧急,请拨免费咨询:400-111-4100");
-                    d.show(document.getElementById('btn-message'));
-                }
-
-            });
-    }
-});
-</script>
-<script>
-(function() {
-    var s = document.createElement('script');
-    s.type = 'text/javascript';
-    s.async = true;
-    s.src = 'http://images.jcpeixun.com/static/js/tongji.js?a=201601';
-    var x = document.getElementsByTagName('script')[0];
-    x.parentNode.insertBefore(s, x);
-})();
-</script>
 <!-- WPA Button Begin -->
 <!-- WPA Button End -->
 <!--footer-->
