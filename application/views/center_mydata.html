@@ -132,8 +132,8 @@
                                                 <label>QQ：</label>
                                             </div>
                                             <div class="item-cont">
-                                            <?php if($userdata['name'] == ''):?>
-                                                <input type="text" class="txt sm w-sm" name="qq" id="qq" value="84217621">
+                                            <?php if($userdata['qq'] == ''):?>
+                                                <input type="text" class="txt sm w-sm" name="qq" id="qq" value="">
                                             <?php else : ?>
                                                 <input type="text" class="txt sm w-sm" name="qq" id="qq" value="<?php echo $userdata['qq'] ?>">
                                             <?php endif; ?>
@@ -253,7 +253,7 @@ $("#infoButton").click(function() {
     var value = {
         "name": $("#name").val(),
         "sex": $("#uesrSex").val(),
-        "qq": $("qq").val(),
+        "qq": $("#qq").val(),
         "pic": $("#picname").html()
     }
     console.log(value);
@@ -264,6 +264,9 @@ $("#infoButton").click(function() {
 
         success: function(result) {
             console.log(result);
+            if (result == 1) {
+                alert('修改成功!');
+            }
         }
     });
 });
