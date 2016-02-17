@@ -1758,7 +1758,7 @@ h2.h2-title {
 
 .lesson-list ul li {
     width: 240px;
-    height: 130px;
+    /*height: 130px;*/
     float: left;
     margin-right: 20px;
     margin-bottom: 20px
@@ -7786,4 +7786,15 @@ div.passport-note {
     border-radius: 50%;
     cursor: pointer;
     background: url("../images/popup_def_close.png") no-repeat center center / 14px 14px;
+}
+#btn {
+    background-color: #188EEE;
+    color: #fff !important;
+    padding: 0 8px;
+    height: 24px;
+    line-height: 24px;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 5px;
 }

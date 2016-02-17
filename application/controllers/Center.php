@@ -54,6 +54,51 @@ class Center extends CI_Controller {
 
 	}
 
+	public function Tupload()
+	{
+		$data['active'] = array(
+				'mydata'=>'',
+				'mycourse'=>'active',
+				'myorder'=>'',
+				'changepw'=>'',
+				'comment'=>'',
+				'feedback'=>''
+			);
+		$this->load->view("center_header.html",$data);
+		$this->load->view("center_teacher_course.html");
+		$this->load->view("center_footer.html");
+
+	}
+	public function add_course()
+	{
+		$data['active'] = array(
+				'mydata'=>'',
+				'mycourse'=>'active',
+				'myorder'=>'',
+				'changepw'=>'',
+				'comment'=>'',
+				'feedback'=>''
+			);
+		$this->load->view("center_header.html",$data);
+		$this->load->view("center_teacher_add_course.html");
+		$this->load->view("center_footer.html");
+
+	}
+	public function add_video()
+	{
+		$data['active'] = array(
+				'mydata'=>'',
+				'mycourse'=>'active',
+				'myorder'=>'',
+				'changepw'=>'',
+				'comment'=>'',
+				'feedback'=>''
+			);
+		$this->load->view("center_header.html",$data);
+		$this->load->view("center_teacher_add_video.html");
+		$this->load->view("center_footer.html");
+
+	}
 
 	public function myorder()
 	{

@@ -1,0 +1,154 @@
+<!--header-->
+<!--slide-->
+<!--# include file="inc/slide.aspx" -->
+<!--slide-->
+<!--container-->
+<div id="pager">
+    <div class="w-1000 mar-t30 cf ucenter-block">
+        <div class="ucenter-left account-left-border">
+            <div class="ucneter-l-head cf">
+                <div class="ulhead-headicon">
+                    <img src="<?php echo $_SESSION['pic']; ?>" id="avatar_img" width="50px" height="50px" alt="<?php echo $_SESSION['username']; ?>">
+                </div>
+                <div class="ulhead-info">
+                    <p class="ulhead-info-uname">
+                        <?php echo $_SESSION['username']; ?>
+                    </p>
+                    <p class="ulhead-info-vip"><i class="icon icon-vip-year"></i>
+                    </p>
+                    <div class="ulhead-info-tool">
+                        <a class="ulhead-icon icon-lock ucenter-mail " href="./changepw" title="修改密码" jktag="&amp;posGP=115005&amp;posOper=56002&amp;posArea=0001">
+                            <div class="ucenter-mail-tip">修改密码</div>
+                        </a>
+                        <a href="./mydata" class="ulhead-icon icon-setting ucenter-mail" title="设置个人信息" jktag="&amp;posGP=115005&amp;posOper=56005&amp;posArea=0001"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="ucenter-l-list">
+                <ul class="ullist-ul">
+                    <?php if ($_SESSION['level'] == 0) : ?>
+                        <li class="<?php echo  $active['mydata']?>"><a href="./mydata" jktag="&amp;posGP=115007&amp;posOper=56007&amp;posArea=0002">个人资料</a>
+                        </li>
+                        <li class="<?php echo  $active['mycourse']?>"><a href="./mycourse" jktag="&amp;posGP=115007&amp;posOper=56007&amp;posArea=0002">我的课程</a>
+                        </li>
+                        <li class="<?php echo  $active['myorder']?>"><a href="./myorder" jktag="&amp;posGP=115002&amp;posOper=56008&amp;posArea=0002">我的订单</a>
+                        </li>
+                        <li class="<?php echo  $active['changepw']?>"><a href="./changepw" jktag="&amp;posGP=115003&amp;posOper=56009&amp;posArea=0002">修改密码</a>
+                        </li>
+                        <li class="<?php echo  $active['comment']?>"><a href="./comment" jktag="&amp;posGP=115005&amp;posOper=56010&amp;posArea=0002">我的评论</a>
+                        </li>
+                        <li class="<?php echo  $active['feedback']?>"><a href="./feedback" jktag="&amp;posGP=115006&amp;posOper=56011&amp;posArea=0002">意见反馈</a>
+                        </li>
+                        <?php elseif($_SESSION['level'] == 1) :?>
+                            <li class="<?php echo  $active['mydata']?>"><a href="./mydata" jktag="&amp;posGP=115007&amp;posOper=56007&amp;posArea=0002">个人资料</a>
+                            </li>
+                            <?php endif; ?>
+                </ul>
+            </div>
+        </div>
+        <div class="ucenter-right cf">
+            <div class="tab-setting mar-t20">
+                <div class="ucenter-right-head">
+                    <h3>视屏上传</h3>
+                </div>
+                <div class="tabbed">
+                    <div class="tabGroup" style="display: block;">
+                        <form class="form form-job" id="jobForm" action="/member/settingJob" method="get">
+                            <input type="hidden" id="act" name="act" value="job">
+                            <fieldset>
+                                <div class="form-item">
+                                    <div class="item-label">
+                                        <label>课程名：</label>
+                                    </div>
+                                    <div class="item-cont">
+                                        <select class="select" id="title" name="title">
+                                            <option value="学生">
+                                                学生</option>
+                                            <option value="教师">
+                                                教师</option>
+                                            <option value="程序员">
+                                                程序员</option>
+                                            <option value="创业者">
+                                                创业者</option>
+                                            <option value="待业者">
+                                                待业者</option>
+                                            <option value="其他">
+                                                其他</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-item">
+                                    <div class="item-label">
+                                        <label>小节标题：</label>
+                                    </div>
+                                    <div class="item-cont">
+                                        <input type="text" id="title" placeholder="标题" name="title" maxlength="100" value="" class="txt sm">
+                                    </div>
+                                </div>
+                                <div class="form-item">
+                                    <div class="item-label">
+                                        <label>反馈内容：</label>
+                                    </div>
+                                    <div class="item-cont">
+                                        <textarea class="resize-none" style="width: 690px;height:80px" name="info" id="info"></textarea>
+                                        <p style="font-size: 14px;color:red;" id="info_error"></p>
+                                    </div>
+                                </div>
+                                <div class="form-item">
+                                    <div class="item-cont">
+                                        <input type="button" id="FeedbackButton" class="btn btn-primary infoBtn" value="提交反馈" jktag="&amp;posOper=60017&amp;posArea=0003">
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <!-- form personinfo end -->
+                    <!-- form pic -->
+                    <div class="tabGroup" style="display: none;">
+                        <input type="hidden" id="_csrf" value="8uzVc8iqyhe5UAv2S9yzSf22o+gDDgtHUhUnQ=">
+                        <input type="hidden" id="figureUploadPath" value="http://www.jikexueyuan.com/image/upload_avatar">
+                        <input type="hidden" id="swfFlush" value="55a049jHXMUUsf/nfj7+/DQmnTJsu+EFdrL6gyKhWVd+9nofKaUan8Ig605F0tA">
+                        <input type="hidden" id="pic_src" value="">
+                        <div id="altContent">
+                            <h2>这里是flash内容，当前的浏览器没有安装或者FlashPlyaer版本不够高，请从<a href="http://www.adobe.com/go/getflashplayer">这里</a>下载安装最新的FlashPlyaer。</h2>
+                            <h2>如果您正在使用IE9或IE9以下版本内核的浏览器，请使用更高版本的IE浏览器或谷歌览器重试。</h2>
+                        </div>
+                    </div>
+                    <!-- form pic end -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+$('#info').focus(function() {
+    $('#info_error').html('');
+});
+$("#FeedbackButton").click(function() {
+    if ($('#info').val() == '') {
+        $('#info_error').html('请填写反馈内容！');
+        return false;
+    }
+    var data = {
+        "<?php echo $this->security->get_csrf_token_name(); ?>": "<?php echo $this->security->get_csrf_hash(); ?>",
+        "info": $('#info').val(),
+        "title": $('#title').val(),
+    }
+    $.ajax({
+        type: 'POST',
+        url: "http://www.rfgxy.com/center/feed_back",
+        data: 'data=' + JSON.stringify(data),
+        success: function(result) {
+            // console.log(result);
+            if (result == 1) {
+                alert('提交成功，谢谢您的反馈！');
+                location.href = "http://www.rfgxy.com/center/mydata?label=jiben";
+            } else {
+                $("#info_error").html("反馈失败！");
+                $("#info_error").hide(1000);
+                return false;
+            }
+        }
+    });
+});
+</script>

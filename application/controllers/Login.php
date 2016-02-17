@@ -35,6 +35,7 @@ class Login extends CI_Controller {
 			if ($row != false) {
 				if ($row['password'] == md5($value['password'])) {
 					$this->session->set_userdata('username',$row['username']);
+					$this->session->set_userdata('level',$row['level']);
 					ob_clean();
 					echo '1';
 				}else{
@@ -52,6 +53,7 @@ class Login extends CI_Controller {
 			if ($row != false) {
 				if ($row['password'] == md5($value['password'])) {
 					$this->session->set_userdata('username',$row['username']);
+					$this->session->set_userdata('level',$row['level']);
 					echo '1';
 				}else{
 					echo '-1';
@@ -65,6 +67,7 @@ class Login extends CI_Controller {
 			if ($row != false) {
 				if ($row['password'] == md5($value['password'])) {
 					$this->session->set_userdata('username',$row['username']);
+					$this->session->set_userdata('level',$row['level']);
 					echo '1';
 				}else{
 					echo '-1';
