@@ -15,14 +15,25 @@ class Center extends CI_Controller {
 	//个人中心
 	public function mydata()
 	{	
-		$data['active'] = array(
-				'mydata'=>'active',
-				'mycourse'=>'',
-				'myorder'=>'',
-				'changepw'=>'',
-				'comment'=>'',
-				'feedback'=>''
-			);
+		if ($_SESSION['level'] == 1) {
+			$data['active'] = array(
+					'mydata'=>'active',
+					'mycourse'=>'',
+					'add_course'=>'',
+					'add_video'=>'',
+					'comment'=>'',
+					'changepw'=>'',
+				);
+		}elseif ($_SESSION['level'] == 0) {
+			$data['active'] = array(
+					'mydata'=>'active',
+					'mycourse'=>'',
+					'myorder'=>'',
+					'changepw'=>'',
+					'comment'=>'',
+					'feedback'=>''
+				);
+		}
 		$data['userdata'] = $this->user_model->check_username_is($_SESSION['username']);
 		$this->load->view("center_header.html",$data);
 		$this->load->view("center_mydata.html");
@@ -40,59 +51,59 @@ class Center extends CI_Controller {
 
 	public function mycourse()
 	{
-		$data['active'] = array(
-				'mydata'=>'',
-				'mycourse'=>'active',
-				'myorder'=>'',
-				'changepw'=>'',
-				'comment'=>'',
-				'feedback'=>''
-			);
+		if ($_SESSION['level'] == 1) {
+			$data['active'] = array(
+					'mydata'=>'',
+					'mycourse'=>'active',
+					'add_course'=>'',
+					'add_video'=>'',
+					'comment'=>'',
+					'changepw'=>'',
+				);
+		}elseif ($_SESSION['level'] == 0) {
+			$data['active'] = array(
+					'mydata'=>'',
+					'mycourse'=>'active',
+					'myorder'=>'',
+					'changepw'=>'',
+					'comment'=>'',
+					'feedback'=>''
+				);
+		}
 		$this->load->view("center_header.html",$data);
 		$this->load->view("center_mycourse.html");
 		$this->load->view("center_footer.html");
 
 	}
 
-	public function Tupload()
-	{
-		$data['active'] = array(
-				'mydata'=>'',
-				'mycourse'=>'active',
-				'myorder'=>'',
-				'changepw'=>'',
-				'comment'=>'',
-				'feedback'=>''
-			);
-		$this->load->view("center_header.html",$data);
-		$this->load->view("center_teacher_course.html");
-		$this->load->view("center_footer.html");
 
-	}
+	//teacher
 	public function add_course()
 	{
 		$data['active'] = array(
 				'mydata'=>'',
-				'mycourse'=>'active',
-				'myorder'=>'',
-				'changepw'=>'',
+				'mycourse'=>'',
+				'add_course'=>'active',
+				'add_video'=>'',
 				'comment'=>'',
-				'feedback'=>''
+				'changepw'=>'',
 			);
 		$this->load->view("center_header.html",$data);
 		$this->load->view("center_teacher_add_course.html");
 		$this->load->view("center_footer.html");
 
 	}
+	//teacher
 	public function add_video()
 	{
+
 		$data['active'] = array(
 				'mydata'=>'',
-				'mycourse'=>'active',
-				'myorder'=>'',
-				'changepw'=>'',
+				'mycourse'=>'',
+				'add_course'=>'',
+				'add_video'=>'active',
 				'comment'=>'',
-				'feedback'=>''
+				'changepw'=>'',
 			);
 		$this->load->view("center_header.html",$data);
 		$this->load->view("center_teacher_add_video.html");
@@ -120,14 +131,25 @@ class Center extends CI_Controller {
 	public function changepw()
 	{
 
-		$data['active'] = array(
-				'mydata'=>'',
-				'mycourse'=>'',
-				'myorder'=>'',
-				'changepw'=>'active',
-				'comment'=>'',
-				'feedback'=>''
-			);
+		if ($_SESSION['level'] == 1) {
+			$data['active'] = array(
+					'mydata'=>'',
+					'mycourse'=>'',
+					'add_course'=>'',
+					'add_video'=>'',
+					'comment'=>'',
+					'changepw'=>'active',
+				);
+		}elseif ($_SESSION['level'] == 0) {
+			$data['active'] = array(
+					'mydata'=>'',
+					'mycourse'=>'',
+					'myorder'=>'',
+					'changepw'=>'active',
+					'comment'=>'',
+					'feedback'=>''
+				);
+		}
 		$this->load->view("center_header.html",$data);
 		$this->load->view("center_changepw.html");
 		$this->load->view("center_footer.html");
@@ -171,14 +193,25 @@ class Center extends CI_Controller {
 	public function comment()
 	{
 
-		$data['active'] = array(
-				'mydata'=>'',
-				'mycourse'=>'',
-				'myorder'=>'',
-				'changepw'=>'',
-				'comment'=>'active',
-				'feedback'=>''
-			);
+		if ($_SESSION['level'] == 1) {
+			$data['active'] = array(
+					'mydata'=>'',
+					'mycourse'=>'',
+					'add_course'=>'',
+					'add_video'=>'',
+					'comment'=>'active',
+					'changepw'=>'',
+				);
+		}elseif ($_SESSION['level'] == 0) {
+			$data['active'] = array(
+					'mydata'=>'',
+					'mycourse'=>'',
+					'myorder'=>'',
+					'changepw'=>'',
+					'comment'=>'active',
+					'feedback'=>''
+				);
+		}
 		$this->load->view("center_header.html",$data);
 		$this->load->view("center_comment.html");
 		$this->load->view("center_footer.html");
