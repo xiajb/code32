@@ -50,7 +50,6 @@
                     <!-- form personinfo end -->
                     <!-- form pic -->
                     <div class="tabGroup" style="display: none;">
-                        <input type="hidden" id="_csrf" value="8uzVc8iqyhe5UAv2S9yzSf22o+gDDgtHUhUnQ=">
                         <input type="hidden" id="figureUploadPath" value="http://www.jikexueyuan.com/image/upload_avatar">
                         <input type="hidden" id="swfFlush" value="55a049jHXMUUsf/nfj7+/DQmnTJsu+EFdrL6gyKhWVd+9nofKaUan8Ig605F0tA">
                         <input type="hidden" id="pic_src" value="">
@@ -83,7 +82,8 @@ $("#FeedbackButton").click(function() {
     $.ajax({
         type: 'POST',
         url: "http://www.rfgxy.com/center/feed_back",
-        data: 'data=' + JSON.stringify(data),
+        data:data,
+        // data: 'data=' + JSON.stringify(data),
         success: function(result) {
             // console.log(result);
             if (result == 1) {

@@ -221,10 +221,10 @@ class Center extends CI_Controller {
 
 	public function feedback()
 	{
-$data['csrf'] = array(
-    'name' => $this->security->get_csrf_token_name(),
-    'hash' => $this->security->get_csrf_hash()
-);
+// $data['csrf'] = array(
+//     'name' => $this->security->get_csrf_token_name(),
+//     'hash' => $this->security->get_csrf_hash()
+// );
 		$data['active'] = array(
 				'mydata'=>'',
 				'mycourse'=>'',
@@ -240,7 +240,9 @@ $data['csrf'] = array(
 	}	
 
 	public function feed_back(){
-		$value = json_decode($this->input->post('data'),true);
+		// $a =  file_get_contents("php://input");
+		// file_put_contents("/home/tanxu/www/data.txt", '---------'.print_r($_POST,true),FILE_APPEND );
+		$value = $_POST;
 		$value = $this->security->xss_clean($value);
 		$value["username"] = $_SESSION['username'];
 		$row = $this->user_model->check_username_is($value["username"]);
