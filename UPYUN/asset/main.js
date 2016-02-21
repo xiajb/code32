@@ -6,7 +6,7 @@
 // 查看更多参数：http://docs.upyun.com/api/form_api/#表单API接口简介
 var policy = window.btoa(JSON.stringify(options));
 // 从 UPYUN 用户管理后台获取表单 API
-var form_api_secret = 'Yy14d5aWpZzthazlut2tCeJnbgk=;
+var form_api_secret = 'Yy14d5aWpZzthazlut2tCeJnbgk=';
 // 计算签名
 var signature = md5(policy + '&' + form_api_secret);
 
