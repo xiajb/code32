@@ -9,6 +9,9 @@ class Center extends CI_Controller {
 		parent::__construct();
 		$this->load->model('user_model');
 		$this->load->model('feedback_model');
+		$this->load->model('required_model');
+		$this->load->model('elective_model');
+		$this->load->model('skill_model');
 		$this->load->library('session');
 		$this->load->helper('url');
 	}
@@ -293,10 +296,26 @@ class Center extends CI_Controller {
 		}
 	}
 	//再试一次
-	function test ($course_id){
-	$this->session->set_userdata('course_id',$course_id);
+	// function test ($course_id){
+	// $this->session->set_userdata('course_id',$course_id);
 
-	$this->load->view("index.html");
+	// $this->load->view("index.html");
 
+	// }
+	public function skill_add(){
+		$value = $_POST;
+		$value = $this->security->xss_clean($value);
+		$value['add_time'] = date("Y-m-d H:i:s",time());
+		$this->skill_model->add_skill($value);
+		echo '1';
 	}
+
+	public function elective_add(){
+		$value = $_POST;
+		$value = $this->security->xss_clean($value);
+		$value['add_time'] = date("Y-m-d H:i:s",time());
+		$this->elective_model->add_elective($value);
+		echo '1';
+	}
+
 }

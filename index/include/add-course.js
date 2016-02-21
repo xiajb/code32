@@ -25,7 +25,7 @@
 var uploader = new plupload.Uploader({ //创建实例的构造方法 
     runtimes: 'html5,flash,silverlight,html4',
     //上传插件初始化选用那种方式的优先级顺序 
-    browse_button: 'btn',
+    browse_button: 'xuanxiu-btn',
     // 上传按钮 
     url: "../upload_pic",
     //远程上传地址 
@@ -43,11 +43,11 @@ var uploader = new plupload.Uploader({ //创建实例的构造方法
             }
         ]
     },
-    multi_selection: true,
+    multi_selection: false,
     //true:ctrl多文件上传, false 单文件上传 
     init: {
         FilesAdded: function(up, files) { //文件上传前 
-            if ($("#ul_pics").children("li").length > 30) {
+            if ($("#ul_pics").children("li").length > 0) {
                 alert("您上传的图片太多了！");
                 uploader.destroy();
             } else {
@@ -68,6 +68,7 @@ var uploader = new plupload.Uploader({ //创建实例的构造方法
         FileUploaded: function(up, file, info) { //文件上传成功的时候触发 
             var data = JSON.parse(info.response);
             $("#" + file.id).html("<div class='img' ><img  style='width:220px;' src='../../../" + data.pic + "'/></div><p style='display:none;' id='picname'>" + data.pic + "</p>");
+            document.getElementById('xuanxiu-pic').value=data.pic;
         },
         Error: function(up, err) { //上传出错的时候触发 
             alert(err.message);
@@ -76,21 +77,17 @@ var uploader = new plupload.Uploader({ //创建实例的构造方法
 });
 
 uploader.init();
-$("#button").click(function() {
-    console.log($("#picname").html());
+$("#xuanxiuButton").click(function() {
     var value = {
-        "name": $("#name").val(),
-        "title": $("#title").val(),
-        "detail": $("#detail").val(),
-        "teacher": $("#teacher").val(),
-        "img": $("#picname").html()
+        "name": $("#xuanxiu-name").val(),
+        "title": $("#xuanxiu-title").val(),
+        "detail": $("#xuanxiu-detail").val(),
+        "img": $("#xuanxiu-info").val()
     }
-    console.log(value);
     $.ajax({
         type: 'POST',
-        url: "<?php echo base_url('./admin/course/skill_add'); ?>",
-        data: 'data=' + JSON.stringify(value),
-
+        url: "../center/elective_add",
+        data: value,
         success: function(result) {
             console.log(result);
         }
