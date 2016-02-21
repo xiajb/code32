@@ -83,6 +83,9 @@ class Video extends CI_Controller {
 		$this->load->view('admin/admin_header.html',$data);
 		$this->load->view('admin/admin_add_video.html');
 	}
+	public   function  video_add (){
+		$this->load->view('admin/video_add.html');
+	}
 
 
 }
