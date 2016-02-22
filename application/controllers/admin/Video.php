@@ -3,12 +3,13 @@
 class Video extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
+			$this->load->model('course_model');
 		$this->load->model('user_model');
 		$this->load->library('session');
 
 	}
 
-	
+
 	public function index()
 	{
 		$data['current'] = array('data_back'=>'',
@@ -37,7 +38,7 @@ class Video extends CI_Controller {
 		$this->load->view('admin/admin_header.html',$data);
 		$this->load->view('admin/admin_add_video.html');
 	}
-	
+
 	// public function index()
 	// {
 	// 	$data['current'] = array('data_back'=>'',
@@ -83,8 +84,12 @@ class Video extends CI_Controller {
 		$this->load->view('admin/admin_header.html',$data);
 		$this->load->view('admin/admin_add_video.html');
 	}
-	public   function  video_add (){
-		$this->load->view('admin/video_add.html');
+	public function video_add (){
+			$data['course']=$this->course_model->query_all();
+			//print_r($data['course']);
+		//$course_id=$this->input->Post('chapter');
+	///	print_r($course_id);
+		$this->load->view('admin/video_add.html',$data);
 	}
 
 

@@ -3,18 +3,38 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+
   </head>
   <body>
-    <form action="">
+    <ul>
+
+    <form action="<?php echo site_url().'admin/video/video_add' ?>" method="post">
       <table>
-        <select onchange="">
+
+        <tr>
+      课程：
+      <!--<select onchange="test()" id="course" name="course">
+          <option value='-1' selected=‘selected’>--请选择课程</option>
+      <?php foreach ($course as $item):?>
+        <option value="<?php echo $item['course_id'];?>"><?php echo $item['course_name'];?></option>
+      <?php endforeach;?>-->
+            <br>
+            <input type="radio" name="course"value="-1" checked="checked">请选择<br>
+            <?php foreach ($course as $item):?>
+            <input type="radio" name="course" value="<?php echo $item['course_id'];?>"><?php echo $item['course_name'];?><br>
+            <?php endforeach;?>
+        </tr></br>
+      章节：<select name="chapter">
           <option value='-1'>--请选择课程</option>
           <option value='1'>php</option>
           <option value='2'>HTML+CSS基础课</option>
           <option value='3'>网页布局基础</option>
         </select>
-        视频地址：<input type="text" id="videopath">
+      </tr></br>
+              <tr><input type="text" id="chapter" name="chapter2"></tr></br>
+        <tr>视频：<input type="text" id="videopath" name="videopath"></tr>
       </table>
+      <input type="submit" value="提交" name="提交">
     </from>
     <h3>文件列表：</h3>
     <div id="filelist">Your browser doesn't have Flash, Silverlight or HTML5 support.</div>
@@ -28,4 +48,10 @@
   <script src="<?php echo base_url().'UPYUN/lib/plupload-2.1.2/js/plupload.full.min.js'?>"></script>
   <script src="<?php echo base_url().'UPYUN/lib/md5.js'?>"></script>
   <script src="<?php echo base_url().'UPYUN/asset/main.js'?>"></script>
+  <script type="text/javascript" language="javascript">
+    //  function test(){
+      //  var a=document.getElementById('course').value;
+      //  alert(a);
+    //  }
+//  </script>
 </html>

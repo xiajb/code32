@@ -43,12 +43,13 @@ var uploader = new plupload.Uploader({
 		},
 
 		UploadProgress: function(up, file) {
-			document.getElementById(file.id).getElementsByTagName('b')[0].innerHTML = '<span>' + file.percent + "%</span>";
+			document.getElementById(file.id).getElementsByTagName('b')[0].innerHTML = '<span> 进度：' + file.percent + "%</span>";
 		},
 
 		FileUploaded: function(up, file, info) {
 			var response = JSON.parse(info.response);
-			document.getElementById(file.id).getElementsByTagName('b')[0].innerHTML += ' [Url]: http://jerry-test-bucket.b0.upaiyun.com' + response.url;
+		//	document.getElementById(file.id).getElementsByTagName('b')[0].innerHTML += ' [Url]: http://code32.b0.upaiyun.com' + response.url;
+			document.getElementById('videopath').value='http://code32.b0.upaiyun.com' + response.url;
 		},
 
 		Error: function(up, err) {
