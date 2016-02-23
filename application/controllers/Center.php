@@ -96,6 +96,37 @@ class Center extends CI_Controller {
 		$this->load->view("center_footer.html");
 
 	}
+	public function add_skill()
+	{
+		$data['active'] = array(
+				'mydata'=>'',
+				'mycourse'=>'',
+				'add_course'=>'active',
+				'add_video'=>'',
+				'comment'=>'',
+				'changepw'=>'',
+			);
+		$this->load->view("center_header.html",$data);
+		$this->load->view("center_teacher_add_course.html");
+		$this->load->view("center_footer.html");
+
+	}
+
+	public function add_course()
+	{
+		$data['active'] = array(
+				'mydata'=>'',
+				'mycourse'=>'',
+				'add_course'=>'active',
+				'add_video'=>'',
+				'comment'=>'',
+				'changepw'=>'',
+			);
+		$this->load->view("center_header.html",$data);
+		$this->load->view("center_teacher_add_course.html");
+		$this->load->view("center_footer.html");
+
+	}	
 	//teacher
 	public function add_video()
 	{
@@ -315,6 +346,14 @@ class Center extends CI_Controller {
 		$value = $this->security->xss_clean($value);
 		$value['add_time'] = date("Y-m-d H:i:s",time());
 		$this->elective_model->add_elective($value);
+		echo '1';
+	}
+	public function required_add(){
+		$value = $_POST;
+
+		$value = $this->security->xss_clean($value);
+		$value['add_time'] = date("Y-m-d H:i:s",time());
+		$this->required_model->add_required($value);
 		echo '1';
 	}
 
