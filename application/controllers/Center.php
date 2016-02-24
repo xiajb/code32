@@ -112,21 +112,7 @@ class Center extends CI_Controller {
 
 	}
 
-	public function add_course()
-	{
-		$data['active'] = array(
-				'mydata'=>'',
-				'mycourse'=>'',
-				'add_course'=>'active',
-				'add_video'=>'',
-				'comment'=>'',
-				'changepw'=>'',
-			);
-		$this->load->view("center_header.html",$data);
-		$this->load->view("center_teacher_add_course.html");
-		$this->load->view("center_footer.html");
-
-	}	
+	
 	//teacher
 	public function add_video()
 	{
