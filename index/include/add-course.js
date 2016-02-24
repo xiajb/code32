@@ -1,27 +1,27 @@
-                $("#xuanxiu").click(function(){
-                    $('#xuanxiu').addClass("active");
-                    $('#bixiu').removeClass("active");
-                    $('#jineng').removeClass("active");
-                    $('#tab1').css('display', 'block');
-                    $('#tab2').css('display', 'none');
-                    $('#tab3').css('display', 'none');
-                });  
-                $("#bixiu").click(function(){
-                    $('#xuanxiu').removeClass("active");
-                    $('#bixiu').addClass("active");
-                    $('#jineng').removeClass("active");
-                    $('#tab1').css('display', 'none');
-                    $('#tab2').css('display', 'block');
-                    $('#tab3').css('display', 'none');
-                });  
-                $("#jineng").click(function(){
-                    $('#xuanxiu').removeClass("active");
-                    $('#bixiu').removeClass("active");
-                    $('#jineng').addClass("active");
-                    $('#tab1').css('display', 'none');
-                    $('#tab2').css('display', 'none');
-                    $('#tab3').css('display', 'block');                  
-                }); 
+                // $("#xuanxiu").click(function(){
+                //     $('#xuanxiu').addClass("active");
+                //     $('#bixiu').removeClass("active");
+                //     $('#jineng').removeClass("active");
+                //     $('#tab1').css('display', 'block');
+                //     $('#tab2').css('display', 'none');
+                //     $('#tab3').css('display', 'none');
+                // });  
+                // $("#bixiu").click(function(){
+                //     $('#xuanxiu').removeClass("active");
+                //     $('#bixiu').addClass("active");
+                //     $('#jineng').removeClass("active");
+                //     $('#tab1').css('display', 'none');
+                //     $('#tab2').css('display', 'block');
+                //     $('#tab3').css('display', 'none');
+                // });  
+                // $("#jineng").click(function(){
+                //     $('#xuanxiu').removeClass("active");
+                //     $('#bixiu').removeClass("active");
+                //     $('#jineng').addClass("active");
+                //     $('#tab1').css('display', 'none');
+                //     $('#tab2').css('display', 'none');
+                //     $('#tab3').css('display', 'block');                  
+                // }); 
 var xuanxiu_uploader = new plupload.Uploader({ //创建实例的构造方法 
     runtimes: 'html5,flash,silverlight,html4',
     //上传插件初始化选用那种方式的优先级顺序 
@@ -232,7 +232,7 @@ $("#bixiuButton").click(function() {
         "subject": $("#subject").val(),
         "title":$("#bixiu-title").val(),
         "img": $("#bixiu-pic").val(),
-        "info":$("#bixiu-info").val()
+        "detail":$("#bixiu-info").val()
     }
     $.ajax({
         type: 'POST',

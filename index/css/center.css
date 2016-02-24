@@ -6374,9 +6374,6 @@ textarea {
     padding: 20px 10px 0
 }
 
-.tab-setting>.tabbed>.tabGroup {
-    display: none
-}
 
 .tab-setting>.tabbed>.tabGroup object {
     vertical-align: bottom;
@@ -7787,7 +7784,7 @@ div.passport-note {
     cursor: pointer;
     background: url("../images/popup_def_close.png") no-repeat center center / 14px 14px;
 }
-#xuanxiu-btn, #btn,#bixiu-btn,#jineng-btn,#pickfiles,#uploadfiles {
+#xuanxiu-btn, #btn,#bixiu-btn,#jineng-btn,#pickfiles,#uploadfiles,#add-btn,#change-chapter {
     background-color: #188EEE;
     color: #fff !important;
     padding: 0 8px;
@@ -7796,5 +7793,5 @@ div.passport-note {
     position: relative;
     display: inline-block;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 3px;
 }

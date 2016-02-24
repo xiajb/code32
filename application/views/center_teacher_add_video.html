@@ -31,6 +31,52 @@
                         </div>
                         <div class="form-item">
                             <div class="item-label">
+                                <label>章节名：</label>
+                            </div>
+                            <div class="item-cont">
+                                <select class="select" id="chapter1" name="title">
+                                    <option value="学生">
+                                        学生</option>
+                                    <option value="教师">
+                                        教师</option>
+                                    <option value="程序员">
+                                        程序员</option>
+                                    <option value="创业者">
+                                        创业者</option>
+                                    <option value="待业者">
+                                        待业者</option>
+                                    <option value="其他">
+                                        其他</option>
+                                </select>
+                                <input type="text" id="chapter2" placeholder="标题" name="title" maxlength="100" value="" class="txt sm" style="display:none;">
+                                <div id="key" style="display:inline-block;">
+                                    <a id="add-btn" href="javascript:;">添加章节</a>
+                                    <a id="change-chapter" href="javascript:;" style="display:none;">选择章节</a>
+                                </div>
+                            </div>
+                        </div>
+                        <script type="text/javascript">
+                        $(function() {
+                            var state = false;
+                            $("#key").click(function() {
+                                if (state == false) {
+                                    $("#chapter1").hide();
+                                    $("#chapter2").show();
+                                    $("#add-btn").hide();
+                                    $("#change-chapter").show();
+                                    state = true;
+                                } else {
+                                    $("#chapter1").show();
+                                    $("#chapter2").hide();
+                                    $("#add-btn").show();
+                                    $("#change-chapter").hide();
+                                    state = false;
+                                }
+                            })
+                        })
+                        </script>
+                        <div class="form-item">
+                            <div class="item-label">
                                 <label>小节标题：</label>
                             </div>
                             <div class="item-cont">
@@ -51,7 +97,7 @@
                         </div>
                         <div class="form-item">
                             <div class="item-label">
-                                <label>反馈内容：</label>
+                                <label>小结简介：</label>
                             </div>
                             <div class="item-cont">
                                 <textarea class="resize-none" style="width: 690px;height:80px" name="info" id="info"></textarea>
@@ -60,7 +106,7 @@
                         </div>
                         <div class="form-item">
                             <div class="item-cont">
-                                <input type="button" id="FeedbackButton" class="btn btn-primary infoBtn" value="提交反馈" jktag="&amp;posOper=60017&amp;posArea=0003">
+                                <input type="button" id="FeedbackButton" class="btn btn-primary infoBtn" value="提交" jktag="&amp;posOper=60017&amp;posArea=0003">
                             </div>
                         </div>
                     </fieldset>

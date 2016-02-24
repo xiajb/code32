@@ -81,7 +81,7 @@ class Center extends CI_Controller {
 
 
 	//teacher
-	public function add_course()
+	public function elective()
 	{
 		$data['active'] = array(
 				'mydata'=>'',
@@ -92,11 +92,11 @@ class Center extends CI_Controller {
 				'changepw'=>'',
 			);
 		$this->load->view("center_header.html",$data);
-		$this->load->view("center_teacher_add_course.html");
+		$this->load->view("center_teacher_add_elective.html");
 		$this->load->view("center_footer.html");
 
 	}
-	public function add_skill()
+	public function skill()
 	{
 		$data['active'] = array(
 				'mydata'=>'',
@@ -107,10 +107,27 @@ class Center extends CI_Controller {
 				'changepw'=>'',
 			);
 		$this->load->view("center_header.html",$data);
-		$this->load->view("center_teacher_add_course.html");
+		$this->load->view("center_teacher_add_skill.html");
 		$this->load->view("center_footer.html");
 
 	}
+
+	public function required()
+	{
+		$data['active'] = array(
+				'mydata'=>'',
+				'mycourse'=>'',
+				'add_course'=>'active',
+				'add_video'=>'',
+				'comment'=>'',
+				'changepw'=>'',
+			);
+		$this->load->view("center_header.html",$data);
+		$this->load->view("center_teacher_add_required.html");
+		$this->load->view("center_footer.html");
+
+	}
+
 
 	
 	//teacher
