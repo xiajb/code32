@@ -83,9 +83,7 @@ $("#FeedbackButton").click(function() {
         type: 'POST',
         url: "http://www.rfgxy.com/center/feed_back",
         data:data,
-        // data: 'data=' + JSON.stringify(data),
         success: function(result) {
-            // console.log(result);
             if (result == 1) {
                 alert('提交成功，谢谢您的反馈！');
                 location.href = "http://www.rfgxy.com/center/mydata?label=jiben";

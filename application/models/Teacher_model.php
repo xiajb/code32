@@ -21,5 +21,12 @@ class Teacher_model extends CI_Model{
 		return $query->result_array();
 	}
 
+	public function get_teacher($uid){
+		$sql = 'select * from ci_teacher where uid='.$uid;
+		$query = $this->db->query($sql);
+		$row = $query->row();
+		return $row;
+	}
+
 
 }

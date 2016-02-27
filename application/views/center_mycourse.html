@@ -1,399 +1,105 @@
+<div class="ucenter-right cf">
+    <div class="mycourse-block">
+        <div class="mycourse-tab-tit">
+            <ul class="cf mycourse-tab-ul">
+                <li class="active"><a href="./mycourse?label=now" jktag="&amp;posOper=62012&amp;posArea=0003">正在学习</a></li>
+                <li class=""><a href="./mycourse?label=shoucang" jktag="&amp;posOper=62012&amp;posArea=0003">我的收藏</a></li>
+                <li class=""><a href="./mycourse?label=yixue" jktag="&amp;posOper=62012&amp;posArea=0003">已经学完</a></li>
+                <li class=""><a href="./mycourse?label=jilu" jktag="&amp;posOper=62012&amp;posArea=0003">最近浏览</a></li>
+            </ul>
+        </div>
+        <div class="mycourse-tab-body lesson-list" id="changeid">
+            <?php if (!empty($checking)): ?>
 
-                <div class="ucenter-right cf">
-                    <div class="mycourse-block">
-                        <div class="mycourse-tab-tit">
-                            <ul class="cf mycourse-tab-ul">
-                                <li class="active"><a href="./mycourse?label=now" jktag="&amp;posOper=62012&amp;posArea=0003">正在学习</a></li>
-                                <li class=""><a href="./mycourse?label=shoucang" jktag="&amp;posOper=62012&amp;posArea=0003">我的收藏</a></li>
-                                <li class=""><a href="./mycourse?label=yixue" jktag="&amp;posOper=62012&amp;posArea=0003">已经学完</a></li>
-                                <li class=""><a href="./mycourse?label=jilu" jktag="&amp;posOper=62012&amp;posArea=0003">最近浏览</a></li>
-                            </ul>
+
+            <ul class="cf" id="home_my_fav">
+            <?php foreach ($checking as $row) :?>
+                <li id="127" test="0" deg="360" stop="1">
+                    <div class="lessonimg-box">
+                        <i class="user-action lesson-shoucang " style="display: none;" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64013&amp;aCId=127&amp;posColumn=127.3"></i>
+                        <!-- <i class="free-icon"></i> -->
+                        <a href="http://www.jikexueyuan.com/course/127.html" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=127&amp;posColumn=127.3">
+                            <img src="<?php echo '.'.$row['img'] ?>" class="lessonimg" title="HTML5特性简介" alt="HTML5特性简介">
+                            <div class="lessonplay" style="opacity: 0;">
+                                <div class="cricle">
+                                    <div class="mask" style="display: none;"></div>
+                                    <div class="left" style="transform: rotate(360deg);">
+                                        <div class="bg"></div>
+                                    </div>
+                                    <div class="cright" style="display: block;">
+                                        <div class="bg"></div>
+                                    </div>
+                                    <div class="text">100%</div>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="jd-line" style="display: block;">
+                            <div class="green-line" style="width:238px"></div>
                         </div>
-                        <div class="mycourse-tab-body lesson-list" id="changeid">
-                            <ul class="cf" id="home_my_fav">
-                                <li id="657" test="0" deg="360" stop="1">
-                                    <div class="lessonimg-box">
-                                        <i class="user-action lesson-shoucang " style="display: none;" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64013&amp;aCId=657&amp;posColumn=657.1"></i>
-                                        <i class="free-icon"></i>
-                                        <a href="http://www.jikexueyuan.com/course/657.html" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=657&amp;posColumn=657.1">
-                                            <img src="http://a1.jikexueyuan.com/home/201504/01/0639/551b45781e665.jpg" class="lessonimg" title="ThinkPHP 概述及配置" alt="ThinkPHP 概述及配置">
-                                            <div class="lessonplay" style="opacity: 0;">
-                                                <div class="cricle">
-                                                    <div class="mask" style="display: none;"></div>
-                                                    <div class="left" style="transform: rotate(360deg);">
-                                                        <div class="bg"></div>
-                                                    </div>
-                                                    <div class="cright" style="display: block;">
-                                                        <div class="bg"></div>
-                                                    </div>
-                                                    <div class="text">100%</div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <div class="jd-line" style="display: block;">
-                                            <div class="green-line" style="width:238px"></div>
-                                        </div>
-                                    </div>
-                                    <div class="lesson-infor" style="height: 88px;">
-                                        <h2 class="lesson-info-h2"><a href="http://www.jikexueyuan.com/course/657.html" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=657&amp;posColumn=657.1">ThinkPHP 概述及配置</a></h2>
-                                        <p style="height: 0px; opacity: 0; display: none;">
-                                            通过本课程的学习，对 PHP 框架和 ThinkPHP 框架有基本的认识，了解 ThinkPHP 应用的程序结构和 MVC 分层架构，熟悉 ThinkPHP 框架的配置。
-                                        </p>
-                                        <div class="timeandicon">
-                                            <div class="cf">
-                                                <dl>
-                                                    <dd class="mar-b8"><i class="time-icon"></i><em>3课时
-                            21分钟</em>
-                                                    </dd>
-                                                    <dd class="zhongji" style="display: none;">
-                                                        <i class="xinhao-icon2"></i><em>中级</em>
-                                                    </dd>
-                                                </dl>
-                                                <em class="learn-number" style="display: none;">16803人学习</em>
-                                            </div>
-                                            <div class="cf">
-                                                <div class="lessonicon-box" style="bottom: 4px;">
-                                                    <a href="http://www.jikexueyuan.com/course/thinkphp/">
-                                                        <img width="16" src="http://a1.jikexueyuan.com/home/201502/04/d12f/54d1c99185f23.png" alt="thinkphp" title="ThinkPHP" jktag="&amp;posGP=101001&amp;posArea=0003&amp;posOper=64015&amp;aCId=657&amp;posColumn=657.1&amp;aCCate=thinkphp">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li id="376" test="0" deg="360" stop="1">
-                                    <div class="lessonimg-box">
-                                        <i class="user-action lesson-shoucang " style="display: none;" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64013&amp;aCId=376&amp;posColumn=376.2"></i>
-                                        <i class="free-icon"></i>
-                                        <a href="http://www.jikexueyuan.com/course/376.html" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=376&amp;posColumn=376.2">
-                                            <img src="http://a1.jikexueyuan.com/home/201411/27/631c/54768947c592a.jpg" class="lessonimg" title="PHP 基本介绍" alt="PHP 基本介绍">
-                                            <div class="lessonplay" style="opacity: 0;">
-                                                <div class="cricle">
-                                                    <div class="mask" style="display: none;"></div>
-                                                    <div class="left" style="transform: rotate(360deg);">
-                                                        <div class="bg"></div>
-                                                    </div>
-                                                    <div class="cright" style="display: block;">
-                                                        <div class="bg"></div>
-                                                    </div>
-                                                    <div class="text">100%</div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <div class="jd-line" style="display: block;">
-                                            <div class="green-line" style="width:238px"></div>
-                                        </div>
-                                    </div>
-                                    <div class="lesson-infor" style="height: 88px;">
-                                        <h2 class="lesson-info-h2"><a href="http://www.jikexueyuan.com/course/376.html" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=376&amp;posColumn=376.2">PHP 基本介绍</a></h2>
-                                        <p style="height: 0px; opacity: 0; display: none;">
-                                            PHP 语法简单，开发效率高，是众多中小型甚至大型(如：Facebook)网站的首选开发语言，本套课程通过讲解 PHP 的历史、PHP 的优点、PHP 相关的名词解释来说明什么是 PHP。
-                                        </p>
-                                        <div class="timeandicon">
-                                            <div class="cf">
-                                                <dl>
-                                                    <dd class="mar-b8"><i class="time-icon"></i><em>3课时
-                            13分钟</em>
-                                                    </dd>
-                                                    <dd class="zhongji" style="display: none;">
-                                                        <i class="xinhao-icon"></i><em>初级</em>
-                                                    </dd>
-                                                </dl>
-                                                <em class="learn-number" style="display: none;">36857人学习</em>
-                                            </div>
-                                            <div class="cf">
-                                                <div class="lessonicon-box" style="bottom: 4px;">
-                                                    <a href="http://www.jikexueyuan.com/course/phpbase/">
-                                                        <img width="16" src="http://a1.jikexueyuan.com/home/201502/04/d12f/54d1c99185f23.png" alt="phpbase" title="PHP 基础" jktag="&amp;posGP=101001&amp;posArea=0003&amp;posOper=64015&amp;aCId=376&amp;posColumn=376.1&amp;aCCate=phpbase">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li id="127" test="0" deg="360" stop="1">
-                                    <div class="lessonimg-box">
-                                        <i class="user-action lesson-shoucang " style="display: none;" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64013&amp;aCId=127&amp;posColumn=127.3"></i>
-                                        <i class="free-icon"></i>
-                                        <a href="http://www.jikexueyuan.com/course/127.html" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=127&amp;posColumn=127.3">
-                                            <img src="http://a1.jikexueyuan.com/home/201407/10/c6e4/53bdf15c29478.jpg" class="lessonimg" title="HTML5特性简介" alt="HTML5特性简介">
-                                            <div class="lessonplay" style="opacity: 0;">
-                                                <div class="cricle">
-                                                    <div class="mask" style="display: none;"></div>
-                                                    <div class="left" style="transform: rotate(360deg);">
-                                                        <div class="bg"></div>
-                                                    </div>
-                                                    <div class="cright" style="display: block;">
-                                                        <div class="bg"></div>
-                                                    </div>
-                                                    <div class="text">100%</div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <div class="jd-line" style="display: block;">
-                                            <div class="green-line" style="width:238px"></div>
-                                        </div>
-                                    </div>
-                                    <div class="lesson-infor" style="height: 88px;">
-                                        <h2 class="lesson-info-h2"><a href="http://www.jikexueyuan.com/course/127.html" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=127&amp;posColumn=127.3">HTML5特性简介</a></h2>
-                                        <p style="height: 0px; opacity: 0; display: none;">
-                                            本套课程主要来了解HTML5，包含，简介、集成开发环境的搭建和HTML基础。
-                                        </p>
-                                        <div class="timeandicon">
-                                            <div class="cf">
-                                                <dl>
-                                                    <dd class="mar-b8"><i class="time-icon"></i><em>3课时
+                    </div>
+                    <div class="lesson-infor" style="height: 88px;">
+                        <h2 class="lesson-info-h2"><a href="http://www.jikexueyuan.com/course/127.html" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=127&amp;posColumn=127.3"><?php echo $row['title'] ?></a></h2>
+                        <p style="height: 0px; opacity: 0; display: none;">
+                            本套课程主要来了解HTML5，包含，简介、集成开发环境的搭建和HTML基础。
+                        </p>
+                        <div class="timeandicon">
+                            <div class="cf">
+                                <dl>
+                                    <dd class="mar-b8"><i class="time-icon"></i><em>3课时
                             19分钟</em>
-                                                    </dd>
-                                                    <dd class="zhongji" style="display: none;">
-                                                        <i class="xinhao-icon"></i><em>初级</em>
-                                                    </dd>
-                                                </dl>
-                                                <em class="learn-number" style="display: none;">100511人学习</em>
-                                            </div>
-                                            <div class="cf">
-                                                <div class="lessonicon-box" style="bottom: 4px;">
-                                                    <a href="http://www.jikexueyuan.com/course/html5/">
-                                                        <img width="16" src="http://a1.jikexueyuan.com/home/201411/03/171a/54578ddd8e62a.png" alt="html5" title="HTML5" jktag="&amp;posGP=101001&amp;posArea=0003&amp;posOper=64015&amp;aCId=127&amp;posColumn=127.1&amp;aCCate=html5">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li id="181" test="0" deg="360" stop="1">
-                                    <div class="lessonimg-box">
-                                        <i class="user-action lesson-shoucang " style="display: none;" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64013&amp;aCId=181&amp;posColumn=181.4"></i>
-                                        <a href="http://www.jikexueyuan.com/course/181.html" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=181&amp;posColumn=181.4">
-                                            <img src="http://a1.jikexueyuan.com/home/201408/10/09cf/53e70d45e8506.jpg" class="lessonimg" title="HTML5开发前准备" alt="HTML5开发前准备">
-                                            <div class="lessonplay" style="opacity: 0;">
-                                                <div class="cricle">
-                                                    <div class="mask" style="display: none;"></div>
-                                                    <div class="left" style="transform: rotate(360deg);">
-                                                        <div class="bg"></div>
-                                                    </div>
-                                                    <div class="cright" style="display: block;">
-                                                        <div class="bg"></div>
-                                                    </div>
-                                                    <div class="text">100%</div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <div class="jd-line" style="display: block;">
-                                            <div class="green-line" style="width:238px"></div>
-                                        </div>
-                                    </div>
-                                    <div class="lesson-infor" style="height: 88px;">
-                                        <h2 class="lesson-info-h2"><a href="http://www.jikexueyuan.com/course/181.html" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=181&amp;posColumn=181.4">HTML5开发前准备</a></h2>
-                                        <p style="height: 0px; opacity: 0; display: none;">
-                                            本套课程介绍 HTML5 以及开发前需要准备的环境和继承开发环境的搭建，包含集成开发环境的快捷键的修改及使用。
-                                        </p>
-                                        <div class="timeandicon">
-                                            <div class="cf">
-                                                <dl>
-                                                    <dd class="mar-b8"><i class="time-icon"></i><em>2课时
-                            12分钟</em>
-                                                    </dd>
-                                                    <dd class="zhongji" style="display: none;">
-                                                        <i class="xinhao-icon"></i><em>初级</em>
-                                                    </dd>
-                                                </dl>
-                                                <em class="learn-number" style="display: none;">137294人学习</em>
-                                            </div>
-                                            <div class="cf">
-                                                <div class="lessonicon-box" style="bottom: 4px;">
-                                                    <a href="http://www.jikexueyuan.com/course/html5/">
-                                                        <img width="16" src="http://a1.jikexueyuan.com/home/201411/03/171a/54578ddd8e62a.png" alt="html5" title="HTML5" jktag="&amp;posGP=101001&amp;posArea=0003&amp;posOper=64015&amp;aCId=181&amp;posColumn=181.1&amp;aCCate=html5">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                                                <li id="181" test="0" deg="360" stop="1">
-                                    <div class="lessonimg-box">
-                                        <i class="user-action lesson-shoucang " style="display: none;" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64013&amp;aCId=181&amp;posColumn=181.4"></i>
-                                        <a href="http://www.jikexueyuan.com/course/181.html" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=181&amp;posColumn=181.4">
-                                            <img src="http://a1.jikexueyuan.com/home/201408/10/09cf/53e70d45e8506.jpg" class="lessonimg" title="HTML5开发前准备" alt="HTML5开发前准备">
-                                            <div class="lessonplay" style="opacity: 0;">
-                                                <div class="cricle">
-                                                    <div class="mask" style="display: none;"></div>
-                                                    <div class="left" style="transform: rotate(360deg);">
-                                                        <div class="bg"></div>
-                                                    </div>
-                                                    <div class="cright" style="display: block;">
-                                                        <div class="bg"></div>
-                                                    </div>
-                                                    <div class="text">100%</div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <div class="jd-line" style="display: block;">
-                                            <div class="green-line" style="width:238px"></div>
-                                        </div>
-                                    </div>
-                                    <div class="lesson-infor" style="height: 88px;">
-                                        <h2 class="lesson-info-h2"><a href="http://www.jikexueyuan.com/course/181.html" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=181&amp;posColumn=181.4">HTML5开发前准备</a></h2>
-                                        <p style="height: 0px; opacity: 0; display: none;">
-                                            本套课程介绍 HTML5 以及开发前需要准备的环境和继承开发环境的搭建，包含集成开发环境的快捷键的修改及使用。
-                                        </p>
-                                        <div class="timeandicon">
-                                            <div class="cf">
-                                                <dl>
-                                                    <dd class="mar-b8"><i class="time-icon"></i><em>2课时
-                            12分钟</em>
-                                                    </dd>
-                                                    <dd class="zhongji" style="display: none;">
-                                                        <i class="xinhao-icon"></i><em>初级</em>
-                                                    </dd>
-                                                </dl>
-                                                <em class="learn-number" style="display: none;">137294人学习</em>
-                                            </div>
-                                            <div class="cf">
-                                                <div class="lessonicon-box" style="bottom: 4px;">
-                                                    <a href="http://www.jikexueyuan.com/course/html5/">
-                                                        <img width="16" src="http://a1.jikexueyuan.com/home/201411/03/171a/54578ddd8e62a.png" alt="html5" title="HTML5" jktag="&amp;posGP=101001&amp;posArea=0003&amp;posOper=64015&amp;aCId=181&amp;posColumn=181.1&amp;aCCate=html5">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                                                <li id="181" test="0" deg="360" stop="1">
-                                    <div class="lessonimg-box">
-                                        <i class="user-action lesson-shoucang " style="display: none;" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64013&amp;aCId=181&amp;posColumn=181.4"></i>
-                                        <a href="http://www.jikexueyuan.com/course/181.html" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=181&amp;posColumn=181.4">
-                                            <img src="http://a1.jikexueyuan.com/home/201408/10/09cf/53e70d45e8506.jpg" class="lessonimg" title="HTML5开发前准备" alt="HTML5开发前准备">
-                                            <div class="lessonplay" style="opacity: 0;">
-                                                <div class="cricle">
-                                                    <div class="mask" style="display: none;"></div>
-                                                    <div class="left" style="transform: rotate(360deg);">
-                                                        <div class="bg"></div>
-                                                    </div>
-                                                    <div class="cright" style="display: block;">
-                                                        <div class="bg"></div>
-                                                    </div>
-                                                    <div class="text">100%</div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <div class="jd-line" style="display: block;">
-                                            <div class="green-line" style="width:238px"></div>
-                                        </div>
-                                    </div>
-                                    <div class="lesson-infor" style="height: 88px;">
-                                        <h2 class="lesson-info-h2"><a href="http://www.jikexueyuan.com/course/181.html" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=181&amp;posColumn=181.4">HTML5开发前准备</a></h2>
-                                        <p style="height: 0px; opacity: 0; display: none;">
-                                            本套课程介绍 HTML5 以及开发前需要准备的环境和继承开发环境的搭建，包含集成开发环境的快捷键的修改及使用。
-                                        </p>
-                                        <div class="timeandicon">
-                                            <div class="cf">
-                                                <dl>
-                                                    <dd class="mar-b8"><i class="time-icon"></i><em>2课时
-                            12分钟</em>
-                                                    </dd>
-                                                    <dd class="zhongji" style="display: none;">
-                                                        <i class="xinhao-icon"></i><em>初级</em>
-                                                    </dd>
-                                                </dl>
-                                                <em class="learn-number" style="display: none;">137294人学习</em>
-                                            </div>
-                                            <div class="cf">
-                                                <div class="lessonicon-box" style="bottom: 4px;">
-                                                    <a href="http://www.jikexueyuan.com/course/html5/">
-                                                        <img width="16" src="http://a1.jikexueyuan.com/home/201411/03/171a/54578ddd8e62a.png" alt="html5" title="HTML5" jktag="&amp;posGP=101001&amp;posArea=0003&amp;posOper=64015&amp;aCId=181&amp;posColumn=181.1&amp;aCCate=html5">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                                                <li id="181" test="0" deg="360" stop="1">
-                                    <div class="lessonimg-box">
-                                        <i class="user-action lesson-shoucang " style="display: none;" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64013&amp;aCId=181&amp;posColumn=181.4"></i>
-                                        <a href="http://www.jikexueyuan.com/course/181.html" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=181&amp;posColumn=181.4">
-                                            <img src="http://a1.jikexueyuan.com/home/201408/10/09cf/53e70d45e8506.jpg" class="lessonimg" title="HTML5开发前准备" alt="HTML5开发前准备">
-                                            <div class="lessonplay" style="opacity: 0;">
-                                                <div class="cricle">
-                                                    <div class="mask" style="display: none;"></div>
-                                                    <div class="left" style="transform: rotate(360deg);">
-                                                        <div class="bg"></div>
-                                                    </div>
-                                                    <div class="cright" style="display: block;">
-                                                        <div class="bg"></div>
-                                                    </div>
-                                                    <div class="text">100%</div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <div class="jd-line" style="display: block;">
-                                            <div class="green-line" style="width:238px"></div>
-                                        </div>
-                                    </div>
-                                    <div class="lesson-infor" style="height: 88px;">
-                                        <h2 class="lesson-info-h2"><a href="http://www.jikexueyuan.com/course/181.html" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=181&amp;posColumn=181.4">HTML5开发前准备</a></h2>
-                                        <p style="height: 0px; opacity: 0; display: none;">
-                                            本套课程介绍 HTML5 以及开发前需要准备的环境和继承开发环境的搭建，包含集成开发环境的快捷键的修改及使用。
-                                        </p>
-                                        <div class="timeandicon">
-                                            <div class="cf">
-                                                <dl>
-                                                    <dd class="mar-b8"><i class="time-icon"></i><em>2课时
-                            12分钟</em>
-                                                    </dd>
-                                                    <dd class="zhongji" style="display: none;">
-                                                        <i class="xinhao-icon"></i><em>初级</em>
-                                                    </dd>
-                                                </dl>
-                                                <em class="learn-number" style="display: none;">137294人学习</em>
-                                            </div>
-                                            <div class="cf">
-                                                <div class="lessonicon-box" style="bottom: 4px;">
-                                                    <a href="http://www.jikexueyuan.com/course/html5/">
-                                                        <img width="16" src="http://a1.jikexueyuan.com/home/201411/03/171a/54578ddd8e62a.png" alt="html5" title="HTML5" jktag="&amp;posGP=101001&amp;posArea=0003&amp;posOper=64015&amp;aCId=181&amp;posColumn=181.1&amp;aCCate=html5">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                            <ul class="cf" id="home_my_fav">
-
-  
-   <div class="mar-t30 no-contnet-block">
-    <div class="no-contnet-box cf">
-     <div class="no-content-img">
-      <img src="http://s1.jikexueyuan.com/member/images/no-content_8a46981.png">
-     </div>
-     <div class="no-content-h3">
-      <p class="no-content-textbig">还没有收藏的课程？</p>
-      <p class="no-content-text">点击视频播放器右侧的“收藏”按钮，即可将喜欢的课程收藏到这里再也不担心喜欢的课程找不到啦</p>
-     </div>
-    </div>
-   </div>
-
-    
-
-  </ul>
-                            <div id="page-nav">
-                                <ul class="pages">
-                                    <li class="pgNext pgEmpty">首页</li>
-                                    <li class="pgNext pgEmpty">上一页</li>
-                                    <li class="page-number pgCurrent">1</li>
-                                    <li class="pgNext pgEmpty">下一页</li>
-                                    <li class="pgNext pgEmpty">末页</li>
-                                    <li class="thpoint pagetotal" style="margin-top:3px;">共 1 页</li>
-                                    <li class="thpoint pagenow">当前
-                                        <input type="text" value="1" maxlength="6" id="gotoval" style="width:20px; height:16px;margin-top:-3px;padding-top:2px;padding-left:10px;">页</li>
-                                    <li class="pgNext go">确定</li>
-                                </ul>
+                                    </dd>
+                                    <dd class="zhongji" style="display: none;">
+                                        <i class="xinhao-icon"></i><em>初级</em>
+                                    </dd>
+                                </dl>
+                                <em class="learn-number" style="display: none;">100511人学习</em>
+                            </div>
+                            <div class="cf">
+                                <div class="lessonicon-box" style="bottom: 4px;">
+                                    <a href="http://www.jikexueyuan.com/course/html5/">
+                                        <img width="16" src="http://a1.jikexueyuan.com/home/201411/03/171a/54578ddd8e62a.png" alt="html5" title="HTML5" jktag="&amp;posGP=101001&amp;posArea=0003&amp;posOper=64015&amp;aCId=127&amp;posColumn=127.1&amp;aCCate=html5">
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                        <div class="mycourse-page">
-                            <div id="page-nav"></div>
-                        </div>
+                    </div>
+                </li>
+<?php endforeach;?>
+            </ul>
+            <div id="page-nav">
+                <ul class="pages">
+                    <li class="pgNext pgEmpty">首页</li>
+                    <li class="pgNext pgEmpty">上一页</li>
+                    <li class="page-number pgCurrent">1</li>
+                    <li class="pgNext pgEmpty">下一页</li>
+                    <li class="pgNext pgEmpty">末页</li>
+                    <li class="thpoint pagetotal" style="margin-top:3px;">共 1 页</li>
+                    <li class="thpoint pagenow">当前
+                        <input type="text" value="1" maxlength="6" id="gotoval" style="width:20px; height:16px;margin-top:-3px;padding-top:2px;padding-left:10px;">页</li>
+                    <li class="pgNext go">确定</li>
+                </ul>
+            </div>
+        </div>
+        <?php else: ?>
+        <ul class="cf" id="home_my_fav">
+            <div class="mar-t30 no-contnet-block">
+                <div class="no-contnet-box cf">
+                    <div class="no-content-img">
+                        <img src="http://s1.jikexueyuan.com/member/images/no-content_8a46981.png">
+                    </div>
+                    <div class="no-content-h3">
+                        <p class="no-content-textbig">还没有收藏的课程？</p>
+                        <p class="no-content-text">点击视频播放器右侧的“收藏”按钮，即可将喜欢的课程收藏到这里再也不担心喜欢的课程找不到啦</p>
                     </div>
                 </div>
             </div>
+        </ul>
+        <?php endif; ?>
+        <div class="mycourse-page">
+            <div id="page-nav"></div>
         </div>
+    </div>
+</div>
+</div>
+</div>
+

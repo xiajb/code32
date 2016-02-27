@@ -76,14 +76,13 @@
                         if (result == -1) {
                             alert('请先登陆！');
                             location.href = "http://www.rfgxy.com/login";
-
-                        } else if(result == -2) {
-                            alert('您已申请，请等待审核！');
-                             location.href = "http://www.rfgxy.com/center/mydata";
-
-                        }else if(result == -3){
+                        }else if(result == -2){
                           alert('请先填写您的详细资料！');
-                           location.href = "http://www.rfgxy.com/center/mydata?label=jiben";
+                           location.href = "http://www.rfgxy.com/center/mydata";
+                        }else if(result == -3){
+                          alert('您已经是讲师中的一员！');
+                        }else{
+                           location.href = "http://www.rfgxy.com/join";
                         }
                     }
                 });

@@ -38,6 +38,12 @@ class Required_model extends CI_Model{
 		return $query->result_array();
 	}
 
+	public function get_course($tid){
+		$sql = 'select * from ci_required where teacher='.$tid;
+		$query = $this->db->query($sql);
+		return $query->result_array();
+	}
+
 
 			// public function getrequiredbyid($id){
 	// 	$this->db->where('required_id',$id);

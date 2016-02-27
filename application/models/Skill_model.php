@@ -38,6 +38,12 @@ class Skill_model extends CI_Model{
 		return $query->result_array();
 	}
 
+	public function get_course($tid){
+		$sql = 'select * from ci_skill where teacher='.$tid;
+		$query = $this->db->query($sql);
+		return $query->result_array();
+	}
+
 
 			// public function getskillbyid($id){
 	// 	$this->db->where('skill_id',$id);

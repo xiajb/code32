@@ -38,6 +38,12 @@ class Elective_model extends CI_Model{
 		return $query->result_array();
 	}
 
+	public function get_course($tid){
+		$sql = 'select * from ci_elective where teacher='.$tid;
+		$query = $this->db->query($sql);
+		return $query->result_array();
+	}
+
 
 			// public function getelectivebyid($id){
 	// 	$this->db->where('elective_id',$id);

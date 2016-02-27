@@ -23,10 +23,13 @@ class Join extends CI_Controller {
 			if ($row == false) {
 				redirect("http://www.rfgxy.com/login");
 			}elseif($row['name'] == '' || $row['pic']==""){
-				redirect("http://www.rfgxy.com/center/mydata?label=xiangxi");
+				redirect("http://www.rfgxy.com/center/mydata");
+			}elseif ($row['level'] == 1) {
+				redirect("http://www.rfgxy.com/center/mydata");
 			}else{
-				$data['pic'] = $row['pic'];
-				$this->load->view("join.html",$data);
+				$_SESSION['pic'] = $row['pic'];
+				$this->load->view("join.html");
+				$this->load->view("center_footer.html");
 			
 			}
 		}
@@ -41,35 +44,39 @@ class Join extends CI_Controller {
 		}else{
 			$row = $this->user_model->check_username_is($_SESSION['username']);
 			if ($row == false) {
-				redirect("http://www.rfgxy.com/login");
+				echo "-1";
 			}elseif($row['name'] == '' || $row['pic']==""){
-				echo "222";
-				// redirect("http://www.rfgxy.com/center/mydata?label=xiangxi");
+				echo "-2";
+			}elseif ($row['level'] == 1) {
+				echo "-3";
 			}else{
-				redirect("http://www.rfgxy.com/join");
-				// $data['pic'] = $row['pic'];
-				// $this->load->view("join.html",$data);
-			
+				echo "1";
 			}
 		}
 	}
 
 	public function add_teacher(){
-		$value = json_decode($this->input->post('data'),true);
+		$value = $_POST;
 		$value = $this->security->xss_clean($value);
 		$row = $this->user_model->check_username_is($_SESSION['username']);
-		// print_r($value);
-		if ($row != false) {
+		if ($row == false) {
+			echo '-1';
+			return;
+		}
+
+		$result = $this->teacher_model->get_teacher($row['uid']);
+		if ($result == false) {
 			$value['uid'] = $row['uid'];
 			$value['pic'] = $row['pic'];
-			$value['check'] = 2;
+			$value['check'] = 0;
 			$value['apply_time'] = date("Y-m-d H:i",time());
 			$this->teacher_model->add_teacher($value);
 			echo '1';
+		}elseif($result->check == 0) {
+			echo '-2';
 		}else{
 			echo '-1';
 		}
-		
 	}
 
 }
