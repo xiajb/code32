@@ -142,6 +142,20 @@ class Course extends CI_Controller {
 		echo '1';
 	}
 
+	public function delete_required(){
+		$id = $_POST['value'];
+		echo $this->required_model->delete_required($id);
+	}
+	public function delete_elective(){
+		$id = $_POST['value'];
+		echo $this->elective_model->delete_elective($id);
+	}
+
+
+	public function delete_skill(){
+		$id = $_POST['value'];
+		echo $this->skill_model->delete_skill($id);
+	}
 
 
 

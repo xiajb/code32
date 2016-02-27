@@ -44,6 +44,10 @@ class Skill_model extends CI_Model{
 		return $query->result_array();
 	}
 
+	public function delete_skill($id){
+		return $this->db->delete(self::TBL_USER, array('skill_id' => $id));
+	}
+
 
 			// public function getskillbyid($id){
 	// 	$this->db->where('skill_id',$id);

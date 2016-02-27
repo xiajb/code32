@@ -83,6 +83,11 @@ class Link extends CI_Controller {
 		$this->load->view('admin/admin_add_link.html');
 	}
 
+	function delete_link(){
+		$id = $_POST['value'];
+		echo $this->link_model->delete_link($id);
+
+	}
 }
 
 /* End of file welcome.php */
