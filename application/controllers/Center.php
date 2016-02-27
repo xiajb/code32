@@ -208,6 +208,35 @@ class Center extends CI_Controller {
 				'comment'=>'',
 				'changepw'=>'',
 			);
+
+			$row = $this->user_model->check_username_is($_SESSION['username']);
+			$teacher = $this->teacher_model->get_teacher($row['uid']);
+			$required = $this->required_model->get_course($teacher->tid);
+			$elective = $this->elective_model->get_course($teacher->tid);
+			$data['course'] = array_merge($required,$elective);
+			$skill = $this->skill_model->get_course($teacher->tid);
+			$data['course'] = array_merge($data['course'],$skill);
+			$data['pass'] = array();
+			for ($i=0; $i < count($data['course']); $i++) { 
+				if ($data['course'][$i]['status'] == 1) {
+					$data1 = array(
+						'img'=>$data['course'][$i]['img'],
+						'title'=>$data['course'][$i]['title'],
+						'detail'=>$data['course'][$i]['detail'],	
+					);
+					// if (array_keys($data['course'][$i])[0] == 'required_id') {
+					// 	$data1['type'] = 'required';
+					// 	$data1['id'] = $data['course'][$i]['required_id'];
+					// }elseif (array_keys($data['course'][$i])[0] == 'elective_id') {
+					// 	$data1['type'] = 'elective';
+					// 	$data1['id'] = $data['course'][$i]['elective_id'];
+					// }elseif (array_keys($data['course'][$i])[0] == 'skill_id') {
+					// 	$data1['type'] = 'skill';
+					// 	$data1['id'] = $data['course'][$i]['skill_id'];
+					// }
+					$data['pass'][$i] = $data1;
+				}
+			}
 		$this->load->view("center_header.html",$data);
 		$this->load->view("center_teacher_add_video.html");
 		$this->load->view("center_footer.html");

@@ -14,18 +14,9 @@
                             </div>
                             <div class="item-cont">
                                 <select class="select" id="title" name="title">
-                                    <option value="学生">
-                                        学生</option>
-                                    <option value="教师">
-                                        教师</option>
-                                    <option value="程序员">
-                                        程序员</option>
-                                    <option value="创业者">
-                                        创业者</option>
-                                    <option value="待业者">
-                                        待业者</option>
-                                    <option value="其他">
-                                        其他</option>
+                                <?php foreach ($pass as $row) :?>
+                                    <option value="<?php echo $row['title'] ?>"><?php echo $row['title'] ?></option>
+                                <?php endforeach; ?>
                                 </select>
                             </div>
                         </div>
@@ -112,19 +103,6 @@
                     </fieldset>
                 </form>
             </div>
-            <!-- form personinfo end -->
-            <!-- form pic -->
-            <div class="tabGroup" style="display: none;">
-                <input type="hidden" id="_csrf" value="8uzVc8iqyhe5UAv2S9yzSf22o+gDDgtHUhUnQ=">
-                <input type="hidden" id="figureUploadPath" value="http://www.jikexueyuan.com/image/upload_avatar">
-                <input type="hidden" id="swfFlush" value="55a049jHXMUUsf/nfj7+/DQmnTJsu+EFdrL6gyKhWVd+9nofKaUan8Ig605F0tA">
-                <input type="hidden" id="pic_src" value="">
-                <div id="altContent">
-                    <h2>这里是flash内容，当前的浏览器没有安装或者FlashPlyaer版本不够高，请从<a href="http://www.adobe.com/go/getflashplayer">这里</a>下载安装最新的FlashPlyaer。</h2>
-                    <h2>如果您正在使用IE9或IE9以下版本内核的浏览器，请使用更高版本的IE浏览器或谷歌览器重试。</h2>
-                </div>
-            </div>
-            <!-- form pic end -->
         </div>
     </div>
 </div>
@@ -140,7 +118,6 @@ $("#FeedbackButton").click(function() {
         return false;
     }
     var data = {
-        "<?php echo $this->security->get_csrf_token_name(); ?>": "<?php echo $this->security->get_csrf_hash(); ?>",
         "info": $('#info').val(),
         "title": $('#title').val(),
     }
