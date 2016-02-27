@@ -7,6 +7,8 @@ class Center extends CI_Controller {
 	 */
 	function __construct(){
 		parent::__construct();
+		$this->load->model('show_model');
+		$this->load->model('course_model');
 		$this->load->model('user_model');
 		$this->load->model('teacher_model');
 		$this->load->model('feedback_model');
@@ -18,7 +20,7 @@ class Center extends CI_Controller {
 	}
 	//个人中心
 	public function mydata()
-	{	
+	{
 		if ($_SESSION['level'] == 1) {
 			$data['active'] = array(
 					'mydata'=>'active',
@@ -49,8 +51,8 @@ class Center extends CI_Controller {
 		$value = $this->security->xss_clean($value);
 		$this->user_model->user_detail_updata($_SESSION['username'],$value);
 		echo '1';
-		
-			
+
+
 	}
 
 	public function mycourse()
@@ -74,12 +76,12 @@ class Center extends CI_Controller {
 			$data['checking']= array();
 			$data['pass'] = array();
 			$data['not_pass'] = array();
-			for ($i=0; $i < count($data['course']); $i++) { 
+			for ($i=0; $i < count($data['course']); $i++) {
 				if ($data['course'][$i]['status'] == 0) {
 					$data1 = array(
 						'img'=>$data['course'][$i]['img'],
 						'title'=>$data['course'][$i]['title'],
-						'detail'=>$data['course'][$i]['detail'],	
+						'detail'=>$data['course'][$i]['detail'],
 					);
 					if (array_keys($data['course'][$i])[0] == 'required_id') {
 						$data1['type'] = 'required';
@@ -96,7 +98,7 @@ class Center extends CI_Controller {
 					$data2 = array(
 						'img'=>$data['course'][$i]['img'],
 						'title'=>$data['course'][$i]['title'],
-						'detail'=>$data['course'][$i]['detail'],	
+						'detail'=>$data['course'][$i]['detail'],
 					);
 					if (array_keys($data['course'][$i])[0] == 'required_id') {
 						$data2['type'] = 'required';
@@ -113,7 +115,7 @@ class Center extends CI_Controller {
 					$data3 = array(
 						'img'=>$data['course'][$i]['img'],
 						'title'=>$data['course'][$i]['title'],
-						'detail'=>$data['course'][$i]['detail'],	
+						'detail'=>$data['course'][$i]['detail'],
 					);
 					if (array_keys($data['course'][$i])[0] == 'required_id') {
 						$data3['type'] = 'required';
@@ -195,7 +197,7 @@ class Center extends CI_Controller {
 	}
 
 
-	
+
 	//teacher
 	public function add_video()
 	{
@@ -209,21 +211,22 @@ class Center extends CI_Controller {
 				'changepw'=>'',
 			);
 
-			$row = $this->user_model->check_username_is($_SESSION['username']);
-			$teacher = $this->teacher_model->get_teacher($row['uid']);
-			$required = $this->required_model->get_course($teacher->tid);
-			$elective = $this->elective_model->get_course($teacher->tid);
-			$data['course'] = array_merge($required,$elective);
-			$skill = $this->skill_model->get_course($teacher->tid);
-			$data['course'] = array_merge($data['course'],$skill);
-			$data['pass'] = array();
-			for ($i=0; $i < count($data['course']); $i++) { 
-				if ($data['course'][$i]['status'] == 1) {
-					$data1 = array(
-						'img'=>$data['course'][$i]['img'],
-						'title'=>$data['course'][$i]['title'],
-						'detail'=>$data['course'][$i]['detail'],	
-					);
+			//$row = $this->user_model->check_username_is($_SESSION['username']);
+			//$teacher = $this->teacher_model->get_teacher($row['uid']);
+			//$required = $this->required_model->get_course($teacher->tid);
+			//$elective = $this->elective_model->get_course($teacher->tid);
+		//	$data['course'] = array_merge($required,$elective);
+		//	$skill = $this->skill_model->get_course($teacher->tid);
+			//$data['course'] = array_merge($data['course'],$skill);
+		//	$data['pass'] = array();
+			//for ($i=0; $i < count($data['course']); $i++) {
+		//		if ($data['course'][$i]['status'] == 1) {
+			//		$data1 = array(
+				//		'img'=>$data['course'][$i]['img'],
+				//		'title'=>$data['course'][$i]['title'],
+				//		'detail'=>$data['course'][$i]['detail'],
+				///	);
+
 					// if (array_keys($data['course'][$i])[0] == 'required_id') {
 					// 	$data1['type'] = 'required';
 					// 	$data1['id'] = $data['course'][$i]['required_id'];
@@ -234,12 +237,19 @@ class Center extends CI_Controller {
 					// 	$data1['type'] = 'skill';
 					// 	$data1['id'] = $data['course'][$i]['skill_id'];
 					// }
-					$data['pass'][$i] = $data1;
-				}
-			}
+				//	$data['pass'][$i] = $data1;
+			//	}
+
+		//	}
+			$data['courses']=$this->course_model->query_all();
 		$this->load->view("center_header.html",$data);
 		$this->load->view("center_teacher_add_video.html");
 		$this->load->view("center_footer.html");
+
+	}
+	public function ajax_getcharter($course_id){
+	$chapter=$this->show_model->showchapterbyid($course_id);
+		echo json_encode($chapter);
 
 	}
 
@@ -312,7 +322,7 @@ class Center extends CI_Controller {
 		if ($row != false) {
 			if ($row['password'] == md5($value['former_pwd'])) {
 				$this->user_model->for_username_change_pwd($_SESSION['username'],$value['password']);
-				
+
 				echo '1';
 			}else{
 				echo '-1';
@@ -369,7 +379,7 @@ class Center extends CI_Controller {
 		$this->load->view("center_feedback.html");
 		$this->load->view("center_footer.html");
 
-	}	
+	}
 
 	public function feed_back(){
 		$value = $_POST;
@@ -391,35 +401,35 @@ class Center extends CI_Controller {
 		}
 	}
 	public function upload_pic(){
-		$typeArr = array("jpg", "png", "gif");//允许上传文件格式 
-		$path = "./uploads/user_pic/";//上传路径 
-		 
-		if (isset($_POST)) { 
-		    $name = $_FILES['file']['name']; 
-		    $size = $_FILES['file']['size']; 
-		    $name_tmp = $_FILES['file']['tmp_name']; 
-		    if (empty($name)) { 
-		        echo json_encode(array("error"=>"您还未选择图片")); 
-		        exit; 
-		    } 
-		    $type = strtolower(substr(strrchr($name, '.'), 1)); //获取文件类型 
-		     
-		    if (!in_array($type, $typeArr)) { 
-		        echo json_encode(array("error"=>"清上传jpg,png或gif类型的图片！")); 
-		        exit; 
-		    } 
-		    if ($size > (500 * 1024)) { 
-		        echo json_encode(array("error"=>"图片大小已超过2000KB！")); 
-		        exit; 
-		    } 
-		     
-		    $pic_name = time() . rand(10000, 99999) . "." . $type;//图片名称 
-		    $pic_url = $path . $pic_name;//上传后图片路径+名称 
-		    if (move_uploaded_file($name_tmp, $pic_url)) { //临时文件转移到目标文件夹 
-		        echo json_encode(array("error"=>"0","pic"=>$pic_url,"name"=>$pic_name)); 
-		    } else { 
-		        echo json_encode(array("error"=>"上传有误，清检查服务器配置！")); 
-		    } 
+		$typeArr = array("jpg", "png", "gif");//允许上传文件格式
+		$path = "./uploads/user_pic/";//上传路径
+
+		if (isset($_POST)) {
+		    $name = $_FILES['file']['name'];
+		    $size = $_FILES['file']['size'];
+		    $name_tmp = $_FILES['file']['tmp_name'];
+		    if (empty($name)) {
+		        echo json_encode(array("error"=>"您还未选择图片"));
+		        exit;
+		    }
+		    $type = strtolower(substr(strrchr($name, '.'), 1)); //获取文件类型
+
+		    if (!in_array($type, $typeArr)) {
+		        echo json_encode(array("error"=>"清上传jpg,png或gif类型的图片！"));
+		        exit;
+		    }
+		    if ($size > (500 * 1024)) {
+		        echo json_encode(array("error"=>"图片大小已超过2000KB！"));
+		        exit;
+		    }
+
+		    $pic_name = time() . rand(10000, 99999) . "." . $type;//图片名称
+		    $pic_url = $path . $pic_name;//上传后图片路径+名称
+		    if (move_uploaded_file($name_tmp, $pic_url)) { //临时文件转移到目标文件夹
+		        echo json_encode(array("error"=>"0","pic"=>$pic_url,"name"=>$pic_name));
+		    } else {
+		        echo json_encode(array("error"=>"上传有误，清检查服务器配置！"));
+		    }
 		}
 	}
 	//再试一次
