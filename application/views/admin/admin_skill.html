@@ -42,7 +42,7 @@
                                 </td>
                                 <td class="actions">
                                     <a href="#" title="Edit this content"><img src="<?php echo base_url('back/img/icons/actions/edit.png'); ?>" alt="" /></a>
-                                    <a data-id="<?php echo $result[$i]['skill_id']; ?>" href="#" title="Delete this content" class="delete_button"><img src="<?php echo base_url('back/img/icons/actions/delete.png'); ?>" alt="" /></a>
+                                    <a data-id="<?php echo $result[$i]['skill_id']; ?>" href="javascript:;" class="delete_button"><img src="<?php echo base_url('back/img/icons/actions/delete.png'); ?>" alt="" /></a>
                                 </td>
                             </tr>
                             <?php } ?>
@@ -79,7 +79,7 @@
                                 </td>
                                 <td class="actions">
                                     <a href="#" title="Edit this content"><img src="<?php echo base_url('back/img/icons/actions/edit.png'); ?>" alt="" /></a>
-                                    <a data-id="<?php echo $check[$i]['skill_id']; ?>" href="#" title="Delete this content" class="delete_button"><img src="<?php echo base_url('back/img/icons/actions/delete.png'); ?>" alt="" /></a>
+                                    <a data-id="<?php echo $check[$i]['skill_id']; ?>" href="javascript:;" class="delete_button"><img src="<?php echo base_url('back/img/icons/actions/delete.png'); ?>" alt="" /></a>
                                 </td>
                             </tr>
                             <?php } ?>
@@ -116,7 +116,7 @@
                                 </td>
                                 <td class="actions">
                                     <a href="#" title="Edit this content"><img src="<?php echo base_url('back/img/icons/actions/edit.png'); ?>" alt="" /></a>
-                                    <a data-id="<?php echo $nopass[$i]['skill_id']; ?>" href="#" title="Delete this content" class="delete_button"><img src="<?php echo base_url('back/img/icons/actions/delete.png'); ?>" alt="" /></a>
+                                    <a data-id="<?php echo $nopass[$i]['skill_id']; ?>" href="javascript:;" class="delete_button"><img src="<?php echo base_url('back/img/icons/actions/delete.png'); ?>" alt="" /></a>
                                 </td>
                             </tr>
                             <?php } ?>
@@ -153,7 +153,7 @@
                                 </td>
                                 <td class="actions">
                                     <a href="#" title="Edit this content"><img src="<?php echo base_url('back/img/icons/actions/edit.png'); ?>" alt="" /></a>
-                                    <a data-id="<?php echo $admin[$i]['skill_id']; ?>" href="#" title="Delete this content" class="delete_button"><img src="<?php echo base_url('back/img/icons/actions/delete.png'); ?>" alt="" /></a>
+                                    <a data-id="<?php echo $admin[$i]['skill_id']; ?>" href="javascript:;" class="delete_button"><img src="<?php echo base_url('back/img/icons/actions/delete.png'); ?>" alt="" /></a>
                                 </td>
                             </tr>
                             <?php } ?>
@@ -211,6 +211,17 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
+<div id="zoombox" class="zoombox" style="position: fixed;top: 30%;left: 38%;">
+    <div class="mask" style="display: none; opacity: 0.8;"></div>
+    <div class="cd-popup-container" style="display:none;">
+        <p style="height:22px">你确定你要删除这个元素吗?</p>
+        <ul class="cd-buttons">
+            <li id="delete_yes"><a href="javascript:;">是</a></li>
+            <li id="delete_no"><a href="javascript:;">否</a></li>
+        </ul>
+        <a href="#" class="cd-popup-close img-replace">关闭</a>
     </div>
 </div>
 <script type="text/javascript" src="<?php echo base_url('back/js/delete-btn.js'); ?>"></script>
