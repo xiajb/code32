@@ -1,4 +1,6 @@
     <div id="content" class="white">
+    <link rel="stylesheet" href="<?php echo base_url('back/css/backmask.css'); ?>" />
+
         <h1><img src="<?php echo base_url('back/img/icons/posts.png');?>" alt="" /> Teacher Data</h1>
         <div class="bloc">
             <div class="title">
@@ -14,70 +16,138 @@
                     <div class="content">
                         <table class="noalt">
                             <tbody>
-                                <tr>
-                                    <td class="picture" style="width:80px;"><img src="img/anonymous.png" alt="" /></td>
-                                    <td>
-                                        <p>
-                                            <strong><a href="#">John Doe</a></strong>
-                                            <br/>
-                                            <em>December 24, at 22:13 - <a href="#">Reply</a></em>
-                                            <br/> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non nulla sapien, quis luctus felis. Fusce sodales tempus tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non nulla sapien, quis luctus felis. Fusce sodales tempus tincidunt.
-                                        </p>
-                                    </td>
-                                    <td class="actions">
-                                        <a href="#" title="Edit this content"><img src="img/icons/actions/edit.png" alt="" /></a>
-                                        <a href="#" title="Delete this content"><img src="img/icons/actions/delete.png" alt="" /></a>
-                                    </td>
-                                </tr>
+                    <?php  for($i=0;$i<count($result);$i++){ ?>
+                                    <tr>
+                                        <td class="picture" style="width:80px;"><img style="width:80px;" src="<?php echo base_url($result[$i]['pic']);?>" alt="" /></td>
+                                        <td>
+                                            <p>
+                                                <strong><a href="#"><?php echo $result[$i]['name']; ?></a></strong>
+                                                <br/>
+                                                <em><?php echo $result[$i]['apply_time'];?> <a href="#">Reply</a></em>
+                                                <br/>
+                                                <?php echo $result[$i]['intro'];?>
+                                            </p>
+                                        </td>
+                                        <td class="actions">
+                                            <a href="#" title="Edit this content"><img src="<?php echo base_url('back/img/icons/actions/edit.png');?>" alt="" /></a>
+                            <a data-id="<?php echo $result[$i]['uid']; ?>" href="javascript:;" title="Delete this content" class="delete_button"><img src="<?php echo base_url('back/img/icons/actions/delete.png'); ?>" alt="" /></a>
+                                        </td>
+                                    </tr>
+                    <?php } ?>
                             </tbody>
                         </table>
                     </div>
                 </div>
                 <div id="tab2">
-                    <ol>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                        <li>Cras nec lectus egestas purus vehicula faucibus sit amet sit amet nunc.</li>
-                        <li>Cras vel elit nec eros ullamcorper pretium in vel libero.</li>
-                    </ol>
-                    <p>
-                        <a href="#" class="button">a.button</a>
-                        <a href="#" class="button black">a.button.black</a>
-                        <a href="#" class="button white">a.button.white</a>
-                    </p>
+                    <div class="content">
+                        <table class="noalt">
+                            <tbody>
+                    <?php  for($i=0;$i<count($checking);$i++){ ?>
+                                    <tr>
+                                        <td class="picture" style="width:80px;"><img style="width:80px;" src="<?php echo base_url($checking[$i]['pic']);?>" alt="" /></td>
+                                        <td>
+                                            <p>
+                                                <strong><a href="#"><?php echo $checking[$i]['name']; ?></a></strong>
+                                                <br/>
+                                                <em><?php echo $checking[$i]['apply_time'];?> <a href="#">Reply</a></em>
+                                                <br/>
+                                                <?php echo $checking[$i]['intro'];?>
+                                            </p>
+                                        </td>
+                                        <td class="actions">
+                                            <a href="#" title="Edit this content"><img src="<?php echo base_url('back/img/icons/actions/edit.png');?>" alt="" /></a>
+                                            <a data-id="<?php echo $checking[$i]['tid']; ?>" title="Delete this content"  class="delete_button"><img src="<?php echo base_url('back/img/icons/actions/delete.png');?>" alt="" /></a>
+                                        </td>
+                                    </tr>
+                    <?php } ?>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 <div id="tab3">
-                    <ol>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                        <li>Cras nec lectus egestas purus vehicula faucibus sit amet sit amet nunc.</li>
-                        <li>Cras vel elit nec eros ullamcorper pretium in vel libero.</li>
-                    </ol>
+                    <div class="content">
+                        <table class="noalt">
+                            <tbody>
+                    <?php  for($i=0;$i<count($not_pass);$i++){ ?>
+                                    <tr>
+                                        <td class="picture" style="width:80px;"><img style="width:80px;" src="<?php echo base_url($not_pass[$i]['pic']);?>" alt="" /></td>
+                                        <td>
+                                            <p>
+                                                <strong><a href="#"><?php echo $not_pass[$i]['name']; ?></a></strong>
+                                                <br/>
+                                                <em><?php echo $not_pass[$i]['apply_time'];?> <a href="#">Reply</a></em>
+                                                <br/>
+                                                <?php echo $not_pass[$i]['intro'];?>
+                                            </p>
+                                        </td>
+                                        <td class="actions">
+                                            <a href="#" title="Edit this content"><img src="<?php echo base_url('back/img/icons/actions/edit.png');?>" alt="" /></a>
+                                            <a data-id="<?php echo $not_pass[$i]['tid']; ?>" title="Delete this content"  class="delete_button"><img src="<?php echo base_url('back/img/icons/actions/delete.png');?>" alt="" /></a>
+                                        </td>
+                                    </tr>
+                    <?php } ?>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 <div id="tab4">
                     <div class="content">
                         <table class="noalt">
                             <tbody>
-                                <?php foreach($result as $row) : ?>
+                    <?php  for($i=0;$i<count($admin_add);$i++){ ?>
                                     <tr>
-                                        <td class="picture" style="width:80px;"><img style="width:80px;" src="<?php echo base_url($row['pic']);?>" alt="" /></td>
+                                        <td class="picture" style="width:80px;"><img style="width:80px;" src="<?php echo base_url($admin_add[$i]['pic']);?>" alt="" /></td>
                                         <td>
                                             <p>
-                                                <strong><a href="#"><?php echo $row['name']; ?></a></strong>
+                                                <strong><a href="#"><?php echo $admin_add[$i]['name']; ?></a></strong>
                                                 <br/>
-                                                <em><?php echo $row['apply_time'];?> <a href="#">Reply</a></em>
+                                                <em><?php echo $admin_add[$i]['apply_time'];?> <a href="#">Reply</a></em>
                                                 <br/>
-                                                <?php echo $row['intro'];?>
+                                                <?php echo $admin_add[$i]['intro'];?>
                                             </p>
                                         </td>
                                         <td class="actions">
                                             <a href="#" title="Edit this content"><img src="<?php echo base_url('back/img/icons/actions/edit.png');?>" alt="" /></a>
-                                            <a href="#" title="Delete this content"><img src="<?php echo base_url('back/img/icons/actions/delete.png');?>" alt="" /></a>
+                                            <a data-id="<?php echo $admin_add[$i]['tid']; ?>" title="Delete this content"  class="delete_button"><img src="<?php echo base_url('back/img/icons/actions/delete.png');?>" alt="" /></a>
                                         </td>
                                     </tr>
-                                    <?php endforeach;?>
+                    <?php } ?>
                             </tbody>
                         </table>
                     </div>
                 </div>
+<div id="zoombox" class="zoombox">
+    <div class="mask" style="display: none; opacity: 0.8;"></div>
+    <div class="cd-popup-container" style="display:none;">
+        <p style="height:22px">你确定你要删除这个元素吗?</p>
+        <ul class="cd-buttons">
+            <li id="delete_yes"><a href="#">是</a></li>
+            <li id="delete_no"><a href="#">否</a></li>
+        </ul>
+        <a href="#" class="cd-popup-close img-replace">关闭</a>
+    </div>
+</div>
+
+<script type="text/javascript" src="<?php echo base_url('back/js/delete-btn.js'); ?>"></script>
+<script type="text/javascript">
+$('#delete_yes').click(function() {
+    $.ajax({
+        url: "../admin/teacher/delete_teacher/",
+        type: "POST",
+        data: "value=" + id,
+        success: function(result) {
+            $('.mask').hide();
+            $('.cd-popup-container').hide();
+            if (result == 1) {
+                alert('删除成功！');
+                location.reload();
+            } else {
+                alert('操作失败！！');
+            }
+        }
+    })
+});
+</script>
             </div>
         </div>
     </div>

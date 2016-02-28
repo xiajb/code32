@@ -58,7 +58,7 @@ class Video extends CI_Controller {
 	// 	$this->load->view('admin/admin_header.html',$data);
 	// 	$this->load->view('admin/admin_video.html');
 	// }
-	public function add_video()
+	public function add()
 	{
 		$data['current'] = array('data_back'=>'',
 			'user_manage'=>'',
@@ -75,6 +75,8 @@ class Video extends CI_Controller {
 			'order_manage'=>'',
 			'all_order'=>'',
 			'account_data'=>'',
+			'feedback_manage'=>'',
+			'all_feedback'=>'',
 			'comment_manage'=>'',
 			'all_comment'=>'',
 			'link_manage'=>'',
@@ -84,13 +86,13 @@ class Video extends CI_Controller {
 		$this->load->view('admin/admin_header.html',$data);
 		$this->load->view('admin/admin_add_video.html');
 	}
-	public function video_add (){
-			$data['course']=$this->course_model->query_all();
-			//print_r($data['course']);
-		//$course_id=$this->input->Post('chapter');
-	///	print_r($course_id);
-		$this->load->view('admin/video_add.html',$data);
-	}
+	// public function video_add (){
+	// 		$data['course']=$this->course_model->query_all();
+	// 		//print_r($data['course']);
+	// 	//$course_id=$this->input->Post('chapter');
+	// ///	print_r($course_id);
+	// 	$this->load->view('admin/video_add.html',$data);
+	// }
 
 
 }

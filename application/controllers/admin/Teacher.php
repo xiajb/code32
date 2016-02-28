@@ -12,6 +12,26 @@ class Teacher extends CI_Controller {
 	public function index()
 	{
 		$data['result'] = $this->teacher_model->query_all();
+		$data['pass'] = array();
+		$data['not_pass'] = array();
+		$data['checking'] = array();
+		$data['admin_add'] = array();
+		for ($i=0; $i <count($data['result']) ; $i++) { 
+			if ($data['result'][$i]['check'] == 0) {
+				$array = array($i=>$data['result'][$i]);
+				$data['checking'] = array_merge($data['checking'],$array);
+			}elseif ($data['result'][$i]['check'] == -1) {
+				$array = array($i=>$data['result'][$i]);
+				$data['not_pass'] = array_merge($data['not_pass'],$array);
+			}elseif ($data['result'][$i]['check'] == 2) {
+				$array = array($i=>$data['result'][$i]);
+				$data['admin_add'] = array_merge($data['admin_add'],$array);
+			}elseif ($data['result'][$i]['check'] == 1) {
+				$array = array($i=>$data['result'][$i]);
+				$data['pass'] = array_merge($data['pass'],$array);
+			}
+		}
+
 		$data['current'] = array('data_back'=>'',
 			'user_manage'=>'current',
 			'user_data' =>'' ,
@@ -99,6 +119,12 @@ class Teacher extends CI_Controller {
 		        echo json_encode(array("error"=>"上传有误，清检查服务器配置！")); 
 		    } 
 		}
+	}
+
+	public function delete_teacher(){
+		$id = $_POST['value'];
+		$value = $this->teacher_model->delete_teacher($id);
+		echo $value;
 	}
 
 	public function c_teacher(){

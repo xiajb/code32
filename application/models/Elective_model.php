@@ -44,6 +44,9 @@ class Elective_model extends CI_Model{
 		return $query->result_array();
 	}
 
+	public function delete_elective($id){
+		return $this->db->delete(self::TBL_USER, array('elective_id' => $id));
+	}
 
 			// public function getelectivebyid($id){
 	// 	$this->db->where('elective_id',$id);

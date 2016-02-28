@@ -44,6 +44,9 @@ class Required_model extends CI_Model{
 		return $query->result_array();
 	}
 
+	public function delete_required($id){
+		return $this->db->delete(self::TBL_USER, array('required_id' => $id));
+	}
 
 			// public function getrequiredbyid($id){
 	// 	$this->db->where('required_id',$id);

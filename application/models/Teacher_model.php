@@ -28,5 +28,8 @@ class Teacher_model extends CI_Model{
 		return $row;
 	}
 
+	public function delete_teacher($id){
+		return $this->db->delete(self::TBL_USER, array('tid' => $id));
+	}
 
 }

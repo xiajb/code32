@@ -58,7 +58,7 @@ class User_model extends CI_Model{
 	}
 	#后台删除用户
 	public function delete_user($id){
-		$this->db->delete(self::TBL_USER, array('uid' => $id));
+		return $this->db->delete(self::TBL_USER, array('uid' => $id));
 	}
 	#改变用户的级别
 	public function change_level($uid,$level){

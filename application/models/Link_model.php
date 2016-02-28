@@ -14,4 +14,10 @@ class Link_model extends CI_Model{
 		$query = $this->db->query($sql);
 		return $query->result_array();
 	}
+
+	public function delete_link($id){
+		return $this->db->delete(self::TBL_USER, array('link' => $id));
+	}
+
+
 }

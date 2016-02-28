@@ -148,6 +148,7 @@ class Required extends CI_Controller {
 		}
 	}
 
+
 	public function c_course(){
 		$value = json_decode($this->input->post('data'),true);
 		$value = $this->security->xss_clean($value);
