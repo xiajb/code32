@@ -1,24 +1,16 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Course extends CI_Controller {
+class Required extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('required_model');
-		$this->load->model('teacher_model');
-		$this->load->model('elective_model');
-		$this->load->model('skill_model');
 		$this->load->library('session');
 
 	}
 	
-	public function required()
+	public function index()
 	{
-		$data['result'] = $this->required_model->query_all();
-		$data['nopass'] = $this->required_model->query_by_nopass();
-		// $data['check'] = $this->required_model->query_by_check();
-		$data['admin'] = $this->required_model->query_by_admin();
-
-		$data['teacher'] = $this->teacher_model->query_admin_add();
+		// $data['result'] = $this->course_model->query_all();
 		$data['current'] = array('data_back'=>'',
 			'user_manage'=>'',
 			'user_data' =>'' ,
@@ -42,41 +34,13 @@ class Course extends CI_Controller {
 			'all_link'=>'',
 			'add_link'=>'',
 			 );
-
-$page_config['perpage']=2;   //每页条数
-$page_config['part']=2;//当前页前后链接数量
-$page_config['url']='/admin/course/required';//url
-$page_config['seg']=4;//参数取 index.php之后的段数，默认为3，即index.php/control/function/18 这种形式
-$page_config['nowindex']=$this->uri->segment($page_config['seg']) ? $this->uri->segment($page_config['seg']):1;//当前页
-$this->load->library('mypage_class');
-$page_config['total']=$this->required_model->result_acount_status(1);
-$this->mypage_class->initialize($page_config);
-
-$data['check'] = $this->required_model->get_num_course(1,(int)$page_config['perpage'],(int)$page_config['nowindex']);
-// $data['admin'] = $this->required_model->get_num_course(2,(int)$page_config['perpage'],(int)$page_config['nowindex']);
-// $data['nopass'] = $this->required_model->get_num_course(-1,(int)$page_config['perpage'],(int)$page_config['nowindex']);
-
-
 		$this->load->view('admin/admin_header.html',$data);
 		$this->load->view('admin/admin_required.html');
 	}
 
-	public function required_add(){
-		$value = json_decode($this->input->post('data'),true);
-		$value = $this->security->xss_clean($value);
-		$value['add_time'] = date("Y-m-d H:i:s",time());
-		$this->required_model->add_required($value);
-		echo '1';
-	}
-
-	public function elective()
+	public function elective_course()
 	{
-		$data['result'] = $this->elective_model->query_all();
-		$data['nopass'] = $this->elective_model->query_by_nopass();
-		$data['check'] = $this->elective_model->query_by_check();
-		$data['admin'] = $this->elective_model->query_by_admin();
-
-		$data['teacher'] = $this->teacher_model->query_admin_add();
+		$data['result'] = $this->required_model->query_all();
 		$data['current'] = array('data_back'=>'',
 			'user_manage'=>'',
 			'user_data' =>'' ,
@@ -92,8 +56,6 @@ $data['check'] = $this->required_model->get_num_course(1,(int)$page_config['perp
 			'order_manage'=>'',
 			'all_order'=>'',
 			'account_data'=>'',
-			'feedback_manage'=>'',
-			'all_feedback'=>'',
 			'comment_manage'=>'',
 			'all_comment'=>'',
 			'link_manage'=>'',
@@ -101,27 +63,13 @@ $data['check'] = $this->required_model->get_num_course(1,(int)$page_config['perp
 			'add_link'=>'',
 			 );
 		$this->load->view('admin/admin_header.html',$data);
-		$this->load->view('admin/admin_elective.html');
+		// $this->load->view('admin/admin_course.html');
 	}
 
 
-	public function elective_add(){
-		$value = json_decode($this->input->post('data'),true);
-		$value = $this->security->xss_clean($value);
-		$value['add_time'] = date("Y-m-d H:i:s",time());
-		$this->elective_model->add_elective($value);
-		echo '1';
-	}
-
-
-	public function skill()
+	public function skill_course()
 	{
-		$data['result'] = $this->skill_model->query_all();
-		$data['nopass'] = $this->skill_model->query_by_nopass();
-		$data['check'] = $this->skill_model->query_by_check();
-		$data['admin'] = $this->skill_model->query_by_admin();
-
-		$data['teacher'] = $this->teacher_model->query_admin_add();
+		$data['result'] = $this->required_model->query_all();
 		$data['current'] = array('data_back'=>'',
 			'user_manage'=>'',
 			'user_data' =>'' ,
@@ -137,8 +85,6 @@ $data['check'] = $this->required_model->get_num_course(1,(int)$page_config['perp
 			'order_manage'=>'',
 			'all_order'=>'',
 			'account_data'=>'',
-			'feedback_manage'=>'',
-			'all_feedback'=>'',
 			'comment_manage'=>'',
 			'all_comment'=>'',
 			'link_manage'=>'',
@@ -146,33 +92,28 @@ $data['check'] = $this->required_model->get_num_course(1,(int)$page_config['perp
 			'add_link'=>'',
 			 );
 		$this->load->view('admin/admin_header.html',$data);
-		$this->load->view('admin/admin_skill.html');
-	}
-
-	public function skill_add(){
-		$value = json_decode($this->input->post('data'),true);
-		$value = $this->security->xss_clean($value);
-		$value['add_time'] = date("Y-m-d H:i:s",time());
-		$this->skill_model->add_skill($value);
-		echo '1';
-	}
-
-	public function delete_required(){
-		$id = $_POST['value'];
-		echo $this->required_model->delete_required($id);
-	}
-	public function delete_elective(){
-		$id = $_POST['value'];
-		echo $this->elective_model->delete_elective($id);
+		// $this->load->view('admin/admin_course.html');
 	}
 
 
-	public function delete_skill(){
-		$id = $_POST['value'];
-		echo $this->skill_model->delete_skill($id);
-	}
-
-
+	// public function add_course(){
+	// 	$data['current'] = array('data_back'=>'',
+	// 		'data_manage'=>'',
+	// 		'user_data' =>'' ,
+	// 		'teacher_data'=>'',
+	// 		'course_data'=>'',
+	// 		'data_add'=>'current',
+	// 		'course_add'=>'current',
+	// 		'video_add'=>'',
+	// 		'teacher_add'=>'',
+	// 		'data_check'=>'',
+	// 		'course_check'=>'',
+	// 		'video_check'=>'',
+	// 		'teacher_check'=>'',
+	// 		 );
+	// 	$this->load->view('admin/admin_header.html',$data);
+	// 	$this->load->view('admin/admin_add_course.html');
+	// }
 
 	public function upload_pic(){
 		$typeArr = array("jpg", "png", "gif");//允许上传文件格式 
@@ -206,6 +147,7 @@ $data['check'] = $this->required_model->get_num_course(1,(int)$page_config['perp
 		    } 
 		}
 	}
+
 
 	public function c_course(){
 		$value = json_decode($this->input->post('data'),true);

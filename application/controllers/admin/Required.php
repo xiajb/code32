@@ -4,13 +4,207 @@ class Required extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('required_model');
+		$this->load->model('teacher_model');
+		$this->load->model('elective_model');
+		$this->load->model('skill_model');
 		$this->load->library('session');
 
 	}
 	
-	public function index()
+	public function all()
 	{
-		// $data['result'] = $this->course_model->query_all();
+		$data['result'] = $this->required_model->query_all();
+		$data['nopass'] = $this->required_model->query_by_nopass();
+		// $data['check'] = $this->required_model->query_by_check();
+		$data['admin'] = $this->required_model->query_by_admin();
+
+		$data['teacher'] = $this->teacher_model->query_admin_add();
+		$data['current'] = array('data_back'=>'',
+			'user_manage'=>'',
+			'user_data' =>'' ,
+			'teacher_data'=>'',
+			'add_teacher'=>'',
+			'course_manage'=>'current',
+			'required_course'=>'current',
+			'elective_course'=>'',
+			'skill_course'=>'',
+			'video_manage'=>'',
+			'all_video'=>'',
+			'upload_video'=>'',
+			'order_manage'=>'',
+			'all_order'=>'',
+			'account_data'=>'',
+			'feedback_manage'=>'',
+			'all_feedback'=>'',
+			'comment_manage'=>'',
+			'all_comment'=>'',
+			'link_manage'=>'',
+			'all_link'=>'',
+			'add_link'=>'',
+			 );
+
+$page_config['perpage']=2;   //每页条数
+$page_config['part']=2;//当前页前后链接数量
+$page_config['url']='/admin/required/all';//url
+$page_config['seg']=4;//参数取 index.php之后的段数，默认为3，即index.php/control/function/18 这种形式
+$page_config['nowindex']=$this->uri->segment($page_config['seg']) ? $this->uri->segment($page_config['seg']):1;//当前页
+$this->load->library('mypage_class');
+$page_config['total']=$this->required_model->all_count();
+$this->mypage_class->initialize($page_config);
+
+$data['check'] = $this->required_model->get_num_course(1,(int)$page_config['perpage'],(int)$page_config['nowindex']);
+// $data['admin'] = $this->required_model->get_num_course(2,(int)$page_config['perpage'],(int)$page_config['nowindex']);
+// $data['nopass'] = $this->required_model->get_num_course(-1,(int)$page_config['perpage'],(int)$page_config['nowindex']);
+
+
+		$this->load->view('admin/admin_header.html',$data);
+		$this->load->view('admin/admin_required_check.html');
+	}
+
+	public function nopass()
+	{
+		// $data['result'] = $this->required_model->query_all();
+		$data['current'] = array('data_back'=>'',
+			'user_manage'=>'',
+			'user_data' =>'' ,
+			'teacher_data'=>'',
+			'add_teacher'=>'',
+			'course_manage'=>'current',
+			'required_course'=>'current',
+			'elective_course'=>'',
+			'skill_course'=>'',
+			'video_manage'=>'',
+			'all_video'=>'',
+			'upload_video'=>'',
+			'order_manage'=>'',
+			'all_order'=>'',
+			'account_data'=>'',
+			'feedback_manage'=>'',
+			'all_feedback'=>'',
+			'comment_manage'=>'',
+			'all_comment'=>'',
+			'link_manage'=>'',
+			'all_link'=>'',
+			'add_link'=>'',
+			 );
+
+$page_config['perpage']=2;   //每页条数
+$page_config['part']=2;//当前页前后链接数量
+$page_config['url']='/admin/required/nopass';//url
+$page_config['seg']=4;//参数取 index.php之后的段数，默认为3，即index.php/control/function/18 这种形式
+$page_config['nowindex']=$this->uri->segment($page_config['seg']) ? $this->uri->segment($page_config['seg']):1;//当前页
+$this->load->library('mypage_class');
+$page_config['total']=$this->required_model->result_acount_status(-1);
+$this->mypage_class->initialize($page_config);
+
+$data['nopass'] = $this->required_model->get_num_course(-1,(int)$page_config['perpage'],(int)$page_config['nowindex']);
+// $data['admin'] = $this->required_model->get_num_course(2,(int)$page_config['perpage'],(int)$page_config['nowindex']);
+// $data['nopass'] = $this->required_model->get_num_course(-1,(int)$page_config['perpage'],(int)$page_config['nowindex']);
+
+
+		$this->load->view('admin/admin_header.html',$data);
+		$this->load->view('admin/admin_required_nopass.html');
+	}
+
+	public function check()
+	{
+		// $data['result'] = $this->required_model->query_all();
+		$data['current'] = array('data_back'=>'',
+			'user_manage'=>'',
+			'user_data' =>'' ,
+			'teacher_data'=>'',
+			'add_teacher'=>'',
+			'course_manage'=>'current',
+			'required_course'=>'current',
+			'elective_course'=>'',
+			'skill_course'=>'',
+			'video_manage'=>'',
+			'all_video'=>'',
+			'upload_video'=>'',
+			'order_manage'=>'',
+			'all_order'=>'',
+			'account_data'=>'',
+			'feedback_manage'=>'',
+			'all_feedback'=>'',
+			'comment_manage'=>'',
+			'all_comment'=>'',
+			'link_manage'=>'',
+			'all_link'=>'',
+			'add_link'=>'',
+			 );
+
+$page_config['perpage']=2;   //每页条数
+$page_config['part']=2;//当前页前后链接数量
+$page_config['url']='/admin/required/check';//url
+$page_config['seg']=4;//参数取 index.php之后的段数，默认为3，即index.php/control/function/18 这种形式
+$page_config['nowindex']=$this->uri->segment($page_config['seg']) ? $this->uri->segment($page_config['seg']):1;//当前页
+$this->load->library('mypage_class');
+$page_config['total']=$this->required_model->result_acount_status(0);
+$this->mypage_class->initialize($page_config);
+
+$data['check'] = $this->required_model->get_num_course(0,(int)$page_config['perpage'],(int)$page_config['nowindex']);
+// file_put_contents("/home/tanxu/www/data.txt", (int)$page_config['perpage'].(int)$page_config['nowindex']);
+// $data['admin'] = $this->required_model->get_num_course(2,(int)$page_config['perpage'],(int)$page_config['nowindex']);
+// $data['nopass'] = $this->required_model->get_num_course(-1,(int)$page_config['perpage'],(int)$page_config['nowindex']);
+
+
+		$this->load->view('admin/admin_header.html',$data);
+		$this->load->view('admin/admin_required_check.html');
+	}
+
+	public function required_add(){
+		$value = json_decode($this->input->post('data'),true);
+		$value = $this->security->xss_clean($value);
+		$value['add_time'] = date("Y-m-d H:i:s",time());
+		$this->required_model->add_required($value);
+		echo '1';
+	}
+
+	public function elective()
+	{
+		$data['result'] = $this->elective_model->query_all();
+		$data['nopass'] = $this->elective_model->query_by_nopass();
+		$data['check'] = $this->elective_model->query_by_check();
+		$data['admin'] = $this->elective_model->query_by_admin();
+
+		$data['teacher'] = $this->teacher_model->query_admin_add();
+		$data['current'] = array('data_back'=>'',
+			'user_manage'=>'',
+			'user_data' =>'' ,
+			'teacher_data'=>'',
+			'add_teacher'=>'',
+			'course_manage'=>'current',
+			'required_course'=>'',
+			'elective_course'=>'current',
+			'skill_course'=>'',
+			'video_manage'=>'',
+			'all_video'=>'',
+			'upload_video'=>'',
+			'order_manage'=>'',
+			'all_order'=>'',
+			'account_data'=>'',
+			'feedback_manage'=>'',
+			'all_feedback'=>'',
+			'comment_manage'=>'',
+			'all_comment'=>'',
+			'link_manage'=>'',
+			'all_link'=>'',
+			'add_link'=>'',
+			 );
+		$this->load->view('admin/admin_header.html',$data);
+		$this->load->view('admin/admin_elective.html');
+	}
+
+
+
+	public function skill()
+	{
+		$data['result'] = $this->skill_model->query_all();
+		$data['nopass'] = $this->skill_model->query_by_nopass();
+		$data['check'] = $this->skill_model->query_by_check();
+		$data['admin'] = $this->skill_model->query_by_admin();
+
+		$data['teacher'] = $this->teacher_model->query_admin_add();
 		$data['current'] = array('data_back'=>'',
 			'user_manage'=>'',
 			'user_data' =>'' ,
@@ -35,85 +229,15 @@ class Required extends CI_Controller {
 			'add_link'=>'',
 			 );
 		$this->load->view('admin/admin_header.html',$data);
-		$this->load->view('admin/admin_required.html');
-	}
-
-	public function elective_course()
-	{
-		$data['result'] = $this->required_model->query_all();
-		$data['current'] = array('data_back'=>'',
-			'user_manage'=>'',
-			'user_data' =>'' ,
-			'teacher_data'=>'',
-			'add_teacher'=>'',
-			'course_manage'=>'current',
-			'required_course'=>'',
-			'elective_course'=>'current',
-			'skill_course'=>'',
-			'video_manage'=>'',
-			'all_video'=>'',
-			'upload_video'=>'',
-			'order_manage'=>'',
-			'all_order'=>'',
-			'account_data'=>'',
-			'comment_manage'=>'',
-			'all_comment'=>'',
-			'link_manage'=>'',
-			'all_link'=>'',
-			'add_link'=>'',
-			 );
-		$this->load->view('admin/admin_header.html',$data);
-		// $this->load->view('admin/admin_course.html');
+		$this->load->view('admin/admin_skill.html');
 	}
 
 
-	public function skill_course()
-	{
-		$data['result'] = $this->required_model->query_all();
-		$data['current'] = array('data_back'=>'',
-			'user_manage'=>'',
-			'user_data' =>'' ,
-			'teacher_data'=>'',
-			'add_teacher'=>'',
-			'course_manage'=>'current',
-			'required_course'=>'',
-			'elective_course'=>'',
-			'skill_course'=>'current',
-			'video_manage'=>'',
-			'all_video'=>'',
-			'upload_video'=>'',
-			'order_manage'=>'',
-			'all_order'=>'',
-			'account_data'=>'',
-			'comment_manage'=>'',
-			'all_comment'=>'',
-			'link_manage'=>'',
-			'all_link'=>'',
-			'add_link'=>'',
-			 );
-		$this->load->view('admin/admin_header.html',$data);
-		// $this->load->view('admin/admin_course.html');
+	public function delete_required(){
+		$id = $_POST['value'];
+		echo $this->required_model->delete_required($id);
 	}
 
-
-	// public function add_course(){
-	// 	$data['current'] = array('data_back'=>'',
-	// 		'data_manage'=>'',
-	// 		'user_data' =>'' ,
-	// 		'teacher_data'=>'',
-	// 		'course_data'=>'',
-	// 		'data_add'=>'current',
-	// 		'course_add'=>'current',
-	// 		'video_add'=>'',
-	// 		'teacher_add'=>'',
-	// 		'data_check'=>'',
-	// 		'course_check'=>'',
-	// 		'video_check'=>'',
-	// 		'teacher_check'=>'',
-	// 		 );
-	// 	$this->load->view('admin/admin_header.html',$data);
-	// 	$this->load->view('admin/admin_add_course.html');
-	// }
 
 	public function upload_pic(){
 		$typeArr = array("jpg", "png", "gif");//允许上传文件格式 
@@ -148,16 +272,5 @@ class Required extends CI_Controller {
 		}
 	}
 
-
-	public function c_course(){
-		$value = json_decode($this->input->post('data'),true);
-		$value = $this->security->xss_clean($value);
-		// file_put_contents("/home/tanxu/www/data.txt", print_r($value,true),FILE_APPEND );
-		if ($this->course_model->add_course($value)) {
-	    		echo '1';
-	    	}else{
-	    		echo 'error';
-	    	}
-	}
 }
 

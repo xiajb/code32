@@ -1,0 +1,201 @@
+            <div id="tab5">
+                <div class="content">
+                    <div class="input">
+                        <label for="select">阶段</label>
+                        <select name="stage" id="stage">
+                            <option value="小学">小学</option>
+                            <option value="初中">初中</option>
+                            <option value="高中">高中</option>
+                        </select>
+                        Some informations on how to use this field
+                    </div>
+                    <div class="input">
+                        <label for="select">年级</label>
+                        <select name="grade" id="grade">
+                            <option value="一年级">一年级</option>
+                            <option value="二年级">二年级</option>
+                            <option value="三年级">三年级</option>
+                            <option value="四年级">四年级</option>
+                            <option value="五年级">五年级</option>
+                            <option value="六年级">六年级</option>
+                            <option value="初一">初一</option>
+                            <option value="初二">初二</option>
+                            <option value="初三">初三</option>
+                            <option value="高一">高一</option>
+                            <option value="高二">高二</option>
+                            <option value="高三">高三</option>
+                        </select>
+                        Some informations on how to use this field
+                    </div>
+                    <div class="input">
+                        <label for="select">科目</label>
+                        <select name="subject" id="subject">
+                            <option value="语文">语文</option>
+                            <option value="数学">数学</option>
+                            <option value="英语">英语</option>
+                            <option value="化学">化学</option>
+                            <option value="生物">生物</option>
+                            <option value="物理">物理</option>
+                            <option value="政治">政治</option>
+                            <option value="历史">历史</option>
+                            <option value="地理">地理</option>
+                        </select>
+                        Some informations on how to use this field
+                    </div>
+                    <div class="input">
+                        <label for="input1">标题</label>
+                        <input type="text" id="title" placeholder="标题" name="title" /> Some informations on how to use this field
+                    </div>
+                    <div class="input">
+                        <label for="select">老师</label>
+                        <select name="teacher" id="teacher">
+                            <?php foreach($teacher as $res) : ?>
+                            <option value="<?php echo $res['tid'] ?>">
+                                <?php echo $res['name'] ?>
+                            </option>
+                            <?php endforeach; ?>
+                        </select>
+                        Some informations on how to use this field
+                    </div>
+                    <div class="input">
+                        <label for="file">课程封面</label>
+                        <input type="text" style="display: inline;" />
+                        <div id="btn">上传图片</div> 最大500KB，支持jpg，gif，png格式。
+                        <ul id="ul_pics" class="ul_pics clearfix"></ul>
+                        <style type="text/css">
+                        #btn {
+                            background-color: #00b7f1;
+                            color: #fff !important;
+                            padding: 0 8px;
+                            height: 24px;
+                            line-height: 24px;
+                            position: relative;
+                            display: inline-block;
+                            cursor: pointer;
+                            border-radius: 5px;
+                        }
+                        </style>
+                    </div>
+                    <div class="input textarea" style="width:500px">
+                        <label for="textarea1">课程简介</label>
+                        <textarea name="text" id="detail" rows="7" cols="4"></textarea>
+                    </div>
+                    <div class="submit">
+                        <input type="button" id="button" value="submit" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="zoombox" class="zoombox" style="position: fixed;top: 30%;left: 38%;">
+    <div class="mask" style="display: none; opacity: 0.8;"></div>
+    <div class="cd-popup-container" style="display:none;">
+        <p style="height:22px">你确定你要删除这个元素吗?</p>
+        <ul class="cd-buttons">
+            <li id="delete_yes"><a href="javascript:;">是</a></li>
+            <li id="delete_no"><a href="javascript:;">否</a></li>
+        </ul>
+        <a href="#" class="cd-popup-close img-replace">关闭</a>
+    </div>
+</div>
+<script type="text/javascript" src="<?php echo base_url('back/js/delete-btn.js'); ?>"></script>
+<script type="text/javascript">
+$('#delete_yes').click(function() {
+    $.ajax({
+        url: "../course/delete_required",
+        type: "POST",
+        data: "value=" + id,
+        success: function(result) {
+            $('.mask').hide();
+            $('.cd-popup-container').hide();
+            if (result == 1) {
+                alert('删除成功！');
+                location.reload();
+            } else {
+                alert('操作失败！！');
+            }
+        }
+    })
+});
+
+var uploader = new plupload.Uploader({ //创建实例的构造方法 
+    runtimes: 'html5,flash,silverlight,html4',
+    //上传插件初始化选用那种方式的优先级顺序 
+    browse_button: 'btn',
+    // 上传按钮 
+    url: "../upload_pic",
+    //远程上传地址 
+    flash_swf_url: 'plupload/Moxie.swf',
+    //flash文件地址 
+    silverlight_xap_url: 'plupload/Moxie.xap',
+    //silverlight文件地址 
+    filters: {
+        max_file_size: '500kb',
+        //最大上传文件大小（格式100b, 10kb, 10mb, 1gb） 
+        mime_types: [ //允许文件上传类型 
+            {
+                title: "files",
+                extensions: "jpg,png,gif"
+            }
+        ]
+    },
+    multi_selection: true,
+    //true:ctrl多文件上传, false 单文件上传 
+    init: {
+        FilesAdded: function(up, files) { //文件上传前 
+            if ($("#ul_pics").children("li").length > 30) {
+                alert("您上传的图片太多了！");
+                uploader.destroy();
+            } else {
+                var li = '';
+                plupload.each(files,
+                    function(file) { //遍历文件 
+                        li += "<li id='" + file['id'] + "'><div class='progress'><span class='bar'></span><span class='percent'>0%</span></div></li>";
+                    });
+                $("#ul_pics").append(li);
+                uploader.start();
+            }
+        },
+        UploadProgress: function(up, file) { //上传中，显示进度条 
+            $("#" + file.id).find('.bar').css({
+                "width": file.percent + "%"
+            }).find(".percent").text(file.percent + "%");
+        },
+        FileUploaded: function(up, file, info) { //文件上传成功的时候触发 
+            var data = JSON.parse(info.response);
+            $("#" + file.id).html("<div class='img' ><img  style='width:220px;' src='../../../" + data.pic + "'/></div><p style='display:none;' id='picname'>" + data.pic + "</p>");
+        },
+        Error: function(up, err) { //上传出错的时候触发 
+            alert(err.message);
+        }
+    }
+});
+
+uploader.init();
+$("#button").click(function() {
+    console.log($("#picname").html());
+    var value = {
+        "stage": $("#stage").val(),
+        "grade": $("#grade").val(),
+        "subject": $("#subject").val(),
+        "title": $("#title").val(),
+        "detail": $("#detail").val(),
+        "teacher": $("#teacher").val(),
+        "img": $("#picname").html()
+    }
+    console.log(value);
+    $.ajax({
+        type: 'POST',
+        url: "<?php echo base_url('./admin/course/required_add'); ?>",
+        data: 'data=' + JSON.stringify(value),
+
+        success: function(result) {
+            console.log(result);
+        }
+    });
+});
+</script>
+</body>
+
+</html>

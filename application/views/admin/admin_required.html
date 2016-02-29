@@ -102,6 +102,9 @@
                         </tbody>
                     </table>
                 </div>
+                <div class="page">
+                    <?php echo $this->mypage_class->show(1); ?>
+                </div>
             </div>
             <div id="tab3">
                 <div class="content">
@@ -140,7 +143,7 @@
                                 </td>
                                 <td class="actions">
                                     <a href="#" title="Edit this content"><img src="<?php echo base_url('back/img/icons/actions/edit.png'); ?>" alt="" /></a>
-                                    <a data-id="<?php echo $check[$i]['required_id']; ?>" href="javascript:;" class="delete_button"><img src="<?php echo base_url('back/img/icons/actions/delete.png'); ?>" alt="" /></a>
+                                    <a data-id="<?php echo $nopass[$i]['required_id']; ?>" href="javascript:;" class="delete_button"><img src="<?php echo base_url('back/img/icons/actions/delete.png'); ?>" alt="" /></a>
                                 </td>
                             </tr>
                             <?php } ?>

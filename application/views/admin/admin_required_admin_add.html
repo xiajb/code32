@@ -1,0 +1,95 @@
+<script src="<?php echo base_url('index/js/plupload.full.min.js'); ?>" type="text/javascript"></script>
+<link rel="stylesheet" href="<?php echo base_url('back/css/backmask.css'); ?>" />
+<div id="content" class="white">
+    <h1><img src="<?php echo base_url('back/img/icons/posts.png');?>" alt="" /> Course Data</h1>
+    <div class="bloc">
+        <div class="title">
+            <div class="tabs" id="tabs1" style="left:-1px">
+                <a href="./all">全部数据</a>
+                <a href="./nopass">未审核</a>
+                <a href="./check">未通过</a>
+                <a href="./admin-add">管理员添加</a>
+                <a href="./add">添加课程</a>
+            </div>
+        </div>
+        <div class="content">
+            <table>
+                <thead>
+                    <tr>
+                        <th>阶段</th>
+                        <th>年级</th>
+                        <th>科目</th>
+                        <th>标题</th>
+                        <th>老师</th>
+                        <th>开课时间</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php  for($i=0;$i<count($admin);$i++){ ?>
+                    <tr>
+                        <td>
+                            <?php echo $admin[$i]['stage']; ?>
+                        </td>
+                        <td>
+                            <?php echo $admin[$i]['grade']; ?>
+                        </td>
+                        <td>
+                            <?php echo $admin[$i]['subject']; ?>
+                        </td>
+                        <td>
+                            <?php echo $admin[$i]['title'];?>
+                        </td>
+                        <td>
+                            <?php echo $admin[$i]['teacher'];?>
+                        </td>
+                        <td>
+                            <?php echo $admin[$i]['add_time'];?>
+                        </td>
+                        <td class="actions">
+                            <a href="#" title="Edit this content"><img src="<?php echo base_url('back/img/icons/actions/edit.png'); ?>" alt="" /></a>
+                            <a data-id="<?php echo $admin[$i]['required_id']; ?>" href="javascript:;" class="delete_button"><img src="<?php echo base_url('back/img/icons/actions/delete.png'); ?>" alt="" /></a>
+                        </td>
+                    </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+        </div>
+        <div class="page">
+            <?php echo $this->mypage_class->show(1); ?>
+        </div>
+    </div>
+    <div id="zoombox" class="zoombox" style="position: fixed;top: 30%;left: 38%;">
+        <div class="mask" style="display: none; opacity: 0.8;"></div>
+        <div class="cd-popup-container" style="display:none;">
+            <p style="height:22px">你确定你要删除这个元素吗?</p>
+            <ul class="cd-buttons">
+                <li id="delete_yes"><a href="javascript:;">是</a></li>
+                <li id="delete_no"><a href="javascript:;">否</a></li>
+            </ul>
+            <a href="#" class="cd-popup-close img-replace">关闭</a>
+        </div>
+    </div>
+    <script type="text/javascript" src="<?php echo base_url('back/js/delete-btn.js'); ?>"></script>
+    <script type="text/javascript">
+    $('#delete_yes').click(function() {
+        $.ajax({
+            url: "../course/delete_required",
+            type: "POST",
+            data: "value=" + id,
+            success: function(result) {
+                $('.mask').hide();
+                $('.cd-popup-container').hide();
+                if (result == 1) {
+                    alert('删除成功！');
+                    location.reload();
+                } else {
+                    alert('操作失败！！');
+                }
+            }
+        })
+    });
+    </script>
+    </body>
+
+    </html>
