@@ -45,10 +45,16 @@ class Required_model extends CI_Model{
 	}
 
 	public function get_num_course($status,$first,$num){
+		if ($status == '') {
+			$query = $this->db->select('*')
+			        ->limit($first, $num)
+			        ->get(self::TBL_USER);
+		}else{
 			$query = $this->db->select('*')
 			        ->where('status', $status)
 			        ->limit($first, $num)
 			        ->get(self::TBL_USER);
+		}
 		// $sql = 'select * from ci_required where status = 1 order by required_id limit '.$first.','.$num;
   //                         $query = $this->db->query($sql);
                           // file_put_contents("/home/tanxu/www/data.txt", print_r($query->result_array(),true));
@@ -61,16 +67,13 @@ class Required_model extends CI_Model{
 	}
 	//根据状态值，取当前状态下的记录条数
 	public function result_acount_status($status){
-		$this->db->where('status', $status);
-		$acount = $this->db->count_all_results(self::TBL_USER);
-		return $acount;
+		if ($status == '') {
+			return $this->db->count_all(self::TBL_USER);
+		}else{
+			$this->db->where('status', $status);
+			return $this->db->count_all_results(self::TBL_USER);
+		}
 	}
-
-	//取当前表的总条数
-	public function all_count(){
-		return $this->db->count_all(self::TBL_USER);
-	}
-
 
 
 	public function delete_required($id){
