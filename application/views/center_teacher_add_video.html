@@ -5,7 +5,7 @@
         </div>
         <div class="tabbed">
             <div class="tabGroup" style="display: block;">
-                <form class="form form-job" id="jobForm" action="/member/settingJob" method="get">
+                <form class="form form-job" id="jobForm" action="<?php echo base_url().'center/add_section'?>" method="post">
                     <input type="hidden" id="act" name="act" value="job">
                     <fieldset>
                         <div class="form-item">
@@ -19,7 +19,7 @@
                                 <?php endforeach; ?>
                               </select>-->
 
-                                <select class="select" id="courses" name="courses" onchange="showCharter(this.value)">
+                                <select class="select" id="courses" name="section_arr[course_id]" onchange="showCharter(this.value)">
                                     <option value='-1' selected=‘selected’>--请选择课程</option>
                                 <?php foreach ($courses as $item):?>
                                   <option value="<?php echo $item['course_id'];?>"><?php echo $item['course_name'];?></option>
@@ -33,11 +33,14 @@
                             </div>
 
                             <div class="item-cont" id="chapter">
-                                <select class="select" id="chapter1" name="title">
+                              <span id="chapter0">
+                                <select class="select" id="chapter1" name="section_arr[chapter_id1]">
                                     <option value="-1">请选择章节</option>
 
                                 </select>
-                                <input type="text" id="chapter2" placeholder="标题" name="title" maxlength="100" value="" class="txt sm" style="display:none;">
+                              </span>
+
+                                <input type="text" id="chapter2" placeholder="标题" name="section_arr[chapter_id2]" maxlength="100" value="0" class="txt sm" style="display:none;">
                                 <div id="key" style="display:inline-block;">
                                     <a id="add-btn" href="javascript:;">添加章节</a>
                                     <a id="change-chapter" href="javascript:;" style="display:none;">选择章节</a>
@@ -69,8 +72,8 @@
                                 <label>小节标题：</label>
                             </div>
                             <div class="item-cont">
-                                <input type="text" id="title" placeholder="标题" name="title" maxlength="100" value="" class="txt sm">
-                                <input type="text" id="sectionpath" placeholder="视频地址" name="sectionpath" maxlength="100" value="" class="txt sm">
+                                <input type="text" id="title" placeholder="标题" name="section_arr[section_name]" maxlength="100" value="" class="txt sm">
+                                <input type="text" id="sectionpath" placeholder="视频地址" name="section_arr[section_path]" maxlength="100" value="" class="txt sm">
                             </div>
                         </div>
                         <div class="form-item">
@@ -96,7 +99,7 @@
                         </div>
                         <div class="form-item">
                             <div class="item-cont">
-                                <input type="button" id="FeedbackButton" class="btn btn-primary infoBtn" value="提交" jktag="&amp;posOper=60017&amp;posArea=0003">
+                                <input type="submit" id="FeedbackButton" class="btn btn-primary infoBtn" value="提交" jktag="&amp;posOper=60017&amp;posArea=0003">
                             </div>
                         </div>
                     </fieldset>
@@ -164,7 +167,7 @@ xmlhttp.onreadystatechange=function()
 
       json = eval(data);
 
-    var html='<select class="select" id="chapter" name="title">';
+    var html='<select class="select" id="chapter1" name="section_arr[chapter_id1]">';
   for(var i=0; i<json.length; i++)
   {
     html=html+'<option value="'+json[i].chapter_id+'">'+json[i].chapter_name+'</option>';
@@ -172,7 +175,7 @@ xmlhttp.onreadystatechange=function()
   }
   html=html+'</select>';
   //alert(html);
-  document.getElementById("chapter").innerHTML=html;
+  document.getElementById("chapter0").innerHTML=html;
  }
   }
 xmlhttp.open("GET","<?php echo base_url().'center/ajax_getcharter/'?>"+courser_id,true);

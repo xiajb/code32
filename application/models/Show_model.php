@@ -25,6 +25,16 @@ class Show_model extends Ci_Model
 		$row=$query->result_array();
 		return $row;
 	}
+	function getsection_orderbyid($id){
+		$this->load->database();
+		$this->db->select_max('ci_section.order_no');
+		$this->db->join('ci_chapter','ci_chapter.chapter_id=ci_section.chapter_id');
+		$this->db->where('ci_chapter.course_id',$id);
+		$query=$this->db->get('ci_section');
+	
+		$row=$query->result_array();
+		return $row;
+	}
 	function showcoursebyclassifyid($direction_id,$classify_id,$is_easy,$offset,$per_page){
 			$this->load->database();
 			if($classify_id>0){
