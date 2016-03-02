@@ -8,7 +8,7 @@ class User extends CI_Controller {
 
 	}
 	
-	public function index()
+	public function data()
 	{
 		$data['current'] = array('data_back'=>'',
 			'user_manage'=>'current',
@@ -35,12 +35,13 @@ class User extends CI_Controller {
 			 );
 		$page_config['perpage']=2;   //每页条数
 		$page_config['part']=2;//当前页前后链接数量
-		$page_config['url']='/admin/user';//url
-		$page_config['seg']=3;//参数取 index.php之后的段数，默认为3，即index.php/control/function/18 这种形式
+		$page_config['url']='/admin/user/data';//url
+		$page_config['seg']=4;//参数取 index.php之后的段数，默认为3，即index.php/control/function/18 这种形式
 		$page_config['nowindex']=$this->uri->segment($page_config['seg']) ? $this->uri->segment($page_config['seg']):1;//当前页
 		$this->load->library('mypage_class');
 		$page_config['total']=$this->user_model->result_count();
 		$this->mypage_class->initialize($page_config);
+		file_put_contents("/home/tanxu/www/data.txt", 'seg='.$page_config['seg'].'nowindex='.$page_config['nowindex']);
 		if ($page_config['nowindex'] == 1) {
 			$data['result'] = $this->user_model->get_limit((int)$page_config['perpage'],0);
 		}else{
