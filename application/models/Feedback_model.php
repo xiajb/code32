@@ -14,6 +14,18 @@ class Feedback_model extends CI_Model{
 		$query = $this->db->query($sql);
 		return $query->result_array();
 	}
+
+	public function get_limit($first,$num){
+		$query = $this->db->select('*')
+			        ->limit($first, $num)
+			        ->get(self::TBL_USER);
+		return $query->result_array();
+	}
+
+	public function result_count(){
+		return $this->db->count_all(self::TBL_USER);
+	}
+	
 	public function delete($id){
 		$this->db->delete(self::TBL_USER, array('feedback' => $id));
 	}

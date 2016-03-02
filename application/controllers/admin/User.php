@@ -41,7 +41,6 @@ class User extends CI_Controller {
 		$this->load->library('mypage_class');
 		$page_config['total']=$this->user_model->result_count();
 		$this->mypage_class->initialize($page_config);
-		file_put_contents("/home/tanxu/www/data.txt", 'seg='.$page_config['seg'].'nowindex='.$page_config['nowindex']);
 		if ($page_config['nowindex'] == 1) {
 			$data['result'] = $this->user_model->get_limit((int)$page_config['perpage'],0);
 		}else{
