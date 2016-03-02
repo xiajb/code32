@@ -45,25 +45,28 @@ class Required_model extends CI_Model{
 	}
 
 	public function get_num_course($status,$first,$num){
-		if ($status == '') {
-			$query = $this->db->select('*')
-			        ->limit($first, $num)
-			        ->get(self::TBL_USER);
-		}else{
-			$query = $this->db->select('*')
-			        ->where('status', $status)
-			        ->limit($first, $num)
-			        ->get(self::TBL_USER);
-		}
-		// $sql = 'select * from ci_required where status = 1 order by required_id limit '.$first.','.$num;
-  //                         $query = $this->db->query($sql);
+		// if ($status == '') {
+		// 	$query = $this->db->select('*')
+		// 	        ->limit($first, $num)
+		// 	        ->get(self::TBL_USER);
+		// }else{
+		// 	$query = $this->db->select('*')
+		// 	        ->where('status', $status)
+		// 	        ->limit($first, $num)
+		// 	        ->get(self::TBL_USER);
+		// }
+
+		$sql = 'select * from ci_required where status = '.$status.' order by required_id limit '.$num.','.$first;
+                          $query = $this->db->query($sql);
                           // file_put_contents("/home/tanxu/www/data.txt", print_r($query->result_array(),true));
                           return $query->result_array();
 	}
 
 	public function get_num($first,$num){
-		return $this->db->limit($first,$num);
-                          
+			$query = $this->db->select('*')
+			        ->limit($first, $num)
+			        ->get(self::TBL_USER);
+                          return $query->result_array();
 	}
 	//根据状态值，取当前状态下的记录条数
 	public function result_acount_status($status){

@@ -45,10 +45,10 @@ class Required extends CI_Controller {
 		$page_config['total']=$this->required_model->result_acount_status('');
 		$this->mypage_class->initialize($page_config);
 		if ((int)$page_config['nowindex'] == 1) {
-			$data['result'] = $this->required_model->get_num_course('',(int)$page_config['perpage'],0);
+			$data['result'] = $this->required_model->get_num((int)$page_config['perpage'],0);
 		}else{
 			$firstcount = ((int)$page_config['nowindex']-1) * (int)$page_config['perpage'];
-			$data['result'] = $this->required_model->get_num_course('',(int)$page_config['perpage'],$firstcount);
+			$data['result'] = $this->required_model->get_num((int)$page_config['perpage'],$firstcount);
 		}
 		$this->load->view('admin/admin_header.html',$data);
 		$this->load->view('admin/admin_required_all.html');
@@ -99,7 +99,7 @@ class Required extends CI_Controller {
 		$this->load->view('admin/admin_required_nopass.html');
 	}
 
-	public function check()
+	public function wait()
 	{
 		$data['current'] = array('data_back'=>'',
 			'user_manage'=>'',
@@ -131,10 +131,13 @@ class Required extends CI_Controller {
 		$page_config['seg']=4;//参数取 index.php之后的段数，默认为3，即index.php/control/function/18 这种形式
 		$page_config['nowindex']=$this->uri->segment($page_config['seg']) ? $this->uri->segment($page_config['seg']):1;//当前页
 		$this->load->library('mypage_class');
-		$page_config['total']=$this->required_model->result_acount_status(0);
+		$page_config['total']=count($this->required_model->query_by_check());
+		// file_put_contents("/home/tanxu/www/data.txt", $page_config['total']);
 		$this->mypage_class->initialize($page_config);
 		if ((int)$page_config['nowindex'] == 1) {
 			$data['check'] = $this->required_model->get_num_course(0,(int)$page_config['perpage'],0);
+					file_put_contents("/home/tanxu/www/data.txt", print_r($data['check'],true));
+
 		}else{
 			$firstcount = ((int)$page_config['nowindex']-1) * (int)$page_config['perpage'];
 			$data['check'] = $this->required_model->get_num_course(0,(int)$page_config['perpage'],$firstcount);
