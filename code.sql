@@ -144,7 +144,8 @@ CREATE TABLE IF NOT EXISTS `ci_direction` (
 --
 
 CREATE TABLE IF NOT EXISTS `ci_elective` (
-  `elective_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'primary key,autoincrement',
+  `elective_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'primary key,autoincrement',   22
+  `classify_id` int(10) NOT NULL DEFAULT '0' COMMENT 'classify_id',
   `name` varchar(50) NOT NULL DEFAULT '0' COMMENT '课程名',
   `title` varchar(50) NOT NULL DEFAULT '0' COMMENT '标题',
   `detail` varchar(50) NOT NULL DEFAULT '0' COMMENT '介绍',
@@ -175,12 +176,14 @@ CREATE TABLE IF NOT EXISTS `ci_lecturer` (
 --
 -- 表的结构 `ci_required`
 --
+  -- `stage` varchar(50) NOT NULL DEFAULT '0' COMMENT '阶段',
+  -- `grade` varchar(50) NOT NULL DEFAULT '0' COMMENT '年级',
+  -- `subject` varchar(50) NOT NULL DEFAULT '0' COMMENT '科目',
 
 CREATE TABLE IF NOT EXISTS `ci_required` (
   `required_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'primary key,autoincrement',
-  `stage` varchar(50) NOT NULL DEFAULT '0' COMMENT '阶段',
-  `grade` varchar(50) NOT NULL DEFAULT '0' COMMENT '年级',
-  `subject` varchar(50) NOT NULL DEFAULT '0' COMMENT '科目',
+  `classify_id` int(10) NOT NULL DEFAULT '0' COMMENT 'classify_id',
+  `name` varchar(50) NOT NULL DEFAULT '0' COMMENT '课程名',
   `title` varchar(50) NOT NULL DEFAULT '0' COMMENT '标题',
   `detail` varchar(50) NOT NULL DEFAULT '0' COMMENT '介绍',
   `teacher` varchar(50) NOT NULL DEFAULT '0' COMMENT '老师',
@@ -229,6 +232,7 @@ CREATE TABLE IF NOT EXISTS `ci_section` (
 
 CREATE TABLE IF NOT EXISTS `ci_skill` (
   `skill_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'primary key,autoincrement',
+  `classify_id` int(10) NOT NULL DEFAULT '0' COMMENT 'classify_id',
   `name` varchar(50) NOT NULL DEFAULT '0' COMMENT '课程名',
   `title` varchar(50) NOT NULL DEFAULT '0' COMMENT '标题',
   `detail` varchar(50) NOT NULL DEFAULT '0' COMMENT '介绍',
