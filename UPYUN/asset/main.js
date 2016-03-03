@@ -39,6 +39,7 @@ var uploader = new plupload.Uploader({
 		FilesAdded: function(up, files) {
 			plupload.each(files, function(file) {
 				document.getElementById('filelist').innerHTML += '<div id="' + file.id + '">' + file.name + ' (' + plupload.formatSize(file.size) + ') <b></b></div>';
+				document.getElementById('title').value=file.name;
 			});
 		},
 
