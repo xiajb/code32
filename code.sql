@@ -91,12 +91,13 @@ CREATE TABLE IF NOT EXISTS `ci_classify` (
 CREATE TABLE IF NOT EXISTS `ci_course` (
   `course_id` int(11) NOT NULL,
   `course_name` varchar(11) COLLATE utf8_bin NOT NULL,
-  `course_synopsis` text COLLATE utf8_bin NOT NULL,
+  `course_synopsis` text COLLATE utf8_bin NOT NULL,    简介
   `classify_id` int(11) NOT NULL,
   `course_lectruer_id` int(11) NOT NULL,
   `course_level` varchar(10) COLLATE utf8_bin NOT NULL,
-  `attentions` int(11) NOT NULL,
+  `attentions` int(11) NOT NULL,   关注人数
   `enrolls` int(11) NOT NULL,
+  `status` int(11) NOT NULL,
   `img_path` varchar(1000) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`course_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -105,14 +106,14 @@ CREATE TABLE IF NOT EXISTS `ci_course` (
 -- 转存表中的数据 `ci_course`
 --
 
--- INSERT INTO `ci_course` (`course_id`, `course_name`, `course_synopsis`, `classify_id`, `course_lectruer_id`, `course_level`, `attentions`, `enrolls`, `img_path`) VALUES
--- (1, 'PHP', '0', 0, 0, '', 0, 0, ''),
--- (2, 'HTML+CSS基础课', '本课程从最基本的概念开始讲起，步步深入，带领大家学习HTML、CSS样式基础知识，了解各种常用标签的意义以及基本用法，后半部分讲解CSS样式代码添加，为后面的案例课程打下基础。', 1, 0, '初级', 0, 0, 'http://img.imooc.com/529dc3380001379906000338-240-135.jpg'),
--- (3, '网页布局基础', '网页布局是进行网页制作的基础。本课程将讲解CSS中三种定位机制——标准文档流、浮动和绝对定位，并对标准文档流、盒子模型、float属性以及position属性等进行详细分析。从晦涩的理论讲解到编辑器环境的逐步验证，让你彻底掌握网页布局的相关知识。', 1, 0, '初级', 0, 0, 'http://img.imooc.com/53eafb44000146c706000338-240-135.jpg'),
--- (4, '手把手教你实现电商网站', '课程介绍\r\n电商网站基本制作流程，通过整站分步的教学让学员了解和掌握电商网站制作的流程和注意事项，运用网站内学过的知识点的连接掌握整站的开发过程，增加开发经验。', 1, 0, '高级', 0, 0, 'http://img.imooc.com/53c4bf8200011aac06000338-240-135.jpg'),
--- (5, '如何用CSS进行网页布', '如何用CSS进行网页布局？这可是前端工程师最最基本的技能，本课程教你怎么制作一列布局、二列布局、三列布局当然还有最通用的混合布局，而且你还可以选择让它固定还是自适应。用CSS重新规划你的网页，让你的网页从此更美观、更友好。', 1, 0, '中级', 0, 0, 'http://img.imooc.com/53eafb7a0001828906000338-240-135.jpg'),
--- (6, 'JjavaScript', '本课程让您快速认识JavaScript，熟悉基本语法、窗口交互方法和通过DOM进行网页元素的操作，学会如何编写JS代码，如何运用JavaScript去操作HTML元素和CSS样式，为JavaScript深入学习打下基础。', 2, 0, '初级', 0, 0, 'http://img.imooc.com/53e1d0470001ad1e06000338-240-135.jpg'),
--- (7, 'impress让你的内', '本课程讲解一个功能强大的制作演示文稿的工具，他叫做impress.js，如果你已经厌烦了PPT，那么不妨开始学习使用impress.js，他将会使你随便设置几个参数就能实现效果炫酷吊炸天的演示文稿', 2, 0, '初级', 0, 0, 'http://img.imooc.com/5386fece00016e0006000338-240-135.jpg');
+-- INSERT INTO `ci_course` (`course_id`, `course_name`, `course_synopsis`, `classify_id`, `course_lectruer_id`, `course_level`, `attentions`, `enrolls`, `status`, `img_path`) VALUES
+-- (1, 'PHP', '0', 0, 0, '', 0, 0, 0,''),
+-- (2, 'HTML+CSS基础课', '本课程从最基本的概念开始讲起，步步深入，带领大家学习HTML、CSS样式基础知识，了解各种常用标签的意义以及基本用法，后半部分讲解CSS样式代码添加，为后面的案例课程打下基础。', 1, 0, '初级', 0, 0, 1, 'http://img.imooc.com/529dc3380001379906000338-240-135.jpg'),
+-- (3, '网页布局基础', '网页布局是进行网页制作的基础。本课程将讲解CSS中三种定位机制——标准文档流、浮动和绝对定位，并对标准文档流、盒子模型、float属性以及position属性等进行详细分析。从晦涩的理论讲解到编辑器环境的逐步验证，让你彻底掌握网页布局的相关知识。', 1, 0, '初级', 0, 0, 1, 'http://img.imooc.com/53eafb44000146c706000338-240-135.jpg'),
+-- (4, '手把手教你实现电商网站', '课程介绍\r\n电商网站基本制作流程，通过整站分步的教学让学员了解和掌握电商网站制作的流程和注意事项，运用网站内学过的知识点的连接掌握整站的开发过程，增加开发经验。', 1, 0, '高级', 0, 0, 1, 'http://img.imooc.com/53c4bf8200011aac06000338-240-135.jpg'),
+-- (5, '如何用CSS进行网页布', '如何用CSS进行网页布局？这可是前端工程师最最基本的技能，本课程教你怎么制作一列布局、二列布局、三列布局当然还有最通用的混合布局，而且你还可以选择让它固定还是自适应。用CSS重新规划你的网页，让你的网页从此更美观、更友好。', 1, 0, '中级', 0, 0, 1, 'http://img.imooc.com/53eafb7a0001828906000338-240-135.jpg'),
+-- (6, 'JjavaScript', '本课程让您快速认识JavaScript，熟悉基本语法、窗口交互方法和通过DOM进行网页元素的操作，学会如何编写JS代码，如何运用JavaScript去操作HTML元素和CSS样式，为JavaScript深入学习打下基础。', 2, 0, '初级', 0, 0, 1, 'http://img.imooc.com/53e1d0470001ad1e06000338-240-135.jpg'),
+-- (7, 'impress让你的内', '本课程讲解一个功能强大的制作演示文稿的工具，他叫做impress.js，如果你已经厌烦了PPT，那么不妨开始学习使用impress.js，他将会使你随便设置几个参数就能实现效果炫酷吊炸天的演示文稿', 2, 0, '初级', 0, 0, 1, 'http://img.imooc.com/5386fece00016e0006000338-240-135.jpg');
 
 -- --------------------------------------------------------
 
