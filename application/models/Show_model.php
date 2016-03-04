@@ -66,6 +66,7 @@ class Show_model extends Ci_Model
 	 		return $arr=array($row,$total);
 
 	}
+	
 }
 
 
