@@ -10,40 +10,30 @@
 
                 <div class="input">
                     <label for="select">课程类别</label>
-                    <select name="stage" id="stage">
-                        <option value="小学">小学</option>
-                        <option value="初中">初中</option>
-                        <option value="高中">高中</option>
+                    <select name="direction" id="direction">
+                        <option value="-1">--课程类别</option>
+                        <option value="1">选修课程</option>
+                        <option value="2">必修课程</option>
+                        <option value="3">技能课程</option>
                     </select>
                     Some informations on how to use this field
                 </div>
                 <div class="input">
                     <label for="select">课程选择</label>
-                    <select name="grade" id="grade">
-                        <option value="一年级">一年级</option>
-                        <option value="二年级">二年级</option>
-                        <option value="三年级">三年级</option>
-                        <option value="四年级">四年级</option>
-                        <option value="五年级">五年级</option>
-                        <option value="六年级">六年级</option>
-                        <option value="初一">初一</option>
-                        <option value="初二">初二</option>
-                        <option value="初三">初三</option>
-                        <option value="高一">高一</option>
-                        <option value="高二">高二</option>
-                        <option value="高三">高三</option>
-
+                    <select name="classify" id="classify">
+                        <option value="-1">--课程选择</option>
                     </select>
                     Some informations on how to use this field
                 </div>
 
                 <div class="input">
                     <label for="input1">课程名</label>
-                    <input type="text"  id="title" placeholder="标题" name="title" /> Some informations on how to use this field
+                    <input type="text"  id="name" placeholder="课程名" name="name" /> Some informations on how to use this field
                 </div>
                 <div class="input">
                     <label for="select">老师</label>
                     <select name="teacher" id="teacher">
+                    <option value="-1">--老师选择</option>
                         <?php foreach($teacher as $res) : ?>
                         <option value="<?php echo $res['tid'] ?>">
                             <?php echo $res['name'] ?>
@@ -139,9 +129,9 @@ uploader.init();
 $("#button").click(function() {
     console.log($("#picname").html());
     var value = {
-        "stage": $("#stage").val(),
-        "grade": $("#grade").val(),
-        "subject": $("#subject").val(),
+        // "direction": $("#direction").val(),
+        "classify_id": $("#classify").val(),
+        "course_name": $("#name").val(),
         "title": $("#title").val(),
         "detail": $("#detail").val(),
         "img": $("#picname").html()
@@ -154,6 +144,20 @@ $("#button").click(function() {
 
         success: function(result) {
             console.log(result);
+        }
+    });
+});
+
+$("#direction").change(function(){
+    $.ajax({
+        type: 'POST',
+        url: "<?php echo base_url('./admin/course/get_classify'); ?>",
+        data: 'data=' + $("#direction").val(),
+
+        success: function(result) {
+           if (result != '') {
+                $('#classify').html(result);
+           }
         }
     });
 });

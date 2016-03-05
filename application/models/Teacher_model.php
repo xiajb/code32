@@ -15,9 +15,11 @@ class Teacher_model extends CI_Model{
 		return $query->result_array();
 	}
 
-	public function query_admin_add(){
-		$sql = 'select * from ci_teacher where "check"=2';
-		$query = $this->db->query($sql);
+	public function get_by_check($status){
+		$this->db->where("check",$status);
+		// $sql = 'select * from ci_teacher where check=2';
+		// $query = $this->db->query($sql);
+		$query = $this->db->get(self::TBL_USER);
 		return $query->result_array();
 	}
 

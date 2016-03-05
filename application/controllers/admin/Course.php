@@ -134,8 +134,7 @@ class Course extends CI_Controller {
 
 	public function add()
 	{
-		$data['teacher'] = $this->teacher_model->query_admin_add();
-
+		$data['teacher'] = $this->teacher_model->get_by_check(2);
 		$data['current'] = array('data_back'=>'',
 			'user_manage'=>'',
 			'user_data' =>'' ,
@@ -178,6 +177,18 @@ class Course extends CI_Controller {
 	public function delete(){
 		$id = $_POST['value'];
 		echo $this->course_model->delete($id);
+	}
+
+	public function get_classify(){
+		$value = $_POST['data'];
+		$value = $this->security->xss_clean($value);
+		$row = $this->classify_model->Show_classify_byid($value);
+		// echo json_encode($row);
+		$string = '';
+		for ($i=0; $i < count($row); $i++) { 
+			$string.= '<option value="'.$row[$i]['classify_id'].'">'.$row[$i]['classify_name'].'</option>';
+		}
+		echo $string;
 	}
 
 	public function upload_pic(){
