@@ -8,6 +8,7 @@ class Center extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 			$this->load->model('section_model');
+			$this->load->model('Chapter_model');
 		$this->load->helper('date');
 		$this->load->model('show_model');
 		$this->load->model('course_model');
@@ -257,12 +258,13 @@ class Center extends CI_Controller {
 			if ($section_arr['chapter_id2']=='0') {
 				$section_arr['chapter_id']=$section_arr['chapter_id1'];
 			}else{
-
-
+		$chapter_arr['order_no']=$this->Chapter_model->getchapter_orderbyid($section_arr['course_id'])[0]['order_no']+1;
+			$chapter_arr['chapter_name']=$section_arr['chapter_id2'];
+			$chapter_arr['course_id']=$section_arr['course_id'];
+			$section_arr['chapter_id']=$this->Chapter_model->add_chapter($chapter_arr);
 			};
 			unset($section_arr['course_id'],$section_arr['chapter_id1'],$section_arr['chapter_id2']);
 			$a=$this->section_model->add_section($section_arr);
-				echo $a;
 			if($a>0){
 				echo '添加成功';
 
