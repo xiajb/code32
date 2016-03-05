@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <!-- saved from url=(0036)http://www.rfgxy.com/lesson/2179/ -->
 <html class=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" charset="utf-8" async="" src="<?php echo base_url().'index/course'?>/saved_resource"></script><script type="text/javascript" charset="utf-8" async="" src="<?php echo base_url().'index/course'?>/crmqq.php"></script><script type="text/javascript" charset="utf-8" async="" src="<?php echo base_url().'index/course'?>/crmqq.php"></script><script type="text/javascript" charset="utf-8" async="" src="<?php echo base_url().'index/course'?>/contains.js"></script><script src="<?php echo base_url().'index/course'?>/gdt.php"></script><script src="<?php echo base_url().'index/course'?>/hm.js"></script><script type="text/javascript" async="" src="<?php echo base_url().'index/course'?>/tongji.js"></script><script type="text/javascript" charset="utf-8" async="" src="<?php echo base_url().'index/course'?>/localStorage.js"></script><script type="text/javascript" charset="utf-8" async="" src="<?php echo base_url().'index/course'?>/Panel.js"></script>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>
@@ -8,7 +9,7 @@
     <meta name="description" content="本课程适合对西门子S7-200PLC硬件结构及逻辑指令有一定了解的学员。本课程重点介绍了模拟量的连线及模块的选择，以及根据采样到的模拟量值如何计算转换成实际的工程量。梁老师课件运用生动形象，最大程度的还原了西门子S7-200PLC的形态，让学员们一目了然，宛如置身课堂。">
     <meta name="keywords" content="儒风国自动化培训网,plc培训教程视频,工控.">
     <link rel="stylesheet" href="<?php echo base_url().'index/course/reset.css'?>">
-    <link rel="stylesheet" href="<?php echo base_url().'index/course/iconfont.css'?>">
+<link rel="stylesheet" href="<?php echo base_url('index/lesson1/css/font/iconfont.css') ?>">
     <link rel="stylesheet" href="<?php echo base_url().'index/course/basic.css'?>">
     <link rel="stylesheet" href="<?php echo base_url().'index/course/style.css'?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'index/course/jquery.fancybox.css'?>" media="screen">
@@ -24,7 +25,117 @@
     <script type="text/javascript">
         var data_role_Miniplay_navbar = 'course-intro'; //导航选中
     </script>
+         <div class="con-wrap con-wrap1">
+        <div class="container con1">
+            <div class="row">
+                <div class="col-xs-24">
+                    <div class="header-top clearfix">
+                        <div class="header-top-left">
+                            <a href="javascript:;" id="btn-addToFav" class="btn-link btn-link6">收藏儒风国</a>
+                            <!-- <a href="http://www.rfgxy.com/v4/" class="btn-link btn-link6 ml15">回到旧版</a> -->
+                        </div>
+                        <div class="header-top-right clearfix">
+                            <!DOCTYPE html>
+                            <?php if (empty($_SESSION['username'])): ?>
+                                    <ul class="l m0" id="login_top_nologin">
+                                        <li>
+                                            <div><a href="http://www.rfgxy.com/login" class="btn-link btn-link6">[请登录]</a></div>
+                                        </li>
+                                        <li>
+                                            <div><a href="http://www.rfgxy.com/register" class="btn-link btn-link6">[免费注册]</a></div>
+                                        </li>
+                                    </ul>
+                                <?php else : ?>
+                                <ul class="l m0" id="login_top_logined">
+                                    <li>
+                                        <b class="cgray6"><?php echo $_SESSION['username']; ?></b>
+                                        <span class="fw" style="color:#188eee">[普通会员]</span>，
+                                        <span class="cgray6">欢迎来儒风国培训！</span><a href="http://www.rfgxy.com/logout" class="btn-link btn-link9">[退出]</a>
+                                    </li>
+                                                                                <li>
+                                                <div><a href="http://www.rfgxy.com/center/mydata?label=jiben" target="_blank" class="btn-link btn-link6">个人中心</a></div>
+
+                                </ul>
+                                 <?php endif; ?>
+                                        <ul class="l m0">
+                                            <!--
+                                <li><div><a href="http://my.rfgxy.com/" target="_blank" class="btn-link btn-link6">学员中心</a></div></li>
+                                -->
+                                            <li>
+                                                <div><a href="http://www.rfgxy.com/lesson1/guide.aspx" target="_blank" class="btn-link btn-link6" style="color:Red;">新手攻略</a></div>
+                                            </li>
+                                            <li>
+                                                    <div><a href="http://www.rfgxy.com/about/us" target="_blank" class="btn-link btn-link6">网站导航</a></div>
+                                            </li>
+                                        </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <style type="text/css">
+    * {
+    margin: 0 auto;
+}
+.pages li{ display:inline;}
+.pages .active a{ border-color:#188EEE; background-color:#188EEE; color:#FFF;}
+body{
+         background-color: white;
+}
+.header {
+    border-bottom: 1px solid #ccc;
+    box-shadow: none;
+}
+.tabs1 .tabs-cont {
+    border: 1px solid #DDD;
+}
+.con-wrap1 {
+    background-color: #f3f3f3;
+    margin-bottom: 0;
+}
+.container {
+    width: 1200px!important;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.row {
+    margin-left: -5px;
+    margin-right: -5px;
+    }
+    .col-xs-24 {
+    width: 100%;
+}
+.header-top {
+    height: 40px;
+    line-height: 40px;
+}
+.header-top-left {
+    float: left;
+}
+.header-top-right {
+    float: right;
+}
+.clearfix {
+    zoom: 1;
+}
+.l {
+    float: left;
+}
+.m0 {
+    margin: 0;
+}
+.header-top-right li {
+    float: left;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 15px;
+}
+.guide-nav {
+    margin-left: 50px;
+}
         .priceP span{font-size:36px;color: #fff799}
         .priceP del{text-decoration: line-through;font-size: 25px;color: #fff;padding: 0 10px;display: inline-block;}
         .kc_span{ margin-top: 10px;}
@@ -113,7 +224,7 @@
             	<li>
                 	<a class="nav-link" href="http://www.rfgxy.com/lesson1/jinpin.aspx">首页</a>
                 </li>
-            	<li class="trigger" data-role="collapsible">
+<!--             	<li class="trigger" data-role="collapsible">
                 	<a class="nav-link" href="http://www.rfgxy.com/lesson/2179/jinpin.aspx"><i class="iconfont f20 b"></i> 栏目</a>
                     <div class="guide-sub-nav dn clearfix">
                     	<dl>
@@ -178,7 +289,7 @@
                             </dd>
                         </dl>
                     </div>
-                </li>
+                </li> -->
                 <li>
                 	<span class="fs pr10 pl10">&gt;</span>
                     <strong class="gray3">选课中心</strong>
@@ -194,9 +305,9 @@
                     <input type="text" name="txtSearch" class="txt-search1" id="txtSearch" placeholder="搜索课程">
                     </div>
                   <a href="javascript:;" class="search-btn searchsubmit btn-search1" id="btn-search1" onfocus="this.blur();">
-                  <i class="iconfont f20"></i></a>
+                  <i class="iconfont f20 icon Hui-iconfont">&#xe665;</i></a>
 
-                <p class="hot-key h20 lh20 mt5">
+<!--                 <p class="hot-key h20 lh20 mt5">
                 	<a href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=%E7%94%B5%E5%B7%A5%E5%9F%BA%E7%A1%80">电工基础</a>
                 	<a href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=PLC">PLC</a>
                 	<a href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=%E6%95%B0%E6%8E%A7">数控</a>
@@ -204,7 +315,7 @@
                 	<a href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=%E5%AD%A6%E4%B9%A0%E6%9C%BA">学习机</a>
                 	<a href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=%E7%BC%96%E7%A8%8B%E6%A1%88%E4%BE%8B">编程案例</a>
                 	<a href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=%E6%A1%88%E4%BE%8B">案例课程</a>
-                </p>
+                </p> -->
             </div>
               <!--搜索框-->
         <script type="text/javascript">
@@ -279,18 +390,7 @@
  </script>
 
 
-           <div class="h-user">
 
-
-
-            <!--未登录-->
-            <div class="login-nav">
-                <a class="mr10" href="http://www.rfgxy.com/newlogin.aspx">用户登录</a> <a class="reg" href="http://www.rfgxy.com/emailregister.aspx">免费注册</a>
-            </div>
-            <!--未登录-->
-
-
-    </div>
         </div>
     </div>
 
@@ -298,30 +398,14 @@
 
 
         <!--header-->
-        <!--navbar-->
 
-<div class="navbar">
-    	<ul class="main-nav inner">
-        	<li class="active"><a href="http://www.rfgxy.com/lesson1/jinpin.aspx">选课中心</a></li>
-        	<li><a href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=%E4%B8%89%E8%8F%B1">三菱视频教程</a></li>
-        	<li><a href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=%E8%A5%BF%E9%97%A8%E5%AD%90">西门子视频教程</a></li>
-        	<li><a href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=%E6%AC%A7%E5%A7%86%E9%BE%99">欧姆龙视频教程</a></li>
-        	<li><a href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=%E5%8F%98%E9%A2%91%E5%99%A8">变频器视频教程</a></li>
-        	<li><a href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=%E7%94%B5%E5%B7%A5">电工基础</a></li>
-        	<li><a href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=%E6%95%B0%E6%8E%A7">数控</a></li>
-        	<li><a href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=%E7%BB%84%E6%80%81">组态/PID</a></li>
-        	<li><a href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=%E6%A1%88%E4%BE%8B">工程案例详解</a></li>
-        </ul>
-   	</div>
-        <!--navbar-->
         <!--container-->
         <div class="container">
             <!--bread-crumb-->
             <!--课程简介-->
             <div class="bread-crumb inner">
                 <a href="http://www.rfgxy.com/">首页</a> <em class="fs">&gt;</em> <a href="http://www.rfgxy.com/lesson1/jinpin.aspx">选课中心
-                </a><em class="fs">&gt;</em> <a href="http://www.rfgxy.com/lesson1/jinpin.aspx">精品课程 </a><em class="fs">
-                    &gt;</em> <span><a href="#">
+                </a><em class="fs">&gt;</em>  <span><a href="#">
                         西门子S7-200PLC模拟量应用篇</a></span>
             </div>
             <!--课程简介-->
@@ -464,9 +548,9 @@
                 <div class="tabs-nav1" data-role="fixed" id="mini-play-navbar">
                     <a data-role="course-intro" class="" href="javascript:;">课程表<em class="badge">试听</em></a>
                     <a data-role="course-syll" href="javascript:;" class="">课程简介</a>
-                    <a data-role="course-comment" href="javascript:;" class="">课程点评 <em class="num"></em></a>
+                    <a data-role="course-comment" href="javascript:;" class="active">课程点评 <em class="num"></em></a>
                     <a data-role="course-discus" href="javascript:;" class="">学习计划 <em class="num"></em></a>
-                    <a data-role="course-discus" href="javascript:;" class="active">会员免费学<em class="hotem"></em></a>
+                    <!-- <a data-role="course-discus" href="javascript:;" class="">会员免费学<em class="hotem"></em></a> -->
                 </div>
             </div>
             <!--bread-crumb-->
@@ -700,7 +784,7 @@
                     <!--看了该课程的人还喜欢-->
                 </div>
                     </div>
-                    <div class="tabConBox hide" style="display: none;">
+                    <div class="tabConBox hide" style="display: block;">
                      <div class="w880 l">
                     <!--热门点评-->
 
@@ -953,7 +1037,7 @@
             </div>
                     </div>
 
-                    <div class="tabConBox hide" style="display: block;">
+                    <div class="tabConBox hide" style="display: none;">
                     <div class="w880 l">
                     <!--服务保障-->
                     <div class="box1">
@@ -1120,542 +1204,8 @@
                         </div>
                     </div>
                     <!--服务保障-->
-                    <!--师资介绍列表版-->
-                    <div class="box1 mt20">
-                        <div class="bhead">
-                            <h3>
-                                师资介绍</h3>
-                        </div>
-                        <div class="pd20" style="padding:20px 14px;">
-                            <div class="oh">
-                                <div class="picScroll-left2">
-                                    <a class="next"></a><a class="prev"></a>
-                                    <div class="bd">
-                                        <div class="tempWrap" style="overflow:hidden; position:relative; width:870px"><ul class="clearfix" style="width: 9280px; position: relative; overflow: hidden; padding: 0px; margin: 0px; left: -290px;"><li class="clone" style="float: left; width: 270px;">
-                                                <p class="tc">
-                                                    <img src="<?php echo base_url().'index/course'?>/20151118150945287.jpg" width="200" height="200" class="img-radius" alt=""></p>
-                                                <p class="colblue f20 tc">
-                                                    阳胜峰</p>
-                                                <p class="f16 gray6 tc">
-                                                    儒风国资深讲师</p>
-                                                <p class="mt20 f14 gray6" style="height:108px; overflow: hidden">
-                                                    </p>
-                                                <p class="tr mt10">
-                                                    <a href="http://www.rfgxy.com/teacher/52.html" class="btn btn-blue1 btn-small">
-                                                        了解更多 <em class="fs">&gt;&gt;</em></a></p>
-                                            </li>
 
-                                            <li style="float: left; width: 270px;">
-                                                <p class="tc">
-                                                    <img src="<?php echo base_url().'index/course'?>/20140227170213743.jpg" width="200" height="200" class="img-radius" alt=""></p>
-                                                <p class="colblue f20 tc">
-                                                    丁先群</p>
-                                                <p class="f16 gray6 tc">
-                                                    儒风国资深讲师</p>
-                                                <p class="mt20 f14 gray6" style="height:108px; overflow: hidden">
-                                                    高级工程师，1998年在国内首先将变频调速技术应用于回转窑主拖动系统，获国家有色金属工业局科技进步奖，并获得国家专利。从事自动化控制和变频器工程应用工作三十多年，具有丰富的现场实践经验。授课实用易懂。</p>
-                                                <p class="tr mt10">
-                                                    <a href="http://www.rfgxy.com/teacher/3.html" class="btn btn-blue1 btn-small">
-                                                        了解更多 <em class="fs">&gt;&gt;</em></a></p>
-                                            </li>
 
-                                            <li style="float: left; width: 270px;">
-                                                <p class="tc">
-                                                    <img src="<?php echo base_url().'index/course'?>/20150313143414822.jpg" width="200" height="200" class="img-radius" alt=""></p>
-                                                <p class="colblue f20 tc">
-                                                    李金城</p>
-                                                <p class="f16 gray6 tc">
-                                                    儒风国资深讲师</p>
-                                                <p class="mt20 f14 gray6" style="height:108px; overflow: hidden">
-                                                    资深高级工程师，儒风国资深培训师。从事职业技术培训工作近三十年，对工控技术的培训，例如PLC、变频器、单片机及机电一体化等有丰富的培训经验。讲课语言通俗、风趣幽默、条理清楚、深入浅出。</p>
-                                                <p class="tr mt10">
-                                                    <a href="http://www.rfgxy.com/teacher/4.html" class="btn btn-blue1 btn-small">
-                                                        了解更多 <em class="fs">&gt;&gt;</em></a></p>
-                                            </li>
-
-                                            <li style="float: left; width: 270px;">
-                                                <p class="tc">
-                                                    <img src="<?php echo base_url().'index/course'?>/20150313143600605.jpg" width="200" height="200" class="img-radius" alt=""></p>
-                                                <p class="colblue f20 tc">
-                                                    梁智斌</p>
-                                                <p class="f16 gray6 tc">
-                                                    儒风国资深讲师</p>
-                                                <p class="mt20 f14 gray6" style="height:108px; overflow: hidden">
-                                                    华南理工大学工程硕士，西门子（中国）有限公司工程师，负责项目设计执行、OEM样机开发，技术支持，客户培训。曾获比亚迪、深圳地铁等大型企业邀请对其相关技术人员进行系统的专业培训，擅长PLC、工业网络、H...</p>
-                                                <p class="tr mt10">
-                                                    <a href="http://www.rfgxy.com/teacher/5.html" class="btn btn-blue1 btn-small">
-                                                        了解更多 <em class="fs">&gt;&gt;</em></a></p>
-                                            </li>
-
-                                            <li style="float: left; width: 270px;">
-                                                <p class="tc">
-                                                    <img src="<?php echo base_url().'index/course'?>/2015031314345219.jpg" width="200" height="200" class="img-radius" alt=""></p>
-                                                <p class="colblue f20 tc">
-                                                    许晓琴</p>
-                                                <p class="f16 gray6 tc">
-                                                    儒风国资深讲师</p>
-                                                <p class="mt20 f14 gray6" style="height:108px; overflow: hidden">
-                                                    高级工程师，儒风国培训金牌讲师，在自控系统的配合安装调试、运行维护、电子设备厂生产线、波峰焊锡、回流焊设备电气控制系统、行业系统集成的电气控制系统设计制作具有丰富的经验。授课细致耐心、通俗易懂。</p>
-                                                <p class="tr mt10">
-                                                    <a href="http://www.rfgxy.com/teacher/6.html" class="btn btn-blue1 btn-small">
-                                                        了解更多 <em class="fs">&gt;&gt;</em></a></p>
-                                            </li>
-
-                                            <li style="float: left; width: 270px;">
-                                                <p class="tc">
-                                                    <img src="<?php echo base_url().'index/course'?>/20150313143253908.jpg" width="200" height="200" class="img-radius" alt=""></p>
-                                                <p class="colblue f20 tc">
-                                                    李文群</p>
-                                                <p class="f16 gray6 tc">
-                                                    儒风国资深讲师</p>
-                                                <p class="mt20 f14 gray6" style="height:108px; overflow: hidden">
-                                                    高级工程师，2006年、2010年被评为“西门子自动化专家”，多年自动化控制技术安装调试、指导培训、维修开发经验，对PLC等工业自动化控制技术，尤其西门子设备运用和培训非常熟练，课程实用性强，让学员高...</p>
-                                                <p class="tr mt10">
-                                                    <a href="http://www.rfgxy.com/teacher/7.html" class="btn btn-blue1 btn-small">
-                                                        了解更多 <em class="fs">&gt;&gt;</em></a></p>
-                                            </li>
-
-                                            <li style="float: left; width: 270px;">
-                                                <p class="tc">
-                                                    <img src="<?php echo base_url().'index/course'?>/20150313142917145.jpg" width="200" height="200" class="img-radius" alt=""></p>
-                                                <p class="colblue f20 tc">
-                                                    付明忠</p>
-                                                <p class="f16 gray6 tc">
-                                                    儒风国资深讲师</p>
-                                                <p class="mt20 f14 gray6" style="height:108px; overflow: hidden">
-                                                    三菱自动化产品资深工程师、三菱认证工程师、三菱FA产品培训师。多年自动化控制技术工程实践经验，同时具备多年自动化专业培训经验，精通FX系列、Q系列、变频器 、伺服、人机等三菱系列自动化产品。</p>
-                                                <p class="tr mt10">
-                                                    <a href="http://www.rfgxy.com/teacher/8.html" class="btn btn-blue1 btn-small">
-                                                        了解更多 <em class="fs">&gt;&gt;</em></a></p>
-                                            </li>
-
-                                            <li style="float: left; width: 270px;">
-                                                <p class="tc">
-                                                    <img src="<?php echo base_url().'index/course'?>/20140227170226266.jpg" width="200" height="200" class="img-radius" alt=""></p>
-                                                <p class="colblue f20 tc">
-                                                    唐倩</p>
-                                                <p class="f16 gray6 tc">
-                                                    儒风国资深讲师</p>
-                                                <p class="mt20 f14 gray6" style="height:108px; overflow: hidden">
-                                                    唐倩：儒风国培训最受学员欢迎讲师之一，曾在某知名汽车企业担任电气工程师多年，后被提拔为电气总工程师。具有可编程控制器设计师中级证书。对一整套非标设备电气设计有着丰富的经验。熟悉欧姆龙PLC、三菱PLC、...</p>
-                                                <p class="tr mt10">
-                                                    <a href="http://www.rfgxy.com/teacher/11.html" class="btn btn-blue1 btn-small">
-                                                        了解更多 <em class="fs">&gt;&gt;</em></a></p>
-                                            </li>
-
-                                            <li style="float: left; width: 270px;">
-                                                <p class="tc">
-                                                    <img src="<?php echo base_url().'index/course'?>/20120814164655709.jpg" width="200" height="200" class="img-radius" alt=""></p>
-                                                <p class="colblue f20 tc">
-                                                    曹卫权</p>
-                                                <p class="f16 gray6 tc">
-                                                    儒风国资深讲师</p>
-                                                <p class="mt20 f14 gray6" style="height:108px; overflow: hidden">
-                                                    高级培训师、工程师，湖南省某高校专业教师，曾受教育部委派到韩国进行技术学习与交流。有着十余年的一线教学与培训经验，承担了南车专兼职安全员电气安全技术培训工作;时代维修电工培训工作;株机公司电工理论培训...</p>
-                                                <p class="tr mt10">
-                                                    <a href="http://www.rfgxy.com/teacher/22.html" class="btn btn-blue1 btn-small">
-                                                        了解更多 <em class="fs">&gt;&gt;</em></a></p>
-                                            </li>
-
-                                            <li style="float: left; width: 270px;">
-                                                <p class="tc">
-                                                    <img src="<?php echo base_url().'index/course'?>/20140227170239985.jpg" width="200" height="200" class="img-radius" alt=""></p>
-                                                <p class="colblue f20 tc">
-                                                    曾鑫</p>
-                                                <p class="f16 gray6 tc">
-                                                    儒风国资深讲师</p>
-                                                <p class="mt20 f14 gray6" style="height:108px; overflow: hidden">
-                                                    儒风国(自动化)培训讲师、儒风国培训学员最受欢迎辅导老师之一。曾在某轮胎有限公司担任技术员多年，负责厂里自动化设备改造工作。之后主要从事非标设备的生产工作，在儒风国接受多年专业培训，熟悉三菱fx系列PLC、...</p>
-                                                <p class="tr mt10">
-                                                    <a href="http://www.rfgxy.com/teacher/24.html" class="btn btn-blue1 btn-small">
-                                                        了解更多 <em class="fs">&gt;&gt;</em></a></p>
-                                            </li>
-
-                                            <li style="float: left; width: 270px;">
-                                                <p class="tc">
-                                                    <img src="<?php echo base_url().'index/course'?>/20140227170201881.jpg" width="200" height="200" class="img-radius" alt=""></p>
-                                                <p class="colblue f20 tc">
-                                                    陈胜</p>
-                                                <p class="f16 gray6 tc">
-                                                    儒风国资深讲师</p>
-                                                <p class="mt20 f14 gray6" style="height:108px; overflow: hidden">
-                                                    儒风国培训辅导员，2011年计算机网络专业毕业，同年8月为儒风国银牌学员，开始接触自动化相关工作，2013年在经过面试成为儒风国一份子， PLC使用及编程经验丰富更擅长与动手操作，为客户解决各类难题！</p>
-                                                <p class="tr mt10">
-                                                    <a href="http://www.rfgxy.com/teacher/26.html" class="btn btn-blue1 btn-small">
-                                                        了解更多 <em class="fs">&gt;&gt;</em></a></p>
-                                            </li>
-
-                                            <li style="float: left; width: 270px;">
-                                                <p class="tc">
-                                                    <img src="<?php echo base_url().'index/course'?>/20150313142316662.jpg" width="200" height="200" class="img-radius" alt=""></p>
-                                                <p class="colblue f20 tc">
-                                                    刘奕华</p>
-                                                <p class="f16 gray6 tc">
-                                                    儒风国资深讲师</p>
-                                                <p class="mt20 f14 gray6" style="height:108px; overflow: hidden">
-                                                    中国自动化行业权威领军人，国际著名高级工程师，广州机电行业协会秘书长、广东省自动化学会理事长，儒风国科技有限公司首席技术顾问，刘奕华老师授课将理论与工程实际相结合，课程应用性强，授课激情洋溢、深入浅出，...</p>
-                                                <p class="tr mt10">
-                                                    <a href="http://www.rfgxy.com/teacher/9.html" class="btn btn-blue1 btn-small">
-                                                        了解更多 <em class="fs">&gt;&gt;</em></a></p>
-                                            </li>
-
-                                            <li style="float: left; width: 270px;">
-                                                <p class="tc">
-                                                    <img src="<?php echo base_url().'index/course'?>/20150313143649300.jpg" width="200" height="200" class="img-radius" alt=""></p>
-                                                <p class="colblue f20 tc">
-                                                    张文修</p>
-                                                <p class="f16 gray6 tc">
-                                                    儒风国资深讲师</p>
-                                                <p class="mt20 f14 gray6" style="height:108px; overflow: hidden">
-                                                    西安理工大学自动化学院教授，中国电工技术学会微特电机专业委员会委员，深圳市节能协会理事</p>
-                                                <p class="tr mt10">
-                                                    <a href="http://www.rfgxy.com/teacher/10.html" class="btn btn-blue1 btn-small">
-                                                        了解更多 <em class="fs">&gt;&gt;</em></a></p>
-                                            </li>
-
-                                            <li style="float: left; width: 270px;">
-                                                <p class="tc">
-                                                    <img src="<?php echo base_url().'index/course'?>/20120814164634206.jpg" width="200" height="200" class="img-radius" alt=""></p>
-                                                <p class="colblue f20 tc">
-                                                    张文初</p>
-                                                <p class="f16 gray6 tc">
-                                                    儒风国资深讲师</p>
-                                                <p class="mt20 f14 gray6" style="height:108px; overflow: hidden">
-                                                    高级工程师，讲师，武汉理工大学工程硕士。从事职业技术培训教学工作近二十年，对电子技术的培训，例如模拟电路、数字电路、高频线路、单片机技术等有丰富的培训经验。讲课语言通俗、条理清晰、深入浅出。</p>
-                                                <p class="tr mt10">
-                                                    <a href="http://www.rfgxy.com/teacher/23.html" class="btn btn-blue1 btn-small">
-                                                        了解更多 <em class="fs">&gt;&gt;</em></a></p>
-                                            </li>
-
-                                            <li style="float: left; width: 270px;">
-                                                <p class="tc">
-                                                    <img src="<?php echo base_url().'index/course'?>/20121224102218502.jpg" width="200" height="200" class="img-radius" alt=""></p>
-                                                <p class="colblue f20 tc">
-                                                    潘昱凡</p>
-                                                <p class="f16 gray6 tc">
-                                                    儒风国资深讲师</p>
-                                                <p class="mt20 f14 gray6" style="height:108px; overflow: hidden">
-                                                    高级工程师，毕业于中南大学，接受过德国西门子公司系统技术培训.潘工多年来一直从事自动化控制技术工作，在自动化系统工程项目和机械设备自动控制的设计、安装、调试等方面，既有扎实的理论基础，又有丰富的现场实...</p>
-                                                <p class="tr mt10">
-                                                    <a href="http://www.rfgxy.com/teacher/27.html" class="btn btn-blue1 btn-small">
-                                                        了解更多 <em class="fs">&gt;&gt;</em></a></p>
-                                            </li>
-
-                                            <li style="float: left; width: 270px;">
-                                                <p class="tc">
-                                                    <img src="<?php echo base_url().'index/course'?>/20121229104326948.jpg" width="200" height="200" class="img-radius" alt=""></p>
-                                                <p class="colblue f20 tc">
-                                                    陈芳</p>
-                                                <p class="f16 gray6 tc">
-                                                    儒风国资深讲师</p>
-                                                <p class="mt20 f14 gray6" style="height:108px; overflow: hidden">
-                                                    国内著名数控专家，深圳职业技术学院副教授，精通FANUC数控系统设计。授课讲解系统，由浅入深</p>
-                                                <p class="tr mt10">
-                                                    <a href="http://www.rfgxy.com/teacher/28.html" class="btn btn-blue1 btn-small">
-                                                        了解更多 <em class="fs">&gt;&gt;</em></a></p>
-                                            </li>
-
-                                            <li style="float: left; width: 270px;">
-                                                <p class="tc">
-                                                    <img src="<?php echo base_url().'index/course'?>/20130313105811920.jpg" width="200" height="200" class="img-radius" alt=""></p>
-                                                <p class="colblue f20 tc">
-                                                    刘彤</p>
-                                                <p class="f16 gray6 tc">
-                                                    儒风国资深讲师</p>
-                                                <p class="mt20 f14 gray6" style="height:108px; overflow: hidden">
-                                                    刘彤，硕士研究生毕业，控制理论与控制工程专业，工程师，讲师。1993年参加工作，先后从事过进口设备维修和管理、非标研制、生产线改造、盾构机电气设计等工作。主讲嵌入式系统技术应用、单片机技术应用、电子E...</p>
-                                                <p class="tr mt10">
-                                                    <a href="http://www.rfgxy.com/teacher/33.html" class="btn btn-blue1 btn-small">
-                                                        了解更多 <em class="fs">&gt;&gt;</em></a></p>
-                                            </li>
-
-                                            <li style="float: left; width: 270px;">
-                                                <p class="tc">
-                                                    <img src="<?php echo base_url().'index/course'?>/20140227170149752.jpg" width="200" height="200" class="img-radius" alt=""></p>
-                                                <p class="colblue f20 tc">
-                                                    马乐</p>
-                                                <p class="f16 gray6 tc">
-                                                    儒风国资深讲师</p>
-                                                <p class="mt20 f14 gray6" style="height:108px; overflow: hidden">
-                                                    多年从事工业自动化工作，参加过多个中大型自动化控制系统的设计与实施，有着丰富的现场经验，熟练掌握西门子S7-300、S7-200PLC，以及上位组态软件WinCC的使用。</p>
-                                                <p class="tr mt10">
-                                                    <a href="http://www.rfgxy.com/teacher/34.html" class="btn btn-blue1 btn-small">
-                                                        了解更多 <em class="fs">&gt;&gt;</em></a></p>
-                                            </li>
-
-                                            <li style="float: left; width: 270px;">
-                                                <p class="tc">
-                                                    <img src="<?php echo base_url().'index/course'?>/20131223140843168.jpg" width="200" height="200" class="img-radius" alt=""></p>
-                                                <p class="colblue f20 tc">
-                                                    工控老鬼</p>
-                                                <p class="f16 gray6 tc">
-                                                    儒风国资深讲师</p>
-                                                <p class="mt20 f14 gray6" style="height:108px; overflow: hidden">
-                                                    工控老鬼，资深的西门子专家</p>
-                                                <p class="tr mt10">
-                                                    <a href="http://www.rfgxy.com/teacher/35.html" class="btn btn-blue1 btn-small">
-                                                        了解更多 <em class="fs">&gt;&gt;</em></a></p>
-                                            </li>
-
-                                            <li style="float: left; width: 270px;">
-                                                <p class="tc">
-                                                    <img src="<?php echo base_url().'index/course'?>/20150511162952865.jpg" width="200" height="200" class="img-radius" alt=""></p>
-                                                <p class="colblue f20 tc">
-                                                    汪周银</p>
-                                                <p class="f16 gray6 tc">
-                                                    儒风国资深讲师</p>
-                                                <p class="mt20 f14 gray6" style="height:108px; overflow: hidden">
-                                                    汪周银，1946.11出生，中南大学本科毕业，副教授／工程师，主要研究方向：机械工程。原湖南冶金职业技术学院机械工程系党支部书记，在机械类专业任教40余年，曾被评为湖南省省级教学名师，在国内各类期刊发...</p>
-                                                <p class="tr mt10">
-                                                    <a href="http://www.rfgxy.com/teacher/36.html" class="btn btn-blue1 btn-small">
-                                                        了解更多 <em class="fs">&gt;&gt;</em></a></p>
-                                            </li>
-
-                                            <li style="float: left; width: 270px;">
-                                                <p class="tc">
-                                                    <img src="<?php echo base_url().'index/course'?>/20151118134419235.jpg" width="200" height="200" class="img-radius" alt=""></p>
-                                                <p class="colblue f20 tc">
-                                                    ABB工程师</p>
-                                                <p class="f16 gray6 tc">
-                                                    儒风国资深讲师</p>
-                                                <p class="mt20 f14 gray6" style="height:108px; overflow: hidden">
-                                                    </p>
-                                                <p class="tr mt10">
-                                                    <a href="http://www.rfgxy.com/teacher/37.html" class="btn btn-blue1 btn-small">
-                                                        了解更多 <em class="fs">&gt;&gt;</em></a></p>
-                                            </li>
-
-                                            <li style="float: left; width: 270px;">
-                                                <p class="tc">
-                                                    <img src="<?php echo base_url().'index/course'?>/man.gif" width="200" height="200" class="img-radius" alt=""></p>
-                                                <p class="colblue f20 tc">
-                                                    叶晖</p>
-                                                <p class="f16 gray6 tc">
-                                                    儒风国资深讲师</p>
-                                                <p class="mt20 f14 gray6" style="height:108px; overflow: hidden">
-                                                    华南理工大学 拥有机器人应用工程硕士学位 机电工程师 维修电工质量职称。 曾任职于东风本田发动机有限公司，西门子，ABB，精通发动机生产线相关设备的保养与维护，包括数控机床、压铸机、检漏仪、拉床、淬火...</p>
-                                                <p class="tr mt10">
-                                                    <a href="http://www.rfgxy.com/teacher/38.html" class="btn btn-blue1 btn-small">
-                                                        了解更多 <em class="fs">&gt;&gt;</em></a></p>
-                                            </li>
-
-                                            <li style="float: left; width: 270px;">
-                                                <p class="tc">
-                                                    <img src="<?php echo base_url().'index/course'?>/20150703144520831.jpg" width="200" height="200" class="img-radius" alt=""></p>
-                                                <p class="colblue f20 tc">
-                                                    刘成林</p>
-                                                <p class="f16 gray6 tc">
-                                                    儒风国资深讲师</p>
-                                                <p class="mt20 f14 gray6" style="height:108px; overflow: hidden">
-                                                    2008年毕业于西安航空学院电气系计算机控制专业，从事电气自动化行业7年，具有丰富的非标设备电气设计经验及上百场现场及网络培训经验。现就职于威纶通科技有限公司，担任大中华区培训经理，威纶通企业大学项目...</p>
-                                                <p class="tr mt10">
-                                                    <a href="http://www.rfgxy.com/teacher/45.html" class="btn btn-blue1 btn-small">
-                                                        了解更多 <em class="fs">&gt;&gt;</em></a></p>
-                                            </li>
-
-                                            <li style="float: left; width: 270px;">
-                                                <p class="tc">
-                                                    <img src="<?php echo base_url().'index/course'?>/man.gif" width="200" height="200" class="img-radius" alt=""></p>
-                                                <p class="colblue f20 tc">
-                                                    蔡慧荥</p>
-                                                <p class="f16 gray6 tc">
-                                                    儒风国资深讲师</p>
-                                                <p class="mt20 f14 gray6" style="height:108px; overflow: hidden">
-                                                    </p>
-                                                <p class="tr mt10">
-                                                    <a href="http://www.rfgxy.com/teacher/47.html" class="btn btn-blue1 btn-small">
-                                                        了解更多 <em class="fs">&gt;&gt;</em></a></p>
-                                            </li>
-
-                                            <li style="float: left; width: 270px;">
-                                                <p class="tc">
-                                                    <img src="<?php echo base_url().'index/course'?>/man.gif" width="200" height="200" class="img-radius" alt=""></p>
-                                                <p class="colblue f20 tc">
-                                                    陈爱瑞</p>
-                                                <p class="f16 gray6 tc">
-                                                    儒风国资深讲师</p>
-                                                <p class="mt20 f14 gray6" style="height:108px; overflow: hidden">
-                                                    </p>
-                                                <p class="tr mt10">
-                                                    <a href="http://www.rfgxy.com/teacher/48.html" class="btn btn-blue1 btn-small">
-                                                        了解更多 <em class="fs">&gt;&gt;</em></a></p>
-                                            </li>
-
-                                            <li style="float: left; width: 270px;">
-                                                <p class="tc">
-                                                    <img src="<?php echo base_url().'index/course'?>/2015111813503352.jpg" width="200" height="200" class="img-radius" alt=""></p>
-                                                <p class="colblue f20 tc">
-                                                    西门子工程师</p>
-                                                <p class="f16 gray6 tc">
-                                                    儒风国资深讲师</p>
-                                                <p class="mt20 f14 gray6" style="height:108px; overflow: hidden">
-                                                    </p>
-                                                <p class="tr mt10">
-                                                    <a href="http://www.rfgxy.com/teacher/49.html" class="btn btn-blue1 btn-small">
-                                                        了解更多 <em class="fs">&gt;&gt;</em></a></p>
-                                            </li>
-
-                                            <li style="float: left; width: 270px;">
-                                                <p class="tc">
-                                                    <img src="<?php echo base_url().'index/course'?>/20151019151531316.gif" width="200" height="200" class="img-radius" alt=""></p>
-                                                <p class="colblue f20 tc">
-                                                    徐思坤</p>
-                                                <p class="f16 gray6 tc">
-                                                    儒风国资深讲师</p>
-                                                <p class="mt20 f14 gray6" style="height:108px; overflow: hidden">
-                                                    </p>
-                                                <p class="tr mt10">
-                                                    <a href="http://www.rfgxy.com/teacher/50.html" class="btn btn-blue1 btn-small">
-                                                        了解更多 <em class="fs">&gt;&gt;</em></a></p>
-                                            </li>
-
-                                            <li style="float: left; width: 270px;">
-                                                <p class="tc">
-                                                    <img src="<?php echo base_url().'index/course'?>/20151117163008487.jpg" width="200" height="200" class="img-radius" alt=""></p>
-                                                <p class="colblue f20 tc">
-                                                    陈星</p>
-                                                <p class="f16 gray6 tc">
-                                                    儒风国资深讲师</p>
-                                                <p class="mt20 f14 gray6" style="height:108px; overflow: hidden">
-                                                    </p>
-                                                <p class="tr mt10">
-                                                    <a href="http://www.rfgxy.com/teacher/51.html" class="btn btn-blue1 btn-small">
-                                                        了解更多 <em class="fs">&gt;&gt;</em></a></p>
-                                            </li>
-
-                                            <li style="float: left; width: 270px;">
-                                                <p class="tc">
-                                                    <img src="<?php echo base_url().'index/course'?>/20151118150945287.jpg" width="200" height="200" class="img-radius" alt=""></p>
-                                                <p class="colblue f20 tc">
-                                                    阳胜峰</p>
-                                                <p class="f16 gray6 tc">
-                                                    儒风国资深讲师</p>
-                                                <p class="mt20 f14 gray6" style="height:108px; overflow: hidden">
-                                                    </p>
-                                                <p class="tr mt10">
-                                                    <a href="http://www.rfgxy.com/teacher/52.html" class="btn btn-blue1 btn-small">
-                                                        了解更多 <em class="fs">&gt;&gt;</em></a></p>
-                                            </li>
-
-                                        <li class="clone" style="float: left; width: 270px;">
-                                                <p class="tc">
-                                                    <img src="<?php echo base_url().'index/course'?>/20140227170213743.jpg" width="200" height="200" class="img-radius" alt=""></p>
-                                                <p class="colblue f20 tc">
-                                                    丁先群</p>
-                                                <p class="f16 gray6 tc">
-                                                    儒风国资深讲师</p>
-                                                <p class="mt20 f14 gray6" style="height:108px; overflow: hidden">
-                                                    高级工程师，1998年在国内首先将变频调速技术应用于回转窑主拖动系统，获国家有色金属工业局科技进步奖，并获得国家专利。从事自动化控制和变频器工程应用工作三十多年，具有丰富的现场实践经验。授课实用易懂。</p>
-                                                <p class="tr mt10">
-                                                    <a href="http://www.rfgxy.com/teacher/3.html" class="btn btn-blue1 btn-small">
-                                                        了解更多 <em class="fs">&gt;&gt;</em></a></p>
-                                            </li><li class="clone" style="float: left; width: 270px;">
-                                                <p class="tc">
-                                                    <img src="<?php echo base_url().'index/course'?>/20150313143414822.jpg" width="200" height="200" class="img-radius" alt=""></p>
-                                                <p class="colblue f20 tc">
-                                                    李金城</p>
-                                                <p class="f16 gray6 tc">
-                                                    儒风国资深讲师</p>
-                                                <p class="mt20 f14 gray6" style="height:108px; overflow: hidden">
-                                                    资深高级工程师，儒风国资深培训师。从事职业技术培训工作近三十年，对工控技术的培训，例如PLC、变频器、单片机及机电一体化等有丰富的培训经验。讲课语言通俗、风趣幽默、条理清楚、深入浅出。</p>
-                                                <p class="tr mt10">
-                                                    <a href="http://www.rfgxy.com/teacher/4.html" class="btn btn-blue1 btn-small">
-                                                        了解更多 <em class="fs">&gt;&gt;</em></a></p>
-                                            </li><li class="clone" style="float: left; width: 270px;">
-                                                <p class="tc">
-                                                    <img src="<?php echo base_url().'index/course'?>/20150313143600605.jpg" width="200" height="200" class="img-radius" alt=""></p>
-                                                <p class="colblue f20 tc">
-                                                    梁智斌</p>
-                                                <p class="f16 gray6 tc">
-                                                    儒风国资深讲师</p>
-                                                <p class="mt20 f14 gray6" style="height:108px; overflow: hidden">
-                                                    华南理工大学工程硕士，西门子（中国）有限公司工程师，负责项目设计执行、OEM样机开发，技术支持，客户培训。曾获比亚迪、深圳地铁等大型企业邀请对其相关技术人员进行系统的专业培训，擅长PLC、工业网络、H...</p>
-                                                <p class="tr mt10">
-                                                    <a href="http://www.rfgxy.com/teacher/5.html" class="btn btn-blue1 btn-small">
-                                                        了解更多 <em class="fs">&gt;&gt;</em></a></p>
-                                            </li></ul></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--师资介绍列表-->
-                    <!--部分成功案例展示-->
-                    <div class="box1 mt20">
-                        <div class="bhead">
-                            <h3>
-                                部分成功案例展示</h3>
-                        </div>
-                        <div style="width: 858px; padding: 15px 0 0 15px;" class="oh">
-                            <ul class="listview12 clearfix">
-                                <li>
-                                    <div class="mb10">
-                                        <a href="http://www.rfgxy.com/lesson/2179/#">
-                                            <img src="<?php echo base_url().'index/course'?>/case.png" width="248" height="200" alt=""></a></div>
-                                    <div class="f14 gray6 clearfix lh20">
-                                        <div class="w85 l pd2 bd1 bds bdgrayd mr10 mt10">
-                                            <a href="http://www.rfgxy.com/lesson/2179/#">
-                                                <img src="<?php echo base_url().'index/course'?>/t_csae1.jpg" width="85" height="85" alt=""></a></div>
-                                        <p class="colblue h25 lh25 f16 link-blue">
-                                            <a href="http://www.rfgxy.com/lesson/2179/#">王剑军</a></p>
-
-                                        <p>
-                                            <span class="gray9">月薪：</span>11000元/月</p>
-                                        <p>
-                                            <span class="gray9">学后：</span>14万/年</p>
-                                        <p>
-                                            <span class="gray9">擅长：</span>电气设备维修管理</p>
-                                    </div>
-                                    <p class="link-blue lh25 f14 gray6 mt5">
-                                        <span class="gray9">学员信息：</span>年龄52岁，现担任公司电气设备主管；电务工区工长，负责公司的电气、信号自动化、通信及无线设备的维修管理工作。公司主任技师及集团首席工人。年收入由原来9万多增加到13万多，当然为社会企业解决更多技术问题</p>
-                                </li>
-                                <li>
-                                    <div class="mb10">
-                                        <a href="http://www.rfgxy.com/lesson/2179/#">
-                                            <img src="<?php echo base_url().'index/course'?>/case1.png" width="248" height="200" alt=""></a></div>
-                                    <div class="f14 gray6 clearfix lh20">
-                                        <div class="w85 l pd2 bd1 bds bdgrayd mr10 mt10">
-                                            <a href="http://www.rfgxy.com/lesson/2179/#">
-                                                <img src="<?php echo base_url().'index/course'?>/t_csae2.jpg" width="85" height="85" alt=""></a></div>
-                                        <p class="colblue h25 lh25 f16 link-blue">
-                                            <a href="http://www.rfgxy.com/lesson/2179/#">李信</a></p>
-
-                                        <p>
-                                            <span class="gray9">月薪：</span>17000元/月</p>
-                                        <p>
-                                            <span class="gray9">学后：</span>20万/年</p>
-                                        <p>
-                                            <span class="gray9">擅长：</span>电控设计</p>
-                                    </div>
-                                    <p class="link-blue lh25 f14 gray6 mt5">
-                                        <span class="gray9">学员信息：</span>年龄40岁，2012年12月加入儒风国培训，现在无锡某私企负责电控设计，PLC编程和上位机组态工作，帮助社会企业解决技术问题年总收入20万左右。目前在儒风国平均一年花费1000元左右。</p>
-                                </li>
-                                <li>
-                                    <div class="mb10">
-                                        <a href="http://www.rfgxy.com/lesson/2179/#">
-                                            <img src="<?php echo base_url().'index/course'?>/case2.png" width="248" height="200" alt=""></a></div>
-                                    <div class="f14 gray6 clearfix lh20">
-                                        <div class="w85 l pd2 bd1 bds bdgrayd mr10 mt10">
-                                            <a href="http://www.rfgxy.com/lesson/2179/#">
-                                                <img src="<?php echo base_url().'index/course'?>/t_csae3.jpg" width="85" height="85" alt=""></a></div>
-                                        <p class="colblue h25 lh25 f16 link-blue">
-                                            <a href="http://www.rfgxy.com/lesson/2179/#">柳栓柱</a></p>
-
-                                        <p>
-                                            <span class="gray9">月薪：</span>11000元/月</p>
-                                        <p>
-                                            <span class="gray9">学后：</span>14万/年</p>
-                                        <p>
-
-                                            <span class="gray9">擅长：</span>电气安装</p>
-                                    </div>
-                                    <p class="link-blue lh25 f14 gray6 mt5">
-                                        <span class="gray9">学员信息： </span>42岁,2012年12月在儒风国报名学习工业自动化控制。为西安热工研究院的部分外包产品做控制柜，以在儒风国获得的三菱和西门子加HMI之技术，承担了这部分产品从电路设计到实际设备规划，安装和调试..</p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!--部分成功案例展示-->
                 </div>
                     </div>
 
@@ -1767,52 +1317,14 @@
                 </div>
             </li>
 
-            <li class="clearfix pt10 pb10">
-                <div class="w120 l">
-                    <a href="http://www.rfgxy.com/lesson/2146/">
-                        <img src="<?php echo base_url().'index/course'?>/20150521164133312.jpg" width="120" height="85" alt=""></a></div>
-                <div class="w130 r lh20">
-                    <p class="f14 mb5">
-                        <a href="http://www.rfgxy.com/lesson/2146/">
-                            三菱FX系列PLC定位控制技术基础知识</a></p>
-                    <p>
-                        <strong class="colblue">
 
-                            16.8万</strong>人关注</p>
-                </div>
-            </li>
 
         </ul>
     </div>
 </div>
 
                     <!--热门课程-->
-                    <!--精华点评-->
-                    <div class="box1 mt20 f14">
-                        <div class="bhead">
-                            <span class="r f14 pr20">
-                                </span>
-                            <h3>
-                                精华点评</h3>
-                        </div>
-                        <div>
-                            <ul>
-                                <li class="pl20 pr20 pt10 pb10 bdgrayd bdda bdb">
-                                    <p class="h30 lh30">
-                                        <span class="gray9 r">2015-01-06 10:51 </span><a class="colblue" href="http://www.rfgxy.com/lesson/2179/#">jckrGvZF</a></p>
-                                    <p style="word-break: break-all;">
-                                        非常感谢李金城老师，您讲的课程通俗易懂；幽默风趣；受益颇多，谢谢</p>
-                                </li>
-                                <li class="pl20 pr20 pt10 pb10 bdgrayd bdda bdb">
-                                    <p class="h30 lh30">
-                                        <span class="gray9 r">2015-01-13 11:11 </span><a class="colblue" href="http://www.rfgxy.com/lesson/2179/#">wangzailing</a></p>
-                                    <p style="word-break: break-all;">
-                                        老师讲的很详细、非常好 、就是我学的太慢了，夏天忙着种地，只有在冬天我才能学习、PLC数字量我还没有完全掌握。</p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!--精华点评-->
+
                     <!--精彩讨论-->
                     <div class="box1 mt20 f14" style=" display:none;">
                         <div class="bhead">
@@ -1903,201 +1415,10 @@
             <!--课程推荐-->
         </div>
         <!--container-->
-        <!--footer-->
-         <div class="footer mt20">
-
-    	<!--footer-guide-->
-    	<div class="foot-guide inner clearfix">
-        	<dl class="fg-item2">
-            	<dt class="h30 lh30 b f14">精品课程</dt>
-                <dd class="clearfix">
-                	<a class="w140" href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=%E4%B8%89%E8%8F%B1">三菱视频教程</a>
-                	<a class="w80" href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=%E7%94%B5%E5%B7%A5">电工</a>
-                	<a class="w140" href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=%E6%A1%88%E4%BE%8B%E8%AF%BE%E7%A8%8B">案例课程</a>
-                	<a class="w140" href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=%E8%A5%BF%E9%97%A8%E5%AD%90">西门子视频教程</a>
-                	<a class="w80" href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=%E6%95%B0%E6%8E%A7">数控</a>
-                	<a class="w140" href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=%E8%A5%BF%E9%97%A8%E5%AD%90S7-200">西门子S7-200</a>
-                	<a class="w140" href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=%E6%8C%87%E4%BB%A4%E8%AF%A6%E8%A7%A3">指令详解</a>
-                	<a class="w80" href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=%E7%BB%84%E6%80%81%E7%8E%8B">组态王</a>
-                	<a class="w140" href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=%E8%A5%BF%E9%97%A8%E5%AD%90S7-300">西门子S7-300</a>
-                	<a class="w140" href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=%E5%8F%98%E9%A2%91%E5%99%A8">变频器</a>
-                	<a class="w80" href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=PID">PID</a>
-                	<a class="w140" href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=%E4%BC%BA%E6%9C%8D">伺服</a>
 
 
 
-                </dd>
-            </dl>
-            <dl class="fg-item">
-            	<dt class="h30 lh30 b f14">学习咨询</dt>
-                <dd><a href="http://www.rfgxy.com/lesson1/jinpin.aspx">选课中心</a></dd>
-                <dd><a href="http://www.rfgxy.com/lesson1/jihua.aspx">学习计划</a></dd>
-                <dd><a href="http://www.rfgxy.com/knowledge/">文章中心</a></dd>
-                <dd><a href="http://www.rfgxy.com/xiazai/">儒风国下载库</a></dd>
-                  <dd style="width:100px;"><a href="http://www.rfgxy.com/lesson1/tear_user.aspx">助教老师邀请通道</a> </dd>
-            </dl>
-            <dl class="fg-item">
-            	<dt class="h30 lh30 b f14">帮助中心</dt>
-
-                <dd><a href="http://www.rfgxy.com/lesson1/guide.aspx">新手上路</a></dd>
-
-                <dd><a href="http://www.rfgxy.com/help/help36.aspx">积分获取、规则</a></dd>
-                <dd><a href="http://www.rfgxy.com/help/help12.aspx" target="_blank">升级与购买</a></dd>
-				<dd><a href="http://www.rfgxy.com/help/help25.aspx" target="_blank">购买白金学员</a></dd>
-                <dd><a href="http://www.rfgxy.com/help/help22.aspx" target="_blank">购买金牌学员</a></dd>
-
-            </dl>
-            <dl class="fg-item">
-            	<dt class="h30 lh30 b f14">关于儒风国</dt>
-                <dd><a href="http://www.rfgxy.com/AboutUs.aspx">了解儒风国</a></dd>
-                <dd><a href="http://www.rfgxy.com/contact.aspx">联系我们</a></dd>
-                <dd><a href="http://www.rfgxy.com/zhaopin.aspx">加入我们</a></dd>
-                 <dd><a href="http://www.rfgxy.com/lesson1/tear_info.aspx">助教老师</a></dd>
-            </dl>
-            <dl class="fg-item">
-            	<dt class="h30 lh30 b f14">客户端</dt>
-                <dd><a href="http://www.rfgxy.com/player_page/play_show.html?adfrom=old">儒风国播放器</a></dd>
-                <dd><a href="http://www.rfgxy.com/appDownload/app_page.html">儒风国手机APP</a></dd>
-                <dd><a href="http://weibo.com/jcpx">新浪微博</a></dd>
-                <dd><a href="http://bbs.jcpeixun.com/thread-39246-1-1.html">官方微信</a></dd>
-            </dl>
-            <dl class="fg-item" style="border-right:0; padding-right:0;">
-            	<dt class="h30 lh30 f14">合作服务</dt>
-                <dd><a href="http://www.rfgxy.com/help/help21.aspx">个人服务</a></dd>
-                <dd><a href="http://www.rfgxy.com/lesson1/weipei.aspx">企业服务</a></dd>
-                <dd><a href="http://www.rfgxy.com/lesson1/weipei.aspx">院校服务</a></dd>
-            </dl>
-        </div>
-        <!--footer-guide-->
-
-        <!--copyright-->
-        <div class="copyright">
-        	<div class="inner">
-            	<div class="w250 r tr mt15">
-                	<a class="mr10" href="http://www.anquan.org/" target="_blank"><img src="<?php echo base_url().'index/course'?>/aqlm.jpg" width="66" height="24" alt="安全联盟行业验证"></a>
-                    <a class="mr10" href="http://xinyu.baidu.com/" target="_blank"><img src="<?php echo base_url().'index/course'?>/bdxy.jpg" width="66" height="24" alt="百度信誉放心访问"></a>
-                    <a class="mr10" href="http://kexin.knet.cn/column_1/column_1_2/" target="_blank"><img src="<?php echo base_url().'index/course'?>/kxwz.jpg" width="66" height="24" alt="可信网站身份验证"></a>
-                </div>
-            	<p class="gray9">©深圳市儒风国科技有限公司 - 课程内容版权均归儒风国培训网所有  粤ICP备11069432号</p>
-                <p class="">广东省 深圳市 专业技术人员继续教育网络学习平台<br>联合运营单位：深圳市工程师联合会</p>
-            </div>
-        </div>
-        <!--copyright-->
-
-    </div>
-      <div class="aside-bar fixed-top">
-        <ul class="aside-bar-inner">
-            <li class="aside-bar-item" data-role="collapsible"><a class="aside-bar-link">
-                <p class="iconfont f30 n">
-                    </p>
-                <p class="txt">
-                    公众账号</p>
-            </a>
-                <div class="aside-bar-cont">
-                    <p class="f13 gray6 tc">
-                        扫描二维码<br>
-                        关注儒风国微信公众账号</p>
-                    <p>
-                        <img src="<?php echo base_url().'index/course'?>/qr.jpg" width="130" height="130" alt="儒风国微信公众账号"></p>
-                </div>
-            </li>
-            <li class="aside-bar-item" data-role="collapsible"><a class="aside-bar-link">
-                <p class="iconfont f30 n">
-                    </p>
-                <p class="txt">
-                    学习交流</p>
-            </a>
-                <div class="aside-bar-cont">
-                    <p class="f14 gray6 tc">
-                        儒风国学员交流总群</p>
-                    <p class="f14">
-                        125群：154017892</p>
-                    <p class="link-blue">
-                        <a href="http://shang.qq.com/wpa/qunwpa?idkey=2eee53569300abbcfb8b8a6cab6f7374da37ddcbe5fc37e5015bdec61dbb30fe" target="_blank">进群交流</a></p>
-                </div>
-            </li>
-            <li class="aside-bar-item" data-role="collapsible"><a class="aside-bar-link">
-                <p class="iconfont f30 n">
-                    </p>
-                <p class="txt">
-                    留言反馈</p>
-            </a>
-                <div class="aside-bar-cont msg-board">
-                    <p class="f16 h40 lh40 gray6 tl">
-                        欢迎给我们留言</p>
-                    <form id="mesform" role="form" method="post" action="">
-                    <textarea class="form-area w220" rows="3" id="txtMgs" name="content" placeholder="您有什么问题？可以给我们留言，我们竭尽全力为您解决！"></textarea>
-                    <input type="text" class="form-txt h20 lh20 w220 mt10" id="txtMobile" name="phone" placeholder="请输入手机号码，方便为你答疑">
-                    <input type="submit" value="提交" href="javascript:;" id="btn-message" class="btn btn-blue1 btn-auto w130 mc h30 f16 mt10 btn-radius btn-message" style="line-height:30px;">
-                    </form>
-                </div>
-            </li>
-            <li class="aside-bar-item" data-role="collapsible"><a class="aside-bar-link">
-                <p class="iconfont f30 n">
-                    </p>
-                <p class="txt">
-                    APP下载</p>
-            </a>
-                <div class="aside-bar-cont">                    <p class="f13 gray6 tc">
-                        扫描二维码下载到手机</p>
-                    <p>
-                        <img src="<?php echo base_url().'index/course'?>/qr.png" width="130" height="130" alt="儒风国微信公众账号"></p>
-                </div>
-            </li>
-            <li class="aside-bar-item"><a class="aside-bar-link" href="http://www.rfgxy.com/lesson/2179/#top" target="_self">
-                <p class="iconfont f30 n">
-                    </p>
-                <p class="txt">
-              返回顶部</p>
-            </a></li>
-        </ul>
-    </div>
-
-
-     <script type="text/jscript">
-          var txtMgs;
-          var txtMobile
-          $(".msg-board").on("click", "#btn-message", function () {
-
-              txtMgs = $("#txtMgs").val();
-              txtMobile = $("#txtMobile").val()
-				;
-              if (!(/^(13[0-9]|15[0-9]|17[0-9]|18[0-9])\d{8}$/).test(txtMobile)) {
-                  alert("请输入正确的手机号码");
-                  d.show(document.getElementById('txtMobile'));
-                  $("#txtMobile").focus();
-              } else {
-                  $.post("http://www.rfgxy.com/ashx/studentsound/CreateMsg.ashx", $("#mesform").serialize())
-					 .done(function (d) {
-					     if (d == "留言内容过长") {
-					         alert("您的留言内容过长");
-					         d.show(document.getElementById('txtMgs'));
-					         $("#txtMgs").focus();
-					     }
-					     else {
-
-					         alert("留言成功!如紧急,请拨免费咨询:400-111-4100");
-					         d.show(document.getElementById('btn-message'));
-					     }
-
-					 });
-              }
-          });
-
-
-    </script>
-<script>
-    (function () {
-        var s = document.createElement('script');
-        s.type = 'text/javascript';
-        s.async = true;
-        s.src = 'http://images.jcpeixun.com/static/js/tongji.js?a=201601';
-        var x = document.getElementsByTagName('script')[0];
-        x.parentNode.insertBefore(s, x);
-    })();
-
-</script>
-        <!--footer-->
+ 
 
     </div>
     <!--footer-->

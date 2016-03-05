@@ -20,7 +20,7 @@ class Showtv extends CI_Controller
 		$data['arr']=array($chapter,$section,$course);
 		$this->session->set_userdata('section_id',$section_id);
 		$this->load->view('index/show.html',$data);
-
+		$this->load->view('about_footer.html');
 	}
 }
 

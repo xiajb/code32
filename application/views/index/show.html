@@ -102,6 +102,116 @@
     <script>
         window.enable_ad_stat_ord = true; //表示本页面启用订单来源统计
       </script>
+             <div class="con-wrap con-wrap1">
+        <div class="container con1">
+            <div class="row">
+                <div class="col-xs-24">
+                    <div class="header-top clearfix">
+                        <div class="header-top-left">
+                            <a href="javascript:;" id="btn-addToFav" class="btn-link btn-link6">收藏儒风国</a>
+                            <!-- <a href="http://www.rfgxy.com/v4/" class="btn-link btn-link6 ml15">回到旧版</a> -->
+                        </div>
+                        <div class="header-top-right clearfix">
+                            <!DOCTYPE html>
+                            <?php if (empty($_SESSION['username'])): ?>
+                                    <ul class="l m0" id="login_top_nologin">
+                                        <li>
+                                            <div><a href="http://www.rfgxy.com/login" class="btn-link btn-link6">[请登录]</a></div>
+                                        </li>
+                                        <li>
+                                            <div><a href="http://www.rfgxy.com/register" class="btn-link btn-link6">[免费注册]</a></div>
+                                        </li>
+                                    </ul>
+                                <?php else : ?>
+                                <ul class="l m0" id="login_top_logined">
+                                    <li>
+                                        <b class="cgray6"><?php echo $_SESSION['username']; ?></b>
+                                        <span class="fw" style="color:#188eee">[普通会员]</span>，
+                                        <span class="cgray6">欢迎来儒风国培训！</span><a href="http://www.rfgxy.com/logout" class="btn-link btn-link9">[退出]</a>
+                                    </li>
+                                                                                <li>
+                                                <div><a href="http://www.rfgxy.com/center/mydata?label=jiben" target="_blank" class="btn-link btn-link6">个人中心</a></div>
+
+                                </ul>
+                                 <?php endif; ?>
+                                        <ul class="l m0">
+                                            <!--
+                                <li><div><a href="http://my.rfgxy.com/" target="_blank" class="btn-link btn-link6">学员中心</a></div></li>
+                                -->
+                                            <li>
+                                                <div><a href="http://www.rfgxy.com/lesson1/guide.aspx" target="_blank" class="btn-link btn-link6" style="color:Red;">新手攻略</a></div>
+                                            </li>
+                                            <li>
+                                                    <div><a href="http://www.rfgxy.com/about/us" target="_blank" class="btn-link btn-link6">网站导航</a></div>
+                                            </li>
+                                        </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style type="text/css">
+    * {
+    margin: 0 auto;
+}
+.pages li{ display:inline;}
+.pages .active a{ border-color:#188EEE; background-color:#188EEE; color:#FFF;}
+body{
+         background-color: white;
+}
+.header {
+    border-bottom: 1px solid #ccc;
+    box-shadow: none;
+}
+.tabs1 .tabs-cont {
+    border: 1px solid #DDD;
+}
+.con-wrap1 {
+    background-color: #f3f3f3;
+    margin-bottom: 0;
+}
+.container {
+    width: 1200px!important;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.row {
+    margin-left: -5px;
+    margin-right: -5px;
+    }
+    .col-xs-24 {
+    width: 100%;
+}
+.header-top {
+    height: 40px;
+    line-height: 40px;
+}
+.header-top-left {
+    float: left;
+}
+.header-top-right {
+    float: right;
+}
+.clearfix {
+    zoom: 1;
+}
+.l {
+    float: left;
+}
+.m0 {
+    margin: 0;
+}
+.header-top-right li {
+    float: left;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 15px;
+}
+
+</style>
   <div class="header">
       	<div class="inner clearfix">
 
@@ -112,72 +222,7 @@
               	<li>
                   	<a class="nav-link" href="http://www.rfgxy.com/lesson1/jinpin.aspx">首页</a>
                   </li>
-              	<li class="trigger" data-role="collapsible">
-                  	<a class="nav-link" href="http://www.rfgxy.com/lesson/2179/jinpin.aspx"><i class="iconfont f20 b"></i> 栏目</a>
-                      <div class="guide-sub-nav dn clearfix">
-                      	<dl>
-                          	<dt class="red"><a href="http://www.rfgxy.com/lesson1/jinpin.aspx">选课中心</a></dt>
-                              <dd>
-                              	<a href="http://www.rfgxy.com/lesson1/jinpin.aspx" target="_blank">精品课</a>
-                              	<a href="http://www.rfgxy.com/lesson1/qq-class.aspx" target="_blank">QQ课堂</a>
-                              	<a href="http://www.rfgxy.com/lesson1/qianghua.aspx" target="_blank">小班课</a>
-                              	<a href="http://www.rfgxy.com/lesson1/scene.aspx" target="_blank">现场实训</a>
-                              </dd>
-                          </dl>
-                      	<dl class="bd0">
-                          	<dt>客户端</dt>
-                              <dd>
-                              	<a href="http://www.rfgxy.com/help/help15.aspx" target="_blank">儒风国播放器</a>
-                              	<a href="http://www.rfgxy.com/lesson/2179/11885.html#" target="_blank">儒风国手机APP</a>
-                              	<a href="http://www.rfgxy.com/mobile/Phone.aspx" target="_blank">微信公众号</a>
-                              </dd>
-
-                          </dl>
-                      	<dl>
-                          	<dt>资讯中心</dt>
-                              <dd>
-                              	<a href="http://www.rfgxy.com/knowledge/" target="_blank">文章</a>
-                              	<a href="http://www.rfgxy.com/xiazai/" target="_blank">资料下载</a>
-                              	<a href="http://zhaopin.jcpeixun.com/" target="_blank">找工作</a>
-                              	<a href="http://www.rfgxy.com/topic/exam/login.html?callback=http://exam.jcpeixun.com/jcexam/ChooseRoom.aspx">考证</a>
-                              </dd>
-                          </dl>
-                      	<dl class="bd0">
-                          	<dt>企业服务</dt>
-                              <dd>
-                              	<a href="http://www.rfgxy.com/lesson1/weipei.aspx">企业内训</a>
-                              	<a href="http://www.rfgxy.com/lesson1/weipei.aspx">定向委培</a>
-                              	<a href="http://www.rfgxy.com/lesson1/weipei.aspx">人才输送</a>
-                              	<a href="http://www.rfgxy.com/lesson1/weipei.aspx">项目要求 </a>
-                              </dd>
-                          </dl>
-                      	<dl>
-                          	<dt>实操中心</dt>
-                              <dd>
-                              	<a href="http://www.rfgxy.com/topic/act/20150306/">西门子学习机 (箱) </a>
-                              	<a href="http://www.rfgxy.com/topic/act/20141205/?indexscroll">三菱学习机(箱)</a>
-                              </dd>
-                          </dl>
-                      	<dl class="bd0">
-                          	<dt>院校服务</dt>
-                              <dd>
-                              	<a href="http://www.rfgxy.com/Colleges/index.aspx">学习平台</a>
-                              	<a href="http://www.rfgxy.com/lesson/2179/weipei.aspx">定向委培</a>
-                              	<a href="http://zhaopin.jcpeixun.com/">就业交流</a>
-                              	<a href="http://www.rfgxy.com/lesson1/weipei.aspx">技术方案</a>
-                              </dd>
-                          </dl>
-                      	<dl>
-                          	<dt>儒风国会员</dt>
-                              <dd>
-                              	<a href="http://www.rfgxy.com/help/help21.aspx">服务</a>
-                              	<a href="http://www.rfgxy.com/pay/member.aspx">购买</a>
-                              	<a href="http://www.rfgxy.com/lesson1/person_xufei.aspx">续费</a>
-                              	<a href="http://www.rfgxy.com/lesson1/weipei.aspx">工程对接</a>
-                              </dd>
-                          </dl>
-                      </div>
-                  </li>
+ 
                   <li>
                   	<span class="fs pr10 pl10">&gt;</span>
                       <strong class="gray3">选课中心</strong>
@@ -193,7 +238,7 @@
                       <input type="text" name="txtSearch" class="txt-search1" id="txtSearch" placeholder="搜索课程">
                       </div>
                     <a href="javascript:;" class="search-btn searchsubmit btn-search1" id="btn-search1" onfocus="this.blur();">
-                    <i class="iconfont f20"></i></a>
+                  <i class="iconfont f20 icon Hui-iconfont">&#xe665;</i></a>
 
                   <p class="hot-key h20 lh20 mt5">
                   	<a href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=%E7%94%B5%E5%B7%A5%E5%9F%BA%E7%A1%80">电工基础</a>
@@ -278,18 +323,6 @@
    </script>
 
 
-             <div class="h-user">
-
-
-
-              <!--未登录-->
-              <div class="login-nav">
-                  <a class="mr10" href="http://www.rfgxy.com/newlogin.aspx">用户登录</a> <a class="reg" href="http://www.rfgxy.com/emailregister.aspx">免费注册</a>
-              </div>
-              <!--未登录-->
-
-
-      </div>
           </div>
       </div>
 
@@ -297,22 +330,7 @@
 
 
           <!--header-->
-          <!--navbar-->
-
-  <div class="navbar">
-      	<ul class="main-nav inner">
-          	<li class="active"><a href="http://www.rfgxy.com/lesson1/jinpin.aspx">选课中心</a></li>
-          	<li><a href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=%E4%B8%89%E8%8F%B1">三菱视频教程</a></li>
-          	<li><a href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=%E8%A5%BF%E9%97%A8%E5%AD%90">西门子视频教程</a></li>
-          	<li><a href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=%E6%AC%A7%E5%A7%86%E9%BE%99">欧姆龙视频教程</a></li>
-          	<li><a href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=%E5%8F%98%E9%A2%91%E5%99%A8">变频器视频教程</a></li>
-          	<li><a href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=%E7%94%B5%E5%B7%A5">电工基础</a></li>
-          	<li><a href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=%E6%95%B0%E6%8E%A7">数控</a></li>
-          	<li><a href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=%E7%BB%84%E6%80%81">组态/PID</a></li>
-          	<li><a href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=%E6%A1%88%E4%BE%8B">工程案例详解</a></li>
-          </ul>
-     	</div>
-          <!--navbar-->
+ 
           <!--container-->
           <div class="container">
               <!--bread-crumb-->
@@ -856,186 +874,7 @@
           <!--footer-->
            <div class="footer mt20">
 
-      	<!--footer-guide-->
-      	<div class="foot-guide inner clearfix">
-          	<dl class="fg-item2">
-              	<dt class="h30 lh30 b f14">精品课程</dt>
-                  <dd class="clearfix">
-                  	<a class="w140" href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=%E4%B8%89%E8%8F%B1">三菱视频教程</a>
-                  	<a class="w80" href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=%E7%94%B5%E5%B7%A5">电工</a>
-                  	<a class="w140" href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=%E6%A1%88%E4%BE%8B%E8%AF%BE%E7%A8%8B">案例课程</a>
-                  	<a class="w140" href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=%E8%A5%BF%E9%97%A8%E5%AD%90">西门子视频教程</a>
-                  	<a class="w80" href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=%E6%95%B0%E6%8E%A7">数控</a>
-                  	<a class="w140" href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=%E8%A5%BF%E9%97%A8%E5%AD%90S7-200">西门子S7-200</a>
-                  	<a class="w140" href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=%E6%8C%87%E4%BB%A4%E8%AF%A6%E8%A7%A3">指令详解</a>
-                  	<a class="w80" href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=%E7%BB%84%E6%80%81%E7%8E%8B">组态王</a>
-                  	<a class="w140" href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=%E8%A5%BF%E9%97%A8%E5%AD%90S7-300">西门子S7-300</a>
-                  	<a class="w140" href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=%E5%8F%98%E9%A2%91%E5%99%A8">变频器</a>
-                  	<a class="w80" href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=PID">PID</a>
-                  	<a class="w140" href="http://www.rfgxy.com/lesson1/search-list.aspx?keyword=%E4%BC%BA%E6%9C%8D">伺服</a>
 
-
-
-                  </dd>
-              </dl>
-              <dl class="fg-item">
-              	<dt class="h30 lh30 b f14">学习咨询</dt>
-                  <dd><a href="http://www.rfgxy.com/lesson1/jinpin.aspx">选课中心</a></dd>
-                  <dd><a href="http://www.rfgxy.com/lesson1/jihua.aspx">学习计划</a></dd>
-                  <dd><a href="http://www.rfgxy.com/knowledge/">文章中心</a></dd>
-                  <dd><a href="http://www.rfgxy.com/xiazai/">儒风国下载库</a></dd>
-                    <dd style="width:100px;"><a href="http://www.rfgxy.com/lesson1/tear_user.aspx">助教老师邀请通道</a> </dd>
-              </dl>
-              <dl class="fg-item">
-              	<dt class="h30 lh30 b f14">帮助中心</dt>
-
-                  <dd><a href="http://www.rfgxy.com/lesson1/guide.aspx">新手上路</a></dd>
-
-                  <dd><a href="http://www.rfgxy.com/help/help36.aspx">积分获取、规则</a></dd>
-                  <dd><a href="http://www.rfgxy.com/help/help12.aspx" target="_blank">升级与购买</a></dd>
-  				<dd><a href="http://www.rfgxy.com/help/help25.aspx" target="_blank">购买白金学员</a></dd>
-                  <dd><a href="http://www.rfgxy.com/help/help22.aspx" target="_blank">购买金牌学员</a></dd>
-
-              </dl>
-              <dl class="fg-item">
-              	<dt class="h30 lh30 b f14">关于儒风国</dt>
-                  <dd><a href="http://www.rfgxy.com/AboutUs.aspx">了解儒风国</a></dd>
-                  <dd><a href="http://www.rfgxy.com/contact.aspx">联系我们</a></dd>
-                  <dd><a href="http://www.rfgxy.com/zhaopin.aspx">加入我们</a></dd>
-                   <dd><a href="http://www.rfgxy.com/lesson1/tear_info.aspx">助教老师</a></dd>
-              </dl>
-              <dl class="fg-item">
-              	<dt class="h30 lh30 b f14">客户端</dt>
-                  <dd><a href="http://www.rfgxy.com/player_page/play_show.html?adfrom=old">儒风国播放器</a></dd>
-                  <dd><a href="http://www.rfgxy.com/appDownload/app_page.html">儒风国手机APP</a></dd>
-                  <dd><a href="http://weibo.com/jcpx">新浪微博</a></dd>
-                  <dd><a href="http://bbs.jcpeixun.com/thread-39246-1-1.html">官方微信</a></dd>
-              </dl>
-              <dl class="fg-item" style="border-right:0; padding-right:0;">
-              	<dt class="h30 lh30 f14">合作服务</dt>
-                  <dd><a href="http://www.rfgxy.com/help/help21.aspx">个人服务</a></dd>
-                  <dd><a href="http://www.rfgxy.com/lesson1/weipei.aspx">企业服务</a></dd>
-                  <dd><a href="http://www.rfgxy.com/lesson1/weipei.aspx">院校服务</a></dd>
-              </dl>
-          </div>
-          <!--footer-guide-->
-
-          <!--copyright-->
-          <div class="copyright">
-          	<div class="inner">
-              	<div class="w250 r tr mt15">
-                  	<a class="mr10" href="http://www.anquan.org/" target="_blank"><img src="<?php echo base_url().'index/show/aqlm.jpg'?>" width="66" height="24" alt="安全联盟行业验证"></a>
-                      <a class="mr10" href="http://xinyu.baidu.com/" target="_blank"><img src="<?php echo base_url().'index/show/bdxy.jpg'?>" width="66" height="24" alt="百度信誉放心访问"></a>
-                      <a class="mr10" href="http://kexin.knet.cn/column_1/column_1_2/" target="_blank"><img src="<?php echo base_url().'index/show/kxwz.jpg'?>" width="66" height="24" alt="可信网站身份验证"></a>
-                  </div>
-              	<p class="gray9">©深圳市儒风国科技有限公司 - 课程内容版权均归儒风国培训网所有  粤ICP备11069432号</p>
-                  <p class="">广东省 深圳市 专业技术人员继续教育网络学习平台<br>联合运营单位：深圳市工程师联合会</p>
-              </div>
-          </div>
-          <!--copyright-->
-
-      </div>
-        <div class="aside-bar fixed-top">
-          <ul class="aside-bar-inner">
-              <li class="aside-bar-item" data-role="collapsible"><a class="aside-bar-link">
-                  <p class="iconfont f30 n">
-                      </p>
-                  <p class="txt">
-                      公众账号</p>
-              </a>
-                  <div class="aside-bar-cont">
-                      <p class="f13 gray6 tc">
-                          扫描二维码<br>
-                          关注儒风国微信公众账号</p>
-                      <p>
-                          <img src="<?php echo base_url().'index/show/qr.jpg'?>" width="130" height="130" alt="儒风国微信公众账号"></p>
-                  </div>
-              </li>
-              <li class="aside-bar-item" data-role="collapsible"><a class="aside-bar-link">
-                  <p class="iconfont f30 n">
-                      </p>
-                  <p class="txt">
-                      学习交流</p>
-              </a>
-                  <div class="aside-bar-cont">
-                      <p class="f14 gray6 tc">
-                          儒风国学员交流总群</p>
-                      <p class="f14">
-                          125群：154017892</p>
-                      <p class="link-blue">
-                          <a href="http://shang.qq.com/wpa/qunwpa?idkey=2eee53569300abbcfb8b8a6cab6f7374da37ddcbe5fc37e5015bdec61dbb30fe" target="_blank">进群交流</a></p>
-                  </div>
-              </li>
-              <li class="aside-bar-item" data-role="collapsible"><a class="aside-bar-link">
-                  <p class="iconfont f30 n">
-                      </p>
-                  <p class="txt">
-                      留言反馈</p>
-              </a>
-                  <div class="aside-bar-cont msg-board">
-                      <p class="f16 h40 lh40 gray6 tl">
-                          欢迎给我们留言</p>
-                      <form id="mesform" role="form" method="post" action="">
-                      <textarea class="form-area w220" rows="3" id="txtMgs" name="content" placeholder="您有什么问题？可以给我们留言，我们竭尽全力为您解决！"></textarea>
-                      <input type="text" class="form-txt h20 lh20 w220 mt10" id="txtMobile" name="phone" placeholder="请输入手机号码，方便为你答疑">
-                      <input type="submit" value="提交" href="javascript:;" id="btn-message" class="btn btn-blue1 btn-auto w130 mc h30 f16 mt10 btn-radius btn-message" style="line-height:30px;">
-                      </form>
-                  </div>
-              </li>
-              <li class="aside-bar-item" data-role="collapsible"><a class="aside-bar-link">
-                  <p class="iconfont f30 n">
-                      </p>
-                  <p class="txt">
-                      APP下载</p>
-              </a>
-                  <div class="aside-bar-cont">                    <p class="f13 gray6 tc">
-                          扫描二维码下载到手机</p>
-                      <p>
-                          <img src="<?php echo base_url().'index/show/qr.png'?>" width="130" height="130" alt="儒风国微信公众账号"></p>
-                  </div>
-              </li>
-              <li class="aside-bar-item"><a class="aside-bar-link" href="http://www.rfgxy.com/lesson/2179/11885.html#top" target="_self">
-                  <p class="iconfont f30 n">
-                      </p>
-                  <p class="txt">
-                返回顶部</p>
-              </a></li>
-          </ul>
-      </div>
-
-
-       <script type="text/jscript">
-            var txtMgs;
-            var txtMobile
-            $(".msg-board").on("click", "#btn-message", function () {
-
-                txtMgs = $("#txtMgs").val();
-                txtMobile = $("#txtMobile").val()
-  				;
-                if (!(/^(13[0-9]|15[0-9]|17[0-9]|18[0-9])\d{8}$/).test(txtMobile)) {
-                    alert("请输入正确的手机号码");
-                    d.show(document.getElementById('txtMobile'));
-                    $("#txtMobile").focus();
-                } else {
-                    $.post("http://www.rfgxy.com/ashx/studentsound/CreateMsg.ashx", $("#mesform").serialize())
-  					 .done(function (d) {
-  					     if (d == "留言内容过长") {
-  					         alert("您的留言内容过长");
-  					         d.show(document.getElementById('txtMgs'));
-  					         $("#txtMgs").focus();
-  					     }
-  					     else {
-
-  					         alert("留言成功!如紧急,请拨免费咨询:400-111-4100");
-  					         d.show(document.getElementById('btn-message'));
-  					     }
-
-  					 });
-                }
-            });
-
-
-      </script>
    <script src="<?php echo base_url().'index/show/tongji.js'?>" type="text/javascript"></script>
    <script src="<?php echo base_url().'index/show/h.js'?>" type="text/javascript"></script>
    <script src="<?php echo base_url().'index/show/h(1).js'?>" type="text/javascript"></script>

@@ -21,6 +21,7 @@ class Course extends CI_Controller {
 		$data['arr']=array($chapter,$section,$course);
 		$this->session->set_userdata('course_id',$course_id);
 		$this->load->view("index/course.html",$data);
+		$this->load->view("about_footer.html");
 
 	}
 	function showinserttocourse(){
