@@ -30,27 +30,14 @@
                         <tbody>
                             <?php  for($i=0;$i<count($result);$i++){ ?>
                             <tr>
+
                                 <td>
-                                    <?php echo $result[$i]['stage']; ?>
+                                    <?php echo $result[$i]['course_name'];?>
                                 </td>
-                                <td>
-                                    <?php echo $result[$i]['grade']; ?>
-                                </td>
-                                <td>
-                                    <?php echo $result[$i]['subject']; ?>
-                                </td>
-                                <td>
-                                    <?php echo $result[$i]['title'];?>
-                                </td>
-                                <td>
-                                    <?php echo $result[$i]['teacher'];?>
-                                </td>
-                                <td>
-                                    <?php echo $result[$i]['add_time'];?>
-                                </td>
+
                                 <td class="actions">
                                     <a href="#" title="Edit this content"><img src="<?php echo base_url('back/img/icons/actions/edit.png'); ?>" alt="" /></a>
-                                    <a data-id="<?php echo $result[$i]['required_id']; ?>" href="javascript:;" class="delete_button"><img src="<?php echo base_url('back/img/icons/actions/delete.png'); ?>" alt="" /></a>
+                                    <a data-id="<?php echo $result[$i]['course_name']; ?>" href="javascript:;" class="delete_button"><img src="<?php echo base_url('back/img/icons/actions/delete.png'); ?>" alt="" /></a>
                                 </td>
                             </tr>
                             <?php } ?>
@@ -73,29 +60,15 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php  for($i=0;$i<count($check);$i++){ ?>
+                            <?php  for($i=0;$i<count($wait);$i++){ ?>
                             <tr>
                                 <td>
-                                    <?php echo $check[$i]['stage']; ?>
+                                    <?php echo $wait[$i]['course_name']; ?>
                                 </td>
-                                <td>
-                                    <?php echo $check[$i]['grade']; ?>
-                                </td>
-                                <td>
-                                    <?php echo $check[$i]['subject']; ?>
-                                </td>
-                                <td>
-                                    <?php echo $check[$i]['title'];?>
-                                </td>
-                                <td>
-                                    <?php echo $check[$i]['teacher'];?>
-                                </td>
-                                <td>
-                                    <?php echo $check[$i]['add_time'];?>
-                                </td>
+     
                                 <td class="actions">
                                     <a href="#" title="Edit this content"><img src="<?php echo base_url('back/img/icons/actions/edit.png'); ?>" alt="" /></a>
-                                    <a data-id="<?php echo $check[$i]['required_id']; ?>" href="javascript:;" class="delete_button"><img src="<?php echo base_url('back/img/icons/actions/delete.png'); ?>" alt="" /></a>
+                                    <a data-id="<?php echo $wait[$i]['course_name']; ?>" href="javascript:;" class="delete_button"><img src="<?php echo base_url('back/img/icons/actions/delete.png'); ?>" alt="" /></a>
                                 </td>
                             </tr>
                             <?php } ?>
@@ -103,7 +76,6 @@
                     </table>
                 </div>
                 <div class="page">
-                    <?php echo $this->mypage_class->show(1); ?>
                 </div>
             </div>
             <div id="tab3">
@@ -124,26 +96,11 @@
                             <?php  for($i=0;$i<count($nopass);$i++){ ?>
                             <tr>
                                 <td>
-                                    <?php echo $nopass[$i]['stage']; ?>
-                                </td>
-                                <td>
-                                    <?php echo $nopass[$i]['grade']; ?>
-                                </td>
-                                <td>
-                                    <?php echo $nopass[$i]['subject']; ?>
-                                </td>
-                                <td>
-                                    <?php echo $nopass[$i]['title'];?>
-                                </td>
-                                <td>
-                                    <?php echo $nopass[$i]['teacher'];?>
-                                </td>
-                                <td>
-                                    <?php echo $nopass[$i]['add_time'];?>
+                                    <?php echo $nopass[$i]['course_name']; ?>
                                 </td>
                                 <td class="actions">
                                     <a href="#" title="Edit this content"><img src="<?php echo base_url('back/img/icons/actions/edit.png'); ?>" alt="" /></a>
-                                    <a data-id="<?php echo $nopass[$i]['required_id']; ?>" href="javascript:;" class="delete_button"><img src="<?php echo base_url('back/img/icons/actions/delete.png'); ?>" alt="" /></a>
+                                    <a data-id="<?php echo $nopass[$i]['course_name']; ?>" href="javascript:;" class="delete_button"><img src="<?php echo base_url('back/img/icons/actions/delete.png'); ?>" alt="" /></a>
                                 </td>
                             </tr>
                             <?php } ?>
@@ -169,26 +126,13 @@
                             <?php  for($i=0;$i<count($admin);$i++){ ?>
                             <tr>
                                 <td>
-                                    <?php echo $admin[$i]['stage']; ?>
+                                    <?php echo $admin[$i]['course_name']; ?>
                                 </td>
-                                <td>
-                                    <?php echo $admin[$i]['grade']; ?>
-                                </td>
-                                <td>
-                                    <?php echo $admin[$i]['subject']; ?>
-                                </td>
-                                <td>
-                                    <?php echo $admin[$i]['title'];?>
-                                </td>
-                                <td>
-                                    <?php echo $admin[$i]['teacher'];?>
-                                </td>
-                                <td>
-                                    <?php echo $admin[$i]['add_time'];?>
-                                </td>
+
                                 <td class="actions">
                                     <a href="#" title="Edit this content"><img src="<?php echo base_url('back/img/icons/actions/edit.png'); ?>" alt="" /></a>
-                                    <a data-id="<?php echo $check[$i]['required_id']; ?>" href="javascript:;" class="delete_button"><img src="<?php echo base_url('back/img/icons/actions/delete.png'); ?>" alt="" /></a>
+                                    <a data-id="<?php echo $nopass[$i]['course_id']; ?>" href="javascript:;" class="delete_button"><img src="<?php echo base_url('back/img/icons/actions/delete.png'); ?>" alt="" /></a>
+
                                 </td>
                             </tr>
                             <?php } ?>

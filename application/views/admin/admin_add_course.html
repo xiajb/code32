@@ -9,7 +9,7 @@
             <div class="content">
 
                 <div class="input">
-                    <label for="select">阶段</label>
+                    <label for="select">课程类别</label>
                     <select name="stage" id="stage">
                         <option value="小学">小学</option>
                         <option value="初中">初中</option>
@@ -18,7 +18,7 @@
                     Some informations on how to use this field
                 </div>
                 <div class="input">
-                    <label for="select">年级</label>
+                    <label for="select">课程选择</label>
                     <select name="grade" id="grade">
                         <option value="一年级">一年级</option>
                         <option value="二年级">二年级</option>
@@ -36,29 +36,19 @@
                     </select>
                     Some informations on how to use this field
                 </div>
+
                 <div class="input">
-                    <label for="select">科目</label>
-                    <select name="subject" id="subject">
-                        <option value="语文">语文</option>
-                        <option value="数学">数学</option>
-                        <option value="英语">英语</option>
-                        <option value="化学">化学</option>
-                        <option value="生物">生物</option>
-                        <option value="物理">物理</option>
-                        <option value="政治">政治</option>
-                        <option value="历史">历史</option>
-                        <option value="地理">地理</option>
-                    </select>
-                    Some informations on how to use this field
-                </div>
-                <div class="input">
-                    <label for="input1">标题</label>
+                    <label for="input1">课程名</label>
                     <input type="text"  id="title" placeholder="标题" name="title" /> Some informations on how to use this field
                 </div>
                 <div class="input">
                     <label for="select">老师</label>
-                    <select name="subject" id="subject">
-                        <option value="<?php echo $result['tid'] ?>"><?php echo $result['name'] ?></option>
+                    <select name="teacher" id="teacher">
+                        <?php foreach($teacher as $res) : ?>
+                        <option value="<?php echo $res['tid'] ?>">
+                            <?php echo $res['name'] ?>
+                        </option>
+                        <?php endforeach; ?>
                     </select>
                     Some informations on how to use this field
                 </div>
