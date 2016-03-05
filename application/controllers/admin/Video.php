@@ -39,25 +39,36 @@ class Video extends CI_Controller {
 		$this->load->view('admin/admin_add_video.html');
 	}
 
-	// public function index()
-	// {
-	// 	$data['current'] = array('data_back'=>'',
-	// 		'data_manage'=>'current',
-	// 		'user_data' =>'' ,
-	// 		'teacher_data'=>'',
-	// 		'course_data'=>'',
-	// 		'data_add'=>'',
-	// 		'course_add'=>'',
-	// 		'video_add'=>'',
-	// 		'teacher_add'=>'',
-	// 		'data_check'=>'',
-	// 		'course_check'=>'',
-	// 		'video_check'=>'',
-	// 		'teacher_check'=>'',
-	// 		 );
-	// 	$this->load->view('admin/admin_header.html',$data);
-	// 	$this->load->view('admin/admin_video.html');
-	// }
+	public function all()
+	{
+		$data['current'] = array('data_back'=>'',
+			'user_manage'=>'',
+			'user_data' =>'' ,
+			'teacher_data'=>'',
+			'add_teacher'=>'',
+			'course_manage'=>'',
+			'required_course'=>'',
+			'elective_course'=>'',
+			'skill_course'=>'',
+			'video_manage'=>'current',
+			'all_video'=>'current',
+			'upload_video'=>'',
+			'order_manage'=>'',
+			'all_order'=>'',
+			'account_data'=>'',
+			'feedback_manage'=>'',
+			'all_feedback'=>'',
+			'comment_manage'=>'',
+			'all_comment'=>'',
+			'link_manage'=>'',
+			'all_link'=>'',
+			'add_link'=>'',
+			 );
+		
+		$this->load->view('admin/admin_header.html',$data);
+		$this->load->view('admin/admin_video_all.html');
+	}
+
 	public function add()
 	{
 		$data['current'] = array('data_back'=>'',
