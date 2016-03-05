@@ -273,7 +273,7 @@ class Center extends CI_Controller {
 	}
 	public function ajax_getcharter($course_id){
 	$chapter=$this->show_model->showchapterbyid($course_id);
-		echo json_encode($chapter);
+	echo json_encode($chapter);
 
 	}
 

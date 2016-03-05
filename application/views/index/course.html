@@ -404,9 +404,17 @@ body{
             <!--bread-crumb-->
             <!--课程简介-->
             <div class="bread-crumb inner">
-                <a href="http://www.rfgxy.com/">首页</a> <em class="fs">&gt;</em> <a href="http://www.rfgxy.com/lesson1/jinpin.aspx">选课中心
-                </a><em class="fs">&gt;</em>  <span><a href="#">
-                        西门子S7-200PLC模拟量应用篇</a></span>
+                <a href="http://www.rfgxy.com/">首页</a> <em class="fs">&gt;</em> <a href="#">选课中心
+                </a><em class="fs">&gt;</em>  <span>
+
+                <a href="<?php
+                $course=$arr[2];
+                echo base_url().'/course/showcourse/'.$course[0]['course_id'];
+                ?>">
+                        <?php
+                $course=$arr[2];
+                echo $course[0]['course_name'];
+                ?></a></span>
             </div>
             <!--课程简介-->
             <!-- 001.s7-200扩展模块-模拟量模块 11885-->
@@ -494,32 +502,43 @@ body{
                     </div>
                     <div class="w555 r">
                         <h3 class="h30 lh30 f18 n">
-                            西门子S7-200PLC模拟量应用篇</h3>
+                             <?php
+                $course=$arr[2];
+                echo $course[0]['course_name'];
+                ?></h3>
                         <div class="p2em colblue f14 mt10 bds bdb bdgrayd lh25 h100 pb20">
-
-
-                            本课程适合对西门子S7-200PLC硬件结构及逻辑指令有一定了解的学员。本课程重点介绍了模拟量的连线及模块的选择，以及根据采样到的模拟量值如何计算转换成实际的工程量。梁老师课件运用生动形象，最大程度的还原了西门子S7-200PLC的形态，让...
+                             <?php
+                $course=$arr[2];
+                echo $course[0]['course_synopsis'];
+                ?>
                         </div>
                         <div class="f14 gray6  clearfix kc_span">
                             <p>在线咨询：
-                                <iframe width="92" height="22" scrolling="no" frameborder="0" allowtransparency="true" src="<?php echo base_url().'index/course'?>/course.html"></iframe><script charset="utf-8" type="text/javascript" src="<?php echo base_url().'index/course'?>/wpa.php">
+                                <iframe width="92" height="22" scrolling="no" frameborder="0" allowtransparency="true" src="<?php echo base_url().'index/course'?>/course.html">
+                                </iframe>
+                                <script charset="utf-8" type="text/javascript" src="<?php echo base_url().'index/course'?>/wpa.php">
                                 </script>
                             </p>
                             <p>更新至：
                                  已完结
                             </p>
-                            <p>课时：29</p>
+                            <p>课时：<?php
+                $course=$arr[2];
+                echo $course[0]['order_no'];
+                ?></p>
                             <p>已看过：6045人</p>
                             <p>讲师：梁智斌</p>
                             <p class="jibie clearfix">课程级别：
 
+                                <em id="lv1"class=""></em>
+                                <em id="lv2"></em>
+                                <em id="lv3"></em>
 
-                                <em></em>
-                                <em class="actblue"></em>
-                                <em></em>
 
-
-                                <code>中级</code>
+                                <code><?php
+                $course=$arr[2];
+                echo $course[0]['course_level'];
+                ?></code>
                             </p>
                             <div class="dianping">
                                <span class="dpTxt"> 课程点评：</span>
@@ -839,7 +858,17 @@ body{
                     _page_CommentBar.allowClone=true;
                     //_page_CommentBar.cloneName="jcCommentBarClone";
                     _page_CommentBar.output();
-
+                   var lv="<?php  $course=$arr[2];echo $course[0]['course_level'];?>";
+                  if(lv=='初级'||lv=='小学'){
+                //var aa=  $("em#lv1").attr('class');
+                   $("em#lv1").attr('class','actblue');
+                 }
+                  if(lv=='中级'||lv=='初中'){
+                    $("em#lv2").attr('class','actblue');
+                  }
+                  if(lv=='高级'||lv=='高中'){
+                  $("em#lv3").attr('class','actblue');
+                  }
 
                 })
                 //调用
@@ -1418,7 +1447,7 @@ body{
 
 
 
- 
+
 
     </div>
     <!--footer-->
@@ -1704,7 +1733,7 @@ body{
 
     <script type="text/javascript">
         $(function () {
-
+            $
             $("#collect-video-btns").click(function (event) {
                 var url_course = $(".url_course").val();
                 var name_course = $(".name_course").val();
