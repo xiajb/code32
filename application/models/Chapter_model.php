@@ -28,7 +28,11 @@ function getchapter_orderbyid($id){
 	}
 
 
-
+public function get_chapter_by_id($course_id){
+	$this->db->where('course_id',$course_id);
+	$query = $this->db->get('ci_chapter');
+	return $query->result_array();
+}
 
 
 }

@@ -184,7 +184,7 @@ span{display:block}#content .checker:hover, #content .radio:hover{-moz-box-shado
 input{width:50px !important;height:24px !important;cursor:pointer;margin-bottom:4px;margin-right:5px}#content .checker span, #content .radio
 span{background:url(img/checkbox.png) bottom left}#content .checker span.checked, #content .radio
 span.checked{background-position:top left}#content .selector, #content .selector select, #content .selector
-span{width:272px !important;height:28px;position:relative;padding:0px;margin:0px;display:block}#content .selector
+span{width:272px !important;height:28px;position:relative;padding:0px;margin:0px;display:inline-block}#content .selector
 span{background:none;position:absolute;line-height:29px;background:url(img/select.png) no-repeat 98% center;text-indent:10px}#content
 .selector.focus{border:1px
 solid #59C7FF;-moz-box-shadow:inset 2px 1px 5px #88BCD7;-webkit-box-shadow:inset 2px 1px 5px #88BCD7;-o-box-shadow:inset 2px 1px 5px #88BCD7;box-shadow:inset 2px 1px 5px #88BCD7}#content

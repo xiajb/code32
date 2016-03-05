@@ -38,4 +38,10 @@ class Course_model extends CI_Model{
 	public function delete($id){
 		return $this->db->delete(self::TBL_USER, array('course_id' => $id));
 	}
-}
+
+	public function get_status($status){
+		$this->db->where('status', $status);
+		$query = $this->db->get(self::TBL_USER);
+		return $query->result_array();
+	}
+  }

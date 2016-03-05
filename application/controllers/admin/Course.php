@@ -5,9 +5,8 @@ class Course extends CI_Controller {
 		parent::__construct();
 		$this->load->model('teacher_model');
 		$this->load->model('classify_model');
-		// $this->load->model('elective_model');
-		// $this->load->model('skill_model');
 		$this->load->model('course_model');
+		$this->load->model('chapter_model');
 		$this->load->library('session');
 
 	}
@@ -167,6 +166,7 @@ class Course extends CI_Controller {
 		$value = json_decode($this->input->post('data'),true);
 		$value = $this->security->xss_clean($value);
 		$value['add_time'] = date("Y-m-d H:i:s",time());
+		$value['status'] = '2';
 		if ($this->course_model->add_course($value)) {
 	    		echo '1';
 	    	}else{
@@ -187,6 +187,19 @@ class Course extends CI_Controller {
 		$string = '';
 		for ($i=0; $i < count($row); $i++) { 
 			$string.= '<option value="'.$row[$i]['classify_id'].'">'.$row[$i]['classify_name'].'</option>';
+		}
+		echo $string;
+	}
+
+	public function get_chapter(){
+		$value = $_POST['data'];
+		$value = $this->security->xss_clean($value);
+		$row = $this->chapter_model->get_chapter_by_id($value);
+		if(is_array($row)){
+			$string = '';
+			for ($i=0; $i < count($row); $i++) { 
+				$string.= '<option value="'.$row[$i]['chapter_id'].'">'.$row[$i]['chapter_name'].'</option>';
+			}
 		}
 		echo $string;
 	}

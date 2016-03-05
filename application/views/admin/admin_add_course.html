@@ -1,77 +1,83 @@
-    <script src="<?php echo base_url('index/js/plupload.full.min.js'); ?>" type="text/javascript"></script>
-    <!--            
+<script src="<?php echo base_url('index/js/plupload.full.min.js'); ?>" type="text/javascript"></script>
+<!--            
               CONTENT 
                         -->
-    <div id="content" class="white">
-        <h1><img src="<?php echo base_url('/back/img/icons/posts.png'); ?>" alt="" /> Forms</h1>
-        <div class="bloc">
-            <div class="title">课程添加</div>
-            <div class="content">
-
-                <div class="input">
-                    <label for="select">课程类别</label>
-                    <select name="direction" id="direction">
-                        <option value="-1">--课程类别</option>
-                        <option value="1">选修课程</option>
-                        <option value="2">必修课程</option>
-                        <option value="3">技能课程</option>
-                    </select>
-                    Some informations on how to use this field
-                </div>
-                <div class="input">
-                    <label for="select">课程选择</label>
-                    <select name="classify" id="classify">
-                        <option value="-1">--课程选择</option>
-                    </select>
-                    Some informations on how to use this field
-                </div>
-
-                <div class="input">
-                    <label for="input1">课程名</label>
-                    <input type="text"  id="name" placeholder="课程名" name="name" /> Some informations on how to use this field
-                </div>
-                <div class="input">
-                    <label for="select">老师</label>
-                    <select name="teacher" id="teacher">
+<div id="content" class="white">
+    <h1><img src="<?php echo base_url('/back/img/icons/posts.png'); ?>" alt="" /> Forms</h1>
+    <div class="bloc">
+        <div class="title">课程添加</div>
+        <div class="content">
+            <div class="input">
+                <label for="select">课程类别</label>
+                <select name="direction" id="direction">
+                    <option value="-1">--课程类别</option>
+                    <option value="1">选修课程</option>
+                    <option value="2">必修课程</option>
+                    <option value="3">技能课程</option>
+                </select>
+                Some informations on how to use this field
+            </div>
+            <div class="input">
+                <label for="select">课程选择</label>
+                <select name="classify" id="classify">
+                    <option value="-1">--课程选择</option>
+                </select>
+                Some informations on how to use this field
+            </div>
+            <div class="input">
+                <label for="input1">课程名</label>
+                <input type="text" id="name" placeholder="课程名" name="name" /> Some informations on how to use this field
+            </div>
+            <div class="input">
+                <label for="input1">难以程度</label>
+                <select name="level" id="level">
+                    <option value="初级">初级</option>
+                    <option value="中级">中级</option>
+                    <option value="高级">高级</option>
+                </select>
+                            </div>            
+            <div class="input">
+                <label for="select">老师</label>
+                <select name="teacher" id="teacher">
                     <option value="-1">--老师选择</option>
-                        <?php foreach($teacher as $res) : ?>
-                        <option value="<?php echo $res['tid'] ?>">
-                            <?php echo $res['name'] ?>
-                        </option>
-                        <?php endforeach; ?>
-                    </select>
-                    Some informations on how to use this field
-                </div>
-                <div class="input">
-                    <label for="file">课程封面</label>
-                    <input type="text"  style="display: inline;"/>
-                    <div id="btn">上传图片</div> 最大500KB，支持jpg，gif，png格式。
-                    <ul id="ul_pics" class="ul_pics clearfix"></ul>
+                    <?php foreach($teacher as $res) : ?>
+                    <option value="<?php echo $res['tid'] ?>">
+                        <?php echo $res['name'] ?>
+                    </option>
+                    <?php endforeach; ?>
+                </select>
+                Some informations on how to use this field
+            </div>
+            <div class="input">
+                <label for="file">课程封面</label>
+                <input type="text" style="display: inline;" />
+                <div id="btn">上传图片</div> 最大500KB，支持jpg，gif，png格式。
+                <ul id="ul_pics" class="ul_pics clearfix"></ul>
                 <style type="text/css">
-                    #btn{
-    background-color: #00b7f1;
-    color: #fff !important;
-    padding: 0 8px;
-    height: 24px;
-    line-height: 24px;
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    border-radius: 5px;
-                    }
+                #btn {
+                    background-color: #00b7f1;
+                    color: #fff !important;
+                    padding: 0 8px;
+                    height: 24px;
+                    line-height: 24px;
+                    position: relative;
+                    display: inline-block;
+                    cursor: pointer;
+                    border-radius: 5px;
+                }
                 </style>
-                </div>
-                <div class="input textarea" style="width:500px">
-                    <label for="textarea1">课程简介</label>
-                    <textarea name="text" id="detail" rows="7" cols="4"></textarea>
-                </div>
-                <div class="submit">
-                    <input type="button" id="button" value="submit" />
-                </div>
+            </div>
+            <div class="input textarea" style="width:500px">
+                <label for="textarea1">课程简介</label>
+                <textarea name="text" id="detail" rows="7" cols="4"></textarea>
+            </div>
+            <div class="submit">
+                <input type="button" id="button" value="submit" />
             </div>
         </div>
     </div>
-        <script type="text/javascript">
+</div>
+<script type="text/javascript">
 var uploader = new plupload.Uploader({ //创建实例的构造方法 
     runtimes: 'html5,flash,silverlight,html4',
     //上传插件初始化选用那种方式的优先级顺序 
@@ -129,35 +135,38 @@ uploader.init();
 $("#button").click(function() {
     console.log($("#picname").html());
     var value = {
-        // "direction": $("#direction").val(),
         "classify_id": $("#classify").val(),
         "course_name": $("#name").val(),
-        "title": $("#title").val(),
-        "detail": $("#detail").val(),
-        "img": $("#picname").html()
+        "course_lectruer_id": $("#teacher").val(),
+        "course_synopsis": $("#detail").val(),
+        "course_level": $("#level").val(),
+        "img_path": $("#picname").html()
     }
     console.log(value);
     $.ajax({
         type: 'POST',
-        url: "<?php echo base_url('./admin/course/c_course'); ?>",
+        url: "<?php echo base_url('./admin/course/add_course'); ?>",
         data: 'data=' + JSON.stringify(value),
 
         success: function(result) {
-            console.log(result);
+            if (result == 1) {
+                alert('success');
+                location.reload();
+            }
         }
     });
 });
 
-$("#direction").change(function(){
+$("#direction").change(function() {
     $.ajax({
         type: 'POST',
         url: "<?php echo base_url('./admin/course/get_classify'); ?>",
         data: 'data=' + $("#direction").val(),
 
         success: function(result) {
-           if (result != '') {
+            if (result != '') {
                 $('#classify').html(result);
-           }
+            }
         }
     });
 });
