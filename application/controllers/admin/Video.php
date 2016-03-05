@@ -5,7 +5,9 @@ class Video extends CI_Controller {
 		parent::__construct();
 		$this->load->model('course_model');
 		$this->load->model('user_model');
+		$this->load->model('chapter_model');
 		$this->load->model('classify_model');
+		$this->load->model('section_model');
 		$this->load->library('session');
 
 	}
@@ -102,10 +104,28 @@ class Video extends CI_Controller {
 	public function video_add (){
 		$value = $_POST;
 		$value = $this->security->xss_clean($value);
-		$chapter = array();
-		$chapter['course_id'] = $value['name'];
-		$chaper['chaper_name'] = $value['chaper1'];
+		if ($value['chapter1'] != '') {
+			$chapter = array();
+			$chapter['course_id'] = $value['course_id'];
+			$chapter['chapter_name'] = $value['chapter1'];
+			file_put_contents("/home/tanxu/www/data.txt", print_r($chapter,true));
+			$chapter_id = $this->chapter_model->add_chapter($chapter);
+			$section['chapter_id'] = $chapter_id;
+		}else{
 
+			$section['chapter_id'] = $value['chapter'];
+		}
+		$section = array();
+		$section['section_name'] = $value['section'];
+		$section['section_path'] = $value['path'];
+		$section['create_time'] = date("Y-m-d H:i:s",time());
+		$section['creater'] = 'admin';
+		$section_id = $this->section_model->add_section($section);
+		if ($section_id >=0) {
+			echo '1';
+		}else{
+			echo '-1';
+		}
 		
 	}
 

@@ -6,7 +6,7 @@
         <div class="content">
             <div class="input">
                 <label for="input1">课程名</label>
-                <select name="name" id="name">
+                <select name="course" id="course">
                     <option value="-1">--课程选择</option>
                     <?php foreach($course as $res) : ?>
                     <option value="<?php echo $res['course_id'] ?>">
@@ -17,7 +17,7 @@
                 Some informations on how to use this field
             </div>
             <div class="input">
-                <label for="select">章节</label><input type="text" id="chapter1" placeholder="课程名" name="chapter1" style="display: none;"/>
+                <label for="select">章节</label><input type="text" id="chapter1" placeholder="章节" name="chapter1" style="display: none;"/>
                 <select name="chapter" id="chapter">
                     <option value="-1">--章节选择</option>
                 </select>
@@ -29,6 +29,11 @@
                 Some informations on how to use this field
             </div>
             <div class="input">
+                <label for="select">小节标题</label>
+                <input type="text" id="section" placeholder="小节标题"  name="section" />
+                Some informations on how to use this field
+            </div>
+                    <div class="input">
                 <label for="file">视屏</label>
                 <label id="filelist">Your browser doesn't have Flash, Silverlight or HTML5 support.</label>
                 <div id="container">
@@ -70,17 +75,18 @@
 $("#button").click(function() {
     console.log($("#picname").html());
     var value = {
-        "name": $("#name").val(),
+        "course_id": $("#course").val(),
         "chapter": $("#chapter").val(),
         "detail": $("#detail").val(),
         "chapter1": $("#chapter1").val(),
-        "img": $("#sectionpath").val()
+        "path": $("#sectionpath").val(),
+        "section":$("#section").val()
     }
     console.log(value);
     $.ajax({
         type: 'POST',
         url: "<?php echo base_url('./admin/video/video_add'); ?>",
-        data: value;
+        data: value,
 
         success: function(result) {
             console.log(result);

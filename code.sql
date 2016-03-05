@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `ci_chapter` (
-  `chapter_id` int(11) NOT NULL,
+  `chapter_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'primary key,autoincrement',
   `chapter_name` varchar(100) COLLATE utf8_bin NOT NULL,
   `course_id` int(11) NOT NULL,
   `order_no` int(11) NOT NULL,
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `ci_chapter` (
 --
 
 CREATE TABLE IF NOT EXISTS `ci_classify` (
-  `classify_id` int(11) NOT NULL,
+  `classify_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'primary key,autoincrement',
   `classify_name` varchar(100) COLLATE utf8_bin NOT NULL,
   `direction_id` int(11) NOT NULL,
   PRIMARY KEY (`classify_id`)
@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `ci_classify` (
 --
 
 CREATE TABLE IF NOT EXISTS `ci_course` (
-  `course_id` int(11) NOT NULL,
+  `course_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'primary key,autoincrement',
   `course_name` varchar(11) COLLATE utf8_bin NOT NULL,
   `course_synopsis` text COLLATE utf8_bin NOT NULL,
   `classify_id` int(11) NOT NULL,
@@ -123,7 +123,7 @@ CREATE TABLE IF NOT EXISTS `ci_course` (
 --
 
 CREATE TABLE IF NOT EXISTS `ci_direction` (
-  `direction_id` int(11) NOT NULL,
+  `direction_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'primary key,autoincrement',
   `direction_name` varchar(100) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`direction_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -146,8 +146,8 @@ CREATE TABLE IF NOT EXISTS `ci_direction` (
 --
 
 CREATE TABLE IF NOT EXISTS `ci_elective` (
-  `elective_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'primary key,autoincrement',   22
-  `classify_id` int(10) NOT NULL DEFAULT '0' COMMENT 'classify_id',
+  `elective_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'primary key,autoincrement',
+  `classify_id` int(11) NOT NULL DEFAULT '0' COMMENT 'classify_id',
   `name` varchar(50) NOT NULL DEFAULT '0' COMMENT '课程名',
   `title` varchar(50) NOT NULL DEFAULT '0' COMMENT '标题',
   `detail` varchar(50) NOT NULL DEFAULT '0' COMMENT '介绍',
@@ -204,7 +204,7 @@ CREATE TABLE IF NOT EXISTS `ci_required` (
 --
 
 CREATE TABLE IF NOT EXISTS `ci_section` (
-  `section_id` int(11) NOT NULL,
+  `section_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'primary key,autoincrement',
   `section_name` varchar(100) COLLATE utf8_bin NOT NULL,
   `create_time` datetime NOT NULL,
   `creater` varchar(50) COLLATE utf8_bin NOT NULL,

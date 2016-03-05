@@ -15,6 +15,7 @@ class Chapter_model extends Ci_Model
 	function add_chapter($in_data){
   	$this->load->database();
   	$this->db->insert('ci_chapter',$in_data);
+
   	return $this->db->insert_id();
 }
 function getchapter_orderbyid($id){
