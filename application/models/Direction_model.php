@@ -2,7 +2,7 @@
 /**
  *
  */
-class Show_direction extends Ci_Model
+class Direction_model extends Ci_Model
 {
 
   function __construct()
