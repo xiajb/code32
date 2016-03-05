@@ -91,11 +91,11 @@ CREATE TABLE IF NOT EXISTS `ci_classify` (
 CREATE TABLE IF NOT EXISTS `ci_course` (
   `course_id` int(11) NOT NULL,
   `course_name` varchar(11) COLLATE utf8_bin NOT NULL,
-  `course_synopsis` text COLLATE utf8_bin NOT NULL,    简介
+  `course_synopsis` text COLLATE utf8_bin NOT NULL,
   `classify_id` int(11) NOT NULL,
   `course_lectruer_id` int(11) NOT NULL,
   `course_level` varchar(10) COLLATE utf8_bin NOT NULL,
-  `attentions` int(11) NOT NULL,   关注人数
+  `attentions` int(11) NOT NULL,
   `enrolls` int(11) NOT NULL,
   `status` int(11) NOT NULL,
   `img_path` varchar(1000) COLLATE utf8_bin NOT NULL,
