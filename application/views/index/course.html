@@ -424,10 +424,13 @@ body{
 
     <div id="player" style="width: 585px;">
         <a href="javascript:;" class="playNologin see" id="playv-startimg" data-id="2179">
-            <img src="<?php echo base_url().'index/course/20150521160401015.png'?>" width="585" height="330">
+            <img src="<?php
+                $course=$arr[2];
+                echo $course[0]['img_path'];
+                ?>" width="585" height="330">
             <i class="icon-vedio"></i></a>
         <div class="video" id="CuPlayer" style="display: none;">
-          <video src="http://code32.b0.upaiyun.com/video/Taylor%20Swift%20-%20Shake%20It%20Off.mp4"
+          <video src="http://code32.b0.upaiyun.com/2016/03/05/b5552ef1a58574517d1870fc303a2fc4.mp4"
           width="585" height="325" controls="controls" type="video/mp4" id='upyvideo'></video>
         </div>
         <script type="text/javascript">
@@ -457,7 +460,7 @@ body{
     </div>
 
 
-    <div style="display:none;position: absolute; width: 320px; height: 163px; top: 40px; padding: 10px; left: 50%; margin-left: -160px; background-color: rgb(255, 255, 255);z-index: 1;" id="huodong_dialog"><a href="http://www.rfgxy.com/lesson1/vip_day.aspx?from=payler_index" target="_blank"><img src="<?php echo base_url().'index/course'?>/20150910-01.png"></a><div><a id="huodong_dialog_close" style="position:absolute;right:17px;top:0;font-size:26px;cursor:pointer;color:#fff;width: 20px;height: 20px;">×</a></div></div>
+    <div style="display:none;position: absolute; width: 320px; height: 163px; top: 40px; padding: 10px; left: 50%; margin-left: -160px; background-color: rgb(255, 255, 255);z-index: 1;" id="huodong_dialog"><a href="http://www.rfgxy.com/lesson1/vip_day.aspx?from=payler_index" target="_blank"><img src=""></a><div><a id="huodong_dialog_close" style="position:absolute;right:17px;top:0;font-size:26px;cursor:pointer;color:#fff;width: 20px;height: 20px;">×</a></div></div>
     <script type="text/javascript">
         $(function () {
             //点击播放图标
@@ -527,7 +530,10 @@ body{
                 echo $course[0]['order_no'];
                 ?></p>
                             <p>已看过：6045人</p>
-                            <p>讲师：梁智斌</p>
+                            <p>讲师：<?php
+            $course=$arr[2];
+            echo $course[0]['name'];
+            ?></p>
                             <p class="jibie clearfix">课程级别：
 
                                 <em id="lv1"class=""></em>
@@ -1256,10 +1262,16 @@ body{
                             <div class="clearfix pt10 pb10">
                                 <div class="w100 l">
                                     <a href="http://www.rfgxy.com/teacher/5.html">
-                                        <img src="<?php echo base_url().'index/course'?>/20150313143600605.jpg" class="img-radius" width="100" height="100" alt=""></a></div>
+                                        <img src="<?php
+                        $course=$arr[2];
+                        echo $course[0]['pic'];
+                        ?>" class="img-radius" width="100" height="100" alt=""></a></div>
                                 <div class="w140 pl10 l">
                                     <h4 class="f16 gray3">
-                                        梁智斌</h4>
+                                      <?php
+                      $course=$arr[2];
+                      echo $course[0]['name'];
+                      ?></h4>
                                     <p class="gray6 pt5">
                                         资深讲师<br>
                                         <br>
@@ -1267,8 +1279,13 @@ body{
                                 </div>
                             </div>
                             <p>
-                                华南理工大学工程硕士，西门子（中国）有限公司工程师，负责项目设计执行、OEM样机开发，技术支持，客户培训。曾获比亚迪、深圳地铁等大型企业邀请对其相关技术人员进行系统的专业培训，擅长PLC、工业网络、HMI等设备的教学。授课深入浅出、全面细致，结合实际工程经验，详细实际应用和工程现场中遇到的常见问题。</p>
-                        </div>
+                              <?php
+              $course=$arr[2];
+              if($course[0]['intro']==''){
+                echo '0';
+              }else{  echo $course[0]['intro'];}
+
+              ?>
                         <div class="bfoot pl20 pr20 f14">
                             <p class="clearfix">
                                 <span class="l">课程总数（139）</span> <span class="r hand" id="like-teacher-btn">
@@ -1485,7 +1502,7 @@ body{
          //登录页面
          function login() {
              $.fancybox.open({
-                 href: 'http://www.rfgxy.com/login/logins.html?callback=http://www.rfgxy.com/lesson1/default.aspx?courseid=2179',
+                 href: '',
                  type: 'iframe',
                  padding: 10,
                  width: '400',
@@ -1766,7 +1783,7 @@ body{
             });
 
             $(".playNologin").click(function (event) {
-                var href="/lesson/2179/11885.html";
+                var href="http://www.rfgxy.com/showtv/showbyid/6/2";
                 var learnerId = $.cookie("learnerId");
                 if (learnerId == null) {
                     login();
