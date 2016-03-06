@@ -1,8 +1,20 @@
-﻿var options = {
+var path=	document.getElementById('classify').value;
+if(path==1){
+	path='video';
+}
+else if(path==3){
+	path='img'
+}
+else{
+	path='pic'
+}
+var options = {
 	'bucket': 'code32',
-	'save-key': '/{year}/{mon}/{day}/{filemd5}{.suffix}',
+	//'save-key': '/{year}/{mon}/{day}/{filemd5}{.suffix}',
+	'save-key': '/'+path+'/{filemd5}{.suffix}',
 	'expiration': Math.floor(new Date().getTime() / 1000) + 86400
 };
+//alert(options['save-key']);
 // 查看更多参数：http://docs.upyun.com/api/form_api/#表单API接口简介
 var policy = window.btoa(JSON.stringify(options));
 // 从 UPYUN 用户管理后台获取表单 API
@@ -51,7 +63,7 @@ var uploader = new plupload.Uploader({
 			var response = JSON.parse(info.response);
 			//document.getElementById(file.id).getElementsByTagName('b')[0].innerHTML += ' [Url]: http://code32.b0.upaiyun.com' + response.url;
 			document.getElementById('sectionpath').value='http://code32.b0.upaiyun.com' + response.url;
-			
+
 		},
 
 		Error: function(up, err) {
