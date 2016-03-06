@@ -1,153 +1,136 @@
-        <div class="ucenter-right cf">
-            <div class="ucenter-right-head">
-                <h3>修改密码</h3>
-            </div>
-            <div class="ucenter-right-body cf">
-                <div class="freevip-block">
-                    <div class="wrap">
-                        <div class="bd">
-                            <form class="form form-setting">
-                                <fieldset>
-                                    <div class="form-item">
-                                        <div class="item-label">
-                                            <label>当前密码</label>
-                                        </div>
-                                        <div class="item-cont no-right">
-                                            <input type="password" class="txt sm my-pw" id="former_pwd">
-                                            <span class="warning" style="width:0;height:0; padding: 0; overflow: hidden; display:block;"></span>
-                                        </div>
-                                        <span class="pwd_error" id="former_error" style="display:none;">密码输入错误！</span>
+<div class="ucenter-right cf">
+    <div class="ucenter-right-head">
+        <h3>修改密码</h3>
+    </div>
+    <div class="ucenter-right-body cf">
+        <div class="freevip-block">
+            <div class="wrap">
+                <div class="bd">
+                    <form class="form form-setting">
+                        <fieldset>
+                            <div class="form-item">
+                                <div class="item-label">
+                                    <label>当前密码</label>
+                                </div>
+                                <div class="item-cont no-right">
+                                    <input type="password" class="txt sm my-pw" id="former_pwd">
+                                    <span class="warning" style="width:0;height:0; padding: 0; overflow: hidden; display:block;"></span>
+                                </div>
+                                <span class="pwd_error" id="former_error" style="display:none;">密码输入错误！</span>
+                            </div>
+                            <div class="form-item">
+                                <div class="item-label">
+                                    <label>密码</label>
+                                </div>
+                                <div class="item-cont">
+                                    <input type="password" class="txt sm new-pw" id="newpwd" maxlength="32">
+                                    <div class="safety pwd-strong" style="display:none;">
+                                        <span class="level-1" level="1">弱</span>
+                                        <span class="level-2" level="2">中</span>
+                                        <span class="level-3" level="3">强</span>
                                     </div>
-                                    <div class="form-item">
-                                        <div class="item-label">
-                                            <label>密码</label>
-                                        </div>
-                                        <div class="item-cont">
-                                            <input type="password" class="txt sm new-pw" id="newpwd" maxlength="32">
-                                            <div class="safety pwd-strong" style="display:none;">
-                                                <span class="level-1" level="1">弱</span>
-                                                <span class="level-2" level="2">中</span>
-                                                <span class="level-3" level="3">强</span>
-                                            </div>
-                                            <span class="warning" style="width:0;height:0; padding: 0; overflow: hidden; display:block;"></span>
-                                        </div>
-                                        <span class="pwd_error" id="former_equal" style="display:none;"></span>
-                                    </div>
-                                    <div class="form-item">
-                                        <div class="item-label">
-                                            <label>确认密码</label>
-                                        </div>
-                                        <div class="item-cont no-right">
-                                            <input type="password" class="txt sm repeat-pw" id="newrpwd" maxlength="32">
-                                            <span class="warning" style="width:0;height:0; padding: 0; overflow: hidden; display:block;"></span>
-                                            <!--                                             <div class="note errTxt " style="display: none">
-                                                密码不一致
-                                            </div>
- -->
-                                        </div>
-                                        <span class="pwd_error" id="pwd_discord" style="display:none;">两次密码不一致！</span>
-                                    </div>
-                                    <div class="form-item">
-                                        <div class="item-cont">
-                                            <input type="button" class="btn btn-primary sm p-sm changepw-btn" id="yes_btn" value="确定">
-                                            <a href="javascript:;" class="btn btn-bezelFree xs p-xs popclose">取消</a>
-                                        </div>
-                                    </div>
-                                </fieldset>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <script type="text/javascript">
-        $(function() {
-
-            $("#former_pwd").blur(function() {
-                var data = {
-                    'password': $('#former_pwd').val()
-                }
-                $.ajax({
-                    type: 'POST',
-                    url: "../center/pwd_is_true",
-                    data: 'data=' + JSON.stringify(data),
-                    success: function(result) {
-                        // console.log(result);
-                        if (result == 1) {
-                            $("#former_error").hide();
-                        } else {
-                            $("#former_error").show();
-                        }
-                    }
-                });
-            });
-
-            $("#newpwd").focus(function() {
-                $('#former_equal').hide();
-            });
-            $("#newpwd").blur(function() {
-
-                if ($.trim($('#former_pwd').val()) == $.trim($('#newpwd').val())) {
-                    $('#former_equal').show();
-                    $("#former_equal").html("不能和原密码一致！");
-                    return false;
-                }
-            });
-
-            $("#yes_btn").click(function() {
-                var newpwd = $('#newpwd').val();
-                // var newrpwd = $('#newrpwd').val();
-                var former_pwd = $('#former_pwd').val();
-                if ($('#former_pwd').val() == '') {
-                    $("#former_error").html("请输入原密码");
-                    $('#former_error').show();
-                    return false;
-                }
-                if ($.trim(newpwd).length < 6 || $.trim(newpwd).length > 20) {
-                    $('#former_equal').show();
-                    $("#former_equal").html("请输入正确的密码");
-                    return false;
-                }
-
-                if ($('#newpwd').val() != $('#newrpwd').val()) {
-                    $('#pwd_discord').show();
-                    return false;
-                }
-                var data = {
-                    'former_pwd':former_pwd,
-                    'password': newpwd
-                }
-                $.ajax({
-                    type: 'POST',
-                    url: "../center/change_pw",
-                    data: 'data=' + JSON.stringify(data),
-                    success: function(result) {
-                        // console.log(result);
-                        if (result == 1) {
-                            alert('密码更改成功！');
-                            location.href = "http://www.rfgxy.com/mydata?label=jiben";
-
-                        } else {
-                            alert('更改失败！');
-                        }
-                    }
-                });
-            });
-
-        });
-        </script>
-        <div class="ucenter-right cf">
-            <div class="mycourse-block">
-                <!--                 <div class="mycourse-tab-tit">
-                    <ul class="cf mycourse-tab-ul">
-                        <li class="active"><a href="http://www.jikexueyuan.com/member/mycourse/xuexi.html" jktag="&amp;posOper=62012&amp;posArea=0003">修改密码</a></li>
-                        
-                    </ul>
-                </div> -->
-                <div class="mycourse-page">
-                    <div id="page-nav"></div>
+                                    <span class="warning" style="width:0;height:0; padding: 0; overflow: hidden; display:block;"></span>
+                                </div>
+                                <span class="pwd_error" id="former_equal" style="display:none;"></span>
+                            </div>
+                            <div class="form-item">
+                                <div class="item-label">
+                                    <label>确认密码</label>
+                                </div>
+                                <div class="item-cont no-right">
+                                    <input type="password" class="txt sm repeat-pw" id="newrpwd" maxlength="32">
+                                    <span class="warning" style="width:0;height:0; padding: 0; overflow: hidden; display:block;"></span>
+                                </div>
+                                <span class="pwd_error" id="pwd_discord" style="display:none;">两次密码不一致！</span>
+                            </div>
+                            <div class="form-item">
+                                <div class="item-cont">
+                                    <input type="button" class="btn btn-primary sm p-sm changepw-btn" id="yes_btn" value="确定">
+                                    <a href="javascript:;" class="btn btn-bezelFree xs p-xs popclose">取消</a>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+</div>
+<script type="text/javascript">
+$(function() {
+
+    $("#former_pwd").blur(function() {
+        var data = {
+            'password': $('#former_pwd').val()
+        }
+        $.ajax({
+            type: 'POST',
+            url: "../center/pwd_is_true",
+            data: 'data=' + JSON.stringify(data),
+            success: function(result) {
+                // console.log(result);
+                if (result == 1) {
+                    $("#former_error").hide();
+                } else {
+                    $("#former_error").show();
+                }
+            }
+        });
+    });
+
+    $("#newpwd").focus(function() {
+        $('#former_equal').hide();
+    });
+    $("#newpwd").blur(function() {
+
+        if ($.trim($('#former_pwd').val()) == $.trim($('#newpwd').val())) {
+            $('#former_equal').show();
+            $("#former_equal").html("不能和原密码一致！");
+            return false;
+        }
+    });
+
+    $("#yes_btn").click(function() {
+        var newpwd = $('#newpwd').val();
+        // var newrpwd = $('#newrpwd').val();
+        var former_pwd = $('#former_pwd').val();
+        if ($('#former_pwd').val() == '') {
+            $("#former_error").html("请输入原密码");
+            $('#former_error').show();
+            return false;
+        }
+        if ($.trim(newpwd).length < 6 || $.trim(newpwd).length > 20) {
+            $('#former_equal').show();
+            $("#former_equal").html("请输入正确的密码");
+            return false;
+        }
+
+        if ($('#newpwd').val() != $('#newrpwd').val()) {
+            $('#pwd_discord').show();
+            return false;
+        }
+        var data = {
+            'former_pwd': former_pwd,
+            'password': newpwd
+        }
+        $.ajax({
+            type: 'POST',
+            url: "../center/change_pw",
+            data: 'data=' + JSON.stringify(data),
+            success: function(result) {
+                // console.log(result);
+                if (result == 1) {
+                    alert('密码更改成功！');
+                    location.href = "http://www.rfgxy.com/mydata?label=jiben";
+
+                } else {
+                    alert('更改失败！');
+                }
+            }
+        });
+    });
+
+});
+</script>
+</div>
 </div>
