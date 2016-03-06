@@ -63,10 +63,10 @@
                                                 <label>真实姓名：</label>
                                             </div>
                                             <div class="item-cont">
-                                            <?php if($userdata['name'] == ''):?>
+                                            <?php if($userdata['username'] == ''):?>
                                                 <input type="text" id="name" name="truename" maxlength="100" value="" class="txt sm">
                                             <?php else : ?>
-                                                <input type="text" id="name" name="truename" maxlength="100" value="<?php echo $userdata['name']; ?>" class="txt sm">
+                                                <input type="text" id="name" name="truename" maxlength="100" value="<?php echo $userdata['username']; ?>" class="txt sm">
                                             <?php endif; ?>
                                             </div>
                                         </div>
