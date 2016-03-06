@@ -15,9 +15,9 @@ class Course_model extends CI_Model{
 		return $query->result_array();
 	}
 	public function getcoursebyid($id){
-		$uid=$_SESSION['username'];
+			//$uid=$_SESSION['username'];
 		$this->db->select('ci_course.*,ci_teacher.*');
-		$this->db->join('ci_teacher','ci_course.course_lectruer_id=ci_teacher.tid');
+		$this->db->join('ci_teacher','ci_course.course_lectruer_id=ci_teacher.tid','left');
 		$this->db->where('course_id',$id);
 
 		$query = $this->db->get('ci_course');
