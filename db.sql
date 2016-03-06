@@ -77,14 +77,15 @@ PRIMARY KEY (  `skill_id` )
 -- ) ENGINE = MYISAM CHARSET = utf8;
 
 -- 订单表
-CREATE TABLE  `ci_indent` (
- `did` mediumint(7) unsigned NOT NULL auto_increment default '0',
- `uid` int(10) unsigned NOT NULL default '0' COMMENT '用户id',
- `kid` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '课程id',
+CREATE TABLE  `ci_order` (
+ `order_id` int(11) unsigned NOT NULL auto_increment COMMENT 'primary key,autoincrement',
+ `uid` int(11) unsigned NOT NULL default '0' COMMENT '用户id',
  `blance` DECIMAL( 10,2 ) NOT NULL DEFAULT '0.00' COMMENT '金额',
+ `order_name` VARCHAR( 1000 ) NOT NULL DEFAULT '0000-00-00' COMMENT '',
  `starttime` VARCHAR( 50 ) NOT NULL DEFAULT '0000-00-00' COMMENT '下单时间',
+ `endtime` VARCHAR( 50 ) NOT NULL DEFAULT '0000-00-00' COMMENT '结束时间',
  `status` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '状态',
-PRIMARY KEY (  `gid` )
+PRIMARY KEY (  `order_id` )
 ) ENGINE = MYISAM CHARSET = utf8;
 
 
@@ -93,19 +94,19 @@ CREATE TABLE  `ci_link` (
  `link` int(10) unsigned NOT NULL auto_increment COMMENT 'primary key,autoincrement',
  `name` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '网站名',
  `url` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT 'url',
- `add_time` VARCHAR( 50 ) NOT NULL DEFAULT '0000-00-00' COMMENT '添加时间',
+ `add_time` datetime NOT NULL DEFAULT '0000-00-00' COMMENT '添加时间',
 PRIMARY KEY (  `link` )
 ) ENGINE = MYISAM CHARSET = utf8;
 
 
 -- //流水细明
 CREATE TABLE  `ci_blance` (
- `mid` mediumint(7) unsigned NOT NULL auto_increment default '0',
- `uid` int(10) unsigned NOT NULL default '0' COMMENT '用户id',
+ `blance_id` int(11) unsigned NOT NULL auto_increment COMMENT 'primary key,autoincrement',
+ `uid` int(11) unsigned NOT NULL default '0' COMMENT '用户id',
  `pay` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '支付',
  `blance` DECIMAL( 10,2 ) NOT NULL DEFAULT '0.00' COMMENT '金额',
- `datetime` DATE NOT NULL DEFAULT  '0000-00-00' COMMENT '时间',--时间都弄细一点
-PRIMARY KEY (  `mid` )
+ `datetime` datetime NOT NULL DEFAULT  '0000-00-00' COMMENT '时间',
+PRIMARY KEY (  `blance_id` )
 ) ENGINE = MYISAM CHARSET = utf8;
 
 
@@ -147,27 +148,29 @@ CREATE TABLE  `ci_teacher` (
  `phone` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '电话',
  `intro` VARCHAR( 255 ) NOT NULL DEFAULT '0' COMMENT '简介',
  `test_video` VARCHAR( 255 ) NOT NULL DEFAULT '' COMMENT '', 
- `check` int( 10 ) NOT NULL DEFAULT '0' COMMENT '审核',
- `apply_time` DATE NOT NULL DEFAULT  '0000-00-00' COMMENT '注册时间',
+ `check` int( 11 ) NOT NULL DEFAULT '0' COMMENT '审核',
+  `like` int(11)  NOT NULL DEFAULT '0' COMMENT '点赞',
+  `num` int(11)  NOT NULL DEFAULT '0' COMMENT '课程数',
+ `apply_time` datetime NOT NULL DEFAULT  '0000-00-00' COMMENT '注册时间',
 PRIMARY KEY (  `tid` )
 ) ENGINE = MYISAM CHARSET = utf8;
 
 
 -- //评论表
 CREATE TABLE  `ci_comment` (
- `tid` mediumint(7) unsigned NOT NULL auto_increment default '0',
- `sid` int(10) unsigned NOT NULL default '0' COMMENT '课小节id,
- `uid` int(10) unsigned NOT NULL default '0' COMMENT '用户id,
- `nickname` int(10) unsigned NOT NULL default '0' COMMENT '用户名',
+ `comment_id` int(11) unsigned NOT NULL auto_increment COMMENT 'primary key,autoincrement',
+ `course_id` int(11) unsigned NOT NULL default '0' COMMENT '课id',
+ `uid` int(11) unsigned NOT NULL default '0' COMMENT '用户id',
+ `nickname` VARCHAR( 50 ) NOT NULL default '0' COMMENT '用户名',
  `comment` VARCHAR( 50 ) NOT NULL DEFAULT '0' COMMENT '内容',
- `reg_time` DATE NOT NULL DEFAULT  '0000-00-00',
-PRIMARY KEY (  `gid` )
+ `add_time` datetime NOT NULL DEFAULT  '0000-00-00',
+PRIMARY KEY (  `comment_id` )
 ) ENGINE = MYISAM CHARSET = utf8;
 
 
 -- //  反馈表
 	CREATE TABLE  `ci_feedback` (
-	`feedback` int(10) unsigned NOT NULL auto_increment COMMENT 'primary key,autoincrement',
+	`feedback_id` int(11) unsigned NOT NULL auto_increment COMMENT 'primary key,autoincrement',
 	 `username` VARCHAR( 50 ) NOT NULL DEFAULT '' COMMENT '',
 	 `email` VARCHAR( 50 ) NOT NULL DEFAULT '' COMMENT '',
 	 `phone` VARCHAR( 50 ) NOT NULL DEFAULT '' COMMENT '',
@@ -175,6 +178,6 @@ PRIMARY KEY (  `gid` )
 	  `title` VARCHAR( 50 ) NOT NULL DEFAULT '' COMMENT '',
 	 `contact` VARCHAR( 50 ) NOT NULL default '' COMMENT '联系方式',
 	 `info` VARCHAR( 250 ) NOT NULL DEFAULT '0' COMMENT '反馈内容',
-	 `feedback_time` DATE NOT NULL DEFAULT  '0000-00-00',
-	PRIMARY KEY (  `feedback` )
+	 `feedback_time` datetime NOT NULL DEFAULT  '0000-00-00',
+	PRIMARY KEY (  `feedback_id` )
 	) ENGINE = MYISAM CHARSET = utf8;

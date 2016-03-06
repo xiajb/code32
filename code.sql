@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `ci_course` (
   `attentions` int(11) NOT NULL,
   `enrolls` int(11) NOT NULL,
   `status` int(11) NOT NULL,
-  `add_time` date NOT NULL DEFAULT '0000-00-00' COMMENT '添加时间',
+  `add_time` datetime NOT NULL DEFAULT '0000-00-00' COMMENT '添加时间',
   `img_path` varchar(1000) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`course_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -167,7 +167,7 @@ CREATE TABLE IF NOT EXISTS `ci_elective` (
 --
 
 CREATE TABLE IF NOT EXISTS `ci_lecturer` (
-  `lecturer_id` int(11) NOT NULL,
+  `lecturer_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'primary key,autoincrement',
   `lecturer_name` int(11) NOT NULL,
   `lecturer_info` int(11) NOT NULL,
   PRIMARY KEY (`lecturer_id`)
@@ -207,9 +207,9 @@ CREATE TABLE IF NOT EXISTS `ci_section` (
   `section_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'primary key,autoincrement',
   `section_name` varchar(100) COLLATE utf8_bin NOT NULL,
   `create_time` datetime NOT NULL,
-  `creater` varchar(50) COLLATE utf8_bin NOT NULL,
   `chapter_id` int(11) NOT NULL,
   `order_no` int(11) NOT NULL,
+  `free` int(11) NOT NULL,  
   `section_path` varchar(1000) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`section_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -254,18 +254,18 @@ CREATE TABLE IF NOT EXISTS `ci_skill` (
 --
 
 CREATE TABLE IF NOT EXISTS `ci_user` (
-  `uid` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'primary key,autoincrement',
+  `uid` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'primary key,autoincrement',
   `username` varchar(16) NOT NULL,
   `phone` varchar(11) NOT NULL,
   `password` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `blance` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT '金额',
   `sex` tinyint(1) NOT NULL DEFAULT '0',
   `pic` varchar(50) NOT NULL DEFAULT '0' COMMENT '头像路径',
-  `vip` int(10) NOT NULL DEFAULT '0',
-  `level` int(10) NOT NULL DEFAULT '0',
+  `vip` int(11) NOT NULL DEFAULT '0',
+  `level` int(11) NOT NULL DEFAULT '0',
+  `vip_endtime` datetime NOT NULL DEFAULT '0000-00-00' COMMENT 'vip到期时间',
   `other` varchar(50) NOT NULL DEFAULT '',
-  `reg_time` date NOT NULL DEFAULT '0000-00-00' COMMENT '注册时间',
+  `reg_time` datetime NOT NULL DEFAULT '0000-00-00' COMMENT '注册时间',
   PRIMARY KEY (`uid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
