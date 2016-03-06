@@ -44,4 +44,11 @@ class Course_model extends CI_Model{
 		$query = $this->db->get(self::TBL_USER);
 		return $query->result_array();
 	}
+
+	public function get_course_by_id($tid,$status){
+		$this->db->where('coures_lectruer_id',$tid);
+		$this->db->where('status', $status);
+		$query = $this->db->get(self::TBL_USER);
+		return $query->result_array();
+	}
   }

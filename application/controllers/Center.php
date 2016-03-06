@@ -17,6 +17,7 @@ class Center extends CI_Controller {
 		$this->load->model('feedback_model');
 		$this->load->model('required_model');
 		$this->load->model('elective_model');
+		$this->load->model('classify_model');
 		$this->load->model('skill_model');
 		$this->load->library('session');
 		$this->load->helper('url');
@@ -71,68 +72,10 @@ class Center extends CI_Controller {
 				);
 			$row = $this->user_model->check_username_is($_SESSION['username']);
 			$teacher = $this->teacher_model->get_teacher($row['uid']);
-			$required = $this->required_model->get_course($teacher->tid);
-			$elective = $this->elective_model->get_course($teacher->tid);
-			$data['course'] = array_merge($required,$elective);
-			$skill = $this->skill_model->get_course($teacher->tid);
-			$data['course'] = array_merge($data['course'],$skill);
-			$data['checking']= array();
-			$data['pass'] = array();
-			$data['not_pass'] = array();
-			for ($i=0; $i < count($data['course']); $i++) {
-				if ($data['course'][$i]['status'] == 0) {
-					$data1 = array(
-						'img'=>$data['course'][$i]['img'],
-						'title'=>$data['course'][$i]['title'],
-						'detail'=>$data['course'][$i]['detail'],
-					);
-					if (array_keys($data['course'][$i])[0] == 'required_id') {
-						$data1['type'] = 'required';
-						$data1['id'] = $data['course'][$i]['required_id'];
-					}elseif (array_keys($data['course'][$i])[0] == 'elective_id') {
-						$data1['type'] = 'elective';
-						$data1['id'] = $data['course'][$i]['elective_id'];
-					}elseif (array_keys($data['course'][$i])[0] == 'skill_id') {
-						$data1['type'] = 'skill';
-						$data1['id'] = $data['course'][$i]['skill_id'];
-					}
-					$data['checking'][$i] = $data1;
-				}elseif($data['course'][$i]['status'] == -1){
-					$data2 = array(
-						'img'=>$data['course'][$i]['img'],
-						'title'=>$data['course'][$i]['title'],
-						'detail'=>$data['course'][$i]['detail'],
-					);
-					if (array_keys($data['course'][$i])[0] == 'required_id') {
-						$data2['type'] = 'required';
-						$data2['id'] = $data['course'][$i]['required_id'];
-					}elseif (array_keys($data['course'][$i])[0] == 'elective_id') {
-						$data2['type'] = 'elective';
-						$data2['id'] = $data['course'][$i]['elective_id'];
-					}elseif (array_keys($data['course'][$i])[0] == 'skill_id') {
-						$data2['type'] = 'skill';
-						$data2['id'] = $data['course'][$i]['skill_id'];
-					}
-					$data['not_pass'][$i] = $data2;
-				}elseif ($data['course'][$i]['status'] == 1) {
-					$data3 = array(
-						'img'=>$data['course'][$i]['img'],
-						'title'=>$data['course'][$i]['title'],
-						'detail'=>$data['course'][$i]['detail'],
-					);
-					if (array_keys($data['course'][$i])[0] == 'required_id') {
-						$data3['type'] = 'required';
-						$data3['id'] = $data['course'][$i]['required_id'];
-					}elseif (array_keys($data['course'][$i])[0] == 'elective_id') {
-						$data3['type'] = 'elective';
-						$data3['id'] = $data['course'][$i]['elective_id'];
-					}elseif (array_keys($data['course'][$i])[0] == 'skill_id') {
-						$data3['type'] = 'skill';
-						$data3['id'] = $data['course'][$i]['skill_id'];
-					}
-					$data['pass'][$i] = $data3;
-				}
-			}
+			$data['checking'] = $this->course_model->get_course_by_id($teacher->tid,'0');
+			$data['pass'] = $this->course_model->get_course_by_id($teacher->tid,'1');
+			$data['not_pass'] = $this->course_model->get_course_by_id($teacher->tid,'-1');
+
 		}elseif ($_SESSION['level'] == 0) {
 			$data['active'] = array(
 					'mydata'=>'',
@@ -463,37 +406,49 @@ class Center extends CI_Controller {
 	// $this->load->view("index.html");
 
 	// }
-	public function skill_add(){
+	// public function skill_add(){
+	// 	$value = $_POST;
+	// 	$value = $this->security->xss_clean($value);
+	// 	$row = $this->user_model->check_username_is($_SESSION['username']);
+	// 	$teacher = $this->teacher_model->get_teacher($row['uid']);
+	// 	$value['add_time'] = date("Y-m-d H:i:s",time());
+	// 	$value['teacher'] = $teacher->tid;
+	// 	$this->skill_model->add_skill($value);
+	// 	echo '1';
+	// }
+
+	// public function elective_add(){
+	// 	$value = $_POST;
+	// 	$value = $this->security->xss_clean($value);
+	// 	$row = $this->user_model->check_username_is($_SESSION['username']);
+	// 	$teacher = $this->teacher_model->get_teacher($row['uid']);
+	// 	$value['add_time'] = date("Y-m-d H:i:s",time());
+	// 	$value['teacher'] = $teacher->tid;
+	// 	$this->elective_model->add_elective($value);
+	// 	echo '1';
+	// }
+	public function add_course(){
 		$value = $_POST;
+
 		$value = $this->security->xss_clean($value);
 		$row = $this->user_model->check_username_is($_SESSION['username']);
 		$teacher = $this->teacher_model->get_teacher($row['uid']);
 		$value['add_time'] = date("Y-m-d H:i:s",time());
-		$value['teacher'] = $teacher->tid;
-		$this->skill_model->add_skill($value);
-		echo '1';
+		$value['course_lectruer_id'] = $teacher->tid;
+		echo $this->course_model->add_course($value);
+		// echo '1';
 	}
 
-	public function elective_add(){
-		$value = $_POST;
+	public function get_classify(){
+		$value = $_POST['data'];
 		$value = $this->security->xss_clean($value);
-		$row = $this->user_model->check_username_is($_SESSION['username']);
-		$teacher = $this->teacher_model->get_teacher($row['uid']);
-		$value['add_time'] = date("Y-m-d H:i:s",time());
-		$value['teacher'] = $teacher->tid;
-		$this->elective_model->add_elective($value);
-		echo '1';
-	}
-	public function required_add(){
-		$value = $_POST;
-
-		$value = $this->security->xss_clean($value);
-		$row = $this->user_model->check_username_is($_SESSION['username']);
-		$teacher = $this->teacher_model->get_teacher($row['uid']);
-		$value['add_time'] = date("Y-m-d H:i:s",time());
-		$value['teacher'] = $teacher->tid;
-		$this->required_model->add_required($value);
-		echo '1';
+		$row = $this->classify_model->Show_classify_byid($value);
+		// echo json_encode($row);
+		$string = '';
+		for ($i=0; $i < count($row); $i++) { 
+			$string.= '<option value="'.$row[$i]['classify_id'].'">'.$row[$i]['classify_name'].'</option>';
+		}
+		echo $string;
 	}
 
 }
