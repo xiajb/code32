@@ -19,7 +19,6 @@ class Course_model extends CI_Model{
 		$this->db->select('ci_course.*,ci_teacher.*');
 		$this->db->join('ci_teacher','ci_course.course_lectruer_id=ci_teacher.tid');
 		$this->db->where('course_id',$id);
-		$this->db->where('ci_teacher.uid',3);
 
 		$query = $this->db->get('ci_course');
 		return $query->result_array();
@@ -51,7 +50,7 @@ class Course_model extends CI_Model{
 	}
 
 	public function get_course_by_id($tid,$status){
-		$this->db->where('coures_lectruer_id',$tid);
+		$this->db->where('course_lectruer_id',$tid);
 		$this->db->where('status', $status);
 		$query = $this->db->get(self::TBL_USER);
 		return $query->result_array();
