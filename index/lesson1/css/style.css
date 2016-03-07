@@ -118,7 +118,7 @@ line-height:30px;border-bottom:1px solid #ddd;color:#FF0000;font-size:14px;margi
 .tabs-nav1{height:45px;line-height:45px;border:1px solid #DDD;border-top:0;background-color:#F5F5F5;}
 .tabs-nav1 a{float:left;height:45px;padding:0 25px;font-size:16px;color:#666;position:relative;}
 .tabs-nav1 a:hover{color:#188EEE;}
-.tabs-nav1 a.active{background-color:#47B9EC;color:#FFF;}
+.tabs-nav1 a.active{background-color:#188EEE;color:#FFF;}
 .tabs-nav1 .num{color:#999;font-family:Arial;}
 .tabs-nav1 a.active .num{color:#FFF;}
 .fixed594{position:fixed;width:1198px;left:50%;margin-left:-600px;top:0;z-index:30;_position:absolute;_bottom:0;_top:expression(eval(document.documentElement.scrollTop));}

@@ -95,7 +95,7 @@ class Center extends CI_Controller {
 
 
 	//teacher
-	public function elective()
+	public function add()
 	{
 		$data['active'] = array(
 				'mydata'=>'',
@@ -106,7 +106,7 @@ class Center extends CI_Controller {
 				'changepw'=>'',
 			);
 		$this->load->view("center_header.html",$data);
-		$this->load->view("center_teacher_add_elective.html");
+		$this->load->view("center_teacher_add_course.html");
 		$this->load->view("center_footer.html");
 
 	}

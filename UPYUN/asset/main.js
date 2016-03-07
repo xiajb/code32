@@ -1,4 +1,4 @@
-var path=	document.getElementById('classify').value;
+var path=document.getElementById('classify').value;
 if(path==1){
 	path='video';
 }
