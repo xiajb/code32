@@ -17,7 +17,7 @@
                         <tbody>
                             <?php  for($i=0;$i<count($result);$i++){ ?>
                             <tr>
-                                <td class="picture" style="width:80px;"><img style="width:80px;" src="<?php echo base_url($result[$i]['pic']);?>" alt="" /></td>
+                                <td class="picture" style="width:80px;"><img style="width:80px;" src="<?php echo $result[$i]['pic'];?>" alt="" /></td>
                                 <td>
                                     <p>
                                         <strong><a href="#"><?php echo $result[$i]['name']; ?></a></strong>
@@ -28,8 +28,8 @@
                                     </p>
                                 </td>
                                 <td class="actions">
-                                    <a href="#" title="Edit this content"><img src="<?php echo base_url('back/img/icons/actions/edit.png');?>" alt="" /></a>
-                                    <a data-id="<?php echo $result[$i]['uid']; ?>" href="javascript:;" title="Delete this content" class="delete_button"><img src="<?php echo base_url('back/img/icons/actions/delete.png'); ?>" alt="" /></a>
+                                    <a data-tid="<?php echo $result[$i]['tid']; ?>" href="javascript:;" title="Edit this content" class="check_button"><img src="<?php echo base_url('back/img/icons/actions/edit.png');?>" alt="" /></a>
+                                    <a data-id="<?php echo $result[$i]['tid']; ?>" href="javascript:;" title="Delete this content" class="delete_button"><img src="<?php echo base_url('back/img/icons/actions/delete.png');?>" alt="" /></a>
                                 </td>
                             </tr>
                             <?php } ?>
@@ -43,7 +43,7 @@
                         <tbody>
                             <?php  for($i=0;$i<count($checking);$i++){ ?>
                             <tr>
-                                <td class="picture" style="width:80px;"><img style="width:80px;" src="<?php echo base_url($checking[$i]['pic']);?>" alt="" /></td>
+                                <td class="picture" style="width:80px;"><img style="width:80px;" src="<?php echo $checking[$i]['pic'];?>" alt="" /></td>
                                 <td>
                                     <p>
                                         <strong><a href="#"><?php echo $checking[$i]['name']; ?></a></strong>
@@ -54,8 +54,8 @@
                                     </p>
                                 </td>
                                 <td class="actions">
-                                    <a href="#" title="Edit this content"><img src="<?php echo base_url('back/img/icons/actions/edit.png');?>" alt="" /></a>
-                                    <a data-id="<?php echo $checking[$i]['tid']; ?>" title="Delete this content" class="delete_button"><img src="<?php echo base_url('back/img/icons/actions/delete.png');?>" alt="" /></a>
+                                    <a data-tid="<?php echo $checking[$i]['tid']; ?>" href="javascript:;" title="Edit this content" class="check_button"><img src="<?php echo base_url('back/img/icons/actions/edit.png');?>" alt="" /></a>
+                                    <a data-id="<?php echo $checking[$i]['tid']; ?>" href="javascript:;" title="Delete this content" class="delete_button"><img src="<?php echo base_url('back/img/icons/actions/delete.png');?>" alt="" /></a>
                                 </td>
                             </tr>
                             <?php } ?>
@@ -69,7 +69,7 @@
                         <tbody>
                             <?php  for($i=0;$i<count($not_pass);$i++){ ?>
                             <tr>
-                                <td class="picture" style="width:80px;"><img style="width:80px;" src="<?php echo base_url($not_pass[$i]['pic']);?>" alt="" /></td>
+                                <td class="picture" style="width:80px;"><img style="width:80px;" src="<?php echo $not_pass[$i]['pic'];?>" alt="" /></td>
                                 <td>
                                     <p>
                                         <strong><a href="#"><?php echo $not_pass[$i]['name']; ?></a></strong>
@@ -80,8 +80,8 @@
                                     </p>
                                 </td>
                                 <td class="actions">
-                                    <a href="#" title="Edit this content"><img src="<?php echo base_url('back/img/icons/actions/edit.png');?>" alt="" /></a>
-                                    <a data-id="<?php echo $not_pass[$i]['tid']; ?>" title="Delete this content" class="delete_button"><img src="<?php echo base_url('back/img/icons/actions/delete.png');?>" alt="" /></a>
+                                    <a data-tid="<?php echo $not_pass[$i]['tid']; ?>" href="javascript:;" title="Edit this content" class="check_button"><img src="<?php echo base_url('back/img/icons/actions/edit.png');?>" alt="" /></a>
+                                    <a data-id="<?php echo $not_pass[$i]['tid']; ?>" href="javascript:;" title="Delete this content" class="delete_button"><img src="<?php echo base_url('back/img/icons/actions/delete.png');?>" alt="" /></a>
                                 </td>
                             </tr>
                             <?php } ?>
@@ -95,7 +95,7 @@
                         <tbody>
                             <?php  for($i=0;$i<count($admin_add);$i++){ ?>
                             <tr>
-                                <td class="picture" style="width:80px;"><img style="width:80px;" src="<?php echo base_url($admin_add[$i]['pic']);?>" alt="" /></td>
+                                <td class="picture" style="width:80px;"><img style="width:80px;" src="<?php echo $admin_add[$i]['pic'];?>" alt="" /></td>
                                 <td>
                                     <p>
                                         <strong><a href="#"><?php echo $admin_add[$i]['name']; ?></a></strong>
@@ -106,8 +106,8 @@
                                     </p>
                                 </td>
                                 <td class="actions">
-                                    <a href="#" title="Edit this content"><img src="<?php echo base_url('back/img/icons/actions/edit.png');?>" alt="" /></a>
-                                    <a data-id="<?php echo $admin_add[$i]['tid']; ?>" title="Delete this content" class="delete_button"><img src="<?php echo base_url('back/img/icons/actions/delete.png');?>" alt="" /></a>
+                                    <a data-tid="<?php echo $admin_add[$i]['tid']; ?>" href="javascript:;" title="Edit this content" class="check_button"><img src="<?php echo base_url('back/img/icons/actions/edit.png');?>" alt="" /></a>
+                                    <a data-id="<?php echo $admin_add[$i]['tid']; ?>" href="javascript:;" title="Delete this content" class="delete_button"><img src="<?php echo base_url('back/img/icons/actions/delete.png');?>" alt="" /></a>
                                 </td>
                             </tr>
                             <?php } ?>
@@ -125,6 +125,14 @@
         <ul class="cd-buttons">
             <li id="delete_yes"><a href="javascript:;">是</a></li>
             <li id="delete_no"><a href="javascript:;">否</a></li>
+        </ul>
+        <a href="#" class="cd-popup-close img-replace">关闭</a>
+    </div>
+    <div class="cd-popup-check" style="display:none;">
+        <p style="height:22px">你确定你要删除这个元素吗?</p>
+        <ul class="cd-buttons">
+            <li id="check_yes"><a href="javascript:;">通过</a></li>
+            <li id="check_no"><a href="javascript:;">不通过</a></li>
         </ul>
         <a href="#" class="cd-popup-close img-replace">关闭</a>
     </div>
@@ -148,6 +156,57 @@ $('#delete_yes').click(function() {
         }
     })
 });
+$('.check_button').click(function() {
+    tid = $(this).data('tid');
+    $('.mask').show();
+    $('.cd-popup-check').show();
+});
+
+$('#check_yes').click(function() {
+    $.ajax({
+        url: "../admin/teacher/change_status/",
+        type: "POST",
+        data: "value=" + tid,
+        success: function(result) {
+            $('.mask').hide();
+            $('.cd-popup-check').hide();
+            if (result == 1) {
+                alert('审核成功！');
+                location.reload();
+            } else {
+                alert('操作失败！！');
+            }
+        }
+    })
+});
+
+
+$('.mask').click(function() {
+    $('.cd-popup-check').hide();
+    $('.mask').hide();
+});
+$('.cd-popup-close').click(function() {
+    $('.cd-popup-check').hide();
+    $('.mask').hide();
+});
+$('#check_no').click(function() {
+    $.ajax({
+        url: "../admin/teacher/change_status/",
+        type: "POST",
+        data: "value=" + tid,
+        success: function(result) {
+            $('.mask').hide();
+            $('.cd-popup-check').hide();
+            if (result == 1) {
+                alert('审核成功！');
+                location.reload();
+            } else {
+                alert('操作失败！！');
+            }
+        }
+    })
+});
+
 </script>
 </body>
 

@@ -137,5 +137,15 @@ class Teacher extends CI_Controller {
 	    		echo 'error';
 	    	}
 	}
+
+	public function change_status(){
+		$value = json_decode($this->input->post('value'),true);
+		$value = $this->security->xss_clean($value);
+		if ($this->teacher_model->change_status(2,$value)) {
+	    		echo '1';
+	    	}else{
+	    		echo 'error';
+	    	}
+	}
 }
 

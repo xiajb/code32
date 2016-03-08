@@ -30,6 +30,15 @@ class Teacher_model extends CI_Model{
 		return $row;
 	}
 
+	public function change_status($status,$id){
+
+		$data = array(
+		    'check' => $status
+		);
+		return $this->db->update(self::TBL_USER, $data, array('tid' => $id));
+		
+	}
+
 	public function delete_teacher($id){
 		return $this->db->delete(self::TBL_USER, array('tid' => $id));
 	}
