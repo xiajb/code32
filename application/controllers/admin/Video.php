@@ -44,6 +44,10 @@ class Video extends CI_Controller {
 
 	public function all()
 	{
+		$data['result'] = $this->section_model->query_all();
+		$data['not_pass'] = $this->section_model->get_by_check(-1);
+		$data['wait'] = $this->section_model->get_by_check(0);
+		$data['admin'] = $this->section_model->get_by_check(2);
 		$data['current'] = array('data_back'=>'',
 			'user_manage'=>'',
 			'user_data' =>'' ,
@@ -127,6 +131,22 @@ class Video extends CI_Controller {
 			echo '-1';
 		}
 		
+	}
+
+	public function change_status(){
+		$value = $_POST;
+		$value = $this->security->xss_clean($value);
+		if ($this->section_model->change_status($value['status'],$value['section_id'])) {
+	    		echo '1';
+	    	}else{
+	    		echo 'error';
+	    	}
+	}
+
+	public function delete(){
+		$id = $_POST['value'];
+		$value = $this->section_model->delete($id);
+		echo $value;
 	}
 
 

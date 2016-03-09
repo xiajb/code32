@@ -190,6 +190,8 @@ a.pg_pre:hover {
     margin: 0 5px;
 }
 
+#add-btn,
+#change-chapter,
 #pickfiles,
 #uploadfiles {
     background-color: #00b7f1;
@@ -202,3 +204,5 @@ a.pg_pre:hover {
     cursor: pointer;
     border-radius: 5px;
 }
+
+

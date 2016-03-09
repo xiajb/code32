@@ -49,6 +49,15 @@ class Course_model extends CI_Model{
 		return $query->result_array();
 	}
 
+	public function change_status($status,$id){
+
+		$data = array(
+		    'status' => $status
+		);
+		return $this->db->update(self::TBL_USER, $data, array('course_id' => $id));
+		
+	}
+
 	public function get_course_by_id($tid,$status){
 		$this->db->where('course_lectruer_id',$tid);
 		$this->db->where('status', $status);

@@ -1,0 +1,221 @@
+<div id="content" class="white">
+    <link rel="stylesheet" href="<?php echo base_url('back/css/backmask.css'); ?>" />
+    <h1><img src="<?php echo base_url('back/img/icons/posts.png');?>" alt="" /> Video Data</h1>
+    <div class="bloc">
+        <div class="title">
+            <div class="tabs" id="tabs1" style="left:-1px">
+                <a href="#tab1">全部数据</a>
+                <a href="#tab2">未审核</a>
+                <a href="#tab3">未通过</a>
+                <a href="#tab4">管理员添加</a>
+            </div>
+        </div>
+        <div class="content">
+            <div id="tab1">
+                <div class="content">
+                    <table class="noalt">
+                        <tbody>
+                            <?php  for($i=0;$i<count($result);$i++){ ?>
+                            <tr>
+                                <td class="picture" style="width:80px;"><img style="width:80px;" src="<?php echo $result[$i]['section_path'];?>" alt="" /></td>
+                                <td>
+                                    <p>
+                                        <strong><a href="#"><?php echo $result[$i]['section_name']; ?></a></strong>
+                                        <br/>
+                                        <em><?php echo $result[$i]['create_time'];?> <a href="#">Reply</a></em>
+                                        <br/>
+                                        <a href="<?php echo $result[$i]['section_path'];?>">path</a>
+                                    </p>
+                                </td>
+                                <td class="actions">
+                                    <a data-section_id="<?php echo $result[$i]['section_id']; ?>" href="javascript:;" title="Edit this content" class="check_button"><img src="<?php echo base_url('back/img/icons/actions/edit.png');?>" alt="" /></a>
+                                    <a data-id="<?php echo $result[$i]['section_id']; ?>" href="javascript:;" title="Delete this content" class="delete_button"><img src="<?php echo base_url('back/img/icons/actions/delete.png');?>" alt="" /></a>
+                                </td>
+                            </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="tab2">
+                <div class="content">
+                    <table class="noalt">
+                        <tbody>
+                            <?php  for($i=0;$i<count($checking);$i++){ ?>
+                            <tr>
+                                <td class="picture" style="width:80px;"><img style="width:80px;" src="<?php echo $checking[$i]['section_path'];?>" alt="" /></td>
+                                <td>
+                                    <p>
+                                        <strong><a href="#"><?php echo $checking[$i]['section_name']; ?></a></strong>
+                                        <br/>
+                                        <em><?php echo $checking[$i]['create_time'];?> <a href="#">Reply</a></em>
+                                        <br/>
+                                        <a href="<?php echo $checking[$i]['section_path'];?>">path</a>
+                                    </p>
+                                </td>
+                                <td class="actions">
+                                    <a data-section_id="<?php echo $checking[$i]['section_id']; ?>" href="javascript:;" title="Edit this content" class="check_button"><img src="<?php echo base_url('back/img/icons/actions/edit.png');?>" alt="" /></a>
+                                    <a data-id="<?php echo $checking[$i]['section_id']; ?>" href="javascript:;" title="Delete this content" class="delete_button"><img src="<?php echo base_url('back/img/icons/actions/delete.png');?>" alt="" /></a>
+                                </td>
+                            </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="tab3">
+                <div class="content">
+                    <table class="noalt">
+                        <tbody>
+                            <?php  for($i=0;$i<count($not_pass);$i++){ ?>
+                            <tr>
+                                <td class="picture" style="width:80px;"><img style="width:80px;" src="<?php echo $not_pass[$i]['section_path'];?>" alt="" /></td>
+                                <td>
+                                    <p>
+                                        <strong><a href="#"><?php echo $not_pass[$i]['section_name']; ?></a></strong>
+                                        <br/>
+                                        <em><?php echo $not_pass[$i]['create_time'];?> <a href="#">Reply</a></em>
+                                        <br/>
+                                        <a href="<?php echo $not_pass[$i]['section_path'];?>">path</a>
+                                    </p>
+                                </td>
+                                <td class="actions">
+                                    <a data-section_id="<?php echo $not_pass[$i]['section_id']; ?>" href="javascript:;" title="Edit this content" class="check_button"><img src="<?php echo base_url('back/img/icons/actions/edit.png');?>" alt="" /></a>
+                                    <a data-id="<?php echo $not_pass[$i]['section_id']; ?>" href="javascript:;" title="Delete this content" class="delete_button"><img src="<?php echo base_url('back/img/icons/actions/delete.png');?>" alt="" /></a>
+                                </td>
+                            </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="tab4">
+                <div class="content">
+                    <table class="noalt">
+                        <tbody>
+                            <?php  for($i=0;$i<count($admin);$i++){ ?>
+                            <tr>
+                                <td class="picture" style="width:80px;"><img style="width:80px;" src="<?php echo $admin[$i]['section_path'];?>" alt="" /></td>
+                                <td>
+                                    <p>
+                                        <strong><a href="#"><?php echo $admin[$i]['section_name']; ?></a></strong>
+                                        <br/>
+                                        <em><?php echo $admin[$i]['create_time'];?> <a href="#">Reply</a></em>
+                                        <br/>
+                                        <a href="<?php echo $admin[$i]['section_path'];?>">path</a>
+                                    </p>
+                                </td>
+                                <td class="actions">
+                                    <a data-section_id="<?php echo $admin[$i]['section_id']; ?>" href="javascript:;" title="Edit this content" class="check_button"><img src="<?php echo base_url('back/img/icons/actions/edit.png');?>" alt="" /></a>
+                                    <a data-id="<?php echo $admin[$i]['section_id']; ?>" href="javascript:;" title="Delete this content" class="delete_button"><img src="<?php echo base_url('back/img/icons/actions/delete.png');?>" alt="" /></a>
+                                </td>
+                            </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="zoombox" class="zoombox" style="position: fixed;top: 30%;left: 38%;">
+    <div class="mask" style="display: none; opacity: 0.8;"></div>
+    <div class="cd-popup-container" style="display:none;">
+        <p style="height:22px">你确定你要删除这个元素吗?</p>
+        <ul class="cd-buttons">
+            <li id="delete_yes"><a href="javascript:;">是</a></li>
+            <li id="delete_no"><a href="javascript:;">否</a></li>
+        </ul>
+        <a href="#" class="cd-popup-close img-replace">关闭</a>
+    </div>
+    <div class="cd-popup-check" style="display:none;">
+        <p style="height:22px">审核状态?</p>
+        <ul class="cd-buttons">
+            <li id="check_yes"><a href="javascript:;">通过</a></li>
+            <li id="check_no"><a href="javascript:;">不通过</a></li>
+        </ul>
+        <a href="#" class="cd-popup-close img-replace">关闭</a>
+    </div>
+</div>
+<script type="text/javascript" src="<?php echo base_url('back/js/delete-btn.js'); ?>"></script>
+<script type="text/javascript">
+$('#delete_yes').click(function() {
+    $.ajax({
+        url: "../video/delete",
+        type: "POST",
+        data: "value=" + id,
+        success: function(result) {
+            $('.mask').hide();
+            $('.cd-popup-container').hide();
+            if (result == 1) {
+                alert('删除成功！');
+                location.reload();
+            } else {
+                alert('操作失败！！');
+            }
+        }
+    })
+});
+$('.check_button').click(function() {
+    section_id = $(this).data('section_id');
+    $('.mask').show();
+    $('.cd-popup-check').show();
+});
+
+$('#check_yes').click(function() {
+    var data = {
+        'section_id':section_id,
+        'status':2,
+    };
+    $.ajax({
+        url: "../video/change_status",
+        type: "POST",
+        data: data,
+        success: function(result) {
+            $('.mask').hide();
+            $('.cd-popup-check').hide();
+            if (result == 1) {
+                alert('审核成功！');
+                location.reload();
+            } else {
+                alert('操作失败！！');
+            }
+        }
+    })
+});
+
+
+$('.mask').click(function() {
+    $('.cd-popup-check').hide();
+    $('.mask').hide();
+});
+$('.cd-popup-close').click(function() {
+    $('.cd-popup-check').hide();
+    $('.mask').hide();
+});
+$('#check_no').click(function() {
+    var data = {
+        'section_id':section_id,
+        'status':-1,
+    };
+    $.ajax({
+        url: "../video/change_status",
+        type: "POST",
+        data: data,
+        success: function(result) {
+            $('.mask').hide();
+            $('.cd-popup-check').hide();
+            if (result == 1) {
+                alert('审核成功！');
+                location.reload();
+            } else {
+                alert('操作失败！！');
+            }
+        }
+    })
+});
+
+</script>
+</body>
+
+</html>

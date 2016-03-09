@@ -58,6 +58,7 @@ class Course extends CI_Controller {
 
 		$this->load->view('admin/admin_header.html',$data);
 		$this->load->view('admin/admin_required.html');
+		$this->load->view('admin/admin_course_footer.html');
 	}
 
 
@@ -93,6 +94,7 @@ class Course extends CI_Controller {
 			 );
 		$this->load->view('admin/admin_header.html',$data);
 		$this->load->view('admin/admin_elective.html');
+		$this->load->view('admin/admin_course_footer.html');
 	}
 
 
@@ -129,6 +131,7 @@ class Course extends CI_Controller {
 			 );
 		$this->load->view('admin/admin_header.html',$data);
 		$this->load->view('admin/admin_skill.html');
+		$this->load->view('admin/admin_course_footer.html');
 	}
 
 	public function add()
@@ -168,6 +171,16 @@ class Course extends CI_Controller {
 		$value['add_time'] = date("Y-m-d H:i:s",time());
 		$value['status'] = '2';
 		if ($this->course_model->add_course($value)) {
+	    		echo '1';
+	    	}else{
+	    		echo 'error';
+	    	}
+	}
+
+	public function change_status(){
+		$value = $_POST;
+		$value = $this->security->xss_clean($value);
+		if ($this->course_model->change_status($value['status'],$value['kid'])) {
 	    		echo '1';
 	    	}else{
 	    		echo 'error';

@@ -17,11 +17,11 @@
                 Some informations on how to use this field
             </div>
             <div class="input">
-                <label for="select">章节</label><input type="text" id="chapter1" placeholder="章节" name="chapter1" style="display: none;"/>
+                <label for="select">章节</label>
+                <input type="text" id="chapter1" placeholder="章节" name="chapter1" style="display: none;" />
                 <select name="chapter" id="chapter">
                     <option value="-1">--章节选择</option>
                 </select>
-                <input type="hidden" id="sectionpath"  name="sectionpath" />
                 <div id="btn">
                     <div id="add-btn">添加章节</div>
                     <div id="change-chapter" style="display:none;">选择章节</div>
@@ -30,12 +30,14 @@
             </div>
             <div class="input">
                 <label for="select">小节标题</label>
-                <input type="text" id="section" placeholder="小节标题"  name="section" />
-                Some informations on how to use this field
+                <input type="text" id="section" placeholder="小节标题" name="section" /> Some informations on how to use this field
             </div>
-                    <div class="input">
+            <div class="input">
                 <label for="file">视屏</label>
-                <label id="filelist">Your browser doesn't have Flash, Silverlight or HTML5 support.</label>
+                <input type="hidden" id="type" name="type" value="3" />
+                <input type="hidden" id="title" name="title" />
+                <input type="hidden" id="sectionpath" placeholder="图片地址" name="sectionpath" />
+                <div id="filelist"></div>
                 <div id="container">
                     <a id="pickfiles" href="javascript:;" style="text-decoration:none;">选择文件</a>
                     <a id="uploadfiles" href="javascript:;" style="text-decoration:none;">上传文件</a>
@@ -56,7 +58,8 @@
                     cursor: pointer;
                     border-radius: 5px;
                 }
-                #uniform-chapter{
+                
+                #uniform-chapter {
                     display: inline-block;
                 }
                 </style>
@@ -80,7 +83,7 @@ $("#button").click(function() {
         "detail": $("#detail").val(),
         "chapter1": $("#chapter1").val(),
         "path": $("#sectionpath").val(),
-        "section":$("#section").val()
+        "section": $("#section").val()
     }
     console.log(value);
     $.ajax({
@@ -102,7 +105,7 @@ $("#name").change(function() {
         success: function(result) {
             if (result != '') {
                 $('#chapter').html(result);
-            }else{
+            } else {
                 $('#chapter1').show();
             }
         }
@@ -113,15 +116,15 @@ $(function() {
     $("#btn").click(function() {
         if (state == false) {
             $("#uniform-chapter").hide();
-            $("#chapter1").css("display","inline-block");
+            $("#chapter1").css("display", "inline-block");
             $("#add-btn").hide();
             $("#change-chapter").show();
             state = true;
         } else {
-            $("#uniform-chapter").css("display","inline-block");
+            $("#uniform-chapter").css("display", "inline-block");
             $("#chapter1").hide();
             $("#add-btn").show();
-            $("#change-chapter").css("display","none");
+            $("#change-chapter").css("display", "none");
             state = false;
         }
     })
