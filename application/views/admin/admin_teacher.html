@@ -129,7 +129,7 @@
         <a href="#" class="cd-popup-close img-replace">关闭</a>
     </div>
     <div class="cd-popup-check" style="display:none;">
-        <p style="height:22px">你确定你要删除这个元素吗?</p>
+        <p style="height:22px">审核状态?</p>
         <ul class="cd-buttons">
             <li id="check_yes"><a href="javascript:;">通过</a></li>
             <li id="check_no"><a href="javascript:;">不通过</a></li>
@@ -163,10 +163,14 @@ $('.check_button').click(function() {
 });
 
 $('#check_yes').click(function() {
+    var data = {
+        'tid':tid,
+        'status':2,
+    };
     $.ajax({
-        url: "../admin/teacher/change_status/",
+        url: "../admin/teacher/change_status",
         type: "POST",
-        data: "value=" + tid,
+        data: data,
         success: function(result) {
             $('.mask').hide();
             $('.cd-popup-check').hide();
@@ -190,10 +194,14 @@ $('.cd-popup-close').click(function() {
     $('.mask').hide();
 });
 $('#check_no').click(function() {
+    var data = {
+        'tid':tid,
+        'status':-1,
+    };
     $.ajax({
-        url: "../admin/teacher/change_status/",
+        url: "../admin/teacher/change_status",
         type: "POST",
-        data: "value=" + tid,
+        data: data,
         success: function(result) {
             $('.mask').hide();
             $('.cd-popup-check').hide();
