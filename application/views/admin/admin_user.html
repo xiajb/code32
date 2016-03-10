@@ -34,6 +34,9 @@
                             <?php echo $result[$i]['uid']; ?>
                         </td>
                         <td>
+                            <?php echo $result[$i]['name']; ?>
+                        </td>
+                        <td>
                             <?php echo $result[$i]['username']; ?>
                         </td>
                         <td>
@@ -43,10 +46,7 @@
                             <?php echo $result[$i]['phone']; ?>
                         </td>
                         <td>
-                            <?php echo $result[$i]['blance']; ?>
-                        </td>
-                        <td>
-                            <?php echo $result[$i]['blance'];?>
+                            <?php echo $result[$i]['reg_time'];?>
                         </td>
                         <td>
                             <div class="selector" id="uniform-tableaction">
@@ -54,9 +54,9 @@
                                     <option value="<?php echo $result[$i]['level'];?>" selected="selected">
                                         <?php echo $result[$i]['level'];?>
                                     </option>
-                                    <option value="1">admin</option>
-                                    <option value="2">guest</option>
-                                    <option value="0">employee</option>
+                                    <option value="1">teacher</option>
+                                    <option value="2">admin</option>
+                                    <option value="0">no</option>
                                 </select>
                             </div>
                         </td>
