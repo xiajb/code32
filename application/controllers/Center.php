@@ -44,16 +44,20 @@ class Center extends CI_Controller {
 					'feedback'=>''
 				);
 		}
-		$data['userdata'] = $this->user_model->check_username_is($_SESSION['username']);
+		$data['userdata'] = $this->user_model->get_user_by_uid($_SESSION['uid']);
 		$this->load->view("center_header.html",$data);
 		$this->load->view("center_mydata.html");
 		$this->load->view("center_footer.html");
 	}
 
 	public function user_detail(){
-		$value = json_decode($this->input->post('data'),true);
+		$value = $_POST;
 		$value = $this->security->xss_clean($value);
-		$this->user_model->user_detail_updata($_SESSION['username'],$value);
+		$this->user_model->user_detail_updata($_SESSION['uid'],$value);
+		if ($value['pic'] != '') {
+			$row = $this->user_model->get_user_by_uid($_SESSION['uid']);
+			$this->session->set_userdata('pic',$row['pic']);
+		}
 		echo '1';
 
 
@@ -70,7 +74,7 @@ class Center extends CI_Controller {
 					'comment'=>'',
 					'changepw'=>'',
 				);
-			$row = $this->user_model->check_username_is($_SESSION['username']);
+			$row = $this->user_model->get_user_by_uid($_SESSION['uid']);
 			$teacher = $this->teacher_model->get_teacher($row['uid']);
 			$data['checking'] = $this->course_model->get_course_by_id($teacher->tid,'0');
 			$data['pass'] = $this->course_model->get_course_by_id($teacher->tid,'1');
@@ -86,7 +90,6 @@ class Center extends CI_Controller {
 					'feedback'=>''
 				);
 		}
-
 		$this->load->view("center_header.html",$data);
 		$this->load->view("center_mycourse.html");
 		$this->load->view("center_footer.html");
@@ -156,38 +159,7 @@ class Center extends CI_Controller {
 				'comment'=>'',
 				'changepw'=>'',
 			);
-
-			//$row = $this->user_model->check_username_is($_SESSION['username']);
-			//$teacher = $this->teacher_model->get_teacher($row['uid']);
-			//$required = $this->required_model->get_course($teacher->tid);
-			//$elective = $this->elective_model->get_course($teacher->tid);
-		//	$data['course'] = array_merge($required,$elective);
-		//	$skill = $this->skill_model->get_course($teacher->tid);
-			//$data['course'] = array_merge($data['course'],$skill);
-		//	$data['pass'] = array();
-			//for ($i=0; $i < count($data['course']); $i++) {
-		//		if ($data['course'][$i]['status'] == 1) {
-			//		$data1 = array(
-				//		'img'=>$data['course'][$i]['img'],
-				//		'title'=>$data['course'][$i]['title'],
-				//		'detail'=>$data['course'][$i]['detail'],
-				///	);
-
-					// if (array_keys($data['course'][$i])[0] == 'required_id') {
-					// 	$data1['type'] = 'required';
-					// 	$data1['id'] = $data['course'][$i]['required_id'];
-					// }elseif (array_keys($data['course'][$i])[0] == 'elective_id') {
-					// 	$data1['type'] = 'elective';
-					// 	$data1['id'] = $data['course'][$i]['elective_id'];
-					// }elseif (array_keys($data['course'][$i])[0] == 'skill_id') {
-					// 	$data1['type'] = 'skill';
-					// 	$data1['id'] = $data['course'][$i]['skill_id'];
-					// }
-				//	$data['pass'][$i] = $data1;
-			//	}
-
-		//	}
-			$data['courses']=$this->course_model->query_all();
+		$data['courses']=$this->course_model->query_all();
 		$this->load->view("center_header.html",$data);
 		$this->load->view("center_teacher_add_video.html");
 		$this->load->view("center_footer.html");
@@ -209,8 +181,7 @@ class Center extends CI_Controller {
 			unset($section_arr['course_id'],$section_arr['chapter_id1'],$section_arr['chapter_id2']);
 			$a=$this->section_model->add_section($section_arr);
 			if($a>0){
-				echo '添加成功';
-
+				redirect('http://www.rfgxy.com/center/add');
 			};
 
 	}
@@ -268,7 +239,7 @@ class Center extends CI_Controller {
 	public function pwd_is_true(){
 		$value = json_decode($this->input->post('data'),true);
 		$value = $this->security->xss_clean($value);
-		$row = $this->user_model->check_username_is($_SESSION['username']);
+		$row = $this->user_model->get_user_by_uid($_SESSION['uid']);
 		if ($row != false) {
 			if ($row['password'] == md5($value['password'])) {
 				echo '1';
@@ -285,10 +256,10 @@ class Center extends CI_Controller {
 		$value = json_decode($this->input->post('data'),true);
 		$value = $this->security->xss_clean($value);
 
-		$row = $this->user_model->check_username_is($_SESSION['username']);
+		$row = $this->user_model->get_user_by_uid($_SESSION['uid']);
 		if ($row != false) {
 			if ($row['password'] == md5($value['former_pwd'])) {
-				$this->user_model->for_username_change_pwd($_SESSION['username'],$value['password']);
+				$this->user_model->for_username_change_pwd($_SESSION['uid'],$value['password']);
 
 				echo '1';
 			}else{
@@ -351,8 +322,7 @@ class Center extends CI_Controller {
 	public function feed_back(){
 		$value = $_POST;
 		$value = $this->security->xss_clean($value);
-		$value["username"] = $_SESSION['username'];
-		$row = $this->user_model->check_username_is($value["username"]);
+		$row = $this->user_model->get_user_by_uid($_SESSION['uid']);
 		if ($row != false) {
 			$value['phone'] = $row['phone'];
 			$value['email'] = $row['email'];
@@ -399,40 +369,12 @@ class Center extends CI_Controller {
 		    }
 		}
 	}
-	//再试一次
-	// function test ($course_id){
-	// $this->session->set_userdata('course_id',$course_id);
 
-	// $this->load->view("index.html");
-
-	// }
-	// public function skill_add(){
-	// 	$value = $_POST;
-	// 	$value = $this->security->xss_clean($value);
-	// 	$row = $this->user_model->check_username_is($_SESSION['username']);
-	// 	$teacher = $this->teacher_model->get_teacher($row['uid']);
-	// 	$value['add_time'] = date("Y-m-d H:i:s",time());
-	// 	$value['teacher'] = $teacher->tid;
-	// 	$this->skill_model->add_skill($value);
-	// 	echo '1';
-	// }
-
-	// public function elective_add(){
-	// 	$value = $_POST;
-	// 	$value = $this->security->xss_clean($value);
-	// 	$row = $this->user_model->check_username_is($_SESSION['username']);
-	// 	$teacher = $this->teacher_model->get_teacher($row['uid']);
-	// 	$value['add_time'] = date("Y-m-d H:i:s",time());
-	// 	$value['teacher'] = $teacher->tid;
-	// 	$this->elective_model->add_elective($value);
-	// 	echo '1';
-	// }
 	public function add_course(){
 		$value = $_POST;
 
 		$value = $this->security->xss_clean($value);
-		$row = $this->user_model->check_username_is($_SESSION['username']);
-		$teacher = $this->teacher_model->get_teacher($row['uid']);
+		$teacher = $this->teacher_model->get_teacher($_SESSION['uid']);
 		$value['add_time'] = date("Y-m-d H:i:s",time());
 		$value['course_lectruer_id'] = $teacher->tid;
 		echo $this->course_model->add_course($value);

@@ -122,8 +122,12 @@ class Register extends CI_Controller {
 		    	unset($value["validatecode"]);
 		    	$value["password"] = md5($value["password"]);
 		    	$value["reg_time"] = date("Y-m-d H:i",time());
-		    	if ($this->user_model->add_user($value)) {
-		    		$_SESSION["username"] = $value["username"];
+		    	$uid = $this->user_model->add_user($value);
+		    	if ($uid) {
+				$this->session->set_userdata('username',$value["username"]);
+				$this->session->set_userdata('uid',$uid);
+				$row = $this->user_model->get_user_by_uid($uid);
+				$this->session->set_userdata('pic',$row['pic']);
 		    		echo '1';
 		    	}else{
 		    		echo 'error';

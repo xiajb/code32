@@ -273,12 +273,14 @@ INSERT INTO `ci_teacher` (`tid`, `uid`, `name`, `pic`, `phone`, `intro`, `test_v
 
 CREATE TABLE IF NOT EXISTS `ci_user` (
   `uid` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'primary key,autoincrement',
+  `name` varchar(128) NOT NULL DEFAULT '',
   `username` varchar(16) NOT NULL,
   `phone` varchar(11) NOT NULL,
   `password` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
+  `qq` varchar(11) NOT NULL,
   `sex` tinyint(1) NOT NULL DEFAULT '0',
-  `pic` varchar(50) NOT NULL DEFAULT '0' COMMENT '头像路径',
+  `pic` varchar(255) NOT NULL DEFAULT '0' COMMENT '头像路径',
   `vip` int(11) NOT NULL DEFAULT '0',
   `level` int(11) NOT NULL DEFAULT '0',
   `vip_endtime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'vip到期时间',
@@ -291,9 +293,9 @@ CREATE TABLE IF NOT EXISTS `ci_user` (
 -- 转存表中的数据 `ci_user`
 --
 
-INSERT INTO `ci_user` (`uid`, `username`, `phone`, `password`, `email`, `sex`, `pic`, `vip`, `level`, `vip_endtime`, `other`, `reg_time`) VALUES
-(1, 'admin', '15607101196', '36f17c3939ac3e7b2fc9396fa8e953ea', '877077145@qq.com', 1, '0', 0, 2, '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
-(2, 'tanxu', '15607101196', '36f17c3939ac3e7b2fc9396fa8e953ea', '877077145@qq.com', 1, '0', 0, 1, '0000-00-00 00:00:00', '', '0000-00-00 00:00:00');
+INSERT INTO `ci_user` (`uid`,`name` ,`username`, `phone`, `password`, `email`, `qq`,`sex`, `pic`, `vip`, `level`, `vip_endtime`, `other`, `reg_time`) VALUES
+(1,'李白', 'admin', '15607101196', '36f17c3939ac3e7b2fc9396fa8e953ea', '877077145@qq.com','877077145', 1, '0', 0, 2, '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
+(2,'杜甫' ,'tanxu', '15607101196', '36f17c3939ac3e7b2fc9396fa8e953ea', '877077145@qq.com', '877077145',1, '0', 0, 1, '0000-00-00 00:00:00', '', '0000-00-00 00:00:00');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

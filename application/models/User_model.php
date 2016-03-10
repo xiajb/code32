@@ -15,7 +15,9 @@ class User_model extends CI_Model{
 	}
 	#注册
 	public function add_user($data){
-		return $this->db->insert(self::TBL_USER,$data);
+		$data['pic'] = 'http://code32.b0.upaiyun.com/status/img/touxiang.gif';
+		$this->db->insert(self::TBL_USER,$data);
+		return $this->db->insert_id();
 	}
 	#注册检查手机是否存在
 	public function sql_check_phone($phone){
@@ -121,12 +123,18 @@ class User_model extends CI_Model{
 		$query = $this->db->query($sql);
 		$row = $query->row_array();
 
-		if (isset($row))
+		if (is_array($row))
 		{
 			return $row;
 		}else{
 			return false;
 		}
+	}
+
+	public function get_user_by_uid($id){
+		$this->db->where('uid', $id);
+		$query = $this->db->get(self::TBL_USER);
+		return $query->row_array();
 	}
 
 	//更改密码
@@ -141,44 +149,15 @@ class User_model extends CI_Model{
 		// }
 	}
 	//根据用户名 更改密码
-	public function for_username_change_pwd($username,$pwd){
-		// if ($uid != "" && $pwd != "") {
-			$data = array('password' => md5($pwd));
-			$this->db->where('username', $username);
-			$this->db->update(self::TBL_USER, $data);
-		// 	echo "1";
-		// }else{
-		// 	echo "-1";
-		// }
+	public function for_username_change_pwd($id,$pwd){
+		$data = array('password' => md5($pwd));
+		$this->db->where('uid', $id);
+		$this->db->update(self::TBL_USER, $data);
 	}
 
-	public function user_detail_updata($username,$data){
-		$this->db->where('username',$username);
-		$this->db->update(self::TBL_USER,$data);
+	public function user_detail_updata($id,$data){
+		$this->db->where('uid', $id);
+		$this->db->update(self::TBL_USER, $data);
 	}
 
-	// function  checklogin($user_name,$user_pwd){
-	// 	//返回值
-	// 	$a=false;
-	// 	$this->load->database();
-	// 	//查询数据库
-	// 	//$sql='select * from ci_user where user_name= "'.$username.'"and user_pwd= "'.$userpwd.'"'; 
-	// 	//$query=$this->db->query($sql);
-	// 	$this->db->select('user_name','user_pwd');
-	// 	$this->db->where('user_name',$user_name);
-	// 	$this->db->where('user_pwd',$user_pwd);
-	// 	$query=$this->db->get('ci_user');
-	// 	//返回行数
-	// 	$row=$query->num_rows();
-	// 	//echo $row;
-	// 	//返回结果
-	// 	if($row>0){
-	// 		$a=true;
-	// 		return $a;
-	// 	}else{
-
-	// 		return $a;
-	// 	}
-
-	// }
 }

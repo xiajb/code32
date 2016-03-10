@@ -15,11 +15,11 @@ class Join extends CI_Controller {
 	
 	public function index()
 	{
-		if ($_SESSION['username'] == '' || !isset($_SESSION['username'])) {
+		if ($_SESSION['uid'] == '' || !isset($_SESSION['uid'])) {
 			redirect("http://www.rfgxy.com/login");
 			return;
 		}else{
-			$row = $this->user_model->check_username_is($_SESSION['username']);
+			$row = $this->user_model->get_user_by_uid($_SESSION['uid']);
 			if ($row == false) {
 				redirect("http://www.rfgxy.com/login");
 			}elseif($row['name'] == '' || $row['pic']==""){
@@ -27,8 +27,7 @@ class Join extends CI_Controller {
 			}elseif ($row['level'] == 1) {
 				redirect("http://www.rfgxy.com/center/mydata");
 			}else{
-				$_SESSION['pic'] = $row['pic'];
-				$this->load->view("join.html");
+				$this->load->view("join.html",$data);
 				$this->load->view("center_footer.html");
 			
 			}
@@ -37,12 +36,12 @@ class Join extends CI_Controller {
 	}
 
 	public function apply(){
-		if (!isset($_SESSION['username']) || $_SESSION['username'] == '') {
+		if (!isset($_SESSION['uid']) || $_SESSION['uid'] == '') {
 			echo "-1";
 			// redirect("http://www.rfgxy.com/login");
 			// return;
 		}else{
-			$row = $this->user_model->check_username_is($_SESSION['username']);
+			$row = $this->user_model->get_user_by_uid($_SESSION['uid']);
 			if ($row == false) {
 				echo "-1";
 			}elseif($row['name'] == '' || $row['pic']==""){
@@ -58,7 +57,7 @@ class Join extends CI_Controller {
 	public function add_teacher(){
 		$value = $_POST;
 		$value = $this->security->xss_clean($value);
-		$row = $this->user_model->check_username_is($_SESSION['username']);
+		$row = $this->user_model->get_user_by_uid($_SESSION['uid']);
 		if ($row == false) {
 			echo '-1';
 			return;

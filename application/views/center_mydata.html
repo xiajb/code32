@@ -53,20 +53,17 @@
                             <!-- form baseinfo end -->
                             <!-- form personinfo -->
                             <div class="tabGroup" style="display:block;" id="tab2">
-                                <form class="form form-personinfo" id="infoForm" action="/member/settingInfo" method="get">
-                                    <input type="hidden" id="act" name="act" value="base">
-                                    <input type="hidden" name="_csrf" value="aSBzKniayJfrSsF9Y6F+OY5Yip4BpbbjYOSqM=">
-                                    <input type="hidden" id="hiddenUid" name="uid" value="2533127">
+                                <form class="form form-personinfo" id="infoForm" action="" method="post">
                                     <fieldset>
                                         <div class="form-item">
                                             <div class="item-label">
                                                 <label>真实姓名：</label>
                                             </div>
                                             <div class="item-cont">
-                                            <?php if($userdata['username'] == ''):?>
+                                            <?php if($userdata['name'] == ''):?>
                                                 <input type="text" id="name" name="truename" maxlength="100" value="" class="txt sm">
                                             <?php else : ?>
-                                                <input type="text" id="name" name="truename" maxlength="100" value="<?php echo $userdata['username']; ?>" class="txt sm">
+                                                <input type="text" id="name" name="truename" maxlength="100" value="<?php echo $userdata['name']; ?>" class="txt sm">
                                             <?php endif; ?>
                                             </div>
                                         </div>
@@ -75,12 +72,34 @@
                                                 <label>用户性别：</label>
                                             </div>
                                             <div class="item-cont">
+                                            <?php if ($userdata['sex'] == '1' || $userdata['sex'] == ''): ?>
                                                 <select class="select w-xs" id="uesrSex" name="sex">
                                                     <option value="1" selected="">
                                                         纯爷们</option>
                                                     <option value="2">
                                                         萌妹子</option>
                                                 </select>
+                                            <?php elseif ($userdata['sex'] == '2'): ?>
+                                                <select class="select w-xs" id="uesrSex" name="sex">
+                                                    <option value="1">
+                                                        纯爷们</option>
+                                                    <option value="2" selected="">
+                                                        萌妹子</option>
+                                                </select>
+                                            <?php endif; ?>
+
+                                            </div>
+                                        </div>
+                                        <div class="form-item">
+                                            <div class="item-label">
+                                                <label>QQ：</label>
+                                            </div>
+                                            <div class="item-cont">
+                                            <?php if($userdata['qq'] == ''):?>
+                                                <input type="text" class="txt sm w-sm" name="qq" id="qq" value="" maxlength="11"/>
+                                            <?php else : ?>
+                                                <input type="text" id="qq" name="qq" maxlength="11" value="<?php echo $userdata['qq']; ?>" class="txt sm w-sm">
+                                            <?php endif; ?>
                                             </div>
                                         </div>
                                         <div class="form-item">
@@ -137,18 +156,20 @@ $("#infoButton").click(function() {
     var value = {
         "name": $("#name").val(),
         "sex": $("#uesrSex").val(),
-        "pic": $("#picname").html()
+        "qq": $("#qq").val(),
+        "pic": $("#sectionpath").val()
     }
     console.log(value);
     $.ajax({
         type: 'POST',
         url: "../center/user_detail",
-        data: 'data=' + JSON.stringify(value),
+        data: value,
 
         success: function(result) {
             console.log(result);
             if (result == 1) {
                 alert('修改成功!');
+                location.reload();
             }
         }
     });

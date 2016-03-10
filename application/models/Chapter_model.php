@@ -13,7 +13,6 @@ class Chapter_model extends Ci_Model
 		parent::__construct();
 	}
 	function add_chapter($in_data){
-  	$this->load->database();
   	$this->db->insert('ci_chapter',$in_data);
 
   	return $this->db->insert_id();
