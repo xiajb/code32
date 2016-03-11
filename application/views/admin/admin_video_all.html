@@ -1,31 +1,45 @@
 <div id="content" class="white">
     <link rel="stylesheet" href="<?php echo base_url('back/css/backmask.css'); ?>" />
-    <h1><img src="<?php echo base_url('back/img/icons/posts.png');?>" alt="" /> Video Data</h1>
+    <h1><img src="<?php echo base_url('back/img/icons/posts.png');?>" alt="" /> 所有视屏</h1>
     <div class="bloc">
         <div class="title">
             <div class="tabs" id="tabs1" style="left:-1px">
                 <a href="#tab1">全部数据</a>
-                <a href="#tab2">未审核</a>
-                <a href="#tab3">未通过</a>
-                <a href="#tab4">管理员添加</a>
+                <a href="#tab2">已通过</a>
+                <a href="#tab3">未审核</a>
+                <a href="#tab4">未通过</a>
+                <a href="#tab5">管理员添加</a>
             </div>
         </div>
         <div class="content">
             <div id="tab1">
                 <div class="content">
                     <table class="noalt">
+                        <thead>
+                            <tr>
+                                <th>视屏ID</th>
+                                <th>名字</th>
+                                <th>添加时间</th>
+                                <th>路径</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
                         <tbody>
                             <?php  for($i=0;$i<count($result);$i++){ ?>
                             <tr>
-                                <td class="picture" style="width:80px;"><img style="width:80px;" src="<?php echo $result[$i]['section_path'];?>" alt="" /></td>
                                 <td>
-                                    <p>
-                                        <strong><a href="#"><?php echo $result[$i]['section_name']; ?></a></strong>
-                                        <br/>
-                                        <em><?php echo $result[$i]['create_time'];?> <a href="#">Reply</a></em>
-                                        <br/>
-                                        <a href="<?php echo $result[$i]['section_path'];?>">path</a>
-                                    </p>
+                                    <?php echo $result[$i]['section_id']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $result[$i]['section_name']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $result[$i]['create_time']; ?>
+                                </td>
+                                <td>
+                                    <a href="<?php echo $result[$i]['section_path'];?>" target="view_window">
+                                        <?php echo $result[$i]['section_path'];?>
+                                    </a>
                                 </td>
                                 <td class="actions">
                                     <a data-section_id="<?php echo $result[$i]['section_id']; ?>" href="javascript:;" title="Edit this content" class="check_button"><img src="<?php echo base_url('back/img/icons/actions/edit.png');?>" alt="" /></a>
@@ -39,19 +53,72 @@
             </div>
             <div id="tab2">
                 <div class="content">
+
                     <table class="noalt">
+                        <thead>
+                            <tr>
+                                <th>视屏ID</th>
+                                <th>名字</th>
+                                <th>添加时间</th>
+                                <th>路径</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php  for($i=0;$i<count($pass);$i++){ ?>
+                            <tr>
+                                <td>
+                                    <?php echo $pass[$i]['section_id']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $pass[$i]['section_name']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $pass[$i]['create_time']; ?>
+                                </td>
+                                <td>
+                                    <a href="<?php echo $pass[$i]['section_path'];?>" target="view_window">
+                                        <?php echo $pass[$i]['section_path'];?>
+                                    </a>
+                                </td>
+                                <td class="actions">
+                                    <a data-section_id="<?php echo $pass[$i]['section_id']; ?>" href="javascript:;" title="Edit this content" class="check_button"><img src="<?php echo base_url('back/img/icons/actions/edit.png');?>" alt="" /></a>
+                                    <a data-id="<?php echo $pass[$i]['section_id']; ?>" href="javascript:;" title="Delete this content" class="delete_button"><img src="<?php echo base_url('back/img/icons/actions/delete.png');?>" alt="" /></a>
+                                </td>
+                            </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="tab3">
+                <div class="content">
+                     <table class="noalt">
+                        <thead>
+                            <tr>
+                                <th>视屏ID</th>
+                                <th>名字</th>
+                                <th>添加时间</th>
+                                <th>路径</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
                         <tbody>
                             <?php  for($i=0;$i<count($wait);$i++){ ?>
                             <tr>
-                                <td class="picture" style="width:80px;"><img style="width:80px;" src="<?php echo $wait[$i]['section_path'];?>" alt="" /></td>
                                 <td>
-                                    <p>
-                                        <strong><a href="#"><?php echo $wait[$i]['section_name']; ?></a></strong>
-                                        <br/>
-                                        <em><?php echo $wait[$i]['create_time'];?> <a href="#">Reply</a></em>
-                                        <br/>
-                                        <a href="<?php echo $wait[$i]['section_path'];?>">path</a>
-                                    </p>
+                                    <?php echo $wait[$i]['section_id']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $wait[$i]['section_name']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $wait[$i]['create_time']; ?>
+                                </td>
+                                <td>
+                                    <a href="<?php echo $wait[$i]['section_path'];?>" target="view_window">
+                                        <?php echo $wait[$i]['section_path'];?>
+                                    </a>
                                 </td>
                                 <td class="actions">
                                     <a data-section_id="<?php echo $wait[$i]['section_id']; ?>" href="javascript:;" title="Edit this content" class="check_button"><img src="<?php echo base_url('back/img/icons/actions/edit.png');?>" alt="" /></a>
@@ -63,21 +130,34 @@
                     </table>
                 </div>
             </div>
-            <div id="tab3">
+            <div id="tab4">
                 <div class="content">
                     <table class="noalt">
+                        <thead>
+                            <tr>
+                                <th>视屏ID</th>
+                                <th>名字</th>
+                                <th>添加时间</th>
+                                <th>路径</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
                         <tbody>
                             <?php  for($i=0;$i<count($not_pass);$i++){ ?>
                             <tr>
-                                <td class="picture" style="width:80px;"><img style="width:80px;" src="<?php echo $not_pass[$i]['section_path'];?>" alt="" /></td>
                                 <td>
-                                    <p>
-                                        <strong><a href="#"><?php echo $not_pass[$i]['section_name']; ?></a></strong>
-                                        <br/>
-                                        <em><?php echo $not_pass[$i]['create_time'];?> <a href="#">Reply</a></em>
-                                        <br/>
-                                        <a href="<?php echo $not_pass[$i]['section_path'];?>">path</a>
-                                    </p>
+                                    <?php echo $not_pass[$i]['section_id']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $not_pass[$i]['section_name']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $not_pass[$i]['create_time']; ?>
+                                </td>
+                                <td>
+                                    <a href="<?php echo $not_pass[$i]['section_path'];?>" target="view_window">
+                                        <?php echo $not_pass[$i]['section_path'];?>
+                                    </a>
                                 </td>
                                 <td class="actions">
                                     <a data-section_id="<?php echo $not_pass[$i]['section_id']; ?>" href="javascript:;" title="Edit this content" class="check_button"><img src="<?php echo base_url('back/img/icons/actions/edit.png');?>" alt="" /></a>
@@ -89,21 +169,34 @@
                     </table>
                 </div>
             </div>
-            <div id="tab4">
+            <div id="tab5">
                 <div class="content">
-                    <table class="noalt">
+                     <table class="noalt">
+                        <thead>
+                            <tr>
+                                <th>视屏ID</th>
+                                <th>名字</th>
+                                <th>添加时间</th>
+                                <th>路径</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
                         <tbody>
                             <?php  for($i=0;$i<count($admin);$i++){ ?>
                             <tr>
-                                <td class="picture" style="width:80px;"><img style="width:80px;" src="<?php echo $admin[$i]['section_path'];?>" alt="" /></td>
                                 <td>
-                                    <p>
-                                        <strong><a href="#"><?php echo $admin[$i]['section_name']; ?></a></strong>
-                                        <br/>
-                                        <em><?php echo $admin[$i]['create_time'];?> <a href="#">Reply</a></em>
-                                        <br/>
-                                        <a href="<?php echo $admin[$i]['section_path'];?>">path</a>
-                                    </p>
+                                    <?php echo $admin[$i]['section_id']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $admin[$i]['section_name']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $admin[$i]['create_time']; ?>
+                                </td>
+                                <td>
+                                    <a href="<?php echo $admin[$i]['section_path'];?>" target="view_window">
+                                        <?php echo $admin[$i]['section_path'];?>
+                                    </a>
                                 </td>
                                 <td class="actions">
                                     <a data-section_id="<?php echo $admin[$i]['section_id']; ?>" href="javascript:;" title="Edit this content" class="check_button"><img src="<?php echo base_url('back/img/icons/actions/edit.png');?>" alt="" /></a>
@@ -164,8 +257,8 @@ $('.check_button').click(function() {
 
 $('#check_yes').click(function() {
     var data = {
-        'section_id':section_id,
-        'status':2,
+        'section_id': section_id,
+        'status': 2,
     };
     $.ajax({
         url: "../video/change_status",
@@ -195,8 +288,8 @@ $('.cd-popup-close').click(function() {
 });
 $('#check_no').click(function() {
     var data = {
-        'section_id':section_id,
-        'status':-1,
+        'section_id': section_id,
+        'status': -1,
     };
     $.ajax({
         url: "../video/change_status",
@@ -214,7 +307,6 @@ $('#check_no').click(function() {
         }
     })
 });
-
 </script>
 </body>
 

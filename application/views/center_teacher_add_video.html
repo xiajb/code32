@@ -168,9 +168,7 @@ xmlhttp.onreadystatechange=function()
   if (xmlhttp.readyState==4 && xmlhttp.status==200)
     {
     var data=xmlhttp.responseText;
-
       json = eval(data);
-
     var html='<select class="select" id="chapter1" name="section_arr[chapter_id1]">';
   for(var i=0; i<json.length; i++)
   {

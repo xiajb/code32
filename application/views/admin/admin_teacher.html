@@ -5,9 +5,10 @@
         <div class="title">
             <div class="tabs" id="tabs1" style="left:-1px">
                 <a href="#tab1">全部数据</a>
-                <a href="#tab2">未审核</a>
-                <a href="#tab3">未通过</a>
-                <a href="#tab4">管理员添加</a>
+                <a href="#tab2">已通过</a>
+                <a href="#tab3">未审核</a>
+                <a href="#tab4">未通过</a>
+                <a href="#tab5">管理员添加</a>
             </div>
         </div>
         <div class="content">
@@ -41,6 +42,32 @@
                 <div class="content">
                     <table class="noalt">
                         <tbody>
+                            <?php  for($i=0;$i<count($pass);$i++){ ?>
+                            <tr>
+                                <td class="picture" style="width:80px;"><img style="width:80px;" src="<?php echo $pass[$i]['pic'];?>" alt="" /></td>
+                                <td>
+                                    <p>
+                                        <strong><a href="#"><?php echo $pass[$i]['name']; ?></a></strong>
+                                        <br/>
+                                        <em><?php echo $pass[$i]['apply_time'];?> <a href="#">Reply</a></em>
+                                        <br/>
+                                        <?php echo $pass[$i]['intro'];?>
+                                    </p>
+                                </td>
+                                <td class="actions">
+                                    <a data-tid="<?php echo $pass[$i]['tid']; ?>" href="javascript:;" title="Edit this content" class="check_button"><img src="<?php echo base_url('back/img/icons/actions/edit.png');?>" alt="" /></a>
+                                    <a data-id="<?php echo $pass[$i]['tid']; ?>" href="javascript:;" title="Delete this content" class="delete_button"><img src="<?php echo base_url('back/img/icons/actions/delete.png');?>" alt="" /></a>
+                                </td>
+                            </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="tab3">
+                <div class="content">
+                    <table class="noalt">
+                        <tbody>
                             <?php  for($i=0;$i<count($checking);$i++){ ?>
                             <tr>
                                 <td class="picture" style="width:80px;"><img style="width:80px;" src="<?php echo $checking[$i]['pic'];?>" alt="" /></td>
@@ -63,7 +90,7 @@
                     </table>
                 </div>
             </div>
-            <div id="tab3">
+            <div id="tab4">
                 <div class="content">
                     <table class="noalt">
                         <tbody>
@@ -89,7 +116,7 @@
                     </table>
                 </div>
             </div>
-            <div id="tab4">
+            <div id="tab5">
                 <div class="content">
                     <table class="noalt">
                         <tbody>

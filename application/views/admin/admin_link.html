@@ -1,9 +1,8 @@
 <link rel="stylesheet" href="<?php echo base_url('back/css/backmask.css'); ?>" />
 <div id="content" class="white">
-    <h1><img src="<?php echo base_url('back/img/icons/posts.png'); ?>" alt="" /> Table</h1>
     <div class="bloc">
         <div class="title">
-            Table Content
+            所有友链
         </div>
         <div class="content">
             <table>
@@ -27,7 +26,7 @@
                             <?php echo $result[$i]['name']; ?>
                         </td>
                         <td>
-                            <?php echo $result[$i]['url']; ?>
+                            <a href="http://<?php echo $result[$i]['url']; ?>"><?php echo $result[$i]['url']; ?></a>
                         </td>
                         <td>
                             <?php echo $result[$i]['add_time']; ?>

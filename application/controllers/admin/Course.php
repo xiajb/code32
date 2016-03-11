@@ -16,6 +16,7 @@ class Course extends CI_Controller {
 	{
 		$data['result'] = $this->course_model->get_course_by_classifyid(2,'');
 		$data['wait'] = $this->course_model->get_course_by_classifyid(2,'0');
+		$data['pass'] = $this->course_model->get_course_by_classifyid(2,'1');
 		$data['nopass'] = $this->course_model->get_course_by_classifyid(2,'-1');
 		$data['admin'] = $this->course_model->get_course_by_classifyid(2,'2');
 		$data['current'] = array('data_back'=>'',
@@ -66,6 +67,7 @@ class Course extends CI_Controller {
 	{
 		$data['result'] = $this->course_model->get_course_by_classifyid(1,'');
 		$data['wait'] = $this->course_model->get_course_by_classifyid(1,'0');
+		$data['pass'] = $this->course_model->get_course_by_classifyid(1,'1');
 		$data['nopass'] = $this->course_model->get_course_by_classifyid(1,'-1');
 		$data['admin'] = $this->course_model->get_course_by_classifyid(1,'2');
 
@@ -103,6 +105,7 @@ class Course extends CI_Controller {
 	{
 		$data['result'] = $this->course_model->get_course_by_classifyid(3,'');
 		$data['wait'] = $this->course_model->get_course_by_classifyid(3,'0');
+		$data['pass'] = $this->course_model->get_course_by_classifyid(3,'1');
 		$data['nopass'] = $this->course_model->get_course_by_classifyid(3,'-1');
 		$data['admin'] = $this->course_model->get_course_by_classifyid(3,'2');
 

@@ -46,6 +46,7 @@ class Video extends CI_Controller {
 	{
 		$data['result'] = $this->section_model->query_all();
 		$data['not_pass'] = $this->section_model->get_by_check(-1);
+		$data['pass'] = $this->section_model->get_by_check(1);
 		$data['wait'] = $this->section_model->get_by_check(0);
 		$data['admin'] = $this->section_model->get_by_check(2);
 		$data['current'] = array('data_back'=>'',
