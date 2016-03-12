@@ -20,7 +20,7 @@ class Section_model extends CI_Model{
 		return $query->result_array();
 	}
 
-	public function get_by_check($status){
+	public function get_by_status($status){
 		$this->db->where("status",$status);
 		$query = $this->db->get(self::TBL_USER);
 		return $query->result_array();

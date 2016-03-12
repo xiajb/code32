@@ -119,10 +119,14 @@ $("#button").click(function() {
     });
 });
 $("#direction").change(function() {
+    var change_data = {
+        "<?php  echo $this->security->get_csrf_token_name();?>":"<?php echo $this->security->get_csrf_hash(); ?>",
+        "direction":$("#direction").val(),
+    }
     $.ajax({
         type: 'POST',
         url: "<?php echo base_url('./center/get_classify'); ?>",
-        data: 'data=' + $("#direction").val(),
+        data: change_data,
 
         success: function(result) {
             if (result != '') {

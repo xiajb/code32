@@ -154,6 +154,7 @@ $('#xiangxi').click(function() {
 $("#infoButton").click(function() {
     console.log($("#picname").html());
     var value = {
+        "<?php  echo $this->security->get_csrf_token_name();?>":"<?php echo $this->security->get_csrf_hash(); ?>",
         "name": $("#name").val(),
         "sex": $("#uesrSex").val(),
         "qq": $("#qq").val(),

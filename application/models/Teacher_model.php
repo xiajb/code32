@@ -15,8 +15,8 @@ class Teacher_model extends CI_Model{
 		return $query->result_array();
 	}
 
-	public function get_by_check($status){
-		$this->db->where("check",$status);
+	public function get_by_status($status){
+		$this->db->where("status",$status);
 		// $sql = 'select * from ci_teacher where check=2';
 		// $query = $this->db->query($sql);
 		$query = $this->db->get(self::TBL_USER);
@@ -33,7 +33,7 @@ class Teacher_model extends CI_Model{
 	public function change_status($status,$id){
 
 		$data = array(
-		    'check' => $status
+		    'status' => $status
 		);
 		return $this->db->update(self::TBL_USER, $data, array('tid' => $id));
 		

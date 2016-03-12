@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `ci_blance` (
   `blance_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'primary key,autoincrement',
   `uid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '用户id',
-  `pay` varchar(50) NOT NULL DEFAULT '0' COMMENT '支付',
+  `pay` varchar(2048) NOT NULL DEFAULT '0' COMMENT '支付',
   `blance` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT '金额',
   `datetime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '时间',
   PRIMARY KEY (`blance_id`)
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `ci_blance` (
 
 CREATE TABLE IF NOT EXISTS `ci_chapter` (
   `chapter_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'primary key,autoincrement',
-  `chapter_name` varchar(100) COLLATE utf8_bin NOT NULL,
+  `chapter_name` varchar(64) COLLATE utf8_bin NOT NULL,
   `course_id` int(11) NOT NULL,
   `order_no` int(11) NOT NULL,
   PRIMARY KEY (`chapter_id`)
@@ -67,7 +67,7 @@ INSERT INTO `ci_chapter` (`chapter_id`, `chapter_name`, `course_id`, `order_no`)
 
 CREATE TABLE IF NOT EXISTS `ci_classify` (
   `classify_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'primary key,autoincrement',
-  `classify_name` varchar(100) COLLATE utf8_bin NOT NULL,
+  `classify_name` varchar(64) COLLATE utf8_bin NOT NULL,
   `direction_id` int(11) NOT NULL,
   PRIMARY KEY (`classify_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=7 ;
@@ -94,8 +94,8 @@ CREATE TABLE IF NOT EXISTS `ci_comment` (
   `comment_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'primary key,autoincrement',
   `course_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '课id',
   `uid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '用户id',
-  `nickname` varchar(50) NOT NULL DEFAULT '0' COMMENT '用户名',
-  `comment` varchar(50) NOT NULL DEFAULT '0' COMMENT '内容',
+  `nickname` varchar(64) NOT NULL DEFAULT '0' COMMENT '用户名',
+  `comment` varchar(1024) NOT NULL DEFAULT '0' COMMENT '内容',
   `add_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`comment_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
@@ -108,11 +108,11 @@ CREATE TABLE IF NOT EXISTS `ci_comment` (
 
 CREATE TABLE IF NOT EXISTS `ci_course` (
   `course_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'primary key,autoincrement',
-  `course_name` varchar(11) COLLATE utf8_bin NOT NULL,
+  `course_name` varchar(64) COLLATE utf8_bin NOT NULL,
   `course_synopsis` text COLLATE utf8_bin NOT NULL,
   `classify_id` int(11) NOT NULL,
   `course_lectruer_id` int(11) NOT NULL,
-  `course_level` varchar(10) COLLATE utf8_bin NOT NULL,
+  `course_level` varchar(16) COLLATE utf8_bin NOT NULL,
   `attentions` int(11) NOT NULL,
   `enrolls` int(11) NOT NULL,
   `status` int(11) NOT NULL,
@@ -141,7 +141,7 @@ INSERT INTO `ci_course` (`course_id`, `course_name`, `course_synopsis`, `classif
 
 CREATE TABLE IF NOT EXISTS `ci_direction` (
   `direction_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'primary key,autoincrement',
-  `direction_name` varchar(100) COLLATE utf8_bin NOT NULL,
+  `direction_name` varchar(64) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`direction_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=4 ;
 
@@ -164,11 +164,11 @@ CREATE TABLE IF NOT EXISTS `ci_feedback` (
   `feedback_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'primary key,autoincrement',
   `username` varchar(50) NOT NULL DEFAULT '',
   `email` varchar(50) NOT NULL DEFAULT '',
-  `phone` varchar(50) NOT NULL DEFAULT '',
-  `vip` varchar(50) NOT NULL DEFAULT '',
-  `title` varchar(50) NOT NULL DEFAULT '',
+  `phone` varchar(11) NOT NULL DEFAULT '',
+  `vip` varchar(11) NOT NULL DEFAULT '',
+  `title` varchar(64) NOT NULL DEFAULT '',
   `contact` varchar(50) NOT NULL DEFAULT '' COMMENT '联系方式',
-  `info` varchar(250) NOT NULL DEFAULT '0' COMMENT '反馈内容',
+  `info` varchar(2048) NOT NULL DEFAULT '0' COMMENT '反馈内容',
   `feedback_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`feedback_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
@@ -181,7 +181,7 @@ CREATE TABLE IF NOT EXISTS `ci_feedback` (
 
 CREATE TABLE IF NOT EXISTS `ci_link` (
   `link` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'primary key,autoincrement',
-  `name` varchar(50) NOT NULL DEFAULT '0' COMMENT '网站名',
+  `name` varchar(64) NOT NULL DEFAULT '0' COMMENT '网站名',
   `url` varchar(50) NOT NULL DEFAULT '0' COMMENT 'url',
   `add_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '添加时间',
   PRIMARY KEY (`link`)
@@ -205,9 +205,9 @@ CREATE TABLE IF NOT EXISTS `ci_order` (
   `uid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '用户id',
   `blance` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT '金额',
   `order_name` varchar(1000) NOT NULL DEFAULT '0000-00-00',
-  `starttime` varchar(50) NOT NULL DEFAULT '0000-00-00' COMMENT '下单时间',
-  `endtime` varchar(50) NOT NULL DEFAULT '0000-00-00' COMMENT '结束时间',
-  `status` varchar(50) NOT NULL DEFAULT '0' COMMENT '状态',
+  `starttime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00', COMMENT '下单时间',
+  `endtime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00', COMMENT '结束时间',
+  `status` varchar(16) NOT NULL DEFAULT '0' COMMENT '状态',
   PRIMARY KEY (`order_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
@@ -220,7 +220,7 @@ CREATE TABLE IF NOT EXISTS `ci_order` (
 CREATE TABLE IF NOT EXISTS `ci_section` (
   `section_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'primary key,autoincrement',
   `section_name` varchar(100) COLLATE utf8_bin NOT NULL,
-  `create_time` datetime NOT NULL,
+  `create_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `chapter_id` int(11) NOT NULL,
   `status` int(11) NOT NULL,
   `order_no` int(11) NOT NULL,
@@ -251,8 +251,8 @@ CREATE TABLE IF NOT EXISTS `ci_teacher` (
   `phone` varchar(50) NOT NULL DEFAULT '0' COMMENT '电话',
   `intro` varchar(255) NOT NULL DEFAULT '0' COMMENT '简介',
   `test_video` varchar(255) NOT NULL DEFAULT '',
-  `check` int(11) NOT NULL DEFAULT '0' COMMENT '审核',
-  `like` int(11) NOT NULL DEFAULT '0' COMMENT '点赞',
+  `status` varchar(11) NOT NULL DEFAULT '0' COMMENT '审核',
+  `likes` int(11) NOT NULL DEFAULT '0' COMMENT '点赞',
   `num` int(11) NOT NULL DEFAULT '0' COMMENT '课程数',
   `apply_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '注册时间',
   PRIMARY KEY (`tid`)
@@ -262,8 +262,8 @@ CREATE TABLE IF NOT EXISTS `ci_teacher` (
 -- 转存表中的数据 `ci_teacher`
 --
 
-INSERT INTO `ci_teacher` (`tid`, `uid`, `name`, `pic`, `phone`, `intro`, `test_video`, `check`, `like`, `num`, `apply_time`) VALUES
-(1, 2, '刘洋', 'http://code32.b0.upaiyun.com/2016/03/06/5fa4809069', '15607101196', '华南理工大学工程硕士，西门子（中国）有限公司工程师，负责项目设计执行、OEM样机开发，技术支持，客户培训。曾获比亚迪、深圳地铁等大型企业邀请对其相关技术人员进行系统的专业培训，擅长PLC、工业网络、HMI等设备的教学。授课深入浅出、全面细致，结合实际工程经验，详细实际应用和工程现场中遇到的常见问题。', '', 1, 55, 2, '0000-00-00 00:00:00');
+INSERT INTO `ci_teacher` (`tid`, `uid`, `name`, `pic`, `phone`, `intro`, `test_video`, `status`, `likes`, `num`, `apply_time`) VALUES
+(1, 2, '刘洋', 'http://code32.b0.upaiyun.com/2016/03/06/5fa4809069', '15607101196', '华南理工大学工程硕士，西门子（中国）有限公司工程师，负责项目设计执行、OEM样机开发，技术支持，客户培训。曾获比亚迪、深圳地铁等大型企业邀请对其相关技术人员进行系统的专业培训，擅长PLC、工业网络、HMI等设备的教学。授课深入浅出、全面细致，结合实际工程经验，详细实际应用和工程现场中遇到的常见问题。', '', '1', 55, 2, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -273,7 +273,7 @@ INSERT INTO `ci_teacher` (`tid`, `uid`, `name`, `pic`, `phone`, `intro`, `test_v
 
 CREATE TABLE IF NOT EXISTS `ci_user` (
   `uid` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'primary key,autoincrement',
-  `name` varchar(128) NOT NULL DEFAULT '',
+  `name` varchar(32) NOT NULL DEFAULT '',
   `username` varchar(16) NOT NULL,
   `phone` varchar(11) NOT NULL,
   `password` varchar(50) NOT NULL,
@@ -282,9 +282,9 @@ CREATE TABLE IF NOT EXISTS `ci_user` (
   `sex` tinyint(1) NOT NULL DEFAULT '0',
   `pic` varchar(255) NOT NULL DEFAULT '0' COMMENT '头像路径',
   `vip` int(11) NOT NULL DEFAULT '0',
-  `level` int(11) NOT NULL DEFAULT '0',
+  `level` varchar(11) NOT NULL DEFAULT '0',
   `vip_endtime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'vip到期时间',
-  `other` varchar(50) NOT NULL DEFAULT '',
+  `other` varchar(255) NOT NULL DEFAULT '',
   `reg_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '注册时间',
   PRIMARY KEY (`uid`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
@@ -294,8 +294,8 @@ CREATE TABLE IF NOT EXISTS `ci_user` (
 --
 
 INSERT INTO `ci_user` (`uid`,`name` ,`username`, `phone`, `password`, `email`, `qq`,`sex`, `pic`, `vip`, `level`, `vip_endtime`, `other`, `reg_time`) VALUES
-(1,'李白', 'admin', '15607101196', '36f17c3939ac3e7b2fc9396fa8e953ea', '877077145@qq.com','877077145', 1, '0', 0, 2, '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
-(2,'杜甫' ,'tanxu', '15607101196', '36f17c3939ac3e7b2fc9396fa8e953ea', '877077145@qq.com', '877077145',1, '0', 0, 1, '0000-00-00 00:00:00', '', '0000-00-00 00:00:00');
+(1,'李白', 'admin', '15607101196', '36f17c3939ac3e7b2fc9396fa8e953ea', '877077145@qq.com','877077145', 1, '0', 0, '2', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
+(2,'杜甫' ,'tanxu', '15607101196', '36f17c3939ac3e7b2fc9396fa8e953ea', '877077145@qq.com', '877077145',1, '0', 0, '1', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

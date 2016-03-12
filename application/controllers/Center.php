@@ -379,9 +379,9 @@ class Center extends CI_Controller {
 	}
 
 	public function get_classify(){
-		$value = $_POST['data'];
+		$value = $_POST;
 		$value = $this->security->xss_clean($value);
-		$row = $this->classify_model->Show_classify_byid($value);
+		$row = $this->classify_model->Show_classify_byid($value['direction']);
 		// echo json_encode($row);
 		$string = '';
 		for ($i=0; $i < count($row); $i++) { 

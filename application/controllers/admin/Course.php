@@ -139,7 +139,7 @@ class Course extends CI_Controller {
 
 	public function add()
 	{
-		$data['teacher'] = $this->teacher_model->get_by_check(2);
+		$data['teacher'] = $this->teacher_model->get_by_status('2');
 		$data['current'] = array('data_back'=>'',
 			'user_manage'=>'',
 			'user_data' =>'' ,
