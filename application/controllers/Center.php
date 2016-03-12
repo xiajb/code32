@@ -15,10 +15,7 @@ class Center extends CI_Controller {
 		$this->load->model('user_model');
 		$this->load->model('teacher_model');
 		$this->load->model('feedback_model');
-		$this->load->model('required_model');
-		$this->load->model('elective_model');
 		$this->load->model('classify_model');
-		$this->load->model('skill_model');
 		$this->load->library('session');
 		$this->load->helper('url');
 	}
