@@ -250,7 +250,7 @@ class Center extends CI_Controller {
 	}
 
 	public function change_pw(){
-		$value = json_decode($this->input->post('data'),true);
+		$value = $_POST;
 		$value = $this->security->xss_clean($value);
 
 		$row = $this->user_model->get_user_by_uid($_SESSION['uid']);

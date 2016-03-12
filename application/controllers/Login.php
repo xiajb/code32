@@ -34,8 +34,9 @@ class Login extends CI_Controller {
 			$row = $this->user_model->check_phone_is($value['username']);
 			if ($row != false) {
 				if ($row['password'] == md5($value['password'])) {
-					$this->session->set_userdata('username',$row['username']);
 					$this->session->set_userdata('uid',$row['uid']);
+					$this->session->set_userdata('username',$row['username']);
+					$this->session->set_userdata('pic',$row['pic']);
 					$this->session->set_userdata('level',$row['level']);
 					ob_clean();
 					echo '1';
@@ -55,6 +56,7 @@ class Login extends CI_Controller {
 				if ($row['password'] == md5($value['password'])) {
 					$this->session->set_userdata('username',$row['username']);
 					$this->session->set_userdata('uid',$row['uid']);
+					$this->session->set_userdata('pic',$row['pic']);
 					$this->session->set_userdata('level',$row['level']);
 					echo '1';
 				}else{

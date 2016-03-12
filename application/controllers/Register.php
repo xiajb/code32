@@ -128,6 +128,7 @@ class Register extends CI_Controller {
 				$this->session->set_userdata('uid',$uid);
 				$row = $this->user_model->get_user_by_uid($uid);
 				$this->session->set_userdata('pic',$row['pic']);
+				$this->session->set_userdata('level',$row['level']);
 		    		echo '1';
 		    	}else{
 		    		echo 'error';

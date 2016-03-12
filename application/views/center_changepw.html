@@ -110,18 +110,19 @@ $(function() {
             return false;
         }
         var data = {
+            "<?php  echo $this->security->get_csrf_token_name();?>":"<?php echo $this->security->get_csrf_hash(); ?>",
             'former_pwd': former_pwd,
             'password': newpwd
         }
         $.ajax({
             type: 'POST',
             url: "../center/change_pw",
-            data: 'data=' + JSON.stringify(data),
+            data: data,
             success: function(result) {
                 // console.log(result);
                 if (result == 1) {
                     alert('密码更改成功！');
-                    location.href = "http://www.rfgxy.com/mydata?label=jiben";
+                    location.href = "http://www.rfgxy.com/center/mydata";
 
                 } else {
                     alert('更改失败！');

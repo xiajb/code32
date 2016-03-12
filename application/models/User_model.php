@@ -156,8 +156,14 @@ class User_model extends CI_Model{
 	}
 
 	public function user_detail_updata($id,$data){
+		$value = array(
+			'name'=>$data['name'],
+			'sex'=>$data['sex'],
+			'qq'=>$data['qq'],
+			'pic'=>$data['pic']
+			);
 		$this->db->where('uid', $id);
-		$this->db->update(self::TBL_USER, $data);
+		$this->db->update(self::TBL_USER, $value);
 	}
 
 }
