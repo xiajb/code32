@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2016-03-06 18:37:46
+-- 生成日期: 2016-03-12 21:51:52
 -- 服务器版本: 5.5.47-0ubuntu0.14.04.1
 -- PHP 版本: 5.5.9-1ubuntu4.14
 
@@ -205,8 +205,8 @@ CREATE TABLE IF NOT EXISTS `ci_order` (
   `uid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '用户id',
   `blance` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT '金额',
   `order_name` varchar(1000) NOT NULL DEFAULT '0000-00-00',
-  `starttime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00', COMMENT '下单时间',
-  `endtime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00', COMMENT '结束时间',
+  `starttime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '下单时间',
+  `endtime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '结束时间',
   `status` varchar(16) NOT NULL DEFAULT '0' COMMENT '状态',
   PRIMARY KEY (`order_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
@@ -233,7 +233,7 @@ CREATE TABLE IF NOT EXISTS `ci_section` (
 -- 转存表中的数据 `ci_section`
 --
 
-INSERT INTO `ci_section` (`section_id`, `section_name`, `create_time`, `chapter_id`, `status`,`order_no`, `free`, `section_path`) VALUES
+INSERT INTO `ci_section` (`section_id`, `section_name`, `create_time`, `chapter_id`, `status`, `order_no`, `free`, `section_path`) VALUES
 (1, 'JavaScript基础教程 ', '2015-12-01 04:12:09', 2, 1, 1, 0, 'http://code32.b0.upaiyun.com/video/Taylor%20Swift%20-%20Shake%20It%20Off.mp4'),
 (2, 'JavaScript语法详解', '2015-12-03 07:00:00', 2, 1, 2, 0, 'http://code32.b0.upaiyun.com/video/Taylor%20Swift%20-%20Shake%20It%20Off.mp4');
 
@@ -293,9 +293,9 @@ CREATE TABLE IF NOT EXISTS `ci_user` (
 -- 转存表中的数据 `ci_user`
 --
 
-INSERT INTO `ci_user` (`uid`,`name` ,`username`, `phone`, `password`, `email`, `qq`,`sex`, `pic`, `vip`, `level`, `vip_endtime`, `other`, `reg_time`) VALUES
-(1,'李白', 'admin', '15607101196', '36f17c3939ac3e7b2fc9396fa8e953ea', '877077145@qq.com','877077145', 1, '0', 0, '2', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
-(2,'杜甫' ,'tanxu', '15607101196', '36f17c3939ac3e7b2fc9396fa8e953ea', '877077145@qq.com', '877077145',1, '0', 0, '1', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00');
+INSERT INTO `ci_user` (`uid`, `name`, `username`, `phone`, `password`, `email`, `qq`, `sex`, `pic`, `vip`, `level`, `vip_endtime`, `other`, `reg_time`) VALUES
+(1, '李白', 'admin', '15607101196', '36f17c3939ac3e7b2fc9396fa8e953ea', '877077145@qq.com', '877077145', 1, '0', 0, '2', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
+(2, '杜甫', 'tanxu', '15607101196', '36f17c3939ac3e7b2fc9396fa8e953ea', '877077145@qq.com', '877077145', 1, '0', 0, '1', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
