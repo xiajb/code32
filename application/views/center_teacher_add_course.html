@@ -19,6 +19,7 @@
                                     <option value="2">必修课程</option>
                                     <option value="3">技能课程</option>
                                 </select>
+                                <span class="span_error" id="direction_error" style="display:none;">请选择课程类别！</span>
                             </div>
                         </div>
                         <div class="form-item">
@@ -30,6 +31,7 @@
                                 <select name="classify" id="classify">
                                     <option value="-1">--课程选择</option>
                                 </select>
+                                <span class="span_error" id="classify_error" style="display:none;">请选择课程！</span>
                             </div>
                         </div>
 
@@ -38,7 +40,8 @@
                                 <label>课程名：</label>
                             </div>
                             <div class="item-cont">
-                                <input type="text" id="course" placeholder="课程名" name="course" maxlength="100" value="" class="txt sm">
+                                <input type="text" id="course" placeholder="课程名" name="course" maxlength="20" value="" class="txt sm">
+                                <span class="span_error" id="course_error" style="display:none;">请填写课程名 ！</span>
                             </div>
                         </div>
                         <div class="form-item">
@@ -67,6 +70,7 @@
                                     <a id="pickfiles" href="javascript:;">选择图片</a>
                                     <a id="uploadfiles" href="javascript:;">上传图片</a> 最大500KB，支持jpg，gif，png格式。
                                 </div>
+                                <span class="p_error" id="sectionpath_error" style="display:none;">请上传图片 ！</span>
                             </div>
                         </div>
                         <div class="form-item">
@@ -74,8 +78,8 @@
                                 <label>课程简介：</label>
                             </div>
                             <div class="item-cont">
-                                <textarea class="resize-none" style="width: 690px;height:80px" name="info" id="info"></textarea>
-                                <p style="font-size: 14px;color:red;" id="info_error"></p>
+                                <textarea class="resize-none" style="width: 690px;height:80px" name="info" id="info" maxlength="250"></textarea>
+                                <p class="p_error" id="info_error" style="display:none;"> 请填写课程简介！</p>
                             </div>
                         </div>
                         <div class="form-item">
@@ -92,14 +96,67 @@
 </div>
 </div>
 <script type="text/javascript">
+$('#direction').change(function(){
+        $('#direction_error').hide();
+});
+
+$('#classify').change(function(){
+        $('#classify_error').hide();
+});
+
+$('#course').blur(function(){
+    if ($('#course').val() == '' || $('#course').val() == null) {
+        $('#course_error').show();
+    }else{
+        $('#course_error').hide();
+    }
+});
+
+$('#info').focus(function(){
+    if ($('#sectionpath').val() != '') {
+        $('#sectionpath_error').hide();
+    }
+});
+
+$('#info').blur(function(){
+    if ($('#info').val() == '' || $('#info').val() == null) {
+        $('#info_error').show();
+    }else{
+        $('#info_error').hide();
+    }
+});
+
+
+
 $("#button").click(function() {
-    console.log($("#picname").html());
+    if ($('#direction').val() == '' || $('#direction').val() == '-1') {
+        $('#direction_error').show();
+        return false;
+    }
+    if ($('#classify').val() == '' || $('#classify').val() == '-1') {
+        $('#classify_error').show();
+        return false;
+    }
+    if ($('#course').val() == '' || $('#course').val() == null) {
+        $('#course_error').show();
+        return false;
+    }
+    if ($('#sectionpath').val() == '' || $('#sectionpath').val() == null) {
+        $('#sectionpath_error').show();
+        return false;
+    }else{
+        $('#sectionpath_error').hide();
+    }
+    if ($('#info').val() == '' || $('#info').val() == null) {
+        $('#info_error').show();
+        return false;
+    }
     var value = {
         "classify_id": $("#classify").val(),
         "course_name": $("#course").val(),
         "course_synopsis": $("#info").val(),
         "course_level": $("#level").val(),
-        "img_path": $("#sectionpath").html()
+        "img_path": $("#sectionpath").val()
     }
     console.log(value);
     $.ajax({

@@ -272,7 +272,13 @@ h2.h2-title {
     color: red;
     
 }
-
+.span_error{
+    margin-left: 18px;
+    color: red;
+}
+.p_error{
+    color: red;
+}
 .greenbtn {
     display: inline-block;
     color: #fff;

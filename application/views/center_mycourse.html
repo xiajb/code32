@@ -37,12 +37,12 @@
             <?php if (!empty($pass)): ?>
             <ul class="cf" id="home_my_fav">
                 <?php foreach ($pass as $row) :?>
-                <li id="127" test="0" deg="360" stop="1">
+                <li id="<?php echo $row['course_id']; ?>" test="0" deg="360" stop="1">
                     <div class="lessonimg-box">
                         <i class="user-action lesson-shoucang " style="display: none;" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64013&amp;aCId=127&amp;posColumn=127.3"></i>
                         <!-- <i class="free-icon"></i> -->
                         <a href="http://www.rfgxy.com/course/showcourse/<?php echo $row['course_id'] ?>" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=127&amp;posColumn=127.3">
-                            <img src="<?php echo '.'.$row['img_path'] ?>" class="lessonimg" title="HTML5特性简介" alt="HTML5特性简介">
+                            <img src="<?php echo $row['img_path']; ?>" class="lessonimg" title="<?php echo $row['course_name']; ?>" alt="<?php echo $row['course_name']; ?>">
                             <div class="lessonplay" style="opacity: 0;">
                                 <div class="cricle">
                                     <div class="mask" style="display: none;"></div>
@@ -62,9 +62,6 @@
                     </div>
                     <div class="lesson-infor" style="height: 88px;">
                         <h2 class="lesson-info-h2"><a href="http://www.jikexueyuan.com/course/127.html" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=127&amp;posColumn=127.3"><?php echo $row['course_name']; ?></a></h2>
-                        <p style="height: 0px; opacity: 0; display: none;">
-                            本套课程主要来了解HTML5，包含，简介、集成开发环境的搭建和HTML基础。
-                        </p>
                         <div class="timeandicon">
                             <div class="cf">
                                 <dl>
@@ -122,12 +119,12 @@
             <?php if (!empty($not_pass)): ?>
             <ul class="cf" id="home_my_fav">
                 <?php foreach ($not_pass as $row) :?>
-                <li id="127" test="0" deg="360" stop="1">
+                <li id="<?php echo $row['course_id']; ?>" test="0" deg="360" stop="1">
                     <div class="lessonimg-box">
                         <i class="user-action lesson-shoucang " style="display: none;" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64013&amp;aCId=127&amp;posColumn=127.3"></i>
                         <!-- <i class="free-icon"></i> -->
-                        <a href="http://www.rfgxy.com/course/showcourse/<?php echo $row['course_id'] ?>/<?php echo $row['course_id'] ?>" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=127&amp;posColumn=127.3">
-                            <img src="<?php echo '.'.$row['img_path'] ?>" class="lessonimg" title="HTML5特性简介" alt="HTML5特性简介">
+                        <a href="http://www.rfgxy.com/course/showcourse/<?php echo $row['course_id'] ?>" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=127&amp;posColumn=127.3">
+                            <img src="<?php echo $row['img_path']; ?>" class="lessonimg" title="<?php echo $row['course_name']; ?>" alt="<?php echo $row['course_name']; ?>">
                             <div class="lessonplay" style="opacity: 0;">
                                 <div class="cricle">
                                     <div class="mask" style="display: none;"></div>
@@ -146,10 +143,7 @@
                         </div>
                     </div>
                     <div class="lesson-infor" style="height: 88px;">
-                        <h2 class="lesson-info-h2"><a href="http://www.jikexueyuan.com/course/127.html" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=127&amp;posColumn=127.3"><?php echo $row['course_name'] ?></a></h2>
-                        <p style="height: 0px; opacity: 0; display: none;">
-                            本套课程主要来了解HTML5，包含，简介、集成开发环境的搭建和HTML基础。
-                        </p>
+                        <h2 class="lesson-info-h2"><a href="http://www.jikexueyuan.com/course/127.html" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=127&amp;posColumn=127.3"><?php echo $row['course_name']; ?></a></h2>
                         <div class="timeandicon">
                             <div class="cf">
                                 <dl>
@@ -157,7 +151,7 @@
                             19分钟</em>
                                     </dd>
                                     <dd class="zhongji" style="display: none;">
-                                        <i class="xinhao-icon"></i><em><?php echo $row['course_level'] ?></em>
+                                        <i class="xinhao-icon"></i><em><?php echo $row['course_level']; ?></em>
                                     </dd>
                                 </dl>
                                 <em class="learn-number" style="display: none;">100511人学习</em>
@@ -208,12 +202,12 @@
         <?php if (!empty($checking)): ?>
         <ul class="cf" id="home_my_fav">
             <?php foreach ($checking as $row) :?>
-            <li id="127" test="0" deg="360" stop="1">
-                <div class="lessonimg-box">
-                    <i class="user-action lesson-shoucang " style="display: none;" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64013&amp;aCId=127&amp;posColumn=127.3"></i>
-                    <!-- <i class="free-icon"></i> -->
-                    <a href="http://www.rfgxy.com/course/showcourse/<?php echo $row['course_id'] ?>" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=127&amp;posColumn=127.3">
-                            <img src="<?php echo '.'.$row['img_path'] ?>" class="lessonimg" title="HTML5特性简介" alt="HTML5特性简介">
+                <li id="<?php echo $row['course_id']; ?>" test="0" deg="360" stop="1">
+                    <div class="lessonimg-box">
+                        <i class="user-action lesson-shoucang " style="display: none;" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64013&amp;aCId=127&amp;posColumn=127.3"></i>
+                        <!-- <i class="free-icon"></i> -->
+                        <a href="http://www.rfgxy.com/course/showcourse/<?php echo $row['course_id'] ?>" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=127&amp;posColumn=127.3">
+                            <img src="<?php echo $row['img_path']; ?>" class="lessonimg" title="<?php echo $row['course_name']; ?>" alt="<?php echo $row['course_name']; ?>">
                             <div class="lessonplay" style="opacity: 0;">
                                 <div class="cricle">
                                     <div class="mask" style="display: none;"></div>
@@ -227,37 +221,34 @@
                                 </div>
                             </div>
                         </a>
-                    <div class="jd-line" style="display: block;">
-                        <div class="green-line" style="width:238px"></div>
-                    </div>
-                </div>
-                <div class="lesson-infor" style="height: 88px;">
-                    <h2 class="lesson-info-h2"><a href="http://www.jikexueyuan.com/course/127.html" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=127&amp;posColumn=127.3"><?php echo $row['course_name'] ?></a></h2>
-                    <p style="height: 0px; opacity: 0; display: none;">
-                        本套课程主要来了解HTML5，包含，简介、集成开发环境的搭建和HTML基础。
-                    </p>
-                    <div class="timeandicon">
-                        <div class="cf">
-                            <dl>
-                                <dd class="mar-b8"><i class="time-icon"></i><em>3课时
-                            19分钟</em>
-                                </dd>
-                                <dd class="zhongji" style="display: none;">
-                                    <i class="xinhao-icon"></i><em><?php echo $row['course_level']; ?></em>
-                                </dd>
-                            </dl>
-                            <em class="learn-number" style="display: none;">100511人学习</em>
+                        <div class="jd-line" style="display: block;">
+                            <div class="green-line" style="width:238px"></div>
                         </div>
-                        <div class="cf">
-                            <div class="lessonicon-box" style="bottom: 4px;">
-                                <a href="http://www.jikexueyuan.com/course/html5/">
-                                    <img width="16" src="http://a1.jikexueyuan.com/home/201411/03/171a/54578ddd8e62a.png" alt="html5" title="HTML5" jktag="&amp;posGP=101001&amp;posArea=0003&amp;posOper=64015&amp;aCId=127&amp;posColumn=127.1&amp;aCCate=html5">
-                                </a>
+                    </div>
+                    <div class="lesson-infor" style="height: 88px;">
+                        <h2 class="lesson-info-h2"><a href="http://www.jikexueyuan.com/course/127.html" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=127&amp;posColumn=127.3"><?php echo $row['course_name']; ?></a></h2>
+                        <div class="timeandicon">
+                            <div class="cf">
+                                <dl>
+                                    <dd class="mar-b8"><i class="time-icon"></i><em>3课时
+                            19分钟</em>
+                                    </dd>
+                                    <dd class="zhongji" style="display: none;">
+                                        <i class="xinhao-icon"></i><em><?php echo $row['course_level']; ?></em>
+                                    </dd>
+                                </dl>
+                                <em class="learn-number" style="display: none;">100511人学习</em>
+                            </div>
+                            <div class="cf">
+                                <div class="lessonicon-box" style="bottom: 4px;">
+                                    <a href="http://www.jikexueyuan.com/course/html5/">
+                                        <img width="16" src="http://a1.jikexueyuan.com/home/201411/03/171a/54578ddd8e62a.png" alt="html5" title="HTML5" jktag="&amp;posGP=101001&amp;posArea=0003&amp;posOper=64015&amp;aCId=127&amp;posColumn=127.1&amp;aCCate=html5">
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </li>
+                </li>
             <?php endforeach;?>
         </ul>
         <div id="page-nav">
