@@ -182,11 +182,23 @@ class Center extends CI_Controller {
 			};
 
 	}
-	public function ajax_getcharter($course_id){
-	$chapter=$this->show_model->showchapterbyid($course_id);
-	echo json_encode($chapter);
+	// public function ajax_getcharter($course_id){
+	// $chapter=$this->show_model->showchapterbyid($course_id);
+	// echo json_encode($chapter);
 
-	}
+	// }
+
+	public function get_charter(){
+		$value = $_POST;
+		$value = $this->security->xss_clean($value);
+
+		$row=$this->show_model->showchapterbyid($value['course_id']);	
+		$string = '';
+		for ($i=0; $i < count($row); $i++) { 
+			$string.= '<option value="'.$row[$i]['chapter_id'].'">'.$row[$i]['chapter_name'].'</option>';
+		}
+		echo $string;
+	}	
 
 	public function myorder()
 	{

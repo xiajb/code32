@@ -13,34 +13,28 @@
                                 <label>课程名：</label>
                             </div>
                             <div class="item-cont">
-                              <!--  <select class="select" id="title" name="title">
-                                <?php foreach ($pass as $row) :?>
-                                    <option value="<?php echo $row['title'] ?>"><?php echo $row['title'] ?></option>
-                                <?php endforeach; ?>
-                              </select>-->
-
                                 <select class="select" id="courses" name="section_arr[course_id]" onchange="showCharter(this.value)">
-                                    <option value='-1' selected=‘selected’>--请选择课程</option>
-                                <?php foreach ($courses as $item):?>
-                                  <option value="<?php echo $item['course_id'];?>"><?php echo $item['course_name'];?></option>
-                                <?php endforeach;?>
-                                  </select>
+                                    <option value='-1' selected=''>--请选择课程</option>
+                                    <?php foreach ($courses as $item):?>
+                                    <option value="<?php echo $item['course_id'];?>">
+                                        <?php echo $item['course_name'];?>
+                                    </option>
+                                    <?php endforeach;?>
+                                </select>
                             </div>
                         </div>
                         <div class="form-item">
                             <div class="item-label">
                                 <label>章节名：</label>
                             </div>
-
                             <div class="item-cont" id="chapter">
-                              <span id="chapter0">
+                                <span id="chapter0">
                                 <select class="select" id="chapter1" name="section_arr[chapter_id1]">
                                     <option value="-1">请选择章节</option>
 
                                 </select>
                               </span>
-
-                                <input type="text" id="chapter2" placeholder="标题" name="section_arr[chapter_id2]" maxlength="100" value="0" class="txt sm" style="display:none;">
+                                <input type="text" id="chapter2" placeholder="标题" name="section_arr[chapter_id2]" maxlength="100" value="" class="txt sm" style="display:none;">
                                 <div id="key" style="display:inline-block;">
                                     <a id="add-btn" href="javascript:;">添加章节</a>
                                     <a id="change-chapter" href="javascript:;" style="display:none;">选择章节</a>
@@ -82,14 +76,13 @@
                             </div>
                             <div class="item-cont">
                                 <input type="hidden" id="type" name="type" value="1" />
-                                <input type="hidden" id="title"  name="title"/>
-                                <input type="hidden" id="sectionpath" placeholder="视频地址" name="sectionpath"/>
+                                <input type="hidden" id="title" name="title" />
+                                <input type="hidden" id="sectionpath" placeholder="视频地址" name="sectionpath" />
                                 <div id="filelist">Your browser doesn't have Flash, Silverlight or HTML5 support.</div>
                                 <div id="container">
                                     <a id="pickfiles" href="javascript:;">选择文件</a>
                                     <a id="uploadfiles" href="javascript:;">上传文件</a>
                                 </div>
-
                             </div>
                         </div>
                         <div class="form-item">
@@ -144,45 +137,22 @@ $("#FeedbackButton").click(function() {
         }
     });
 });
-</script>
-<script>
-function showCharter(courser_id)
-{
-var xmlhttp;
-var course_id;
-//if (str=="")
-//  {
-  //document.getElementById("txtHint").innerHTML="";
-//  return;
-  //}
-if (window.XMLHttpRequest)
-  {// code for IE7+, Firefox, Chrome, Opera, Safari
-  xmlhttp=new XMLHttpRequest();
-  }
-else
-  {// code for IE6, IE5
-  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-  }
-xmlhttp.onreadystatechange=function()
-  {
-  if (xmlhttp.readyState==4 && xmlhttp.status==200)
-    {
-    var data=xmlhttp.responseText;
-      json = eval(data);
-    var html='<select class="select" id="chapter1" name="section_arr[chapter_id1]">';
-  for(var i=0; i<json.length; i++)
-  {
-    html=html+'<option value="'+json[i].chapter_id+'">'+json[i].chapter_name+'</option>';
-    //alert(json[i].chapter_id);
-  }
-  html=html+'</select>';
-  //alert(html);
-  document.getElementById("chapter0").innerHTML=html;
- }
-  }
-xmlhttp.open("GET","<?php echo base_url().'center/ajax_getcharter/'?>"+courser_id,true);
-xmlhttp.send();
-}
+$('#courses').change(function() {
+    var course_data = {
+        "<?php  echo $this->security->get_csrf_token_name();?>": "<?php echo $this->security->get_csrf_hash(); ?>",
+        'course_id': $('#courses').val()
+    }
+    $.ajax({
+        type: 'POST',
+        url: "http://www.rfgxy.com/center/get_charter",
+        data: course_data,
+        success: function(result) {
+            if (result != '') {
+                $('#chapter1').html(result);
+            }
+        }
+    })
+});
 </script>
 <script src="<?php echo base_url().'UPYUN/lib/plupload-2.1.2/js/plupload.full.min.js'?>"></script>
 <script src="<?php echo base_url().'UPYUN/lib/md5.js'?>"></script>
