@@ -21,6 +21,7 @@
                                     </option>
                                     <?php endforeach;?>
                                 </select>
+                                <span class="span_error" id="courses_error" style="display:none;">请选择课程 ！</span>
                             </div>
                         </div>
                         <div class="form-item">
@@ -39,6 +40,7 @@
                                     <a id="add-btn" href="javascript:;">添加章节</a>
                                     <a id="change-chapter" href="javascript:;" style="display:none;">选择章节</a>
                                 </div>
+                                <span class="span_error" id="chapter_error" style="display:none;">请填添加章节 ！</span>
                             </div>
                         </div>
                         <script type="text/javascript">
@@ -68,6 +70,8 @@
                             <div class="item-cont">
                                 <input type="text" id="title" placeholder="标题" name="section_arr[section_name]" maxlength="100" value="" class="txt sm">
                                 <input type="text" id="sectionpath" placeholder="视频地址" name="section_arr[section_path]" maxlength="100" value="" class="txt sm">
+                                <span class="p_error" id="title_error" style="display:none;">请填写小节标题 ！</span>
+
                             </div>
                         </div>
                         <div class="form-item">
@@ -80,9 +84,10 @@
                                 <input type="hidden" id="sectionpath" placeholder="视频地址" name="sectionpath" />
                                 <div id="filelist">Your browser doesn't have Flash, Silverlight or HTML5 support.</div>
                                 <div id="container">
-                                    <a id="pickfiles" href="javascript:;">选择文件</a>
-                                    <a id="uploadfiles" href="javascript:;">上传文件</a>
+                                    <a id="pickfiles" href="javascript:;">选择视频</a>
+                                    <a id="uploadfiles" href="javascript:;">上传视频</a>
                                 </div>
+                                <span class="p_error" id="sectionpath_error" style="display:none;">请上传视频 ！</span>
                             </div>
                         </div>
                         <div class="form-item">
@@ -91,7 +96,7 @@
                             </div>
                             <div class="item-cont">
                                 <textarea class="resize-none" style="width: 690px;height:80px" name="info" id="info"></textarea>
-                                <p style="font-size: 14px;color:red;" id="info_error"></p>
+                                <p class="p_error" id="info_error" style="display:none;">请填写小结简介！</p>
                             </div>
                         </div>
                         <div class="form-item">
@@ -108,34 +113,72 @@
 </div>
 </div>
 <script type="text/javascript">
-$('#info').focus(function() {
-    $('#info_error').html('');
+$('#info').focus(function(){
+    if ($('#sectionpath').val() != '') {
+        $('#sectionpath_error').hide();
+    }
 });
+
+$('#info').blur(function(){
+    if ($('#info').val() == '' || $('#info').val() == null) {
+        $('#info_error').show();
+    }else{
+        $('#info_error').hide();
+    }
+});
+
+$('#courses').change(function(){
+        $('#courses_error').hide();
+});
+
+$('#title').blur(function(){
+    if ($('#title') == '' || $('#title') == null) {
+        $('#title_error').show();
+    }
+});
+
+$('#title').focus(function(){
+    $('#title_error').hide();
+});
+
+
 $("#FeedbackButton").click(function() {
+    if ($('#sectionpath').val() == '' || $('#sectionpath').val() == null) {
+        $('#sectionpath_error').show();
+        return false;
+    }else{
+        $('#sectionpath_error').hide();
+    }
+
+if ($('#title') == '') {
+    $('#title_error').show();
+    return false;
+}
+
     if ($('#info').val() == '') {
-        $('#info_error').html('请填写反馈内容！');
+        $('#info_error').show();
         return false;
     }
-    var data = {
-        "info": $('#info').val(),
-        "title": $('#title').val(),
-    }
-    $.ajax({
-        type: 'POST',
-        url: "http://www.rfgxy.com/center/feed_back",
-        data: 'data=' + JSON.stringify(data),
-        success: function(result) {
-            // console.log(result);
-            if (result == 1) {
-                alert('提交成功，谢谢您的反馈！');
-                location.href = "http://www.rfgxy.com/center/mydata?label=jiben";
-            } else {
-                $("#info_error").html("反馈失败！");
-                $("#info_error").hide(1000);
-                return false;
-            }
-        }
-    });
+    // var data = {
+    //     "info": $('#info').val(),
+    //     "title": $('#title').val(),
+    // }
+    // $.ajax({
+    //     type: 'POST',
+    //     url: "http://www.rfgxy.com/center/feed_back",
+    //     data: 'data=' + JSON.stringify(data),
+    //     success: function(result) {
+    //         // console.log(result);
+    //         if (result == 1) {
+    //             alert('提交成功，谢谢您的反馈！');
+    //             location.href = "http://www.rfgxy.com/center/mydata?label=jiben";
+    //         } else {
+    //             $("#info_error").html("反馈失败！");
+    //             $("#info_error").hide(1000);
+    //             return false;
+    //         }
+    //     }
+    // });
 });
 $('#courses').change(function() {
     var course_data = {
