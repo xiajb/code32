@@ -56,7 +56,10 @@ class Show_model extends Ci_Model
 		$this->db->select('ci_course.*');
 		$this->db->join('ci_classify','ci_classify.classify_id=ci_course.classify_id');
 		$this->db->join('ci_direction','ci_classify.direction_id=ci_direction.direction_id');
+		$where = "status='1' OR status='2'";
+		$this->db->where($where);
 		$this->db->order_by('course_id','desc');
+		
 		$this->db->limit($offset,$per_page);
 		 $query=$this->db->get('ci_course');
 		 $row=$query->result_array();
