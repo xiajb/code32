@@ -1,5 +1,5 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="zh-cn">
 
 <head>
     <meta charset="utf-8">
@@ -10,15 +10,166 @@
     <link rel="stylesheet" href="<?php echo base_url('index/lesson1/css/font/iconfont.css') ?>">
     <link rel="stylesheet" href="<?php echo base_url('index/lesson1/css/basic.css') ?>">
     <link rel="stylesheet" href="<?php echo base_url('index/lesson1/css/style.css') ?>">
-    <link rel="stylesheet" href="<?php echo base_url('index/css/other.css') ?>">
-    <script type="text/javascript" src="<?php echo base_url('index/include/jquery-1.8.2.min.js'); ?>"></script>
+    <style type="text/css">
+    /* -------------------------------------------------
+ * pages
+ * -------------------------------------------------
+*/
+    
+    * {
+        margin: 0 auto;
+    }
+    
+    .pages li {
+        display: inline;
+    }
+    
+    .pages .active a {
+        border-color: #188EEE;
+        background-color: #188EEE;
+        color: #FFF;
+    }
+    
+    body {
+        background-color: white;
+    }
+    
+    .header {
+        border-bottom: 1px solid white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .tabs1 .tabs-cont {
+        border: 1px solid #DDD;
+    }
+    
+    .con-wrap1 {
+        background-color: #f3f3f3;
+        margin-bottom: 0;
+    }
+    
+    .container {
+        width: 1200px!important;
+        margin-right: auto;
+        margin-left: auto;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    
+    .row {
+        margin-left: -5px;
+        margin-right: -5px;
+    }
+    
+    .col-xs-24 {
+        width: 100%;
+    }
+    
+    .header-top {
+        height: 40px;
+        line-height: 40px;
+    }
+    
+    .header-top-left {
+        float: left;
+    }
+    
+    .header-top-right {
+        float: right;
+    }
+    
+    .clearfix {
+        zoom: 1;
+    }
+    
+    .l {
+        float: left;
+    }
+    
+    .m0 {
+        margin: 0;
+    }
+    
+    .header-top-right li {
+        float: left;
+        height: 40px;
+        line-height: 40px;
+        margin-left: 15px;
+    }
+    
+    .guide-nav {
+        margin-left: 50px;
+    }
+    </style>
+    <script type="text/javascript" src="<?php echo base_url('index/lesson1/js/jquery-1.10.2.min.js') ?>"></script>
     <!--日常特效插件-->
+    <script type="text/javascript" src="<?php echo base_url('index/lesson1/js/jquery.SuperSlide.2.1.1.js') ?>"></script>
     <!--日常特效插件-->
+    <script type="text/javascript">
+    $(function() {
+        //幻灯片轮换
+        jQuery(".fullSlide").slide({
+            titCell: ".hd ul",
+            mainCell: ".bd ul",
+            effect: "fade",
+            autoPlay: true,
+            autoPage: true,
+            trigger: "click"
+        });
+
+        var f1 = <?php echo $_SESSION['direction_id']?>;
+        var f2 = <?php echo $_SESSION['classify_id']?>;
+        var f3 = <?php echo $_SESSION['is_easy']?>;
+        var f4 = <?php echo $_SESSION['is_easy']?>;
+        var psort = '1';
+        if (f1 == '0') {
+            $(".f1-condition a").eq(0).addClass("active");
+        } else {
+            $(".f1-condition a[id='f1-" + f1 + "']").eq(0).addClass("active");
+        }
+
+        if (f2 == '0') {
+            $(".f2-condition a").eq(0).addClass("active");
+        } else {
+            $(".f2-condition a[id='f2-" + f2 + "']").eq(0).addClass("active");
+        }
+
+        if (f3 == '0') {
+            $(".f3-condition a").eq(0).addClass("active");
+        } else {
+            $(".f3-condition a[id='f3-" + f3 + "']").eq(0).addClass("active");
+        }
+        if (f4 == '0') {
+            $(".f3-condition a").eq(0).addClass("active");
+        } else {
+            $(".f4-condition a[id='f4-" + f4 + "']").eq(0).addClass("active");
+        }
+        $("#Psort-" + psort + "").addClass("active");
+    })
+    </script>
+    <script type="text/javascript" src="<?php echo base_url('index/lesson1/js/basic.js') ?>"></script>
 </head>
 
 <body>
     <div class="wrap">
         <!--header-->
+        <script src="<?php echo base_url('index/lesson1/js/jquery.lazyload.js') ?>" type="text/javascript"></script>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            /* 图片懒加载 */
+            $(".lazy").lazyload({
+                placeholder: "http://images.jcpeixun.com/grey.gif",
+                effect: "fadeIn"
+            });
+
+            $("#searchsubmit").click(function() {
+                if ($("#search").val() != "") {
+                    window.location.href = "/lesson1/search-list.aspx?keyword=" + $("#search").val();
+                }
+            });
+
+        });
+        </script>
         <script>
         window.enable_ad_stat_ord = true; //表示本页面启用订单来源统计
         </script>
@@ -51,7 +202,6 @@
                                     </li>
                                     <li>
                                         <div><a href="http://www.rfgxy.com/center/mydata?label=jiben" target="_blank" class="btn-link btn-link6">个人中心</a></div>
-                                    </li>
                                 </ul>
                                 <?php endif; ?>
                                 <ul class="l m0">
@@ -120,21 +270,21 @@
                         }
                     },
                     searchValidate = function() {
-                        var
-                            txtSearch = $txtSearch.val();
+                        var txtSearch = $txtSearch.val();
                         if (!txtSearch) {
                             $txtSearch.val("请输入课程").focus();
                         } else if (!$.trim(txtSearch).indexOf("请输入课程")) {
                             $txtSearch.val("请输入课程").focus();
                         } else {
-                            var
-                                search_type_on = "all",
-                                search_text = $txtSearch.val(),
-                                cur_location = window.location.href;
-                            if (!cur_location.indexOf("http://www.rfgxy.com/xiazai/")) {
-                                search_type_on = "down";
-                            };
-                            window.location.href = searchTypes[search_type_on](search_text);
+		    $.ajax({
+		        type: 'GET',
+		        url: "<?php echo base_url() ?>search?words="+txtSearch,
+		        
+                                    success: function(result) {
+
+		         window.location.href = "<?php echo base_url() ?>search?words="+txtSearch;
+                                    }
+		    });
                         }
                     };
                 $searchArea.on({
@@ -161,77 +311,8 @@
                 });
                 </script>
                 <div class="h-user">
-                    <!--已登录-->
                     <div class="user-center">
-                        <!--用户菜单-->
-                        <!--                <div class="user-wrap" data-role="collapsible">
-                    <div class="user-head">
-                        <a class="user-head-inner" href="http://my.jcpeixun.com/">
-                            <img src="/lesson1/_temp/stu.jpg" width="32" height="32"></a>
-                        <i class="caret"></i>
-                    </div>
-                    <div class="user-cont">
-                        <div class="user-info">
-                            普通会员<span class="gray9 f12">(0001-01-01到期)</span> <a class="f12" href="http://u.jcpeixun.com/member/">
-                                续费</a></div>
-                        <div class="user-menu">
-                            <a href="http://my.jcpeixun.com/">学员中心</a> <a href="http://my.jcpeixun.com/messager/list.aspx">
-                                我的消息<span></span></a> <a href="http://my.jcpeixun.com/study/FreeLesson.aspx" target="_blank">
-                                    我的课程</a> <a href="http://my.jcpeixun.com/orderLesson/order.aspx" target="_blank">我的订单</a>
-                            <a href="http://my.jcpeixun.com/study/favorite.aspx" target="_blank">我的收藏</a> <a
-                                href="http://my.jcpeixun.com/study/NewLesson.aspx" target="_blank">新课上架</a>
-                            <a href="http://www.rfgxy.com/userreg.aspx?u=20130925003" class="btn-link btn-link9"
-                                target="_blank">赚学费</a> <a href="http://my.jcpeixun.com/orderLesson/coupon.aspx"
-                                    class="btn-link btn-link9" target="_blank">优惠券</a> 
-                                      <a href="/lesson1/person_xufei.aspx"
-                                        class="fw" style="background: url(http://images.jcpeixun.com/bg_20130926001.gif) no-repeat scroll 60px 0px transparent;">会员续费</a> 
-                                          <a href="http://u.jcpeixun.com/member/"
-                                        class="fw" style="background: url(http://images.jcpeixun.com/bg_20130926001.gif) no-repeat scroll 60px 0px transparent;">购买会员</a>
-                                    <a href="http://www.rfgxy.com/logout.aspx?callback=http://www.rfgxy.com/lesson1/scene.aspx"
-                                        class="fw">退出</a>
-                        </div>
-                    </div>
-                </div> -->
-                        <!--用户菜单-->
-                        <!--购物车-->
-                        <!--                 <div class="user-shop" data-role="collapsible">
-                    <a class="shop-btn" href="http://www.rfgxy.com/emailregister.aspx">用户注册</a>
-              
-            </div> -->
                     </div>
                 </div>
             </div>
         </div>
-        <!--header-->
-        <!--slide-->
-        <!--# include file="inc/slide.aspx" -->
-        <!--slide-->
-        <!--container-->
-        <div id="main">
-            <div class="container clearfix">
-                <ul class="other-left l">
-                    <li class="<?php echo $selected['us'] ?>">
-                        <a href="/about/us"><span>关于我们</span></a>
-                    </li>
-                    <li class="<?php echo $selected['group'] ?>">
-                        <a href="/about/group"><span>团队介绍</span></a>
-                    </li>
-                    <li class="<?php echo $selected['job'] ?>">
-                        <a href="/about/job"><span>人才招聘</span></a>
-                    </li>
-                    <li class="<?php echo $selected['recruit'] ?>">
-                        <a href="/about/recruit"><span>讲师招募</span></a>
-                    </li>
-                    <li class="<?php echo $selected['contact'] ?>">
-                        <a href="/about/contact"><span>联系我们</span></a>
-                    </li>
-                    <li class="<?php echo $selected['faq'] ?>">
-                        <a no-pjajx="" href="/about/faq"><span>常见问题</span></a>
-                    </li>
-                    <li class="<?php echo $selected['feedback'] ?>">
-                        <a no-pjajx="" href="/about/feedback"><span>意见反馈</span></a>
-                    </li>
-                    <li class="<?php echo $selected['friendly'] ?>">
-                        <a no-pjajx="" href="/about/friendly"><span>友情链接</span></a>
-                    </li>
-                </ul>

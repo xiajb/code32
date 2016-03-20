@@ -64,4 +64,17 @@ class Course_model extends CI_Model{
 		$query = $this->db->get(self::TBL_USER);
 		return $query->result_array();
 	}
+
+	public function get_course_like_limit($first,$limit,$words){
+		$this->db->like('course_name', $words); $this->db->or_like('course_synopsis', $words);
+		$this->db->limit($limit, $first);
+		$query = $this->db->get(self::TBL_USER);
+		return $query->result_array();
+	}
+
+	public function get_like_count($words){
+		$this->db->like('course_name', $words); $this->db->or_like('course_synopsis', $words);
+		$this->db->from(self::TBL_USER);
+		return $this->db->count_all_results();
+	}
   }

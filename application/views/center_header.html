@@ -174,7 +174,7 @@
         </div>
         <div class="header">
             <div class="inner clearfix">
-                <a class="logo mr20" href="/"><img src="/lesson1/img/logo.png" width="250" height="66" alt="儒风国培训"></a>
+                <a class="logo mr20" href="/"><img src="<?php echo base_url('/index/logo/logo.png'); ?>" width="250" height="66" alt="儒风国培训"></a>
                 <!--位置导航-->
                 <div class="guide-nav mr20">
                     <li>
@@ -221,21 +221,22 @@
                         }
                     },
                     searchValidate = function() {
-                        var
-                            txtSearch = $txtSearch.val();
+                        var txtSearch = $txtSearch.val();
                         if (!txtSearch) {
                             $txtSearch.val("请输入课程").focus();
                         } else if (!$.trim(txtSearch).indexOf("请输入课程")) {
                             $txtSearch.val("请输入课程").focus();
                         } else {
-                            var
-                                search_type_on = "all",
-                                search_text = $txtSearch.val(),
-                                cur_location = window.location.href;
-                            if (!cur_location.indexOf("http://www.rfgxy.com/xiazai/")) {
-                                search_type_on = "down";
-                            };
-                            window.location.href = searchTypes[search_type_on](search_text);
+                                $.ajax({
+                                    type: 'POST',
+                                    url: "<?php echo base_url('./search'); ?>",
+                                    data: txtSearch,
+
+                                    success: function(result) {
+
+                                    }
+                                });
+
                         }
                     };
                 $searchArea.on({

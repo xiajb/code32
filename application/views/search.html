@@ -1,0 +1,164 @@
+<script type="text/javascript" src="<?php echo base_url() ?>index/js/pagination.bootstrap.js"></script>
+<style type="text/css">
+    
+/* -------------------------------------------------
+ * pages
+ * -------------------------------------------------
+*/
+.pages li{ display:inline;}
+.pages .active a{ border-color:#188EEE; background-color:#188EEE; color:#FFF;}
+</style>
+
+<div class="container">
+    <div class="inner mt20 clearfix">
+        <!--左侧栏目块-->
+        <div class="w260 l">
+            <!--课程总量-->
+            <div class="box2">
+                <div class="bhead">
+                    <h3>全部</h3>
+                </div>
+                <div class="f14 bds bdgrayd bd1">
+                    <ul class="listview1">
+                        <li><a href="/lesson1/jinpin.aspx">精品课程 <span class="dn">（56）</span></a></li>
+                        <li><a href="/lesson1/jihua.aspx">学习计划 <span class="dn">（6）</span></a></li>
+                        <li><a href="/lesson1/qianghua.aspx">公开课 <span class="dn">（34）</span></a></li>
+                        <li><a href="/lesson1/qq-class.aspx">小班课 <span class="dn">（5）</span></a></li>
+                        <li><a href="/lesson1/scene.aspx">现场培训 <span class="dn">（63）</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <!--课程总量-->
+            <!--热门搜索-->
+            <div class="box1 mt20">
+                <div class="bhead clearfix">
+                    <h3>热门搜索</h3>
+                </div>
+                <div class="pd20">
+                    <div class="f16 lh35">
+                        <a class="mr10 nowrap" href="/lesson1/search-list.aspx?keyword=组态王">组态王</a>
+                        <a class="mr10 nowrap" href="/lesson1/search-list.aspx?keyword=单片机">单片机</a>
+                        <a class="mr10 nowrap" href="/lesson1/search-list.aspx?keyword=变频器">变频器</a>
+                        <a class="mr10 nowrap" href="http://www.jcpeixun.com/topic/act/20150306/">三菱学习机</a>
+                        <a class="mr10 nowrap" href="/lesson1/search-list.aspx?keyword=数控">数控</a>
+                        <a class="mr10 nowrap" href="/lesson1/search-list.aspx?keyword=电工">电工</a>
+                        <a class="mr10 nowrap" href="http://www.jcpeixun.com/topic/act/20141205/?indexscroll">三菱学习机</a>
+                        <a class="mr10 nowrap" href="/lesson1/jinpin.aspx">精选课程</a>
+                        <a class="mr10 nowrap" href="/lesson1/search-list.aspx?keyword=入门">入门</a>
+                        <a class="mr10 nowrap" href="/lesson1/search-list.aspx?keyword=指令详解">指令详解</a>
+                        <a class="mr10 nowrap" href="/lesson1/search-list.aspx?keyword=基础">基础</a>
+                        <a class="mr10 nowrap" href="/lesson1/search-list.aspx?keyword=应用知识">应用知识</a>
+                        <a class="mr10 nowrap" href="/lesson1/search-list.aspx?keyword=应用技术">应用技术</a>
+                        <a class="mr10 nowrap" href="/lesson1/search-list.aspx?keyword=案例课程"> 案例课程</a>
+                        <a class="mr10 nowrap" href="/lesson1/search-list.aspx?keyword=编程案例">编程案例</a>
+                        <a class="mr10 nowrap" href="/lesson1/search-list.aspx?keyword=plc">plc</a>
+                        <a class="mr10 nowrap" href="/lesson1/search-list.aspx?keyword=详解">详解</a>
+                        <a class="mr10 nowrap" href="/lesson1/search-list.aspx?keyword=伺服">伺服</a>
+                        <a class="mr10 nowrap" href="/lesson1/search-list.aspx?keyword=西门子S7-300">西门子S7-300</a>
+                    </div>
+                </div>
+            </div>
+            <!--热门搜索-->
+        </div>
+        <!--左侧栏目块-->
+        <!--右侧栏目块-->
+        <div class="w920 r">
+            <!--搜索列表-->
+            <div class="box1">
+                <div class="bhead clearfix">
+                    <h3><em class="colblue">“电工”</em>相关搜索内容</h3>
+                </div>
+                <div>
+                    <ul class="listview8">
+                    <?php foreach ($result as $row): ?>
+                        <li class="clearfix">
+                            <div class="w250 l">
+                                <a href="/lesson/1773/" class="title" data-id="1773">
+                                    <img src="<?php echo $row['img_path'] ?>" width="250" height="140" class="lazy" original="http://images.jcpeixun.com//upload/course/images//20150521170840656.jpg"></a>
+                            </div>
+                            <div class="w600 r">
+                                <p class="f18 h30 lh30"><a class="ellipsis title" href="/lesson/1773/" data-id="1773">
+                                    
+                                    
+                                    <?php echo $row['course_name']; ?>
+                                    </a></p>
+                                <p class="gray9 f14 h75 lh25 mt5">
+                                    <?php echo $row['course_synopsis']; ?>
+                                </p>
+                                <p class="link-blue f14 h30 lh30 mt5"><em class="colblue">
+                                   
+                                    2428723
+                                    </em>人在学<em class="ml5 mr5 gray9">|</em> 更新已完结
+                                </p>
+                            </div>
+                        </li>
+                    <?php endforeach; ?>
+                    </ul>
+                </div>
+            </div>
+
+            <!--搜索列表-->
+            <!--pages-->
+            <div class=" pages tr">
+                <ul id="pagination">
+
+                </ul>
+            </div>
+            <div class="" style="clear:both"></div>
+            <script type="text/javascript">
+            //初始化分页
+            window.onload = function() {
+                    my_page = new open_pager("pagination");
+                    my_page.showTotalTip = false;
+                    my_page.pageSize = 2; //每页显示数
+                    my_page.pageFuncName = "LoadPaging"; //回调函数名称
+                    my_page.currentPage = 1; //当前页
+                    my_page.totalRows = "<?php echo $total; ?>"; //总条数
+                    // my_page.allowClone = true;
+                    // my_page.cloneName = "Div_Clone_Page";
+                    my_page.output();
+                }
+                //调用
+            function LoadPaging(pg) {
+                //通过get提交
+                var _newurl = my_page.createUrl(pg);
+                location.href = _newurl;
+                // document.getElementById("form1").action = _newurl;
+                // document.getElementById("form1").method = "post";
+                // document.getElementById("form1").submit();
+            }
+            </script>
+            <!--pages-->
+            <!--pages-->
+            <!--pages-->
+        </div>
+        <!--右侧栏目块-->
+    </div>
+    <!--课程推荐-->
+    <div class="inner mt20">
+        <div class="bd1 bdgrayd bds pl20 pt10 pb10 bgwhite">
+            <h3 class="h30 lh30 f16">
+                        课程推荐</h3>
+            <div style="width: 1178px;" class="oh">
+                <ul class="listview clearfix lh25">
+                    <li><a class="ellipsis" href="/lesson/2134/">MODBUS通信协议及其应用</a></li>
+                    <li><a class="ellipsis" href="/lesson/1508/">三菱PLC通信基础及应用</a></li>
+                    <li><a class="ellipsis" href="/lesson/2151/">三菱FX3U定位控制与伺服应用技术</a></li>
+                    <li><a class="ellipsis" href="/lesson/1883/">西门子LOGO!基础及应用</a></li>
+                    <li><a class="ellipsis" href="/lesson/2146/">三菱FX系列PLC定位控制技术基础知识</a></li>
+                    <li><a class="ellipsis" href="/lesson/1823/">西门子S7-300中高级应用--以太网通信技术</a></li>
+                    <li><a class="ellipsis" href="/lesson/2149/">伺服驱动器功能参数设置与实操训练</a></li>
+                    <li><a class="ellipsis" href="/lesson/1662/">西门子S7-300中高级应用技术</a></li>
+                    <li><a class="ellipsis" href="/lesson/1533/">PID控制规律及其应用</a></li>
+                    <li><a class="ellipsis" href="/lesson/1976/">西门子S7-300使用指南</a></li>
+                    <li><a class="ellipsis" href="/lesson/1509/">三菱FX系列模拟量及PID应用基础</a></li>
+                    <li><a class="ellipsis" href="/lesson/1824/">三菱Q系列PLC基础</a></li>
+                    <li><a class="ellipsis" href="/lesson/1510/">西门子S7-300 PLC初级</a></li>
+                    <li><a class="ellipsis" href="/lesson/1852/">汇川变频器功能参数设置及实操训练</a></li>
+                    <li><a class="ellipsis" href="/lesson/2147/">西门子S7-200SMART PLC编程应用入门</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--课程推荐-->
+</div>
