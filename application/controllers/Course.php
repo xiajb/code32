@@ -8,7 +8,8 @@ class Course extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->model('show_model');
-			$this->load->model('course_model');
+		$this->load->model('course_model');
+		$this->load->model('comment_model');
 		$this->load->library('session');
 	}
 	//
@@ -26,6 +27,7 @@ class Course extends CI_Controller {
 			$course[0]['order_no']=$this->show_model->getsection_orderbyid($course_id)[0]['order_no'];
 			//print_r($course);
 			$data['arr']=array($chapter,$section,$course);
+			$data['comment'] = $this->comment_model->get_comment_by_course($course_id);
 			$this->session->set_userdata('course_id',$course_id);
 			$this->load->view("index/course.html",$data);
 			$this->load->view("about_footer.html");

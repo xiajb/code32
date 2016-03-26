@@ -932,6 +932,26 @@
                                                 </form>
                                             </div>
                                         </li>
+                                        <?php foreach ($comment as $row): ?>
+                                        <li class="clearfix">
+                                            <div class="w50 h50 l">
+                                                <a href="#">
+                                                    <img src="http://www.jcpeixun.com/user/uimg.aspx?lid=1530609" width="50" height="50" alt=""></a>
+                                            </div>
+                                            <div class="f14" style="padding-left: 70px;">
+                                                <p class="link-blue lh30">
+                                                    <a class="b" href="#">
+                                                        <?php echo $row['nickname'] ?>
+                                                    </a> <span class="gray9 lh20 pb5">发表于:<?php echo $row['add_time'] ?></span></p>
+                                                <p class="lh22">
+                                                    <?php echo $row['comment'] ?>
+                                                </p>
+                                                <p class="link-blue lh30 gray9 tr mt10">
+                                                    <a></a>
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <?php endforeach; ?>
                                     </ul>
                                 </div>
                             </div>
