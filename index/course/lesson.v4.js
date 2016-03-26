@@ -294,20 +294,27 @@ $(function () {
                 $("#comment_tips1").html("<span class=\"cred\">评论不能为空</span>");
                 $("#input_comment1").focus();
             } else {
-                if (cislogin(1)) {
+                var value = {
+                    "comment":comment_val,
+                    "course_id": $("#course_id").val(),
+                };
+                    $.ajax({
+                        type: 'POST',
+                        url: "../../showtv/comment",
+                        data: value,
 
-                    //alert($("#comment_form").serialize());
-                    $.post("/ashx/lesson/postcousecomment.aspx", $("#comment_form").serialize()).done(function (d) {
-                        //alert(d);
-                        //$("#comment_tips1").html("<span class=\"cgreen1\">发表成功</span>");
-                        $.Boxen.open(window, {
-                            url: "http://my.jcpeixun.com/emailregister/learnerRecommend/user_recommend5.aspx",
-                            urlParams: { callback: document.URL, comment: "1" },
-                            width: 650, height: 400,
-                            title: "评论成功，来邀请一个好友一起学习吧！"
-                        });
+                        success: function(result) {
+                            if (result == 1) {
+                                // console.log('1');
+                                alert('评论成功！');
+                                location.reload();
+                            }else if(result == -1){
+                                alert('请先登陆！');
+                            }else{
+                                alert('error');
+                            }
+                        }
                     });
-                }
 
             };
         });

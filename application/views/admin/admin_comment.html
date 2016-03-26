@@ -1,0 +1,87 @@
+<style type="text/css">
+#content .selector,
+#content .selector select,
+#content .selector span {
+    width: 100px !important;
+}
+</style>
+<link rel="stylesheet" href="<?php echo base_url('back/css/backmask.css'); ?>" />
+<div id="content" class="white">
+    <div class="bloc">
+        <div class="title">
+            用户数据
+        </div>
+        <div class="content">
+            <table>
+                <thead>
+                    <tr>
+                        <th>用户昵称</th>
+                        <th>内容</th>
+                        <th>评论时间</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <input type="hidden" id="len" value="<?php echo count($result); ?>" />
+                    <?php  for($i=0;$i<count($result);$i++){ ?>
+                    <tr>
+                        <td>
+                            <?php echo $result[$i]['nickname']; ?>
+                        </td>
+                        <td>
+                            <?php echo $result[$i]['comment']; ?>
+                        </td>
+                        <td>
+                            <?php echo $result[$i]['add_time'];?>
+                        </td>
+
+                        <td class="actions">
+                            <a data-id="<?php echo $result[$i]['comment_id']; ?>" href="javascript:;" class="delete_button"><img src="<?php echo base_url('back/img/icons/actions/delete.png'); ?>" alt="" /></a>
+                        </td>
+                    </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+            <div class="page">
+                <?php echo $this->mypage_class->show(1); ?>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="zoombox" class="zoombox" style="position: fixed;top: 30%;left: 38%;">
+    <div class="mask" style="display: none; opacity: 0.8;"></div>
+    <!-- <div class="cd-popup" level="alert"> -->
+    <div class="cd-popup-container" style="display:none;">
+        <p style="height:22px">你确定你要删除这个元素吗?</p>
+        <ul class="cd-buttons">
+            <li id="delete_yes"><a href="javascript:;">是</a></li>
+            <li id="delete_no"><a href="javascript:;">否</a></li>
+        </ul>
+        <a href="#" class="cd-popup-close img-replace">关闭</a>
+    </div>
+    <!-- cd-popup-container -->
+</div>
+<script type="text/javascript" src="<?php echo base_url('back/js/delete-btn.js'); ?>"></script>
+<script type="text/javascript">
+$('#delete_yes').click(function() {
+    $.ajax({
+        url: "../delete",
+        type: "POST",
+        data: "value=" + id,
+        success: function(result) {
+            $('.mask').hide();
+            $('.cd-popup-container').hide();
+            if (result == 1) {
+                alert('删除成功！');
+                location.reload();
+            } else {
+                alert('操作失败！！');
+            }
+        }
+    })
+});
+</script>
+
+</body>
+
+</html>

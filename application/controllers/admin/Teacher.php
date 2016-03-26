@@ -17,16 +17,16 @@ class Teacher extends CI_Controller {
 		$data['checking'] = array();
 		$data['admin_add'] = array();
 		for ($i=0; $i <count($data['result']) ; $i++) { 
-			if ($data['result'][$i]['check'] == 0) {
+			if ($data['result'][$i]['status'] == 0) {
 				$array = array($i=>$data['result'][$i]);
 				$data['checking'] = array_merge($data['checking'],$array);
-			}elseif ($data['result'][$i]['check'] == -1) {
+			}elseif ($data['result'][$i]['status'] == -1) {
 				$array = array($i=>$data['result'][$i]);
 				$data['not_pass'] = array_merge($data['not_pass'],$array);
-			}elseif ($data['result'][$i]['check'] == 2) {
+			}elseif ($data['result'][$i]['status'] == 2) {
 				$array = array($i=>$data['result'][$i]);
 				$data['admin_add'] = array_merge($data['admin_add'],$array);
-			}elseif ($data['result'][$i]['check'] == 1) {
+			}elseif ($data['result'][$i]['status'] == 1) {
 				$array = array($i=>$data['result'][$i]);
 				$data['pass'] = array_merge($data['pass'],$array);
 			}
