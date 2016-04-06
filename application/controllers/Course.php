@@ -8,6 +8,7 @@ class Course extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->model('show_model');
+		$this->load->model('user_model');
 		$this->load->model('course_model');
 		$this->load->model('comment_model');
 		$this->load->library('session');
@@ -28,6 +29,13 @@ class Course extends CI_Controller {
 			//print_r($course);
 			$data['arr']=array($chapter,$section,$course);
 			$data['comment'] = $this->comment_model->get_comment_by_course($course_id);
+			for ($i=0; $i < count($data['comment']); $i++) { 
+				$row = $this->user_model->get_user_by_uid($data['comment'][$i]['uid']);
+				// file_put_contents('/home/tanxu/www/data.txt', $data['comment'][$i]['uid']);
+				// file_put_contents('/home/tanxu/www/data.txt', print_r($row,true));
+				$data['comment'][$i]['pic'] = $row['pic'];
+				
+			}
 			$this->session->set_userdata('course_id',$course_id);
 			$this->load->view("index/course.html",$data);
 			$this->load->view("about_footer.html");
