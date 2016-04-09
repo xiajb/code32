@@ -2,71 +2,26 @@
 
 
             <div class="fl account-body mar-l20">
-                <p class="account-body-nav"><span>会员记录</span><span class="mar-r25 f_r">实际消费：<a>260元</a></span></p>
+                <p class="account-body-nav"><span>我的评论</span><span class="mar-r25 f_r"><a></a></span></p>
                 <div class="account-body-table">
                     <volist name="viplogs" id="vo" mod="2"></volist>
                     <volist name="viplogs" id="vo" mod="2"></volist>
                     <table class="jkxy-table">
                         <thead class="jkxy-table-thead">
                             <tr class="jkxy-table-tr">
-                                <td><span>日期</span></td>
-                                <td><span>数量</span></td>
-                                <td><span>种类</span></td>
-                                <td><span>开始时间</span></td>
-                                <td><span>结束时间</span></td>
-                                <td width="150"><span>备注</span></td>
+                                <td><span>昵称</span></td>
+                                
+                                <td width="500"><span>评论内容</span></td>
+                                <td><span>评论时间</span></td>
                             </tr>
                         </thead>
                         <tbody class="jkxy-table-tbody">
                             <tr class="jkxy-table-tr">
-                                <td>2015-10-14 13:12:09</td>
-                                <td>1</td>
-                                <td>
-                                    年会员
-                                </td>
-                                <td>2015-10-14 13:12:09</td>
-                                <td>2016-10-14 23:59:59</td>
-                                <td>购买获得年会员 </td>
-                            </tr>
-                            <tr class="jkxy-table-tr">
-                                <td>2015-02-27 15:52:50</td>
-                                <td>10</td>
-                                <td>
-                                    体验VIP
-                                </td>
-                                <td>2015-02-27 15:52:50</td>
-                                <td>2015-03-09 23:59:59</td>
-                                <td>赠送获得日会员,原因:手机验证</td>
-                            </tr>
-                            <tr class="jkxy-table-tr">
-                                <td>2014-12-26 11:15:19</td>
-                                <td>5</td>
-                                <td>
-                                    体验VIP
-                                </td>
-                                <td>2014-12-26 11:15:19</td>
-                                <td>2014-12-31 23:59:59</td>
-                                <td>赠送获得日会员,原因:圆盘抽奖5天VIP</td>
-                            </tr>
-                            <tr class="jkxy-table-tr">
-                                <td>2014-12-13 16:31:36</td>
-                                <td>1</td>
-                                <td>
-                                    体验VIP
-                                </td>
-                                <td>2014-12-14 23:59:59</td>
-                                <td>2014-12-15 23:59:59</td>
-                                <td>赠送获得日会员,原因:注册完善资料送1天体验VIP</td>
-                            </tr>
-                            <tr class="jkxy-table-tr">
-                                <td>2014-12-13 16:28:58</td>
-                                <td>1</td>
-                                <td>
-                                    体验VIP
-                                </td>
-                                <td>2014-12-13 16:28:58</td>
-                                <td>2014-12-14 23:59:59</td>
-                                <td>赠送获得日会员,原因:注册激活邮箱送1天体验VIP</td>
+                            <?php foreach ($result as $row) : ?>
+                                <td><?php echo $row['nickname']; ?></td>
+                                <td><?php echo $row['comment']; ?></td>
+                                <td><?php echo $row['add_time']; ?></td>
+                            <?php endforeach; ?>
                             </tr>
                         </tbody>
                     </table>

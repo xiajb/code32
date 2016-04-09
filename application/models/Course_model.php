@@ -39,6 +39,12 @@ class Course_model extends CI_Model{
 		return $query->result_array();
 	}
 
+	public function get_course_by_lectruer($lectruer_id){
+		$this->db->where('course_lectruer_id', $lectruer_id);
+		$query = $this->db->get(self::TBL_USER);
+		return $query->result_array();
+	}
+
 	public function delete($id){
 		return $this->db->delete(self::TBL_USER, array('course_id' => $id));
 	}

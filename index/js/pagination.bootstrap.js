@@ -105,7 +105,8 @@ var open_pager = function (container) {
             pgbtn_href.href = "javascript:" + sd_pager.pageFuncName + "(" + pg + ")";
         }
         else {
-            pgbtn_href.href = "javascript:;";
+            // pgbtn_href.href = "javascript:;";
+            pgbtn_href.href = "javascript:" + sd_pager.pageFuncName + "(" + pg + ")";
         }
         /*pgbtn.className = css;*/
         pgbtn_href.innerHTML = txt;
@@ -189,7 +190,8 @@ var open_pager = function (container) {
             /*显示数字页码按钮*/
             if (this.showNumButtons) {
                 for (var i = _start; i <= _end; i++) {
-                    if (i == this.currentPage) { this.addCurrentPage(i); }
+                    // console.log(GetQueryString("page"));
+                    if (i == GetQueryString("page")) { this.addCurrentPage(i); }
                     else { this.addButton(i, this.linkCss, i); }
                 }
                 if (_end < _ttps) { this.addTextButton('...', this.pagemoreCss); }

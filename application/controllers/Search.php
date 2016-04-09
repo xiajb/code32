@@ -27,6 +27,7 @@ class Search extends CI_Controller {
 		// 	$data['result'] = $this->course_model->get_course_like_limit($firstcount,(int)$page_config['perpage'],$words);
 		// }
 		$data['total'] = $this->course_model->get_like_count($value['words']);
+		$data['value'] = $value;
 		if (!isset($value['page']) || $value['page'] == 1) {
 			$data['result'] = $this->course_model->get_course_like_limit(0,2,$value['words']);
 		}else{

@@ -37,6 +37,7 @@ class Course extends CI_Controller {
 				
 			}
 			$this->session->set_userdata('course_id',$course_id);
+			// $this->load->view("index_header.html",$data);
 			$this->load->view("index/course.html",$data);
 			$this->load->view("about_footer.html");
 		}

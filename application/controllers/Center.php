@@ -16,6 +16,7 @@ class Center extends CI_Controller {
 		$this->load->model('teacher_model');
 		$this->load->model('feedback_model');
 		$this->load->model('classify_model');
+		$this->load->model('comment_model');
 		$this->load->library('session');
 		$this->load->helper('url');
 	}
@@ -291,6 +292,15 @@ class Center extends CI_Controller {
 					'comment'=>'active',
 					'changepw'=>'',
 				);
+			$teacher = $this->teacher_model->get_teacher($_SESSION['uid']);
+			$course = $this->course_model->get_course_by_lectruer($teacher->tid);
+			$data['result'] =array();
+			for ($i=0; $i < count($course); $i++) { 
+				$data['result']+= $this->comment_model->get_comment_by_course($course[$i]['course_id']);
+
+			}
+			// file_put_contents('/home/tanxu/www/data.txt', print_r($data['result'],true),FILE_APPEND);
+
 		}elseif ($_SESSION['level'] == 0) {
 			$data['active'] = array(
 					'mydata'=>'',
