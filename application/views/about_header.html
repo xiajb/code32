@@ -120,21 +120,21 @@
                         }
                     },
                     searchValidate = function() {
-                        var
-                            txtSearch = $txtSearch.val();
+                        var txtSearch = $txtSearch.val();
                         if (!txtSearch) {
                             $txtSearch.val("请输入课程").focus();
                         } else if (!$.trim(txtSearch).indexOf("请输入课程")) {
                             $txtSearch.val("请输入课程").focus();
                         } else {
-                            var
-                                search_type_on = "all",
-                                search_text = $txtSearch.val(),
-                                cur_location = window.location.href;
-                            if (!cur_location.indexOf("http://www.rfgxy.com/xiazai/")) {
-                                search_type_on = "down";
-                            };
-                            window.location.href = searchTypes[search_type_on](search_text);
+            $.ajax({
+                type: 'GET',
+                url: "<?php echo base_url() ?>search?words="+txtSearch,
+
+                                    success: function(result) {
+
+                 window.location.href = "<?php echo base_url() ?>search?words="+txtSearch;
+                                    }
+            });
                         }
                     };
                 $searchArea.on({

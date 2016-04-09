@@ -203,23 +203,7 @@
                     $btnSsearch1 = $("#btn-search1"),
 
                     s = "17323522629653896619",
-                    searchTypes = {
-                        "all": function(arg1) {
-                            return "http://zhannei.baidu.com/cse/search?q=" + arg1 + "&s=" + s;
-                        },
-                        "course": function(arg1) {
-                            return "http://www.rfgxy.com/lesson/lessonSearch?q=" + escape(arg1);
-                        },
-                        "video_course": function(arg1) {
-                            return "http://www.rfgxy.com/lesson/lessonSearch?q=" + escape(arg1);
-                        },
-                        "case_course": function(arg1) {
-                            return "http://www.rfgxy.com/lesson/lessonSearch?q=" + escape(arg1) + "&course=%u6848%u4F8B%u8BFE%u7A0B";
-                        },
-                        "down": function(arg1) {
-                            return "http://zhannei.baidu.com/cse/search?q=" + arg1 + "&s=" + s + "&nsid=2";
-                        }
-                    },
+
                     searchValidate = function() {
                         var txtSearch = $txtSearch.val();
                         if (!txtSearch) {
@@ -227,16 +211,15 @@
                         } else if (!$.trim(txtSearch).indexOf("请输入课程")) {
                             $txtSearch.val("请输入课程").focus();
                         } else {
-                                $.ajax({
-                                    type: 'POST',
-                                    url: "<?php echo base_url('./search'); ?>",
-                                    data: txtSearch,
+            $.ajax({
+                type: 'GET',
+                url: "<?php echo base_url() ?>search?words="+txtSearch,
 
                                     success: function(result) {
 
+                 window.location.href = "<?php echo base_url() ?>search?words="+txtSearch;
                                     }
-                                });
-
+            });
                         }
                     };
                 $searchArea.on({
