@@ -23,10 +23,11 @@ class Index extends CI_Controller {
 		$offset=($cur_page-1)*$config['per_page'];
 		$direction=$this->direction_model->show_direction();
 		$classify=$this->classify_model->show_classify_byid(0);
-		$result=$this->show_model->showcoursebyclassifyid(0,0,0,$config['per_page'],$offset);
-		$course=$result[0];
+		$result=$this->show_model->showcoursebyclassifyid(0,0,0,$config['per_page'],$offset,0);
+		$result2=$this->show_model->showcoursebyclassifyid(0,0,0,$config['per_page'],$offset,1);
+		$course=$result;
 		$config['base_url'] ='http://www.rfgxy.com/index/index2/0/0/0';
-		$config['total_rows'] =$result[1];
+		$config['total_rows'] =count($result2);
 		$config['prev_link']    = '上一页';
 		$config['next_link']    = '下一页';
 		$this->pagination->initialize($config);
@@ -35,7 +36,7 @@ class Index extends CI_Controller {
 			$direction,
 			$classify,
 			$course,
-			'total'=>$result[1],
+			'total'=>$config['total_rows'] ,
 			'cur_page'=>$cur_page,
 			'per_page'=>$config['per_page'],
 			'page'=>$page
@@ -54,10 +55,12 @@ class Index extends CI_Controller {
 		$offset=($cur_page-1)*$config['per_page'];
 		$direction=$this->direction_model->show_direction();
 		$classify=$this->classify_model->show_classify_byid($direction_id);
-		$result=$this->show_model->showcoursebyclassifyid($direction_id,$classify_id,$is_easy,$config['per_page'],$offset);
-		$course=$result[0];
+		$result=$this->show_model->showcoursebyclassifyid($direction_id,$classify_id,$is_easy,$config['per_page'],$offset,0);
+		$result2=$this->show_model->showcoursebyclassifyid($direction_id,$classify_id,$is_easy,$config['per_page'],$offset,1);
+		$course=$result;
 		$config['base_url'] ='http://www.rfgxy.com/index/index2/'.$direction_id.'/'.$classify_id.'/'.$is_easy.'/';
-		$config['total_rows'] =$result[1];
+
+		$config['total_rows'] =count($result2);
 		$config['prev_link']    = '上一页';
 		$config['next_link']    = '下一页';
 		$this->pagination->initialize($config);
@@ -70,7 +73,7 @@ class Index extends CI_Controller {
 			$direction,
 			$classify,
 			$course,
-			'total'=>$result[1],
+			'total'=>count($result2),
 			'cur_page'=>$cur_page,
 			'per_page'=>$config['per_page'],
 			'page'=>$page

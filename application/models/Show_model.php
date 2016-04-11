@@ -35,7 +35,7 @@ class Show_model extends Ci_Model
 		$row=$query->result_array();
 		return $row;
 	}
-	function showcoursebyclassifyid($direction_id,$classify_id,$is_easy,$offset,$per_page){
+	function showcoursebyclassifyid($direction_id,$classify_id,$is_easy,$offset,$per_page,$is_count){
 		$this->load->database();
 		if($classify_id>0){
 			$this->db->where('ci_classify.classify_id',$classify_id);
@@ -59,13 +59,12 @@ class Show_model extends Ci_Model
 		$where = "status='1' OR status='2'";
 		$this->db->where($where);
 		$this->db->order_by('course_id','desc');
-		
-		$this->db->limit($offset,$per_page);
+		if ($is_count==0) {
+			$this->db->limit($offset,$per_page);
+		}
 		 $query=$this->db->get('ci_course');
 		 $row=$query->result_array();
-		// echo $this->db->last_query();
-	 	$total=$this->db->count_all('ci_course');
- 		return $arr=array($row,$total);
+ 		return  $row;
 	}
 	
 }
