@@ -12,7 +12,11 @@
         <div class="content">
             <div class="input">
                 <label for="input1">活动主题</label>
-                <input type="text" id="title" placeholder="活动主题" name="url" />
+                <input type="text" id="title" placeholder="活动主题" name="title" />
+            </div>
+                        <div class="input">
+                <label for="input1">限制人数</label>
+                <input type="text" id="num" placeholder="限制人数" name="num" />
             </div>
             <div class="input">
                 <label for="input1">活动开始时间</label>
@@ -74,12 +78,17 @@
                 var value = {
                     "title": $('#title').val(),
                     "info": $('#info').val(),
-                    
+                    "num":$('#num').val(),
+                    "start_time":$('start-time').val(),
+                    "end_time":$('end-time').val(),
+                    "over_time":$('over-time').val(),
+                    "place":$('place').val(),
+                    "sectionpath":$('sectionpath').val()
                 }
                 $.ajax({
                     type: 'POST',
-                    url: "<?php echo base_url('./admin/link/link_insert'); ?>",
-                    data: 'data=' + JSON.stringify(value),
+                    url: "<?php echo base_url('./admin/activity/add'); ?>",
+                    data: value,
 
                     success: function(result) {
                         if (result == 1) {

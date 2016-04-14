@@ -5,7 +5,7 @@ class Activity extends CI_Controller {
 		parent::__construct();
 		$this->load->model('classify_model');
 		$this->load->model('direction_model');
-		// $this->load->model('teacher_model');
+		$this->load->model('activity_model');
 		// $this->load->model('elective_model');
 		// $this->load->model('skill_model');
 		$this->load->library('session');
@@ -55,10 +55,11 @@ class Activity extends CI_Controller {
 	}
 
 	public function add(){
-		$value = json_decode($this->input->post('data'),true);
+		// $value = json_decode($this->input->post('data'),true);
+		$value = $_POST;
 		$value = $this->security->xss_clean($value);
 		// file_put_contents("/home/tanxu/www/data.txt", print_r($value,true),FILE_APPEND );
-		if ($this->classify_model->add_classify($value)) {
+		if ($this->activity_model->add_classify($value)) {
 	    		echo '1';
 	    	}else{
 	    		echo 'error';
