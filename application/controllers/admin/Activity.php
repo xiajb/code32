@@ -48,6 +48,36 @@ class Activity extends CI_Controller {
 		$this->load->view('admin/admin_add_activity.html');
 	}
 
+	public function all(){
+		$data['current'] = array('data_back'=>'',
+			'user_manage'=>'current',
+			'user_data' =>'' ,
+			'teacher_data'=>'current',
+			'add_teacher'=>'',
+			'course_manage'=>'',
+			'required_course'=>'',
+			'elective_course'=>'',
+			'skill_course'=>'',
+			'video_manage'=>'',
+			'all_video'=>'',
+			'upload_video'=>'',
+			'order_manage'=>'',
+			'all_order'=>'',
+			'account_data'=>'',
+			'feedback_manage'=>'',
+			'all_feedback'=>'',
+			'comment_manage'=>'',
+			'all_comment'=>'',
+			'link_manage'=>'',
+			'all_link'=>'',
+			'add_link'=>'',
+			 );
+		// $data['direction'] = $this->direction_model->Show_direction();
+		$data['result'] = $this->activity_model->query_all();
+		$this->load->view('admin/admin_header.html',$data);
+		$this->load->view('admin/admin_activity.html');
+	}
+
 	public function delete(){
 		$id = $_POST['value'];
 		$value = $this->classify_model->delete($id);
@@ -59,7 +89,7 @@ class Activity extends CI_Controller {
 		$value = $_POST;
 		$value = $this->security->xss_clean($value);
 		// file_put_contents("/home/tanxu/www/data.txt", print_r($value,true),FILE_APPEND );
-		if ($this->activity_model->add_classify($value)) {
+		if ($this->activity_model->add($value)) {
 	    		echo '1';
 	    	}else{
 	    		echo 'error';

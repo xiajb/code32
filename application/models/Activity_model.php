@@ -8,20 +8,28 @@
 class Activity_model extends Ci_Model
 {
 	
-	function  __construct()
+	public function  __construct()
 	{
 		parent::__construct();
 	}
-	function add($data){
+
+	public function add($data){
   		return $this->db->insert('ci_activity',$data);
 	}
 
+	public function query_all(){
+		$query = $this->db->get('ci_activity');
+		return $query->result_array();
+	}
 
+	public function get_activity_by_id($activity_id){
+		$this->db->where('activity_id',$activity_id);
+		$query = $this->db->get('ci_activity');
+		return $query->result_array();
+	}
 
-	public function get_activity_by_id($course_id){
-		// $this->db->where('course_id',$course_id);
-		// $query = $this->db->get('ci_chapter');
-		// return $query->result_array();
+	public function delete($activity_id){
+		return $this->db->delete('ci_activity', array('activity_id' => $activity_id));
 	}
 
 

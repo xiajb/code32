@@ -299,7 +299,6 @@ INSERT INTO `ci_user` (`uid`,`name` ,`username`, `phone`, `password`, `email`, `
 
 CREATE TABLE IF NOT EXISTS `ci_activity` (
   `activity_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'primary key,autoincrement',
-  `uid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '用户id',
   `num` int(11) NOT NULL DEFAULT '0',
   `title` varchar(32) NOT NULL DEFAULT '',
   `pic` varchar(255) NOT NULL DEFAULT '0' COMMENT '图片路径',

@@ -20,15 +20,15 @@
             </div>
             <div class="input">
                 <label for="input1">活动开始时间</label>
-                <input class="datainp" id="start-time" type="text" placeholder="请选择" readonly>
+                <input class="datainp" id="start-time" type="text" value="" placeholder="请选择" readonly>
             </div>
             <div class="input">
                 <label for="input1">活动结束时间</label>
-                <input class="datainp" id="end-time" type="text" placeholder="请选择" readonly>
+                <input class="datainp" id="end-time" type="text" value="" placeholder="请选择" readonly>
             </div>
             <div class="input">
                 <label for="input1">报名截止时间</label>
-                <input class="datainp" id="over-time" type="text" placeholder="请选择" readonly>
+                <input class="datainp" id="over-time" type="text" value="" placeholder="请选择" readonly>
             </div>
             <div class="input">
                 <label for="input1">活动地点</label>
@@ -79,11 +79,11 @@
                     "title": $('#title').val(),
                     "info": $('#info').val(),
                     "num":$('#num').val(),
-                    "start_time":$('start-time').val(),
-                    "end_time":$('end-time').val(),
-                    "over_time":$('over-time').val(),
-                    "place":$('place').val(),
-                    "sectionpath":$('sectionpath').val()
+                    "place":$('#place').val(),
+                    "pic":$('#sectionpath').val(),
+                    "starttime":$('#start-time').val(),
+                    "endtime":$('#end-time').val(),
+                    "overtime":$('#over-time').val(),
                 }
                 $.ajax({
                     type: 'POST',
@@ -93,7 +93,7 @@
                     success: function(result) {
                         if (result == 1) {
                             alert('添加友链成功！');
-                            location.reload();
+                            // location.reload();
                         } else {
                             alert('操作失败！！');
                         }
