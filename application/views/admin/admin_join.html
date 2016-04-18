@@ -2,47 +2,42 @@
 <div id="content" class="white">
     <div class="bloc">
         <div class="title">
-            所有友链
+            <?php echo $activity['title']; ?>
         </div>
         <div class="content">
             <table>
                 <thead>
                     <tr>
                         <th>id</th>
-                        <th>网站名</th>
-                        <th>网站链接</th>
-                        <th>添加时间</th>
+                        <th>姓名</th>
+                        <th>电话</th>
+                        <th>邮箱</th>
+                        <th>qq</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <input type="hidden" id="len" value="<?php echo count($result); ?>" />
                     <?php  for($i=0;$i<count($result);$i++){ ?>
                     <tr>
-                        <td>
-                            <?php echo $result[$i]['link']; ?>
-                        </td>
                         <td>
                             <?php echo $result[$i]['name']; ?>
                         </td>
                         <td>
-                            <a href="http://<?php echo $result[$i]['url']; ?>"><?php echo $result[$i]['url']; ?></a>
+                            <?php echo $result[$i]['phone']; ?>
                         </td>
                         <td>
-                            <?php echo $result[$i]['add_time']; ?>
+                            <?php echo $result[$i]['qq']; ?>
                         </td>
                         </td>
                         <td class="actions">
                             <a href="#" title="Edit this content"><img src="<?php echo base_url('back/img/icons/actions/edit.png'); ?>" alt="" /></a>
-                            <a data-id="<?php echo $result[$i]['link']; ?>" href="javascript:;" class="delete_button"><img src="<?php echo base_url('back/img/icons/actions/delete.png'); ?>" alt="" /></a>
+                            <a data-id="<?php echo $result[$i]['join_id']; ?>" href="javascript:;" class="delete_button"><img src="<?php echo base_url('back/img/icons/actions/delete.png'); ?>" alt="" /></a>
                         </td>
                     </tr>
                     <?php } ?>
                 </tbody>
             </table>
-<div class="page">
-    <?php echo $this->mypage_class->show(1); ?>
-</div>
+
 
         </div>
     </div>

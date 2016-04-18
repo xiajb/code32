@@ -25,7 +25,7 @@ class Activity_model extends Ci_Model
 	public function get_activity_by_id($activity_id){
 		$this->db->where('activity_id',$activity_id);
 		$query = $this->db->get('ci_activity');
-		return $query->result_array();
+		return $query->row_array();
 	}
 
 	public function delete($activity_id){

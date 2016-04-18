@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class About extends CI_Controller {
+class Activity extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -15,7 +15,8 @@ class About extends CI_Controller {
 
 	public function index()
 	{
-		
+		$this->load->view("about_activity.html");
+		$this->load->view("about_footer.html");
 	}
 
 
