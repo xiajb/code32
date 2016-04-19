@@ -306,7 +306,8 @@ CREATE TABLE IF NOT EXISTS `ci_activity` (
   `endtime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '结束时间',
   `overtime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '报名结束时间',
   `place` varchar(1000) NOT NULL DEFAULT '' COMMENT '地点',
-  `info` text NOT NULL DEFAULT '',
+  `intro` text NOT NULL DEFAULT '',  
+  `detail` text NOT NULL DEFAULT '',
   PRIMARY KEY (`activity_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 

@@ -788,10 +788,10 @@
             <!--bread-crumb-->
             <!--课程简介-->
             <div class="bread-crumb inner">
-                <a href="http://www.rfgxy.com/">首页</a> <em class="fs">&gt;</em> <a href="#">选课中心
+                <a href="http://www.rfgxy.com/">首页</a> <em class="fs">&gt;</em> <a href="#">活动中心
                 </a><em class="fs">&gt;</em> <span>
 
-                <a href="">
+                <a href=""><?php echo $result['title']; ?>
               </a></span>
             </div>
             <!--课程简介-->
@@ -801,7 +801,7 @@
                     <div class="w585 l vedio rel">
                         <div id="player" style="width: 585px;">
                             <a href="javascript:;" class="playNologin see" id="playv-startimg" data-id="2179">
-            <img src="http://img.imooc.com/5386fece00016e0006000338-240-135.jpg" width="585" height="330">
+            <img src="<?php echo $result['pic']; ?>" width="585" height="330">
             <i class="icon-vedio"></i></a>
                             <div class="video" id="CuPlayer" style="display: none;">
                                 <video src="http://code32.b0.upaiyun.com/2016/03/05/b5552ef1a58574517d1870fc303a2fc4.mp4" width="585" height="325" controls="controls" type="video/mp4" id="upyvideo"></video>
@@ -876,30 +876,27 @@
                     <div class="w555 r">
                     <input type="hidden" id="course_id" value="7">
                         <h3 class="h30 lh30 f18 n">
-                             impress让你的内</h3>
+                             <?php echo $result['title']; ?></h3>
                         <div class="p2em colblue f14 mt10 bds bdb bdgrayd lh25 h100 pb20">
-                            本课程讲解一个功能强大的制作演示文稿的工具，他叫做impress.js，如果你已经厌烦了PPT，那么不妨开始学习使用impress.js，他将会使你随便设置几个参数就能实现效果炫酷吊炸天的演示文稿                       
+                                  <?php echo $result['intro']; ?>
                              </div>
                         <div class="f14 gray6  clearfix kc_span">
-                            <p>更新至： 已完结
-                            </p><p></p>
-                            <p>已看过：6045人</p>
-                            <p></p>
-                            <p class="jibie clearfix">课程级别：
-                                <em id="lv1" class="actblue"></em>
-                                <em id="lv2"></em>
-                                <em id="lv3"></em>
-                                <code>初级</code>
+                            <p style="width: 100%;">活动时间： <?php echo $result['starttime']; ?>~<?php echo $result['endtime']; ?>
                             </p>
-                            <div class="dianping">
-                                <span class="dpTxt"> 课程点评：</span>
-                                <span class="sa_star_1"><i class="sa_d8"></i></span> <span class="dpNm">4.8分
-                               （6045人学习）</span>
-                            </div>
+                            <p>报名截止时间：<?php echo $result['overtime']; ?></p>
+                            <p></p>
+                            <p>限制人数：<?php echo $result['num']; ?>人
+                       
+                            </p>
+                            <p></p>
+                            <p>活动地点：<?php echo $result['place']; ?>人
+                       
+                            </p>
+                            <p></p>
                             <div class="shareBtn clearfix">
                                 <div class="sharesBtnLink">
                                     <input type="hidden" name="grd" class="grd" value="">
-                                    <a href="http://www.rfgxy.com/lesson1/play_course_pay.aspx?course_id=2179">开始学习</a>
+                                    <a href="http://www.rfgxy.com/lesson1/play_course_pay.aspx?course_id=2179">立即报名</a>
                                 </div>
                             </div>
                         </div>
