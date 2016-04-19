@@ -4,6 +4,13 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('index/jeDate/stylesheets/github-light.css'); ?>" media="screen">
 <script type="text/javascript" src="<?php echo base_url('index/jeDate/jedate/jedate.js'); ?>"></script>
 
+<script type="text/javascript">
+(function($) {
+    $(document).ready(function() {
+        $('#wysiwyg').wysiwyg();
+    });
+})(jQuery);
+</script>
 
 <div id="content" class="white">
     <h1><img src="<?php echo base_url('/back/img/icons/posts.png'); ?>" alt="" /> Forms</h1>
@@ -46,9 +53,14 @@
                 </div>
             </div>
             <div class="input">
-                <label for="input1">活动详情</label>
-                <textarea rows="7" cols="4" name="info" id="info"></textarea>
+                <label for="input1">活动简介</label>
+                <textarea rows="3" cols="4" name="intro" id="intro" style="width: 88%;"></textarea>
             </div>
+            <div class="input">
+                <label for="input1">活动详情</label>
+                <textarea id="wysiwyg" rows="5" cols="80" style="width: 828px;"></textarea>
+            </div> 
+
             <div class="submit">
                 <input type="button" id="button" value="submit" />
             </div>
@@ -77,13 +89,14 @@
             $("#button").click(function() {
                 var value = {
                     "title": $('#title').val(),
-                    "info": $('#info').val(),
+                    "intro": $('#intro').val(),
                     "num":$('#num').val(),
                     "place":$('#place').val(),
                     "pic":$('#sectionpath').val(),
                     "starttime":$('#start-time').val(),
                     "endtime":$('#end-time').val(),
                     "overtime":$('#over-time').val(),
+                    "detail":$('#wysiwyg').val()
                 }
                 $.ajax({
                     type: 'POST',
