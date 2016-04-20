@@ -87,7 +87,7 @@ class Activity extends CI_Controller {
 	public function add(){
 		// $value = json_decode($this->input->post('data'),true);
 		$value = $_POST;
-		$value = $this->security->xss_clean($value);
+		// $value = $this->security->xss_clean($value);
 		// file_put_contents("/home/tanxu/www/data.txt", print_r($value,true),FILE_APPEND );
 		if ($this->activity_model->add($value)) {
 	    		echo '1';

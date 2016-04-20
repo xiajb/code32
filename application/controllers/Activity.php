@@ -16,7 +16,7 @@ class Activity extends CI_Controller {
 	public function index()
 	{
 
-		$data['result'] = $this->activity_model->get_activity_by_id(3);
+		$data['result'] = $this->activity_model->get_activity_by_id(5);
 		$this->load->view("about_activity.html",$data);
 		$this->load->view("about_footer.html");
 	}
