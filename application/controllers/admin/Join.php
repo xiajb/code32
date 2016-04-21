@@ -58,6 +58,7 @@ class Join extends CI_Controller {
 			$data['result'][$i]['phone'] = $user['phone'];
 			$data['result'][$i]['email'] = $user['email'];
 			$data['result'][$i]['qq'] = $user['qq'];
+			$data['result'][$i]['join_id'] = $join[$i]['join_id'];
 		}	
 		$this->load->view('admin/admin_header.html',$data);
 		$this->load->view('admin/admin_join.html');
@@ -108,9 +109,9 @@ class Join extends CI_Controller {
 		$this->load->view('admin/admin_add_link.html');
 	}
 
-	function delete_link(){
+	function delete(){
 		$id = $_POST['value'];
-		echo $this->link_model->delete_link($id);
+		echo $this->join_model->delete($id);
 
 	}
 }

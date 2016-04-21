@@ -19,7 +19,7 @@
         <div class="content">
             <div class="input">
                 <label for="input1">活动主题</label>
-                <input type="text" id="title" placeholder="活动主题" name="title" />
+                <input type="text" id="name" placeholder="活动主题" name="name" />
             </div>
                         <div class="input">
                 <label for="input1">限制人数</label>
@@ -44,7 +44,6 @@
             <div class="input">
                 <label for="file">活动主题图片</label>
                 <input type="hidden" id="type" name="type" value="3" />
-                <input type="hidden" id="title" name="title" />
                 <input type="hidden" id="sectionpath" placeholder="图片地址" name="sectionpath" />
                 <div id="filelist"></div>
                 <div id="container">
@@ -88,7 +87,7 @@
             <script type="text/javascript">
             $("#button").click(function() {
                 var value = {
-                    "title": $('#title').val(),
+                    "title": $('#name').val(),
                     "intro": $('#intro').val(),
                     "num":$('#num').val(),
                     "place":$('#place').val(),
@@ -105,8 +104,8 @@
 
                     success: function(result) {
                         if (result == 1) {
-                            alert('添加友链成功！');
-                            // location.reload();
+                            alert('添加活动成功！');
+                            location.reload();
                         } else {
                             alert('操作失败！！');
                         }

@@ -24,6 +24,13 @@ class Join_model extends Ci_Model
 		return $query->result_array();
 	}
 
+	public function get_uid_activity($activity_id,$uid){
+		$this->db->where('activity_id', $activity_id);
+		$this->db->where('uid', $uid);
+		$query = $this->db->get('ci_join');
+		return $query->result_array();
+	}
+
 	public function get_limit($activity_id,$first,$num){
 		$query = $this->db->select('*')
 			        ->where("activity_id",$activity_id)
@@ -32,8 +39,8 @@ class Join_model extends Ci_Model
 		return $query->result_array();
 	}
 
-	public function delete($uid){
-		return $this->db->delete('ci_join', array('uid' => $uid));
+	public function delete($join_id){
+		return $this->db->delete('ci_join', array('join_id' => $join_id));
 	}
 
 
