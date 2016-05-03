@@ -310,6 +310,21 @@ class Center extends CI_Controller {
 					'comment'=>'active',
 					'feedback'=>''
 				);
+			$uid = $_SESSION['uid'];
+			$page_config['perpage']=2;   //每页条数
+			$page_config['part']=2;//当前页前后链接数量
+			$page_config['url']='/center/comment/';//url
+			$page_config['seg']=3;//参数取 index.php之后的段数，默认为3，即index.php/control/function/18 这种形式
+			$page_config['nowindex']=$this->uri->segment($page_config['seg']) ? $this->uri->segment($page_config['seg']):1;//当前页
+			$this->load->library('mypage_class');
+			$page_config['total']=$this->comment_model->get_count_by_uid($uid);
+			$this->mypage_class->initialize($page_config);
+			if ($page_config['nowindex'] == 1) {
+				$data['result'] = $this->comment_model->get_limit_by_uid($uid,(int)$page_config['perpage'],0);
+			}else{
+				$firstcount = ((int)$page_config['nowindex']-1) * (int)$page_config['perpage'];
+				$data['result'] = $this->comment_model->get_limit_by_uid($uid,(int)$page_config['perpage'],$firstcount);
+			}
 		}
 		$this->load->view("center_header.html",$data);
 		$this->load->view("center_comment.html");
@@ -320,10 +335,6 @@ class Center extends CI_Controller {
 
 	public function feedback()
 	{
-// $data['csrf'] = array(
-//     'name' => $this->security->get_csrf_token_name(),
-//     'hash' => $this->security->get_csrf_hash()
-// );
 		$data['active'] = array(
 				'mydata'=>'',
 				'mycourse'=>'',

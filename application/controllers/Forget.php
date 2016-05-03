@@ -95,13 +95,13 @@ class Forget extends CI_Controller {
 	public function step2()
 	{
 		$token = $_GET['token'];
-		if ($token == $_SESSION['token']) {
+		if (!isset($_SESSION['token']) || $token != $_SESSION['token']) {
+			redirect('http://www.rfgxy.com/404.html');
+		}else{
 			$data['email'] = $_SESSION['email'];
 			$data['phone'] = $_SESSION['phone'];
 			$data['token'] = $token;
 			$this->load->view("findpwd_tmp2.html",$data);
-		}else{
-			echo "no token";
 		}
 
 	}
@@ -109,11 +109,11 @@ class Forget extends CI_Controller {
 	public function step3()
 	{
 		$token = $_GET['token'];
-		if ($token == $_SESSION['token']) {
+		if (!isset($_SESSION['token']) || $token != $_SESSION['token']) {
+			redirect('http://www.rfgxy.com/404.html');
+		}else{
 			$data['token'] = $token;
 			$this->load->view("findpwd_tmp3.html",$data);
-		}else{
-			echo "no token";
 		}
 	}
 
@@ -121,12 +121,12 @@ class Forget extends CI_Controller {
 	public function modify_pwd(){
 		$value = json_decode($this->input->post('data'),true);
 		$value = $this->security->xss_clean($value);
-		if ($value['token'] == $_SESSION['token']) {
+		if (!isset($_SESSION['token']) || $token != $_SESSION['token']) {
+			echo "no token";
+		}else{
 			$this->user_model->change_pwd($_SESSION['uid'],$value['pwd']);
 			unset($_SESSION['token']);
 			echo '1';
-		}else{
-			echo "no token";
 		}
 	}
 

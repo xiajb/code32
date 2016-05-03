@@ -22,6 +22,20 @@ class Comment_model extends CI_Model{
 		return $query->result_array();
 	}
 
+	public function get_limit_by_uid($uid,$first,$num){
+		$query = $this->db->select('*')
+			        ->where("uid",$uid)
+			        ->limit($first, $num)
+			        ->get(self::TBL_USER);
+		return $query->result_array();
+	}
+
+	public function get_count_by_uid($uid){
+		$this->db->where('uid',$uid);
+		$this->db->from(self::TBL_USER);
+		return $this->db->count_all_results();
+	}
+
 	public function result_count(){
 		return $this->db->count_all(self::TBL_USER);
 	}

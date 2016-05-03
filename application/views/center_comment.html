@@ -1,6 +1,62 @@
         <div class="ucenter-right cf">
 
+<style type="text/css">
+    .page {
+    font-size: 12px;
+    height: 30px;
+    text-align: right;
+    margin-top: 19px;
+    margin-right: 17px;
+}
 
+.pg_pre,
+.pg_next {
+    border: 1px solid #ccc;
+    margin: 0 3px;
+    background-image: url("../image/icon_pg.gif");
+    background-repeat: no-repeat;
+}
+
+.pg_pre {
+    padding: 3px 8px 3px 8px;
+    background-position: 7px 3px;
+}
+
+a.pg_pre {
+    background-position: 7px -19px;
+}
+
+.pg_next {
+    padding: 3px 8px 3px 8px;
+    background-position: -22px 3px;
+}
+
+a.pg_next {
+    background-position: -22px -19px;
+}
+
+.pg_link {
+    padding: 3px 8px;
+    margin: 0 3px;
+    border: 1px solid #ccc;
+}
+
+.pg_link:hover,
+a.pg_next:hover,
+a.pg_pre:hover {
+    border: 1px solid #A9C9E2;
+    color: #137cce;
+}
+
+.pg_curr {
+    padding: 3px 8px;
+    margin: 0 3px;
+    color: #137cce;
+    background-color: #E8F5FE;
+    border: 1px solid #A9C9E2;
+}
+
+</style>
             <div class="fl account-body mar-l20">
                 <p class="account-body-nav"><span>我的评论</span><span class="mar-r25 f_r"><a></a></span></p>
                 <div class="account-body-table">
@@ -16,15 +72,29 @@
                             </tr>
                         </thead>
                         <tbody class="jkxy-table-tbody">
-                            <tr class="jkxy-table-tr">
+                        <?php if($_SESSION['level'] == 1): ?>
                             <?php foreach ($result as $row) : ?>
+                            <tr class="jkxy-table-tr">
                                 <td><?php echo $row['nickname']; ?></td>
                                 <td><?php echo $row['comment']; ?></td>
                                 <td><?php echo $row['add_time']; ?></td>
-                            <?php endforeach; ?>
                             </tr>
+                            <?php endforeach; ?>
+                        <?php elseif($_SESSION['level'] == 0): ?>
+                            <?php foreach ($result as $row) : ?>
+                            <tr class="jkxy-table-tr">
+                                <td><?php echo $row['nickname']; ?></td>
+                                <td><?php echo $row['comment']; ?></td>
+                                <td><?php echo $row['add_time']; ?></td>
+                            </tr>
+                            <?php endforeach; ?>
+
+                        <?php endif; ?>
                         </tbody>
                     </table>
+            <div class="page">
+                <?php echo $this->mypage_class->show(1); ?>
+            </div>
                 </div>
             </div>
         </div>
