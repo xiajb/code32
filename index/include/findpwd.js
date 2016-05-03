@@ -121,6 +121,9 @@ $(function() {
         // var sVcode = $("#vcode").val();
         var value = gt_captcha_obj.getValidate();
         // phone = $("#umobile").val();
+        if (!value) {
+            alert('请先通过验证！');
+        }
         value.username = sUname;
         result = JSON.stringify(value);
 
@@ -134,7 +137,7 @@ $(function() {
             $.ajax({
                 type: 'POST',
                 url: "../forget/check_user",
-                data: "value=" + result,
+                data: result,
 
                 success: function(result) {
                     if (result == -10) {

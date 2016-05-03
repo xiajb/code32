@@ -22,9 +22,10 @@ class Forget extends CI_Controller {
 	}
 
 	public function check_user(){
-		$value = json_decode($this->input->post('value'),true);
+		$value = $_POST;
 		$value = $this->security->xss_clean($value);
 		$GtSdk = new GeetestLib();
+		
 		$result = $GtSdk->validate($value['geetest_challenge'], $value['geetest_validate'], $value['geetest_seccode']);
 		if ($result == TRUE) {
 			$this->session->set_userdata('geetest_seccode',$value['geetest_seccode']);
@@ -84,6 +85,7 @@ class Forget extends CI_Controller {
 			$data = array("success"=>-10);
 			// echo json_encode($data);
 			echo "-10";
+			exit();
 		}
 		
 	}
