@@ -1,6 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 require_once dirname(dirname(__FILE__)) . '/geetest/geetest.class.php';
 require_once dirname(dirname(__FILE__)) . '/geetest/geetestmsg.class.php';
+require_once dirname(dirname(__FILE__)) . '/geetest/chuanglan.class.php';
 
 class Helper extends CI_Controller {
 	public function __construct(){
@@ -69,20 +70,31 @@ class Helper extends CI_Controller {
 
 
 	public function send_code(){
-		$value = json_decode($this->input->post('data'),true);
+		// $value = json_decode($this->input->post('data'),true);
+		// $value = $this->security->xss_clean($value);
+		// if ($_SESSION['token'] == $value['token']) {
+		// 	$GtMsgSdk = new MsgGeetestLib();
+		// 	$data = array(
+		// 		'phone' => $value['phone'],
+		// 		'seccode'=>$_SESSION['geetest_seccode'],
+		// 	            	'msg_id' => CAPTCHA_ID
+		// 	 );
+		// 	$action = "send";
+		// 	$result = $GtMsgSdk->send_msg_request($action,$data);
+		// 	echo $result;
+		// }else{
+		// 	echo "notoken";
+		// }
+		$value = $_POST;
 		$value = $this->security->xss_clean($value);
-		if ($_SESSION['token'] == $value['token']) {
-			$GtMsgSdk = new MsgGeetestLib();
-			$data = array(
-				'phone' => $value['phone'],
-				'seccode'=>$_SESSION['geetest_seccode'],
-			            	'msg_id' => CAPTCHA_ID
-			 );
-			$action = "send";
-			$result = $GtMsgSdk->send_msg_request($action,$data);
+		if (isset($_SESSION['token']) || $_SESSION['token'] == $value['token']) {
+			$_SESSION['msg'] = '【创蓝文化】'.rand(1000,9999);
+			$api =new ChuanglanSmsApi();
+			$result = $api->sendSMS($value['phone'],$_SESSION['msg']);
+			file_put_contents('/home/tanxu/www/data.txt', $result);
 			echo $result;
 		}else{
-			echo "notoken";
+			echo 'notoken';
 		}
 	}
 

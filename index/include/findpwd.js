@@ -120,24 +120,29 @@ $(function() {
         var sUname = $("#uName").val();
         // var sVcode = $("#vcode").val();
         var value = gt_captcha_obj.getValidate();
-        // phone = $("#umobile").val();
-        if (!value) {
-            alert('请先通过验证！');
-        }
-        value.username = sUname;
-        result = JSON.stringify(value);
+        // result = JSON.stringify(value);
 
-        if (!(vUemail.test(sUname) || vUmobile.test(sUname))) {
+        // if (!(vUemail.test(sUname) || vUmobile.test(sUname))) {
+        //     $("#uName").attr("class", "txt_red1-240-30");
+        //     $("#n_tips").attr("class", "cred").html("帐号不存在，请输入正确账号");
+        // }
+        if (sUname == '' || sUname == null) {
             $("#uName").attr("class", "txt_red1-240-30");
             $("#n_tips").attr("class", "cred").html("帐号不存在，请输入正确账号");
-            // } else if (sVcode.length < 4) {
-            //     $("#c_tips").attr("class", "cred").html("验证码不正确，请重新输入");
-        } else {
-            console.log(result);
+            return;
+        }
+        if (!value) {
+            alert('请先通过验证！');
+            return;
+        }
+        value.username = sUname;
+
+        console.log(value);
+
             $.ajax({
                 type: 'POST',
-                url: "../forget/check_user",
-                data: result,
+                url: "http://www.rfgxy.com/forget/check_user",
+                data: value,
 
                 success: function(result) {
                     if (result == -10) {
@@ -168,7 +173,6 @@ $(function() {
             //         });
             //     }
             // });
-        }
     });
 
 
@@ -210,7 +214,7 @@ $(function() {
     /* 发送验证码 */
     $("#sendCode").click(function() {
         $("#sendCode").hide();
-        var $cdown_tips = $("#cdown_tips");
+        var cdown_tips = $("#cdown_tips");
         var umobile = $.trim($("#iptmobile").val());
         // var radomnumber = Radom4();
         var data = {
@@ -220,20 +224,20 @@ $(function() {
         $.ajax({
             type: 'POST',
             url: "../helper/send_code",
-            data: "data=" + JSON.stringify(data),
+            data: data,
 
             success: function(result) {
                 console.log(result);
                 if (result == 1) {
                     var i = 60;
                     var fn = function() {
-                        $cdown_tips.html(i + "秒后才能再次发送");
-                        !i && $cdown_tips.hide() && $("#sendCode").show() && clearInterval(timer);
+                        cdown_tips.html(i + "秒后才能再次发送");
+                        !i && cdown_tips.hide() && $("#sendCode").show() && clearInterval(timer);
                         i--;
                     };
                     timer = setInterval(fn, 1000);
                     fn();
-                    $cdown_tips.show();
+                    cdown_tips.show();
                 } else {
                     alert("不能频繁发验证码，请3分钟后再试");
                 }
