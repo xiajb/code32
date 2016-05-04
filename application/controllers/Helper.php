@@ -88,11 +88,16 @@ class Helper extends CI_Controller {
 		$value = $_POST;
 		$value = $this->security->xss_clean($value);
 		if (isset($_SESSION['token']) || $_SESSION['token'] == $value['token']) {
-			$_SESSION['msg'] = '【创蓝文化】'.rand(1000,9999);
-			$api =new ChuanglanSmsApi();
-			$result = $api->sendSMS($value['phone'],$_SESSION['msg']);
-			file_put_contents('/home/tanxu/www/data.txt', $result);
-			echo $result;
+			// $_SESSION['msg'] = '【创蓝文化】'.rand(1000,9999);
+			// $api =new ChuanglanSmsApi();
+			// $result = $api->sendSMS($value['phone'],$_SESSION['msg']);
+			// file_put_contents('/home/tanxu/www/data.txt', $result);
+			// echo $result;
+$sms=new ChuanglanSMS('N4368059','74fa7a1d');
+$_SESSION['msg'] = '【创蓝文化】'.rand(1000,9999);
+$result=$sms->send($value['phone'],$_SESSION['msg']);
+echo $result;
+
 		}else{
 			echo 'notoken';
 		}

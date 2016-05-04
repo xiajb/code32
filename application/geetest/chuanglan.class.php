@@ -1,90 +1,120 @@
 <?php
-/*
-*@api 创蓝php对接短信接口
-*/
-class ChuanglanSmsApi {
-	
+/**
+ * 创蓝短信接口
+ */
+class ChuanglanSMS{
+	const SENDURL='http://222.73.117.138:7891/mt';
+	const QUERYURL='http://222.73.117.138:7891/bi';
+	const ISENDURL='http://222.73.117.140:8044/mt';
+	const IQUERYURL='http://222.73.117.140:8044/bi';
+
+	private $_sendUrl='';				// 发送短信接口url
+	private $_queryBalanceUrl='';	// 查询余额接口url
+
+	private $_un;			// 账号
+	private $_pw;			// 密码
+
 	/**
-	 * 发送短信
-	 *
-	 * @param string $mobile 手机号码
-	 * @param string $msg 短信内容
-	 * @param string $needstatus 是否需要状态报告
-	 * @param string $product 产品id，可选
-	 * @param string $extno   扩展码，可选
+	 * 构造方法
+	 * @param string $account  接口账号
+	 * @param string $password 接口密码
 	 */
-	public function sendSMS( $mobile, $msg, $needstatus = 'false', $product = '', $extno = '') {
-		global $chuanglan_config;
-		//创蓝接口参数
-		$postArr = array (
-				          'account' => 'N4368059',
-				          'pswd' => '74fa7a1d',
-				          'msg' => $msg,
-				          'mobile' => $mobile,
-				          'needstatus' => $needstatus,
-				          'product' => $product,
-				          'extno' => $extno
-                     );
-		
-		$result = $this->curlPost( 'http://222.73.117.158:80/msg/HttpBatchSendSM', $postArr);
-		return $result;
+	public function __construct($account,$password){
+		$this->_un=$account;
+		$this->_pw=$password;
 	}
-	
+
+	/* ========== 业务模块 ========== */
 	/**
-	 * 查询额度
-	 *
-	 *  查询地址
+	 * 短信发送
+	 * @param string $phone   	手机号码
+	 * @param string $content 	短信内容
+	 * @param integer $isreport	是否需要状态报告
+	 * @return void
 	 */
-	public function queryBalance() {
-		global $chuanglan_config;
-		//查询参数
-		$postArr = array ( 
-		          'account' => 'N4368059',
-		          'pswd' => '74fa7a1d',
+	public function send($phone,$content,$isreport=0){
+		$requestData=array(
+			'un'=>$this->_un,
+			'pw'=>$this->_pw,
+			'sm'=>$content,
+			'da'=>$phone,
+			'rd'=>$isreport,
+			'dc'=>15,
+			'rf'=>2,
+			'tf'=>3,
 		);
-		$result = $this->curlPost($chuanglan_config['api_balance_query_url'], $postArr);
-		return $result;
+		
+		$url=ChuanglanSMS::SENDURL.'?'.http_build_query($requestData);
+		return $this->_request($url);
 	}
 
 	/**
-	 * 处理返回值
-	 * 
+	 * 国际短信发送
+	 * @param string $phone   	手机号码
+	 * @param string $content 	短信内容
+	 * @param integer $isreport	是否需要状态报告
+	 * @return void
 	 */
-	public function execResult($result){
-		$result=preg_split("/[,\r\n]/",$result);
-		return $result;
+	public function sendInternational($phone,$content,$isreport=0){
+		$requestData=array(
+			'un'=>$this->_un,
+			'pw'=>$this->_pw,
+			'sm'=>$content,
+			'da'=>$phone,
+			'rd'=>$isreport,
+			'rf'=>2,
+			'tf'=>3,
+		);
+		
+		$url=ChuanglanSMS::ISENDURL.'?'.http_build_query($requestData);
+		return $this->_request($url);
 	}
 
 	/**
-	 * 通过CURL发送HTTP请求
-	 * @param string $url  //请求URL
-	 * @param array $postFields //请求参数 
-	 * @return mixed
+	 * 查询余额
+	 * @return String 余额返回
 	 */
-	private function curlPost($url,$postFields){
-		$postFields = http_build_query($postFields);
-		$ch = curl_init ();
-		curl_setopt ( $ch, CURLOPT_POST, 1 );
-		curl_setopt ( $ch, CURLOPT_HEADER, 0 );
-		curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, 1 );
-		curl_setopt ( $ch, CURLOPT_URL, $url );
-		curl_setopt ( $ch, CURLOPT_POSTFIELDS, $postFields );
-		$result = curl_exec ( $ch );
-		curl_close ( $ch );
+	public function queryBalance(){
+		$requestData=array(
+			'un'=>$this->_un,
+			'pw'=>$this->_pw,
+			'rf'=>2
+		);
+
+		$url=ChuanglanSMS::QUERYURL.'?'.http_build_query($requestData);
+		return $this->_request($url);
+	}
+
+	/**
+	 * 查询余额
+	 * @return String 余额返回
+	 */
+	public function queryBalanceInternational(){
+		$requestData=array(
+			'un'=>$this->_un,
+			'pw'=>$this->_pw,
+			'rf'=>2
+		);
+
+		$url=ChuanglanSMS::IQUERYURL.'?'.http_build_query($requestData);
+		return $this->_request($url);
+	}
+
+	/* ========== 业务模块 ========== */
+
+	/* ========== 功能模块 ========== */
+	/**
+	 * 请求发送
+	 * @return string 返回状态报告
+	 */
+	private function _request($url){
+		$ch=curl_init();
+		curl_setopt($ch,CURLOPT_HEADER,0);
+		curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
+		curl_setopt($ch,CURLOPT_URL,$url);
+		$result=curl_exec($ch);
+		curl_close($ch);
 		return $result;
 	}
-	
-	//魔术获取
-	public function __get($name){
-		return $this->$name;
-	}
-	
-	//魔术设置
-	public function __set($name,$value){
-		$this->$name=$value;
-	}
+	/* ========== 功能模块 ========== */
 }
-
-// $api =new ChuanglanSmsApi();//调用api
-
-?>
