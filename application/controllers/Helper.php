@@ -96,7 +96,10 @@ class Helper extends CI_Controller {
 $sms=new ChuanglanSMS('N4368059','74fa7a1d');
 $_SESSION['msg'] = '【创蓝文化】'.rand(1000,9999);
 $result=$sms->send($value['phone'],$_SESSION['msg']);
-echo $result;
+$result = json_decode($result);
+file_put_contents('/home/tanxu/www/data.txt', print_r($result,true));
+echo $result->success;
+// echo $result['success'];
 
 		}else{
 			echo 'notoken';

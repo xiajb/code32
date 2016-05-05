@@ -45,6 +45,8 @@ class Comment_model extends CI_Model{
 	}
 	public function get_comment_by_course($course_id){
 		$this->db->where("course_id",$course_id);
+		$this->db->order_by('comment_id', 'DESC');
+		$this->db->limit(6,0);
 		$query = $this->db->get(self::TBL_USER);
 		return $query->result_array();
 	}

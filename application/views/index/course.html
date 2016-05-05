@@ -930,29 +930,7 @@
                                     <input type="hidden" name="grd" class="grd" value="">
                                     <a href="http://www.rfgxy.com/lesson1/play_course_pay.aspx?course_id=2179">开始学习</a>
                                 </div>
-                                <div class="sharesdiv">
-                                    <div class="bdsharebuttonbox bdshare-button-style0-32" data-bd-bind="1449747441153">
-                                        <a href="http://www.rfgxy.com/lesson/2179/#" class="bds_more " data-cmd="more"></a>
-                                        <a title="分享到QQ空间" href="http://www.rfgxy.com/lesson/2179/#" class="bds_qzone " data-cmd="qzone"></a>
-                                        <a title="分享到新浪微博" href="http://www.rfgxy.com/lesson/2179/#" class="bds_tsina" data-cmd="tsina"></a>
-                                        <a title="分享到微信" href="http://www.rfgxy.com/lesson/2179/#" class="bds_weixin" data-cmd="weixin"></a>
-                                    </div>
-                                    <script>
-                                    window._bd_share_config = {
-                                        "common": {
-                                            "bdSnsKey": {},
-                                            "bdText": "",
-                                            "bdMini": "2",
-                                            "bdMiniList": false,
-                                            "bdPic": "",
-                                            "bdStyle": "0",
-                                            "bdSize": "32"
-                                        },
-                                        "share": {}
-                                    };
-                                    with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
-                                    </script>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -982,7 +960,6 @@
                                             <p class="gray6">
                                                 <span class="mr10"><em class="colblue">
                                             29</em>个课时</span>
-                                                <span class="mr10">促销价：<em class="colblue">￥23</em></span>
                                             </p>
                                         </div>
                                     </div>
@@ -1043,12 +1020,12 @@
                                                 <?php echo $section[$t]['section_name'];?>
 
                                               </a></span>
-                                                        <span class="colblue l">￥1</span>
+                                                        <span class="colblue l"></span>
                                                         <!--您已购买2，可下载学习  || le_item.price <= 0 --->
                                                         <input type="hidden" name="aloow" class="aloow" value="False">
                                                         <a class="icon-btn r ml10" id="addcart11889" href="javascript:;" data-lesson-id="11889" data-lesson-name="<?php echo $section[$t]['section_name']?>" style="background-color:#1CAAEA;color:#fff;"><i class="iconfont f24" style="line-height: 1.2"></i>立即购买</a>
                                                         <a class="icon-btn r" href="<?php echo site_url().'/showtv/showbyid/'.$section[$t]['section_id']?><?php echo '/'.$_SESSION['course_id'] ?>">
-                                                            <i class="iconfont"></i> <span class="txt">马上学习</span></a>
+                                                            
                                                     </li>
                                                     <?php
                                      }
@@ -1062,12 +1039,7 @@
                                 </ul>
                             </div>
                             <br>
-                            <div class="h60 lh60 pl20 f16">
-                                <label class="w70 l dn">
-                                    <input type="checkbox">全选</label>
-                                <a class="btn btn-none btn-active btn-auto w185 f18 r xiazais" href="javascript:;" style="height: 54px; line-height: 54px; margin: 3px;" title="批量云下载视频课程" data-pay="False">批量下载视频</a>
-                                <a class="btn btn-none btn-active btn-auto w185 f18 r " href="http://www.rfgxy.com/lesson1/paly_suc.aspx" style="height: 54px; line-height: 54px; margin: 3px;" title="下载播放器观看视频">下载播放器观看</a>
-                            </div>
+
                             <br>
                         </div>
                         <!--课程视频大纲-->
@@ -1077,7 +1049,6 @@
                             <!--课程介绍-->
                             <div class="box1 mt0">
                                 <div class="bhead">
-                                    <span class="r f14 pr20"><a href="http://www.rfgxy.com/lesson/2179/#">更多<em class="fs">&gt;&gt; </em></a></span>
                                     <h3>
                                 课程介绍</h3>
                                 </div>
@@ -1086,38 +1057,14 @@
                                 学习后，您将会做什么？</h4>
                                     <ul class="lh25 f14">
                                         <li>
-                                            <p><span style="white-space:normal;">学习完后能掌握模拟量模块的选型，模拟量模块接线，掌握模拟量模块转换后得到的数字量与实际工程值的转换程序的编写，掌握PID控制程序的的编写及PID参数的调试。</span></p>
+                                            <p><span style="white-space:normal;">                            <?php
+                $course=$arr[2];
+                echo $course[0]['course_synopsis'];
+                ?>
+</span></p>
                                         </li>
                                     </ul>
-                                    <h4 class="h40 lh40 f18 colblue mt10">
-                                适用人群</h4>
-                                    <ul class="lh25 f14">
-                                        <li>
-                                            <p style="padding:0px;color:#666666;margin-top:0px;margin-bottom:0px;white-space:normal;background-color:#F3F3F3;"><span style="margin:0px;padding:0px;"></span></p>
-                                            <p align="left"><span style="font-family:华文楷体;"></span></p>
-                                            <p>
-                                                对西门子S7-200PLC硬件结构及逻辑指令有一定了解的学员
-                                            </p>
-                                            <p>
-                                                学习建议：学习模拟量必须要有外围的传感器及模拟量模块，这样在学习的过程中才能够熟悉模拟量的接线及应用，PID更是需要具有外围的反馈才能够实现的一种控制，所以如果需要调好PLC，必须要有外围的控制设备。
-                                            </p><span style="color:#666666;font-family:Arial, Verdana, SimSun;white-space:normal;background-color:#F3F3F3;"></span>
-                                        </li>
-                                    </ul>
-                                    <h4 class="h40 lh40 f18 colblue mt10">
-                                课程特色？</h4>
-                                    <ul class="lh25 f14">
-                                        <li>
-                                            <span style="white-space:nowrap;">1、全面细致的介绍了S7-200PLC的模拟量模块的种类及各模块的参数说明。</span>
-                                            <br><span style="white-space:nowrap;">2、 结合实际详细的介绍了各种模块的使用场合及如何接线</span>
-                                            <br><span style="white-space:nowrap;">3、 详细介绍了模拟量转化库应用，PID程序的几种编写方法及PID参数的调试过程</span>
-                                            <br>
-                                        </li>
-                                    </ul>
-                                    <ul class="lh25 f14">
-                                        <li>
-                                            <p><span style="white-space:nowrap;">详细的介绍了模拟量模块的选型，接线及应用</span></p>
-                                        </li>
-                                    </ul>
+  
                                 </div>
                             </div>
                             <!--课程介绍-->
@@ -1391,233 +1338,10 @@
                                 </div>
                             </div>
                             <!--学习计划-->
-                            <!--看了该课程的人还喜欢-->
-                            <div class="box1 mt20">
-                                <div class="bhead">
-                                    <h3>
-                                看了该课程的人还喜欢</h3>
-                                </div>
-                                <div class="oh">
-                                    <ul class="listview13 clearfix">
-                                        <li class="col4">
-                                            <div class="li-img">
-                                                <a href="http://www.rfgxy.com/lesson/2747/">
-                                            <img src="<?php echo base_url().'index/course'?>/20151009174633875.jpg" width="263" height="150" alt="">
-                                            <span class="btn btn-blue1 btn-radius f20">开始学习</span> <span class="mask"></span>
-                                        </a>
-                                            </div>
-                                            <p class="h40 mt5 lh20 f16">
-                                                <a href="http://www.rfgxy.com/lesson/2747/">
-                                            三菱FX系列PLC寻址方式及其应用</a></p>
-                                            <p>
-                                                <span class="btn btn-blue2 btn-small r">蔡慧荥</span><span class="f14 gray9"><em class="colblue">
-                                         8400
-                                      </em>
-                                            关注</span></p>
-                                        </li>
-                                        <li class="col4">
-                                            <div class="li-img">
-                                                <a href="http://www.rfgxy.com/lesson/2383/">
-                                            <img src="<?php echo base_url().'index/course'?>/20150924103743406.png" width="263" height="150" alt="">
-                                            <span class="btn btn-blue1 btn-radius f20">开始学习</span> <span class="mask"></span>
-                                        </a>
-                                            </div>
-                                            <p class="h40 mt5 lh20 f16">
-                                                <a href="http://www.rfgxy.com/lesson/2383/">
-                                            GX Developer编程软件使用</a></p>
-                                            <p>
-                                                <span class="btn btn-blue2 btn-small r">李金城</span><span class="f14 gray9"><em class="colblue">
-                                         6151
-                                      </em>
-                                            关注</span></p>
-                                        </li>
-                                        <li class="col4">
-                                            <div class="li-img">
-                                                <a href="http://www.rfgxy.com/lesson/2180/">
-                                            <img src="<?php echo base_url().'index/course'?>/20150512134848578.png" width="263" height="150" alt="">
-                                            <span class="btn btn-blue1 btn-radius f20">开始学习</span> <span class="mask"></span>
-                                        </a>
-                                            </div>
-                                            <p class="h40 mt5 lh20 f16">
-                                                <a href="http://www.rfgxy.com/lesson/2180/">
-                                            西门子S7-200PLC通信篇</a></p>
-                                            <p>
-                                                <span class="btn btn-blue2 btn-small r">梁智斌</span><span class="f14 gray9"><em class="colblue">
-                                         14999
-                                      </em>
-                                            关注</span></p>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!--看了该课程的人还喜欢-->
+
                         </div>
                     </div>
-                    <div class="tabConBox hide" style="display: none;">
-                        <div class="w880 l">
-                            <!--服务保障-->
-                            <div class="box1">
-                                <div class="bhead">
-                                    <h3>
-                                服务保障</h3>
-                                </div>
-                                <div class="pd20">
-                                    <h4 class="gray6 tc" style="font-size: 48px;">
-                                12大服务保障</h4>
-                                    <p class="f24 gray6 tc">
-                                        海量工控学习资料，60个城市推荐就业
-                                        <iframe width="92" height="22" scrolling="no" frameborder="0" allowtransparency="true" src="<?php echo base_url().'index/course'?>/course.html"></iframe>
-                                        <script charset="utf-8" type="text/javascript" src="<?php echo base_url().'index/course'?>/wpa.php">
-                                        </script>
-                                    </p>
-                                    <div class="w780 mc mt20">
-                                        <ul class="listview11 clearfix">
-                                            <li class="service-collapse" data-role="collapsible">
-                                                <div class="collapse-head">
-                                                    <i class="icon-service icon-class"></i>
-                                                    <p class="f18 h30 lh30 gray6 mt10">
-                                                        海量权威精品课</p>
-                                                </div>
-                                                <div class="collapse-cont">
-                                                    <i class="caret1"></i><i class="caret2"></i>
-                                                    <h4 class="f24">
-                                                海量权威精品课</h4>
-                                                    <p class="f14 mt10 gray6">
-                                                        不管你有没有了解过工业自动化，甚至看不懂普通电路图的同学，还是有多年工程经验的高级工程师，在儒风国都能找到合适您课程。电工入门，设备维护，技术升级，晋升工程师，学控制，学运动控制，学通信，学PID，学模拟量，儒风国网，啥都有！</p>
-                                                </div>
-                                            </li>
-                                            <li class="service-collapse" data-role="collapsible">
-                                                <div class="collapse-head">
-                                                    <i class="icon-service icon-dingzhi"></i>
-                                                    <p class="f18 h30 lh30 gray6 mt10">
-                                                        学习规划</p>
-                                                </div>
-                                                <div class="collapse-cont" data-role="collapsible">
-                                                    <i class="caret1"></i><i class="caret2"></i>
-                                                    <h4 class="f24">
-                                                学习规划</h4>
-                                                    <p class="f14 mt10 gray6">
-                                                        只要通过相对应的测试，儒风国大数据即可分析出适合您学习的课程方案，并指导您循序渐进的学习。还为您的职业规划做建议。 经验丰富的权威老师给您讲解详细的学习指导课，消除您初学的迷茫！ 海量视频课堂让您从简到难系统学习， 拿出您的学习机边学习边练习， 需要辅助学习资料，上论坛啊！ 公开课让我们一起加固基础， 班级课给您的学习添柴加火， 答疑课让您不再为问题所困， 实操课跟着老师一起做， 定期去考试页面测试下您的学习成果哦！ 有事没事都到班级群里跟大家聊聊哈~~总有意想不到的收货。</p>
-                                                </div>
-                                            </li>
-                                            <li class="service-collapse pull-right" data-role="collapsible">
-                                                <div class="collapse-head">
-                                                    <i class="icon-service icon-zhibo"></i>
-                                                    <p class="f18 h30 lh30 gray6 mt10">
-                                                        直播课堂</p>
-                                                </div>
-                                                <div class="collapse-cont" data-role="collapsible">
-                                                    <i class="caret1"></i><i class="caret2"></i>
-                                                    <h4 class="f24">
-                                                直播课堂</h4>
-                                                    <p class="f14 mt10 gray6">
-                                                        每个工作日的19：30-22：00，我们都在腾讯课堂开展在线直播课堂，除了学习还可以直面专家老师。</p>
-                                                </div>
-                                            </li>
-                                            <li class="service-collapse pull-right" data-role="collapsible">
-                                                <div class="collapse-head">
-                                                    <i class="icon-service icon-dayi"></i>
-                                                    <p class="f18 h30 lh30 gray6 mt10">
-                                                        课堂答疑</p>
-                                                </div>
-                                                <div class="collapse-cont">
-                                                    <i class="caret1"></i><i class="caret2"></i>
-                                                    <h4 class="f24">
-                                                课堂答疑</h4>
-                                                    <p class="f14 mt10 gray6">
-                                                        每周的答疑课我们老师为您扫清一周的技术障碍</p>
-                                                </div>
-                                            </li>
-                                            <li class="service-collapse" data-role="collapsible">
-                                                <div class="collapse-head">
-                                                    <i class="icon-service icon-jianglian"></i>
-                                                    <p class="f18 h30 lh30 gray6 mt10">
-                                                        讲练结合</p>
-                                                </div>
-                                                <div class="collapse-cont" data-role="collapsible">
-                                                    <i class="caret1"></i><i class="caret2"></i>
-                                                    <h4 class="f24">
-                                                讲练结合</h4>
-                                                    <p class="f14 mt10 gray6">
-                                                        针对儒风国学习机专门开设了实操课的哦，边听老师讲课，边跟着一步一步实际操作。</p>
-                                                </div>
-                                            </li>
-                                            <li class="service-collapse" data-role="collapsible">
-                                                <div class="collapse-head">
-                                                    <i class="icon-service icon-jiaoliu"></i>
-                                                    <p class="f18 h30 lh30 gray6 mt10">
-                                                        交流学习</p>
-                                                </div>
-                                                <div class="collapse-cont">
-                                                    <i class="caret1"></i><i class="caret2"></i>
-                                                    <h4 class="f24">
-                                                交流学习</h4>
-                                                    <p class="f14 mt10 gray6">
-                                                        1、QQ群交流（200个2000人QQ群），让学习不在孤单； 2、论坛交流，任何学习或工作遇到的问题，都可以提出来； 3、定期线下沙龙讨论、学员活动； 活跃的班级群让我们跟老师班里的同学一起学习交流；群公告里录播视频连接让大家没有漏听课的烦恼；群文件资料让大家轻松查找所需资料。</p>
-                                                </div>
-                                            </li>
-                                            <li class="service-collapse pull-right" data-role="collapsible">
-                                                <div class="collapse-head">
-                                                    <i class="icon-service icon-fuxue"></i>
-                                                    <p class="f18 h30 lh30 gray6 mt10">
-                                                        免费复学</p>
-                                                </div>
-                                                <div class="collapse-cont">
-                                                    <i class="caret1"></i><i class="caret2"></i>
-                                                    <h4 class="f24">
-                                                免费复学</h4>
-                                                    <p class="f14 mt10 gray6">
-                                                        指导课没听明白？班级课没空听？白天没时间班级交流？答疑课恰好错过？ 免费复学来帮你！</p>
-                                                </div>
-                                            </li>
-                                            <li class="service-collapse">
-                                                <div class="collapse-head">
-                                                    <i class="icon-service icon-zuqi"></i>
-                                                    <p class="f18 h30 lh30 gray6 mt10">
-                                                        学习顾问+班级群</p>
-                                                </div>
-                                            </li>
-                                            <li class="service-collapse">
-                                                <div class="collapse-head">
-                                                    <i class="icon-service icon-shuben"></i>
-                                                    <p class="f18 h30 lh30 gray6 mt10">
-                                                        送配套学习书本</p>
-                                                </div>
-                                            </li>
-                                            <li class="service-collapse">
-                                                <div class="collapse-head">
-                                                    <i class="icon-service icon-jiuye"></i>
-                                                    <p class="f18 h30 lh30 gray6 mt10">
-                                                        60个城市就业推荐</p>
-                                                </div>
-                                            </li>
-                                            <li class="service-collapse">
-                                                <div class="collapse-head">
-                                                    <i class="icon-service icon-zhengshu"></i>
-                                                    <p class="f18 h30 lh30 gray6 mt10">
-                                                        考试发证</p>
-                                                </div>
-                                            </li>
-                                            <li class="service-collapse">
-                                                <div class="collapse-head">
-                                                    <i class="icon-service icon-set"></i>
-                                                    <p class="f18 h30 lh30 gray6 mt10">
-                                                        实操学习机</p>
-                                                    <p class="gray9">
-                                                        （白金会员及以上享有）</p>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <p class="tc mt20 mb20">
-                                        <a href="http://www.rfgxy.com/lesson1/person_xufei.aspx" class="btn btn-auto btn-blue1 w480 h100 mc pay_buy" style="line-height: 70px;
-                            font-size: 30px; border-radius: 100px; height:70px;width:350px;">升级会员免费学习</a>
-                                    </p>
-                                </div>
-                            </div>
-                            <!--服务保障-->
-                        </div>
-                    </div>
+                    
                 </div>
                 <!--左侧栏目块-->
                 <!--右侧栏目块-->
@@ -2126,28 +1850,7 @@
             <p id="popMore"><a class="mr20" id="btn_huifu" href="javascript:;">回复</a><a href="http://www.rfgxy.com/" target="_blank" class="look">查看 »</a></p>
         </div>
     </div>
-    <iframe frameborder="0" id="bdSharePopup_1449747704218bg" class="bdshare_popup_bg" style="height: 326px; width: 228px; top: 168px; left: 822.5px; display: none;"></iframe>
-    <div class="bdshare_popup_box" id="bdSharePopup_1449747704218box" style="width: 226px; top: 168px; left: 822.5px; display: none;">
-        <div class="bdshare_popup_top">分享到</div>
-        <ul class="bdshare_popup_list">
-            <li><a href="http://www.rfgxy.com/lesson/2179/#" onclick="return false;" class="popup_mshare" data-cmd="mshare">一键分享</a></li>
-            <li><a href="http://www.rfgxy.com/lesson/2179/#" onclick="return false;" class="popup_qzone" data-cmd="qzone">QQ空间</a></li>
-            <li><a href="http://www.rfgxy.com/lesson/2179/#" onclick="return false;" class="popup_tsina" data-cmd="tsina">新浪微博</a></li>
-            <li><a href="http://www.rfgxy.com/lesson/2179/#" onclick="return false;" class="popup_bdysc" data-cmd="bdysc">百度云收藏</a></li>
-            <li><a href="http://www.rfgxy.com/lesson/2179/#" onclick="return false;" class="popup_weixin" data-cmd="weixin">微信</a></li>
-            <li><a href="http://www.rfgxy.com/lesson/2179/#" onclick="return false;" class="popup_renren" data-cmd="renren">人人网</a></li>
-            <li><a href="http://www.rfgxy.com/lesson/2179/#" onclick="return false;" class="popup_tqq" data-cmd="tqq">腾讯微博</a></li>
-            <li><a href="http://www.rfgxy.com/lesson/2179/#" onclick="return false;" class="popup_bdxc" data-cmd="bdxc">百度相册</a></li>
-            <li><a href="http://www.rfgxy.com/lesson/2179/#" onclick="return false;" class="popup_kaixin001" data-cmd="kaixin001">开心网</a></li>
-            <li><a href="http://www.rfgxy.com/lesson/2179/#" onclick="return false;" class="popup_tqf" data-cmd="tqf">腾讯朋友</a></li>
-            <li><a href="http://www.rfgxy.com/lesson/2179/#" onclick="return false;" class="popup_tieba" data-cmd="tieba">百度贴吧</a></li>
-            <li><a href="http://www.rfgxy.com/lesson/2179/#" onclick="return false;" class="popup_douban" data-cmd="douban">豆瓣网</a></li>
-            <li><a href="http://www.rfgxy.com/lesson/2179/#" onclick="return false;" class="popup_bdhome" data-cmd="bdhome">百度新首页</a></li>
-            <li><a href="http://www.rfgxy.com/lesson/2179/#" onclick="return false;" class="popup_sqq" data-cmd="sqq">QQ好友</a></li>
-            <li><a href="http://www.rfgxy.com/lesson/2179/#" onclick="return false;" class="popup_thx" data-cmd="thx">和讯微博</a></li>
-            <li><a href="http://www.rfgxy.com/lesson/2179/#" onclick="return false;" class="popup_ibaidu" data-cmd="ibaidu">百度中心</a></li>
-        </ul>
-        <div class="bdshare_popup_bottom"><a href="http://www.rfgxy.com/lesson/2179/#" onclick="return false;" class="popup_more" data-cmd="more" target="_blank;">更多...</a></div>
+
     </div>
 </body>
 
