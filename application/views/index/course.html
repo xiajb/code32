@@ -527,8 +527,6 @@
     }
     </style>
     <style type="text/css">
-
-    
     .WPA3-CONFIRM {
         *background-image: url(http://combo.b.qq.com/crm/wpa/release/3.3/wpa/views/panel.png);
     }
@@ -697,7 +695,6 @@
                     <li>
                         <a class="nav-link" href="http://www.rfgxy.com/lesson1/jinpin.aspx">首页</a>
                     </li>
-
                     <li>
                         <span class="fs pr10 pl10">&gt;</span>
                         <strong class="gray3">选课中心</strong>
@@ -711,7 +708,6 @@
                     </div>
                     <a href="javascript:;" class="search-btn searchsubmit btn-search1" id="btn-search1" onfocus="this.blur();">
                         <i class="iconfont f20 icon Hui-iconfont">&#xe665;</i></a>
-
                 </div>
                 <!--搜索框-->
                 <script type="text/javascript">
@@ -746,15 +742,15 @@
                         } else if (!$.trim(txtSearch).indexOf("请输入课程")) {
                             $txtSearch.val("请输入课程").focus();
                         } else {
-            $.ajax({
-                type: 'GET',
-                url: "<?php echo base_url() ?>search?words="+txtSearch,
+                            $.ajax({
+                                type: 'GET',
+                                url: "<?php echo base_url() ?>search?words=" + txtSearch,
 
-                                    success: function(result) {
+                                success: function(result) {
 
-                 window.location.href = "<?php echo base_url() ?>search?words="+txtSearch;
-                                    }
-            });
+                                    window.location.href = "<?php echo base_url() ?>search?words=" + txtSearch;
+                                }
+                            });
                         }
                     };
                 $searchArea.on({
@@ -883,7 +879,7 @@
                         </script>
                     </div>
                     <div class="w555 r">
-                    <input type="hidden" id="course_id" value="<?php $course=$arr[2]; echo $course[0]['course_id']; ?>"/>
+                        <input type="hidden" id="course_id" value="<?php $course=$arr[2]; echo $course[0]['course_id']; ?>" />
                         <h3 class="h30 lh30 f18 n">
                              <?php
                 $course=$arr[2];
@@ -930,7 +926,6 @@
                                     <input type="hidden" name="grd" class="grd" value="">
                                     <a href="http://www.rfgxy.com/lesson1/play_course_pay.aspx?course_id=2179">开始学习</a>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -975,63 +970,60 @@
                                     <?php
                               $chapter=$arr[0];
                               $section=$arr[1];
-                         $lenth=count($chapter);
-                          $lenth2=count($section);
+                              $lenth=count($chapter);
+                              $lenth2=count($section);
                           for($i=0;$i<$lenth;$i++){?>
                                         <li class="list-collapse">
                                             <div class="collapse-head">
                                                 <span class="hand colblue r f14 toggle-outline">
-                                          <?php
-                                          if($chapter[$i]['order_no']==1){
-                                            echo '收起';
-                                          }else{
-                                            echo '展开';
-                                          }
-
-                                          ?></span>
+                                                  <?php
+                                                  if($chapter[$i]['order_no']==1){
+                                                    echo '收起';
+                                                  }else{
+                                                    echo '展开';
+                                                  }
+                                                  ?></span>
                                                 <label>
                                                     <input type="checkbox" class="form-checkbox dn">
                                                     <?php echo $chapter[$i]['chapter_name'];?>
                                                 </label>
                                             </div>
                                             <div class="collapse-cont" rel="0" style="<?php
-                                   if($chapter[$i]['order_no']==1){
+                                                   if($chapter[$i]['order_no']==1){
 
-                                   }else{
-                                      echo 'display:none';
-                                   }
+                                                   }else{
+                                                      echo 'display:none';
+                                                   }
 
-                                   ?>">
+                                                   ?>">
                                                 <ul class="listview5">
                                                     <?php for ($t=0; $t<$lenth2; $t++) {
-                                            if ($chapter[$i]['chapter_name']==$section[$t]['chapter_name']){?>
+                                                        if ($chapter[$i]['chapter_name']==$section[$t]['chapter_name']){?>
                                                     <li><span class="w550 l">
-                                              <input type="checkbox" class="form-checkbox dn">
-                                              <a href="<?php echo site_url().'/showtv/showbyid/'.$section[$t]['section_id']?><?php echo '/'.$_SESSION['course_id'] ?>">
-                                                <?php
-                                                 if(count($section[$t]['order_no'])==1){
-                                                   echo '第00'.$section[$t]['order_no'].'课时.';
-                                                 }else if(count($section[$t]['order_no'])==2){
-                                                   echo '第0'.$section[$t]['order_no'].'课时.';
-                                                 }else{
-                                                  echo '第'.$section[$t]['order_no'].'课时.';
-                                                 }
-                                                ?>
-                                                <?php echo $section[$t]['section_name'];?>
+                                                    <input type="checkbox" class="form-checkbox dn">
+                                                    <a href="<?php echo site_url().'/showtv/showbyid/'.$section[$t]['section_id']?><?php echo '/'.$_SESSION['course_id'] ?>">
+                                                        <?php
+                                                         if(count($section[$t]['order_no'])==1){
+                                                           echo '第00'.$section[$t]['order_no'].'课时.';
+                                                         }else if(count($section[$t]['order_no'])==2){
+                                                           echo '第0'.$section[$t]['order_no'].'课时.';
+                                                         }else{
+                                                          echo '第'.$section[$t]['order_no'].'课时.';
+                                                         }
+                                                        ?>
+                                                        <?php echo $section[$t]['section_name'];?>
 
-                                              </a></span>
+                                                      </a></span>
                                                         <span class="colblue l"></span>
-                                                        <!--您已购买2，可下载学习  || le_item.price <= 0 --->
                                                         <input type="hidden" name="aloow" class="aloow" value="False">
-                                                        <a class="icon-btn r ml10" id="addcart11889" href="javascript:;" data-lesson-id="11889" data-lesson-name="<?php echo $section[$t]['section_name']?>" style="background-color:#1CAAEA;color:#fff;"><i class="iconfont f24" style="line-height: 1.2"></i>立即购买</a>
                                                         <a class="icon-btn r" href="<?php echo site_url().'/showtv/showbyid/'.$section[$t]['section_id']?><?php echo '/'.$_SESSION['course_id'] ?>">
-                                                            
+                                                            <i class="iconfont"></i> <span class="txt">马上学习</span></a>
                                                     </li>
                                                     <?php
-                                     }
+                                                         }
 
-                                 }
-                                 ?>
+                                                     }
+                                                     ?>
                                                 </ul>
                                             </div>
                                         </li>
@@ -1039,7 +1031,6 @@
                                 </ul>
                             </div>
                             <br>
-
                             <br>
                         </div>
                         <!--课程视频大纲-->
@@ -1064,7 +1055,6 @@
 </span></p>
                                         </li>
                                     </ul>
-  
                                 </div>
                             </div>
                             <!--课程介绍-->
@@ -1143,388 +1133,387 @@
                                     <li class="clearfix">
                                         <div class="w50 h50 l">
                                             <a href="http://www.rfgxy.com/lesson/2179/#">
-                                            <?php if (isset($_SESSION['uid'])) : ?>
-                                        <img src="<?php echo $_SESSION['pic']; ?>" width="50" height="50" alt=""></a></div>
-                                            <?php else: ?>
-                                        <img src="<?php echo base_url().'index/course'?>/stu.jpg" width="50" height="50" alt=""></a></div>
-                                            <?php endif; ?>
-                                        <div class="f14" style="padding-left: 70px;">
-                                            <form id="comment_form" name="comment_form" method="post" autocomplete="off">
-                                                <textarea class="form-area input_comment1" id="input_comment1" name="input_comment1" style="width: 754px; _width: 752px;" rows="4" placeholder="有什么感想，您也来说说吧！"></textarea>
-                                                <div class="pt10 h35 pb10">
-                                                    <span class="r gray9">最多可输入<em class="colblue" id="inpNum">200</em>字
+                                                <?php if (isset($_SESSION['uid'])) : ?>
+                                                <img src="<?php echo $_SESSION['pic']; ?>" width="50" height="50" alt=""></a>
+                                        </div>
+                                        <?php else: ?>
+                                        <img src="<?php echo base_url().'index/course'?>/stu.jpg" width="50" height="50" alt=""></a>
+                            </div>
+                            <?php endif; ?>
+                            <div class="f14" style="padding-left: 70px;">
+                                <form id="comment_form" name="comment_form" method="post" autocomplete="off">
+                                    <textarea class="form-area input_comment1" id="input_comment1" name="input_comment1" style="width: 754px; _width: 752px;" rows="4" placeholder="有什么感想，您也来说说吧！"></textarea>
+                                    <div class="pt10 h35 pb10">
+                                        <span class="r gray9">最多可输入<em class="colblue" id="inpNum">200</em>字
 
                                         <a href="javascript:;" id="add_comment1" class="btn btn-blue1 btn-radius ml10 f16">提交</a> </span>
-                                                </div>
-                                                <input id="Hidden1" name="commentcourseid" value="2179" type="hidden">
-                                            </form>
-                                        </div>
-                                    </li>
-                                    <?php foreach ($comment as $row): ?>
-                                    <li class="clearfix">
-                                        <div class="w50 h50 l">
-                                            <a href="#">
+                                    </div>
+                                    <input id="Hidden1" name="commentcourseid" value="2179" type="hidden">
+                                </form>
+                            </div>
+                            </li>
+                            <?php foreach ($comment as $row): ?>
+                            <li class="clearfix">
+                                <div class="w50 h50 l">
+                                    <a href="#">
                                                 <img src="<?php echo $row['pic'] ?>" width="50" height="50" alt=""></a>
-                                        </div>
-                                        <div class="f14" style="padding-left: 70px;">
-                                            <p class="link-blue lh30">
-                                                <a class="b" href="#">
-                                                    <?php echo $row['nickname'] ?>
-                                                </a> <span class="gray9 lh20 pb5">发表于:<?php echo $row['add_time'] ?></span></p>
-                                            <p class="lh22">
-                                                <?php echo $row['comment'] ?>
-                                            </p>
-                                            <p class="link-blue lh30 gray9 tr mt10">
-                                                <a></a>
-                                            </p>
-                                        </div>
-                                    </li>
-                                    <?php endforeach; ?>
+                                </div>
+                                <div class="f14" style="padding-left: 70px;">
+                                    <p class="link-blue lh30">
+                                        <a class="b" href="#">
+                                            <?php echo $row['nickname'] ?>
+                                        </a> <span class="gray9 lh20 pb5">发表于:<?php echo $row['add_time'] ?></span></p>
+                                    <p class="lh22">
+                                        <?php echo $row['comment'] ?>
+                                    </p>
+                                    <p class="link-blue lh30 gray9 tr mt10">
+                                        <a></a>
+                                    </p>
+                                </div>
+                            </li>
+                            <?php endforeach; ?>
+                            </ul>
+                        </div>
+                        <!--点评-->
+                        <div class="pages mt10 tc">
+                            <div class="lesson_comments_pager">
+                                <div style="clear: both; margin-top: 10px;">
+                                    <div class="cutPage" id="jcCommentBar"></div>
+                                    <div class="cl">
+                                    </div>
+                                </div>
+                                <script type="text/javascript">
+                                $(function() {
+                                        //初始化评论分页
+                                        _page_CommentBar = new open_pager("jcCommentBar");
+                                        _page_CommentBar.pageSize = 20; //每页显示数
+                                        _page_CommentBar.pageFuncName = "CommentLoading"; //回调函数名称
+                                        _page_CommentBar.currentPage = 1; //当前页
+                                        _page_CommentBar.totalRows = 0; //总条数
+                                        _page_CommentBar.allowClone = true;
+                                        //_page_CommentBar.cloneName="jcCommentBarClone";
+                                        _page_CommentBar.output();
+                                        var lv = "<?php  $course=$arr[2];echo $course[0]['course_level'];?>";
+                                        if (lv == '初级' || lv == '小学') {
+                                            //var aa=  $("em#lv1").attr('class');
+                                            $("em#lv1").attr('class', 'actblue');
+                                        }
+                                        if (lv == '中级' || lv == '初中') {
+                                            $("em#lv2").attr('class', 'actblue');
+                                        }
+                                        if (lv == '高级' || lv == '高中') {
+                                            $("em#lv3").attr('class', 'actblue');
+                                        }
 
+                                    })
+                                    //调用
+                                function CommentLoading(pg) {
+                                    $(".listview7").html("<img src='/images/loading-3.gif'/>正在加载评论.");
+                                    //$(window).scrollTop(835);//设置滚动条据顶部距离
+                                    _page_CommentBar.currentPage = parseInt(pg);
+                                    //在这里做数据处理。异步查询数据库记录输出html
+                                    $.post("/lesson1/GetCourseCommentsnew.aspx", {
+                                        courseid: '2179',
+                                        pagesize: _page_CommentBar.pageSize,
+                                        currentpage: _page_CommentBar.currentPage
+                                    }, function(msg) {
+                                        $(".listview7").html(msg);
+                                    });
+                                    _page_CommentBar.output();
+                                }
+                                </script>
+                            </div>
+                        </div>
+                        <!--pages-->
+                    </div>
+                </div>
+                <div class="tabConBox hide" style="display: none;">
+                    <div class="w880 l">
+                        <!--学习计划-->
+                        <div class="box1">
+                            <div class="bhead">
+                                <h3>学习计划</h3>
+                            </div>
+                            <div class="oh">
+                                <ul class="listview10 clearfix">
+                                    <li class="col3">
+                                        <a class="db" href="http://www.rfgxy.com/lesson1/sljh.aspx">
+                                            <div class="pd20">
+                                                <p class="h40 lh40 f16 ellipsis">三菱学习计划(新手篇)</p>
+                                                <p>
+                                                    <span class="btn btn-gray1 btn-small mr5">PLC入门到精通</span>
+                                                    <span class="btn btn-gray1 btn-small">求职必备</span>
+                                                    <span class="btn btn-gray1 btn-small">加薪利器</span>
+                                                </p>
+                                            </div>
+                                            <div class="join lh25 f14 gray6">
+                                                <p><i class="graya iconfont f16"></i> 163人参加</p>
+                                                <p><i class="graya iconfont f16"></i> 5门课程</p>
+                                            </div>
+                                            <div class="list-img"><img src="<?php echo base_url().'index/course'?>/class1.jpg" width="265" height="230" alt=""></div>
+                                        </a>
+                                    </li>
+                                    <li class="col3">
+                                        <a class="db" href="http://www.rfgxy.com/lesson1/s7plc.aspx">
+                                            <div class="pd20">
+                                                <p class="h40 lh40 f16 ellipsis">S7-200PLC学习计划(新手篇)</p>
+                                                <p><span class="btn btn-gray1 btn-small mr5">S7-200入门到提高</span>
+                                                    <span class="btn btn-gray1 btn-small">菜鸟进阶</span></p>
+                                            </div>
+                                            <div class="join lh25 f14 gray6">
+                                                <p><i class="graya iconfont f16"></i> 231人参加</p>
+                                                <p><i class="graya iconfont f16"></i> 8门课程</p>
+                                            </div>
+                                            <div class="list-img"><img src="<?php echo base_url().'index/course'?>/class2.jpg" width="265" height="230" alt=""></div>
+                                        </a>
+                                    </li>
+                                    <li class="col3">
+                                        <a class="db" href="http://www.rfgxy.com/lesson1/bpq.aspx">
+                                            <div class="pd20">
+                                                <p class="h40 lh40 f16 ellipsis">变频器功能应用与设置从入门到精通</p>
+                                                <p><span class="btn btn-gray1 btn-small mr5">基础解析  </span><span class="btn btn-gray1 btn-small">零基础</span></p>
+                                            </div>
+                                            <div class="join lh25 f14 gray6">
+                                                <p><i class="graya iconfont f16"></i> 271人参加</p>
+                                                <p><i class="graya iconfont f16"></i> 9门课程</p>
+                                            </div>
+                                            <div class="list-img"><img src="<?php echo base_url().'index/course'?>/class3.jpg" width="265" height="230" alt=""></div>
+                                        </a>
+                                    </li>
+                                    <li class="col3">
+                                        <a class="db" href="http://www.rfgxy.com/lesson1/dg.aspx">
+                                            <div class="pd20">
+                                                <p class="h40 lh40 f16 ellipsis">电工基础学习计划(新手篇)</p>
+                                                <p><span class="btn btn-gray1 btn-small mr5">细致全面</span>
+                                                    <span class="btn btn-gray1 btn-small">工控初探</span>
+                                                    <span class="btn btn-gray1 btn-small">热门应用</span></p>
+                                            </div>
+                                            <div class="join lh25 f14 gray6">
+                                                <p><i class="graya iconfont f16"></i> 6591人参加</p>
+                                                <p><i class="graya iconfont f16"></i> 1门课程</p>
+                                            </div>
+                                            <div class="list-img"><img src="<?php echo base_url().'index/course'?>/class4.jpg" width="265" height="230" alt=""></div>
+                                        </a>
+                                    </li>
+                                    <li class="col3">
+                                        <a class="db" href="http://www.rfgxy.com/lesson1/oul.aspx">
+                                            <div class="pd20">
+                                                <p class="h40 lh40 f16 ellipsis">欧姆龙学习计划(新手篇)</p>
+                                                <p><span class="btn btn-gray1 btn-small mr5">小白入门
+</span><span class="btn btn-gray1 btn-small">从基础到实战</span></p>
+                                            </div>
+                                            <div class="join lh25 f14 gray6">
+                                                <p><i class="graya iconfont f16"></i> 710人参加</p>
+                                                <p><i class="graya iconfont f16"></i> 1门课程</p>
+                                            </div>
+                                            <div class="list-img"><img src="<?php echo base_url().'index/course'?>/class4.jpg" width="265" height="230" alt=""></div>
+                                        </a>
+                                    </li>
+                                    <li class="col3">
+                                        <a class="db" href="http://www.rfgxy.com/lesson1/gc.aspx">
+                                            <div class="pd20">
+                                                <p class="h40 lh40 f16 ellipsis">工程师的基础课程培训计划</p>
+                                                <p><span class="btn btn-gray1 btn-small mr5">工控新手
+</span><span class="btn btn-gray1 btn-small">零基础</span>
+                                                    <span class="btn btn-gray1 btn-small">入门教程</span>
+                                                </p>
+                                            </div>
+                                            <div class="join lh25 f14 gray6">
+                                                <p><i class="graya iconfont f16"></i> 1510人参加</p>
+                                                <p><i class="graya iconfont f16"></i> 1门课程</p>
+                                            </div>
+                                            <div class="list-img"><img src="<?php echo base_url().'index/course'?>/class6.jpg" width="265" height="230" alt=""></div>
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
-                            <!--点评-->
-                            <div class="pages mt10 tc">
-                                <div class="lesson_comments_pager">
-                                    <div style="clear: both; margin-top: 10px;">
-                                        <div class="cutPage" id="jcCommentBar"></div>
-                                        <div class="cl">
-                                        </div>
-                                    </div>
-                                    <script type="text/javascript">
-                                    $(function() {
-                                            //初始化评论分页
-                                            _page_CommentBar = new open_pager("jcCommentBar");
-                                            _page_CommentBar.pageSize = 20; //每页显示数
-                                            _page_CommentBar.pageFuncName = "CommentLoading"; //回调函数名称
-                                            _page_CommentBar.currentPage = 1; //当前页
-                                            _page_CommentBar.totalRows = 0; //总条数
-                                            _page_CommentBar.allowClone = true;
-                                            //_page_CommentBar.cloneName="jcCommentBarClone";
-                                            _page_CommentBar.output();
-                                            var lv = "<?php  $course=$arr[2];echo $course[0]['course_level'];?>";
-                                            if (lv == '初级' || lv == '小学') {
-                                                //var aa=  $("em#lv1").attr('class');
-                                                $("em#lv1").attr('class', 'actblue');
-                                            }
-                                            if (lv == '中级' || lv == '初中') {
-                                                $("em#lv2").attr('class', 'actblue');
-                                            }
-                                            if (lv == '高级' || lv == '高中') {
-                                                $("em#lv3").attr('class', 'actblue');
-                                            }
-
-                                        })
-                                        //调用
-                                    function CommentLoading(pg) {
-                                        $(".listview7").html("<img src='/images/loading-3.gif'/>正在加载评论.");
-                                        //$(window).scrollTop(835);//设置滚动条据顶部距离
-                                        _page_CommentBar.currentPage = parseInt(pg);
-                                        //在这里做数据处理。异步查询数据库记录输出html
-                                        $.post("/lesson1/GetCourseCommentsnew.aspx", {
-                                            courseid: '2179',
-                                            pagesize: _page_CommentBar.pageSize,
-                                            currentpage: _page_CommentBar.currentPage
-                                        }, function(msg) {
-                                            $(".listview7").html(msg);
-                                        });
-                                        _page_CommentBar.output();
-                                    }
-                                    </script>
-                                </div>
-                            </div>
-                            <!--pages-->
                         </div>
+                        <!--学习计划-->
                     </div>
-                    <div class="tabConBox hide" style="display: none;">
-                        <div class="w880 l">
-                            <!--学习计划-->
-                            <div class="box1">
-                                <div class="bhead">
-                                    <h3>学习计划</h3>
-                                </div>
-                                <div class="oh">
-                                    <ul class="listview10 clearfix">
-                                        <li class="col3">
-                                            <a class="db" href="http://www.rfgxy.com/lesson1/sljh.aspx">
-                                                <div class="pd20">
-                                                    <p class="h40 lh40 f16 ellipsis">三菱学习计划(新手篇)</p>
-                                                    <p>
-                                                        <span class="btn btn-gray1 btn-small mr5">PLC入门到精通</span>
-                                                        <span class="btn btn-gray1 btn-small">求职必备</span>
-                                                        <span class="btn btn-gray1 btn-small">加薪利器</span>
-                                                    </p>
-                                                </div>
-                                                <div class="join lh25 f14 gray6">
-                                                    <p><i class="graya iconfont f16"></i> 163人参加</p>
-                                                    <p><i class="graya iconfont f16"></i> 5门课程</p>
-                                                </div>
-                                                <div class="list-img"><img src="<?php echo base_url().'index/course'?>/class1.jpg" width="265" height="230" alt=""></div>
-                                            </a>
-                                        </li>
-                                        <li class="col3">
-                                            <a class="db" href="http://www.rfgxy.com/lesson1/s7plc.aspx">
-                                                <div class="pd20">
-                                                    <p class="h40 lh40 f16 ellipsis">S7-200PLC学习计划(新手篇)</p>
-                                                    <p><span class="btn btn-gray1 btn-small mr5">S7-200入门到提高</span>
-                                                        <span class="btn btn-gray1 btn-small">菜鸟进阶</span></p>
-                                                </div>
-                                                <div class="join lh25 f14 gray6">
-                                                    <p><i class="graya iconfont f16"></i> 231人参加</p>
-                                                    <p><i class="graya iconfont f16"></i> 8门课程</p>
-                                                </div>
-                                                <div class="list-img"><img src="<?php echo base_url().'index/course'?>/class2.jpg" width="265" height="230" alt=""></div>
-                                            </a>
-                                        </li>
-                                        <li class="col3">
-                                            <a class="db" href="http://www.rfgxy.com/lesson1/bpq.aspx">
-                                                <div class="pd20">
-                                                    <p class="h40 lh40 f16 ellipsis">变频器功能应用与设置从入门到精通</p>
-                                                    <p><span class="btn btn-gray1 btn-small mr5">基础解析  </span><span class="btn btn-gray1 btn-small">零基础</span></p>
-                                                </div>
-                                                <div class="join lh25 f14 gray6">
-                                                    <p><i class="graya iconfont f16"></i> 271人参加</p>
-                                                    <p><i class="graya iconfont f16"></i> 9门课程</p>
-                                                </div>
-                                                <div class="list-img"><img src="<?php echo base_url().'index/course'?>/class3.jpg" width="265" height="230" alt=""></div>
-                                            </a>
-                                        </li>
-                                        <li class="col3">
-                                            <a class="db" href="http://www.rfgxy.com/lesson1/dg.aspx">
-                                                <div class="pd20">
-                                                    <p class="h40 lh40 f16 ellipsis">电工基础学习计划(新手篇)</p>
-                                                    <p><span class="btn btn-gray1 btn-small mr5">细致全面</span>
-                                                        <span class="btn btn-gray1 btn-small">工控初探</span>
-                                                        <span class="btn btn-gray1 btn-small">热门应用</span></p>
-                                                </div>
-                                                <div class="join lh25 f14 gray6">
-                                                    <p><i class="graya iconfont f16"></i> 6591人参加</p>
-                                                    <p><i class="graya iconfont f16"></i> 1门课程</p>
-                                                </div>
-                                                <div class="list-img"><img src="<?php echo base_url().'index/course'?>/class4.jpg" width="265" height="230" alt=""></div>
-                                            </a>
-                                        </li>
-                                        <li class="col3">
-                                            <a class="db" href="http://www.rfgxy.com/lesson1/oul.aspx">
-                                                <div class="pd20">
-                                                    <p class="h40 lh40 f16 ellipsis">欧姆龙学习计划(新手篇)</p>
-                                                    <p><span class="btn btn-gray1 btn-small mr5">小白入门
-</span><span class="btn btn-gray1 btn-small">从基础到实战</span></p>
-                                                </div>
-                                                <div class="join lh25 f14 gray6">
-                                                    <p><i class="graya iconfont f16"></i> 710人参加</p>
-                                                    <p><i class="graya iconfont f16"></i> 1门课程</p>
-                                                </div>
-                                                <div class="list-img"><img src="<?php echo base_url().'index/course'?>/class4.jpg" width="265" height="230" alt=""></div>
-                                            </a>
-                                        </li>
-                                        <li class="col3">
-                                            <a class="db" href="http://www.rfgxy.com/lesson1/gc.aspx">
-                                                <div class="pd20">
-                                                    <p class="h40 lh40 f16 ellipsis">工程师的基础课程培训计划</p>
-                                                    <p><span class="btn btn-gray1 btn-small mr5">工控新手
-</span><span class="btn btn-gray1 btn-small">零基础</span>
-                                                        <span class="btn btn-gray1 btn-small">入门教程</span>
-                                                    </p>
-                                                </div>
-                                                <div class="join lh25 f14 gray6">
-                                                    <p><i class="graya iconfont f16"></i> 1510人参加</p>
-                                                    <p><i class="graya iconfont f16"></i> 1门课程</p>
-                                                </div>
-                                                <div class="list-img"><img src="<?php echo base_url().'index/course'?>/class6.jpg" width="265" height="230" alt=""></div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!--学习计划-->
-
-                        </div>
-                    </div>
-                    
                 </div>
-                <!--左侧栏目块-->
-                <!--右侧栏目块-->
-                <div class="w300 r">
-                    <!--广告图-->
-                    <!--广告图-->
-                    <!--老师介绍-->
-                    <div class="box1 mt5">
-                        <div class="bhead">
-                            <h3>
+            </div>
+            <!--左侧栏目块-->
+            <!--右侧栏目块-->
+            <div class="w300 r">
+                <!--广告图-->
+                <!--广告图-->
+                <!--老师介绍-->
+                <div class="box1 mt5">
+                    <div class="bhead">
+                        <h3>
                                 老师介绍</h3>
-                        </div>
-                        <div class="pt10 pb10 pl20 pr20 f14">
-                            <div class="clearfix pt10 pb10">
-                                <div class="w100 l">
-                                    <a href="http://www.rfgxy.com/teacher/5.html">
+                    </div>
+                    <div class="pt10 pb10 pl20 pr20 f14">
+                        <div class="clearfix pt10 pb10">
+                            <div class="w100 l">
+                                <a href="http://www.rfgxy.com/teacher/5.html">
                                         <img src="<?php
                         $course=$arr[2];
                         echo $course[0]['pic'];
                         ?>" class="img-radius" width="100" height="100" alt=""></a></div>
-                                <div class="w140 pl10 l">
-                                    <h4 class="f16 gray3">
+                            <div class="w140 pl10 l">
+                                <h4 class="f16 gray3">
                                       <?php
                       $course=$arr[2];
                       echo $course[0]['name'];
                       ?></h4>
-                                    <p class="gray6 pt5">
-                                        资深讲师
-                                        <br>
-                                        <br> 高级工程师
-                                    </p>
-                                </div>
+                                <p class="gray6 pt5">
+                                    资深讲师
+                                    <br>
+                                    <br> 高级工程师
+                                </p>
                             </div>
-                            <p>
-                                <?php
+                        </div>
+                        <p>
+                            <?php
               $course=$arr[2];
               if($course[0]['intro']==''){
                 echo '0';
               }else{  echo $course[0]['intro'];}
 
               ?>
-                        </div>
-                        <div class="bfoot pl20 pr20 f14">
-                            <p class="clearfix">
-                                <span class="l">课程总数（139）</span> <span class="r hand" id="like-teacher-btn">
-                                    <i class="iconfont f14 colblue"></i> 赞（<label id="like-teacher-num">181</label>）</span></p>
-                        </div>
                     </div>
-                    <!--老师介绍-->
-                    <!--热门课程-->
-                    <div class="box1 mt20">
-                        <div class="bhead">
-                            <h3>
+                    <div class="bfoot pl20 pr20 f14">
+                        <p class="clearfix">
+                            <span class="l">课程总数（139）</span> <span class="r hand" id="like-teacher-btn">
+                                    <i class="iconfont f14 colblue"></i> 赞（<label id="like-teacher-num">181</label>）</span></p>
+                    </div>
+                </div>
+                <!--老师介绍-->
+                <!--热门课程-->
+                <div class="box1 mt20">
+                    <div class="bhead">
+                        <h3>
             热门课程</h3>
-                        </div>
-                        <div class="pt10 pb10 pl20 pr20">
-                            <ul>
-                                <li class="clearfix pt10 pb10">
-                                    <div class="w120 l">
-                                        <a href="http://www.rfgxy.com/lesson/3/">
+                    </div>
+                    <div class="pt10 pb10 pl20 pr20">
+                        <ul>
+                            <li class="clearfix pt10 pb10">
+                                <div class="w120 l">
+                                    <a href="http://www.rfgxy.com/lesson/3/">
                         <img src="<?php echo base_url().'index/course'?>/20150522113604296.jpg" width="120" height="85" alt=""></a></div>
-                                    <div class="w130 r lh20">
-                                        <p class="f14 mb5">
-                                            <a href="http://www.rfgxy.com/lesson/3/">
+                                <div class="w130 r lh20">
+                                    <p class="f14 mb5">
+                                        <a href="http://www.rfgxy.com/lesson/3/">
                             西门子S7-200PLC从入门到精通</a></p>
-                                        <p>
-                                            <strong class="colblue">
+                                    <p>
+                                        <strong class="colblue">
 
                             300.9万</strong>人关注</p>
-                                    </div>
-                                </li>
-                                <li class="clearfix pt10 pb10">
-                                    <div class="w120 l">
-                                        <a href="http://www.rfgxy.com/lesson/1773/">
+                                </div>
+                            </li>
+                            <li class="clearfix pt10 pb10">
+                                <div class="w120 l">
+                                    <a href="http://www.rfgxy.com/lesson/1773/">
                         <img src="<?php echo base_url().'index/course'?>/20150521170840656.jpg" width="120" height="85" alt=""></a></div>
-                                    <div class="w130 r lh20">
-                                        <p class="f14 mb5">
-                                            <a href="http://www.rfgxy.com/lesson/1773/">
+                                <div class="w130 r lh20">
+                                    <p class="f14 mb5">
+                                        <a href="http://www.rfgxy.com/lesson/1773/">
                             电工基础</a></p>
-                                        <p>
-                                            <strong class="colblue">
+                                    <p>
+                                        <strong class="colblue">
 
                             242万</strong>人关注</p>
-                                    </div>
-                                </li>
-                                <li class="clearfix pt10 pb10">
-                                    <div class="w120 l">
-                                        <a href="http://www.rfgxy.com/lesson/1/">
+                                </div>
+                            </li>
+                            <li class="clearfix pt10 pb10">
+                                <div class="w120 l">
+                                    <a href="http://www.rfgxy.com/lesson/1/">
                         <img src="<?php echo base_url().'index/course'?>/20150522113705656.jpg" width="120" height="85" alt=""></a></div>
-                                    <div class="w130 r lh20">
-                                        <p class="f14 mb5">
-                                            <a href="http://www.rfgxy.com/lesson/1/">
+                                <div class="w130 r lh20">
+                                    <p class="f14 mb5">
+                                        <a href="http://www.rfgxy.com/lesson/1/">
                             三菱FX系列PLC功能指令详解</a></p>
-                                        <p>
-                                            <strong class="colblue">
+                                    <p>
+                                        <strong class="colblue">
 
                             206.2万</strong>人关注</p>
-                                    </div>
-                                </li>
-                                <li class="clearfix pt10 pb10">
-                                    <div class="w120 l">
-                                        <a href="http://www.rfgxy.com/lesson/1507/">
+                                </div>
+                            </li>
+                            <li class="clearfix pt10 pb10">
+                                <div class="w120 l">
+                                    <a href="http://www.rfgxy.com/lesson/1507/">
                         <img src="<?php echo base_url().'index/course'?>/20150522113805937.jpg" width="120" height="85" alt=""></a></div>
-                                    <div class="w130 r lh20">
-                                        <p class="f14 mb5">
-                                            <a href="http://www.rfgxy.com/lesson/1507/">
+                                <div class="w130 r lh20">
+                                    <p class="f14 mb5">
+                                        <a href="http://www.rfgxy.com/lesson/1507/">
                             三菱FX PLC编程与应用入门</a></p>
-                                        <p>
-                                            <strong class="colblue">
+                                    <p>
+                                        <strong class="colblue">
 
                             124.8万</strong>人关注</p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!--热门课程-->
-                    <!--精彩讨论-->
-                    <div class="box1 mt20 f14" style=" display:none;">
-                        <div class="bhead">
-                            <span class="r f14 pr20">
-                                </span>
-                            <h3>
-                                精彩讨论</h3>
-                        </div>
-                        <div>
-                            <ul>
-                                <li class="pl20 pr20 pt10 pb10 bdgrayd bdda bdb">
-                                    <p class="h30 lh30">
-                                        <span class="gray9 r">
-                                            2015-05-28</span> <a class="colblue title" data-id="40">
-                                                欧小刀</a></p>
-                                    <p style="word-break: break-all;">
-                                        wincc使用中，文件名和存盘路径请不要出现中文。否则有可能出现运行前的下装，会出现死机！1.安装时候必须先关闭杀毒软件，防火墙…
-                                    </p>
-                                </li>
-                                <li class="pl20 pr20 pt10 pb10 bdgrayd bdda bdb">
-                                    <p class="h30 lh30">
-                                        <span class="gray9 r">
-                                            2015-06-04</span> <a class="colblue title" data-id="42">
-                                                欧小刀</a></p>
-                                    <p style="word-break: break-all;">
-                                        就在儒风国论坛有下载，搜下：西门子编程手册即可。
-                                    </p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!--精彩讨论-->
-                    <!--n人在学-->
-                    <!--n人在学-->
-                </div>
-                <!--右侧栏目块-->
-            </div>
-            <!--课程推荐-->
-            <div class="inner mt20">
-                <div class="bd1 bdgrayd bds pl20 pt10 pb10 bgwhite">
-                    <h3 class="h30 lh30 f16">
-                        课程推荐</h3>
-                    <div style="width: 1178px;" class="oh">
-                        <ul class="listview clearfix lh25">
-                            <li><a class="ellipsis" href="http://www.rfgxy.com/lesson/2134/">MODBUS通信协议及其应用</a></li>
-                            <li><a class="ellipsis" href="http://www.rfgxy.com/lesson/1508/">三菱PLC通信基础及应用</a></li>
-                            <li><a class="ellipsis" href="http://www.rfgxy.com/lesson/2151/">三菱FX3U定位控制与伺服应用技术</a></li>
-                            <li><a class="ellipsis" href="http://www.rfgxy.com/lesson/1883/">西门子LOGO!基础及应用</a></li>
-                            <li><a class="ellipsis" href="http://www.rfgxy.com/lesson/2146/">三菱FX系列PLC定位控制技术基础知识</a></li>
-                            <li><a class="ellipsis" href="http://www.rfgxy.com/lesson/1823/">西门子S7-300中高级应用--以太网通信技术</a></li>
-                            <li><a class="ellipsis" href="http://www.rfgxy.com/lesson/2149/">伺服驱动器功能参数设置与实操训练</a></li>
-                            <li><a class="ellipsis" href="http://www.rfgxy.com/lesson/1662/">西门子S7-300中高级应用技术</a></li>
-                            <li><a class="ellipsis" href="http://www.rfgxy.com/lesson/1533/">PID控制规律及其应用</a></li>
-                            <li><a class="ellipsis" href="http://www.rfgxy.com/lesson/1976/">西门子S7-300使用指南</a></li>
-                            <li><a class="ellipsis" href="http://www.rfgxy.com/lesson/1509/">三菱FX系列模拟量及PID应用基础</a></li>
-                            <li><a class="ellipsis" href="http://www.rfgxy.com/lesson/1824/">三菱Q系列PLC基础</a></li>
-                            <li><a class="ellipsis" href="http://www.rfgxy.com/lesson/1510/">西门子S7-300 PLC初级</a></li>
-                            <li><a class="ellipsis" href="http://www.rfgxy.com/lesson/1852/">汇川变频器功能参数设置及实操训练</a></li>
-                            <li><a class="ellipsis" href="http://www.rfgxy.com/lesson/2147/">西门子S7-200SMART PLC编程应用入门</a></li>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                 </div>
+                <!--热门课程-->
+                <!--精彩讨论-->
+                <div class="box1 mt20 f14" style=" display:none;">
+                    <div class="bhead">
+                        <span class="r f14 pr20">
+                                </span>
+                        <h3>
+                                精彩讨论</h3>
+                    </div>
+                    <div>
+                        <ul>
+                            <li class="pl20 pr20 pt10 pb10 bdgrayd bdda bdb">
+                                <p class="h30 lh30">
+                                    <span class="gray9 r">
+                                            2015-05-28</span> <a class="colblue title" data-id="40">
+                                                欧小刀</a></p>
+                                <p style="word-break: break-all;">
+                                    wincc使用中，文件名和存盘路径请不要出现中文。否则有可能出现运行前的下装，会出现死机！1.安装时候必须先关闭杀毒软件，防火墙…
+                                </p>
+                            </li>
+                            <li class="pl20 pr20 pt10 pb10 bdgrayd bdda bdb">
+                                <p class="h30 lh30">
+                                    <span class="gray9 r">
+                                            2015-06-04</span> <a class="colblue title" data-id="42">
+                                                欧小刀</a></p>
+                                <p style="word-break: break-all;">
+                                    就在儒风国论坛有下载，搜下：西门子编程手册即可。
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--精彩讨论-->
+                <!--n人在学-->
+                <!--n人在学-->
             </div>
-            <!--课程推荐-->
+            <!--右侧栏目块-->
         </div>
-        <!--container-->
+        <!--课程推荐-->
+        <div class="inner mt20">
+            <div class="bd1 bdgrayd bds pl20 pt10 pb10 bgwhite">
+                <h3 class="h30 lh30 f16">
+                        课程推荐</h3>
+                <div style="width: 1178px;" class="oh">
+                    <ul class="listview clearfix lh25">
+                        <li><a class="ellipsis" href="http://www.rfgxy.com/lesson/2134/">MODBUS通信协议及其应用</a></li>
+                        <li><a class="ellipsis" href="http://www.rfgxy.com/lesson/1508/">三菱PLC通信基础及应用</a></li>
+                        <li><a class="ellipsis" href="http://www.rfgxy.com/lesson/2151/">三菱FX3U定位控制与伺服应用技术</a></li>
+                        <li><a class="ellipsis" href="http://www.rfgxy.com/lesson/1883/">西门子LOGO!基础及应用</a></li>
+                        <li><a class="ellipsis" href="http://www.rfgxy.com/lesson/2146/">三菱FX系列PLC定位控制技术基础知识</a></li>
+                        <li><a class="ellipsis" href="http://www.rfgxy.com/lesson/1823/">西门子S7-300中高级应用--以太网通信技术</a></li>
+                        <li><a class="ellipsis" href="http://www.rfgxy.com/lesson/2149/">伺服驱动器功能参数设置与实操训练</a></li>
+                        <li><a class="ellipsis" href="http://www.rfgxy.com/lesson/1662/">西门子S7-300中高级应用技术</a></li>
+                        <li><a class="ellipsis" href="http://www.rfgxy.com/lesson/1533/">PID控制规律及其应用</a></li>
+                        <li><a class="ellipsis" href="http://www.rfgxy.com/lesson/1976/">西门子S7-300使用指南</a></li>
+                        <li><a class="ellipsis" href="http://www.rfgxy.com/lesson/1509/">三菱FX系列模拟量及PID应用基础</a></li>
+                        <li><a class="ellipsis" href="http://www.rfgxy.com/lesson/1824/">三菱Q系列PLC基础</a></li>
+                        <li><a class="ellipsis" href="http://www.rfgxy.com/lesson/1510/">西门子S7-300 PLC初级</a></li>
+                        <li><a class="ellipsis" href="http://www.rfgxy.com/lesson/1852/">汇川变频器功能参数设置及实操训练</a></li>
+                        <li><a class="ellipsis" href="http://www.rfgxy.com/lesson/2147/">西门子S7-200SMART PLC编程应用入门</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--课程推荐-->
+    </div>
+    <!--container-->
     </div>
     <!--footer-->
     <script src="<?php echo base_url().'index/course'?>/tools.v1.js" type="text/javascript"></script>
@@ -1850,7 +1839,6 @@
             <p id="popMore"><a class="mr20" id="btn_huifu" href="javascript:;">回复</a><a href="http://www.rfgxy.com/" target="_blank" class="look">查看 »</a></p>
         </div>
     </div>
-
     </div>
 </body>
 
