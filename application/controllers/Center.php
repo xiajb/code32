@@ -157,29 +157,37 @@ class Center extends CI_Controller {
 				'comment'=>'',
 				'changepw'=>'',
 			);
-		$data['courses']=$this->course_model->query_all();
+		$lectruer = $this->teacher_model->get_teacher($_SESSION['uid']);
+		$data['courses']=$this->course_model->get_course_by_lectruer($lectruer->tid);
 		$this->load->view("center_header.html",$data);
 		$this->load->view("center_teacher_add_video.html");
 		$this->load->view("center_footer.html");
 
 	}
 	public function add_section(){
-			$section_arr=$this->input->post('section_arr');
+			$section_arr = $_POST;
+			$section_arr = $this->security->xss_clean($section_arr);
+			file_put_contents('/home/tanxu/www/data.txt', print_r($_POST,true));
 			$now = time();
 			$section_arr['create_time']=unix_to_human($now, TRUE, 'eu');
-			$section_arr['order_no']=$this->show_model->getsection_orderbyid($section_arr['course_id'])[0]['order_no']+1;
-			if ($section_arr['chapter_id2']=='0') {
-				$section_arr['chapter_id']=$section_arr['chapter_id1'];
+			$section_arr['order_no']=$this->show_model->getsection_orderbyid($section_arr['courses'])[0]['order_no']+1;
+			if ($section_arr['chapter2']=='') {
+				$section_arr['chapter_id']=$section_arr['chapter1'];
 			}else{
-		$chapter_arr['order_no']=$this->Chapter_model->getchapter_orderbyid($section_arr['course_id'])[0]['order_no']+1;
-			$chapter_arr['chapter_name']=$section_arr['chapter_id2'];
-			$chapter_arr['course_id']=$section_arr['course_id'];
-			$section_arr['chapter_id']=$this->Chapter_model->add_chapter($chapter_arr);
+				$chapter_arr['order_no']=$this->Chapter_model->getchapter_orderbyid($section_arr['courses'])[0]['order_no']+1;
+				$chapter_arr['chapter_name']=$section_arr['chapter2'];
+				$chapter_arr['course_id']=$section_arr['courses'];
+				$section_arr['chapter_id']=$this->Chapter_model->add_chapter($chapter_arr);
 			};
-			unset($section_arr['course_id'],$section_arr['chapter_id1'],$section_arr['chapter_id2']);
+			unset($section_arr['courses'],$section_arr['chapter1'],$section_arr['chapter2'],$section_arr['ci_csrf_token']);
 			$a=$this->section_model->add_section($section_arr);
 			if($a>0){
-				redirect('http://www.rfgxy.com/center/add');
+				echo '1';
+				exit();
+				// redirect('http://www.rfgxy.com/center/add');
+			}else{
+				echo '-1';
+				exit();
 			};
 
 	}
