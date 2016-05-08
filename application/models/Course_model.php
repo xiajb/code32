@@ -78,6 +78,7 @@ class Course_model extends CI_Model{
 		return $query->result_array();
 	}
 
+
 	public function get_like_count($words){
 		$this->db->like('course_name', $words); $this->db->or_like('course_synopsis', $words);
 		$this->db->from(self::TBL_USER);

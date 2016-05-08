@@ -29,7 +29,7 @@ class Activity extends CI_Controller {
 	public function join(){
 		$id = $_GET['id'];
 		$res = $this->activity_model->get_activity_by_id($id);
-		file_put_contents('/home/tanxu/www/data.txt', $res);
+		// file_put_contents('/home/tanxu/www/data.txt', $res);
 		if ($res == '') {
 			echo '-2';
 			exit;
