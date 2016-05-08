@@ -87,24 +87,18 @@ class Helper extends CI_Controller {
 		// }
 		$value = $_POST;
 		$value = $this->security->xss_clean($value);
-		if (isset($_SESSION['token']) || $_SESSION['token'] == $value['token']) {
-			// $_SESSION['msg'] = '【创蓝文化】'.rand(1000,9999);
-			// $api =new ChuanglanSmsApi();
-			// $result = $api->sendSMS($value['phone'],$_SESSION['msg']);
-			// file_put_contents('/home/tanxu/www/data.txt', $result);
-			// echo $result;
-$sms=new ChuanglanSMS('N4368059','74fa7a1d');
-$_SESSION['msg'] = '【创蓝文化】'.rand(1000,9999);
-$result=$sms->send($value['phone'],$_SESSION['msg']);
-$result = json_decode($result);
-file_put_contents('/home/tanxu/www/data.txt', print_r($result,true));
-echo $result->success;
-// echo $result['success'];
-
+		if (!isset($_SESSION['token']) || $value['token'] != $_SESSION['token']) {
+			redirect('http://www.rfgxy.com/404.html');
 		}else{
-			echo 'notoken';
+			$sms=new ChuanglanSMS('N4368059','74fa7a1d');
+			$_SESSION['code'] = rand(1000,9999);
+			$_SESSION['msg'] = '【创蓝文化】'.$_SESSION['code'];
+			$result=$sms->send($value['phone'],$_SESSION['msg']);
+			$result = json_decode($result);
+			echo $result->success;
 		}
 	}
+
 
 
 

@@ -119,11 +119,24 @@ class Forget extends CI_Controller {
 		}
 	}
 
+	public function get_code(){
+		$value = $_POST;
+		$value = $this->security->xss_clean($value);
+		if ($value['code'] == $_SESSION['code'] && $value['token'] == $_SESSION['token']) {
+			echo '1';
+			exit();
+		}else{
+			echo '-1';
+			exit();
+		}
+
+	}
+
 	//更改完密码，删除token
 	public function modify_pwd(){
 		$value = json_decode($this->input->post('data'),true);
 		$value = $this->security->xss_clean($value);
-		if (!isset($_SESSION['token']) || $token != $_SESSION['token']) {
+		if (!isset($_SESSION['token']) || $value['token'] != $_SESSION['token']) {
 			echo "no token";
 		}else{
 			$this->user_model->change_pwd($_SESSION['uid'],$value['pwd']);

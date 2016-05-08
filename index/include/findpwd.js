@@ -227,7 +227,6 @@ $(function() {
             data: data,
 
             success: function(result) {
-                console.log(result);
                 if (result == 1) {
                     var i = 60;
                     var fn = function() {
@@ -265,34 +264,79 @@ $(function() {
         // });
     });
     //手机验证
+    // $("#findPwdForm2").delegate("#fp_btn_next2", "click", function() {
+    //     var sVcode = $("#vcode").val();
+    //     umobile = $.trim($("#iptmobile").val());
+    //     var uid = $.trim($("#iptlearnerid").val());
+    //     if ($trim(sVcode).length < 1 || umobile.length < 1) {
+    //         $("#c_tips").html("请填写手机验证码！");
+    //     } else {
+    //         $.post("http://www.rfgxy.com/forget/get_code", {
+    //             mobile: umobile,
+    //             code: sVcode
+    //         }).done(function(d) {
+    //             if (d == "1") {
+    //                 $.post("/forgotpw/updateMobilepass.aspx", {
+    //                     learner_id: uid
+    //                 }).done(function(d) {
+    //                     if (d == "1") {
+    //                         location.href = "/forgotpw/find_pwd3.aspx?learner_id=" + uid;
+    //                     } else {
+    //                         alert("修改手机验证失败");
+    //                     }
+    //                 });
+    //             } else {
+    //                 alert("验证码不正确");
+    //             }
+    //         });
+    //     }
+    // });
+
     $("#findPwdForm2").delegate("#fp_btn_next2", "click", function() {
         var sVcode = $("#vcode").val();
-        umobile = $.trim($("#iptmobile").val());
-        var uid = $.trim($("#iptlearnerid").val());
+        var umobile = $.trim($("#iptmobile").val());
+        var token = $.trim($("#iptlearnerid").val());
+        var data = {
+            'code':sVcode,
+            'mobile':umobile,
+            'token':token
+        }
         if ($trim(sVcode).length < 1 || umobile.length < 1) {
-            $("#c_tips").html("您的信息输入不完整，请核实");
+            $("#c_tips").html("请填写手机验证码！");
         } else {
-            $.post("http://www.rfgxy.com/ashx/api/checkMCode.aspx", {
-                mobile: umobile,
-                code: sVcode
-            }).done(function(d) {
-                if (d == "1") {
-                    $.post("/forgotpw/updateMobilepass.aspx", {
-                        learner_id: uid
-                    }).done(function(d) {
-                        if (d == "1") {
-                            location.href = "/forgotpw/find_pwd3.aspx?learner_id=" + uid;
-                        } else {
-                            alert("修改手机验证失败");
-                        }
-                    });
-                } else {
-                    alert("验证码不正确");
+            $.ajax({
+                type: 'POST',
+                url: "../forget/get_code",
+                data: data,
+
+                success: function(result) {
+                    if (result == 1) {
+                            location.href = "/forget/step3?token=" + token;
+                    }else{
+                        alert("验证码不正确");
+                    }
                 }
             });
+            // $.post("http://www.rfgxy.com/forget/get_code", {
+            //     mobile: umobile,
+            //     code: sVcode
+            // }).done(function(d) {
+            //     if (d == "1") {
+            //         $.post("/forgotpw/updateMobilepass.aspx", {
+            //             learner_id: uid
+            //         }).done(function(d) {
+            //             if (d == "1") {
+            //                 location.href = "/forgotpw/find_pwd3.aspx?learner_id=" + uid;
+            //             } else {
+            //                 alert("修改手机验证失败");
+            //             }
+            //         });
+            //     } else {
+            //         alert("验证码不正确");
+            //     }
+            // });
         }
     });
-
 
     if ($("#email").prop("checked") == true) {
         var eid = $("#email").attr("id");
