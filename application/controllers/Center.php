@@ -57,6 +57,7 @@ class Center extends CI_Controller {
 			$this->session->set_userdata('pic',$row['pic']);
 		}
 		echo '1';
+		exit();
 
 
 	}
@@ -305,15 +306,15 @@ class Center extends CI_Controller {
 			$data['result'] =array();
 			for ($i=0; $i < count($course); $i++) { 
 				$data['result']+= $this->comment_model->get_comment_by_course($course[$i]['course_id']);
-
-			}
-			if (!isset($value['page']) || $value['page'] == 1) {
-				$data['result'] = $this->course_model->get_course_like_limit(0,2,$value['words']);
-			}else{
-				$firstcount = ((int)$value['page']-1) * (int)$value['page'];
-				$data['result'] = $this->course_model->get_course_like_limit($firstcount,2,$value['words']);
+				file_put_contents('/home/tanxu/www/data.txt', print_r($data['result'],true));
 			}
 			$data['total'] = count($data['result']);
+			if (!isset($value['page']) || $value['page'] == 1) {
+				$data['result'] = array_slice($data['result'],0,2);
+			}else{
+				$firstcount = (2 * (int)$value['page']) - 2;
+				$data['result'] = array_slice($data['result'],$firstcount,2);
+			}
 
 
 		// $data['total'] = $this->course_model->get_like_count($value['words']);
