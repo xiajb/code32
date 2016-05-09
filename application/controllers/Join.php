@@ -27,8 +27,9 @@ class Join extends CI_Controller {
 			}elseif ($row['level'] == 1) {
 				redirect("http://www.rfgxy.com/center/mydata");
 			}else{
-				$this->load->view("join.html",$data);
-				$this->load->view("center_footer.html");
+				$this->load->view("index_header.html");
+				$this->load->view("join.html");
+				$this->load->view("index_footer.html");
 			
 			}
 		}
@@ -60,21 +61,24 @@ class Join extends CI_Controller {
 		$row = $this->user_model->get_user_by_uid($_SESSION['uid']);
 		if ($row == false) {
 			echo '-1';
-			return;
+			exit();
 		}
 
 		$result = $this->teacher_model->get_teacher($row['uid']);
 		if ($result == false) {
 			$value['uid'] = $row['uid'];
 			$value['pic'] = $row['pic'];
-			$value['check'] = 0;
+			$value['status'] = 0;
 			$value['apply_time'] = date("Y-m-d H:i",time());
 			$this->teacher_model->add_teacher($value);
 			echo '1';
-		}elseif($result->check == 0) {
+			exit();
+		}elseif($result->status == 0) {
 			echo '-2';
+			exit();
 		}else{
 			echo '-1';
+			exit();
 		}
 	}
 
