@@ -1,3 +1,5 @@
+<script type="text/javascript" src="<?php echo base_url() ?>index/js/pagination.bootstrap.js"></script>
+
         <div class="ucenter-right cf">
 
 <style type="text/css">
@@ -92,9 +94,35 @@ a.pg_pre:hover {
                         <?php endif; ?>
                         </tbody>
                     </table>
-            <div class="page">
-                <?php echo $this->mypage_class->show(1); ?>
+           <div class=" pages tr">
+                <ul id="pagination">
+
+                </ul>
             </div>
+            <div class="" style="clear:both"></div>
+            <script type="text/javascript">
+            //初始化分页
+            window.onload = function() {
+                    my_page = new open_pager("pagination");
+                    my_page.showTotalTip = false;
+                    my_page.pageSize = 2; //每页显示数
+                    my_page.pageFuncName = "LoadPaging"; //回调函数名称
+                    my_page.currentPage = 1; //当前页
+                    my_page.totalRows = "<?php echo $total; ?>"; //总条数
+                    // my_page.allowClone = true;
+                    // my_page.cloneName = "Div_Clone_Page";
+                    my_page.output();
+                }
+                //调用
+            function LoadPaging(pg) {
+                //通过get提交
+                var _newurl = my_page.createUrl(pg);
+                location.href = _newurl;
+                // document.getElementById("form1").action = _newurl;
+                // document.getElementById("form1").method = "post";
+                // document.getElementById("form1").submit();
+            }
+            </script>
                 </div>
             </div>
         </div>

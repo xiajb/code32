@@ -167,7 +167,6 @@ class Center extends CI_Controller {
 	public function add_section(){
 			$section_arr = $_POST;
 			$section_arr = $this->security->xss_clean($section_arr);
-			file_put_contents('/home/tanxu/www/data.txt', print_r($_POST,true));
 			$now = time();
 			$section_arr['create_time']=unix_to_human($now, TRUE, 'eu');
 			$section_arr['order_no']=$this->show_model->getsection_orderbyid($section_arr['courses'])[0]['order_no']+1;
@@ -292,6 +291,7 @@ class Center extends CI_Controller {
 	{
 
 		if ($_SESSION['level'] == 1) {
+			$value = $_GET;
 			$data['active'] = array(
 					'mydata'=>'',
 					'mycourse'=>'',
@@ -307,9 +307,27 @@ class Center extends CI_Controller {
 				$data['result']+= $this->comment_model->get_comment_by_course($course[$i]['course_id']);
 
 			}
+			if (!isset($value['page']) || $value['page'] == 1) {
+				$data['result'] = $this->course_model->get_course_like_limit(0,2,$value['words']);
+			}else{
+				$firstcount = ((int)$value['page']-1) * (int)$value['page'];
+				$data['result'] = $this->course_model->get_course_like_limit($firstcount,2,$value['words']);
+			}
+			$data['total'] = count($data['result']);
+
+
+		// $data['total'] = $this->course_model->get_like_count($value['words']);
+		// $data['value'] = $value;
+		// if (!isset($value['page']) || $value['page'] == 1) {
+		// 	$data['result'] = $this->course_model->get_course_like_limit(0,2,$value['words']);
+		// }else{
+		// 	$firstcount = ((int)$value['page']-1) * (int)$value['page'];
+		// 	$data['result'] = $this->course_model->get_course_like_limit($firstcount,2,$value['words']);
+		// }
 			// file_put_contents('/home/tanxu/www/data.txt', print_r($data['result'],true),FILE_APPEND);
 
 		}elseif ($_SESSION['level'] == 0) {
+			$value = $_GET;
 			$data['active'] = array(
 					'mydata'=>'',
 					'mycourse'=>'',
@@ -319,19 +337,12 @@ class Center extends CI_Controller {
 					'feedback'=>''
 				);
 			$uid = $_SESSION['uid'];
-			$page_config['perpage']=2;   //每页条数
-			$page_config['part']=2;//当前页前后链接数量
-			$page_config['url']='/center/comment/';//url
-			$page_config['seg']=3;//参数取 index.php之后的段数，默认为3，即index.php/control/function/18 这种形式
-			$page_config['nowindex']=$this->uri->segment($page_config['seg']) ? $this->uri->segment($page_config['seg']):1;//当前页
-			$this->load->library('mypage_class');
-			$page_config['total']=$this->comment_model->get_count_by_uid($uid);
-			$this->mypage_class->initialize($page_config);
-			if ($page_config['nowindex'] == 1) {
-				$data['result'] = $this->comment_model->get_limit_by_uid($uid,(int)$page_config['perpage'],0);
+			$data['total']=$this->comment_model->get_count_by_uid($uid);
+			if (!isset($value['page']) || $value['page'] == 1) {
+				$data['result'] = $this->comment_model->get_limit_by_uid($uid,2,0);
 			}else{
-				$firstcount = ((int)$page_config['nowindex']-1) * (int)$page_config['perpage'];
-				$data['result'] = $this->comment_model->get_limit_by_uid($uid,(int)$page_config['perpage'],$firstcount);
+				$firstcount = ((int)$value['page']-1) * (int)$value['page'];
+				$data['result'] = $this->comment_model->get_limit_by_uid($uid,2,$firstcount);
 			}
 		}
 		$this->load->view("center_header.html",$data);

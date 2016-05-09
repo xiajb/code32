@@ -15,6 +15,8 @@ class User extends CI_Controller {
 			'user_data' =>'current' ,
 			'teacher_data'=>'',
 			'add_teacher'=>'',
+			'classify_manage'=>'',
+			'all_classify'=>'',
 			'course_manage'=>'',
 			'required_course'=>'',
 			'elective_course'=>'',
@@ -32,6 +34,9 @@ class User extends CI_Controller {
 			'link_manage'=>'',
 			'all_link'=>'',
 			'add_link'=>'',
+			'activity_manage'=>'',
+			'add_activity'=>'',
+			'all_activity'=>'',
 			 );
 		$page_config['perpage']=2;   //每页条数
 		$page_config['part']=2;//当前页前后链接数量

@@ -20,10 +20,12 @@ class Activity extends CI_Controller {
 
 	public function index(){
 		$data['current'] = array('data_back'=>'',
-			'user_manage'=>'current',
+			'user_manage'=>'',
 			'user_data' =>'' ,
-			'teacher_data'=>'current',
+			'teacher_data'=>'',
 			'add_teacher'=>'',
+			'classify_manage'=>'',
+			'all_classify'=>'',
 			'course_manage'=>'',
 			'required_course'=>'',
 			'elective_course'=>'',
@@ -41,6 +43,9 @@ class Activity extends CI_Controller {
 			'link_manage'=>'',
 			'all_link'=>'',
 			'add_link'=>'',
+			'activity_manage'=>'current',
+			'add_activity'=>'current',
+			'all_activity'=>'',
 			 );
 		// $data['direction'] = $this->direction_model->Show_direction();
 		// $data['result'] = $this->classify_model->query_all();
@@ -54,6 +59,8 @@ class Activity extends CI_Controller {
 			'user_data' =>'' ,
 			'teacher_data'=>'current',
 			'add_teacher'=>'',
+			'classify_manage'=>'',
+			'all_classify'=>'',
 			'course_manage'=>'',
 			'required_course'=>'',
 			'elective_course'=>'',
@@ -71,6 +78,9 @@ class Activity extends CI_Controller {
 			'link_manage'=>'',
 			'all_link'=>'',
 			'add_link'=>'',
+			'activity_manage'=>'current',
+			'add_activity'=>'',
+			'all_activity'=>'current',
 			 );
 		// $data['direction'] = $this->direction_model->Show_direction();
 		$data['result'] = $this->activity_model->query_all();
@@ -87,7 +97,7 @@ class Activity extends CI_Controller {
 	public function add(){
 		// $value = json_decode($this->input->post('data'),true);
 		$value = $_POST;
-		// $value = $this->security->xss_clean($value);
+		$value = $this->security->xss_clean($value);
 		// file_put_contents("/home/tanxu/www/data.txt", print_r($value,true),FILE_APPEND );
 		if ($this->activity_model->add($value)) {
 	    		echo '1';

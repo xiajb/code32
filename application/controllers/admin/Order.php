@@ -15,6 +15,8 @@ class Order extends CI_Controller {
 			'user_data' =>'' ,
 			'teacher_data'=>'',
 			'add_teacher'=>'',
+			'classify_manage'=>'',
+			'all_classify'=>'',
 			'course_manage'=>'',
 			'required_course'=>'',
 			'elective_course'=>'',
@@ -32,6 +34,9 @@ class Order extends CI_Controller {
 			'link_manage'=>'',
 			'all_link'=>'',
 			'add_link'=>'',
+			'activity_manage'=>'',
+			'add_activity'=>'',
+			'all_activity'=>'',
 			 );
 		$this->load->view('admin/admin_header.html',$data);
 		$this->load->view('admin/admin_order.html');
@@ -44,6 +49,8 @@ class Order extends CI_Controller {
 			'user_data' =>'' ,
 			'teacher_data'=>'',
 			'add_teacher'=>'',
+			'classify_manage'=>'',
+			'all_classify'=>'',
 			'course_manage'=>'',
 			'required_course'=>'',
 			'elective_course'=>'',
@@ -59,6 +66,9 @@ class Order extends CI_Controller {
 			'link_manage'=>'',
 			'all_link'=>'',
 			'add_link'=>'',
+			'activity_manage'=>'',
+			'add_activity'=>'',
+			'all_activity'=>'',
 			 );
 		$data['result'] = $this->user_model->query_all();
 		$this->load->view('admin/admin_header.html',$data);

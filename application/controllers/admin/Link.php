@@ -15,6 +15,8 @@ class Link extends CI_Controller {
 			'user_data' =>'' ,
 			'teacher_data'=>'',
 			'add_teacher'=>'',
+			'classify_manage'=>'',
+			'all_classify'=>'',
 			'course_manage'=>'',
 			'required_course'=>'',
 			'elective_course'=>'',
@@ -32,6 +34,9 @@ class Link extends CI_Controller {
 			'link_manage'=>'current',
 			'all_link'=>'current',
 			'add_link'=>'',
+			'activity_manage'=>'',
+			'add_activity'=>'',
+			'all_activity'=>'',
 			 );
 		$page_config['perpage']=2;   //每页条数
 		$page_config['part']=2;//当前页前后链接数量
@@ -74,6 +79,8 @@ class Link extends CI_Controller {
 			'user_data' =>'' ,
 			'teacher_data'=>'',
 			'add_teacher'=>'',
+			'classify_manage'=>'',
+			'all_classify'=>'',
 			'course_manage'=>'',
 			'required_course'=>'',
 			'elective_course'=>'',
@@ -91,6 +98,9 @@ class Link extends CI_Controller {
 			'link_manage'=>'current',
 			'all_link'=>'',
 			'add_link'=>'current',
+			'activity_manage'=>'',
+			'add_activity'=>'',
+			'all_activity'=>'',
 			 );
 		$this->load->view('admin/admin_header.html',$data);
 		$this->load->view('admin/admin_add_link.html');

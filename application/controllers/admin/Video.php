@@ -20,6 +20,8 @@ class Video extends CI_Controller {
 			'user_data' =>'' ,
 			'teacher_data'=>'',
 			'add_teacher'=>'',
+			'classify_manage'=>'',
+			'all_classify'=>'',
 			'course_manage'=>'',
 			'required_course'=>'',
 			'elective_course'=>'',
@@ -37,6 +39,9 @@ class Video extends CI_Controller {
 			'link_manage'=>'',
 			'all_link'=>'',
 			'add_link'=>'',
+			'activity_manage'=>'',
+			'add_activity'=>'',
+			'all_activity'=>'',
 			 );
 		$this->load->view('admin/admin_header.html',$data);
 		$this->load->view('admin/admin_add_video.html');
@@ -54,6 +59,8 @@ class Video extends CI_Controller {
 			'user_data' =>'' ,
 			'teacher_data'=>'',
 			'add_teacher'=>'',
+			'classify_manage'=>'',
+			'all_classify'=>'',
 			'course_manage'=>'',
 			'required_course'=>'',
 			'elective_course'=>'',
@@ -71,6 +78,9 @@ class Video extends CI_Controller {
 			'link_manage'=>'',
 			'all_link'=>'',
 			'add_link'=>'',
+			'activity_manage'=>'',
+			'add_activity'=>'',
+			'all_activity'=>'',
 			 );
 		
 		$this->load->view('admin/admin_header.html',$data);
@@ -85,6 +95,8 @@ class Video extends CI_Controller {
 			'user_data' =>'' ,
 			'teacher_data'=>'',
 			'add_teacher'=>'',
+			'classify_manage'=>'',
+			'all_classify'=>'',
 			'course_manage'=>'',
 			'required_course'=>'',
 			'elective_course'=>'',
@@ -102,6 +114,9 @@ class Video extends CI_Controller {
 			'link_manage'=>'',
 			'all_link'=>'',
 			'add_link'=>'',
+			'activity_manage'=>'',
+			'add_activity'=>'',
+			'all_activity'=>'',
 			 );
 		$this->load->view('admin/admin_header.html',$data);
 		$this->load->view('admin/admin_add_video.html');

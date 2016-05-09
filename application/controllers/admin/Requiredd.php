@@ -16,6 +16,8 @@ class Required extends CI_Controller {
 			'user_data' =>'' ,
 			'teacher_data'=>'',
 			'add_teacher'=>'',
+			'classify_manage'=>'',
+			'all_classify'=>'',
 			'course_manage'=>'current',
 			'required_course'=>'current',
 			'elective_course'=>'',
@@ -33,6 +35,9 @@ class Required extends CI_Controller {
 			'link_manage'=>'',
 			'all_link'=>'',
 			'add_link'=>'',
+			'activity_manage'=>'',
+			'add_activity'=>'',
+			'all_activity'=>'',
 			 );
 		$this->load->view('admin/admin_header.html',$data);
 		$this->load->view('admin/admin_required.html');
@@ -46,6 +51,8 @@ class Required extends CI_Controller {
 			'user_data' =>'' ,
 			'teacher_data'=>'',
 			'add_teacher'=>'',
+			'classify_manage'=>'',
+			'all_classify'=>'',
 			'course_manage'=>'current',
 			'required_course'=>'',
 			'elective_course'=>'current',
@@ -61,6 +68,9 @@ class Required extends CI_Controller {
 			'link_manage'=>'',
 			'all_link'=>'',
 			'add_link'=>'',
+			'activity_manage'=>'',
+			'add_activity'=>'',
+			'all_activity'=>'',
 			 );
 		$this->load->view('admin/admin_header.html',$data);
 		// $this->load->view('admin/admin_course.html');
@@ -75,6 +85,8 @@ class Required extends CI_Controller {
 			'user_data' =>'' ,
 			'teacher_data'=>'',
 			'add_teacher'=>'',
+			'classify_manage'=>'',
+			'all_classify'=>'',
 			'course_manage'=>'current',
 			'required_course'=>'',
 			'elective_course'=>'',
@@ -90,6 +102,9 @@ class Required extends CI_Controller {
 			'link_manage'=>'',
 			'all_link'=>'',
 			'add_link'=>'',
+			'activity_manage'=>'',
+			'add_activity'=>'',
+			'all_activity'=>'',
 			 );
 		$this->load->view('admin/admin_header.html',$data);
 		// $this->load->view('admin/admin_course.html');

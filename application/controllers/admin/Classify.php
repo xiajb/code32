@@ -24,6 +24,8 @@ class Classify extends CI_Controller {
 			'user_data' =>'' ,
 			'teacher_data'=>'current',
 			'add_teacher'=>'',
+			'classify_manage'=>'',
+			'all_classify'=>'',
 			'course_manage'=>'',
 			'required_course'=>'',
 			'elective_course'=>'',
@@ -41,6 +43,9 @@ class Classify extends CI_Controller {
 			'link_manage'=>'',
 			'all_link'=>'',
 			'add_link'=>'',
+			'activity_manage'=>'',
+			'add_activity'=>'',
+			'all_activity'=>'',
 			 );
 		$data['direction'] = $this->direction_model->Show_direction();
 		$data['result'] = $this->classify_model->query_all();
