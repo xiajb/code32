@@ -86,6 +86,11 @@
                     <li class="<?php echo $current['add_teacher'] ?>"><a href="<?php echo base_url('admin/teacher/add_teacher')?>">添加老师</a></li>
                 </ul>
             </li>
+            <li class="<?php echo $current['classify_manage'] ?>"><a href="#"><img src="<?php echo base_url('back/img/icons/menu/brush.png'); ?>" alt="" />课程类别管理</a>
+                <ul>
+                    <li class="<?php echo $current['all_classify'] ?>"><a href="<?php echo base_url('admin/classify/all')?>">所有类别</a></li>
+                </ul>
+            </li>
             <li class="<?php echo $current['course_manage'] ?>"><a href="#"><img src="<?php echo base_url('back/img/icons/menu/brush.png'); ?>" alt="" />课程管理</a>
                 <ul>
                     <li class="<?php echo $current['required_course'] ?>"><a href="<?php echo base_url('admin/course/required')?>">必修课程</a></li>
@@ -119,6 +124,12 @@
                 <ul>
                     <li class="<?php echo $current['all_link'] ?>"><a href="<?php echo base_url('admin/link/data')?>">所有友链</a></li>
                     <li class="<?php echo $current['add_link'] ?>"><a href="<?php echo base_url('admin/link/add')?>">添加友链</a></li>
+                </ul>
+            </li>
+            <li class="<?php echo $current['activity_manage'] ?>"><a href="#"><img src="<?php echo base_url('back/img/icons/menu/brush.png'); ?>" alt="" />活动管理</a>
+                <ul>
+                    <li class="<?php echo $current['all_activity'] ?>"><a href="<?php echo base_url('admin/activity/all')?>">所有活动</a></li>
+                    <li class="<?php echo $current['add_activity'] ?>"><a href="<?php echo base_url('admin/activity')?>">添加活动</a></li>
                 </ul>
             </li>
         </ul>
