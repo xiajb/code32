@@ -19,7 +19,7 @@ class Activity extends CI_Controller {
 		$id = $_GET['id'];
 		$data['result'] = $this->activity_model->get_activity_by_id($id);
 		if ($data['result'] == '' || $data['result'] == null) {
-			redirect('http://www.rfgxy.com/error');
+			redirect('http://www.qfdlqz.com/error');
 		}else{
 			$this->load->view("about_activity.html",$data);
 			$this->load->view("about_footer.html");

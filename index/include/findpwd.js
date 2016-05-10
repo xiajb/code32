@@ -113,7 +113,7 @@ $(function() {
     });
 
     // $("#changeCode").click(function () {
-    //     $("#imgYzm").attr("src", "http://www.rfgxy.com/validatecode.aspx?id=" + Math.random());
+    //     $("#imgYzm").attr("src", "http://www.qfdlqz.com/validatecode.aspx?id=" + Math.random());
     // });
 
     $("#fp_next").delegate("#fp_btn_next1", "click", function() {
@@ -141,7 +141,7 @@ $(function() {
 
             $.ajax({
                 type: 'POST',
-                url: "http://www.rfgxy.com/forget/check_user",
+                url: "http://www.qfdlqz.com/forget/check_user",
                 data: value,
 
                 success: function(result) {
@@ -158,12 +158,12 @@ $(function() {
                 }
             });
             /* 判断验证码是否正确 */
-            // $.get("http://www.rfgxy.com/ashx/api/Ischeckcode.aspx", { "code": sVcode }).done(function (d) {
+            // $.get("http://www.qfdlqz.com/ashx/api/Ischeckcode.aspx", { "code": sVcode }).done(function (d) {
             //     if (d == "0") {/*如果返回值等于0，则提示，验证码不正确，请重新输入*/
             //         $("#c_tips").attr("class", "cred").html("验证码不正确，请重新输入");
             //     } else {
             //         /* 判断帐号是否存在 */
-            //         $.post("http://www.rfgxy.com/forgotpw/IsExistUser.aspx", { 'uName': sUname }).done(function (d) {
+            //         $.post("http://www.qfdlqz.com/forgotpw/IsExistUser.aspx", { 'uName': sUname }).done(function (d) {
             //             if (d != "0") {
             //                 location.href = "find_pwd2.aspx?learner_id=" + d;
             //             }
@@ -271,7 +271,7 @@ $(function() {
     //     if ($trim(sVcode).length < 1 || umobile.length < 1) {
     //         $("#c_tips").html("请填写手机验证码！");
     //     } else {
-    //         $.post("http://www.rfgxy.com/forget/get_code", {
+    //         $.post("http://www.qfdlqz.com/forget/get_code", {
     //             mobile: umobile,
     //             code: sVcode
     //         }).done(function(d) {
@@ -317,7 +317,7 @@ $(function() {
                     }
                 }
             });
-            // $.post("http://www.rfgxy.com/forget/get_code", {
+            // $.post("http://www.qfdlqz.com/forget/get_code", {
             //     mobile: umobile,
             //     code: sVcode
             // }).done(function(d) {

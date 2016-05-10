@@ -18,7 +18,7 @@ class CenterAuth {
 
 			
 			if (!$uid) {
-			 	redirect('http://www.rfgxy.com/login');           	
+			 	redirect('http://www.qfdlqz.com/login');           	
 			}       
      
 		}            

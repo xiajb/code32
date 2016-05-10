@@ -10,6 +10,6 @@ class Logout extends CI_Controller {
 	public function index(){
 		$this->session->unset_userdata('username');
 		$this->session->sess_destroy();
-		redirect('http://www.rfgxy.com/login');
+		redirect('http://www.qfdlqz.com/login');
 	}
 }

@@ -1,4 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+require_once dirname(dirname(__FILE__)) . '/geetest/upyun.class.php';
 
 class Index extends CI_Controller {
 	public function __construct(){
@@ -26,7 +27,7 @@ class Index extends CI_Controller {
 		$result=$this->show_model->showcoursebyclassifyid(0,0,0,$config['per_page'],$offset,0);
 		$result2=$this->show_model->showcoursebyclassifyid(0,0,0,$config['per_page'],$offset,1);
 		$course=$result;
-		$config['base_url'] ='http://www.rfgxy.com/index/index2/0/0/0';
+		$config['base_url'] ='http://www.qfdlqz.com/index/index2/0/0/0';
 		$config['total_rows'] =count($result2);
 		$config['prev_link']    = '上一页';
 		$config['next_link']    = '下一页';
@@ -58,7 +59,7 @@ class Index extends CI_Controller {
 		$result=$this->show_model->showcoursebyclassifyid($direction_id,$classify_id,$is_easy,$config['per_page'],$offset,0);
 		$result2=$this->show_model->showcoursebyclassifyid($direction_id,$classify_id,$is_easy,$config['per_page'],$offset,1);
 		$course=$result;
-		$config['base_url'] ='http://www.rfgxy.com/index/index2/'.$direction_id.'/'.$classify_id.'/'.$is_easy.'/';
+		$config['base_url'] ='http://www.qfdlqz.com/index/index2/'.$direction_id.'/'.$classify_id.'/'.$is_easy.'/';
 
 		$config['total_rows'] =count($result2);
 		$config['prev_link']    = '上一页';
@@ -84,7 +85,10 @@ class Index extends CI_Controller {
 
 	}
 
-
+	function delete(){
+		$UpYun = new UpYun('code32','rxs','rxs84217621');
+		echo $UpYun->delete('/video/875cbbbc8ec551845f0ff360df11376f.mp4');
+	}
 
 }
 

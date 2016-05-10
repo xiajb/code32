@@ -15,7 +15,7 @@ class Login extends CI_Controller {
 	public function index()
 	{
 		if (isset($_SESSION['username'])) {
-			redirect('http://www.rfgxy.com');
+			redirect('http://www.qfdlqz.com');
 		}else{
 
 			$this->load->helper('url');

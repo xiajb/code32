@@ -248,7 +248,7 @@ $.extend({
 
 	/*
 		收藏网站
-		demo:<a href="javascript:addToFavorite('儒风国(自动化)培训','http://www.rfgxy.com/');">加入收藏</a>
+		demo:<a href="javascript:addToFavorite('鼎立启智教育网(自动化)培训','http://www.qfdlqz.com/');">加入收藏</a>
 	*/
 	addToFavorite: function(title,url) {
 		if (document.all) {
@@ -816,7 +816,7 @@ jQuery.fn.slider.autoscroll=function(obj,time){
 
 
 $(function () {
-    $(document.body).append("<div id=\"pop\" style=\"display:none;\"><div id=\"popHead\"><a onclick=\"_hmt.push(['_trackEvent', 'messager', 'click', 'messager_popClose','1']);\" id=\"popClose\" title=\"关闭\">关闭</a><h2>温馨提示</h2></div><div onclick=\"_hmt.push(['_trackEvent', 'messager', 'click', 'messager_popContent','1']);\" id=\"popContent\"><dl><dt id=\"popTitle\"><a href=\"http://yanue.info/\" target=\"_blank\">这里是参数</a></dt><dd id=\"popIntro\">这里是内容简介</dd></dl><p id=\"popMore\"><a class=\"mr20\" id=\"btn_huifu\" href=\"javascript:;\">回复</a><a href=\"http://www.rfgxy.com/\" target=\"_blank\" class=\"look\">查看 »</a></p></div></div>");
+    $(document.body).append("<div id=\"pop\" style=\"display:none;\"><div id=\"popHead\"><a onclick=\"_hmt.push(['_trackEvent', 'messager', 'click', 'messager_popClose','1']);\" id=\"popClose\" title=\"关闭\">关闭</a><h2>温馨提示</h2></div><div onclick=\"_hmt.push(['_trackEvent', 'messager', 'click', 'messager_popContent','1']);\" id=\"popContent\"><dl><dt id=\"popTitle\"><a href=\"http://yanue.info/\" target=\"_blank\">这里是参数</a></dt><dd id=\"popIntro\">这里是内容简介</dd></dl><p id=\"popMore\"><a class=\"mr20\" id=\"btn_huifu\" href=\"javascript:;\">回复</a><a href=\"http://www.qfdlqz.com/\" target=\"_blank\" class=\"look\">查看 »</a></p></div></div>");
 });
 /*
     jc.pop
@@ -1057,7 +1057,7 @@ function VerticalRoll(id){
 
 /*
 	收藏网站
-	demo:<a href="javascript:addToFavorite('儒风国(自动化)培训','http://www.rfgxy.com/');">加入收藏</a>
+	demo:<a href="javascript:addToFavorite('鼎立启智教育网(自动化)培训','http://www.qfdlqz.com/');">加入收藏</a>
 */
 function addToFavorite(title,url) {
     if (document.all) {

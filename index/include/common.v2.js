@@ -50,7 +50,7 @@ function CheckLoginemail() {
 //            width: 450,height: 400,
 //            postClose: function () { }
 //        });
-        window.location.href = "http://www.rfgxy.com/newlogin.aspx?callback=" + escape(document.URL);
+        window.location.href = "http://www.qfdlqz.com/newlogin.aspx?callback=" + escape(document.URL);
         return false;
     }
     else {
@@ -142,7 +142,7 @@ function IntoDY(time) {
 }
 /*进入YY公开课 2013-08-15*/
 function IntoDY1(time,coursename) {
-    $.post("http://www.rfgxy.com/ashx/lesson/EnterNewYY.aspx", { 'time': escape(time), 'name': coursename }).done(function (d) {
+    $.post("http://www.qfdlqz.com/ashx/lesson/EnterNewYY.aspx", { 'time': escape(time), 'name': coursename }).done(function (d) {
         if ($.parseJSON(d).message == "1") {
             //window.parent.location.href = "http://bbs.rfgxy.com/thread-36046-1-1.html";
 			window.parent.location.href = "yy://join:room_id=81114100";
@@ -245,13 +245,13 @@ $(function () {
             if (data == "no") {
                 //未登录
 
-                var login_line_html = "欢迎来到儒风国学院！ [<a class=\"topLeft2Load\" title=\"请登录\" target=\"_top\" href=\"http://www.rfgxy.com/newlogin.aspx\">请登录</a>]  [<a class=\"topLeft2Reg\" title=\"免费注册\" target=\"_top\" href=\"http://www.rfgxy.com/userreg.aspx\">免费注册</a>]";
+                var login_line_html = "欢迎来到鼎立启智教育网！ [<a class=\"topLeft2Load\" title=\"请登录\" target=\"_top\" href=\"http://www.qfdlqz.com/newlogin.aspx\">请登录</a>]  [<a class=\"topLeft2Reg\" title=\"免费注册\" target=\"_top\" href=\"http://www.qfdlqz.com/userreg.aspx\">免费注册</a>]";
                 $("#login_top_line").html(login_line_html);
                 $("#login_top_table_islogin").hide();
                 $("#login_top_table").show();
             }
             else if (data == "no1") {
-                window.parent.location.href = "http://www.rfgxy.com/newlogin.aspx?callback=" + GetQueryString('geturlvaluenew');
+                window.parent.location.href = "http://www.qfdlqz.com/newlogin.aspx?callback=" + GetQueryString('geturlvaluenew');
             } else {
                 //已登录
                 json = $.parseJSON(data);
@@ -260,11 +260,11 @@ $(function () {
 				var vipExpireTime = json.vipExpireTime;
 				//alert(vipExpireTime);
 
-				var login_line_html = "你好，<b>" + learnername_str + "</b>&nbsp;&nbsp;<a href=\"http://www.rfgxy.com/logout.aspx?callback=" + escape(window.location.href) + "\">[退出]</a>";
-                //var login_line_html = " " + learnername_str + "，欢迎来到儒风国学院！<a href='http://192.168.0.192:8081/member.php?mod=logging&amp;action=logout&amp;formhash=1639d97f'>[退出]</a>";
+				var login_line_html = "你好，<b>" + learnername_str + "</b>&nbsp;&nbsp;<a href=\"http://www.qfdlqz.com/logout.aspx?callback=" + escape(window.location.href) + "\">[退出]</a>";
+                //var login_line_html = " " + learnername_str + "，欢迎来到鼎立启智教育网！<a href='http://192.168.0.192:8081/member.php?mod=logging&amp;action=logout&amp;formhash=1639d97f'>[退出]</a>";
                 $("#login_top_line").html(login_line_html);
 
-                //$("#login_top_table_info").html(learnername_str + "<a href='http://my.rfgxy.com/index.aspx?url=user/Grade.aspx' class='f2'>[" + learnergrade_str + "]</a>" + "<a href=\"http://www.rfgxy.com/userreg.aspx?u=20130925003\" target=\"_blank\" id=\"nav_xuefei\" onclick=\"_hmt.push(['_trackEvent', 'nav', 'click', 'nav_xuefei','1'])\" style=\"background: url(http://images.rfgxy.com/bg_20130926001.gif) no-repeat scroll 46px -3px rgb(255, 255, 255)\">赚学费</a>");
+                //$("#login_top_table_info").html(learnername_str + "<a href='http://my.rfgxy.com/index.aspx?url=user/Grade.aspx' class='f2'>[" + learnergrade_str + "]</a>" + "<a href=\"http://www.qfdlqz.com/userreg.aspx?u=20130925003\" target=\"_blank\" id=\"nav_xuefei\" onclick=\"_hmt.push(['_trackEvent', 'nav', 'click', 'nav_xuefei','1'])\" style=\"background: url(http://images.rfgxy.com/bg_20130926001.gif) no-repeat scroll 46px -3px rgb(255, 255, 255)\">赚学费</a>");
 
                 //$("#login_top_table_islogin").show();
                 //$("#login_top_table").hide();
@@ -274,9 +274,9 @@ $(function () {
 
                 /*修改20140121*/
 				if(learnergrade_str == "普通学员")
-					$("#logined_20140121").html("您好，<a href=\"http://my.rfgxy.com/\">" + learnername_str + "</a> [" + learnergrade_str + "], <a href=\"http://www.rfgxy.com/logout.aspx?callback=" + escape(window.top.location.href) + "\">退出</a>").show();
+					$("#logined_20140121").html("您好，<a href=\"http://my.rfgxy.com/\">" + learnername_str + "</a> [" + learnergrade_str + "], <a href=\"http://www.qfdlqz.com/logout.aspx?callback=" + escape(window.top.location.href) + "\">退出</a>").show();
                 else
-					$("#logined_20140121").html("您好，<a href=\"http://my.rfgxy.com/\">" + learnername_str + "</a> [" + learnergrade_str + "," + vipExpireTime + "到期], <a href=\"http://www.rfgxy.com/logout.aspx?callback=" + escape(window.top.location.href) + "\">退出</a>").show();
+					$("#logined_20140121").html("您好，<a href=\"http://my.rfgxy.com/\">" + learnername_str + "</a> [" + learnergrade_str + "," + vipExpireTime + "到期], <a href=\"http://www.qfdlqz.com/logout.aspx?callback=" + escape(window.top.location.href) + "\">退出</a>").show();
                 
 				$("#logino_20140121").hide();
 
@@ -329,19 +329,19 @@ $(function () {
 
         /* 加载不同的logo,链接 */
         var cur_location = window.location.href;
-        if (!cur_location.indexOf("http://www.rfgxy.com/xiazai/")) {
-            $("#btn_logo").attr({"href":"http://www.rfgxy.com/xiazai/","title":"儒风国库——自动化资料下载中心"})
-            $("#img_logo").attr({"src":"http://images.rfgxy.com/xiazai_logo.png","title":"儒风国库——自动化资料下载中心","alt":"儒风国库——自动化资料下载中心"});
-            //str = "<a href=\"http://www.rfgxy.com/xiazai/\" title=\"儒风国库——自动化资料下载中心\" id=\"btn_logo\"><img src=\"http://images.rfgxy.com/xiazai_logo.png\" width=\"230\" height=\"55\" alt=\"儒风国库——自动化资料下载中心\" title=\"儒风国库——自动化资料下载中心\" id=\"img_logo\" /></a>";
+        if (!cur_location.indexOf("http://www.qfdlqz.com/xiazai/")) {
+            $("#btn_logo").attr({"href":"http://www.qfdlqz.com/xiazai/","title":"鼎立启智教育网库——自动化资料下载中心"})
+            $("#img_logo").attr({"src":"http://images.rfgxy.com/xiazai_logo.png","title":"鼎立启智教育网库——自动化资料下载中心","alt":"鼎立启智教育网库——自动化资料下载中心"});
+            //str = "<a href=\"http://www.qfdlqz.com/xiazai/\" title=\"鼎立启智教育网库——自动化资料下载中心\" id=\"btn_logo\"><img src=\"http://images.rfgxy.com/xiazai_logo.png\" width=\"230\" height=\"55\" alt=\"鼎立启智教育网库——自动化资料下载中心\" title=\"鼎立启智教育网库——自动化资料下载中心\" id=\"img_logo\" /></a>";
         }else{
-            //str = "<a href=\"http://www.rfgxy.com/\" title=\"儒风国学院\" id=\"btn_logo\"><img src=\"http://logo.png\" width=\"230\" height=\"55\" alt=\"儒风国学院\" title=\"儒风国学院\" id=\"img_logo\" /></a>";
+            //str = "<a href=\"http://www.qfdlqz.com/\" title=\"鼎立启智教育网\" id=\"btn_logo\"><img src=\"http://logo.png\" width=\"230\" height=\"55\" alt=\"鼎立启智教育网\" title=\"鼎立启智教育网\" id=\"img_logo\" /></a>";
         };
         //$("#headLeft1").html(str);
 
         /*   搜索   */
         function appendArgs(_arg, _id) {
-            var _href = location.href.indexOf("lessonSearch") > 0 ? location.href : "http://www.rfgxy.com/lesson/lessonSearch";
-            //var _href = "http://www.rfgxy.com/lesson/lessonSearch";
+            var _href = location.href.indexOf("lessonSearch") > 0 ? location.href : "http://www.qfdlqz.com/lesson/lessonSearch";
+            //var _href = "http://www.qfdlqz.com/lesson/lessonSearch";
             var _url = _href.substring(0, _href.indexOf("?")) || _href;
             var $id_html = escape($(_id).html());
             if (_href.indexOf("?") > 0) {
@@ -352,7 +352,7 @@ $(function () {
 
         function appendArgs2(_arg, _id) {
             //var _href = location.href;
-            var _href = "http://www.rfgxy.com/lesson/lessonSearch";
+            var _href = "http://www.qfdlqz.com/lesson/lessonSearch";
             var _url = _href.substring(0, _href.indexOf("?")) || _href;
             if (_href.indexOf("?") > 0) {
                 _url = _href;
@@ -375,7 +375,7 @@ $(function () {
         */
 
         $("#lessonTypeUl li a").click(function () {
-            var _url = "http://www.rfgxy.com/lesson/lessonSearch" ,
+            var _url = "http://www.qfdlqz.com/lesson/lessonSearch" ,
                 $this = $(this) ,
                 $this_html = $this.html() ,
                 $this_parent = $this.parent("li");
@@ -468,13 +468,13 @@ $(function () {
 				return "http://zhannei.baidu.com/cse/search?q=" + arg1 + "&s=" + s;
             },
             "course": function (arg1) {
-                return "http://www.rfgxy.com/lesson/lessonSearch?q=" + escape(arg1);
+                return "http://www.qfdlqz.com/lesson/lessonSearch?q=" + escape(arg1);
             },
             "video_course": function (arg1) {
-                return "http://www.rfgxy.com/lesson/lessonSearch?q=" + escape(arg1);
+                return "http://www.qfdlqz.com/lesson/lessonSearch?q=" + escape(arg1);
             },
             "case_course": function (arg1) {
-                return "http://www.rfgxy.com/lesson/lessonSearch?q=" + escape(arg1) + "&course=%u6848%u4F8B%u8BFE%u7A0B";
+                return "http://www.qfdlqz.com/lesson/lessonSearch?q=" + escape(arg1) + "&course=%u6848%u4F8B%u8BFE%u7A0B";
             },
             "down": function(arg1){
                 //return "http://baidu.rfgxy.com/cse/search?q="+ arg1 +"&s="+s+"&nsid=2";
@@ -495,7 +495,7 @@ $(function () {
                         search_text = $("#searchText").val()
                     ;
                     var cur_location = window.location.href;
-                    if (!cur_location.indexOf("http://www.rfgxy.com/xiazai/")) {
+                    if (!cur_location.indexOf("http://www.qfdlqz.com/xiazai/")) {
                         search_type_on = "down";
                     };
                     window.location.href = search_types[search_type_on](search_text);
@@ -545,7 +545,7 @@ $(function () {
 
 
     /* 加载对联
-    $.get("http://www.rfgxy.com/ashx/ad-couplet.aspx?id=17").done(function(d){
+    $.get("http://www.qfdlqz.com/ashx/ad-couplet.aspx?id=17").done(function(d){
     $(document.body).append(d)
     .delegate("#left_close,#right_close","click",function(){
     $("#ad_left,#ad_right,#left_close,#right_close").hide();
@@ -709,7 +709,7 @@ $(function () {
 
             setTimeout(function () {
                 try {
-                    $.get("http://www.rfgxy.com/ashx/lesson/YYcourseDate.aspx", { "state": "3", "a": new Date().getMilliseconds() }).done(function (d) {
+                    $.get("http://www.qfdlqz.com/ashx/lesson/YYcourseDate.aspx", { "state": "3", "a": new Date().getMilliseconds() }).done(function (d) {
                         try{
                             d = $.parseJSON(d), d = d[0];
                         }catch(ex){
@@ -721,13 +721,13 @@ $(function () {
                             var _hour = startime.getHours(), _minutes = startime.getMinutes(), img_url = d.Imageurl;
                             _startime = formatDate(startime.getFullYear() + "-" + parseInt(startime.getMonth() + 1) + "-" + startime.getDate() + " " + parseInt(startime.getHours() - 2) + ":" + startime.getMinutes() + ":" + startime.getSeconds());
 
-                            $.get("http://www.rfgxy.com/ashx/api/GetSystemDate.aspx").done(function (d) {
+                            $.get("http://www.qfdlqz.com/ashx/api/GetSystemDate.aspx").done(function (d) {
 
-                                var cur_date = formatDate(d), cur_date2 = formatDate(d), link1 = "http://www.rfgxy.com/topic/act/20130724/", ad_pic = "http://images.rfgxy.com" + img_url;
+                                var cur_date = formatDate(d), cur_date2 = formatDate(d), link1 = "http://www.qfdlqz.com/topic/act/20130724/", ad_pic = "http://images.rfgxy.com" + img_url;
 
                                 if (cur_date >= _startime && cur_date < endtime) {
 
-                                    $("#popup_ad").quickAd({ html: "<a href=\"" + link1 + "\"><img id='img1' src='" + ad_pic + "' width='580' height='300' /></a>", closelink: "http://www.rfgxy.com/topic/act/20130724/" });
+                                    $("#popup_ad").quickAd({ html: "<a href=\"" + link1 + "\"><img id='img1' src='" + ad_pic + "' width='580' height='300' /></a>", closelink: "http://www.qfdlqz.com/topic/act/20130724/" });
                                     $.cookie("popup_ad_ed", "true");
                                     var _year = cur_date2.getFullYear(), _month = cur_date2.getMonth() + 1, _date = cur_date2.getDate();
                                     if ($("#countdown_dashboard_main").length) {
@@ -743,7 +743,7 @@ $(function () {
                                     /*
                                     var tan = $.cookie("tan");
                                     if($.cookie("tan")!="true"){
-                                    $("#popup_ad").quickAd({html:"<a href='http://www.rfgxy.com/topic/act/20131016/'><img id='img2' src='http://images.rfgxy.com/topic/tit_20131019001.png' width='580' height='300' /></a>",closelink:"http://www.rfgxy.com/topic/act/20131016/"});
+                                    $("#popup_ad").quickAd({html:"<a href='http://www.qfdlqz.com/topic/act/20131016/'><img id='img2' src='http://images.rfgxy.com/topic/tit_20131019001.png' width='580' height='300' /></a>",closelink:"http://www.qfdlqz.com/topic/act/20131016/"});
                                     $("#countdown_dashboard_main").html("<div class=\"h30\">&nbsp;</div>");
                                     $.cookie("tan", "true", {expires: 1});
                                     $.cookie("popup_ad_ed",null);
@@ -755,7 +755,7 @@ $(function () {
                         } else {
                             /*
                             if($.cookie("tan")!="true"){
-                            $("#popup_ad").quickAd({html:"<a href='http://www.rfgxy.com/topic/act/20131016/'><img id='img2' src='http://images.rfgxy.com/topic/tit_20131019001.png' width='580' height='300' /></a>",closelink:"http://www.rfgxy.com/topic/act/20131016/"});
+                            $("#popup_ad").quickAd({html:"<a href='http://www.qfdlqz.com/topic/act/20131016/'><img id='img2' src='http://images.rfgxy.com/topic/tit_20131019001.png' width='580' height='300' /></a>",closelink:"http://www.qfdlqz.com/topic/act/20131016/"});
                             $("#countdown_dashboard_main").html("<div class=\"h30\">&nbsp;</div>");
                             $.cookie("tan", "true", {expires: 1});
                             $.cookie("popup_ad_ed",null);
@@ -794,7 +794,7 @@ $(function () {
             var _url = "http://zhaopin.rfgxy.com/api/CheckResumeStatus.aspx";
             var currentUrl = location.href;
             //console.log(currentUrl);
-            //if(currentUrl!="http://www.rfgxy.com/")
+            //if(currentUrl!="http://www.qfdlqz.com/")
                 //return;
             setTimeout(function () {
                 $.ajax({
@@ -834,7 +834,7 @@ function _ad(_id, doc, _width, _height) {
 
         try{
 
-			$.post("http://www.rfgxy.com/ashx/ad.aspx", { id: _id, width: _width, height: _height }, function (msg) {
+			$.post("http://www.qfdlqz.com/ashx/ad.aspx", { id: _id, width: _width, height: _height }, function (msg) {
 				$("#" + doc).html(msg);
 			});   
 	
@@ -850,7 +850,7 @@ function _ad(_id, doc, _width, _height) {
 function _ad2(_id,_course_id, doc, _width, _height) {
 
             try{
-				$.post("http://www.rfgxy.com/ashx/ad.aspx", { "id": _id, "course_id": _course_id, "width": _width, "height": _height }, function (msg) {
+				$.post("http://www.qfdlqz.com/ashx/ad.aspx", { "id": _id, "course_id": _course_id, "width": _width, "height": _height }, function (msg) {
 					$("#" + doc).html(msg);
 				});
     		}catch(ex){
@@ -861,7 +861,7 @@ function _ad2(_id,_course_id, doc, _width, _height) {
 /* 广告3 */
 function _ad3(_id, doc, _width, _height, _isshowtime) {
             try{
-				$.post("http://www.rfgxy.com/ashx/ad.aspx", { id: _id, width: _width, height: _height ,isshowtime: _isshowtime }, function (msg) {
+				$.post("http://www.qfdlqz.com/ashx/ad.aspx", { id: _id, width: _width, height: _height ,isshowtime: _isshowtime }, function (msg) {
 					$("#" + doc).html(msg);
 				});
     		}catch(ex){

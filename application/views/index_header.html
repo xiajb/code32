@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="utf-8">
-    <title>现场培训-儒风国培训网-自动化专业在线培训的首选工控网平台-视频教程下载</title>
-    <meta name="description" content="儒风国自动化培训网课程中心，提供最新最全的专业自动化课程培训视频，提供长期在线答疑辅导服务,确保儒风国学员学以致用。" />
+    <title>现场培训-鼎立启智教育网培训网-自动化专业在线培训的首选工控网平台-视频教程下载</title>
+    <meta name="description" content="鼎立启智教育网自动化培训网课程中心，提供最新最全的专业自动化课程培训视频，提供长期在线答疑辅导服务,确保鼎立启智教育网学员学以致用。" />
     <meta name="keywords" content="西门子S7-200,S7-300,三菱PLC视频,变频器视频 欧姆龙视频教程,工控教程,PLC培训，plc教程视频" />
     <link rel="stylesheet" href="<?php echo base_url('index/lesson1/css/reset.css') ?>">
     <link rel="stylesheet" href="<?php echo base_url('index/lesson1/css/font/iconfont.css') ?>">
@@ -170,18 +170,34 @@
                     <div class="col-xs-24">
                         <div class="header-top clearfix">
                             <div class="header-top-left">
-                                <a href="javascript:;" id="btn-addToFav" class="btn-link btn-link6">收藏儒风国</a>
-                                <!-- <a href="http://www.rfgxy.com/v4/" class="btn-link btn-link6 ml15">回到旧版</a> -->
+                                <a href="javascript:;" id="btn-addToFav" class="btn-link btn-link6" onclick="addFavorite(window.location,document.title)">收藏鼎立启智教育网</a>
                             </div>
+                            <script type="text/javascript">
+                            function addFavorite(url, title) {
+                                url = encodeURI(url);
+                                try {
+                                    //ie浏览器收藏方式
+                                    window.external.addFavorite(url, title);
+                                } catch (e) {
+                                    try {
+                                        //火狐浏览器收藏方式
+                                        window.sidebar.addPanel(title, url, "鼎立启智教育网");
+                                    } catch (e) {
+                                        alert("加入收藏失败，请使用Ctrl+D进行添加," +
+                                            "或手动在浏览器里进行设置.");
+                                    }
+                                }
+                            }
+                            </script>
                             <div class="header-top-right clearfix">
                                 <!DOCTYPE html>
                                 <?php if (empty($_SESSION['username'])): ?>
                                 <ul class="l m0" id="login_top_nologin">
                                     <li>
-                                        <div><a href="http://www.rfgxy.com/login" class="btn-link btn-link6">[请登录]</a></div>
+                                        <div><a href="http://www.qfdlqz.com/login" class="btn-link btn-link6">[请登录]</a></div>
                                     </li>
                                     <li>
-                                        <div><a href="http://www.rfgxy.com/register" class="btn-link btn-link6">[免费注册]</a></div>
+                                        <div><a href="http://www.qfdlqz.com/register" class="btn-link btn-link6">[免费注册]</a></div>
                                     </li>
                                 </ul>
                                 <?php else : ?>
@@ -189,10 +205,10 @@
                                     <li>
                                         <b class="cgray6"><?php echo $_SESSION['username']; ?></b>
                                         <span class="fw" style="color:#188eee">[普通会员]</span>，
-                                        <span class="cgray6">欢迎来儒风国培训！</span><a href="http://www.rfgxy.com/logout" class="btn-link btn-link9">[退出]</a>
+                                        <span class="cgray6">欢迎来鼎立启智教育网培训！</span><a href="http://www.qfdlqz.com/logout" class="btn-link btn-link9">[退出]</a>
                                     </li>
                                     <li>
-                                        <div><a href="http://www.rfgxy.com/center/mydata?label=jiben" target="_blank" class="btn-link btn-link6">个人中心</a></div>
+                                        <div><a href="http://www.qfdlqz.com/center/mydata?label=jiben" target="_blank" class="btn-link btn-link6">个人中心</a></div>
                                 </ul>
                                 <?php endif; ?>
                                 <ul class="l m0">
@@ -200,10 +216,10 @@
                                 <li><div><a href="http://my.rfgxy.com/" target="_blank" class="btn-link btn-link6">学员中心</a></div></li>
                                 -->
                                     <li>
-                                        <div><a href="http://www.rfgxy.com/lesson1/guide.aspx" target="_blank" class="btn-link btn-link6" style="color:Red;">新手攻略</a></div>
+                                        <div><a href="http://www.qfdlqz.com/lesson1/guide.aspx" target="_blank" class="btn-link btn-link6" style="color:Red;">新手攻略</a></div>
                                     </li>
                                     <li>
-                                        <div><a href="http://www.rfgxy.com/about/us" target="_blank" class="btn-link btn-link6">网站导航</a></div>
+                                        <div><a href="http://www.qfdlqz.com/about/us" target="_blank" class="btn-link btn-link6">网站导航</a></div>
                                     </li>
                                 </ul>
                             </div>
@@ -214,11 +230,11 @@
         </div>
         <div class="header">
             <div class="inner clearfix">
-                <a class="logo mr20" href="/"><img src="<?php echo base_url('/index/logo/logo.png'); ?>" width="250" height="66" alt="儒风国培训"></a>
+                <a class="logo mr20" href="/"><img src="<?php echo base_url('/index/logo/logo.png'); ?>" width="250" height="66" alt="鼎立启智教育网培训"></a>
                 <!--位置导航-->
                 <div class="guide-nav mr20">
                     <li>
-                        <a class="nav-link" href="http://www.rfgxy.com">首页</a>
+                        <a class="nav-link" href="http://www.qfdlqz.com">首页</a>
                     </li>
                     <li>
                         <span class="fs pr10 pl10">&gt;</span>
@@ -248,13 +264,13 @@
                             return "http://zhannei.baidu.com/cse/search?q=" + arg1 + "&s=" + s;
                         },
                         "course": function(arg1) {
-                            return "http://www.rfgxy.com/lesson/lessonSearch?q=" + escape(arg1);
+                            return "http://www.qfdlqz.com/lesson/lessonSearch?q=" + escape(arg1);
                         },
                         "video_course": function(arg1) {
-                            return "http://www.rfgxy.com/lesson/lessonSearch?q=" + escape(arg1);
+                            return "http://www.qfdlqz.com/lesson/lessonSearch?q=" + escape(arg1);
                         },
                         "case_course": function(arg1) {
-                            return "http://www.rfgxy.com/lesson/lessonSearch?q=" + escape(arg1) + "&course=%u6848%u4F8B%u8BFE%u7A0B";
+                            return "http://www.qfdlqz.com/lesson/lessonSearch?q=" + escape(arg1) + "&course=%u6848%u4F8B%u8BFE%u7A0B";
                         },
                         "down": function(arg1) {
                             return "http://zhannei.baidu.com/cse/search?q=" + arg1 + "&s=" + s + "&nsid=2";
@@ -267,15 +283,15 @@
                         } else if (!$.trim(txtSearch).indexOf("请输入课程")) {
                             $txtSearch.val("请输入课程").focus();
                         } else {
-		    $.ajax({
-		        type: 'GET',
-		        url: "<?php echo base_url() ?>search?words="+txtSearch,
+                            $.ajax({
+                                type: 'GET',
+                                url: "<?php echo base_url() ?>search?words=" + txtSearch,
 
-                                    success: function(result) {
+                                success: function(result) {
 
-		         window.location.href = "<?php echo base_url() ?>search?words="+txtSearch;
-                                    }
-		    });
+                                    window.location.href = "<?php echo base_url() ?>search?words=" + txtSearch;
+                                }
+                            });
                         }
                     };
                 $searchArea.on({

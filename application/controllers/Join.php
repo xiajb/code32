@@ -16,16 +16,16 @@ class Join extends CI_Controller {
 	public function index()
 	{
 		if ($_SESSION['uid'] == '' || !isset($_SESSION['uid'])) {
-			redirect("http://www.rfgxy.com/login");
+			redirect("http://www.qfdlqz.com/login");
 			return;
 		}else{
 			$row = $this->user_model->get_user_by_uid($_SESSION['uid']);
 			if ($row == false) {
-				redirect("http://www.rfgxy.com/login");
+				redirect("http://www.qfdlqz.com/login");
 			}elseif($row['name'] == '' || $row['pic']==""){
-				redirect("http://www.rfgxy.com/center/mydata");
+				redirect("http://www.qfdlqz.com/center/mydata");
 			}elseif ($row['level'] == 1) {
-				redirect("http://www.rfgxy.com/center/mydata");
+				redirect("http://www.qfdlqz.com/center/mydata");
 			}else{
 				$this->load->view("index_header.html");
 				$this->load->view("join.html");
@@ -39,7 +39,7 @@ class Join extends CI_Controller {
 	public function apply(){
 		if (!isset($_SESSION['uid']) || $_SESSION['uid'] == '') {
 			echo "-1";
-			// redirect("http://www.rfgxy.com/login");
+			// redirect("http://www.qfdlqz.com/login");
 			// return;
 		}else{
 			$row = $this->user_model->get_user_by_uid($_SESSION['uid']);

@@ -15,7 +15,7 @@ class Forget extends CI_Controller {
 	public function step1()
 	{
 		if ($this->session->userdata('username')) {
-			redirect('http://www.rfgxy.com');
+			redirect('http://www.qfdlqz.com');
 		}else{
 			$this->load->view("findpwd_tmp1.html");
 		}
@@ -98,7 +98,7 @@ class Forget extends CI_Controller {
 	{
 		$token = $_GET['token'];
 		if (!isset($_SESSION['token']) || $token != $_SESSION['token']) {
-			redirect('http://www.rfgxy.com/404.html');
+			redirect('http://www.qfdlqz.com/404.html');
 		}else{
 			$data['email'] = $_SESSION['email'];
 			$data['phone'] = $_SESSION['phone'];
@@ -112,7 +112,7 @@ class Forget extends CI_Controller {
 	{
 		$token = $_GET['token'];
 		if (!isset($_SESSION['token']) || $token != $_SESSION['token']) {
-			redirect('http://www.rfgxy.com/404.html');
+			redirect('http://www.qfdlqz.com/404.html');
 		}else{
 			$data['token'] = $token;
 			$this->load->view("findpwd_tmp3.html",$data);

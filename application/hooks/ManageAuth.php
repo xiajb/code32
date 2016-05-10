@@ -16,7 +16,7 @@ class ManageAuth {
 			$username = $this->CI->session->userdata('username');
 			$res = $this->CI->user_model->get_user_session($username,1);
 			if (!$res) {
-			 	redirect('http://www.rfgxy.com');           	
+			 	redirect('http://www.qfdlqz.com');           	
 			}            
 		}            
 	}        

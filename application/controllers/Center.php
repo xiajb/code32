@@ -184,7 +184,7 @@ class Center extends CI_Controller {
 			if($a>0){
 				echo '1';
 				exit();
-				// redirect('http://www.rfgxy.com/center/add');
+				// redirect('http://www.qfdlqz.com/center/add');
 			}else{
 				echo '-1';
 				exit();
