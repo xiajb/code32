@@ -212,6 +212,7 @@ class Course extends CI_Controller {
 
 	public function delete(){
 		$id = $_POST['value'];
+		
 		echo $this->course_model->delete($id);
 	}
 

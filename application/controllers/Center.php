@@ -78,7 +78,9 @@ class Center extends CI_Controller {
 			$data['checking'] = $this->course_model->get_course_by_id($teacher->tid,'0');
 			$data['pass'] = $this->course_model->get_course_by_id($teacher->tid,'1');
 			$data['not_pass'] = $this->course_model->get_course_by_id($teacher->tid,'-1');
-
+			$this->load->view("center_header.html",$data);
+			$this->load->view("center_teacher_mycourse.html");
+			$this->load->view("center_footer.html");
 		}elseif ($_SESSION['level'] == 0) {
 			$data['active'] = array(
 					'mydata'=>'',

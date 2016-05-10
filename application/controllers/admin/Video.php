@@ -1,4 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+require_once dirname(dirname(dirname(__FILE__))) . '/geetest/upyun.class.php';
 
 class Video extends CI_Controller {
 	public function __construct(){
@@ -161,8 +162,18 @@ class Video extends CI_Controller {
 
 	public function delete(){
 		$id = $_POST['value'];
+		$section = $this->section_model->get_section_by_id($id);
+		if ($section['section_path']) {
+			$path =  strstr($section['section_path'], '/video');
+			$UpYun = new UpYun('code32','rxs','rxs84217621');
+			$result = $UpYun->delete($path);
+		}
 		$value = $this->section_model->delete($id);
-		echo $value;
+		if ($result==1 && $value==1) {
+			echo '1';
+		}else{
+			echo '-1';
+		}
 	}
 
 

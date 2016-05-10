@@ -115,175 +115,37 @@
             </ul>
             <?php endif; ?>
         </div>
-        <div class="mycourse-tab-body lesson-list" id="tab3" style="display:none;">
-            <?php if (!empty($not_pass)): ?>
-            <ul class="cf" id="home_my_fav">
-                <?php foreach ($not_pass as $row) :?>
-                <li id="<?php echo $row['course_id']; ?>" test="0" deg="360" stop="1">
-                    <div class="lessonimg-box">
-                        <i class="user-action lesson-shoucang " style="display: none;" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64013&amp;aCId=127&amp;posColumn=127.3"></i>
-                        <!-- <i class="free-icon"></i> -->
-                        <a href="http://www.qfdlqz.com/course/showcourse/<?php echo $row['course_id'] ?>" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=127&amp;posColumn=127.3">
-                            <img src="<?php echo $row['img_path']; ?>" class="lessonimg" title="<?php echo $row['course_name']; ?>" alt="<?php echo $row['course_name']; ?>">
-                            <div class="lessonplay" style="opacity: 0;">
-                                <div class="cricle">
-                                    <div class="mask" style="display: none;"></div>
-                                    <div class="left" style="transform: rotate(360deg);">
-                                        <div class="bg"></div>
-                                    </div>
-                                    <div class="cright" style="display: block;">
-                                        <div class="bg"></div>
-                                    </div>
-                                    <div class="text">100%</div>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="jd-line" style="display: block;">
-                            <div class="green-line" style="width:238px"></div>
-                        </div>
-                    </div>
-                    <div class="lesson-infor" style="height: 88px;">
-                        <h2 class="lesson-info-h2"><a href="http://www.jikexueyuan.com/course/127.html" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=127&amp;posColumn=127.3"><?php echo $row['course_name']; ?></a></h2>
-                        <div class="timeandicon">
-                            <div class="cf">
-                                <dl>
-                                    <dd class="mar-b8"><i class="time-icon"></i><em>3课时
-                            19分钟</em>
-                                    </dd>
-                                    <dd class="zhongji" style="display: none;">
-                                        <i class="xinhao-icon"></i><em><?php echo $row['course_level']; ?></em>
-                                    </dd>
-                                </dl>
-                                <em class="learn-number" style="display: none;">100511人学习</em>
-                            </div>
-                            <div class="cf">
-                                <div class="lessonicon-box" style="bottom: 4px;">
-                                    <a href="http://www.jikexueyuan.com/course/html5/">
-                                        <img width="16" src="http://a1.jikexueyuan.com/home/201411/03/171a/54578ddd8e62a.png" alt="html5" title="HTML5" jktag="&amp;posGP=101001&amp;posArea=0003&amp;posOper=64015&amp;aCId=127&amp;posColumn=127.1&amp;aCCate=html5">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <?php endforeach;?>
-            </ul>
-            <div id="page-nav">
-                <ul class="pages">
-                    <li class="pgNext pgEmpty">首页</li>
-                    <li class="pgNext pgEmpty">上一页</li>
-                    <li class="page-number pgCurrent">1</li>
-                    <li class="pgNext pgEmpty">下一页</li>
-                    <li class="pgNext pgEmpty">末页</li>
-                    <li class="thpoint pagetotal" style="margin-top:3px;">共 1 页</li>
-                    <li class="thpoint pagenow">当前
-                        <input type="text" value="1" maxlength="6" id="gotoval" style="width:20px; height:16px;margin-top:-3px;padding-top:2px;padding-left:10px;">页</li>
-                    <li class="pgNext go">确定</li>
+
+
+            <div class=" pages tr">
+                <ul id="pagination">
+
                 </ul>
             </div>
-        </div>
-        <?php else: ?>
-        <ul class="cf" id="home_my_fav">
-            <div class="mar-t30 no-contnet-block">
-                <div class="no-contnet-box cf">
-                    <div class="no-content-img">
-                        <img src="http://s1.jikexueyuan.com/member/images/no-content_8a46981.png">
-                    </div>
-                    <div class="no-content-h3">
-                        <p class="no-content-textbig">还没有收藏的课程？</p>
-                        <p class="no-content-text">点击视频播放器右侧的“收藏”按钮，即可将喜欢的课程收藏到这里再也不担心喜欢的课程找不到啦</p>
-                    </div>
-                </div>
-            </div>
-        </ul>
-        <?php endif; ?>
-    </div>
-    <div class="mycourse-tab-body lesson-list" id="tab2" style="display:none;">
-        <?php if (!empty($checking)): ?>
-        <ul class="cf" id="home_my_fav">
-            <?php foreach ($checking as $row) :?>
-                <li id="<?php echo $row['course_id']; ?>" test="0" deg="360" stop="1">
-                    <div class="lessonimg-box">
-                        <i class="user-action lesson-shoucang " style="display: none;" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64013&amp;aCId=127&amp;posColumn=127.3"></i>
-                        <!-- <i class="free-icon"></i> -->
-                        <a href="http://www.qfdlqz.com/course/showcourse/<?php echo $row['course_id'] ?>" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=127&amp;posColumn=127.3">
-                            <img src="<?php echo $row['img_path']; ?>" class="lessonimg" title="<?php echo $row['course_name']; ?>" alt="<?php echo $row['course_name']; ?>">
-                            <div class="lessonplay" style="opacity: 0;">
-                                <div class="cricle">
-                                    <div class="mask" style="display: none;"></div>
-                                    <div class="left" style="transform: rotate(360deg);">
-                                        <div class="bg"></div>
-                                    </div>
-                                    <div class="cright" style="display: block;">
-                                        <div class="bg"></div>
-                                    </div>
-                                    <div class="text">100%</div>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="jd-line" style="display: block;">
-                            <div class="green-line" style="width:238px"></div>
-                        </div>
-                    </div>
-                    <div class="lesson-infor" style="height: 88px;">
-                        <h2 class="lesson-info-h2"><a href="http://www.jikexueyuan.com/course/127.html" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=127&amp;posColumn=127.3"><?php echo $row['course_name']; ?></a></h2>
-                        <div class="timeandicon">
-                            <div class="cf">
-                                <dl>
-                                    <dd class="mar-b8"><i class="time-icon"></i><em>3课时
-                            19分钟</em>
-                                    </dd>
-                                    <dd class="zhongji" style="display: none;">
-                                        <i class="xinhao-icon"></i><em><?php echo $row['course_level']; ?></em>
-                                    </dd>
-                                </dl>
-                                <em class="learn-number" style="display: none;">100511人学习</em>
-                            </div>
-                            <div class="cf">
-                                <div class="lessonicon-box" style="bottom: 4px;">
-                                    <a href="http://www.jikexueyuan.com/course/html5/">
-                                        <img width="16" src="http://a1.jikexueyuan.com/home/201411/03/171a/54578ddd8e62a.png" alt="html5" title="HTML5" jktag="&amp;posGP=101001&amp;posArea=0003&amp;posOper=64015&amp;aCId=127&amp;posColumn=127.1&amp;aCCate=html5">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            <?php endforeach;?>
-        </ul>
-        <div id="page-nav">
-            <ul class="pages">
-                <li class="pgNext pgEmpty">首页</li>
-                <li class="pgNext pgEmpty">上一页</li>
-                <li class="page-number pgCurrent">1</li>
-                <li class="pgNext pgEmpty">下一页</li>
-                <li class="pgNext pgEmpty">末页</li>
-                <li class="thpoint pagetotal" style="margin-top:3px;">共 1 页</li>
-                <li class="thpoint pagenow">当前
-                    <input type="text" value="1" maxlength="6" id="gotoval" style="width:20px; height:16px;margin-top:-3px;padding-top:2px;padding-left:10px;">页</li>
-                <li class="pgNext go">确定</li>
-            </ul>
-        </div>
-    </div>
-    <?php else: ?>
-    <ul class="cf" id="home_my_fav">
-        <div class="mar-t30 no-contnet-block">
-            <div class="no-contnet-box cf">
-                <div class="no-content-img">
-                    <img src="http://s1.jikexueyuan.com/member/images/no-content_8a46981.png">
-                </div>
-                <div class="no-content-h3">
-                    <p class="no-content-textbig">还没有收藏的课程？</p>
-                    <p class="no-content-text">点击视频播放器右侧的“收藏”按钮，即可将喜欢的课程收藏到这里再也不担心喜欢的课程找不到啦</p>
-                </div>
-            </div>
-        </div>
-    </ul>
-    <?php endif; ?>
-</div>
-<div class="mycourse-page">
-    <div id="page-nav"></div>
-</div>
+            <div class="" style="clear:both"></div>
+            <script type="text/javascript">
+            //初始化分页
+            window.onload = function() {
+                    my_page = new open_pager("pagination");
+                    my_page.showTotalTip = false;
+                    my_page.pageSize = 2; //每页显示数
+                    my_page.pageFuncName = "LoadPaging"; //回调函数名称
+                    my_page.currentPage = 1; //当前页
+                    my_page.totalRows = "<?php echo $total; ?>"; //总条数
+                    // my_page.allowClone = true;
+                    // my_page.cloneName = "Div_Clone_Page";
+                    my_page.output();
+                }
+                //调用
+            function LoadPaging(pg) {
+                //通过get提交
+                var _newurl = my_page.createUrl(pg);
+                location.href = _newurl;
+                // document.getElementById("form1").action = _newurl;
+                // document.getElementById("form1").method = "post";
+                // document.getElementById("form1").submit();
+            }
+            </script>
 </div>
 </div>
 </div>

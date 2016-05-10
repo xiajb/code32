@@ -35,6 +35,12 @@ class Section_model extends CI_Model{
 		
 	}
 
+	public function get_section_by_id($section_id){
+		$this->db->where('section_id',$section_id);
+		$query = $this->db->get(self::TBL_USER);
+		return $query->row_array();
+	}
+
 	public function delete($id){
 		return $this->db->delete(self::TBL_USER, array('section_id' => $id));
 	}	
