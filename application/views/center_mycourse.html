@@ -3,36 +3,8 @@
         <div class="mycourse-tab-tit">
             <ul class="cf mycourse-tab-ul">
                 <li class="active" id="pass"><a href="javascript:;" jktag="&amp;posOper=62012&amp;posArea=0003">我的课程</a></li>
-                <li class="" id="checking"><a href="javascript:;" jktag="&amp;posOper=62012&amp;posArea=0003">审核中</a></li>
-                <li class="" id="not_pass"><a href="javascript:;" jktag="&amp;posOper=62012&amp;posArea=0003">审核未通过</a></li>
             </ul>
         </div>
-        <script type="text/javascript">
-        $("#pass").click(function() {
-            $('#pass').addClass("active");
-            $('#checking').removeClass("active");
-            $('#not_pass').removeClass("active");
-            $('#tab1').css('display', 'block');
-            $('#tab2').css('display', 'none');
-            $('#tab3').css('display', 'none');
-        });
-        $("#checking").click(function() {
-            $('#pass').removeClass("active");
-            $('#checking').addClass("active");
-            $('#not_pass').removeClass("active");
-            $('#tab1').css('display', 'none');
-            $('#tab2').css('display', 'block');
-            $('#tab3').css('display', 'none');
-        });
-        $("#not_pass").click(function() {
-            $('#pass').removeClass("active");
-            $('#checking').removeClass("active");
-            $('#not_pass').addClass("active");
-            $('#tab1').css('display', 'none');
-            $('#tab2').css('display', 'none');
-            $('#tab3').css('display', 'block');
-        });
-        </script>
         <div class="mycourse-tab-body lesson-list" id="tab1">
             <?php if (!empty($pass)): ?>
             <ul class="cf" id="home_my_fav">
