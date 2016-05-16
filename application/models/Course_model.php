@@ -84,4 +84,10 @@ class Course_model extends CI_Model{
 		$this->db->from(self::TBL_USER);
 		return $this->db->count_all_results();
 	}
+
+	public function get_count_by_teacher($course_lectruer_id){
+		$this->db->where('course_lectruer_id',$course_lectruer_id);
+		$this->db->from(self::TBL_USER);
+		return $this->db->count_all_results();
+	}
   }

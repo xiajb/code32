@@ -49,20 +49,20 @@
                             <ul class="l m0" id="login_top_logined">
                                 <li>
                                     <b class="cgray6"><?php echo $_SESSION['username']; ?></b>
-                                    <span class="fw" style="color:#188eee">[普通会员]</span>，
+                                    <span class="fw" style="color:#188eee">
+                                        <?php if($_SESSION['level'] == 0){
+
+                                            echo '[普通会员]';
+                                        }elseif($_SESSION['level'] == 1){
+                                            echo '[资深讲师]';
+                                        }?></span>，
                                     <span class="cgray6">欢迎来鼎立启智教育网培训！</span><a href="http://www.qfdlqz.com/logout" class="btn-link btn-link9">[退出]</a>
                                 </li>
                                 <li>
-                                    <div><a href="http://www.qfdlqz.com/center/mydata?label=jiben" target="_blank" class="btn-link btn-link6">个人中心</a></div>
+                                    <div><a href="http://www.qfdlqz.com/center/mydata" target="_blank" class="btn-link btn-link6">个人中心</a></div>
                             </ul>
                             <?php endif; ?>
                             <ul class="l m0">
-                                <!--
-                                <li><div><a href="http://my.rfgxy.com/" target="_blank" class="btn-link btn-link6">学员中心</a></div></li>
-                                -->
-                                <li>
-                                    <div><a href="http://www.qfdlqz.com/lesson1/guide.aspx" target="_blank" class="btn-link btn-link6" style="color:Red;">新手攻略</a></div>
-                                </li>
                                 <li>
                                     <div><a href="http://www.qfdlqz.com/about/us" target="_blank" class="btn-link btn-link6">网站导航</a></div>
                                 </li>
@@ -277,30 +277,7 @@
         background-position: 0 0
     }
     /*        **百度分享图标自定义--32*32--*****/
-    
-    .bdshare-button-style0-32 a.bds_more {
-        background: url(http://www.qfdlqz.com/images/shares_spirite.png) no-repeat 0 -80px !important;
-    }
-    
-    .bdshare-button-style0-32 a.bds_qzone {
-        background: url(http://www.qfdlqz.com/images/shares_spirite.png) no-repeat -160px -80px !important;
-    }
-    
-    .bdshare-button-style0-32 a.bds_tsina {
-        background: url(http://www.qfdlqz.com/images/shares_spirite.png) no-repeat -64px -80px !important;
-    }
-    
-    .bdshare-button-style0-32 a.bds_tqq {
-        background: url(http://www.qfdlqz.com/images/shares_spirite.png) no-repeat -192px -80px !important;
-    }
-    
-    .bdshare-button-style0-32 a.bds_weixin {
-        background: url(http://www.qfdlqz.com/images/shares_spirite.png) no-repeat -96px -80px !important;
-    }
-    
-    .bdshare-button-style0-32 a.bds_sqq {
-        background: url(http://www.qfdlqz.com/images/shares_spirite.png) no-repeat -128px -80px !important;
-    }
+
     
     .listview10 {
         padding: 15px 0 0 15px;
@@ -803,6 +780,7 @@
                     <div class="w585 l vedio rel">
                         <div id="player" style="width: 585px;">
                             <a href="javascript:;" class="playNologin see" id="playv-startimg" data-id="2179">
+
             <img src="<?php
                 $course=$arr[2];
                 echo $course[0]['img_path'];
@@ -924,7 +902,9 @@
                             <div class="shareBtn clearfix">
                                 <div class="sharesBtnLink">
                                     <input type="hidden" name="grd" class="grd" value="">
-                                    <a href="javascript:;">开始学习</a>
+                                    <a href="http://www.qfdlqz.com/lesson1/play_course_pay.aspx?course_id=2179">开始学习</a>
+                                    <a href="javascript:;" id="collect-video-btn">开始学习</a>
+
                                 </div>
                             </div>
                         </div>
@@ -1375,8 +1355,8 @@
                     </div>
                     <div class="bfoot pl20 pr20 f14">
                         <p class="clearfix">
-                            <span class="l">课程总数（139）</span> <span class="r hand" id="like-teacher-btn">
-                                    <i class="iconfont f14 colblue"></i> 赞（<label id="like-teacher-num">181</label>）</span></p>
+                            <span class="l">课程总数（<?php echo $total;?>）</span> <span class="r hand" id="like-teacher-btn">
+                                    <i class="iconfont f14 colblue"></i> 赞（<label id="like-teacher-num"><?php echo $teacher['likes'];?></label>）</span></p>
                     </div>
                 </div>
                 <!--老师介绍-->
@@ -1624,9 +1604,8 @@
         $("#like-teacher-btn").click(function() {
                 if (getCookie("codeteacher") == null) {
                     document.cookie = "codeteacher=first";
-                    $.post("/lesson1/ajax/coursehandle.aspx", {
-                        "action": "like-teacher",
-                        "teacher_id": "5"
+                    $.post("../../course/update_likes", {
+                        "tid": "<php echo $tid;>"
                     });
                     $("#like-teacher-num").html(parseInt($("#like-teacher-num").text()) + 1);
                 } else {
@@ -1638,36 +1617,33 @@
             })
             // 收藏课程,k
         $("#collect-video-btn").click(function() {
-            var url = "http://www.qfdlqz.com/lesson/2179/"; // location.href;
-            var title = '西门子S7-200PLC模拟量应用篇';
-            var learnerId = $.cookie("learnerId");
-            if (learnerId == null) {
-                login();
-                return false;
-            } else {
-                $.post("ajax/coursehandle.aspx", {
-                    "action": "collect-course",
-                    "course_id": "2179",
-                    "url_course": url,
-                    "name_course": title,
-                    "learnerId": learnerId
-                }, function(d) {
+            var data = {
+                "<?php  echo $this->security->get_csrf_token_name();?>":"<?php echo $this->security->get_csrf_hash(); ?>",
+                "course_id":<?php echo $arr[2][0]['course_id']?>,
+            }
+            $.ajax({
+                type: 'POST',
+                url: "<?php echo base_url('./course/add_collect'); ?>",
+                data: data,
 
-                    if (d = 3) {
+                success: function(result) {
+                    console.log(result);
+                    if (result == -3) {
                         alert("请登录后在收藏!");
                         return false;
-                    } else if (d = 2) {
+                    } else if (result == -2) {
                         alert("已经收藏过了!");
                         return false;
-                    } else if (d = 1) {
+                    } else if (result == 1) {
                         alert("收藏成功!");
                         $("#collect-video-num").html(parseInt($("#collect-video-num").text()) + 1);
                     } else {
                         alert("收藏失败!");
                         return false;
                     }
-                });
-            }
+                }
+            });
+
         })
 
 

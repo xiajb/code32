@@ -46,11 +46,17 @@
                                 <ul class="l m0" id="login_top_logined">
                                     <li>
                                         <b class="cgray6"><?php echo $_SESSION['username']; ?></b>
-                                        <span class="fw" style="color:#188eee">[普通会员]</span>，
+                                        <span class="fw" style="color:#188eee">
+                                        <?php if($_SESSION['level'] == 0){
+
+                                            echo '[普通会员]';
+                                        }elseif($_SESSION['level'] == 1){
+                                            echo '[资深讲师]';
+                                        }?></span>，
                                         <span class="cgray6">欢迎来鼎立启智教育网培训！</span><a href="http://www.qfdlqz.com/logout" class="btn-link btn-link9">[退出]</a>
                                     </li>
                                     <li>
-                                        <div><a href="http://www.qfdlqz.com/center/mydata?label=jiben" target="_blank" class="btn-link btn-link6">个人中心</a></div>
+                                        <div><a href="http://www.qfdlqz.com/center/mydata" target="_blank" class="btn-link btn-link6">个人中心</a></div>
                                     </li>
                                 </ul>
                                 <?php endif; ?>

@@ -227,7 +227,7 @@ CREATE TABLE IF NOT EXISTS `ci_section` (
   `free` int(11) NOT NULL,
   `section_path` varchar(1000) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`section_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- 转存表中的数据 `ci_section`
@@ -287,7 +287,7 @@ CREATE TABLE IF NOT EXISTS `ci_user` (
   `other` varchar(255) NOT NULL DEFAULT '',
   `reg_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '注册时间',
   PRIMARY KEY (`uid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- 转存表中的数据 `ci_user`
@@ -309,7 +309,7 @@ CREATE TABLE IF NOT EXISTS `ci_activity` (
   `intro` text NOT NULL DEFAULT '',  
   `detail` text NOT NULL DEFAULT '',
   PRIMARY KEY (`activity_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 
 
@@ -318,8 +318,16 @@ CREATE TABLE IF NOT EXISTS `ci_join` (
   `uid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '用户id',
   `activity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '活动id',
   PRIMARY KEY (`join_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
+
+CREATE TABLE IF NOT EXISTS `ci_collect` (
+  `collect_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'primary key,autoincrement',
+  `uid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '用户id',
+  `course_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '课程id',
+  `add_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '开始时间',
+  PRIMARY KEY (`collect_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

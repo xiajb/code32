@@ -15,6 +15,12 @@ class Teacher_model extends CI_Model{
 		return $query->result_array();
 	}
 
+	public function get_by_tid($tid){
+		$this->db->where("tid",$tid);
+		$query = $this->db->get(self::TBL_USER);
+		return $query->row_array();
+	}
+
 	public function get_by_status($status){
 		$this->db->where("status",$status);
 		// $sql = 'select * from ci_teacher where check=2';
@@ -41,6 +47,13 @@ class Teacher_model extends CI_Model{
 
 	public function delete_teacher($id){
 		return $this->db->delete(self::TBL_USER, array('tid' => $id));
+	}
+
+	//点赞
+	public function update_likes($tid){
+		$this->db->set('likes', 'likes+1', FALSE);
+		$this->db->where('tid', $tid);
+		return $this->db->update(self::TBL_USER);
 	}
 
 }
