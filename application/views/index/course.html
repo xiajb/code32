@@ -878,7 +878,7 @@
                 echo $course[0]['order_no'];
                 ?>
                             </p>
-                            <p>已看过：6045人</p>
+                            <p>收藏：6045人</p>
                             <p>讲师：
                                 <?php
             $course=$arr[2];
@@ -897,13 +897,12 @@
                             <div class="dianping">
                                 <span class="dpTxt"> 课程点评：</span>
                                 <span class="sa_star_1"><i class="sa_d8"></i></span> <span class="dpNm">4.8分
-                               （6045人学习）</span>
+                               <i id="collect-video-btn" class="Hui-iconfont Hui-iconfont-zan2">赞()</i></span>
                             </div>
                             <div class="shareBtn clearfix">
                                 <div class="sharesBtnLink">
                                     <input type="hidden" name="grd" class="grd" value="">
                                     <a href="http://www.qfdlqz.com/lesson1/play_course_pay.aspx?course_id=2179">开始学习</a>
-                                    <a href="javascript:;" id="collect-video-btn">开始学习</a>
 
                                 </div>
                             </div>
@@ -1356,7 +1355,10 @@
                     <div class="bfoot pl20 pr20 f14">
                         <p class="clearfix">
                             <span class="l">课程总数（<?php echo $total;?>）</span> <span class="r hand" id="like-teacher-btn">
-                                    <i class="iconfont f14 colblue"></i> 赞（<label id="like-teacher-num"><?php echo $teacher['likes'];?></label>）</span></p>
+                                    <i class="Hui-iconfont Hui-iconfont-zan2"></i> 赞（<label id="like-teacher-num"><?php echo $teacher['likes'];?></label>）</span></p>
+
+                                                                        
+
                     </div>
                 </div>
                 <!--老师介绍-->
