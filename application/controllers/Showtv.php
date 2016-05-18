@@ -21,7 +21,8 @@ class Showtv extends CI_Controller
 		$data['comment'] = $this->comment_model->get_comment_by_course($course_id);
 		$data['arr']=array($chapter,$section,$course);
 		$this->session->set_userdata('section_id',$section_id);
-		$this->load->view('index/show.html',$data);
+		$this->load->view('index_header.html',$data);
+		$this->load->view('index/show.html');
 		$this->load->view('about_footer.html');
 	}
 
