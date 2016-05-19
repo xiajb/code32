@@ -30,6 +30,20 @@ class Collect_model extends CI_Model{
 		return $this->db->count_all(self::TBL_USER);
 	}
 
+	public function get_count_by_uid($uid){
+		$this->db->where('uid',$uid);
+		$this->db->from(self::TBL_USER);
+		return $this->db->count_all_results();
+	}
+	
+	public function get_limit_by_uid($uid,$first,$num){
+		$query = $this->db->select('*')
+			        ->where("uid",$uid)
+			        ->limit($first, $num)
+			        ->get(self::TBL_USER);
+		return $query->result_array();
+	}
+
 	public function delete_collect($id){
 		return $this->db->delete(self::TBL_USER, array('link' => $id));
 	}

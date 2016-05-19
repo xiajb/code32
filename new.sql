@@ -113,8 +113,8 @@ CREATE TABLE IF NOT EXISTS `ci_course` (
   `classify_id` int(11) NOT NULL,
   `course_lectruer_id` int(11) NOT NULL,
   `course_level` varchar(16) COLLATE utf8_bin NOT NULL,
-  `attentions` int(11) NOT NULL,
-  `enrolls` int(11) NOT NULL,
+  `collects` int(11) NOT NULL,
+  `zan` int(11) NOT NULL,
   `status` int(11) NOT NULL,
   `add_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '添加时间',
   `img_path` varchar(1000) COLLATE utf8_bin NOT NULL,
@@ -125,7 +125,7 @@ CREATE TABLE IF NOT EXISTS `ci_course` (
 -- 转存表中的数据 `ci_course`
 --
 
-INSERT INTO `ci_course` (`course_id`, `course_name`, `course_synopsis`, `classify_id`, `course_lectruer_id`, `course_level`, `attentions`, `enrolls`, `status`, `add_time`, `img_path`) VALUES
+INSERT INTO `ci_course` (`course_id`, `course_name`, `course_synopsis`, `classify_id`, `course_lectruer_id`, `course_level`, `collects`, `zan`, `status`, `add_time`, `img_path`) VALUES
 (2, 'HTML+CSS基础课', '本课程从最基本的概念开始讲起，步步深入，带领大家学习HTML、CSS样式基础知识，了解各种常用标签的意义以及基本用法，后半部分讲解CSS样式代码添加，为后面的案例课程打下基础。', 1, 2, '初级', 0, 0, 1, '2016-02-16 00:00:00', 'http://img.imooc.com/529dc3380001379906000338-240-135.jpg'),
 (3, '网页布局基础', '网页布局是进行网页制作的基础。本课程将讲解CSS中三种定位机制——标准文档流、浮动和绝对定位，并对标准文档流、盒子模型、float属性以及position属性等进行详细分析。从晦涩的理论讲解到编辑器环境的逐步验证，让你彻底掌握网页布局的相关知识。', 1, 2, '初级', 0, 0, 1, '2016-02-16 00:00:00', 'http://img.imooc.com/53eafb44000146c706000338-240-135.jpg'),
 (4, '手把手教你实现电商网站', '课程介绍\r\n电商网站基本制作流程，通过整站分步的教学让学员了解和掌握电商网站制作的流程和注意事项，运用网站内学过的知识点的连接掌握整站的开发过程，增加开发经验。', 1, 2, '高级', 0, 0, 1, '2016-02-16 00:00:00', 'http://img.imooc.com/53c4bf8200011aac06000338-240-135.jpg'),

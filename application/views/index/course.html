@@ -884,17 +884,18 @@
             echo $course[0]['name'];
             ?>
                             </p>
-                            <p id="collect-btn" class="hand Hui-iconfont">&#xe702;收藏：<label id="collect-num"> 6045人</label> </p> 
+                            <p id="collect-btn" class="hand Hui-iconfont">&#xe702;收藏：<label id="collect-num"> <?php echo $arr[2][0]['collects'];?></label>人 </p> 
                             <p class="jibie clearfix">课程级别：
                                 <em id="lv1" class=""></em>
                                 <em id="lv2"></em>
                                 <em id="lv3"></em>
                                 <code><?php
-                $course=$arr[2];
-                echo $course[0]['course_level'];
+                echo $arr[2][0]['course_level'];
                 ?></code>
                             </p>
-                               <p id="course-zan-btn" class="hand Hui-iconfont Hui-iconfont-zan2">赞:<label id="course-zan-num"> （55）</label> </p>
+                               <p id="course-zan-btn" class="hand Hui-iconfont Hui-iconfont-zan2">赞:（<label id="course-zan-num"> <?php
+                echo $arr[2][0]['zan'];
+                ?></label> ）</p>
                             <div class="shareBtn clearfix">
                                 <div class="sharesBtnLink">
                                     <a href="javascript:;">开始学习</a>
@@ -924,7 +925,6 @@
                             <div class="bhead">
                                 <form id="course_form" name="course_form" method="post" autocomplete="off">
                                     <div class="w620 r h60">
-                                        <a class="btn btn-none btn-active btn-auto  w185 f18 r quick_buys" href="javascript:(0);" style="height:54px; line-height:54px; margin:3px;" data-id="2179" data-name="西门子S7-200PLC模拟量应用篇">立即购买</a>
                                         <div class="w400 l f18 pr20 tr r">
                                             <p class="gray6">
                                                 <span class="mr10"><em class="colblue">
@@ -1531,34 +1531,7 @@
 
     $(function() {
         //点击下载按钮
-        $(".xiazais").on("click", function() {
-            var downUrl = "http://pan.baidu.com/s/1bng2pUf";
-            var tiyan = '0';
-            var aloow = $(".aloow").val();
-            var grd = $(".grd").val();
-            var ispay = $(this).attr("data-pay");
-            var learnerId = $.cookie("learnerId");
-            if (learnerId == null) {
-                login();
-                return false;
-            } else {
-                if (downUrl == "") {
 
-                    alert("该课程暂未发布批量下载文件,我们尽快提供，感谢你的关注！谢谢！");
-                    return false;
-                } else if (ispay == "True") {
-                    window.location.href = "http://pan.baidu.com/s/1bng2pUf";
-                } else if (grd >= 26) {
-                    window.location.href = "http://pan.baidu.com/s/1bng2pUf";
-                } else {
-                    alert("普通会员不可批量下载视频!如果你的会员过期请选择续费更优惠！");
-                    return false;
-
-                }
-
-
-            }
-        });
 
         $(".check-login").click(function() {
             var learnerId = $.cookie("learnerId");
@@ -1578,40 +1551,36 @@
         else return null
     }
     $(function() {
-        //赞-课程
-        $("#like-video-btn").click(function() {
-            if (getCookie("code") == null) {
-                document.cookie = "code=first";
-                $.post("/lesson1/ajax/coursehandle.aspx", {
-                    "action": "like-course",
-                    "course_id": "2179"
-                });
-                $("#like-video-num").html(parseInt($("#like-video-num").text()) + 1);
-
-            } else {
-                alert("您已经点过赞了,感谢你的支持！");
-
-            }
-
-
-        })
 
 
         //赞-老师
         $("#like-teacher-btn").click(function() {
-                if (getCookie("codeteacher") == null) {
-                    document.cookie = "codeteacher=first";
+                if ($.cookie("codeteacher") != "<?php echo $tid;?>") {
                     $.post("../../course/update_likes", {
-                        "tid": "<php echo $tid;>"
+                        "tid": "<?php echo $tid;?>"
                     });
                     $("#like-teacher-num").html(parseInt($("#like-teacher-num").text()) + 1);
+                    $.cookie("codeteacher","<?php echo $tid;?>");
                 } else {
                     alert("您已经点过赞了,感谢你的支持！");
                     return false;
                 }
+            });
 
+        //赞-课程
+        $("#course-zan-btn").click(function() {
+                if ($.cookie("codecourse") != "<?php echo $arr[2][0]['course_id'];?>") {
+                    $.post("../../course/update_course_zan", {
+                        "course_id": "<?php echo $arr[2][0]['course_id'];?>"
+                    });
+                    $("#course-zan-num").html(parseInt($("#course-zan-num").text()) + 1);
+                    $.cookie('codecourse',"<?php echo $arr[2][0]['course_id'];?>");
+                } else {
+                    alert("您已经点过赞了,感谢你的支持！");
+                    return false;
+                }
+            });
 
-            })
             // 收藏课程,k
         $("#collect-btn").click(function() {
             var data = {

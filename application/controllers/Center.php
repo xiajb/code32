@@ -13,6 +13,8 @@ class Center extends CI_Controller {
 		$this->load->model('show_model');
 		$this->load->model('course_model');
 		$this->load->model('user_model');
+		$this->load->model('collect_model');
+		
 		$this->load->model('teacher_model');
 		$this->load->model('feedback_model');
 		$this->load->model('classify_model');
@@ -82,6 +84,7 @@ class Center extends CI_Controller {
 			$this->load->view("center_teacher_mycourse.html");
 			$this->load->view("center_footer.html");
 		}elseif ($_SESSION['level'] == 0) {
+
 			$data['active'] = array(
 					'mydata'=>'',
 					'mycourse'=>'active',
@@ -90,13 +93,37 @@ class Center extends CI_Controller {
 					'comment'=>'',
 					'feedback'=>''
 				);
+			$data['result'] = $this->collect_model->get_limit_by_uid($_SESSION['uid'],0,2);
+			$this->load->view("center_header.html",$data);
+			$this->load->view("center_mycourse.html");
+			$this->load->view("center_footer.html");
 		}
-		$this->load->view("center_header.html",$data);
-		$this->load->view("center_mycourse.html");
-		$this->load->view("center_footer.html");
 
 	}
 
+	public function page(){
+		$page = intval($_POST['pageNum']); //当前页 
+		if (isset($_SESSION['uid']) || isset($page)) {
+			$uid = $_SESSION['uid'];
+			$arr['total']=$this->collect_model->get_count_by_uid($uid);
+			$arr['pageSize'] = 2; 
+			$arr['totalPage'] = ceil($total/$pageSize);
+			if ($page_num == 1) {
+				$result = $this->collect_model->get_limit_by_uid($uid,0,2);
+				for ($i=0; $i < count($result); $i++) { 
+					$arr['list'][$i] = $result[$i];
+				}
+				echo json_encode($arr);
+			}else{
+				$firstcount = ((int)$page-1) * 2;
+				$result = $this->collect_model->get_limit_by_uid($uid,(int)$firstcount,2);
+				for ($i=0; $i < count($result); $i++) { 
+					$arr['list'][$i] = $result[$i];
+				}
+				echo json_encode($arr);
+			}	
+		}
+	}
 
 	//teacher
 	public function add()

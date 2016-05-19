@@ -90,4 +90,15 @@ class Course_model extends CI_Model{
 		$this->db->from(self::TBL_USER);
 		return $this->db->count_all_results();
 	}
+	public function update_zan($course_id){
+		$this->db->set('zan', 'zan+1', FALSE);
+		$this->db->where('course_id', $course_id);
+		return $this->db->update(self::TBL_USER);
+	}
+	public function update_collects($course_id){
+		$this->db->set('collects', 'collects+1', FALSE);
+		$this->db->where('course_id', $course_id);
+		return $this->db->update(self::TBL_USER);
+	}
+
   }

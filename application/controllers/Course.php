@@ -32,7 +32,7 @@ class Course extends CI_Controller {
 			$course[0]['order_no']=$this->show_model->getsection_orderbyid($course_id)[0]['order_no'];
 			//print_r($course);
 			$data['arr']=array($chapter,$section,$course);
-			// file_put_contents('/home/tanxu/www/data.txt', print_r($data['arr'],true));
+			file_put_contents('/home/tanxu/www/data.txt', print_r($data['arr'],true));
 			$data['comment'] = $this->comment_model->get_comment_by_course($course_id);
 			for ($i=0; $i < count($data['comment']); $i++) { 
 				$row = $this->user_model->get_user_by_uid($data['comment'][$i]['uid']);
@@ -49,6 +49,7 @@ class Course extends CI_Controller {
 	}
 	function update_likes(){
 		$value = $_POST;
+		// file_put_contents('/home/tanxu/www/data.txt', $value['tid']);
 		if (isset($value['tid'])) {
 			echo $this->teacher_model->update_likes($value['tid']);
 		}else{
@@ -56,6 +57,18 @@ class Course extends CI_Controller {
 		}
 
 	}
+
+	function update_course_zan(){
+		$value = $_POST;
+		if (isset($value['course_id'])) {
+			echo $this->course_model->update_zan($value['course_id']);
+		}else{
+			echo '-1';
+		}
+
+	}
+
+
 
 	function add_collect(){
 		if (!isset($_SESSION['uid'])) {
@@ -71,6 +84,7 @@ class Course extends CI_Controller {
 		if ($collect == '') {
 			$data['uid'] = $_SESSION['uid'];
 			$data['course_id'] = $value['course_id'];
+			$this->course_model->update_collects($value['course_id']);
 			echo $this->collect_model->add_collect($data);
 			exit();
 		}else{
