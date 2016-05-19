@@ -14,7 +14,7 @@ class Center extends CI_Controller {
 		$this->load->model('course_model');
 		$this->load->model('user_model');
 		$this->load->model('collect_model');
-		
+
 		$this->load->model('teacher_model');
 		$this->load->model('feedback_model');
 		$this->load->model('classify_model');
@@ -107,9 +107,9 @@ class Center extends CI_Controller {
 			$uid = $_SESSION['uid'];
 			$arr['total']=$this->collect_model->get_count_by_uid($uid);
 			$arr['pageSize'] = 2; 
-			$arr['totalPage'] = ceil($total/$pageSize);
-			if ($page_num == 1) {
-				$result = $this->collect_model->get_limit_by_uid($uid,0,2);
+			$arr['totalPage'] = ceil($arr['total']/2);
+			if ($page == 1) {
+				$result = $this->collect_model->get_limit_by_uid($uid,2,$arr['pageSize']);
 				for ($i=0; $i < count($result); $i++) { 
 					$arr['list'][$i] = $result[$i];
 				}
