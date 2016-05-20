@@ -65,8 +65,7 @@
                         <div class="timeandicon">
                             <div class="cf">
                                 <dl>
-                                    <dd class="mar-b8"><i class="time-icon"></i><em>3课时
-                            19分钟</em>
+                                    <dd class="mar-b8"><i class="hand Hui-iconfont">&#xe702;收藏：</i><em><?php echo $row['collects'] ?>人</em>
                                     </dd>
                                     <dd class="zhongji" style="display: none;">
                                         <i class="xinhao-icon"></i><em><?php echo $row['course_level']; ?></em>
@@ -190,8 +189,8 @@
                         <img src="http://s1.jikexueyuan.com/member/images/no-content_8a46981.png">
                     </div>
                     <div class="no-content-h3">
-                        <p class="no-content-textbig">还没有收藏的课程？</p>
-                        <p class="no-content-text">点击视频播放器右侧的“收藏”按钮，即可将喜欢的课程收藏到这里再也不担心喜欢的课程找不到啦</p>
+                            <p class="no-content-textbig">暂时没有课程！</p>
+                            <p class="no-content-text">点击添加课程，即可添加课程！</p>
                     </div>
                 </div>
             </div>
@@ -230,20 +229,17 @@
                         <div class="timeandicon">
                             <div class="cf">
                                 <dl>
-                                    <dd class="mar-b8"><i class="time-icon"></i><em>3课时
-                            19分钟</em>
+                                    <dd class="mar-b8"><i class="hand Hui-iconfont">&#xe702;收藏：</i><em><?php echo $row['collects'] ?>人</em>
                                     </dd>
                                     <dd class="zhongji" style="display: none;">
-                                        <i class="xinhao-icon"></i><em><?php echo $row['course_level']; ?></em>
+                                        <i class="xinhao-icon2"></i><em><?php echo $row['course_level']; ?></em>
                                     </dd>
                                 </dl>
                                 <em class="learn-number" style="display: none;">100511人学习</em>
                             </div>
                             <div class="cf">
                                 <div class="lessonicon-box" style="bottom: 4px;">
-                                    <a href="http://www.jikexueyuan.com/course/html5/">
-                                        <img width="16" src="http://a1.jikexueyuan.com/home/201411/03/171a/54578ddd8e62a.png" alt="html5" title="HTML5" jktag="&amp;posGP=101001&amp;posArea=0003&amp;posOper=64015&amp;aCId=127&amp;posColumn=127.1&amp;aCCate=html5">
-                                    </a>
+                                    <i class="xinhao-icon2"></i><em><?php echo $row['course_level']; ?></em>
                                 </div>
                             </div>
                         </div>
@@ -251,19 +247,6 @@
                 </li>
             <?php endforeach;?>
         </ul>
-<!--         <div id="page-nav">
-            <ul class="pages">
-                <li class="pgNext pgEmpty">首页</li>
-                <li class="pgNext pgEmpty">上一页</li>
-                <li class="page-number pgCurrent">1</li>
-                <li class="pgNext pgEmpty">下一页</li>
-                <li class="pgNext pgEmpty">末页</li>
-                <li class="thpoint pagetotal" style="margin-top:3px;">共 1 页</li>
-                <li class="thpoint pagenow">当前
-                    <input type="text" value="1" maxlength="6" id="gotoval" style="width:20px; height:16px;margin-top:-3px;padding-top:2px;padding-left:10px;">页</li>
-                <li class="pgNext go">确定</li>
-            </ul>
-        </div> -->
     </div>
     <?php else: ?>
     <ul class="cf" id="home_my_fav">
@@ -273,8 +256,8 @@
                     <img src="http://s1.jikexueyuan.com/member/images/no-content_8a46981.png">
                 </div>
                 <div class="no-content-h3">
-                    <p class="no-content-textbig">还没有收藏的课程？</p>
-                    <p class="no-content-text">点击视频播放器右侧的“收藏”按钮，即可将喜欢的课程收藏到这里再也不担心喜欢的课程找不到啦</p>
+                            <p class="no-content-textbig">暂时没有课程！</p>
+                            <p class="no-content-text">点击添加课程，即可添加课程！</p>
                 </div>
             </div>
         </div>

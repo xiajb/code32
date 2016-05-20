@@ -24,6 +24,12 @@ class Course_model extends CI_Model{
 		return $query->result_array();
 	}
 
+	public function get_course_by_course_id($course_id){
+		$this->db->where('course_id',$course_id);
+		$query = $this->db->get(self::TBL_USER);
+		return $query->row_array();
+	}
+
 	public function get_course_by_classifyid($id,$status){
 		if ($status == '') {
 			$this->db->select('*');

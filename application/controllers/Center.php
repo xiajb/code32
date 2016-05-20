@@ -93,7 +93,7 @@ class Center extends CI_Controller {
 					'comment'=>'',
 					'feedback'=>''
 				);
-			$data['result'] = $this->collect_model->get_limit_by_uid($_SESSION['uid'],0,2);
+			$data['count'] = $this->collect_model->get_count_by_uid($_SESSION['uid']);
 			$this->load->view("center_header.html",$data);
 			$this->load->view("center_mycourse.html");
 			$this->load->view("center_footer.html");
@@ -103,22 +103,33 @@ class Center extends CI_Controller {
 
 	public function page(){
 		$page = intval($_POST['pageNum']); //当前页 
+		file_put_contents('/home/tanxu/www/data.txt', $page);
 		if (isset($_SESSION['uid']) || isset($page)) {
 			$uid = $_SESSION['uid'];
 			$arr['total']=$this->collect_model->get_count_by_uid($uid);
-			$arr['pageSize'] = 2; 
-			$arr['totalPage'] = ceil($arr['total']/2);
-			if ($page == 1) {
-				$result = $this->collect_model->get_limit_by_uid($uid,2,$arr['pageSize']);
+			$arr['pageSize'] = 6; 
+			$arr['totalPage'] = ceil($arr['total']/$arr['pageSize']);
+			if ($page == 0) {
+				$result = $this->collect_model->get_limit($uid,$arr['pageSize'],0);
 				for ($i=0; $i < count($result); $i++) { 
 					$arr['list'][$i] = $result[$i];
+					$course[$i] = $this->course_model->get_course_by_course_id($result[$i]['course_id']);
+					$arr['list'][$i]['course_name'] = $course[$i]['course_name'];
+					$arr['list'][$i]['img_path'] = $course[$i]['img_path'];
+					$arr['list'][$i]['course_level'] = $course[$i]['course_level'];
+					$arr['list'][$i]['collects'] = $course[$i]['collects'];
 				}
 				echo json_encode($arr);
 			}else{
-				$firstcount = ((int)$page-1) * 2;
-				$result = $this->collect_model->get_limit_by_uid($uid,(int)$firstcount,2);
+				$firstcount = ((int)$page) * $arr['pageSize'];
+				$result = $this->collect_model->get_limit($uid,$arr['pageSize'],(int)$firstcount);
 				for ($i=0; $i < count($result); $i++) { 
 					$arr['list'][$i] = $result[$i];
+					$course[$i] = $this->course_model->get_course_by_course_id($result[$i]['course_id']);
+					$arr['list'][$i]['course_name'] = $course[$i]['course_name'];
+					$arr['list'][$i]['img_path'] = $course[$i]['img_path'];
+					$arr['list'][$i]['course_level'] = $course[$i]['course_level'];
+					$arr['list'][$i]['collects'] = $course[$i]['collects'];
 				}
 				echo json_encode($arr);
 			}	

@@ -264,7 +264,13 @@
                             <p class="ulhead-info-uname">
                                 <?php echo $_SESSION['username']; ?>
                             </p>
-                            <p class="ulhead-info-vip"><i class="icon icon-vip-year"></i>
+                            <p class="ulhead-info-vip"><i class=""><span class="fw" style="color:#188eee">
+                                        <?php if($_SESSION['level'] == 0){
+
+                                            echo '[普通会员]';
+                                        }elseif($_SESSION['level'] == 1){
+                                            echo '[资深讲师]';
+                                        }?></span></i>
                             </p>
                             <div class="ulhead-info-tool">
                                 <a class="ulhead-icon icon-lock ucenter-mail " href="./changepw" title="修改密码" jktag="&amp;posGP=115005&amp;posOper=56002&amp;posArea=0001">
@@ -281,7 +287,7 @@
                                 </li>
                                 <li class="<?php echo  $active['mycourse']?>"><a href="./mycourse" jktag="&amp;posGP=115007&amp;posOper=56007&amp;posArea=0002">我的课程</a>
                                 </li>
-                                <li class="<?php echo  $active['myorder']?>"><a href="./myorder" jktag="&amp;posGP=115002&amp;posOper=56008&amp;posArea=0002">我的订单</a>
+                                <li style="display:none;" class="<?php echo  $active['myorder']?>"><a href="./myorder" jktag="&amp;posGP=115002&amp;posOper=56008&amp;posArea=0002">我的订单</a>
                                 </li>
                                 <li class="<?php echo  $active['changepw']?>"><a href="./changepw" jktag="&amp;posGP=115003&amp;posOper=56009&amp;posArea=0002">修改密码</a>
                                 </li>
