@@ -118,7 +118,13 @@ class Center extends CI_Controller {
 					$arr['list'][$i]['img_path'] = $course[$i]['img_path'];
 					$arr['list'][$i]['course_level'] = $course[$i]['course_level'];
 					$arr['list'][$i]['collects'] = $course[$i]['collects'];
-				}
+					if($arr['list'][$i]['course_level'] == '初级'){
+		                                        	$arr['list'][$i]['level_class'] = 'xinhao-icon';
+		                                        }elseif ($arr['list'][$i]['course_level'] == '中级') {
+		                                            	$arr['list'][$i]['level_class'] = 'xinhao-icon2';
+		                                        }elseif ($arr['list'][$i]['course_level'] == '高级') {
+		                                            	$arr['list'][$i]['level_class'] = 'xinhao-icon3';
+		                                        }				}
 				echo json_encode($arr);
 			}else{
 				$firstcount = ((int)$page) * $arr['pageSize'];
@@ -129,6 +135,13 @@ class Center extends CI_Controller {
 					$arr['list'][$i]['course_name'] = $course[$i]['course_name'];
 					$arr['list'][$i]['img_path'] = $course[$i]['img_path'];
 					$arr['list'][$i]['course_level'] = $course[$i]['course_level'];
+					if($arr['list'][$i]['course_level'] == '初级'){
+		                                        	$arr['list'][$i]['level_class'] = 'xinhao-icon';
+		                                        }elseif ($arr['list'][$i]['course_level'] == '中级') {
+		                                            	$arr['list'][$i]['level_class'] = 'xinhao-icon2';
+		                                        }elseif ($arr['list'][$i]['course_level'] == '高级') {
+		                                            	$arr['list'][$i]['level_class'] = 'xinhao-icon3';
+		                                        }
 					$arr['list'][$i]['collects'] = $course[$i]['collects'];
 				}
 				echo json_encode($arr);

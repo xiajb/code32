@@ -870,14 +870,9 @@
                 ?>
                         </div>
                         <div class="f14 gray6  clearfix kc_span">
-                            <p>更新至： 已完结
-                            </p>
-                            <p>课时：
-                                <?php
-                $course=$arr[2];
-                echo $course[0]['order_no'];
-                ?>
-                            </p>
+                            <!-- <p>更新至： 已完结 -->
+                            <!-- </p> -->
+
                             <p>讲师：
                                 <?php
             $course=$arr[2];
@@ -896,6 +891,13 @@
                                <p id="course-zan-btn" class="hand Hui-iconfont Hui-iconfont-zan2">赞:（<label id="course-zan-num"> <?php
                 echo $arr[2][0]['zan'];
                 ?></label> ）</p>
+                                            <p>课时：
+                                <?php
+                $course=$arr[2];
+                echo $course[0]['order_no'];
+                ?>
+                            </p>
+                            <p></p>
                             <div class="shareBtn clearfix">
                                 <div class="sharesBtnLink">
                                     <a href="javascript:;">开始学习</a>

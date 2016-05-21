@@ -104,7 +104,7 @@
                                         <video src="<?php
                                 foreach ($arr[1] as $section) {
                                   if($section['section_id']==$_SESSION['section_id']){
-                                    echo 'http://code32.b0.upaiyun.com/video/'.$section['section_name'];
+                                    echo $section['section_path'];
                                   }
                                 }
 

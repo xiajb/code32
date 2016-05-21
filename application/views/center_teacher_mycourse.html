@@ -71,13 +71,16 @@
                                         <i class="xinhao-icon"></i><em><?php echo $row['course_level']; ?></em>
                                     </dd>
                                 </dl>
-                                <em class="learn-number" style="display: none;">100511人学习</em>
                             </div>
                             <div class="cf">
                                 <div class="lessonicon-box" style="bottom: 4px;">
-                                    <a href="http://www.jikexueyuan.com/course/html5/">
-                                        <img width="16" src="http://a1.jikexueyuan.com/home/201411/03/171a/54578ddd8e62a.png" alt="html5" title="HTML5" jktag="&amp;posGP=101001&amp;posArea=0003&amp;posOper=64015&amp;aCId=127&amp;posColumn=127.1&amp;aCCate=html5">
-                                    </a>
+                                    <i class="<?php if($row['course_level'] == '初级'){
+                                        echo 'xinhao-icon';
+                                        }elseif ($row['course_level'] == '中级') {
+                                            echo 'xinhao-icon2';
+                                        }elseif ($row['course_level'] == '高级') {
+                                            echo 'xinhao-icon3';
+                                        } ?>"></i><em><?php echo $row['course_level']; ?></em>
                                 </div>
                             </div>
                         </div>
@@ -85,19 +88,6 @@
                 </li>
                 <?php endforeach;?>
             </ul>
-<!--             <div id="page-nav">
-                <ul class="pages">
-                    <li class="pgNext pgEmpty">首页</li>
-                    <li class="pgNext pgEmpty">上一页</li>
-                    <li class="page-number pgCurrent">1</li>
-                    <li class="pgNext pgEmpty">下一页</li>
-                    <li class="pgNext pgEmpty">末页</li>
-                    <li class="thpoint pagetotal" style="margin-top:3px;">共 1 页</li>
-                    <li class="thpoint pagenow">当前
-                        <input type="text" value="1" maxlength="6" id="gotoval" style="width:20px; height:16px;margin-top:-3px;padding-top:2px;padding-left:10px;">页</li>
-                    <li class="pgNext go">确定</li>
-                </ul>
-            </div> -->
             <?php else: ?>
             <ul class="cf" id="home_my_fav">
                 <div class="mar-t30 no-contnet-block">
@@ -122,7 +112,7 @@
                     <div class="lessonimg-box">
                         <i class="user-action lesson-shoucang " style="display: none;" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64013&amp;aCId=127&amp;posColumn=127.3"></i>
                         <!-- <i class="free-icon"></i> -->
-                        <a href="http://www.qfdlqz.com/course/showcourse/<?php echo $row['course_id'] ?>" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=127&amp;posColumn=127.3">
+                        <a href="javascript:;" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=127&amp;posColumn=127.3">
                             <img src="<?php echo $row['img_path']; ?>" class="lessonimg" title="<?php echo $row['course_name']; ?>" alt="<?php echo $row['course_name']; ?>">
                             <div class="lessonplay" style="opacity: 0;">
                                 <div class="cricle">
@@ -146,20 +136,22 @@
                         <div class="timeandicon">
                             <div class="cf">
                                 <dl>
-                                    <dd class="mar-b8"><i class="time-icon"></i><em>3课时
-                            19分钟</em>
+                                    <dd class="mar-b8"><i class="hand">状态：</i><em>审核未通过</em>
                                     </dd>
                                     <dd class="zhongji" style="display: none;">
                                         <i class="xinhao-icon"></i><em><?php echo $row['course_level']; ?></em>
                                     </dd>
                                 </dl>
-                                <em class="learn-number" style="display: none;">100511人学习</em>
                             </div>
                             <div class="cf">
                                 <div class="lessonicon-box" style="bottom: 4px;">
-                                    <a href="http://www.jikexueyuan.com/course/html5/">
-                                        <img width="16" src="http://a1.jikexueyuan.com/home/201411/03/171a/54578ddd8e62a.png" alt="html5" title="HTML5" jktag="&amp;posGP=101001&amp;posArea=0003&amp;posOper=64015&amp;aCId=127&amp;posColumn=127.1&amp;aCCate=html5">
-                                    </a>
+                                    <i class="<?php if($row['course_level'] == '初级'){
+                                        echo 'xinhao-icon';
+                                        }elseif ($row['course_level'] == '中级') {
+                                            echo 'xinhao-icon2';
+                                        }elseif ($row['course_level'] == '高级') {
+                                            echo 'xinhao-icon3';
+                                        } ?>"></i><em><?php echo $row['course_level']; ?></em>
                                 </div>
                             </div>
                         </div>
@@ -167,19 +159,6 @@
                 </li>
                 <?php endforeach;?>
             </ul>
-<!--             <div id="page-nav">
-                <ul class="pages">
-                    <li class="pgNext pgEmpty">首页</li>
-                    <li class="pgNext pgEmpty">上一页</li>
-                    <li class="page-number pgCurrent">1</li>
-                    <li class="pgNext pgEmpty">下一页</li>
-                    <li class="pgNext pgEmpty">末页</li>
-                    <li class="thpoint pagetotal" style="margin-top:3px;">共 1 页</li>
-                    <li class="thpoint pagenow">当前
-                        <input type="text" value="1" maxlength="6" id="gotoval" style="width:20px; height:16px;margin-top:-3px;padding-top:2px;padding-left:10px;">页</li>
-                    <li class="pgNext go">确定</li>
-                </ul>
-            </div> -->
         </div>
         <?php else: ?>
         <ul class="cf" id="home_my_fav">
@@ -205,7 +184,7 @@
                     <div class="lessonimg-box">
                         <i class="user-action lesson-shoucang " style="display: none;" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64013&amp;aCId=127&amp;posColumn=127.3"></i>
                         <!-- <i class="free-icon"></i> -->
-                        <a href="http://www.qfdlqz.com/course/showcourse/<?php echo $row['course_id'] ?>" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=127&amp;posColumn=127.3">
+                        <a href="javascript:;" target="_blank" jktag="&amp;posGP=103001&amp;posArea=0003&amp;posOper=64014&amp;aCId=127&amp;posColumn=127.3">
                             <img src="<?php echo $row['img_path']; ?>" class="lessonimg" title="<?php echo $row['course_name']; ?>" alt="<?php echo $row['course_name']; ?>">
                             <div class="lessonplay" style="opacity: 0;">
                                 <div class="cricle">
@@ -229,7 +208,7 @@
                         <div class="timeandicon">
                             <div class="cf">
                                 <dl>
-                                    <dd class="mar-b8"><i class="hand Hui-iconfont">&#xe702;收藏：</i><em><?php echo $row['collects'] ?>人</em>
+                                    <dd class="mar-b8"><i class="hand">状态：</i><em>审核中</em>
                                     </dd>
                                     <dd class="zhongji" style="display: none;">
                                         <i class="xinhao-icon2"></i><em><?php echo $row['course_level']; ?></em>
@@ -239,7 +218,13 @@
                             </div>
                             <div class="cf">
                                 <div class="lessonicon-box" style="bottom: 4px;">
-                                    <i class="xinhao-icon2"></i><em><?php echo $row['course_level']; ?></em>
+                                    <i class="<?php if($row['course_level'] == '初级'){
+                                        echo 'xinhao-icon';
+                                        }elseif ($row['course_level'] == '中级') {
+                                            echo 'xinhao-icon2';
+                                        }elseif ($row['course_level'] == '高级') {
+                                            echo 'xinhao-icon3';
+                                        } ?>"></i><em><?php echo $row['course_level']; ?></em>
                                 </div>
                             </div>
                         </div>
