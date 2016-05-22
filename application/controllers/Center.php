@@ -359,7 +359,6 @@ class Center extends CI_Controller {
 			$data['result'] =array();
 			for ($i=0; $i < count($course); $i++) { 
 				$data['result']+= $this->comment_model->get_comment_by_course($course[$i]['course_id']);
-				file_put_contents('/home/tanxu/www/data.txt', print_r($data['result'],true));
 			}
 			$data['total'] = count($data['result']);
 			if (!isset($value['page']) || $value['page'] == 1) {

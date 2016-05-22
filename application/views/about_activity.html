@@ -6,8 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>
-        西门子S7-200PLC模拟量应用篇-鼎立启智教育网自动化培训网</title>
+    <title>鼎立启智教育网</title>
     <meta name="description" content="本课程适合对西门子S7-200PLC硬件结构及逻辑指令有一定了解的学员。本课程重点介绍了模拟量的连线及模块的选择，以及根据采样到的模拟量值如何计算转换成实际的工程量。梁老师课件运用生动形象，最大程度的还原了西门子S7-200PLC的形态，让学员们一目了然，宛如置身课堂。">
     <meta name="keywords" content="鼎立启智教育网自动化培训网,plc培训教程视频,工控.">
     <link rel="stylesheet" href="<?php echo base_url().'index/course/reset.css'?>">
@@ -49,7 +48,13 @@
                             <ul class="l m0" id="login_top_logined">
                                 <li>
                                     <b class="cgray6"><?php echo $_SESSION['username']; ?></b>
-                                    <span class="fw" style="color:#188eee">[普通会员]</span>，
+                                        <span class="fw" style="color:#188eee">
+                                        <?php if($_SESSION['level'] == 0){
+
+                                            echo '[普通会员]';
+                                        }elseif($_SESSION['level'] == 1){
+                                            echo '[资深讲师]';
+                                        }?></span>，
                                     <span class="cgray6">欢迎来鼎立启智教育网培训！</span><a href="http://www.qfdlqz.com/logout" class="btn-link btn-link9">[退出]</a>
                                 </li>
                                 <li>
@@ -57,12 +62,6 @@
                             </ul>
                             <?php endif; ?>
                             <ul class="l m0">
-                                <!--
-                                <li><div><a href="http://my.rfgxy.com/" target="_blank" class="btn-link btn-link6">学员中心</a></div></li>
-                                -->
-                                <li>
-                                    <div><a href="http://www.qfdlqz.com/lesson1/guide.aspx" target="_blank" class="btn-link btn-link6" style="color:Red;">新手攻略</a></div>
-                                </li>
                                 <li>
                                     <div><a href="http://www.qfdlqz.com/about/us" target="_blank" class="btn-link btn-link6">网站导航</a></div>
                                 </li>

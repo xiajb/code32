@@ -69,7 +69,7 @@
 <script type="text/javascript">
 $('#delete_yes').click(function() {
     $.ajax({
-        url: "../admin/link/delete_link",
+        url: "../activity/delete",
         type: "POST",
         data: "value=" + id,
         success: function(result) {

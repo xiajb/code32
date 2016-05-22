@@ -129,7 +129,7 @@ class Video extends CI_Controller {
 			$chapter = array();
 			$chapter['course_id'] = $value['course_id'];
 			$chapter['chapter_name'] = $value['chapter1'];
-			file_put_contents("/home/tanxu/www/data.txt", print_r($chapter,true));
+			// file_put_contents("/home/tanxu/www/data.txt", print_r($chapter,true));
 			$chapter_id = $this->chapter_model->add_chapter($chapter);
 			$section['chapter_id'] = $chapter_id;
 		}else{

@@ -90,7 +90,7 @@ class Activity extends CI_Controller {
 
 	public function delete(){
 		$id = $_POST['value'];
-		$value = $this->classify_model->delete($id);
+		$value = $this->activity_model->delete($id);
 		echo $value;
 	}
 

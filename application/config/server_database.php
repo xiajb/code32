@@ -75,7 +75,7 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'rds2e50pbv95g66mjy2g.mysql.rds.aliyuncs.com',
+	'hostname' => 'mysqlabc.mysql.rds.aliyuncs.com',
 	'username' => 'dingli',
 	'password' => 'dingli123',
 	'database' => 'dingli',
