@@ -32,7 +32,7 @@ class Course extends CI_Controller {
 			$course[0]['order_no']=$this->show_model->getsection_orderbyid($course_id)[0]['order_no'];
 			//print_r($course);
 			$data['arr']=array($chapter,$section,$course);
-			file_put_contents('/home/tanxu/www/data.txt', print_r($data['arr'],true));
+			// file_put_contents('/home/tanxu/www/data.txt', print_r($data['arr'],true));
 			$data['comment'] = $this->comment_model->get_comment_by_course($course_id);
 			for ($i=0; $i < count($data['comment']); $i++) { 
 				$row = $this->user_model->get_user_by_uid($data['comment'][$i]['uid']);
