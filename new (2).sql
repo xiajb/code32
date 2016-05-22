@@ -233,8 +233,8 @@ CREATE TABLE IF NOT EXISTS `ci_section` (
 --
 
 INSERT INTO `ci_section` (`section_id`, `section_name`, `create_time`, `chapter_id`, `order_no`, `free`, `section_path`) VALUES
-(1, 'JavaScript基础教程 ', '2015-12-01 04:12:09', 2, 1, 0, 'http://code32.b0.upaiyun.com/video/Taylor%20Swift%20-%20Shake%20It%20Off.mp4'),
-(2, 'JavaScript语法详解', '2015-12-03 07:00:00', 2, 2, 0, 'http://code32.b0.upaiyun.com/video/Taylor%20Swift%20-%20Shake%20It%20Off.mp4');
+(1, 'JavaScript基础教程 ', '2015-12-01 04:12:09', 2, 1, 0, 'http://static.qfdlqz.com/video/Taylor%20Swift%20-%20Shake%20It%20Off.mp4'),
+(2, 'JavaScript语法详解', '2015-12-03 07:00:00', 2, 2, 0, 'http://static.qfdlqz.com/video/Taylor%20Swift%20-%20Shake%20It%20Off.mp4');
 
 -- --------------------------------------------------------
 
@@ -262,7 +262,7 @@ CREATE TABLE IF NOT EXISTS `ci_teacher` (
 --
 
 INSERT INTO `ci_teacher` (`tid`, `uid`, `name`, `pic`, `phone`, `intro`, `test_video`, `check`, `like`, `num`, `apply_time`) VALUES
-(1, 2, '刘洋', 'http://code32.b0.upaiyun.com/2016/03/06/5fa4809069', '15607101196', '华南理工大学工程硕士，西门子（中国）有限公司工程师，负责项目设计执行、OEM样机开发，技术支持，客户培训。曾获比亚迪、深圳地铁等大型企业邀请对其相关技术人员进行系统的专业培训，擅长PLC、工业网络、HMI等设备的教学。授课深入浅出、全面细致，结合实际工程经验，详细实际应用和工程现场中遇到的常见问题。', '', 1, 55, 2, '0000-00-00 00:00:00');
+(1, 2, '刘洋', 'http://static.qfdlqz.com/2016/03/06/5fa4809069', '15607101196', '华南理工大学工程硕士，西门子（中国）有限公司工程师，负责项目设计执行、OEM样机开发，技术支持，客户培训。曾获比亚迪、深圳地铁等大型企业邀请对其相关技术人员进行系统的专业培训，擅长PLC、工业网络、HMI等设备的教学。授课深入浅出、全面细致，结合实际工程经验，详细实际应用和工程现场中遇到的常见问题。', '', 1, 55, 2, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 

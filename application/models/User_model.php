@@ -15,7 +15,7 @@ class User_model extends CI_Model{
 	}
 	#注册
 	public function add_user($data){
-		$data['pic'] = 'http://code32.b0.upaiyun.com/status/img/touxiang.gif';
+		$data['pic'] = 'http://static.qfdlqz.com/status/img/touxiang.gif';
 		$this->db->insert(self::TBL_USER,$data);
 		return $this->db->insert_id();
 	}

@@ -66,7 +66,7 @@ $(function () {
                         $.ajax({
                             type: 'POST',
                             url: "../login/checklogin",
-                            data: 'data=' + JSON.stringify(data),
+                            data: data,
 
                             success: function(result) {
 			    if (result == 0) {//如果帐号不存在,提示

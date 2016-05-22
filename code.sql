@@ -218,8 +218,8 @@ CREATE TABLE IF NOT EXISTS `ci_section` (
 --
 
 -- INSERT INTO `ci_section` (`section_id`, `section_name`, `create_time`, `creater`, `chapter_id`, `order_no`, `section_path`) VALUES
--- (3, 'JavaScript基础教程 ', '2015-12-01 04:12:09', 2, 1, 0,'http://code32.b0.upaiyun.com/video/Taylor%20Swift%20-%20Shake%20It%20Off.mp4'),
--- (4, 'JavaScript语法详解', '2015-12-03 07:00:00', 2, 2, 0,'http://code32.b0.upaiyun.com/video/Taylor%20Swift%20-%20Shake%20It%20Off.mp4'),
+-- (3, 'JavaScript基础教程 ', '2015-12-01 04:12:09', 2, 1, 0,'http://static.qfdlqz.com/video/Taylor%20Swift%20-%20Shake%20It%20Off.mp4'),
+-- (4, 'JavaScript语法详解', '2015-12-03 07:00:00', 2, 2, 0,'http://static.qfdlqz.com/video/Taylor%20Swift%20-%20Shake%20It%20Off.mp4'),
 -- (1, 'HTML5特性简介', '2015-12-01 00:00:00', '谭旭', 1, 1, ''),
 -- (2, 'HTML5元素、属性和格式化', '2015-12-01 04:12:09', '谭旭', 1, 2, ''),
 -- (5, 'HTML5样式、链接和表格', '2015-12-01 00:00:00', '冉子文', 1, 5, ''),
