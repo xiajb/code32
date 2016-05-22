@@ -86,7 +86,7 @@ $("#FeedbackButton").click(function() {
         success: function(result) {
             if (result == 1) {
                 alert('提交成功，谢谢您的反馈！');
-                location.href = "http://www.qfdlqz.com/center/mydata?label=jiben";
+                location.href = "http://www.qfdlqz.com/center/mydata";
             }else{
                 $("#info_error").html("反馈失败！");
                 $("#info_error").hide(1000);
