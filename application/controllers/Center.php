@@ -103,7 +103,7 @@ class Center extends CI_Controller {
 
 	public function page(){
 		$page = intval($_POST['pageNum']); //当前页 
-		file_put_contents('/home/tanxu/www/data.txt', $page);
+		// file_put_contents('/home/tanxu/www/data.txt', $page);
 		if (isset($_SESSION['uid']) || isset($page)) {
 			$uid = $_SESSION['uid'];
 			$arr['total']=$this->collect_model->get_count_by_uid($uid);
