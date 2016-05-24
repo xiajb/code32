@@ -57,8 +57,8 @@
     <div id="head">
         <div class="left">
             <a href="#" class="button profile"><img src="<?php echo base_url('back/img/icons/top/huser.png'); ?>" alt="" /></a> Hi,
-            <!-- <a href="#"><?php echo $_SESSION['username'] ?></a> | -->
-            <a href="<?php echo base_url('index.php/admin/login/logout'); ?>">Logout</a>
+            <a href="#"><?php echo $_SESSION['username'] ?></a> |
+            <!-- <a href="<?php echo base_url('/admin/login/logout'); ?>">Logout</a> -->
         </div>
         <div class="right">
             <form action="#" id="search" class="search placeholder">
@@ -104,7 +104,7 @@
                     <li class="<?php echo $current['upload_video'] ?>"><a href="<?php echo base_url('admin/video/add')?>">上传视屏</a></li>
                 </ul>
             </li>
-            <li class="<?php echo $current['order_manage'] ?>"><a href="#"><img src="<?php echo base_url('back/img/icons/menu/brush.png'); ?>" alt="" />订单管理</a>
+            <li class="<?php echo $current['order_manage'] ?>" style="display:none;"><a href="#"><img src="<?php echo base_url('back/img/icons/menu/brush.png'); ?>" alt="" />订单管理</a>
                 <ul>
                     <li class="<?php echo $current['all_order'] ?>"><a href="<?php echo base_url('admin/order/all')?>">所有订单</a></li>
                     <li class="<?php echo $current['account_data'] ?>"><a href="<?php echo base_url('admin/account/all')?>">流水数据</a></li>

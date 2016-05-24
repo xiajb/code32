@@ -760,7 +760,7 @@
 
                 <a href="<?php
                 $course=$arr[2];
-                echo base_url().'/course/showcourse/'.$course[0]['course_id'];
+                echo base_url().'/course/'.$course[0]['course_id'];
                 ?>">
                         <?php
                 $course=$arr[2];
@@ -886,23 +886,31 @@
                 echo $arr[2][0]['zan'];
                 ?></label> ）</p>
                                             <p>课时：
-                                <?php
-                $course=$arr[2];
-                echo $course[0]['order_no'];
-                ?>
+                <?php $course=$arr[2];
+                if ($course[0]['order_no'] == '') {
+                    echo '0';
+                }else{
+                    echo $course[0]['order_no'];
+                }?>
                             </p>
                             <p></p>
                             <div class="shareBtn clearfix">
                                 <div class="sharesBtnLink">
-                                    <a href="javascript:;">开始学习</a>
+                                    <a href="javascript:;" id="start_learn">开始学习</a>
 
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <script type="text/javascript">
+    $("#start_learn").click(function(e) {
+             //以1秒的间隔返回顶部
+             $('.icon-btn')[0].click();
+     });
+                </script>
                 <div class="tabs-nav1" data-role="fixed" id="mini-play-navbar">
-                    <a data-role="course-intro" class="" href="javascript:;">课程表<em class="badge">试听</em></a>
+                    <a data-role="course-intro" class="" href="javascript:;">课程表</a>
                     <a data-role="course-syll" href="javascript:;" class="">课程简介</a>
                     <a data-role="course-comment" href="javascript:;" class="active">课程点评 <em class="num"></em></a>
                     <a data-role="course-discus" href="javascript:;" class="">学习计划 <em class="num"></em></a>
@@ -924,7 +932,12 @@
                                         <div class="w400 l f18 pr20 tr r">
                                             <p class="gray6">
                                                 <span class="mr10"><em class="colblue">
-                                            29</em>个课时</span>
+                                            <?php $course=$arr[2];
+                if ($course[0]['order_no'] == '') {
+                    echo '0';
+                }else{
+                    echo $course[0]['order_no'];
+                }?></em>个课时</span>
                                             </p>
                                         </div>
                                     </div>
@@ -971,7 +984,7 @@
                                                         if ($chapter[$i]['chapter_name']==$section[$t]['chapter_name']){?>
                                                     <li><span class="w550 l">
                                                     <input type="checkbox" class="form-checkbox dn">
-                                                    <a href="<?php echo site_url().'/showtv/showbyid/'.$section[$t]['section_id']?><?php echo '/'.$_SESSION['course_id'] ?>">
+                                                    <a href="<?php echo site_url().'course/video/'.$section[$t]['section_id']?><?php echo '/'.$_SESSION['course_id'] ?>">
                                                         <?php
                                                          if(count($section[$t]['order_no'])==1){
                                                            echo '第00'.$section[$t]['order_no'].'课时.';
@@ -986,7 +999,7 @@
                                                       </a></span>
                                                         <span class="colblue l"></span>
                                                         <input type="hidden" name="aloow" class="aloow" value="False">
-                                                        <a class="icon-btn r" href="<?php echo site_url().'/showtv/showbyid/'.$section[$t]['section_id']?><?php echo '/'.$_SESSION['course_id'] ?>">
+                                                        <a class="icon-btn r" href="<?php echo site_url().'course/video/'.$section[$t]['section_id']?><?php echo '/'.$_SESSION['course_id'] ?>">
                                                             <i class="iconfont"></i> <span class="txt">马上学习</span></a>
                                                     </li>
                                                     <?php
@@ -1509,37 +1522,7 @@
         $('#inpNum').html(len2);
     });
     </script>
-    <script type="text/javascript">
-    //登录页面
-    function login() {
-        $.fancybox.open({
-            href: '',
-            type: 'iframe',
-            padding: 10,
-            width: '400',
-            height: '440',
-            keys: {
-                close: [27]
-            }
-        });
 
-    }
-
-    $(function() {
-        //点击下载按钮
-
-
-        $(".check-login").click(function() {
-            var learnerId = $.cookie("learnerId");
-            if (learnerId == null) {
-                login();
-                return false;
-            }
-        })
-
-
-    });
-    </script>
     <script type="text/javascript">
     function getCookie(name) {
         var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
@@ -1609,20 +1592,6 @@
         })
 
 
-        //            $(".collapse-head").click(function () {
-        //                var ctext = $(this).find("span");
-        //                var $box = $(this).next();
-        //                if ($box.is(":hidden")) {
-        //                    $box.slideDown(400);
-        //                    ctext.text("收缩");
-        //                } else {
-        //                    $box.slideUp(400);
-        //                    ctext.text("展开");
-        //                }
-
-        //            });
-
-
 
         $(".collapse-head").click(function() {
             var ctext = $(this).find("span");
@@ -1673,98 +1642,10 @@
                 });
                 $(".view-all").text("查看全部↓");
             }
-
-
         })
-
-        //浏览数
-        $(function() {
-            $(".title").click(function() {
-                var id = $(this).attr("data-id");
-                $.post("/lesson1/zhichi.aspx", {
-                    "action": "like",
-                    "id": id
-                })
-            })
-
-        })
-
     });
     </script>
-    <script type="text/javascript">
-    //加入购物车学习
-    $(".quick_buys").click(function(event) {
-        var tiyan = '0';
-        var grd = $(".grd").val();
-        var gid = $(this).attr("data-id");
-        var name = $(this).attr("data-name");
-        var learnerId = $.cookie("learnerId");
-        if (learnerId == null) {
-            login();
-            return false;
-        } else {
 
-            if (tiyan == "1") {
-                alert("您已经是付费会员，不需再购买该课程！你的会员已过期了，请及时续费！谢谢！");
-                return false;
-            } else {
-                document.getElementById("course_form").action = "/pay/order_course.aspx?callback=/lesson1/default.aspx?courseid=2179";
-                document.getElementById("course_form").submit();
-
-            }
-
-
-        }
-    });
-    </script>
-    <script type="text/javascript">
-    $(function() {
-        $
-        $("#collect-video-btns").click(function(event) {
-            var url_course = $(".url_course").val();
-            var name_course = $(".name_course").val();
-            var course_id = $(".course_id").val();
-            var learnerId = $.cookie("learnerId");
-            if (learnerId == null) {
-                login();
-                return false;
-            } else {
-                $.ajax({
-                    type: "post",
-                    url: "/lesson1/ajax/courseZanpost.aspx",
-                    data: $("#form3").serialize(),
-                    dataType: "json",
-                    cache: false,
-                    success: function(result) {
-                        console.log(result);
-                        if (result.code == "1") {
-                            alert(result.tips);
-                            window.location.href = "";
-                        } else {
-                            alert(result.tips);
-                        }
-                    }
-
-                });
-
-            }
-        });
-
-        $(".playNologin").click(function(event) {
-            var href = "http://www.qfdlqz.com/showtv/showbyid/6/2";
-            var learnerId = $.cookie("learnerId");
-            if (learnerId == null) {
-                login();
-                return false;
-            } else {
-
-                window.location.href = href;
-
-            }
-        });
-
-    });
-    </script>
     <!--footer-->
     <div id="pop" style="display:none;">
         <div id="popHead"><a onclick="_hmt.push([&#39;_trackEvent&#39;, &#39;messager&#39;, &#39;click&#39;, &#39;messager_popClose&#39;,&#39;1&#39;]);" id="popClose" title="关闭">关闭</a>

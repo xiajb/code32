@@ -55,9 +55,9 @@ class Activity extends CI_Controller {
 
 	public function all(){
 		$data['current'] = array('data_back'=>'',
-			'user_manage'=>'current',
+			'user_manage'=>'',
 			'user_data' =>'' ,
-			'teacher_data'=>'current',
+			'teacher_data'=>'',
 			'add_teacher'=>'',
 			'classify_manage'=>'',
 			'all_classify'=>'',

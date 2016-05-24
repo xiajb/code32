@@ -14,7 +14,7 @@ class ManageAuth {
 			$this->CI->load->library('session');
 			$this->CI->load->model('user_model');
 			$username = $this->CI->session->userdata('username');
-			$res = $this->CI->user_model->get_user_session($username,1);
+			$res = $this->CI->user_model->get_user_session($username,2);
 			if (!$res) {
 			 	redirect('http://www.qfdlqz.com');           	
 			}            

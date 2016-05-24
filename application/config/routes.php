@@ -52,4 +52,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'index';
 $route['404_override'] = 'error/notfind';
 $route['course/(:num)/(:num)/(:num)'] = 'index/index2/$1/$2/$3';
+$route['course/(:num)'] = 'course/showcourse/$1';
+$route['course/video/(:num)/(:num)'] = '/showtv/showbyid/$1/$2';
 $route['translate_uri_dashes'] = FALSE;

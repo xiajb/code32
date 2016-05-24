@@ -539,7 +539,7 @@
                                  <ul class="listview5">
                                    <?php foreach($section as $sec):?>
                                    <li><span class="w550 l">
-                                       <input type="checkbox" class="form-checkbox dn"><a href="<?php echo site_url().'/showtv/showbyid/'.$sec['section_id']?><?php echo '/'.$_SESSION['course_id'] ?>">
+                                       <input type="checkbox" class="form-checkbox dn"><a href="<?php echo site_url().'course/video/'.$sec['section_id']?><?php echo '/'.$_SESSION['course_id'] ?>">
 
                                          <?php
                                           if(count($sec['order_no'])==1){
@@ -559,7 +559,7 @@
 
 
 
-                                       <a class="icon-btn r" href="<?php echo site_url().'/showtv/showbyid/'.$sec['section_id']?><?php echo '/'.$_SESSION['course_id'] ?>">
+                                       <a class="icon-btn r" href="<?php echo site_url().'course/video/'.$sec['section_id']?><?php echo '/'.$_SESSION['course_id'] ?>">
                                            <i class="iconfont">&#xe612;</i> <span class="txt">马上学习</span></a> </li>
                                          <?php endforeach?>
 
