@@ -47,16 +47,16 @@
 		a.btn-search1{background-color:#188eee;color:#fff;display:inline;font-size:16px;font-weight:700;height:36px;text-decoration:none;width:60px;float:right;text-align:center}
 		.btn-icon-wrap{position:relative;margin-top:8px;width:110px;height:40px;line-height:40px;border:1px solid #ddd;padding-left:35px}
 		.btn-icon-wrap:hover{border-color:#188eee;cursor:pointer}
-		.btn-icon-wrap i{position:absolute;top:11px;left:15px;width:16px;height:16px;background:url(http://images.rfgxy.com/jcindexicon.png) scroll no-repeat -135px 0 transparent}
+		.btn-icon-wrap i{position:absolute;top:11px;left:15px;width:16px;height:16px;background:url(http://images.qfdlqz.com/jcindexicon.png) scroll no-repeat -135px 0 transparent}
 		
 		.sidebar_nav{width:100%;float:left;position:relative;display:inline;z-index:10000}
 		.sidebar_nav_title{position:relative;background-color:#188eee;border-radius:3px 3px 0 0;font-family:"microsoft yahei";height:50px;line-height:50px;padding-left:45px;font-size:12px;color:#fff;cursor:default}
 		.sidebar_nav a.btn_link1{font-size:14px;color:#666}
-		.sidebar_nav_title .i1{position:absolute;top:18px;left:15px;width:20px;height:15px;background:url(http://images.rfgxy.com/jcindexicon.png) no-repeat scroll -157px -1px transparent}
+		.sidebar_nav_title .i1{position:absolute;top:18px;left:15px;width:20px;height:15px;background:url(http://images.qfdlqz.com/jcindexicon.png) no-repeat scroll -157px -1px transparent}
 		.sidebar_nav_contents{left:0;position:absolute;top:50px;width:100%;height:400px;background-color:#fff;border:2px solid #4593fd;display:none}
 		.sidebar_nav_content{margin:0 auto;width:96%;height:65px;line-height:25px;zoom:1;border-bottom:1px solid #eee;border-top:0;vertical-align:top;padding:10px 5px}
 		.sidebar_nav_content_title{position:absolute;width:96%;z-index:10003;padding-left:10px;background-color:transparent}
-		.sidebar_nav_content_title i{position:absolute;top:10px;right:15px;width:10px;height:15px;background:url(http://images.rfgxy.com/jcindexicon.png) no-repeat scroll -119px -1px transparent}
+		.sidebar_nav_content_title i{position:absolute;top:10px;right:15px;width:10px;height:15px;background:url(http://images.qfdlqz.com/jcindexicon.png) no-repeat scroll -119px -1px transparent}
 		.sidebar_nav a.btn_link1{font-size:16px;color:#666;font-weight:700;font-family:"microsoft yahei"}
 		
 		.banner-nav-wrap{border-bottom:2px solid #188eee;margin:0;margin-left:-10px}
@@ -122,16 +122,16 @@
 		.sidebar_nav_content_lists{left: 236px;border:2px solid #188eee;width: 705px;}
 		.sidebar_nav .hover .btn_link1{color: #188eee;}
         .sidebar_nav_content .list9 {top: 240px;}
-        .sidebar_navhover i.i1,.sidebar_nav_title i.sidenav_i_bgn{background: url(http://images.rfgxy.com/jcindexicon.png) no-repeat scroll -157px -1px transparent;}
+        .sidebar_navhover i.i1,.sidebar_nav_title i.sidenav_i_bgn{background: url(http://images.qfdlqz.com/jcindexicon.png) no-repeat scroll -157px -1px transparent;}
 		
 		.focusBox { position: relative;/* width:960px; height:450px;*/ overflow: hidden; }	
 		.focusBox .pic{ position:relative; z-index:0;width: 100%; }	
 		.focusBox .pic .item{position: absolute; left: 0px; top: 0px; display: list-item; opacity: 0.998122;width: 100%;}
 		.focusBox .pic img { /*width:960px; height:450px;*/ display: block; }	
 		.focusBox .hd { width:100%; position: absolute; bottom: 10px; text-align: center; font-size:0; z-index:1; }	
-		.focusBox .hd li{margin: 0 5px; background: url(http://images.rfgxy.com/dot.png) no-repeat 0 -16px; height: 16px; overflow: hidden; width: 16px; cursor: pointer;		display:inline-block; *display:inline; zoom:1;  _background: url(http://images.rfgxy.com//dot8.png) no-repeat 0 -16px;	}	
+		.focusBox .hd li{margin: 0 5px; background: url(http://images.qfdlqz.com/dot.png) no-repeat 0 -16px; height: 16px; overflow: hidden; width: 16px; cursor: pointer;		display:inline-block; *display:inline; zoom:1;  _background: url(http://images.qfdlqz.com//dot8.png) no-repeat 0 -16px;	}	
 		.focusBox .hd .on{ background-position:0 0; }	
-		.focusBox .prev,	.focusBox .next { width: 60px; height: 90px; margin: -60px 0 0; display: none; background: url(http://images.rfgxy.com/ad_ctr.png) no-repeat 0 0; position: absolute; top: 50%; z-index: 10; cursor: pointer; text-indent: -9999px; filter:alpha(opacity=20);opacity:0.2;  }	
+		.focusBox .prev,	.focusBox .next { width: 60px; height: 90px; margin: -60px 0 0; display: none; background: url(http://images.qfdlqz.com/ad_ctr.png) no-repeat 0 0; position: absolute; top: 50%; z-index: 10; cursor: pointer; text-indent: -9999px; filter:alpha(opacity=20);opacity:0.2;  }	
 		.focusBox .prev { left: 0; }	
 		.focusBox .next { background-position: 0 -90px; right: 0; }
 		.focusBox .prev:hover,	.focusBox .next:hover { filter:alpha(opacity=50) !important;opacity:0.5 !important;  }	
@@ -150,16 +150,16 @@
 		.news-list li{height:25px;line-height: 25px;/*list-style: square;*/color: #fff;}
 		.news-list li a{color: #fff;}
 
-        .ico-down{display:block;width:45px;height:45px;background:url(http://images.rfgxy.com/jcindexicon.png?20141229001) 0 -21px scroll no-repeat transparent;margin:10px auto 5px auto;}
+        .ico-down{display:block;width:45px;height:45px;background:url(http://images.qfdlqz.com/jcindexicon.png?20141229001) 0 -21px scroll no-repeat transparent;margin:10px auto 5px auto;}
         .btn-ico-down:hover .ico-down{background-position:-30px -232px;}
-        .ico-erweima{display:block;width:45px;height:45px;background:url(http://images.rfgxy.com/jcindexicon.png?20141229001) -54px -21px scroll no-repeat transparent;margin:10px auto 5px auto;}
+        .ico-erweima{display:block;width:45px;height:45px;background:url(http://images.qfdlqz.com/jcindexicon.png?20141229001) -54px -21px scroll no-repeat transparent;margin:10px auto 5px auto;}
         .btn-ico-erweima:hover .ico-erweima{background-position:-84px -232px;}
 
         .ico-icons{
             display: block;
             width: 37px;
             height: 26px;
-            background: url(http://images.rfgxy.com/jcindexicon.png?20141229001) -184px -2px scroll no-repeat transparent;
+            background: url(http://images.qfdlqz.com/jcindexicon.png?20141229001) -184px -2px scroll no-repeat transparent;
             margin: 10px auto 5px auto;
             transition: transform .2s ease-in 0s;
             -webkit-transition: -webkit-transform .2s ease-in 0s;

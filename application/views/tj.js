@@ -1,4 +1,4 @@
-﻿// var smartstats_url = 'http://tj.rfgxy.com/';
+﻿// var smartstats_url = 'http://tj.qfdlqz.com/';
 // //var smartstats_locationurl = 'http://192.168.0.192:8091/';
 
 // var d = document;

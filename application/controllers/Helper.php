@@ -17,29 +17,34 @@ class Helper extends CI_Controller {
 		$token = $_SESSION['token'];
 
 		$config['protocol']='smtp';
-		$config['smtp_host'] = 'smtp.163.com';
+		$config['smtp_host'] = 'smtp.qq.com';
+		// $config['smtp_host'] = 'smtp.163.com';
+
 		$config['smtp_port']='25';
 		$config['smtp_timeout']='30';
-		$config['smtp_user']='tanxu1993';
-		$config['smtp_pass']='qaz1209084736';
+		$config['smtp_user']='user@qfdlqz.com';
+		// $config['smtp_user']='tanxu1993@163.com';
+		$config['smtp_pass']='dl131131';
+		// $config['smtp_pass']='qazxcdew';
 		$config['charset']='utf-8';
 		$config['newline']="\r\n";
 		$config['wordwrap'] = TRUE;
 		$config['mailtype'] = 'html';
 		$this->email->initialize($config);
 
-		$this->email->from('tanxu1993@163.com', 'Tanxu');
+		$this->email->from('user@qfdlqz.com', '鼎立启智教育网');
+		// $this->email->from('tanxu1993@163.com', 'Tanxu');
 		$this->email->to($to_emali);
-		$title = '验证身份找回密码 - 【rfgxy.com】';
+		$title = '验证身份找回密码 - 【qfdlqz.com】';
 		$this->email->subject($title);
-		$message = '<p>这封信是由 【rfgxy.com】 发送的。</p>
-<p>您收到这封邮件，是由于这个邮箱地址在 【rfgxy.com】 被登记为用户邮箱，
+		$message = '<p>这封信是由 【qfdlqz.com】 发送的。</p>
+<p>您收到这封邮件，是由于这个邮箱地址在 【qfdlqz.com】 被登记为用户邮箱，
 且该用户请求使用 Email 密码重置功能所致。</p>
 <p>
 ----------------------------------------------------------------------<br />
 <strong>重要！</strong><br />
 ----------------------------------------------------------------------</p>
-<p>如果您没有提交密码重置的请求或不是 【rfgxy.com】 的注册用户，请立即忽略
+<p>如果您没有提交密码重置的请求或不是 【qfdlqz.com】 的注册用户，请立即忽略
 并删除这封邮件。只有在您确认需要重置密码的情况下，才需要继续阅读下面的
 内容。</p>
 <p>
@@ -55,7 +60,7 @@ class Helper extends CI_Controller {
 <p>
 此致<br />
 </p>
-<p>【rfgxy.com】 管理团队.www.qfdlqz.com</p>';
+<p>【qfdlqz.com】 管理团队.www.qfdlqz.com</p>';
 		$this->email->message($message);
 		if ($this->email->send()) {
 			echo "1";
@@ -91,9 +96,9 @@ class Helper extends CI_Controller {
 			redirect('http://www.qfdlqz.com/404.html');
 		}else{
 			$sms=new ChuanglanSMS('N4368059','74fa7a1d');
-			$_SESSION['code'] = rand(1000,9999);
-			$_SESSION['msg'] = '【创蓝文化】'.$_SESSION['code'];
-			$result=$sms->send($value['phone'],$_SESSION['msg']);
+			$_SESSION['code'] = rand(100000,999999);
+			$msg = '【鼎立启智教育网】您的验证码是：'.$_SESSION['code'];
+			$result=$sms->send($value['phone'],$msg);
 			$result = json_decode($result);
 			echo $result->success;
 		}

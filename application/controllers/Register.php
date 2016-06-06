@@ -70,9 +70,9 @@ class Register extends CI_Controller {
 			$result = $GeetestLib->validate($data['geetest_challenge'],$data['geetest_validate'],$data['geetest_seccode']);
 			if ($result == 1) {
 				$sms=new ChuanglanSMS('N4368059','74fa7a1d');
-				$_SESSION['code'] = rand(1000,9999);
-				$_SESSION['msg'] = '【创蓝文化】'.$_SESSION['code'];
-				$result=$sms->send($data['phone'],$_SESSION['msg']);
+				$_SESSION['code'] = rand(100000,999999);
+				$msg = '【鼎立启智教育网】您的验证码是：'.$_SESSION['code'];
+				$result=$sms->send($_SESSION['phone'],$msg);
 				$result = json_decode($result);
 				echo $result->success;
 				exit();
