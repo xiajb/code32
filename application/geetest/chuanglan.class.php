@@ -32,7 +32,7 @@ class ChuanglanSMS{
 	 * @param integer $isreport	是否需要状态报告
 	 * @return void
 	 */
-	public function send($phone,$content,$isreport=0){
+	public function send($phone,$content,$isreport=1){
 		$requestData=array(
 			'un'=>$this->_un,
 			'pw'=>$this->_pw,
@@ -43,6 +43,7 @@ class ChuanglanSMS{
 			'rf'=>2,
 			'tf'=>3,
 		);
+
 		
 		$url=ChuanglanSMS::SENDURL.'?'.http_build_query($requestData);
 		return $this->_request($url);

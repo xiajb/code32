@@ -12,7 +12,7 @@
 #container{}
 #container .main{border-bottom: 1px solid #eee;border-top: 5px solid #0099CC;padding: 40px 0;width: 100%;margin-bottom:20px;}
 
-#container .main2{background:url(http://images.qfdlqz.com/bg_20130107002.png?a=20140107002) no-repeat scroll 222px 34px transparent}
+#container .main2{background:url(http://static.qfdlqz.com/status/img/register.png) no-repeat scroll 221px 34px transparent}
 
 .login_ad{float:left;width:405px; height:300px; background-color:#fff;border:solid 1px #ddd;/*background-image: url(http://images.qfdlqz.com/tit_20140904_2.png);*/position:relative;}
 .login_ad_contents{position:absolute;top:60px;left:30px;}
