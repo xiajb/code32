@@ -23,6 +23,7 @@ class Join extends CI_Controller {
 			'required_course'=>'',
 			'elective_course'=>'',
 			'skill_course'=>'',
+			'add_course'=>'',
 			'video_manage'=>'',
 			'all_video'=>'',
 			'upload_video'=>'',

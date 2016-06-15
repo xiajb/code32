@@ -95,10 +95,10 @@ CREATE TABLE IF NOT EXISTS `ci_comment` (
   `course_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '课id',
   `uid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '用户id',
   `nickname` varchar(64) NOT NULL DEFAULT '0' COMMENT '用户名',
-  `comment` varchar(1024) NOT NULL DEFAULT '0' COMMENT '内容',
+  `comment` text NOT NULL DEFAULT '' COMMENT '内容',
   `add_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`comment_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -117,7 +117,7 @@ CREATE TABLE IF NOT EXISTS `ci_course` (
   `zan` int(11) NOT NULL,
   `status` int(11) NOT NULL,
   `add_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '添加时间',
-  `img_path` varchar(1000) COLLATE utf8_bin NOT NULL,
+  `img_path` text COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`course_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=8 ;
 
@@ -168,7 +168,7 @@ CREATE TABLE IF NOT EXISTS `ci_feedback` (
   `vip` varchar(11) NOT NULL DEFAULT '',
   `title` varchar(64) NOT NULL DEFAULT '',
   `contact` varchar(50) NOT NULL DEFAULT '' COMMENT '联系方式',
-  `info` varchar(2048) NOT NULL DEFAULT '0' COMMENT '反馈内容',
+  `info` text NOT NULL DEFAULT '' COMMENT '反馈内容',
   `feedback_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`feedback_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
@@ -204,7 +204,7 @@ CREATE TABLE IF NOT EXISTS `ci_order` (
   `order_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'primary key,autoincrement',
   `uid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '用户id',
   `blance` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT '金额',
-  `order_name` varchar(1000) NOT NULL DEFAULT '0000-00-00',
+  `order_name` varchar(1000) NOT NULL DEFAULT '',
   `starttime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '下单时间',
   `endtime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '结束时间',
   `status` varchar(16) NOT NULL DEFAULT '0' COMMENT '状态',
@@ -225,7 +225,7 @@ CREATE TABLE IF NOT EXISTS `ci_section` (
   `status` int(11) NOT NULL,
   `order_no` int(11) NOT NULL,
   `free` int(11) NOT NULL,
-  `section_path` varchar(1000) COLLATE utf8_bin NOT NULL,
+  `section_path` text COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`section_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
@@ -247,7 +247,7 @@ CREATE TABLE IF NOT EXISTS `ci_teacher` (
   `tid` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'primary key,autoincrement',
   `uid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '用户id',
   `name` varchar(50) NOT NULL,
-  `pic` varchar(50) NOT NULL DEFAULT '0' COMMENT '头像路径',
+  `pic` text NOT NULL DEFAULT '' COMMENT '头像路径',
   `phone` varchar(50) NOT NULL DEFAULT '0' COMMENT '电话',
   `intro` varchar(255) NOT NULL DEFAULT '0' COMMENT '简介',
   `test_video` varchar(255) NOT NULL DEFAULT '',
@@ -280,7 +280,7 @@ CREATE TABLE IF NOT EXISTS `ci_user` (
   `email` varchar(50) NOT NULL,
   `qq` varchar(11) NOT NULL,
   `sex` tinyint(1) NOT NULL DEFAULT '0',
-  `pic` varchar(255) NOT NULL DEFAULT '0' COMMENT '头像路径',
+  `pic`text NOT NULL DEFAULT '' COMMENT '头像路径',
   `vip` int(11) NOT NULL DEFAULT '0',
   `level` varchar(11) NOT NULL DEFAULT '0',
   `vip_endtime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'vip到期时间',
@@ -301,11 +301,11 @@ CREATE TABLE IF NOT EXISTS `ci_activity` (
   `activity_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'primary key,autoincrement',
   `num` int(11) NOT NULL DEFAULT '0',
   `title` varchar(32) NOT NULL DEFAULT '',
-  `pic` varchar(255) NOT NULL DEFAULT '0' COMMENT '图片路径',
+  `pic` text NOT NULL DEFAULT '' COMMENT '图片路径',
   `starttime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '开始时间',
   `endtime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '结束时间',
   `overtime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '报名结束时间',
-  `place` varchar(1000) NOT NULL DEFAULT '' COMMENT '地点',
+  `place` text NOT NULL DEFAULT '' COMMENT '地点',
   `intro` text NOT NULL DEFAULT '',  
   `detail` text NOT NULL DEFAULT '',
   PRIMARY KEY (`activity_id`)

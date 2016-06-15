@@ -9,6 +9,7 @@ class Video extends CI_Controller {
 		$this->load->model('chapter_model');
 		$this->load->model('classify_model');
 		$this->load->model('section_model');
+		$this->load->model('show_model');
 		$this->load->library('session');
 
 	}
@@ -27,6 +28,7 @@ class Video extends CI_Controller {
 			'required_course'=>'',
 			'elective_course'=>'',
 			'skill_course'=>'',
+			'add_course'=>'',
 			'video_manage'=>'current',
 			'all_video'=>'current',
 			'upload_video'=>'',
@@ -66,6 +68,7 @@ class Video extends CI_Controller {
 			'required_course'=>'',
 			'elective_course'=>'',
 			'skill_course'=>'',
+			'add_course'=>'',
 			'video_manage'=>'current',
 			'all_video'=>'current',
 			'upload_video'=>'',
@@ -102,6 +105,7 @@ class Video extends CI_Controller {
 			'required_course'=>'',
 			'elective_course'=>'',
 			'skill_course'=>'',
+			'add_course'=>'',
 			'video_manage'=>'current',
 			'all_video'=>'',
 			'upload_video'=>'current',
@@ -125,22 +129,27 @@ class Video extends CI_Controller {
 	public function video_add (){
 		$value = $_POST;
 		$value = $this->security->xss_clean($value);
-		if ($value['chapter1'] != '') {
+		$section = array();
+		//原有章节，增加
+		$section['order_no']=$this->show_model->getsection_orderbyid($value['course_id'])[0]['order_no']+1;
+		if ($value['chapter1'] == '') {
+			$section['chapter_id'] = $value['chapter'];
+		}else{
+			//新建章节
 			$chapter = array();
+			$chapter['order_no']=$this->chapter_model->getchapter_orderbyid($value['course_id'])[0]['order_no']+1;
 			$chapter['course_id'] = $value['course_id'];
 			$chapter['chapter_name'] = $value['chapter1'];
 			// file_put_contents("/home/tanxu/www/data.txt", print_r($chapter,true));
 			$chapter_id = $this->chapter_model->add_chapter($chapter);
 			$section['chapter_id'] = $chapter_id;
-		}else{
-
-			$section['chapter_id'] = $value['chapter'];
+			// $section['order_no'] = $chapter['order_no'];
 		}
-		$section = array();
+		
 		$section['section_name'] = $value['section'];
 		$section['section_path'] = $value['path'];
 		$section['create_time'] = date("Y-m-d H:i:s",time());
-		$section['creater'] = 'admin';
+		$section['status'] = 2;
 		$section_id = $this->section_model->add_section($section);
 		if ($section_id >=0) {
 			echo '1';
