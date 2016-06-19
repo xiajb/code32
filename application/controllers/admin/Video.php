@@ -130,6 +130,7 @@ class Video extends CI_Controller {
 		$value = $_POST;
 		$value = $this->security->xss_clean($value);
 		$section = array();
+
 		//原有章节，增加
 		$section['order_no']=$this->show_model->getsection_orderbyid($value['course_id'])[0]['order_no']+1;
 		if ($value['chapter1'] == '') {
@@ -147,7 +148,7 @@ class Video extends CI_Controller {
 		}
 		
 		$section['section_name'] = $value['section'];
-		$section['section_path'] = $value['path'];
+		$section['section_path'] = str_replace("code32.b0.upaiyun.com","static.qfdlqz.com",$value['path']);
 		$section['create_time'] = date("Y-m-d H:i:s",time());
 		$section['status'] = 2;
 		$section_id = $this->section_model->add_section($section);

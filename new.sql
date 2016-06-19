@@ -95,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `ci_comment` (
   `course_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '课id',
   `uid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '用户id',
   `nickname` varchar(64) NOT NULL DEFAULT '0' COMMENT '用户名',
-  `comment` text NOT NULL DEFAULT '' COMMENT '内容',
+  `comment` varchar(1000) NOT NULL DEFAULT '' COMMENT '内容',
   `add_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`comment_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
@@ -109,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `ci_comment` (
 CREATE TABLE IF NOT EXISTS `ci_course` (
   `course_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'primary key,autoincrement',
   `course_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `course_synopsis` text COLLATE utf8_bin NOT NULL,
+  `course_synopsis` varchar(1000) COLLATE utf8_bin NOT NULL,
   `classify_id` int(11) NOT NULL,
   `course_lectruer_id` int(11) NOT NULL,
   `course_level` varchar(16) COLLATE utf8_bin NOT NULL,
@@ -117,7 +117,7 @@ CREATE TABLE IF NOT EXISTS `ci_course` (
   `zan` int(11) NOT NULL,
   `status` int(11) NOT NULL,
   `add_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '添加时间',
-  `img_path` text COLLATE utf8_bin NOT NULL,
+  `img_path` varchar(1000) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`course_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=8 ;
 
@@ -168,7 +168,7 @@ CREATE TABLE IF NOT EXISTS `ci_feedback` (
   `vip` varchar(11) NOT NULL DEFAULT '',
   `title` varchar(64) NOT NULL DEFAULT '',
   `contact` varchar(50) NOT NULL DEFAULT '' COMMENT '联系方式',
-  `info` text NOT NULL DEFAULT '' COMMENT '反馈内容',
+  `info` varchar(1000) NOT NULL DEFAULT '' COMMENT '反馈内容',
   `feedback_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`feedback_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
@@ -225,9 +225,9 @@ CREATE TABLE IF NOT EXISTS `ci_section` (
   `status` int(11) NOT NULL,
   `order_no` int(11) NOT NULL,
   `free` int(11) NOT NULL,
-  `section_path` text COLLATE utf8_bin NOT NULL,
+  `section_path` varchar(1000) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`section_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=3 ;
 
 --
 -- 转存表中的数据 `ci_section`
@@ -247,7 +247,7 @@ CREATE TABLE IF NOT EXISTS `ci_teacher` (
   `tid` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'primary key,autoincrement',
   `uid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '用户id',
   `name` varchar(50) NOT NULL,
-  `pic` text NOT NULL DEFAULT '' COMMENT '头像路径',
+  `pic` varchar(1000) NOT NULL DEFAULT '' COMMENT '头像路径',
   `phone` varchar(50) NOT NULL DEFAULT '0' COMMENT '电话',
   `intro` varchar(255) NOT NULL DEFAULT '0' COMMENT '简介',
   `test_video` varchar(255) NOT NULL DEFAULT '',
@@ -280,33 +280,33 @@ CREATE TABLE IF NOT EXISTS `ci_user` (
   `email` varchar(50) NOT NULL,
   `qq` varchar(11) NOT NULL,
   `sex` tinyint(1) NOT NULL DEFAULT '0',
-  `pic`text NOT NULL DEFAULT '' COMMENT '头像路径',
+  `pic`varchar(1000) NOT NULL DEFAULT 'http://static.qfdlqz.com/status/img/touxiang.gif' COMMENT '头像路径',
   `vip` int(11) NOT NULL DEFAULT '0',
   `level` varchar(11) NOT NULL DEFAULT '0',
   `vip_endtime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'vip到期时间',
   `other` varchar(255) NOT NULL DEFAULT '',
   `reg_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '注册时间',
   PRIMARY KEY (`uid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- 转存表中的数据 `ci_user`
 --
 
 INSERT INTO `ci_user` (`uid`,`name` ,`username`, `phone`, `password`, `email`, `qq`,`sex`, `pic`, `vip`, `level`, `vip_endtime`, `other`, `reg_time`) VALUES
-(1,'李白', 'admin', '15607101196', '36f17c3939ac3e7b2fc9396fa8e953ea', '877077145@qq.com','877077145', 1, '0', 0, '2', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
-(2,'杜甫' ,'tanxu', '15607101196', '36f17c3939ac3e7b2fc9396fa8e953ea', '877077145@qq.com', '877077145',1, '0', 0, '1', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00');
+(1,'李白', 'admin', '15607101196', '36f17c3939ac3e7b2fc9396fa8e953ea', '877077145@qq.com','877077145', 1, 'http://static.qfdlqz.com/status/img/touxiang.gif', 0, '2', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
+(2,'杜甫' ,'tanxu', '15607101196', '36f17c3939ac3e7b2fc9396fa8e953ea', '877077145@qq.com', '877077145',1, 'http://static.qfdlqz.com/status/img/touxiang.gif', 0, '1', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00');
 
 CREATE TABLE IF NOT EXISTS `ci_activity` (
   `activity_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'primary key,autoincrement',
   `num` int(11) NOT NULL DEFAULT '0',
   `title` varchar(32) NOT NULL DEFAULT '',
-  `pic` text NOT NULL DEFAULT '' COMMENT '图片路径',
+  `pic` varchar(1000) NOT NULL DEFAULT '' COMMENT '图片路径',
   `starttime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '开始时间',
   `endtime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '结束时间',
   `overtime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '报名结束时间',
-  `place` text NOT NULL DEFAULT '' COMMENT '地点',
-  `intro` text NOT NULL DEFAULT '',  
+  `place` varchar(255) NOT NULL DEFAULT '' COMMENT '地点',
+  `intro` varchar(1000) NOT NULL DEFAULT '',  
   `detail` text NOT NULL DEFAULT '',
   PRIMARY KEY (`activity_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;

@@ -24,7 +24,7 @@ $('.check_button').click(function() {
 $('#check_yes').click(function() {
     var data = {
         'kid':kid,
-        'status':2,
+        'status':1,
     };
     $.ajax({
         url: "../course/change_status",

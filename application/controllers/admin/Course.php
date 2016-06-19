@@ -193,8 +193,10 @@ class Course extends CI_Controller {
 
 
 	public function add_course(){
-		$value = json_decode($this->input->post('data'),true);
+		$value = $_POST;
+
 		$value = $this->security->xss_clean($value);
+		$value['img_path'] = str_replace("code32.b0.upaiyun.com","static.qfdlqz.com",$value['img_path']);
 		$value['add_time'] = date("Y-m-d H:i:s",time());
 		$value['status'] = '2';
 		if ($this->course_model->add_course($value)) {

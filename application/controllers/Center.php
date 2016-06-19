@@ -45,6 +45,7 @@ class Center extends CI_Controller {
 				);
 		}
 		$data['userdata'] = $this->user_model->get_user_by_uid($_SESSION['uid']);
+
 		$this->load->view("center_header.html",$data);
 		$this->load->view("center_mydata.html");
 		$this->load->view("center_footer.html");
@@ -53,6 +54,8 @@ class Center extends CI_Controller {
 	public function user_detail(){
 		$value = $_POST;
 		$value = $this->security->xss_clean($value);
+		$value['pic'] = str_replace("code32.b0.upaiyun.com","static.qfdlqz.com",$value['pic']);
+
 		$this->user_model->user_detail_updata($_SESSION['uid'],$value);
 		if ($value['pic'] != '') {
 			$row = $this->user_model->get_user_by_uid($_SESSION['uid']);
@@ -233,6 +236,8 @@ class Center extends CI_Controller {
 				$section_arr['chapter_id']=$this->Chapter_model->add_chapter($chapter_arr);
 			};
 			unset($section_arr['courses'],$section_arr['chapter1'],$section_arr['chapter2'],$section_arr['ci_csrf_token']);
+			$section_arr['section_path'] = str_replace("code32.b0.upaiyun.com","static.qfdlqz.com",$section_arr['section_path']);
+
 			$a=$this->section_model->add_section($section_arr);
 			if($a>0){
 				echo '1';
@@ -476,6 +481,8 @@ class Center extends CI_Controller {
 		$value = $_POST;
 
 		$value = $this->security->xss_clean($value);
+		$value['img_path'] = str_replace("code32.b0.upaiyun.com","static.qfdlqz.com",$value['img_path']);
+
 		$teacher = $this->teacher_model->get_teacher($_SESSION['uid']);
 		$value['add_time'] = date("Y-m-d H:i:s",time());
 		$value['course_lectruer_id'] = $teacher->tid;

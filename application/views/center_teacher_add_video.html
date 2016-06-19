@@ -191,6 +191,7 @@ if ($('#video_title').val() == '') {
         success: function(result) {
             if (result == 1) {
                 alert('添加课程视屏成功！');
+                location.reload();
             }else{
                 alert('添加课程视屏失败！');
             }
