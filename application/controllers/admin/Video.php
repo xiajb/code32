@@ -174,7 +174,7 @@ class Video extends CI_Controller {
 		$id = $_POST['value'];
 		$section = $this->section_model->get_section_by_id($id);
 		if ($section['section_path']) {
-			$path =  strstr($section['section_path'], '/video');
+			$path =  strstr($section['section_path'], '/img');
 			$UpYun = new UpYun('code32','rxs','rxs84217621');
 			$result = $UpYun->delete($path);
 		}
